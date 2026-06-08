@@ -1510,7 +1510,8 @@ async function githubCarregar(){
   try{
     const url='https://raw.githubusercontent.com/'+GH_REPO+'/main/'+GH_FILE+'?t='+Date.now();
     const r=await fetch(url);
-    if(!r.ok){setSyncStatus('err','Sem dados remotos');return false;}
+    if(r.status===404){setSyncStatus('ok','Sem dados remotos ainda');return false;}
+    if(!r.ok){setSyncStatus('err','Erro ao carregar');return false;}
     const raw=await r.json();
     if(raw.state) state=raw.state;
     if(raw.currentComp) currentComp=raw.currentComp;
@@ -1554,7 +1555,7 @@ function salvarToken(){
   fecharModal();
   githubCarregar().then(ok=>{
     if(ok){popularCompetencias();popularUI();renderCriterio();}
-    else alert('Token salvo, mas erro ao carregar. Verifique a permissao repo.');
+    else setSyncStatus('ok','Token configurado – clique Salvar');
   });
 }
 function removerToken(){

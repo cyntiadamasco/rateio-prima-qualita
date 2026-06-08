@@ -495,7 +495,183 @@
         "saq_pri": 0
       },
       "refColab": "MARÇO/2026"
+    },
+    "2026-07": {
+      "colaboradores": [
+        {
+          "id": "madalena",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "cachoeiras",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "saq_hosp",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "upa_pac",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "upa_nc",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "arraial",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "quissama",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "cordeiro",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "saq_esp",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "saq_pri",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        }
+      ],
+      "despesas": [],
+      "orcamentos": {
+        "madalena": 0,
+        "cachoeiras": 0,
+        "saq_hosp": 0,
+        "upa_pac": 0,
+        "upa_nc": 0,
+        "arraial": 0,
+        "quissama": 0,
+        "cordeiro": 0,
+        "saq_esp": 0,
+        "saq_pri": 0
+      },
+      "refColab": ""
+    },
+    "2026-06": {
+      "colaboradores": [
+        {
+          "id": "madalena",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "cachoeiras",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "saq_hosp",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "upa_pac",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "upa_nc",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "arraial",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "quissama",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "cordeiro",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "saq_esp",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "saq_pri",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        }
+      ],
+      "despesas": [],
+      "orcamentos": {
+        "madalena": 0,
+        "cachoeiras": 0,
+        "saq_hosp": 0,
+        "upa_pac": 0,
+        "upa_nc": 0,
+        "arraial": 0,
+        "quissama": 0,
+        "cordeiro": 0,
+        "saq_esp": 0,
+        "saq_pri": 0
+      },
+      "refColab": ""
     }
   },
-  "currentComp": "2026-05"
+  "currentComp": "2026-06"
 }

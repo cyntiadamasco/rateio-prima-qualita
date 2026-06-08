@@ -1,0 +1,5 @@
+# Ignorar tudo
+*
+# Manter apenas o arquivo da ferramenta
+!rateio-prima-qualita.html
+!.gitignore

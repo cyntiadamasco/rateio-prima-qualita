@@ -1505,19 +1505,17 @@ function setSyncStatus(status,label){
   lbl.textContent=label||'';
 }
 async function githubCarregar(){
-  const token=ghToken();if(!token)return false;
+  // Repositório público: leitura sem token via URL raw
   setSyncStatus('loading','Carregando...');
   try{
-    const r=await fetch('https://api.github.com/repos/'+GH_REPO+'/contents/'+GH_FILE,
-      {headers:{'Authorization':'token '+token,'Accept':'application/vnd.github.v3+json'}});
-    if(!r.ok){setSyncStatus('err','Erro ao carregar');return false;}
-    const j=await r.json();
-    localStorage.setItem('pq_gh_sha',j.sha);
-    const raw=JSON.parse(decodeURIComponent(escape(atob(j.content.replace(/\n/g,'')))));
+    const url='https://raw.githubusercontent.com/'+GH_REPO+'/main/'+GH_FILE+'?t='+Date.now();
+    const r=await fetch(url);
+    if(!r.ok){setSyncStatus('err','Sem dados remotos');return false;}
+    const raw=await r.json();
     if(raw.state) state=raw.state;
     if(raw.currentComp) currentComp=raw.currentComp;
     const t=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
-    setSyncStatus('ok','Sincronizado '+t);
+    setSyncStatus('ok','Atualizado '+t);
     return true;
   }catch(e){setSyncStatus('err','Sem conexao');return false;}
 }
@@ -1571,9 +1569,8 @@ function removerToken(){
 ===================================================================== */
 function init(){
   carregar();
-  if(ghToken()){
-    githubCarregar().then(ok=>{if(ok){popularCompetencias();popularUI();renderCriterio();}});
-  }
+  // Sempre carrega do GitHub (público, sem token)
+  githubCarregar().then(ok=>{if(ok){popularCompetencias();popularUI();renderCriterio();}});
 
   // Load sample data if state is empty
   if(!Object.keys(state).length){

@@ -423,6 +423,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
         <div class="dd-item" onclick="imprimirDemonstrativo()">🖨 Imprimir Demonstrativo</div>
         <div class="dd-item" onclick="imprimirTodasIDs()">📄 Imprimir Todas as IDs</div>
         <div class="dd-sep"></div>
+        <div class="dd-item" onclick="abrirGerenciarCGs()">🏥 Gerenciar Contratos de Gestão</div>
         <div class="dd-item" onclick="abrirConfigSync()">&#9729; Config Sincronização GitHub</div>
         <div class="dd-sep"></div>
         <div class="dd-item" style="color:var(--err)" onclick="limparMesAtual()">🗑 Limpar Mês Atual</div>
@@ -473,7 +474,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 /* =====================================================================
    CONSTANTES
 ===================================================================== */
-const CONTRATOS = [
+const CONTRATOS_BASE = [
   {id:'madalena',  nome:'Contrato de Gestão 033/03/2025 - Santa Maria Madalena',      sigla:'Madalena',      cor:'#3B82F6'},
   {id:'cachoeiras',nome:'Contrato de Gestão 006/2021 - Cachoeiras de Macacu',          sigla:'Cachoeiras',    cor:'#8B5CF6'},
   {id:'saq_hosp',  nome:'Contrato de Gestão 33/2021 - Saquarema Hospitalar',           sigla:'Saq. Hosp.',    cor:'#06B6D4'},
@@ -485,6 +486,7 @@ const CONTRATOS = [
   {id:'saq_esp',   nome:'Contrato de Gestão 005/2025 - Saquarema Atenção Especializada',sigla:'Saq. Esp.',    cor:'#EC4899'},
   {id:'saq_pri',   nome:'Contrato de Gestão 006/2025 - Saquarema Atenção Primária',   sigla:'Saq. Pri.',     cor:'#84CC16'},
 ];
+let CONTRATOS = [...CONTRATOS_BASE];
 
 const CATEGORIAS = [
   'Assessoria Jurídica',
@@ -561,6 +563,11 @@ const DESPESAS_EXEMPLO = [
   {uid:uid(),id:'36',  cat:'Plataforma Processo Seletivo',objeto:'Licença de Uso Mensal do Software Vagas For Business',fav:'Vagas Tecnologia de Software LTDA',cnpj:'03.689.427/0001-37',ctipo:'NF',cnum:'313505',valor:2532.11},
 ];
 
+
+/* Reconstrói CONTRATOS com os CGs base + customizados */
+function rebuildContratos(){
+  CONTRATOS = [...CONTRATOS_BASE, ...(state.customContratos||[])];
+}
 /* =====================================================================
    STATE
 ===================================================================== */
@@ -649,6 +656,7 @@ function carregar(){
     if(s) state=JSON.parse(s);
     const c=localStorage.getItem('pq_comp');
     if(c) currentComp=c;
+    rebuildContratos();
   }catch(e){ state={}; }
 }
 
@@ -862,6 +870,7 @@ function renderCriterio(){
 
 function setColab(idx, field, val){
   const data=getMesData(currentComp);
+  if(!data.colaboradores[idx]) data.colaboradores[idx]={id:CONTRATOS[idx].id,clt:0,efetivo:0,pj:0,obs:''};
   data.colaboradores[idx][field] = (field==='obs')?val:(parseInt(val)||0);
   // Update totals in-place without full re-render
   const pcts=calcPcts(currentComp);
@@ -1672,19 +1681,6 @@ function imprimirIDsheet(duid){
     .tr-zero td{color:#9CA3AF}
     .tbl-wrap{border:1px solid #ddd;border-radius:4px;overflow:hidden}
   </style></head><body>${content}
-<div id="modal-sync" class="modal-overlay" style="display:none" onclick="if(event.target===this)fecharModal()">
-  <div class="modal-box">
-    <div class="modal-title">&#9729; Sincronização via GitHub</div>
-    <div class="modal-sub">Cole aqui seu <strong>Personal Access Token</strong> do GitHub com permissão <code>repo</code>.<br>Os dados ficam salvos como <code>data.json</code> no repositório e carregados automaticamente em qualquer máquina com o token configurado.<br><br><a href="https://github.com/settings/tokens/new?scopes=repo&description=Rateio+Prima+Qualita" target="_blank" style="color:var(--azul);font-weight:600">&#10140; Gerar token no GitHub (abre nova aba)</a></div>
-    <input class="modal-input" id="sync-token-input" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxx">
-    <div style="font-size:11px;color:var(--gray);margin-bottom:16px">O token fica salvo apenas neste navegador. Nunca é enviado a outro servidor.</div>
-    <div class="modal-acts">
-      <button class="btn btn-outline btn-sm" onclick="removerToken()">Remover Token</button>
-      <button class="btn btn-outline btn-sm" onclick="fecharModal()">Cancelar</button>
-      <button class="btn btn-teal btn-sm" onclick="salvarToken()">Salvar e Sincronizar</button>
-    </div>
-  </div>
-</div>
 </body></html>`);
   w.document.close();
   setTimeout(()=>{w.print();},400);
@@ -1713,6 +1709,7 @@ async function githubCarregar(){
     const raw=await r.json();
     if(raw.state) state=raw.state;
     if(raw.currentComp) currentComp=raw.currentComp;
+    rebuildContratos();
     const t=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
     setSyncStatus('ok','Atualizado '+t);
     return true;
@@ -1763,6 +1760,87 @@ function removerToken(){
   fecharModal();
 }
 
+
+/* =====================================================================
+   GERENCIAR CONTRATOS DE GESTÃO
+===================================================================== */
+function abrirGerenciarCGs(){
+  renderModalCGs();
+  document.getElementById('modal-cg').style.display='flex';
+}
+
+function renderModalCGs(){
+  const body=document.getElementById('modal-cg-body');
+  const custom=state.customContratos||[];
+
+  let html='';
+  // Base CGs
+  CONTRATOS_BASE.forEach(ct=>{
+    html+=`<div style="display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid var(--border-soft)">
+      <span style="width:12px;height:12px;border-radius:50%;background:${ct.cor};flex-shrink:0;display:inline-block"></span>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${ct.nome}</div>
+        <div style="font-size:10px;color:var(--gray)">Sigla: ${ct.sigla} &nbsp;|&nbsp; <span class="badge badge-gray">padrão</span></div>
+      </div>
+    </div>`;
+  });
+
+  // Custom CGs
+  if(custom.length){
+    custom.forEach((ct,i)=>{
+      html+=`<div style="display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid var(--border-soft);background:#FAFBFC">
+        <span style="width:12px;height:12px;border-radius:50%;background:${ct.cor};flex-shrink:0;display:inline-block"></span>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${ct.nome}</div>
+          <div style="font-size:10px;color:var(--gray)">Sigla: ${ct.sigla} &nbsp;|&nbsp; <span class="badge badge-azul">customizado</span></div>
+        </div>
+        <button class="btn btn-danger btn-xs" onclick="removerCG('${ct.id}')">✕ Remover</button>
+      </div>`;
+    });
+  } else {
+    html+='<div style="padding:12px 14px;font-size:12px;color:var(--gray);font-style:italic">Nenhum CG customizado ainda.</div>';
+  }
+
+  body.innerHTML=html;
+}
+
+function adicionarCG(){
+  const nome=(document.getElementById('cg-nome').value||'').trim();
+  const sigla=(document.getElementById('cg-sigla').value||'').trim();
+  const cor=document.getElementById('cg-cor').value;
+
+  if(!nome||!sigla){ alert('Preencha o nome e a sigla do CG.'); return; }
+
+  // Generate unique id
+  const id='cg_'+Date.now().toString(36);
+
+  const novo={id,nome,sigla,cor};
+  if(!state.customContratos) state.customContratos=[];
+  state.customContratos.push(novo);
+
+  rebuildContratos();
+  salvar();
+
+  // Clear form
+  document.getElementById('cg-nome').value='';
+  document.getElementById('cg-sigla').value='';
+
+  renderModalCGs();
+  popularUI();
+  const tab=document.querySelector('.tab-btn.active');
+  if(tab){ renderTab(tab.getAttribute('data-tab')||'criterio'); }
+}
+
+function removerCG(id){
+  if(!confirm('Remover este CG? Os dados de alocação deste CG nos meses existentes serão perdidos ao salvar.')) return;
+  state.customContratos=(state.customContratos||[]).filter(c=>c.id!==id);
+  rebuildContratos();
+  salvar();
+  renderModalCGs();
+  popularUI();
+  const tab=document.querySelector('.tab-btn.active');
+  if(tab){ renderTab(tab.getAttribute('data-tab')||'criterio'); }
+}
 /* =====================================================================
    INICIALIZAÇÃO
 ===================================================================== */
@@ -1805,6 +1883,46 @@ init();
       <button class="btn btn-outline btn-sm" onclick="removerToken()">Remover Token</button>
       <button class="btn btn-outline btn-sm" onclick="fecharModal()">Cancelar</button>
       <button class="btn btn-teal btn-sm" onclick="salvarToken()">Salvar e Sincronizar</button>
+    </div>
+  </div>
+</div>
+
+<div id="modal-cg" class="modal-overlay" style="display:none" onclick="if(event.target===this)document.getElementById('modal-cg').style.display='none'">
+  <div class="modal-box" style="width:560px;max-width:95vw">
+    <div class="modal-title">🏥 Contratos de Gestão</div>
+    <div class="modal-sub">Os CGs base fazem parte da configuração padrão e não podem ser removidos. Você pode adicionar novos CGs customizados.</div>
+    <div id="modal-cg-body" style="max-height:360px;overflow-y:auto;margin-bottom:16px;border:1px solid var(--border);border-radius:var(--r-md)"></div>
+    <div style="border-top:1px solid var(--border);padding-top:14px">
+      <div style="font-size:11px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px">Novo Contrato de Gestão</div>
+      <div style="display:grid;gap:8px">
+        <input id="cg-nome" type="text" placeholder="Nome completo (ex: Contrato de Gestão 001/2025 – Município XYZ)">
+        <div style="display:flex;gap:8px">
+          <div style="flex:1"><input id="cg-sigla" type="text" placeholder="Sigla (ex: Mun. XYZ)" maxlength="20"></div>
+          <div style="width:160px">
+            <select id="cg-cor">
+              <option value="#3B82F6">🔵 Azul</option>
+              <option value="#8B5CF6">🟣 Roxo</option>
+              <option value="#06B6D4">🩵 Ciano</option>
+              <option value="#10B981">🟢 Verde</option>
+              <option value="#F59E0B">🟡 Âmbar</option>
+              <option value="#EF4444">🔴 Vermelho</option>
+              <option value="#F97316">🟠 Laranja</option>
+              <option value="#EC4899">🩷 Rosa</option>
+              <option value="#14B8A6">🩵 Teal</option>
+              <option value="#84CC16">🟢 Lima</option>
+              <option value="#6366F1">💜 Índigo</option>
+              <option value="#E11D48">❤ Crimson</option>
+              <option value="#0EA5E9">🔵 Sky</option>
+              <option value="#7C3AED">🟣 Violeta</option>
+              <option value="#64748B">⚫ Cinza</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-acts" style="margin-top:16px">
+      <button class="btn btn-outline btn-sm" onclick="document.getElementById('modal-cg').style.display='none'">Fechar</button>
+      <button class="btn btn-teal btn-sm" onclick="adicionarCG()">➕ Adicionar CG</button>
     </div>
   </div>
 </div>

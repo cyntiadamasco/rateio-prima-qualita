@@ -454,7 +454,9 @@
           "cnpj": "08.769.451/0001-08",
           "ctipo": "Boleto",
           "cnum": "09/000000027-5",
-          "valor": 16178.43
+          "valor": 16178.43,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/ai6uk4b.pdf",
+          "pdfNome": "ID 29 RIZA SECURITIZADORA- NF 275- 16.178,43.pdf"
         },
         {
           "uid": "14v6c7m",

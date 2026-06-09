@@ -806,6 +806,14 @@
           "cnpj": " 50.558.513/0001-90 ",
           "nrProcesso": "111/2025",
           "nrContrato": "001/2025"
+        },
+        {
+          "uid": "cmq658nrnriccw",
+          "objeto": "",
+          "favorecido": "",
+          "cnpj": "",
+          "nrProcesso": "",
+          "nrContrato": ""
         }
       ],
       "contratos_obs": ""

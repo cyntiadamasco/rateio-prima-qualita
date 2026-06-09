@@ -183,7 +183,9 @@
           "cnpj": "40.289.134/0001-99",
           "ctipo": "Guia",
           "cnum": "",
-          "valor": 66757.3
+          "valor": 66757.3,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/uzdp3ua.pdf",
+          "pdfNome": "ID 09 IRRF FOLHA- 66.757,30.pdf"
         },
         {
           "uid": "awyy9vv",

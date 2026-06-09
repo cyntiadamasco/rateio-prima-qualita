@@ -2654,8 +2654,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 0,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/nvhgaft.pdf",
-          "pdfNome": "ID 11 RIOPAR- NF 3507-  51.391,80.pdf"
+          "pdfUrl": null,
+          "pdfNome": null
         },
         {
           "uid": "lsw360u",

@@ -2596,8 +2596,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 0,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/434pt9k.pdf",
-          "pdfNome": "ID 04 GUSTAVO FROES- NF 05 - 7.000,00.pdf"
+          "pdfUrl": null,
+          "pdfNome": null
         },
         {
           "uid": "6rpiawy",

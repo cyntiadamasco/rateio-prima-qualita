@@ -248,7 +248,9 @@
           "cnpj": "33.661.745/0001-50",
           "ctipo": "NF",
           "cnum": "22731",
-          "valor": 501.56
+          "valor": 501.56,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/gse1ut1.pdf",
+          "pdfNome": "ID 13 CIEE - NF 22731 - 501,56.pdf"
         },
         {
           "uid": "i7aoz3b",

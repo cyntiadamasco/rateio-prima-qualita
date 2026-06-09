@@ -365,7 +365,9 @@
           "cnpj": "24.783.564/0001-06",
           "ctipo": "NF",
           "cnum": "2304",
-          "valor": 17080
+          "valor": 17080,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/sdnq2ou.pdf",
+          "pdfNome": "ID 22 PRODUTIVA - NF 2304- 17.080,00.pdf"
         },
         {
           "uid": "mtus8dy",

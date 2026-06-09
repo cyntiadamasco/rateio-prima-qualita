@@ -638,28 +638,28 @@
           "saq_pri": 0
         },
         "ind7": {
-          "madalena": 0,
-          "cachoeiras": 0,
-          "saq_hosp": 0,
-          "upa_pac": 0,
-          "upa_nc": 0,
-          "arraial": 0,
-          "quissama": 0,
-          "cordeiro": 0,
-          "saq_esp": 0,
-          "saq_pri": 0
+          "madalena": 222,
+          "cachoeiras": 540,
+          "saq_hosp": 1616,
+          "upa_pac": 165,
+          "upa_nc": 222,
+          "arraial": 1065,
+          "quissama": 122,
+          "cordeiro": 185,
+          "saq_esp": 400,
+          "saq_pri": 650
         },
         "ind8": {
-          "madalena": 0,
-          "cachoeiras": 0,
-          "saq_hosp": 0,
-          "upa_pac": 0,
-          "upa_nc": 0,
-          "arraial": 0,
-          "quissama": 0,
-          "cordeiro": 0,
-          "saq_esp": 0,
-          "saq_pri": 0
+          "madalena": 4266,
+          "cachoeiras": 12288,
+          "saq_hosp": 33938,
+          "upa_pac": 11810,
+          "upa_nc": 12342,
+          "arraial": 45178,
+          "quissama": 4511,
+          "cordeiro": 5020,
+          "saq_esp": 48180,
+          "saq_pri": 46427
         }
       }
     },

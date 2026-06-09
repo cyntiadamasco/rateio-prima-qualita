@@ -901,7 +901,6 @@ function setColab(idx, field, val){
    TAB: DESPESAS
 ===================================================================== */
 function renderDespesas(){
-  if(!_anexosCacheLoaded){carregarListaAnexos().then(()=>renderDespesas());return;}
   const data=getMesData(currentComp);
   const pctMap=getPctMap(currentComp);
   const total=data.despesas.reduce((a,d)=>a+(d.valor||0),0);
@@ -962,6 +961,16 @@ function buildDespesaRow(d, i, pctMap, catOpts, tipoOpts){
   if(!tipoOpts){tipoOpts=COMP_TIPOS.map(t=>`<option${t===d.ctipo?' selected':''}>` +t+'</option>').join('');}
   const totalRateado=CONTRATOS.reduce((a,ct)=>a+(d.valor||0)*(pctMap[ct.id]||0),0);
   const compStr=d.ctipo?(d.cnum?d.ctipo+' '+d.cnum:d.ctipo):'';
+  const hasPdf   = !!(d.pdfUrl);
+  const hasToken = !!ghToken();
+  let btnAnexo;
+  if(hasPdf){
+    btnAnexo = `<button id="anexo-btn-${d.uid}" class="btn-pdf has-pdf" onclick="verAnexo('${d.uid}')" title="${esc(d.pdfNome||'Comprovante')}">&#x1F4C4;</button>`;
+  } else if(hasToken){
+    btnAnexo = `<button id="anexo-btn-${d.uid}" class="btn-pdf" onclick="anexarPDF('${d.uid}')" title="Anexar comprovante (PDF)">&#x1F4CE;</button>`;
+  } else {
+    btnAnexo = '<button class="btn-pdf" disabled title="Configure o token GitHub para anexar comprovantes" style="opacity:.4;cursor:default">&#x1F512;</button>';
+  }
   return `<tr id="desp-row-${d.uid}" class="${(d.valor||0)===0?'tr-zero':''}">
     <td class="td-edit td-c"><input style="text-align:center;width:55px" value="${d.id}" onchange="updDesp('${d.uid}','id',this.value)"></td>
     <td class="td-edit"><select onchange="updDesp('${d.uid}','cat',this.value)">${CATEGORIAS.map(c=>`<option${c===d.cat?' selected':''}>${c}</option>`).join('')}</select></td>
@@ -972,7 +981,7 @@ function buildDespesaRow(d, i, pctMap, catOpts, tipoOpts){
     <td class="td-edit td-r"><input type="number" min="0" step="0.01" style="text-align:right;width:110px" value="${d.valor||0}" onchange="updDesp('${d.uid}','valor',this.value)" oninput="updDespVal('${d.uid}',this.value)"></td>
     <td class="td-r text-muted">${R$(totalRateado)}</td>
     <td class="td-c no-print" style="white-space:nowrap">
-      <button id="anexo-btn-${d.uid}" class="btn-pdf${_anexosCache.has(d.uid)?' has-pdf':''}" onclick="verOuAnexarPDF('${d.uid}')" title="${_anexosCache.has(d.uid)?esc(_anexosCache.get(d.uid).nome):'Anexar comprovante (PDF)'}">${_anexosCache.has(d.uid)?'📄':'📎'}</button>
+      ${btnAnexo}
       <button class="btn btn-danger btn-xs" onclick="remDesp('${d.uid}')" title="Remover">✕</button>
     </td>
   </tr>`;
@@ -990,8 +999,11 @@ function addDespesa(){
 
 function remDesp(duid){
   const data=getMesData(currentComp);
+  const dd=data.despesas.find(d=>d.uid===duid);
+  if(dd && dd.pdfUrl) githubDeletePDF(duid).catch(()=>{});
+  const cached=_pdfBlobCache.get(duid);
+  if(cached){URL.revokeObjectURL(cached.url);_pdfBlobCache.delete(duid);}
   data.despesas=data.despesas.filter(d=>d.uid!==duid);
-  _excluirAnexoSilencioso(duid);
   renderDespesas();
 }
 
@@ -1851,94 +1863,135 @@ function removerCG(id){
   if(tab){ renderTab(tab.getAttribute('data-tab')||'criterio'); }
 }
 /* =====================================================================
-   ANEXOS – comprovantes PDF (IndexedDB)
+   ANEXOS – comprovantes PDF via GitHub
 ===================================================================== */
-let _anexosDB=null,_anexosCacheLoaded=false;
-const _anexosCache=new Map();
-function _abrirAnexosDB(){
-  return new Promise((res,rej)=>{
-    const r=indexedDB.open('pq_rateio_anexos',1);
-    r.onupgradeneeded=e=>e.target.result.createObjectStore('anexos',{keyPath:'uid'});
-    r.onsuccess=e=>{_anexosDB=e.target.result;res(_anexosDB);};
-    r.onerror=()=>rej(r.error);
+// Cache de sessão: evita CDN delay logo após upload (limpo ao recarregar página)
+const _pdfBlobCache = new Map(); // uid → { url: blobUrl, nome: string }
+
+function githubUploadPDF(uid, file){
+  const token = ghToken();
+  if(!token) return Promise.resolve(null);
+  return new Promise((res, rej) => {
+    const reader = new FileReader();
+    reader.onerror = () => rej(reader.error);
+    reader.onload  = () => {
+      const base64  = reader.result.split(',')[1];
+      const path    = 'pdfs/' + uid + '.pdf';
+      const apiUrl  = 'https://api.github.com/repos/' + GH_REPO + '/contents/' + path;
+      const hdr     = {
+        'Authorization' : 'token ' + token,
+        'Accept'        : 'application/vnd.github.v3+json',
+        'Content-Type'  : 'application/json'
+      };
+      // Verifica SHA existente (necessário para atualizar arquivo já existente)
+      fetch(apiUrl, {headers: hdr})
+        .then(r => r.ok ? r.json() : null)
+        .then(existing => {
+          const body = {message: 'Comprovante ' + uid, content: base64};
+          if(existing && existing.sha) body.sha = existing.sha;
+          return fetch(apiUrl, {method:'PUT', headers:hdr, body:JSON.stringify(body)});
+        })
+        .then(r => {
+          if(r && r.ok) res('https://raw.githubusercontent.com/' + GH_REPO + '/main/' + path);
+          else rej(new Error('Upload falhou (HTTP ' + (r ? r.status : '?') + ')'));
+        })
+        .catch(rej);
+    };
+    reader.readAsDataURL(file);
   });
 }
-function _db(){return _anexosDB?Promise.resolve(_anexosDB):_abrirAnexosDB();}
-function carregarListaAnexos(){
-  return _db().then(db=>new Promise((res,rej)=>{
-    const req=db.transaction('anexos','readonly').objectStore('anexos').getAll();
-    req.onsuccess=()=>{
-      _anexosCache.clear();
-      req.result.forEach(a=>_anexosCache.set(a.uid,{nome:a.nome}));
-      _anexosCacheLoaded=true;
-      res();
-    };
-    req.onerror=()=>rej(req.error);
-  }));
+
+function githubDeletePDF(uid){
+  const token = ghToken();
+  if(!token) return Promise.resolve();
+  const path   = 'pdfs/' + uid + '.pdf';
+  const apiUrl = 'https://api.github.com/repos/' + GH_REPO + '/contents/' + path;
+  const hdr    = {
+    'Authorization' : 'token ' + token,
+    'Accept'        : 'application/vnd.github.v3+json',
+    'Content-Type'  : 'application/json'
+  };
+  return fetch(apiUrl, {headers: hdr})
+    .then(r => r.ok ? r.json() : null)
+    .then(j => {
+      if(!j || !j.sha) return;
+      return fetch(apiUrl, {
+        method  : 'DELETE',
+        headers : hdr,
+        body    : JSON.stringify({message: 'Remove comprovante ' + uid, sha: j.sha})
+      });
+    })
+    .catch(() => {});
 }
+
+function verAnexo(uid){
+  const data = getMesData(currentComp);
+  const d    = data.despesas.find(x => x.uid === uid);
+  if(!d || !d.pdfUrl) return;
+  // Usa blob local se disponível (mesmo dispositivo, sem espera CDN)
+  // Senão usa URL pública do GitHub (funciona em qualquer dispositivo)
+  const cached = _pdfBlobCache.get(uid);
+  document.getElementById('modal-pdf-frame').src      = cached ? cached.url : d.pdfUrl;
+  document.getElementById('modal-pdf-nome').textContent = d.pdfNome || 'Comprovante';
+  document.getElementById('modal-pdf-uid').value       = uid;
+  document.getElementById('modal-pdf-url').value       = d.pdfUrl;
+  document.getElementById('modal-pdf-link').href       = d.pdfUrl;
+  document.getElementById('modal-pdf').style.display   = 'flex';
+}
+
+function fecharModalPDF(){
+  document.getElementById('modal-pdf-frame').src    = '';
+  document.getElementById('modal-pdf-url').value    = '';
+  document.getElementById('modal-pdf').style.display = 'none';
+}
+
+function excluirAnexo(){
+  const uid = document.getElementById('modal-pdf-uid').value;
+  if(!uid || !confirm('Remover o comprovante anexado? Esta ação não pode ser desfeita.')) return;
+  fecharModalPDF();
+  githubDeletePDF(uid).catch(() => {});
+  // Libera blob local se houver
+  const cached = _pdfBlobCache.get(uid);
+  if(cached){ URL.revokeObjectURL(cached.url); _pdfBlobCache.delete(uid); }
+  // Remove do dado da despesa e salva
+  const data = getMesData(currentComp);
+  const d    = data.despesas.find(x => x.uid === uid);
+  if(d){ d.pdfUrl = null; d.pdfNome = null; salvar(); }
+  renderDespesas();
+}
+
 function anexarPDF(uid){
-  const inp=document.createElement('input');
-  inp.type='file';inp.accept='.pdf,application/pdf';
-  inp.onchange=()=>{
-    const file=inp.files[0];if(!file)return;
-    if(file.size>20*1024*1024){alert('O arquivo deve ter no máximo 20 MB.');return;}
-    _db().then(db=>new Promise((res,rej)=>{
-      const tx=db.transaction('anexos','readwrite');
-      tx.objectStore('anexos').put({uid,nome:file.name,tipo:file.type,data:file});
-      tx.oncomplete=()=>{_anexosCache.set(uid,{nome:file.name});_atualizarBtnAnexo(uid);res();};
-      tx.onerror=()=>rej(tx.error);
-    }));
+  if(!ghToken()){
+    alert('Configure o token do GitHub para anexar comprovantes.\n\nMenu ⋯ → ☁ Config Sincronização GitHub.');
+    return;
+  }
+  const inp = document.createElement('input');
+  inp.type   = 'file';
+  inp.accept = '.pdf,application/pdf';
+  inp.onchange = () => {
+    const file = inp.files[0];
+    if(!file) return;
+    if(file.size > 20 * 1024 * 1024){ alert('Arquivo muito grande. Limite: 20 MB.'); return; }
+    const btn = document.getElementById('anexo-btn-' + uid);
+    if(btn){ btn.textContent = '⏳'; btn.disabled = true; }
+    githubUploadPDF(uid, file)
+      .then(pdfUrl => {
+        if(!pdfUrl) throw new Error('URL vazia após upload');
+        // Guarda blob no cache de sessão → sem delay CDN ao visualizar imediatamente
+        const blobUrl = URL.createObjectURL(file);
+        _pdfBlobCache.set(uid, {url: blobUrl, nome: file.name});
+        // Persiste URL e nome no dado da despesa
+        const data = getMesData(currentComp);
+        const d    = data.despesas.find(x => x.uid === uid);
+        if(d){ d.pdfUrl = pdfUrl; d.pdfNome = file.name; salvar(); }
+        renderDespesas();
+      })
+      .catch(e => {
+        alert('Erro ao enviar PDF: ' + e.message);
+        if(btn){ btn.textContent = '📎'; btn.disabled = false; }
+      });
   };
   inp.click();
-}
-function verOuAnexarPDF(uid){
-  if(_anexosCache.has(uid)){verAnexo(uid);}else{anexarPDF(uid);}
-}
-function verAnexo(uid){
-  _db().then(db=>new Promise((res,rej)=>{
-    const req=db.transaction('anexos','readonly').objectStore('anexos').get(uid);
-    req.onsuccess=()=>{
-      const a=req.result;if(!a){res();return;}
-      const url=URL.createObjectURL(a.data);
-      document.getElementById('modal-pdf-frame').src=url;
-      document.getElementById('modal-pdf-nome').textContent=a.nome;
-      document.getElementById('modal-pdf-uid').value=uid;
-      document.getElementById('modal-pdf-url').value=url;
-      document.getElementById('modal-pdf').style.display='flex';
-      res();
-    };
-    req.onerror=()=>rej(req.error);
-  }));
-}
-function fecharModalPDF(){
-  const url=document.getElementById('modal-pdf-url').value;
-  if(url){URL.revokeObjectURL(url);document.getElementById('modal-pdf-url').value='';}
-  document.getElementById('modal-pdf-frame').src='';
-  document.getElementById('modal-pdf').style.display='none';
-}
-function excluirAnexo(){
-  const uid=document.getElementById('modal-pdf-uid').value;
-  if(!uid||!confirm('Remover o comprovante anexado?'))return;
-  _db().then(db=>{
-    const tx=db.transaction('anexos','readwrite');
-    tx.objectStore('anexos').delete(uid);
-    tx.oncomplete=()=>{_anexosCache.delete(uid);_atualizarBtnAnexo(uid);};
-  });
-  fecharModalPDF();
-}
-function _excluirAnexoSilencioso(uid){
-  if(!_anexosDB||!_anexosCache.has(uid))return;
-  const tx=_anexosDB.transaction('anexos','readwrite');
-  tx.objectStore('anexos').delete(uid);
-  tx.oncomplete=()=>_anexosCache.delete(uid);
-}
-function _atualizarBtnAnexo(uid){
-  const btn=document.getElementById('anexo-btn-'+uid);
-  if(!btn)return;
-  const has=_anexosCache.has(uid);
-  btn.textContent=has?'📄':'📎';
-  btn.className='btn-pdf'+(has?' has-pdf':'');
-  btn.title=has?_anexosCache.get(uid).nome:'Anexar comprovante (PDF)';
 }
 
 /* =====================================================================
@@ -2032,6 +2085,7 @@ init();
     <div style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-bottom:1px solid #E5E7EB;flex-shrink:0;background:#F8FAFC">
       <span style="font-size:20px">&#x1F4C4;</span>
       <span id="modal-pdf-nome" style="font-size:13px;font-weight:700;color:#0F2C47;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Comprovante</span>
+      <a id="modal-pdf-link" href="#" target="_blank" rel="noopener" class="btn btn-outline btn-sm" style="text-decoration:none">&#x1F517; Abrir</a>
       <button class="btn btn-outline btn-sm" onclick="excluirAnexo()" style="color:#DC2626;border-color:#DC2626">&#x1F5D1; Remover</button>
       <button class="btn btn-outline btn-sm" onclick="fecharModalPDF()">&#x2715; Fechar</button>
     </div>

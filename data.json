@@ -2572,8 +2572,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 0,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/uiott9b.pdf",
-          "pdfNome": "ID 02 E SIMOES SOCIEDADE- NF 07- 11.000,00.pdf"
+          "pdfUrl": null,
+          "pdfNome": null
         },
         {
           "uid": "ivt3263",

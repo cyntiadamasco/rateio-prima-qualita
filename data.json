@@ -626,16 +626,16 @@
           "saq_pri": 0
         },
         "ind6": {
-          "madalena": 0,
-          "cachoeiras": 0,
-          "saq_hosp": 0,
-          "upa_pac": 0,
-          "upa_nc": 0,
-          "arraial": 0,
-          "quissama": 0,
-          "cordeiro": 0,
-          "saq_esp": 0,
-          "saq_pri": 0
+          "madalena": 78,
+          "cachoeiras": 89,
+          "saq_hosp": 120,
+          "upa_pac": 47,
+          "upa_nc": 45,
+          "arraial": 112,
+          "quissama": 45,
+          "cordeiro": 58,
+          "saq_esp": 70,
+          "saq_pri": 64
         },
         "ind7": {
           "madalena": 222,

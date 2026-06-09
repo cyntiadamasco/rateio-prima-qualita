@@ -170,7 +170,9 @@
           "cnpj": "40.289.134/0001-99",
           "ctipo": "Guia",
           "cnum": "",
-          "valor": 51283.1
+          "valor": 51283.1,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/9nxy4ld.pdf",
+          "pdfNome": "ID 08 FGTS FOLHA - 51.283,10.pdf"
         },
         {
           "uid": "uzdp3ua",

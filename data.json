@@ -287,7 +287,9 @@
           "cnpj": "115.607.797-48",
           "ctipo": "Pensão",
           "cnum": "",
-          "valor": 691.18
+          "valor": 691.18,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/qq5xi3e.pdf",
+          "pdfNome": "ID 16 PENSÃO MICHELLE GUILHERMINA- 691,18.pdf"
         },
         {
           "uid": "xsjobru",

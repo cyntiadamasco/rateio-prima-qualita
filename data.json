@@ -702,6 +702,14 @@
           "cnpj": " 04.899.444/0001-61 ",
           "nrProcesso": "121/2024",
           "nrContrato": "024/2024"
+        },
+        {
+          "uid": "cmq64se8cs926u",
+          "objeto": "",
+          "favorecido": "",
+          "cnpj": "",
+          "nrProcesso": "",
+          "nrContrato": ""
         }
       ],
       "contratos_obs": ""

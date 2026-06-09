@@ -196,7 +196,9 @@
           "cnpj": "47.866.934/0001-74",
           "ctipo": "Boleto",
           "cnum": "",
-          "valor": 132180
+          "valor": 132180,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/awyy9vv.pdf",
+          "pdfNome": "ID 10 TICKET- NF 07087- 132.180,00.pdf"
         },
         {
           "uid": "nvhgaft",

@@ -483,6 +483,154 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 .btn-pdf:hover{background:rgba(0,168,123,.1);border-color:var(--teal);color:var(--teal)}
 .btn-pdf.has-pdf{color:var(--teal)}
 
+/* ══════════════════════════════════════════════════════
+   RESPONSIVE – MOBILE  (max-width: 768 px)
+══════════════════════════════════════════════════════ */
+@media (max-width:768px){
+  body{font-size:12px}
+
+  /* ── Header ──────────────────────────────── */
+  .app-header{
+    height:52px;
+    padding:0 10px;
+    gap:8px;
+  }
+  .logo-wrap img{height:28px!important;width:auto!important}
+  .hdr-div{display:none}
+  .hdr-subtitle{display:none}
+  .hdr-right{gap:6px}
+  .sync-dot,.sync-lbl{display:none}
+
+  /* ── Tabs bar ────────────────────────────── */
+  .tabs-bar{top:52px;padding:0 4px}
+  .tab-btn{padding:10px 10px;font-size:11px}
+
+  /* ── Competência bar ─────────────────────── */
+  .comp-bar{padding:8px 10px;gap:8px}
+  .comp-bar label{font-size:9px;letter-spacing:.4px}
+  .comp-bar select,.comp-bar input[type=text]{
+    padding:4px 8px;
+    font-size:11px;
+  }
+
+  /* ── Painéis ─────────────────────────────── */
+  .panel{padding:14px 10px}
+
+  /* ── Cards ───────────────────────────────── */
+  .card{padding:14px 12px}
+  .card-hdr{flex-wrap:wrap;gap:6px;margin-bottom:10px}
+  .card-title{font-size:12px}
+  .card-acts{flex-wrap:wrap;gap:4px}
+
+  /* ── Grids: empilhar ─────────────────────── */
+  .grid-2{grid-template-columns:1fr;gap:12px}
+  .grid-3{grid-template-columns:1fr;gap:12px}
+
+  /* ── Stats cards ─────────────────────────── */
+  .stats-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .stat-card{padding:12px 10px}
+  .stat-val{font-size:17px}
+  .stat-lbl{font-size:10px}
+
+  /* ── Tabelas ─────────────────────────────── */
+  table{font-size:11px}
+  thead th{padding:7px 8px;font-size:10px}
+  tbody td{padding:4px 8px}
+  tfoot td{padding:5px 8px;font-size:10px}
+
+  /* ── Botões (área de toque) ──────────────── */
+  .btn{min-height:36px;padding:8px 12px}
+  .btn-sm{min-height:30px;padding:5px 10px;font-size:11px}
+  .btn-xs{min-height:24px;padding:2px 7px;font-size:11px}
+
+  /* ── Gráficos ────────────────────────────── */
+  .chart-box{height:220px!important}
+
+  /* ── Alertas / pills ─────────────────────── */
+  .alert{font-size:11px;padding:10px 12px}
+  .pct-pill{font-size:9.5px;padding:2px 6px}
+
+  /* ── Dropdown (não sair da tela) ─────────── */
+  .dd-menu{right:0;min-width:200px;left:auto!important}
+
+  /* ════════════════════════════════════════════
+     RELATÓRIO RDG – leitura no celular
+  ════════════════════════════════════════════ */
+  .rdg-toolbar{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+    padding:10px 12px;
+  }
+  .rdg-container{
+    max-width:100%;
+    padding:10px 6px 32px;
+    font-size:11pt;
+  }
+  .rdg-capa{padding:24px 10px 16px}
+  .rdg-capa h1{font-size:14px}
+  .rdg-capa h2{font-size:12px}
+  .rdg-section{padding:14px 12px;margin-bottom:8px}
+  .rdg-section-title{font-size:13px;margin-bottom:8px}
+  .rdg-p{font-size:10.5px}
+  .rdg-item{font-size:10.5px}
+  .rdg-cat-title{font-size:12px}
+  .rdg-val{font-size:10.5px}
+  .rdg-org-title{font-size:13px}
+  .rdg-org-sub{font-size:10px}
+  .rdg-sign{padding:16px 0}
+  /* Tabela de colaboradores no relatório: scroll horizontal */
+  .rdg-cat-block .rdg-table{
+    font-size:9px;
+    display:block;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  /* Tabelas do critério quantitativo e iqual: scroll */
+  .rdg-section .rdg-table{
+    display:block;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  /* Painel de gestão de colaboradores */
+  .rdg-colab-hdr{padding:10px 10px;flex-wrap:wrap}
+  .rdg-colab-hdr strong{font-size:11px}
+
+  /* ════════════════════════════════════════════
+     DEMONSTRATIVO – empilhar colunas
+  ════════════════════════════════════════════ */
+  #panel-demonstrativo .grid-2>div{width:100%}
+
+  /* ════════════════════════════════════════════
+     CRITÉRIO QUANTITATIVO – compactar
+  ════════════════════════════════════════════ */
+  #panel-criterio .card{padding:12px 10px}
+
+  /* ════════════════════════════════════════════
+     CONTRATOS – ajustar inputs
+  ════════════════════════════════════════════ */
+  .contratos-tbl td input,
+  .contratos-tbl td textarea{
+    font-size:11px;
+    padding:3px 5px;
+  }
+}
+
+/* ── Extra-small phones (≤ 480 px) ──────────────── */
+@media (max-width:480px){
+  .stats-grid{grid-template-columns:1fr}
+  .stat-val{font-size:15px}
+  .tab-btn{padding:9px 8px;font-size:10px}
+  .comp-bar{flex-direction:column;align-items:flex-start;padding:8px 10px}
+  .rdg-capa h1{font-size:12px}
+  .rdg-section-title{font-size:11px}
+}
+
 </style>
 </head>
 <body>

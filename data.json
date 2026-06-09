@@ -133,7 +133,9 @@
           "cnpj": "04.899.444/0001-61",
           "ctipo": "NF",
           "cnum": "1094",
-          "valor": 3167
+          "valor": 3167,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/ci2gqk9.pdf",
+          "pdfNome": "ID 05 IGF AUDITORES-NF  1094 - 3.167,00.pdf"
         },
         {
           "uid": "w2jxumf",

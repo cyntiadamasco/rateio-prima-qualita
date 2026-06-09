@@ -391,7 +391,9 @@
           "cnpj": "24.783.564/0001-06",
           "ctipo": "NF",
           "cnum": "2318",
-          "valor": 7611.11
+          "valor": 7611.11,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/bgz8k2e.pdf",
+          "pdfNome": "ID 24 PRODUTIVA - NF 2318 - 7.611,11.pdf"
         },
         {
           "uid": "owa4bcd",

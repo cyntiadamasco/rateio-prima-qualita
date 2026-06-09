@@ -83,7 +83,9 @@
           "cnpj": "18.464.526/0001-98",
           "ctipo": "NF",
           "cnum": "14",
-          "valor": 36000
+          "valor": 36000,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/zj0lqfy.pdf",
+          "pdfNome": "ID 01 PABLO SIQUEIRA -VNF 14 - 36.000,00.pdf"
         },
         {
           "uid": "uiott9b",

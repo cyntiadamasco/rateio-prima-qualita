@@ -679,6 +679,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   <label>Competência <span style="font-weight:400;opacity:.8">(Mês de Pagamento)</span>:</label>
   <select id="sel-comp" onchange="mudarComp(this.value)"></select>
   <button class="btn btn-sm" style="background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.35)" onclick="novaCompetencia()">＋ Novo Mês</button>
+  <button class="btn btn-sm" style="background:rgba(239,68,68,.28);color:#fca5a5;border:1px solid rgba(239,68,68,.45)" onclick="excluirMesAtual()">🗑 Excluir Mês</button>
   <label style="margin-left:16px">Ref. Colaboradores:</label>
   <input type="text" id="inp-ref-colab" style="width:160px" placeholder="ex: MARÇO/2026" onchange="setRefColab(this.value)">
   <span class="comp-ref" id="comp-ref-info"></span>
@@ -1003,6 +1004,29 @@ function novaCompetencia(){
   renderTab('criterio');
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   document.querySelectorAll('.tab-btn')[0].classList.add('active');
+}
+
+function excluirMesAtual(){
+  const label=compLabel(currentComp);
+  if(!confirm('Excluir "'+label+'" e todos os seus dados?\n\nEsta ação não pode ser desfeita.')) return;
+  delete state[currentComp];
+  salvar();
+  // Ir para o mês com dados mais recente; se nenhum, criar mês atual
+  const restantes=Object.keys(state).filter(k=>/^\d{4}-\d{2}$/.test(k)).sort();
+  if(restantes.length){
+    currentComp=restantes[restantes.length-1];
+  } else {
+    const now=new Date();
+    currentComp=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
+    getMesData(currentComp);
+    salvar();
+  }
+  popularCompetencias();
+  popularUI();
+  renderTab('criterio');
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  const btn=document.querySelector('[data-tab="criterio"]');
+  if(btn) btn.classList.add('active');
 }
 
 function mudarComp(comp){

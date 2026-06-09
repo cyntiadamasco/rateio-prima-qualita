@@ -492,7 +492,8 @@
         "quissama": 0,
         "cordeiro": 0,
         "saq_esp": 0,
-        "saq_pri": 0
+        "saq_pri": 0,
+        "cg_mq5ygto3": 0
       },
       "refColab": "MARÇO/2026"
     },
@@ -671,7 +672,15 @@
         "saq_pri": 0
       },
       "refColab": ""
-    }
+    },
+    "customContratos": [
+      {
+        "id": "cg_mq5ygto3",
+        "nome": "Contrato de Gestão XXX/2026 - Jaçanã",
+        "sigla": "Jaçanã",
+        "cor": "#F59E0B"
+      }
+    ]
   },
-  "currentComp": "2026-06"
+  "currentComp": "2026-05"
 }

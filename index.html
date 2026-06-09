@@ -458,6 +458,13 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 .rdg-sign{max-width:900px;margin:20px auto;padding:0 16px;font-size:12px;text-align:center;font-family:Arial,sans-serif}
 .rdg-sign-line{width:280px;height:1.5px;background:#111;margin:36px auto 8px}
 .rdg-sign p{margin:4px 0}
+/* ── Colaboradores CIGAC management ─────────────── */
+.rdg-colab-wrap{background:#fff;border-bottom:2px solid #E5E7EB}
+.rdg-colab-hdr{display:flex;align-items:center;gap:10px;padding:10px 16px;cursor:pointer;user-select:none;background:#F8FAFC;flex-wrap:wrap}
+.rdg-colab-hdr:hover{background:#EFF6FF}
+.rdg-colab-body{display:none;padding:0 12px 12px}
+.rdg-colab-open>.rdg-colab-body{display:block}
+.rdg-colab-acts{display:flex;gap:6px}
 
 .sync-dot{width:8px;height:8px;border-radius:50%;background:#6B7280;display:inline-block;margin-right:4px;transition:background .3s}
 .sync-dot.ok{background:#00A87B}.sync-dot.err{background:#DC2626}.sync-dot.loading{background:#F59E0B;animation:blink .8s infinite}
@@ -581,6 +588,8 @@ const INDICADORES_QUAL = [
   {id:'ind8', nome:'IND 8', dept:'Depto. Assistencial'},
 ];
 
+const COLAB_DEFAULT=[{"nome":"EMERSON RODRIGUES SARDINHA","dept":"DEPARTAMENTO ADMINISTRATIVO","funcao":"AUXILIAR OPERACIONAL"},{"nome":"FABIA FIALHO MOREIRA BRAZIL","dept":"DEPARTAMENTO ADMINISTRATIVO","funcao":"ANALISTA ADMINISTRATIVO III"},{"nome":"FERNANDA FONSECA COUTINHO GROSS","dept":"DEPARTAMENTO ADMINISTRATIVO","funcao":"ANALISTA ADMINISTRATIVO III"},{"nome":"FLAVIO HENRIQUE DE SOUZA COSTA","dept":"DEPARTAMENTO ADMINISTRATIVO","funcao":"AUXILIAR OPERACIONAL"},{"nome":"GILSON GOUVEA","dept":"DEPARTAMENTO ADMINISTRATIVO","funcao":"SUPERVISOR DE SEGURANÇA"},{"nome":"JOCIMAR SILVA DO NASCIMENTO","dept":"DEPARTAMENTO ADMINISTRATIVO","funcao":"AUXILIAR OPERACIONAL III"},{"nome":"JORGE MARCIO DE OLIVEIRA RIBEIRO","dept":"DEPARTAMENTO ADMINISTRATIVO","funcao":"AUXILIAR ADMINISTRATIVO"},{"nome":"LEONARDO BARCELOS MARTINS","dept":"DEPARTAMENTO ADMINISTRATIVO","funcao":"AUXILIAR ADMINISTRATIVO"},{"nome":"LUCAS DA COSTA SILVA PEREIRA","dept":"DEPARTAMENTO ADMINISTRATIVO","funcao":"AUXILIAR OPERACIONAL"},{"nome":"LUIS AUGUSTO DA SILVA SANTANA","dept":"DEPARTAMENTO ADMINISTRATIVO","funcao":"ANALISTA OPERACIONAL I"},{"nome":"MARINALVA PEREIRA MACHADO","dept":"DEPARTAMENTO ADMINISTRATIVO","funcao":"COORDENADOR ADMINISTRATIVO I - RT"},{"nome":"NELI DA CONCEICAO MARINS","dept":"DEPARTAMENTO ADMINISTRATIVO","funcao":"AUXILIAR DE SERVIÇOS GERAIS III"},{"nome":"RODRIGO PEÇANHA DOS SANTOS","dept":"DEPARTAMENTO ADMINISTRATIVO","funcao":"AUXILIAR DE SERVIÇOS GERAIS III"},{"nome":"VERONICA PEREIRA DO NASCIMENTO ABREU","dept":"DEPARTAMENTO ADMINISTRATIVO","funcao":"ASSISTENTE ADMINISTRATIVO II"},{"nome":"CARLA DA COSTA LEITE","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"AUXILIAR ADMINISTRATIVO"},{"nome":"ALEXANDER DINIZ DOS SANTOS","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"ANALISTA ADMINISTRATIVO III"},{"nome":"ANA PAULA DAS GRAÇAS LIMA","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"ASSISTENTE ADMINISTRATIVO III"},{"nome":"CASSANDRA SOARES DE OLIVEIRA","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"COORDENADOR DE REDE DE CUIDADOS III"},{"nome":"DANIEL BARBOSA PROCOPIO","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"SUPERVISOR DE INFORMACAO EM SAUDE I"},{"nome":"DIONI DE OLIVEIRA SCHUVARTZ","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"ANALISTA ASSISTENCIAL III"},{"nome":"ESTER SOARES ALVES XIMENES","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"COORDENADOR DE REDE DE CUIDADOS I"},{"nome":"FABIO PINTO DA MATTA","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"SUPERVISOR DE TI"},{"nome":"FRANCIELE DE LIMA","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"SUPERVISOR DE REDE DE CUIDADOS I"},{"nome":"GLAUCIA DE OLIVEIRA PINHEIRO CAPIBARIBE","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"COORDENADOR DE REDE DE CUIDADOS II"},{"nome":"GREICIANE SOUZA CARDOSO","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"ASSISTENTE ADMINISTRATIVO II"},{"nome":"HENRIQUE CASTRO VALVIESSE","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"ANALISTA DE CONTRATO III"},{"nome":"JACI XAVIER DA FONSECA","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"ASSISTENTE DE TI II"},{"nome":"JOANE DE OLIVEIRA RÔLA","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"SUPERVISOR DE REDE DE CUIDADOS I"},{"nome":"JOAO LUCAS BRITO DE OLIVEIRA","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"ASSISTENTE ADMINISTRATIVO III"},{"nome":"JOAO VICTOR SIQUEIRA CAMPOS","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"AUXILIAR ADMINISTRATIVO"},{"nome":"JOSE ROBERTO LOPES DA SILVA","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"ASSISTENTE ADMINISTRATIVO I"},{"nome":"LEONARDO LIMA CARVALHO","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"ANALISTA ADMINISTRATIVO III"},{"nome":"LEONARDO RODRIGUES FRIAS","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"GERENTE DE TI II"},{"nome":"LINCON DA SILVA FULY","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"ASSISTENTE DE TI II"},{"nome":"MARCELA ROCHA FERREIRA","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"SUPERVISOR DE REDE DE CUIDADOS I"},{"nome":"MARIA EDUARDA MORAES XAVIER","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"SUPERVISOR DE REDE DE CUIDADOS I"},{"nome":"MARIANA LATTANZI CRISPINO","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"SUPERVISOR DE REDE DE CUIDADOS I"},{"nome":"MARINA CARVALHO PASSOS SOARES","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"ASSISTENTE ADMINISTRATIVO III"},{"nome":"PALOMA SUZANO MEDEIROS","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"ANALISTA ADMINISTRATIVO III"},{"nome":"RAFAELA DA SILVA LEMOS","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"ANALISTA ASSISTENCIAL I"},{"nome":"RAFAELA OLIVEIRA FERREIRA","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"GERENTE DE SAÚDE III"},{"nome":"RAPHAEL AREAS CAVALCANTE","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"SUPERVISORA DE REDES DE CUIDADOS I"},{"nome":"RICARDO DE ALMEIDA MANGABEIRA","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"COORDENADOR DE REDE DE CUIDADOS II"},{"nome":"ROGERIO DA COSTA AZEVEDO","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"SUPERVISOR DE REDE DE CUIDADOS I"},{"nome":"SUELLEN PIRES DE FREITAS","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"AUXILIAR ADMINISTRATIVO"},{"nome":"VALDECY MOTA RIBEIRO","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"ASSISTENTE OPERACIONAL I"},{"nome":"VANESSA VIEIRA DA SILVEIRA MENDONÇA","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"SUPERVISOR DE REDE DE CUIDADOS I"},{"nome":"DIEGO DE FIGUEIREDO SANTOS","dept":"DEPARTAMENTO DE COMPLIANCE","funcao":"COORDENADOR DE COMPLIANCE"},{"nome":"ROGERIO DE CARVALHO OLIVEIRA","dept":"DEPARTAMENTO DE COMPLIANCE","funcao":"ANALISTA ADMINISTRATIVO III"},{"nome":"ANDERSON DE SOUZA MOUTINHO","dept":"DEPARTAMENTO DE COMPRAS E CONTRATOS","funcao":"ANALISTA DE COMPRAS I"},{"nome":"ANNA VICTORIA DOS SANTOS DE OLIVEIRA","dept":"DEPARTAMENTO DE COMPRAS E CONTRATOS","funcao":"JOVEM APRENDIZ"},{"nome":"DANIELA MOTA SANTOS","dept":"DEPARTAMENTO DE COMPRAS E CONTRATOS","funcao":"JOVEM APRENDIZ"},{"nome":"IVANETE DA SILVA MOTTA CARVALHO","dept":"DEPARTAMENTO DE COMPRAS E CONTRATOS","funcao":"ANALISTA DE COMPRAS III"},{"nome":"NICOLE CANTINI FIGUEIRA LIMA","dept":"DEPARTAMENTO DE COMPRAS E CONTRATOS","funcao":"ASSISTENTE DE COMPRAS"},{"nome":"RAFAEL VIANA DA MOTTA","dept":"DEPARTAMENTO DE COMPRAS E CONTRATOS","funcao":"ANALISTA DE COMPRAS I"},{"nome":"SORAYA ARAUJO DAMASCO","dept":"DEPARTAMENTO DE COMPRAS E CONTRATOS","funcao":"COORDENADOR DE COMPRAS"},{"nome":"THACIA DUARTE BRANCO","dept":"DEPARTAMENTO DE COMPRAS E CONTRATOS","funcao":"ANALISTA ADMINISTRATIVO I"},{"nome":"AYRA DE ARAUJO ROSA","dept":"DEPARTAMENTO DE COMUNICAÇÃO INSTITUCIONAL","funcao":"ANALISTA DE COMUNICAÇAO III"},{"nome":"JEFFERSON IGOR MARTINS SILVA","dept":"DEPARTAMENTO DE COMUNICAÇÃO INSTITUCIONAL","funcao":"ASSISTENTE ADMINISTRATIVO III"},{"nome":"PAULA MARTINEZ MELLO","dept":"DEPARTAMENTO DE COMUNICAÇÃO INSTITUCIONAL","funcao":"GERENTE DE COMUNICAÇÃO"},{"nome":"PEARGENTINO CHIAFRINO NETO","dept":"DEPARTAMENTO DE COMUNICAÇÃO INSTITUCIONAL","funcao":"ANALISTA DE COMUNICAÇAO III"},{"nome":"BRUNO DA SILVA MENDONCA","dept":"DEPARTAMENTO DE CONTABILIDADE","funcao":"COORDENADOR CONTÁBIL III"},{"nome":"FRANCINE CORDEIRO MONTEIRO","dept":"DEPARTAMENTO DE CONTABILIDADE","funcao":"SUPERVISOR CONTÁBIL III"},{"nome":"THASSIA ARAUJO DO AMARAL","dept":"DEPARTAMENTO DE CONTABILIDADE","funcao":"ANALISTA CONTABIL III"},{"nome":"GUILHERME MARTINS ALMEIDA SILVA","dept":"DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS","funcao":"SUPERVISOR ADMINISTRATIVO III"},{"nome":"JEFFERSON DA SILVA AMORIM","dept":"DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS","funcao":"ANALISTA DE FARMÁCIA II"},{"nome":"KARLA FERNANDA KLEINSORGEN","dept":"DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS","funcao":"ASSISTENTE ADMINISTRATIVO II"},{"nome":"SANDY KEYTMA MELO RAMALHO","dept":"DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS","funcao":"AUXILIAR ADMINISTRATIVO"},{"nome":"TATIELE DA SILVA RIBEIRO","dept":"DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS","funcao":"SUPERVISOR DE FARMÁCIA"},{"nome":"IGOR MOTTA CARVALHO","dept":"DEPARTAMENTO DE PRESTAÇÃO DE CONTAS","funcao":"AUXILIAR ADMINISTRATIVO"},{"nome":"JONATHAS MARQUES RIBEIRO","dept":"DEPARTAMENTO DE PRESTAÇÃO DE CONTAS","funcao":"AUXILIAR ADMINISTRATIVO III"},{"nome":"LUISA FERREIRA ALBUQUERQUE","dept":"DEPARTAMENTO DE PRESTAÇÃO DE CONTAS","funcao":"ASSISTENTE ADMINISTRATIVO"},{"nome":"MARIA BIANCA NOBREGA MARINS","dept":"DEPARTAMENTO DE PRESTAÇÃO DE CONTAS","funcao":"JOVEM APRENDIZ"},{"nome":"VICTOR TEIXEIRA LESSA","dept":"DEPARTAMENTO DE PRESTAÇÃO DE CONTAS","funcao":"ASSISTENTE ADMINISTRATIVO"},{"nome":"ZILANDA RODRIGUES DOS SANTOS","dept":"DEPARTAMENTO DE PRESTAÇÃO DE CONTAS","funcao":"AUXILIAR ADMINISTRATIVO"},{"nome":"CRISTIANE SONCINI DE ARAUJO","dept":"DEPARTAMENTO DE RECURSOS HUMANOS","funcao":"ASSISTENTE ADMINISTRATIVO III"},{"nome":"EDLENE PAIVA DA SILVA","dept":"DEPARTAMENTO DE RECURSOS HUMANOS","funcao":"SUPERVISOR DE EDUCAÇÃO"},{"nome":"GIANLUCAS CORREIA MENDES","dept":"DEPARTAMENTO DE RECURSOS HUMANOS","funcao":"TECNICO SEGURANÇA DO TRABALHO"},{"nome":"JANDARA TEIXEIRA DIAS ROCHA","dept":"DEPARTAMENTO DE RECURSOS HUMANOS","funcao":"ASSISTENTE DE RECURSOS HUMANOS I"},{"nome":"JOAO VITOR DA SILVA BORGES","dept":"DEPARTAMENTO DE RECURSOS HUMANOS","funcao":"JOVEM APRENDIZ"},{"nome":"JULIO CESAR DE OLIVEIRA JUNIOR","dept":"DEPARTAMENTO DE RECURSOS HUMANOS","funcao":"ANALISTA DE REMUNERAÇAO"},{"nome":"LORRAYNE DA SILVA FERNANDEZ DE OLIVEIRA","dept":"DEPARTAMENTO DE RECURSOS HUMANOS","funcao":"ANALISTA ADMINISTRATIVO I"},{"nome":"MARIA DA CONCEIÇÃO BALDINI BENEVIDES BLAN","dept":"DEPARTAMENTO DE RECURSOS HUMANOS","funcao":"SUPERVISOR DE EDUCAÇÃO"},{"nome":"ROSEMARY CRUZ CERQUEIRA","dept":"DEPARTAMENTO DE RECURSOS HUMANOS","funcao":"COORDENADOR DE EDUCACAO CONTINUADA I"},{"nome":"SABRYNA MARQUES MOREIRA MENDES","dept":"DEPARTAMENTO DE RECURSOS HUMANOS","funcao":"ASSISTENTE ADMINISTRATIVO III"},{"nome":"SERGIO LUIS MACHADO BRAZIL","dept":"DEPARTAMENTO DE RECURSOS HUMANOS","funcao":"COORDENADOR DE QUALIDADE"},{"nome":"THAINARA TAVARES MOREIRA DOS SANTOS","dept":"DEPARTAMENTO DE RECURSOS HUMANOS","funcao":"ASSISTENTE DE RECURSOS HUMANOS I"},{"nome":"VICTORIA LINO DE SOUSA","dept":"DEPARTAMENTO DE RECURSOS HUMANOS","funcao":"ASSISTENTE DE RH I"},{"nome":"WENDEL CORREA DE PAO","dept":"DEPARTAMENTO DE RECURSOS HUMANOS","funcao":"ASSISTENTE DE REMUNERAÇÃO"},{"nome":"BERNARDO COSTA DE SA GOUVEA","dept":"DEPARTAMENTO FINANCEIRO","funcao":"ASSISTENTE FINANCEIRO III"},{"nome":"DIOGO DE OLIVEIRA CUNHA","dept":"DEPARTAMENTO FINANCEIRO","funcao":"ASSISTENTE ADMINISTRATIVO II"},{"nome":"DOUGLAS BARCELLOS SILVA","dept":"DEPARTAMENTO FINANCEIRO","funcao":"ANALISTA ADMINISTRATIVO I"},{"nome":"LUCAS DA COSTA","dept":"DEPARTAMENTO FINANCEIRO","funcao":"ASSISTENTE ADMINISTRATIVO I"},{"nome":"LUDMILA DA COSTA CARVALHO","dept":"DEPARTAMENTO FINANCEIRO","funcao":"ASSISTENTE FINANCEIRO I"},{"nome":"RAFAELA PINA RIBEIRO","dept":"DEPARTAMENTO FINANCEIRO","funcao":"ASSISTENTE ADMINISTRATIVO II"},{"nome":"RUI ANDERSON MORAES DOS SANTOS","dept":"DEPARTAMENTO FINANCEIRO","funcao":"COORDENADOR FINANCEIRO I"},{"nome":"SORAIA MUZI XAVIER","dept":"DEPARTAMENTO FINANCEIRO","funcao":"ASSISTENTE ADMINISTRATIVO II"},{"nome":"YASMIM FAGGIAN OLIVEIRA","dept":"DEPARTAMENTO FINANCEIRO","funcao":"ASSISTENTE ADMINISTRATIVO II"},{"nome":"ROBSON LOUREIRO FERNANDES","dept":"DEPARTAMENTO JURÍDICO","funcao":"GERENTE JURÍDICO"},{"nome":"RODRIGO PAPAZIAN PINHO","dept":"DEPARTAMENTO JURÍDICO","funcao":"COORDENADOR JURÍDICO"},{"nome":"THIAGO FARIAS DIAS","dept":"DEPARTAMENTO JURÍDICO","funcao":"GERENTE JURÍDICO II"},{"nome":"AMANDA DE OLIVEIRA ALMEIDA","dept":"DEPARTAMENTO PESSOAL","funcao":"ANALISTA DE DEPARTAMENTO PESSOAL I"},{"nome":"ANNA JULIA ANTUNES DE OLIVEIRA","dept":"DEPARTAMENTO PESSOAL","funcao":"JOVEM APRENDIZ"},{"nome":"BIANCA BARCELOS MARTINS","dept":"DEPARTAMENTO PESSOAL","funcao":"ASSISTENTE DE DEPARTAMENTO"},{"nome":"CLAUDIA ALJAN BRAGA DE MIRANDA","dept":"DEPARTAMENTO PESSOAL","funcao":"ANALISTA DE DEPARTAMENTO PESSOAL I"},{"nome":"CRISTIANE ROSA CHAVES","dept":"DEPARTAMENTO PESSOAL","funcao":"ASSISTENTE ADMINISTRATIVO"},{"nome":"ELENA VIANA MACEDO","dept":"DEPARTAMENTO PESSOAL","funcao":"GERENTE DE DEPARTAMENTO PESSOAL"},{"nome":"EMILIA PEREIRA DARIO RANGEL","dept":"DEPARTAMENTO PESSOAL","funcao":"SUPERVISOR DE DEPARTAMENTO PESSOAL III"},{"nome":"GIOVANA FERREIRA DA CONCEICAO RODRIGUES","dept":"DEPARTAMENTO PESSOAL","funcao":"ASSISTENTE ADMINISTRATIVO II"},{"nome":"GRAZIELA SCARPONETI MARREIRO","dept":"DEPARTAMENTO PESSOAL","funcao":"ANALISTA DE DEPARTAMENTO PESSOAL I"},{"nome":"ITALO LUIZ RODRIGUES DA COSTA","dept":"DEPARTAMENTO PESSOAL","funcao":"ANALISTA DE DEPARTAMENTO PESSOAL I"},{"nome":"JOAO VITOR DE FRANCA TEIXEIRA","dept":"DEPARTAMENTO PESSOAL","funcao":"AUXILIAR ADMINISTRATIVO"},{"nome":"LUCIANA SOUZA DA SILVA","dept":"DEPARTAMENTO PESSOAL","funcao":"ASSISTENTE ADMINISTRATIVO"},{"nome":"MARIANA GONÇALVES FELIX","dept":"DEPARTAMENTO PESSOAL","funcao":"ANALISTA DE DEPARTAMENTO"},{"nome":"PHAMYLA DE SOUZA POSSAO ABDALLA REBEQUE","dept":"DEPARTAMENTO PESSOAL","funcao":"ANALISTA DE DEPARTAMENTO PESSOAL I"},{"nome":"SAMUEL LUCAS ALVES DE MELO","dept":"DEPARTAMENTO PESSOAL","funcao":"JOVEM APRENDIZ"},{"nome":"SHIRLEY DE OLIVEIRA MATOS","dept":"DEPARTAMENTO PESSOAL","funcao":"ASSISTENTE ADMINISTRATIVO"},{"nome":"SOLANGE SEIXAS MURRO","dept":"DEPARTAMENTO PESSOAL","funcao":"ANALISTA DE DEPARTAMENTO PESSOAL I"},{"nome":"THAYZA QUEIROZ DA SILVA","dept":"DEPARTAMENTO PESSOAL","funcao":"ASSISTENTE DE DEPARTAMENTO"},{"nome":"CAMILLO DE LELLIS CARNEIRO JUNQUEIRA","dept":"DEPARTAMENTO ASSISTENCIAL","funcao":"MÉDICO RT"},{"nome":"CYNTIA ARAUJO DAMASCO","dept":"SUPERINTENDÊNCIA","funcao":"SUPERINTENDENTE EXECUTIVA"},{"nome":"RALF RIBEIRO DOS SANTOS","dept":"SUPERINTENDÊNCIA","funcao":"SUPERINTENDENTE ASSISTENCIAL"}];
+
 const CATEGORIAS = [
   'Assessoria Jurídica',
   'Auditorias Contábil, Fiscal e Financeira',
@@ -684,6 +693,12 @@ function getMesData(comp){
   // Ensure contratos ativos list exists
   if(!state[comp].contratos_ativos) state[comp].contratos_ativos=[];
   if(state[comp].contratos_obs===undefined) state[comp].contratos_obs='';
+  if(!state[comp].colab_lista){
+    state[comp].colab_lista=COLAB_DEFAULT.map(c=>({
+      uid:'c'+Math.random().toString(36).slice(2,10),
+      nome:c.nome,dept:c.dept,funcao:c.funcao
+    }));
+  }
   // Ensure indicadores qualitativos structure exists
   if(!state[comp].iqual) state[comp].iqual={};
   INDICADORES_QUAL.forEach(ind=>{
@@ -1763,6 +1778,109 @@ function importarContratosAnt(){
 }
 
 /* =====================================================================
+   COLABORADORES CIGAC – gestão da lista mensal
+===================================================================== */
+function buildColabListaRow(r,i){
+  const esc=v=>(v||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+  return `<tr id="clr-${r.uid}">
+    <td class="td-num" style="font-size:11px">${i+1}</td>
+    <td class="td-obj"><input type="text" value="${esc(r.nome)}" oninput="setColabLista('${r.uid}','nome',this.value)" placeholder="Nome completo..." style="font-size:11px"></td>
+    <td><input type="text" value="${esc(r.dept)}" oninput="setColabLista('${r.uid}','dept',this.value)" placeholder="Departamento..." style="font-size:11px"></td>
+    <td><input type="text" value="${esc(r.funcao)}" oninput="setColabLista('${r.uid}','funcao',this.value)" placeholder="Função..." style="font-size:11px"></td>
+    <td class="td-c no-print"><button class="btn btn-danger btn-xs" onclick="remColabLista('${r.uid}')" title="Remover">✕</button></td>
+  </tr>`;
+}
+
+function renderColabMgmt(){
+  const data=getMesData(currentComp);
+  const cl=data.colab_lista||[];
+  const area=document.getElementById('rdg-colab-mgmt-area');
+  if(!area) return;
+  area.innerHTML=`<div class="rdg-colab-wrap" id="rdg-colab-wrap">
+    <div class="rdg-colab-hdr" onclick="document.getElementById('rdg-colab-wrap').classList.toggle('rdg-colab-open')">
+      <strong style="font-size:12px;color:#1B3A5C">👥 Colaboradores CIGAC</strong>
+      <span id="rdg-colab-count" style="font-size:11px;color:#6b7280;background:#E5E7EB;padding:2px 8px;border-radius:10px">${cl.length} colaboradores</span>
+      <div class="rdg-colab-acts">
+        <button class="btn btn-sm" onclick="addColabLista();event.stopPropagation()">+ Adicionar</button>
+        <button class="btn btn-sm btn-outline" onclick="importarColabListaAnt();event.stopPropagation()">⬆ Importar mês anterior</button>
+      </div>
+      <span style="margin-left:auto;font-size:11px;color:#6b7280">▼ expandir / recolher</span>
+    </div>
+    <div class="rdg-colab-body">
+      <div style="overflow-x:auto;max-height:340px;overflow-y:auto;margin-top:4px">
+        <table class="contratos-tbl" style="min-width:700px">
+          <thead><tr>
+            <th style="width:38px;text-align:center">#</th>
+            <th>Nome do Colaborador</th>
+            <th style="width:260px">Departamento</th>
+            <th style="width:200px">Função</th>
+            <th style="width:38px" class="no-print"></th>
+          </tr></thead>
+          <tbody id="rdg-colab-tbody">${cl.map((r,i)=>buildColabListaRow(r,i)).join('')}</tbody>
+        </table>
+      </div>
+      <p style="font-size:10px;color:#9CA3AF;margin:6px 0 0;padding:0 4px">Dados armazenados localmente. Use "Importar mês anterior" para copiar a lista do mês precedente.</p>
+    </div>
+  </div>`;
+}
+
+function setColabLista(uid,field,val){
+  const data=getMesData(currentComp);
+  const c=(data.colab_lista||[]).find(x=>x.uid===uid);
+  if(c){c[field]=val;salvar();}
+}
+
+function remColabLista(uid){
+  const data=getMesData(currentComp);
+  data.colab_lista=(data.colab_lista||[]).filter(x=>x.uid!==uid);
+  salvar();
+  const row=document.getElementById('clr-'+uid);
+  if(row) row.remove();
+  const cnt=document.getElementById('rdg-colab-count');
+  if(cnt) cnt.textContent=data.colab_lista.length+' colaboradores';
+  document.querySelectorAll('#rdg-colab-tbody tr').forEach((tr,i)=>{
+    const td=tr.querySelector('td:first-child');
+    if(td) td.textContent=i+1;
+  });
+}
+
+function addColabLista(){
+  const data=getMesData(currentComp);
+  if(!data.colab_lista) data.colab_lista=[];
+  const uid='c'+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+  const r={uid,nome:'',dept:'',funcao:''};
+  data.colab_lista.push(r);
+  salvar();
+  const tbody=document.getElementById('rdg-colab-tbody');
+  if(tbody){
+    const tmp=document.createElement('tbody');
+    tmp.innerHTML=buildColabListaRow(r,data.colab_lista.length-1);
+    tbody.appendChild(tmp.firstChild);
+    const scrollEl=tbody.closest('[style*="max-height"]');
+    if(scrollEl) scrollEl.scrollTop=scrollEl.scrollHeight;
+  }
+  const cnt=document.getElementById('rdg-colab-count');
+  if(cnt) cnt.textContent=data.colab_lista.length+' colaboradores';
+}
+
+function importarColabListaAnt(){
+  const allComps=Object.keys(state).filter(k=>/^\d{4}-\d{2}$/.test(k)).sort();
+  const idx=allComps.indexOf(currentComp);
+  if(idx<=0){alert('Não há competência anterior com dados.');return;}
+  const prevComp=allComps[idx-1];
+  const prevData=state[prevComp];
+  if(!prevData?.colab_lista?.length){alert('Mês anterior não possui lista de colaboradores.');return;}
+  if(!confirm('Importar '+prevData.colab_lista.length+' colaboradores de '+prevComp+'?\nOs dados atuais serão substituídos.')){return;}
+  const data=getMesData(currentComp);
+  data.colab_lista=prevData.colab_lista.map(c=>({
+    uid:'c'+Date.now().toString(36)+Math.random().toString(36).slice(2,7),
+    nome:c.nome||'',dept:c.dept||'',funcao:c.funcao||''
+  }));
+  salvar();
+  renderRelatorio();
+}
+
+/* =====================================================================
    TAB: RELATÓRIO RDG
 ===================================================================== */
 function renderRelatorio(){
@@ -1784,6 +1902,7 @@ function renderRelatorio(){
   const totalPJ=colabs.reduce((a,c)=>a+(c.pj||0),0);
   const totalColab=totalCLT+totalPJ;
   const iqual=data.iqual||{};
+  const colabLista=data.colab_lista||[];
 
   /* Descrições de categorias */
   const CAT_DESC={
@@ -1819,6 +1938,19 @@ function renderRelatorio(){
       +'<h3 class="rdg-cat-title">'+cat+'</h3>'
       +(desc?'<p class="rdg-p">'+desc+'</p>':'')
       +itensHtml
+      +(cat==='Folha de Pagamento CIGAC'&&colabLista.length
+        ?'<p class="rdg-p" style="margin-top:12px;font-style:italic">Segue a relação dos colaboradores vinculados ao CIGAC na competência '+mesRef+':</p>'
+         +'<table class="rdg-table"><thead><tr>'
+         +'<th style="width:36px;text-align:center">Nº</th><th>Nome do Colaborador</th><th>Departamento</th><th>Função</th>'
+         +'</tr></thead><tbody>'
+         +colabLista.map((c,i)=>'<tr>'
+            +'<td style="text-align:center;font-size:10px;padding:3px 4px">'+(i+1)+'</td>'
+            +'<td style="font-size:10px;padding:3px 6px">'+c.nome+'</td>'
+            +'<td style="font-size:10px;padding:3px 6px">'+c.dept+'</td>'
+            +'<td style="font-size:10px;padding:3px 6px">'+c.funcao+'</td>'
+            +'</tr>').join('')
+         +'</tbody></table>'
+        :'')
       +'<div class="rdg-cat-total">Subtotal '+cat+': <strong>'+R$(catTot)+'</strong></div>'
       +'</div>';
   }
@@ -1863,6 +1995,7 @@ function renderRelatorio(){
 
   /* Render */
   document.getElementById('panel-relatorio').innerHTML=`
+  <div id="rdg-colab-mgmt-area" class="no-print"></div>
   <div class="rdg-toolbar no-print">
     <button class="btn btn-primary" onclick="window.print()">🖨 Imprimir / Salvar PDF</button>
     <span class="text-muted" style="font-size:12px">Competência: <strong>${mesRef}</strong> &nbsp;|&nbsp; Pagamento: <strong>${mesPagto}</strong></span>
@@ -2005,6 +2138,7 @@ function renderRelatorio(){
     </div>
 
   </div>`;
+  renderColabMgmt();
 }
 
 /* =====================================================================

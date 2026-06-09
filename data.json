@@ -313,7 +313,9 @@
           "cnpj": "40.289.134/0001-99",
           "ctipo": "Planilha",
           "cnum": "",
-          "valor": 203686.59
+          "valor": 203686.59,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/b8xwx10.pdf",
+          "pdfNome": "ID 18 PROVISÃO DE VERBAS PROVISÓRIAS- 203.686,59.pdf"
         },
         {
           "uid": "myvjx0f",

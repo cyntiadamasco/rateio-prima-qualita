@@ -1410,6 +1410,7 @@ function remDesp(duid){
   const cached=_pdfBlobCache.get(duid);
   if(cached){URL.revokeObjectURL(cached.url);_pdfBlobCache.delete(duid);}
   data.despesas=data.despesas.filter(d=>d.uid!==duid);
+  data.despesas.forEach((d,i)=>{d.id=String(i+1);});
   renderDespesas();
 }
 

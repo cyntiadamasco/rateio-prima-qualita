@@ -491,7 +491,9 @@
           "cnpj": "35.788.642/0001-81",
           "ctipo": "NF",
           "cnum": "343",
-          "valor": 35358.21
+          "valor": 35358.21,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/gi64fln.pdf",
+          "pdfNome": "ID 32 PROMEDICAL - NF 343 - 35.358,21.pdf"
         },
         {
           "uid": "bv86bhv",

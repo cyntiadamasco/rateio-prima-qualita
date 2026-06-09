@@ -661,7 +661,18 @@
           "saq_esp": 48180,
           "saq_pri": 46427
         }
-      }
+      },
+      "contratos_ativos": [
+        {
+          "uid": "cmq64f0qy3gg3g",
+          "objeto": "",
+          "favorecido": "",
+          "cnpj": "",
+          "nrProcesso": "",
+          "nrContrato": ""
+        }
+      ],
+      "contratos_obs": ""
     },
     "2026-07": {
       "colaboradores": [
@@ -848,7 +859,9 @@
           "saq_esp": 0,
           "saq_pri": 0
         }
-      }
+      },
+      "contratos_ativos": [],
+      "contratos_obs": ""
     },
     "2026-06": {
       "colaboradores": [
@@ -1035,7 +1048,9 @@
           "saq_esp": 0,
           "saq_pri": 0
         }
-      }
+      },
+      "contratos_ativos": [],
+      "contratos_obs": ""
     },
     "customContratos": []
   },

@@ -459,7 +459,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   <button class="tab-btn" onclick="abrirTab('despesas',this)">📋 Despesas</button>
   <button class="tab-btn" onclick="abrirTab('demonstrativo',this)">📊 Demonstrativo</button>
   <button class="tab-btn" onclick="abrirTab('memorias',this)">📄 Memórias de Cálculo</button>
-  <button class="tab-btn" onclick="abrirTab('graficos',this)">📈 Gráficos</button>
+  <button class="tab-btn" onclick="abrirTab('graficos',this)">📊 Dashboard</button>
   <button class="tab-btn" onclick="abrirTab('analise',this)">🔍 Análise por CG</button>
   <button class="tab-btn" onclick="abrirTab('validacao',this)">✅ Validação 3%</button>
 </nav>
@@ -1523,10 +1523,9 @@ function renderMemorias(){
 }
 
 /* =====================================================================
-   TAB: GRÁFICOS
+   TAB: DASHBOARD
 ===================================================================== */
 function renderGraficos(){
-  // Destroy previous charts
   Object.values(charts).forEach(c=>{try{c.destroy()}catch(e){}});
   charts={};
 
@@ -1534,44 +1533,78 @@ function renderGraficos(){
   const pctMap=getPctMap(currentComp);
   const totalMes=totalDespesas(currentComp);
   const cgTotals=CONTRATOS.map(ct=>data.despesas.reduce((a,d)=>a+(d.valor||0)*(pctMap[ct.id]||0),0));
-
-  // Historical totals
-  const compsMesAtual=currentComp;
   const allComps=Object.keys(state).filter(k=>/^\d{4}-\d{2}$/.test(k)).sort();
   const histTotals=allComps.map(c=>totalDespesas(c));
+  const catTotals=CATEGORIAS.map(cat=>data.despesas.filter(d=>d.cat===cat).reduce((a,d)=>a+(d.valor||0),0)).filter(v=>v>0);
+  const catNomes=CATEGORIAS.filter(cat=>data.despesas.filter(d=>d.cat===cat).reduce((a,d)=>a+(d.valor||0),0)>0).map(c=>c.length>30?c.substring(0,28)+'…':c);
 
-  // Category totals
-  const catTotals=CATEGORIAS.map(cat=>
-    data.despesas.filter(d=>d.cat===cat).reduce((a,d)=>a+(d.valor||0),0)
-  ).filter(v=>v>0);
-  const catNomes=CATEGORIAS.filter(cat=>
-    data.despesas.filter(d=>d.cat===cat).reduce((a,d)=>a+(d.valor||0),0)>0
-  ).map(c=>c.length>30?c.substring(0,28)+'…':c);
+  // Critério Quantitativo %
+  const quantPcts=CONTRATOS.map(ct=>(pctMap[ct.id]||0)*100);
+  const maxQIdx=CONTRATOS.reduce((a,c,i)=>quantPcts[i]>quantPcts[a]?i:a,0);
+
+  // Indicadores Qualitativos – Representatividade
+  const iqual=data.iqual||{};
+  const totaisQ={};
+  INDICADORES_QUAL.forEach(ind=>{
+    totaisQ[ind.id]=CONTRATOS.reduce((s,cg)=>s+((iqual[ind.id]||{})[cg.id]||0),0);
+  });
+  const hasQualData=INDICADORES_QUAL.some(ind=>totaisQ[ind.id]>0);
+  const reprPcts=CONTRATOS.map(cg=>{
+    const p8=INDICADORES_QUAL.map(ind=>{
+      const qtd=(iqual[ind.id]||{})[cg.id]||0;
+      return totaisQ[ind.id]>0?qtd/totaisQ[ind.id]:0;
+    });
+    return p8.reduce((a,b)=>a+b,0)/INDICADORES_QUAL.length*100;
+  });
 
   document.getElementById('panel-graficos').innerHTML=`
   <div class="stats-grid">
     <div class="stat-card"><div class="stat-val">${R$(totalMes)}</div><div class="stat-lbl">Total – ${compLabel(currentComp)}</div></div>
-    <div class="stat-card s-teal"><div class="stat-val">${fmtPct(pctMap[CONTRATOS.reduce((a,c,i)=>pctMap[c.id]>pctMap[CONTRATOS[a].id]?i:a,0).toString()]?pctMap[CONTRATOS.reduce((a,c,i)=>pctMap[c.id]>(pctMap[CONTRATOS[a]?CONTRATOS[a].id:'']||0)?i:a,0)]*100:0)}</div><div class="stat-lbl">Maior % (${CONTRATOS.reduce((a,c,i)=>pctMap[c.id]>(pctMap[CONTRATOS[a].id]||0)?i:a,0)>=0?CONTRATOS[CONTRATOS.reduce((a,c,i)=>pctMap[c.id]>(pctMap[CONTRATOS[a].id]||0)?i:a,0)].sigla:'–'})</div></div>
+    <div class="stat-card s-teal"><div class="stat-val">${fmtPct(quantPcts[maxQIdx])}</div><div class="stat-lbl">Maior % Quant. (${CONTRATOS[maxQIdx].sigla})</div></div>
     <div class="stat-card s-warn"><div class="stat-val">${allComps.length}</div><div class="stat-lbl">Meses com dados</div></div>
   </div>
   <div class="grid-2">
-    <div class="card">
-      <div class="card-hdr"><div class="card-title">Distribuição por CG – ${compLabel(currentComp)}</div></div>
-      <div class="chart-box"><canvas id="ch-donut"></canvas></div>
-    </div>
-    <div class="card">
-      <div class="card-hdr"><div class="card-title">Distribuição por Categoria – ${compLabel(currentComp)}</div></div>
-      <div class="chart-box"><canvas id="ch-cat"></canvas></div>
-    </div>
+    <div class="card"><div class="card-hdr"><div class="card-title">Distribuição por CG – ${compLabel(currentComp)}</div></div><div class="chart-box"><canvas id="ch-donut"></canvas></div></div>
+    <div class="card"><div class="card-hdr"><div class="card-title">Distribuição por Categoria – ${compLabel(currentComp)}</div></div><div class="chart-box"><canvas id="ch-cat"></canvas></div></div>
+  </div>
+  <div class="card"><div class="card-hdr"><div class="card-title">Total Rateado por Mês (histórico)</div></div><div class="chart-box" style="height:220px"><canvas id="ch-hist"></canvas></div></div>
+  <div class="card"><div class="card-hdr"><div class="card-title">Valor por CG – ${compLabel(currentComp)}</div></div><div class="chart-box" style="height:220px"><canvas id="ch-cg"></canvas></div></div>
+  ${hasQualData?`
+  <div style="margin:14px 0 6px;padding:10px 0 6px;border-top:2px solid var(--azul)">
+    <h3 style="margin:0;font-size:13px;color:var(--azul);font-weight:700">📈 Análise Qualitativa – ${compLabel(currentComp)}</h3>
+  </div>
+  <div class="grid-2">
+    <div class="card"><div class="card-hdr"><div class="card-title">Representatividade Qualitativa por CG</div></div><div class="chart-box" style="height:260px"><canvas id="ch-repr"></canvas></div></div>
+    <div class="card"><div class="card-hdr"><div class="card-title">🔗 Correlação: % Quantitativo × % Representatividade</div></div><div class="chart-box" style="height:260px"><canvas id="ch-scatter"></canvas></div></div>
   </div>
   <div class="card">
-    <div class="card-hdr"><div class="card-title">Total Rateado por Mês (histórico)</div></div>
-    <div class="chart-box" style="height:220px"><canvas id="ch-hist"></canvas></div>
+    <div class="card-hdr"><div class="card-title">⚖ Comparativo: % Critério Quantitativo vs % Representatividade Qualitativa por CG</div></div>
+    <div class="chart-box" style="height:270px"><canvas id="ch-compare"></canvas></div>
   </div>
   <div class="card">
-    <div class="card-hdr"><div class="card-title">Valor por CG – ${compLabel(currentComp)}</div></div>
-    <div class="chart-box" style="height:220px"><canvas id="ch-cg"></canvas></div>
-  </div>`;
+    <div class="card-hdr"><div class="card-title">📋 Análise de Alinhamento por CG</div></div>
+    <div class="tbl-wrap"><table>
+      <thead><tr>
+        <th style="text-align:left;padding:7px 10px;font-size:11px;background:#1B3A5C;color:#fff;min-width:260px">Contrato de Gestão</th>
+        <th class="th-azul" style="text-align:center;width:120px;font-size:11px">% Quantitativo</th>
+        <th class="th-azul" style="text-align:center;width:140px;font-size:11px">% Representatividade</th>
+        <th class="th-azul" style="text-align:center;width:100px;font-size:11px">Delta (pp)</th>
+        <th class="th-azul" style="text-align:center;width:170px;font-size:11px">Alinhamento</th>
+      </tr></thead>
+      <tbody>${CONTRATOS.map((cg,i)=>{
+        const q=quantPcts[i],r=reprPcts[i],d=r-q;
+        const [txt,cls]=Math.abs(d)<2?['≈ Alinhado','color:#059669']:d>0?['↑ Qualit. superior','color:#7C3AED']:['↓ Quant. superior','color:#D97706'];
+        return `<tr>
+          <td style="font-size:11px;padding:5px 10px"><span class="dot" style="background:${cg.cor}"></span>${cg.nome}</td>
+          <td class="td-c"><span class="pct-pill">${fmtPct(q)}</span></td>
+          <td class="td-c"><span class="pct-pill" style="background:var(--teal);color:#fff">${fmtPct(r)}</span></td>
+          <td class="td-c" style="font-weight:700;font-size:11px;${d>=0?'color:#059669':'color:#DC2626'}">${d>=0?'+':''}${d.toFixed(2).replace('.',',')} pp</td>
+          <td class="td-c" style="font-size:11px;font-weight:600;${cls}">${txt}</td>
+        </tr>`;
+      }).join('')}</tbody>
+    </table></div>
+  </div>
+  `:`<div class="alert alert-info" style="margin-top:8px"><span>ℹ</span><div>Preencha os dados na aba <strong>📈 Indicadores Qualitativos</strong> para visualizar a análise qualitativa e de correlação.</div></div>`}`;
 
   setTimeout(()=>{
     try{
@@ -1596,6 +1629,73 @@ function renderGraficos(){
         options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>R$(v)}}}}
       });
     }catch(e){console.error(e)}
+    if(hasQualData){
+      try{
+        charts.repr=new Chart(document.getElementById('ch-repr'),{
+          type:'bar',
+          data:{labels:CONTRATOS.map(c=>c.sigla),datasets:[{label:'% Representatividade',data:reprPcts,backgroundColor:CONTRATOS.map(c=>c.cor),borderRadius:5}]},
+          options:{
+            responsive:true,maintainAspectRatio:false,
+            plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>' '+fmtPct(ctx.raw)}}},
+            scales:{y:{ticks:{callback:v=>v.toFixed(1)+'%'},min:0}}
+          }
+        });
+        charts.compare=new Chart(document.getElementById('ch-compare'),{
+          type:'bar',
+          data:{labels:CONTRATOS.map(c=>c.sigla),datasets:[
+            {label:'% Critério Quantitativo',data:quantPcts,backgroundColor:'rgba(27,58,92,.8)',borderRadius:4},
+            {label:'% Representatividade Qualitativa',data:reprPcts,backgroundColor:'rgba(0,168,123,.8)',borderRadius:4}
+          ]},
+          options:{
+            responsive:true,maintainAspectRatio:false,
+            plugins:{legend:{position:'top',labels:{font:{size:11},boxWidth:12}}},
+            scales:{y:{ticks:{callback:v=>v.toFixed(1)+'%'},min:0}}
+          }
+        });
+        const maxXY=Math.max(...quantPcts,...reprPcts)*1.15||30;
+        charts.scatter=new Chart(document.getElementById('ch-scatter'),{
+          data:{datasets:[
+            {
+              type:'scatter',
+              label:'CGs',
+              data:CONTRATOS.map((ct,i)=>({x:quantPcts[i],y:reprPcts[i]})),
+              pointBackgroundColor:CONTRATOS.map(c=>c.cor),
+              pointBorderColor:'rgba(0,0,0,.15)',
+              pointBorderWidth:1,
+              pointRadius:9,
+              pointHoverRadius:12
+            },
+            {
+              type:'line',
+              label:'Alinhamento perfeito',
+              data:[{x:0,y:0},{x:maxXY,y:maxXY}],
+              borderColor:'rgba(150,150,150,.5)',
+              borderDash:[5,5],
+              pointRadius:0,
+              fill:false,
+              tension:0
+            }
+          ]},
+          options:{
+            responsive:true,maintainAspectRatio:false,
+            plugins:{
+              legend:{display:false},
+              tooltip:{
+                filter:ctx=>ctx.datasetIndex===0,
+                callbacks:{label:ctx=>{
+                  const ct=CONTRATOS[ctx.dataIndex];
+                  return [ct.sigla,'Quant.: '+fmtPct(ctx.raw.x),'Repres.: '+fmtPct(ctx.raw.y)];
+                }}
+              }
+            },
+            scales:{
+              x:{type:'linear',title:{display:true,text:'% Critério Quantitativo',font:{size:11}},ticks:{callback:v=>v.toFixed(1)+'%'},min:0,max:maxXY},
+              y:{type:'linear',title:{display:true,text:'% Representatividade',font:{size:11}},ticks:{callback:v=>v.toFixed(1)+'%'},min:0,max:maxXY}
+            }
+          }
+        });
+      }catch(e){console.error('Qualitative charts error:',e)}
+    }
   },50);
 }
 

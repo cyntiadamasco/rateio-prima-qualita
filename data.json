@@ -742,6 +742,14 @@
           "cnpj": " 05.490.840/0019-22 ",
           "nrProcesso": "139/2023",
           "nrContrato": "-----"
+        },
+        {
+          "uid": "cmq64xs7nl2eap",
+          "objeto": "",
+          "favorecido": "",
+          "cnpj": "",
+          "nrProcesso": "",
+          "nrContrato": ""
         }
       ],
       "contratos_obs": ""

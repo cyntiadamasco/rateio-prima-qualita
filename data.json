@@ -670,6 +670,14 @@
           "cnpj": " 18.464.526/0001-98 ",
           "nrProcesso": "117/2024",
           "nrContrato": "001/2024"
+        },
+        {
+          "uid": "cmq64pbw9esb9z",
+          "objeto": "",
+          "favorecido": "",
+          "cnpj": "",
+          "nrProcesso": "",
+          "nrContrato": ""
         }
       ],
       "contratos_obs": ""

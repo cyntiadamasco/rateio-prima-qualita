@@ -400,6 +400,12 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 .modal-input{width:100%;border:1px solid var(--border);border-radius:6px;padding:9px 12px;font-size:12px;box-sizing:border-box;margin-bottom:10px;font-family:monospace}
 .modal-acts{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}
 
+
+/* PDF attachment buttons */
+.btn-pdf{background:none;border:1px solid transparent;cursor:pointer;padding:2px 6px;border-radius:5px;font-size:14px;transition:all .15s;color:#9CA3AF;line-height:1.4;vertical-align:middle}
+.btn-pdf:hover{background:rgba(0,168,123,.1);border-color:var(--teal);color:var(--teal)}
+.btn-pdf.has-pdf{color:var(--teal)}
+
 </style>
 </head>
 <body>
@@ -895,6 +901,7 @@ function setColab(idx, field, val){
    TAB: DESPESAS
 ===================================================================== */
 function renderDespesas(){
+  if(!_anexosCacheLoaded){carregarListaAnexos().then(()=>renderDespesas());return;}
   const data=getMesData(currentComp);
   const pctMap=getPctMap(currentComp);
   const total=data.despesas.reduce((a,d)=>a+(d.valor||0),0);
@@ -933,7 +940,7 @@ function renderDespesas(){
             <th style="width:100px">Comprov.</th>
             <th style="width:80px" class="th-r">Valor (R$)</th>
             <th style="width:130px" class="th-r">Total Rateado</th>
-            <th style="width:60px" class="th-c no-print">Ações</th>
+            <th style="width:82px" class="th-c no-print">Ações</th>
           </tr>
         </thead>
         <tbody id="desp-body">${rows}</tbody>
@@ -964,7 +971,8 @@ function buildDespesaRow(d, i, pctMap, catOpts, tipoOpts){
     <td class="td-edit"><input value="${esc(compStr)}" onchange="updDesp('${d.uid}','comp',this.value)" placeholder="NF 123"></td>
     <td class="td-edit td-r"><input type="number" min="0" step="0.01" style="text-align:right;width:110px" value="${d.valor||0}" onchange="updDesp('${d.uid}','valor',this.value)" oninput="updDespVal('${d.uid}',this.value)"></td>
     <td class="td-r text-muted">${R$(totalRateado)}</td>
-    <td class="td-c no-print">
+    <td class="td-c no-print" style="white-space:nowrap">
+      <button id="anexo-btn-${d.uid}" class="btn-pdf${_anexosCache.has(d.uid)?' has-pdf':''}" onclick="verOuAnexarPDF('${d.uid}')" title="${_anexosCache.has(d.uid)?esc(_anexosCache.get(d.uid).nome):'Anexar comprovante (PDF)'}">${_anexosCache.has(d.uid)?'📄':'📎'}</button>
       <button class="btn btn-danger btn-xs" onclick="remDesp('${d.uid}')" title="Remover">✕</button>
     </td>
   </tr>`;
@@ -983,6 +991,7 @@ function addDespesa(){
 function remDesp(duid){
   const data=getMesData(currentComp);
   data.despesas=data.despesas.filter(d=>d.uid!==duid);
+  _excluirAnexoSilencioso(duid);
   renderDespesas();
 }
 
@@ -1842,6 +1851,97 @@ function removerCG(id){
   if(tab){ renderTab(tab.getAttribute('data-tab')||'criterio'); }
 }
 /* =====================================================================
+   ANEXOS – comprovantes PDF (IndexedDB)
+===================================================================== */
+let _anexosDB=null,_anexosCacheLoaded=false;
+const _anexosCache=new Map();
+function _abrirAnexosDB(){
+  return new Promise((res,rej)=>{
+    const r=indexedDB.open('pq_rateio_anexos',1);
+    r.onupgradeneeded=e=>e.target.result.createObjectStore('anexos',{keyPath:'uid'});
+    r.onsuccess=e=>{_anexosDB=e.target.result;res(_anexosDB);};
+    r.onerror=()=>rej(r.error);
+  });
+}
+function _db(){return _anexosDB?Promise.resolve(_anexosDB):_abrirAnexosDB();}
+function carregarListaAnexos(){
+  return _db().then(db=>new Promise((res,rej)=>{
+    const req=db.transaction('anexos','readonly').objectStore('anexos').getAll();
+    req.onsuccess=()=>{
+      _anexosCache.clear();
+      req.result.forEach(a=>_anexosCache.set(a.uid,{nome:a.nome}));
+      _anexosCacheLoaded=true;
+      res();
+    };
+    req.onerror=()=>rej(req.error);
+  }));
+}
+function anexarPDF(uid){
+  const inp=document.createElement('input');
+  inp.type='file';inp.accept='.pdf,application/pdf';
+  inp.onchange=()=>{
+    const file=inp.files[0];if(!file)return;
+    if(file.size>20*1024*1024){alert('O arquivo deve ter no máximo 20 MB.');return;}
+    _db().then(db=>new Promise((res,rej)=>{
+      const tx=db.transaction('anexos','readwrite');
+      tx.objectStore('anexos').put({uid,nome:file.name,tipo:file.type,data:file});
+      tx.oncomplete=()=>{_anexosCache.set(uid,{nome:file.name});_atualizarBtnAnexo(uid);res();};
+      tx.onerror=()=>rej(tx.error);
+    }));
+  };
+  inp.click();
+}
+function verOuAnexarPDF(uid){
+  if(_anexosCache.has(uid)){verAnexo(uid);}else{anexarPDF(uid);}
+}
+function verAnexo(uid){
+  _db().then(db=>new Promise((res,rej)=>{
+    const req=db.transaction('anexos','readonly').objectStore('anexos').get(uid);
+    req.onsuccess=()=>{
+      const a=req.result;if(!a){res();return;}
+      const url=URL.createObjectURL(a.data);
+      document.getElementById('modal-pdf-frame').src=url;
+      document.getElementById('modal-pdf-nome').textContent=a.nome;
+      document.getElementById('modal-pdf-uid').value=uid;
+      document.getElementById('modal-pdf-url').value=url;
+      document.getElementById('modal-pdf').style.display='flex';
+      res();
+    };
+    req.onerror=()=>rej(req.error);
+  }));
+}
+function fecharModalPDF(){
+  const url=document.getElementById('modal-pdf-url').value;
+  if(url){URL.revokeObjectURL(url);document.getElementById('modal-pdf-url').value='';}
+  document.getElementById('modal-pdf-frame').src='';
+  document.getElementById('modal-pdf').style.display='none';
+}
+function excluirAnexo(){
+  const uid=document.getElementById('modal-pdf-uid').value;
+  if(!uid||!confirm('Remover o comprovante anexado?'))return;
+  _db().then(db=>{
+    const tx=db.transaction('anexos','readwrite');
+    tx.objectStore('anexos').delete(uid);
+    tx.oncomplete=()=>{_anexosCache.delete(uid);_atualizarBtnAnexo(uid);};
+  });
+  fecharModalPDF();
+}
+function _excluirAnexoSilencioso(uid){
+  if(!_anexosDB||!_anexosCache.has(uid))return;
+  const tx=_anexosDB.transaction('anexos','readwrite');
+  tx.objectStore('anexos').delete(uid);
+  tx.oncomplete=()=>_anexosCache.delete(uid);
+}
+function _atualizarBtnAnexo(uid){
+  const btn=document.getElementById('anexo-btn-'+uid);
+  if(!btn)return;
+  const has=_anexosCache.has(uid);
+  btn.textContent=has?'📄':'📎';
+  btn.className='btn-pdf'+(has?' has-pdf':'');
+  btn.title=has?_anexosCache.get(uid).nome:'Anexar comprovante (PDF)';
+}
+
+/* =====================================================================
    INICIALIZAÇÃO
 ===================================================================== */
 function init(){
@@ -1926,5 +2026,20 @@ init();
     </div>
   </div>
 </div>
+
+<div id="modal-pdf" class="modal-overlay" style="display:none" onclick="if(event.target===this)fecharModalPDF()">
+  <div style="background:#fff;border-radius:14px;width:92vw;max-width:1000px;height:88vh;display:flex;flex-direction:column;box-shadow:0 24px 70px rgba(0,0,0,.4);overflow:hidden">
+    <div style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-bottom:1px solid #E5E7EB;flex-shrink:0;background:#F8FAFC">
+      <span style="font-size:20px">&#x1F4C4;</span>
+      <span id="modal-pdf-nome" style="font-size:13px;font-weight:700;color:#0F2C47;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Comprovante</span>
+      <button class="btn btn-outline btn-sm" onclick="excluirAnexo()" style="color:#DC2626;border-color:#DC2626">&#x1F5D1; Remover</button>
+      <button class="btn btn-outline btn-sm" onclick="fecharModalPDF()">&#x2715; Fechar</button>
+    </div>
+    <iframe id="modal-pdf-frame" style="flex:1;border:none;width:100%" src=""></iframe>
+    <input type="hidden" id="modal-pdf-uid">
+    <input type="hidden" id="modal-pdf-url">
+  </div>
+</div>
+
 </body>
 </html>

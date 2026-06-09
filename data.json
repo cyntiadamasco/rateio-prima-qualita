@@ -2810,8 +2810,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 0,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/sdnq2ou.pdf",
-          "pdfNome": "ID 22 PRODUTIVA - NF 2304- 17.080,00.pdf"
+          "pdfUrl": null,
+          "pdfNome": null
         },
         {
           "uid": "96s1vdw",

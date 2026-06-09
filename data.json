@@ -441,7 +441,9 @@
           "cnpj": "23.034.181/0001-72",
           "ctipo": "NF",
           "cnum": "330",
-          "valor": 118697
+          "valor": 118697,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/a0yt89f.pdf",
+          "pdfNome": "ID 28 A4PM ANALYTICS - NF 330 - 118.697,00.pdf"
         },
         {
           "uid": "ai6uk4b",

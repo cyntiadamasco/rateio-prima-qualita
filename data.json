@@ -694,6 +694,14 @@
           "cnpj": " 43.485.758/0001-70 ",
           "nrProcesso": "117/2024",
           "nrContrato": "004/2024"
+        },
+        {
+          "uid": "cmq64rqdifr7z4",
+          "objeto": "",
+          "favorecido": "",
+          "cnpj": "",
+          "nrProcesso": "",
+          "nrContrato": ""
         }
       ],
       "contratos_obs": ""

@@ -710,6 +710,14 @@
           "cnpj": " 33.192.856/0001-65 ",
           "nrProcesso": "075/2023",
           "nrContrato": "013/2023"
+        },
+        {
+          "uid": "cmq64t387yxbqf",
+          "objeto": "",
+          "favorecido": "",
+          "cnpj": "",
+          "nrProcesso": "",
+          "nrContrato": ""
         }
       ],
       "contratos_obs": ""

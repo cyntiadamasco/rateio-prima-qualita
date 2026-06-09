@@ -758,6 +758,14 @@
           "cnpj": " 19.196.342/0001-57 ",
           "nrProcesso": "204/2023",
           "nrContrato": "001/2024"
+        },
+        {
+          "uid": "cmq6516npei0l3",
+          "objeto": "",
+          "favorecido": "",
+          "cnpj": "",
+          "nrProcesso": "",
+          "nrContrato": ""
         }
       ],
       "contratos_obs": ""

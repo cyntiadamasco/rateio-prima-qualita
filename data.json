@@ -222,7 +222,9 @@
           "cnpj": "16.727.386/0001-86",
           "ctipo": "Boleto",
           "cnum": "",
-          "valor": 1138.7
+          "valor": 1138.7,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/1jbhli4.pdf",
+          "pdfNome": "ID 12 CBD BILHETE DIGITAL- NF 4480 - 331,80.pdf"
         },
         {
           "uid": "i407dpj",

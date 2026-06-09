@@ -785,11 +785,19 @@
         },
         {
           "uid": "cmq654yvp9r2dx",
-          "objeto": "Seguro de Vida Colaboradores CI\n",
+          "objeto": "Seguro de Vida Colaboradores CIGAC\n",
           "favorecido": " Unimed Seguradora S/A ",
           "cnpj": " 10.414.185/0001-09 ",
           "nrProcesso": "082/2021",
           "nrContrato": "APÓLICE"
+        },
+        {
+          "uid": "cmq656su714xdx",
+          "objeto": "",
+          "favorecido": "",
+          "cnpj": "",
+          "nrProcesso": "",
+          "nrContrato": ""
         }
       ],
       "contratos_obs": ""

@@ -726,6 +726,14 @@
           "cnpj": " 24.783.564/0001-06 ",
           "nrProcesso": "159/2023",
           "nrContrato": "-----"
+        },
+        {
+          "uid": "cmq64vsoevdavf",
+          "objeto": "",
+          "favorecido": "",
+          "cnpj": "",
+          "nrProcesso": "",
+          "nrContrato": ""
         }
       ],
       "contratos_obs": ""

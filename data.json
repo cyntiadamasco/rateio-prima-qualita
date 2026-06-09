@@ -96,7 +96,9 @@
           "cnpj": "40.101.757/0001-96",
           "ctipo": "NF",
           "cnum": "7",
-          "valor": 11000
+          "valor": 11000,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/uiott9b.pdf",
+          "pdfNome": "ID 02 E SIMOES SOCIEDADE- NF 07- 11.000,00.pdf"
         },
         {
           "uid": "6x9k0nu",

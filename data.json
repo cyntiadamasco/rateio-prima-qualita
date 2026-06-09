@@ -504,7 +504,9 @@
           "cnpj": "11.967.651/0001-71",
           "ctipo": "NF",
           "cnum": "60510001",
-          "valor": 628.32
+          "valor": 628.32,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/bv86bhv.pdf",
+          "pdfNome": "ID 33 RODOLFO LUCAS- NF 0001 - 628,32.pdf"
         },
         {
           "uid": "8znuhcx",

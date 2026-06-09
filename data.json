@@ -515,7 +515,9 @@
           "cnpj": "50.558.513/0001-90",
           "ctipo": "NF",
           "cnum": "273",
-          "valor": 1373.72
+          "valor": 1373.72,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/8znuhcx.pdf",
+          "pdfNome": "ID 34 ICM MEDICINA- NF 273 - 1.373,72.pdf"
         },
         {
           "uid": "kmckhd7",

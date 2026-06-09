@@ -404,7 +404,9 @@
           "cnpj": "36.462.778/0001-60",
           "ctipo": "NF",
           "cnum": "557137",
-          "valor": 2809.45
+          "valor": 2809.45,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/owa4bcd.pdf",
+          "pdfNome": "ID 25 ALTERDATA - NF 57137 -2.809,45.pdf"
         },
         {
           "uid": "2tw6kno",

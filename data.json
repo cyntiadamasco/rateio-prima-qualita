@@ -101,19 +101,8 @@
           "pdfNome": "ID 02 E SIMOES SOCIEDADE- NF 07- 11.000,00.pdf"
         },
         {
-          "uid": "6x9k0nu",
-          "id": "3",
-          "cat": "Assessoria Jurídica",
-          "objeto": "Compliance jurídico",
-          "fav": "Gauche Advogados Associados",
-          "cnpj": "48.916.964/0001-00",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0
-        },
-        {
           "uid": "434pt9k",
-          "id": "4",
+          "id": "3",
           "cat": "Assessoria Jurídica",
           "objeto": "Suporte ao desenvolvimento de Ouvidoria e apoio aos processos de sindicância",
           "fav": "Gustavo Fróes Sociedade Individual de Advocacia",
@@ -126,7 +115,7 @@
         },
         {
           "uid": "ci2gqk9",
-          "id": "5",
+          "id": "4",
           "cat": "Auditorias Contábil, Fiscal e Financeira",
           "objeto": "Serviços de Auditoria Financeira e Contábil",
           "fav": "IGF Auditores e Consultores Independentes Sociedade Simples",
@@ -139,7 +128,7 @@
         },
         {
           "uid": "w2jxumf",
-          "id": "6",
+          "id": "5",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Folha de Pagamento Colaboradores CIGAC",
           "fav": "Projeto Social Cresce Comunidade - Prima Qualitá",
@@ -152,7 +141,7 @@
         },
         {
           "uid": "rci6tnh",
-          "id": "7",
+          "id": "6",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "INSS sobre Folha",
           "fav": "Instituto Nacional do Seguro Social - INSS",
@@ -165,7 +154,7 @@
         },
         {
           "uid": "9nxy4ld",
-          "id": "8",
+          "id": "7",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Fundo de Garantia por Tempo de Serviços (FGTS)",
           "fav": "Caixa Econômica Federal - FGTS",
@@ -178,7 +167,7 @@
         },
         {
           "uid": "uzdp3ua",
-          "id": "9",
+          "id": "8",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Imposto de Renda Pessoa Física - Folha",
           "fav": "Receita Federal",
@@ -191,7 +180,7 @@
         },
         {
           "uid": "awyy9vv",
-          "id": "10",
+          "id": "9",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Vale Refeição/Alimentação Colaboradores CIGAC",
           "fav": "Ticket Soluções HDFGT S/A",
@@ -204,7 +193,7 @@
         },
         {
           "uid": "nvhgaft",
-          "id": "11",
+          "id": "10",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Vale Transporte Colaboradores CIGAC",
           "fav": "Riopar Participações S/A",
@@ -217,7 +206,7 @@
         },
         {
           "uid": "1jbhli4",
-          "id": "11.1",
+          "id": "11",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Vale Transporte Colaboradores CIGAC",
           "fav": "Riopar Participações S/A",
@@ -411,19 +400,8 @@
           "pdfNome": "ID 25 ALTERDATA - NF 57137 -2.809,45.pdf"
         },
         {
-          "uid": "2tw6kno",
-          "id": "26",
-          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
-          "objeto": "Sistema Prestação de Contas",
-          "fav": "BR Gaap Corporation Tecnologia da Informação Ltda",
-          "cnpj": "16.106.178/0001-51",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0
-        },
-        {
           "uid": "ong8o00",
-          "id": "27",
+          "id": "26",
           "cat": "Melhoria Contínua",
           "objeto": "Serviço de Treinamento de Melhoria Contínua",
           "fav": "Six Treinamento Empresarial LTDA",
@@ -436,7 +414,7 @@
         },
         {
           "uid": "a0yt89f",
-          "id": "28",
+          "id": "27",
           "cat": "Locação de Mobiliário e Equipamentos de Informática (CIGAC)",
           "objeto": "Locação de mobiliários e equipamentos para o CIGAC",
           "fav": "A4PM Analytics For Public Management LTDA",
@@ -449,7 +427,7 @@
         },
         {
           "uid": "ai6uk4b",
-          "id": "29",
+          "id": "28",
           "cat": "Locação de Imóvel CIGAC e Despesas",
           "objeto": "Aluguel Imóvel Centro Integrado de Gestão e Assistência Compartilhada - CIGAC",
           "fav": "Riza Securitizadora S. A",
@@ -462,7 +440,7 @@
         },
         {
           "uid": "14v6c7m",
-          "id": "30",
+          "id": "29",
           "cat": "Locação de Imóvel CIGAC e Despesas",
           "objeto": "Condomínio e Taxas do Imóvel Centro Integrado de Gestão e Assistência Compartilhada - CIGAC",
           "fav": "Condomínio do São Gonçalo Shopping Rio",
@@ -474,19 +452,8 @@
           "pdfNome": "ID 30 CONDOMÍNIO SÃO GONÇALO SHOPPING- NF 3019- 44.239,40.pdf"
         },
         {
-          "uid": "0xpvmp1",
-          "id": "31",
-          "cat": "Locação de Veículo Apoio Administrativo",
-          "objeto": "Locação de veículos para atender a Central de logística",
-          "fav": "Promedical Serviços em Saude LTDA",
-          "cnpj": "35.788.642/0001-81",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0
-        },
-        {
           "uid": "gi64fln",
-          "id": "32",
+          "id": "30",
           "cat": "Locação de Veículo Apoio Administrativo",
           "objeto": "Locação de veículos para atender a CIGAC",
           "fav": "Promedical Serviços em Saude LTDA",
@@ -499,7 +466,7 @@
         },
         {
           "uid": "bv86bhv",
-          "id": "33",
+          "id": "31",
           "cat": "Despesas de materiais de expediente e afins",
           "objeto": "Fornecimento de Água Mineral",
           "fav": "Rodolfo Lucas Duarte",
@@ -512,7 +479,7 @@
         },
         {
           "uid": "8znuhcx",
-          "id": "34",
+          "id": "32",
           "cat": "Medicina do Trabalho",
           "objeto": "Serviços de SST",
           "fav": "ICM Medicina Ocupacional LTDA",
@@ -525,7 +492,7 @@
         },
         {
           "uid": "kmckhd7",
-          "id": "35",
+          "id": "33",
           "cat": "Seguro de Vida",
           "objeto": "Seguro de Vida Colaboradores CIGAC",
           "fav": "Unimed Seguradora S/A",
@@ -538,7 +505,7 @@
         },
         {
           "uid": "yyia2ay",
-          "id": "36",
+          "id": "34",
           "cat": "Plataforma Processo Seletivo",
           "objeto": "Licença de Uso Mensal do Software Vagas For Business",
           "fav": "Vagas Tecnologia de Software LTDA",
@@ -3876,5 +3843,5 @@
     },
     "customContratos": []
   },
-  "currentComp": "2026-06"
+  "currentComp": "2026-05"
 }

@@ -364,6 +364,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   .print-section{page-break-inside:avoid}
   .tbl-wrap{border:1px solid #ddd}
   .crit-print-hdr{display:flex!important}
+  .qual-print-hdr{display:flex!important}
   .analise-print-hdr{display:flex!important}
   #panel-analise .grid-2{display:block!important}
   #panel-analise .grid-2 > .card:first-child{width:100%!important}
@@ -388,6 +389,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 .analise-print-hdr{display:none;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2.5px solid #1B3A5C;}
 
 .crit-print-hdr{display:none;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2.5px solid #1B3A5C;}
+.qual-print-hdr{display:none;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2.5px solid #1B3A5C;}
 
 .sync-dot{width:8px;height:8px;border-radius:50%;background:#6B7280;display:inline-block;margin-right:4px;transition:background .3s}
 .sync-dot.ok{background:#00A87B}.sync-dot.err{background:#DC2626}.sync-dot.loading{background:#F59E0B;animation:blink .8s infinite}
@@ -815,14 +817,15 @@ function renderQualitativo(){
 
   // Cabeçalho – linha 1 (indicadores, colspan=2 cada)
   const thInds = INDICADORES_QUAL.map(ind=>`
-    <th colspan="2" class="th-azul" style="text-align:center;font-size:10px;padding:5px 4px;white-space:nowrap">
+    <th colspan="2" class="th-azul" style="text-align:center;font-size:10px;padding:5px 6px;white-space:nowrap;min-width:130px">
       <div style="font-weight:700">${ind.nome}</div>
       <div style="font-weight:400;font-size:9px;opacity:.85">${ind.dept}</div>
     </th>`).join('');
 
   // Cabeçalho – linha 2 (QTD / %)
   const thSub = INDICADORES_QUAL.map(()=>
-    `<th class="th-azul" style="text-align:center;font-size:10px;width:46px">QTD</th><th class="th-azul" style="text-align:center;font-size:10px;width:54px">%</th>`
+    `<th class="th-azul" style="text-align:center;font-size:10px;width:58px">QTD</th>`+
+    `<th class="th-azul" style="text-align:center;font-size:10px;width:68px">%</th>`
   ).join('');
 
   // Linhas de dados
@@ -835,24 +838,36 @@ function renderQualitativo(){
       const total = totais[ind.id];
       const pct   = total>0 ? qtd/total : 0;
       pcts8.push(pct);
-      cells += `<td class="td-edit td-c" style="padding:3px 2px"><input type="number" min="0" style="text-align:center;width:42px;font-size:11px" value="${qtd}" oninput="setIqual('${ind.id}','${cg.id}',this.value)"></td>`;
-      cells += `<td class="td-c" id="iq-pct-${ind.id}-${cg.id}" style="padding:3px 4px;font-size:10px">${fmtPct(pct)}</td>`;
+      cells += `<td class="td-edit td-c" style="padding:3px 2px"><input type="number" min="0" style="text-align:center;width:54px;font-size:11px" value="${qtd}" oninput="setIqual('${ind.id}','${cg.id}',this.value)"></td>`;
+      cells += `<td class="td-c" id="iq-pct-${ind.id}-${cg.id}" style="padding:3px 6px;font-size:10px">${fmtPct(pct*100)}</td>`;
     });
     const repres = pcts8.reduce((a,b)=>a+b,0)/INDICADORES_QUAL.length;
     rows += `<tr>
-      <td style="font-size:11px;padding:5px 8px;min-width:200px"><span class="dot" style="background:${cg.cor}"></span>${cg.sigla}</td>
+      <td style="font-size:11px;padding:5px 8px;min-width:240px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:300px"><span class="dot" style="background:${cg.cor}"></span>${cg.nome}</td>
       ${cells}
-      <td class="td-c fw-bold" id="iq-repr-${cg.id}" style="padding:3px 6px"><span class="pct-pill" style="background:var(--azul);color:#fff;font-size:10px">${fmtPct(repres)}</span></td>
+      <td class="td-c fw-bold" id="iq-repr-${cg.id}" style="padding:3px 8px"><span class="pct-pill" style="background:var(--azul);color:#fff;font-size:10px">${fmtPct(repres*100)}</span></td>
     </tr>`;
   });
 
   // Linha de totais
   const totalCells = INDICADORES_QUAL.map(ind=>{
     const tot = totais[ind.id];
-    return `<td class="td-c fw-bold" style="font-size:11px">${tot||0}</td><td class="td-c" style="font-size:10px">100%</td>`;
+    return `<td class="td-c fw-bold" id="iq-tot-qtd-${ind.id}" style="font-size:11px">${tot||0}</td>`+
+           `<td class="td-c" style="font-size:10px">100%</td>`;
   }).join('');
 
   document.getElementById('panel-qualitativo').innerHTML=`
+  <div class="qual-print-hdr">
+    <img src="${LOGO_SRC}" style="height:40px;width:auto">
+    <div style="margin-left:10px">
+      <div style="font-size:14px;font-weight:800;color:#1B3A5C;line-height:1.2">PRIMA QUALITÁ <span style="color:#00A87B">SAÚDE</span></div>
+      <div style="font-size:10px;color:#1B3A5C;margin-top:2px">CNPJ: 40.289.134/0001-99 &nbsp;|&nbsp; www.primaqualitasaude.org</div>
+    </div>
+    <div style="margin-left:auto;text-align:right">
+      <div style="font-size:12px;font-weight:700;color:#1B3A5C">Indicadores Qualitativos de Rateio</div>
+      <div style="font-size:11px;color:#1B3A5C">Competência: <strong>${compLabel(currentComp)}</strong></div>
+    </div>
+  </div>
   <div class="card">
     <div class="card-hdr">
       <div class="card-title">📈 Indicadores Qualitativos – ${compLabel(currentComp)}</div>
@@ -861,18 +876,18 @@ function renderQualitativo(){
         <button class="btn btn-outline btn-sm no-print" onclick="window.print()">🖨 Imprimir</button>
       </div>
     </div>
-    <div class="alert alert-info" style="margin:12px 16px 0">
+    <div class="alert alert-info no-print" style="margin:12px 16px 0">
       <span>ℹ</span>
       <div>Informe a <strong>quantidade (QTD)</strong> de cada indicador por CG. Os percentuais e a Representatividade são calculados automaticamente.<br>
       <em>Representatividade = média dos percentuais dos 8 indicadores para cada CG.</em></div>
     </div>
     <div class="tbl-wrap" style="overflow-x:auto;padding:12px 16px">
-      <table style="min-width:1100px;border-collapse:collapse">
+      <table style="min-width:1500px;border-collapse:collapse">
         <thead>
           <tr>
-            <th rowspan="2" style="min-width:180px;text-align:left;padding:6px 10px;background:#1B3A5C;color:#fff;font-size:11px">Nº do Contrato / Ano</th>
+            <th rowspan="2" style="min-width:260px;text-align:left;padding:6px 10px;background:#1B3A5C;color:#fff;font-size:11px">Nº do Contrato / Ano</th>
             ${thInds}
-            <th rowspan="2" class="th-azul" style="text-align:center;min-width:90px;font-size:10px">Representatividade</th>
+            <th rowspan="2" class="th-azul" style="text-align:center;min-width:95px;font-size:10px">Representatividade</th>
           </tr>
           <tr>${thSub}</tr>
         </thead>
@@ -893,18 +908,22 @@ function setIqual(indId, cgId, val){
   const data = getMesData(currentComp);
   data.iqual[indId][cgId] = parseInt(val)||0;
 
-  // Recalcular totais para o indicador alterado
+  // Recalcular totais de TODOS os indicadores (necessário para representatividade)
   const tot = {};
   INDICADORES_QUAL.forEach(ind=>{
     tot[ind.id] = CONTRATOS.reduce((s,cg)=>s+(data.iqual[ind.id][cg.id]||0),0);
   });
 
-  // Atualizar células % do indicador alterado
+  // Atualizar célula total QTD do indicador alterado
+  const totEl = document.getElementById('iq-tot-qtd-' + indId);
+  if(totEl) totEl.textContent = tot[indId]||0;
+
+  // Atualizar células % do indicador alterado (todos os CGs)
   CONTRATOS.forEach(cg=>{
     const qtd = data.iqual[indId][cg.id]||0;
     const pct = tot[indId]>0 ? qtd/tot[indId] : 0;
     const el = document.getElementById('iq-pct-'+indId+'-'+cg.id);
-    if(el) el.textContent = fmtPct(pct);
+    if(el) el.textContent = fmtPct(pct*100);
   });
 
   // Atualizar Representatividade de TODOS os CGs
@@ -915,7 +934,7 @@ function setIqual(indId, cgId, val){
     });
     const repres = pcts.reduce((a,b)=>a+b,0)/INDICADORES_QUAL.length;
     const el = document.getElementById('iq-repr-'+cg.id);
-    if(el) el.innerHTML = `<span class="pct-pill" style="background:var(--azul);color:#fff;font-size:10px">${fmtPct(repres)}</span>`;
+    if(el) el.innerHTML = `<span class="pct-pill" style="background:var(--azul);color:#fff;font-size:10px">${fmtPct(repres*100)}</span>`;
   });
 }
 

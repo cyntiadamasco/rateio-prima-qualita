@@ -528,7 +528,9 @@
           "cnpj": "10.414.185/0001-09",
           "ctipo": "Boleto",
           "cnum": "",
-          "valor": 2634.44
+          "valor": 2634.44,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/kmckhd7.pdf",
+          "pdfNome": "ID 35 UNIMED SEGURADORA- NF 1516- 2634,44.pdf"
         },
         {
           "uid": "yyia2ay",

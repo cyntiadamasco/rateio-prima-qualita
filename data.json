@@ -2602,8 +2602,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 0,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/rci6tnh.pdf",
-          "pdfNome": "ID 07 INSS FOLHA- 48.918,78.pdf"
+          "pdfUrl": null,
+          "pdfNome": null
         },
         {
           "uid": "nmi2b2a",

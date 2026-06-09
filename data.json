@@ -352,7 +352,9 @@
           "cnpj": "24.783.564/0001-06",
           "ctipo": "NF",
           "cnum": "2303",
-          "valor": 28573.12
+          "valor": 28573.12,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/q3xqghb.pdf",
+          "pdfNome": "ID 21 PRODUTIVA- NF 2303- 28.573,12.pdf"
         },
         {
           "uid": "sdnq2ou",

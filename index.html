@@ -453,6 +453,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 <!-- TABS -->
 <nav class="tabs-bar no-print">
   <button class="tab-btn active" onclick="abrirTab('criterio',this)">👥 Critério Quantitativo</button>
+  <button class="tab-btn" onclick="abrirTab('qualitativo',this)">📈 Indicadores Qualitativos</button>
   <button class="tab-btn" onclick="abrirTab('despesas',this)">📋 Despesas</button>
   <button class="tab-btn" onclick="abrirTab('demonstrativo',this)">📊 Demonstrativo</button>
   <button class="tab-btn" onclick="abrirTab('memorias',this)">📄 Memórias de Cálculo</button>
@@ -463,6 +464,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 
 <!-- PANELS -->
 <div class="panel active" id="panel-criterio"></div>
+<div class="panel" id="panel-qualitativo"></div>
 <div class="panel" id="panel-despesas"></div>
 <div class="panel" id="panel-demonstrativo"></div>
 <div class="panel" id="panel-memorias"></div>
@@ -493,6 +495,17 @@ const CONTRATOS_BASE = [
   {id:'saq_pri',   nome:'Contrato de Gestão 006/2025 - Saquarema Atenção Primária',   sigla:'Saq. Pri.',     cor:'#84CC16'},
 ];
 let CONTRATOS = [...CONTRATOS_BASE];
+
+const INDICADORES_QUAL = [
+  {id:'ind1', nome:'IND 1', dept:'Depto. Pessoal/RH'},
+  {id:'ind2', nome:'IND 2', dept:'Comunicação Institucional'},
+  {id:'ind3', nome:'IND 3', dept:'Depto. ADM/Financeiro'},
+  {id:'ind4', nome:'IND 4', dept:'Depto. Contabilidade/PC'},
+  {id:'ind5', nome:'IND 5', dept:'Logística e Suprimentos'},
+  {id:'ind6', nome:'IND 6', dept:'Compras e Contratos'},
+  {id:'ind7', nome:'IND 7', dept:'Assessoria Jurídica'},
+  {id:'ind8', nome:'IND 8', dept:'Depto. Assistencial'},
+];
 
 const CATEGORIAS = [
   'Assessoria Jurídica',
@@ -594,6 +607,12 @@ function getMesData(comp){
   }
   // Ensure all CGs have orcamento entry
   CONTRATOS.forEach(c=>{ if(state[comp].orcamentos[c.id]===undefined) state[comp].orcamentos[c.id]=0; });
+  // Ensure indicadores qualitativos structure exists
+  if(!state[comp].iqual) state[comp].iqual={};
+  INDICADORES_QUAL.forEach(ind=>{
+    if(!state[comp].iqual[ind.id]) state[comp].iqual[ind.id]={};
+    CONTRATOS.forEach(cg=>{ if(state[comp].iqual[ind.id][cg.id]===undefined) state[comp].iqual[ind.id][cg.id]=0; });
+  });
   return state[comp];
 }
 
@@ -772,6 +791,7 @@ function abrirTab(id, btn){
 function renderTab(id){
   switch(id){
     case 'criterio':     renderCriterio();     break;
+    case 'qualitativo':  renderQualitativo();   break;
     case 'despesas':     renderDespesas();      break;
     case 'demonstrativo':renderDemonstrativo(); break;
     case 'memorias':     renderMemorias();      break;
@@ -779,6 +799,124 @@ function renderTab(id){
     case 'analise':      renderAnalise();       break;
     case 'validacao':    renderValidacao();     break;
   }
+}
+
+/* =====================================================================
+   TAB: INDICADORES QUALITATIVOS
+===================================================================== */
+function renderQualitativo(){
+  const data = getMesData(currentComp);
+
+  // Calcular totais por indicador
+  const totais = {};
+  INDICADORES_QUAL.forEach(ind=>{
+    totais[ind.id] = CONTRATOS.reduce((s,cg)=>s+(data.iqual[ind.id][cg.id]||0),0);
+  });
+
+  // Cabeçalho – linha 1 (indicadores, colspan=2 cada)
+  const thInds = INDICADORES_QUAL.map(ind=>`
+    <th colspan="2" class="th-azul" style="text-align:center;font-size:10px;padding:5px 4px;white-space:nowrap">
+      <div style="font-weight:700">${ind.nome}</div>
+      <div style="font-weight:400;font-size:9px;opacity:.85">${ind.dept}</div>
+    </th>`).join('');
+
+  // Cabeçalho – linha 2 (QTD / %)
+  const thSub = INDICADORES_QUAL.map(()=>
+    `<th class="th-azul" style="text-align:center;font-size:10px;width:46px">QTD</th><th class="th-azul" style="text-align:center;font-size:10px;width:54px">%</th>`
+  ).join('');
+
+  // Linhas de dados
+  let rows = '';
+  CONTRATOS.forEach(cg=>{
+    let cells = '';
+    const pcts8 = [];
+    INDICADORES_QUAL.forEach(ind=>{
+      const qtd   = data.iqual[ind.id][cg.id]||0;
+      const total = totais[ind.id];
+      const pct   = total>0 ? qtd/total : 0;
+      pcts8.push(pct);
+      cells += `<td class="td-edit td-c" style="padding:3px 2px"><input type="number" min="0" style="text-align:center;width:42px;font-size:11px" value="${qtd}" oninput="setIqual('${ind.id}','${cg.id}',this.value)"></td>`;
+      cells += `<td class="td-c" id="iq-pct-${ind.id}-${cg.id}" style="padding:3px 4px;font-size:10px">${fmtPct(pct)}</td>`;
+    });
+    const repres = pcts8.reduce((a,b)=>a+b,0)/INDICADORES_QUAL.length;
+    rows += `<tr>
+      <td style="font-size:11px;padding:5px 8px;min-width:200px"><span class="dot" style="background:${cg.cor}"></span>${cg.sigla}</td>
+      ${cells}
+      <td class="td-c fw-bold" id="iq-repr-${cg.id}" style="padding:3px 6px"><span class="pct-pill" style="background:var(--azul);color:#fff;font-size:10px">${fmtPct(repres)}</span></td>
+    </tr>`;
+  });
+
+  // Linha de totais
+  const totalCells = INDICADORES_QUAL.map(ind=>{
+    const tot = totais[ind.id];
+    return `<td class="td-c fw-bold" style="font-size:11px">${tot||0}</td><td class="td-c" style="font-size:10px">100%</td>`;
+  }).join('');
+
+  document.getElementById('panel-qualitativo').innerHTML=`
+  <div class="card">
+    <div class="card-hdr">
+      <div class="card-title">📈 Indicadores Qualitativos – ${compLabel(currentComp)}</div>
+      <div class="card-acts">
+        <span class="text-muted" style="font-size:11px">Competência: <strong>${compLabel(currentComp)}</strong></span>
+        <button class="btn btn-outline btn-sm no-print" onclick="window.print()">🖨 Imprimir</button>
+      </div>
+    </div>
+    <div class="alert alert-info" style="margin:12px 16px 0">
+      <span>ℹ</span>
+      <div>Informe a <strong>quantidade (QTD)</strong> de cada indicador por CG. Os percentuais e a Representatividade são calculados automaticamente.<br>
+      <em>Representatividade = média dos percentuais dos 8 indicadores para cada CG.</em></div>
+    </div>
+    <div class="tbl-wrap" style="overflow-x:auto;padding:12px 16px">
+      <table style="min-width:1100px;border-collapse:collapse">
+        <thead>
+          <tr>
+            <th rowspan="2" style="min-width:180px;text-align:left;padding:6px 10px;background:#1B3A5C;color:#fff;font-size:11px">Nº do Contrato / Ano</th>
+            ${thInds}
+            <th rowspan="2" class="th-azul" style="text-align:center;min-width:90px;font-size:10px">Representatividade</th>
+          </tr>
+          <tr>${thSub}</tr>
+        </thead>
+        <tbody>${rows}</tbody>
+        <tfoot>
+          <tr class="tr-total">
+            <td style="font-size:11px;font-weight:700;padding:6px 10px">TOTAL</td>
+            ${totalCells}
+            <td class="td-c fw-bold"><span class="pct-pill" style="background:var(--azul);color:#fff;font-size:10px">100,00%</span></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>`;
+}
+
+function setIqual(indId, cgId, val){
+  const data = getMesData(currentComp);
+  data.iqual[indId][cgId] = parseInt(val)||0;
+
+  // Recalcular totais para o indicador alterado
+  const tot = {};
+  INDICADORES_QUAL.forEach(ind=>{
+    tot[ind.id] = CONTRATOS.reduce((s,cg)=>s+(data.iqual[ind.id][cg.id]||0),0);
+  });
+
+  // Atualizar células % do indicador alterado
+  CONTRATOS.forEach(cg=>{
+    const qtd = data.iqual[indId][cg.id]||0;
+    const pct = tot[indId]>0 ? qtd/tot[indId] : 0;
+    const el = document.getElementById('iq-pct-'+indId+'-'+cg.id);
+    if(el) el.textContent = fmtPct(pct);
+  });
+
+  // Atualizar Representatividade de TODOS os CGs
+  CONTRATOS.forEach(cg=>{
+    const pcts = INDICADORES_QUAL.map(ind=>{
+      const q = data.iqual[ind.id][cg.id]||0;
+      return tot[ind.id]>0 ? q/tot[ind.id] : 0;
+    });
+    const repres = pcts.reduce((a,b)=>a+b,0)/INDICADORES_QUAL.length;
+    const el = document.getElementById('iq-repr-'+cg.id);
+    if(el) el.innerHTML = `<span class="pct-pill" style="background:var(--azul);color:#fff;font-size:10px">${fmtPct(repres)}</span>`;
+  });
 }
 
 /* =====================================================================
@@ -2019,7 +2157,7 @@ function init(){
 
 // Set data-tab on tab buttons on load
 document.querySelectorAll('.tab-btn').forEach((b,i)=>{
-  const tabNames=['criterio','despesas','demonstrativo','memorias','graficos','analise','validacao'];
+  const tabNames=['criterio','qualitativo','despesas','demonstrativo','memorias','graficos','analise','validacao'];
   b.setAttribute('data-tab',tabNames[i]||'criterio');
 });
 

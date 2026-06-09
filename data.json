@@ -120,7 +120,9 @@
           "cnpj": "43.485.758/0001-70",
           "ctipo": "NF",
           "cnum": "5",
-          "valor": 7000
+          "valor": 7000,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/434pt9k.pdf",
+          "pdfNome": "ID 04 GUSTAVO FROES- NF 05 - 7.000,00.pdf"
         },
         {
           "uid": "ci2gqk9",

@@ -391,16 +391,18 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   #panel-criterio tfoot td{font-size:11px}
   input::placeholder{color:transparent!important}
   /* Indicadores Qualitativos – compacto para paisagem */
-  #panel-qualitativo table{font-size:9px;min-width:0!important;width:100%}
-  #panel-qualitativo thead th{padding:3px 3px;font-size:8.5px;white-space:nowrap}
-  #panel-qualitativo tbody td{padding:2px 3px;font-size:9px}
-  #panel-qualitativo tfoot td{padding:3px 3px;font-size:9px}
+  #panel-qualitativo table{font-size:8px;min-width:0!important;width:100%;table-layout:fixed}
+  #panel-qualitativo thead th{padding:2px 3px;font-size:7.5px;white-space:nowrap;min-width:0!important;width:auto!important}
+  #panel-qualitativo tbody td{padding:1px 2px;font-size:8px;min-width:0!important}
+  #panel-qualitativo tbody td:first-child{max-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  #panel-qualitativo tfoot td{padding:2px 3px;font-size:8px}
   #panel-qualitativo .tbl-wrap{overflow:visible!important;border:none;box-shadow:none;padding:0!important}
+  #panel-qualitativo .tbl-wrap>div{overflow:visible!important}
   #panel-qualitativo .card{border:none!important;box-shadow:none!important;padding:0!important}
   #panel-qualitativo .card-hdr{border:none!important;padding:4px 0 8px!important;background:none!important}
   #panel-qualitativo .card-acts{display:none!important}
   #panel-qualitativo .alert{display:none!important}
-  #panel-qualitativo input[type=number]{border:none!important;background:transparent!important;-webkit-appearance:none;appearance:none}
+  #panel-qualitativo input[type=number]{border:none!important;background:transparent!important;-webkit-appearance:none;appearance:none;width:28px!important;font-size:8px!important}
   /* Demonstrativo – compacto para paisagem */
   #panel-demonstrativo table{font-size:7px}
   #panel-demonstrativo thead th{padding:3px 4px;font-size:6.5px;white-space:nowrap}
@@ -1101,7 +1103,7 @@ function imprimirQualitativo(){
   document.title='Indicadores Qualitativos de Rateio - Competência: '+compLabel(currentComp);
   const st=document.createElement('style');
   st.id='qual-landscape-style';
-  st.textContent='@media print{@page{size:A4 landscape;margin:10mm 15mm}}';
+  st.textContent='@media print{@page{size:A4 landscape;margin:8mm 12mm}}';
   document.head.appendChild(st);
   const cleanup=function(){document.title=prev;const el=document.getElementById('qual-landscape-style');if(el)el.remove();window.removeEventListener('afterprint',cleanup);};
   window.addEventListener('afterprint',cleanup);
@@ -1183,7 +1185,7 @@ function renderQualitativo(){
       <div>Informe a <strong>quantidade (QTD)</strong> de cada indicador por CG. Os percentuais e a Representatividade são calculados automaticamente.<br>
       <em>Representatividade = média dos percentuais dos 8 indicadores para cada CG.</em></div>
     </div>
-    <div class="tbl-wrap" style="overflow-x:auto">
+    <div class="tbl-wrap" style="overflow:hidden"><div style="overflow-x:auto">
       <table style="min-width:1500px;border-collapse:collapse">
         <thead>
           <tr>
@@ -1202,7 +1204,7 @@ function renderQualitativo(){
           </tr>
         </tfoot>
       </table>
-    </div>
+    </div></div>
   </div>`;
 }
 

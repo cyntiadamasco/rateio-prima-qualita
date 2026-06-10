@@ -1244,13 +1244,13 @@ function renderCriterio(){
     const total=totais[i];
     const pct=(pcts[i]*100).toFixed(2).replace('.',',')+'%';
     rows+=`<tr class="${total===0?'tr-zero':''}">
-      <td><span class="dot" style="background:${ct.cor}"></span>${ct.nome}</td>
+      <td style="white-space:nowrap"><span class="dot" style="background:${ct.cor}"></span>${ct.nome}</td>
       <td class="td-edit td-c"><input type="number" min="0" style="text-align:center" value="${c.clt||0}" onchange="setColab(${i},'clt',this.value)" oninput="setColab(${i},'clt',this.value)"></td>
       <td class="td-edit td-c"><input type="number" min="0" style="text-align:center" value="${c.efetivo||0}" onchange="setColab(${i},'efetivo',this.value)" oninput="setColab(${i},'efetivo',this.value)"></td>
       <td class="td-edit td-c"><input type="number" min="0" style="text-align:center" value="${c.pj||0}" onchange="setColab(${i},'pj',this.value)" oninput="setColab(${i},'pj',this.value)"></td>
       <td class="td-c fw-bold" id="crit-total-${i}">${total}</td>
       <td class="td-c" id="crit-pct-${i}"><span class="pct-pill">${pct}</span></td>
-      <td class="td-edit"><input type="text" value="${(c.obs&&c.obs!=='Observação...')?c.obs:''}" placeholder="Observação..." onchange="setColab(${i},'obs',this.value)"></td>
+      <td class="td-edit"><input type="text" style="max-width:100px" value="${(c.obs&&c.obs!=='Observação...')?c.obs:''}" placeholder="Observação..." onchange="setColab(${i},'obs',this.value)"></td>
     </tr>`;
   });
 
@@ -1284,10 +1284,10 @@ function renderCriterio(){
       <table>
         <thead>
           <tr>
-            <th rowspan="2">Nº do Contrato / Ano</th>
+            <th rowspan="2" style="min-width:210px;white-space:nowrap">Nº do Contrato / Ano</th>
             <th colspan="4" class="th-azul th-c">Colaboradores</th>
             <th rowspan="2" class="th-c">% Alocação</th>
-            <th rowspan="2">Observações</th>
+            <th rowspan="2" style="width:110px">Observações</th>
           </tr>
           <tr>
             <th class="th-azul th-c">CLT</th>

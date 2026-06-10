@@ -397,7 +397,8 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   #panel-qualitativo tfoot td{padding:3px 3px;font-size:9px}
   #panel-qualitativo .tbl-wrap{overflow:visible!important;border:none;box-shadow:none;padding:0!important}
   #panel-qualitativo .card{border:none!important;box-shadow:none!important;padding:0!important}
-  #panel-qualitativo .card-hdr{display:none!important}
+  #panel-qualitativo .card-hdr{border:none!important;padding:4px 0 8px!important;background:none!important}
+  #panel-qualitativo .card-acts{display:none!important}
   #panel-qualitativo .alert{display:none!important}
   #panel-qualitativo input[type=number]{border:none!important;background:transparent!important;-webkit-appearance:none;appearance:none}
   /* Demonstrativo – compacto para paisagem */
@@ -1100,7 +1101,7 @@ function imprimirQualitativo(){
   document.title='Indicadores Qualitativos de Rateio - Competência: '+compLabel(currentComp);
   const st=document.createElement('style');
   st.id='qual-landscape-style';
-  st.textContent='@media print{@page{size:A4 landscape;margin:8mm 10mm}}';
+  st.textContent='@media print{@page{size:A4 landscape;margin:10mm 15mm}}';
   document.head.appendChild(st);
   const cleanup=function(){document.title=prev;const el=document.getElementById('qual-landscape-style');if(el)el.remove();window.removeEventListener('afterprint',cleanup);};
   window.addEventListener('afterprint',cleanup);

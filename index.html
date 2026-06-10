@@ -403,8 +403,9 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   #panel-qualitativo .alert{display:none!important}
   #panel-qualitativo input[type=number]{border:none!important;background:transparent!important;-webkit-appearance:none;appearance:none}
   /* Demonstrativo – compacto para paisagem */
-  /* col widths: cat=48 id=18 obj=108 fav=95 cnpj=120 comp=98 val=82 cg×10=99 → Σ=1559×0.67=1044px (A4L) */
-  #panel-demonstrativo table{zoom:0.67;min-width:0!important;table-layout:fixed}
+  /* col widths px: cat=48 id=18 obj=108 fav=95 cnpj=120 comp=98 val=82 cg×10=99 → Σ=1559×zoom0.67=1045px (A4L) */
+  /* width:auto!important é essencial: sem isso o browser escala colunas prop. para width:100% */
+  #panel-demonstrativo table{zoom:0.67;width:auto!important;min-width:0!important;table-layout:fixed}
   #panel-demonstrativo .col-cat{width:48px}
   #panel-demonstrativo .col-id{width:18px}
   #panel-demonstrativo .col-obj{width:108px}
@@ -413,8 +414,8 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   #panel-demonstrativo .col-comp{width:98px}
   #panel-demonstrativo .col-val{width:82px}
   #panel-demonstrativo .col-cg{width:99px}
-  #panel-demonstrativo thead th{padding:2px 3px;min-width:0!important;white-space:normal;overflow:hidden;overflow-wrap:break-word}
-  #panel-demonstrativo tbody td{padding:1px 2px;min-width:0!important;white-space:normal;overflow:hidden;overflow-wrap:break-word}
+  #panel-demonstrativo thead th{padding:2px 3px;min-width:0!important;white-space:normal!important;word-break:break-all!important}
+  #panel-demonstrativo tbody td{padding:1px 2px;min-width:0!important;white-space:normal!important;word-break:break-all!important}
   #panel-demonstrativo tfoot td{padding:2px 3px}
   #panel-demonstrativo .tbl-wrap{overflow:visible!important;border-radius:8px;border:1px solid #D1D5DB;padding:0!important}
   #panel-demonstrativo .card{border:none!important;box-shadow:none!important;padding:0!important;margin-bottom:0!important}

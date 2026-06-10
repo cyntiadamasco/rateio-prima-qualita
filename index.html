@@ -403,24 +403,22 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   #panel-qualitativo .alert{display:none!important}
   #panel-qualitativo input[type=number]{border:none!important;background:transparent!important;-webkit-appearance:none;appearance:none}
   /* Demonstrativo – compacto para paisagem */
-  /* col widths px: cat=48 id=18 obj=108 fav=95 cnpj=120 comp=98 val=82 cg×10=99 → Σ=1559×zoom0.67=1045px (A4L) */
-  /* width:auto!important é essencial: sem isso o browser escala colunas prop. para width:100% */
-  #panel-demonstrativo table{zoom:0.67;width:auto!important;min-width:0!important;table-layout:fixed}
-  #panel-demonstrativo .col-cat{width:48px}
-  #panel-demonstrativo .col-id{width:18px}
-  #panel-demonstrativo .col-obj{width:108px}
-  #panel-demonstrativo .col-fav{width:95px}
-  #panel-demonstrativo .col-cnpj{width:120px}
-  #panel-demonstrativo .col-comp{width:98px}
-  #panel-demonstrativo .col-val{width:82px}
+  /* col widths px: id=20 obj=126 fav=105 cnpj=125 comp=103 val=90 cg×10=99 → Σ=1559×zoom0.67=1045px */
+  /* sem col-cat (removida); .card:not(.resumo-card) isola zoom da tabela resumo */
+  #panel-demonstrativo .card:not(.resumo-card) .tbl-wrap table{zoom:0.67;width:auto!important;min-width:0!important;table-layout:fixed}
+  #panel-demonstrativo .col-id{width:20px}
+  #panel-demonstrativo .col-obj{width:126px}
+  #panel-demonstrativo .col-fav{width:105px}
+  #panel-demonstrativo .col-cnpj{width:125px}
+  #panel-demonstrativo .col-comp{width:103px}
+  #panel-demonstrativo .col-val{width:90px}
   #panel-demonstrativo .col-cg{width:99px}
   #panel-demonstrativo thead th{padding:2px 3px;min-width:0!important;white-space:normal!important;word-break:break-all!important}
   #panel-demonstrativo tbody td{padding:1px 2px;min-width:0!important;white-space:normal!important;word-break:break-all!important}
   #panel-demonstrativo tfoot td{padding:2px 3px}
   #panel-demonstrativo .tbl-wrap{overflow:visible!important;border-radius:8px;border:1px solid #D1D5DB;padding:0!important}
   #panel-demonstrativo .card{border:none!important;box-shadow:none!important;padding:0!important;margin-bottom:0!important}
-  #panel-demonstrativo .resumo-card{display:none!important}
-  #panel-demonstrativo .card-hdr{display:none!important}
+  #panel-demonstrativo .card:not(.resumo-card) .card-hdr{display:none!important}
   #panel-demonstrativo .stats-grid{display:none!important}
 }
 
@@ -1580,7 +1578,6 @@ function renderDemonstrativo(){
       });
       const isFirst=di===0;
       bodyRows+=`<tr class="${(d.valor||0)===0?'tr-zero':''}">
-        ${isFirst?`<td rowspan="${itens.length}" class="fw-bold" style="background:#EEF4FF;color:var(--navy);font-size:11px;text-transform:uppercase;letter-spacing:.3px;vertical-align:top;padding-top:10px;border-right:2px solid var(--border);text-align:center">${cat}</td>`:''}
         <td class="td-c fw-bold">${d.id}</td>
         <td style="font-size:11px;max-width:220px">${d.objeto}</td>
         <td style="font-size:11px">${d.fav}</td>
@@ -1641,16 +1638,15 @@ function renderDemonstrativo(){
     <div class="tbl-wrap">
       <table>
         <colgroup>
-          <col class="col-cat"><col class="col-id"><col class="col-obj"><col class="col-fav"><col class="col-cnpj"><col class="col-comp"><col class="col-val">
+<col class="col-id"><col class="col-obj"><col class="col-fav"><col class="col-cnpj"><col class="col-comp"><col class="col-val">
           ${CONTRATOS.map(()=>'<col class="col-cg">').join('')}
         </colgroup>
         <thead>
           <tr>
-            <th colspan="7" style="background:#1B3A5C;text-align:center">DESPESAS ELEGÍVEIS</th>
+            <th colspan="6" style="background:#1B3A5C;text-align:center">DESPESAS ELEGÍVEIS</th>
             <th colspan="${CONTRATOS.length}" class="th-azul th-c">DEMONSTRATIVO DE RATEIO</th>
           </tr>
           <tr>
-            <th>Categoria</th>
             <th class="th-c">ID</th>
             <th>Objeto</th>
             <th>Favorecido</th>
@@ -1660,18 +1656,18 @@ function renderDemonstrativo(){
             ${thNomes}
           </tr>
           <tr>
-            <th colspan="7"></th>
+            <th colspan="6"></th>
             ${thPcts}
           </tr>
         </thead>
         <tbody>${bodyRows}</tbody>
         <tfoot>
           <tr class="tr-total">
-            <td colspan="7" class="fw-bold">VALOR TOTAL</td>
+            <td colspan="6" class="fw-bold">VALOR TOTAL</td>
             ${cgTotalRow}
           </tr>
           <tr>
-            <td colspan="${7+CONTRATOS.length}" style="text-align:center;font-size:10px;color:#6B7280;padding:6px 8px;border-top:1px dashed #D1D5DB;font-style:italic">Prima Qualitá Saúde – CNPJ: 40.289.134/0001-99 &nbsp;|&nbsp; Av. São Gonçalo nº 100, piso L1 – nº 101 – Boa Vista, São Gonçalo, CEP: 24466-970</td>
+            <td colspan="${6+CONTRATOS.length}" style="text-align:center;font-size:10px;color:#6B7280;padding:6px 8px;border-top:1px dashed #D1D5DB;font-style:italic">Prima Qualitá Saúde – CNPJ: 40.289.134/0001-99 &nbsp;|&nbsp; Av. São Gonçalo nº 100, piso L1 – nº 101 – Boa Vista, São Gonçalo, CEP: 24466-970</td>
           </tr>
         </tfoot>
       </table>

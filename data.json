@@ -1588,16 +1588,16 @@
             "valor": 313.67
           },
           {
-            "id": "dl1781277942331",
-            "objeto": "Imóvel Sede Administrativa Arraial do Cabo",
-            "fornecedor": "CRISTIANE RODRIGUES SILVA",
-            "valor": 5.04805
-          },
-          {
             "id": "dl1781277982760",
             "objeto": "Imóvel Sede Administrativa Arraial do Cabo",
             "fornecedor": "Cristiane Rodrigues Silva",
             "valor": 5048.05
+          },
+          {
+            "id": "dl1781278047225",
+            "objeto": "Tarifa Bancária",
+            "fornecedor": "Banco Santander Brasil S.A",
+            "valor": 32.47
           }
         ],
         "quissama": [],

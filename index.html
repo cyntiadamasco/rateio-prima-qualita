@@ -3129,6 +3129,33 @@ function renderAnalise(){
 /* =====================================================================
    DESPESAS LOCAIS 100% – helpers
 ===================================================================== */
+let _editingDL=null;
+
+function editDespLocal(cgId,dlId){
+  _editingDL=dlId;
+  renderValidacao();
+}
+
+function cancelEditDL(){
+  _editingDL=null;
+  renderValidacao();
+}
+
+function saveDespLocal(cgId,dlId){
+  const obj=(document.getElementById('dle-obj')||{}).value||'';
+  const forn=(document.getElementById('dle-forn')||{}).value||'';
+  const val=parseFloat((document.getElementById('dle-val')||{}).value)||0;
+  if(!obj.trim()||!val){alert('Preencha o Objeto e o Valor.');return;}
+  const md=getMesData(currentComp);
+  if(md.despesasLocais&&md.despesasLocais[cgId]){
+    const idx=md.despesasLocais[cgId].findIndex(d=>d.id===dlId);
+    if(idx>=0) md.despesasLocais[cgId][idx]={...md.despesasLocais[cgId][idx],objeto:obj.trim(),fornecedor:forn.trim(),valor:val};
+  }
+  _editingDL=null;
+  salvar();
+  renderValidacao();
+}
+
 function addDespLocal(cgId){
   const objEl=document.getElementById('dl-obj-'+cgId);
   const fornEl=document.getElementById('dl-forn-'+cgId);
@@ -3228,15 +3255,41 @@ function renderValidacao(){
   const despLocaisDL=(data.despesasLocais||{})[ctDL.id]||[];
   const cgOptsDL=CONTRATOS.map(c=>`<option value="${c.id}"${c.id===cgSelDL?' selected':''}>${c.sigla} – ${c.nome}</option>`).join('');
   const totalDL=despLocaisDL.reduce((a,d)=>a+(d.valor||0),0);
-  const dlRows=despLocaisDL.map(d=>`<tr>
-    <td style="font-size:11px;padding:5px 8px">${d.objeto}</td>
-    <td style="font-size:11px;padding:5px 8px;color:#6B7280">${d.fornecedor||'—'}</td>
-    <td style="text-align:right;padding:5px 8px;font-size:11px;font-weight:700">${R$(d.valor)}</td>
-    <td style="text-align:center;padding:5px 8px">
-      <button onclick="delDespLocal('${ctDL.id}','${d.id}')" title="Excluir"
-        style="background:#FEE2E2;color:#DC2626;border:1px solid #FECACA;border-radius:4px;padding:2px 8px;font-size:11px;cursor:pointer;font-weight:700">&#10005;</button>
-    </td>
-  </tr>`).join('');
+  const dlRows=despLocaisDL.map(d=>{
+    const safeObj=d.objeto.replace(/"/g,'&quot;');
+    const safeForn=(d.fornecedor||'').replace(/"/g,'&quot;');
+    if(_editingDL===d.id) return `<tr style="background:#F5F3FF">
+      <td style="padding:4px 6px">
+        <input id="dle-obj" type="text" value="${safeObj}"
+          style="width:100%;padding:4px 7px;border:1.5px solid #A78BFA;border-radius:4px;font-size:11px">
+      </td>
+      <td style="padding:4px 6px">
+        <input id="dle-forn" type="text" value="${safeForn}"
+          style="width:100%;padding:4px 7px;border:1.5px solid #A78BFA;border-radius:4px;font-size:11px">
+      </td>
+      <td style="padding:4px 6px">
+        <input id="dle-val" type="number" min="0" step="0.01" value="${d.valor}"
+          style="width:100%;padding:4px 7px;border:1.5px solid #A78BFA;border-radius:4px;font-size:11px;text-align:right">
+      </td>
+      <td style="text-align:center;padding:4px 6px;white-space:nowrap">
+        <button onclick="saveDespLocal('${ctDL.id}','${d.id}')" title="Salvar"
+          style="background:#7C3AED;color:#fff;border:none;border-radius:4px;padding:3px 10px;font-size:11px;cursor:pointer;font-weight:700;margin-right:3px">&#10003; Salvar</button>
+        <button onclick="cancelEditDL()" title="Cancelar"
+          style="background:#F3F4F6;color:#374151;border:1px solid #D1D5DB;border-radius:4px;padding:3px 8px;font-size:11px;cursor:pointer">&#10005;</button>
+      </td>
+    </tr>`;
+    return `<tr>
+      <td style="font-size:11px;padding:5px 8px">${d.objeto}</td>
+      <td style="font-size:11px;padding:5px 8px;color:#6B7280">${d.fornecedor||'—'}</td>
+      <td style="text-align:right;padding:5px 8px;font-size:11px;font-weight:700">${R$(d.valor)}</td>
+      <td style="text-align:center;padding:5px 8px;white-space:nowrap">
+        <button onclick="editDespLocal('${ctDL.id}','${d.id}')" title="Editar"
+          style="background:#EDE9FE;color:#7C3AED;border:1px solid #DDD6FE;border-radius:4px;padding:2px 8px;font-size:11px;cursor:pointer;font-weight:600;margin-right:3px">&#9998;</button>
+        <button onclick="delDespLocal('${ctDL.id}','${d.id}')" title="Excluir"
+          style="background:#FEE2E2;color:#DC2626;border:1px solid #FECACA;border-radius:4px;padding:2px 8px;font-size:11px;cursor:pointer;font-weight:700">&#10005;</button>
+      </td>
+    </tr>`;
+  }).join('');
 
   document.getElementById('panel-validacao').innerHTML=`
   <div class="alert alert-info">
@@ -3293,7 +3346,7 @@ function renderValidacao(){
           <th>Objeto / Descrição</th>
           <th>Fornecedor</th>
           <th class="th-r">Valor (R$)</th>
-          <th class="th-c"></th>
+          <th class="th-c">Ações</th>
         </tr></thead>
         <tbody>${dlRows}</tbody>
         <tfoot><tr class="tr-total">

@@ -4336,6 +4336,40 @@
           ],
           "parsedAt": "12/06/2026 15:20"
         }
+      },
+      "iqual_pdfs": {
+        "ind1": {
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202605_ind1.pdf",
+          "pdfNome": "INDICADOR 1 - DEPARTAMENTO PESSOAL ABRIL 2026.pdf"
+        },
+        "ind2": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind3": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind4": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind5": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind6": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind7": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind8": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        }
       }
     },
     "2026-06": {
@@ -5777,6 +5811,40 @@
         "ex_saldoFinal": 0,
         "obs": "",
         "extratoData": null
+      },
+      "iqual_pdfs": {
+        "ind1": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind2": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind3": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind4": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind5": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind6": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind7": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind8": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        }
       }
     },
     "customContratos": [],

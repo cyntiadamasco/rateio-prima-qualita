@@ -1580,6 +1580,12 @@
             "objeto": "Energia Elétrica Sede Arraial - Sala 301",
             "fornecedor": "Ampla Energia e Serviços S/A",
             "valor": 924.3
+          },
+          {
+            "id": "dl1781277588442",
+            "objeto": "Energia Elétrica Sede Arraial - Sala 302",
+            "fornecedor": "Ampla Energia e Serviços S/A",
+            "valor": 313.67
           }
         ],
         "quissama": [],

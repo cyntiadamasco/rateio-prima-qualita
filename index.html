@@ -378,19 +378,43 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   display:none;
   position:absolute;
   right:0;
-  top:calc(100% + 6px);
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:var(--r-md);
-  box-shadow:var(--shadow-lg);
-  min-width:224px;
-  z-index:300;
+  top:calc(100% + 8px);
+  background:#fff;
+  border:1px solid #E2E8F0;
+  border-radius:12px;
+  box-shadow:0 10px 40px rgba(0,0,0,.16),0 2px 8px rgba(0,0,0,.08);
+  min-width:256px;
+  z-index:999;
   overflow:hidden;
+  padding:5px 0;
 }
-.dropdown:hover .dd-menu{display:block}
-.dd-item{display:flex;align-items:center;gap:8px;padding:9px 14px;color:#475569;font-size:12px;cursor:pointer;transition:.15s}
-.dd-item:hover{background:var(--azul-lt);color:var(--azul)}
-.dd-sep{height:1px;background:var(--border-soft);margin:3px 0}
+.dd-menu.open{display:block;animation:ddIn .16s cubic-bezier(.22,.61,.36,1)}
+@keyframes ddIn{from{opacity:0;transform:translateY(-8px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+.dd-trigger{display:flex;align-items:center;gap:6px}
+.dd-trigger svg{flex-shrink:0}
+.dd-group-lbl{
+  padding:8px 16px 3px;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  color:#94A3B8;
+  pointer-events:none;
+}
+.dd-item{
+  display:flex;align-items:center;gap:11px;
+  padding:11px 16px;
+  color:#334155;font-size:13px;
+  cursor:pointer;transition:background .12s,color .12s;
+  width:100%;background:none;border:none;text-align:left;font-family:inherit;font-weight:500;
+  line-height:1.3;
+}
+.dd-item:hover{background:#F1F5F9;color:var(--azul)}
+.dd-item .dd-ico{font-size:16px;width:22px;text-align:center;flex-shrink:0;line-height:1}
+.dd-item-desc{font-size:11px;color:#94A3B8;font-weight:400;display:block;margin-top:1px}
+.dd-danger{color:#DC2626!important}
+.dd-danger:hover{background:#FEF2F2!important;color:#B91C1C!important}
+.dd-sep{height:1px;background:#F1F5F9;margin:4px 0}
 
 /* ── PRINT LOGO HEADER ────────────────────────────────────────── */
 .print-logo-hdr{display:none;align-items:center;gap:14px;margin-bottom:14px;padding-bottom:10px;border-bottom:2.5px solid #1B3A5C}
@@ -783,21 +807,45 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   <div class="hdr-div"></div>
   <span class="hdr-subtitle">Rateio de Despesas de Gestão</span>
   <div class="hdr-right">
-    <div class="dropdown">
-      <button class="btn btn-outline btn-sm">⚙ Opções ▾</button>
-      <div class="dd-menu">
-        <div class="dd-item" onclick="duplicarMesAnterior()">📋 Importar Despesas do Mês Anterior</div>
+    <div class="dropdown" id="dropdown-wrap">
+      <button class="btn btn-outline btn-sm dd-trigger" onclick="toggleOpcoes(event)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+        Opções
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="dd-menu" id="dd-opcoes">
+        <div class="dd-group-lbl">Competência</div>
+        <button class="dd-item" onclick="duplicarMesAnterior();fecharOpcoes()">
+          <span class="dd-ico">📋</span><span>Importar do Mês Anterior</span>
+        </button>
         <div class="dd-sep"></div>
-        <div class="dd-item" onclick="exportarJSON()">📥 Exportar Dados (JSON)</div>
-        <div class="dd-item" onclick="document.getElementById('import-file').click()">📤 Importar Dados (JSON)</div>
+        <div class="dd-group-lbl">Dados</div>
+        <button class="dd-item" onclick="exportarJSON();fecharOpcoes()">
+          <span class="dd-ico">📥</span><span>Exportar Dados (JSON)</span>
+        </button>
+        <button class="dd-item" onclick="document.getElementById('import-file').click();fecharOpcoes()">
+          <span class="dd-ico">📤</span><span>Importar Dados (JSON)</span>
+        </button>
         <div class="dd-sep"></div>
-        <div class="dd-item" onclick="imprimirDemonstrativo()">🖨 Imprimir Demonstrativo</div>
-        <div class="dd-item" onclick="imprimirTodasIDs()">📄 Imprimir Todas as IDs</div>
+        <div class="dd-group-lbl">Impressão</div>
+        <button class="dd-item" onclick="imprimirDemonstrativo();fecharOpcoes()">
+          <span class="dd-ico">🖨</span><span>Imprimir Demonstrativo</span>
+        </button>
+        <button class="dd-item" onclick="imprimirTodasIDs();fecharOpcoes()">
+          <span class="dd-ico">📄</span><span>Imprimir Todas as IDs</span>
+        </button>
         <div class="dd-sep"></div>
-        <div class="dd-item" onclick="abrirGerenciarCGs()">🏥 Gerenciar Contratos de Gestão</div>
-        <div class="dd-item" onclick="abrirConfigSync()">&#9729; Config Sincronização GitHub</div>
+        <div class="dd-group-lbl">Configurações</div>
+        <button class="dd-item" onclick="abrirGerenciarCGs();fecharOpcoes()">
+          <span class="dd-ico">🏥</span><span>Gerenciar Contratos de Gestão</span>
+        </button>
+        <button class="dd-item" onclick="abrirConfigSync();fecharOpcoes()">
+          <span class="dd-ico">☁</span><span>Config Sincronização GitHub</span>
+        </button>
         <div class="dd-sep"></div>
-        <div class="dd-item" style="color:var(--err)" onclick="limparMesAtual()">🗑 Limpar Mês Atual</div>
+        <button class="dd-item dd-danger" onclick="limparMesAtual();fecharOpcoes()">
+          <span class="dd-ico">🗑</span><span>Limpar Mês Atual</span>
+        </button>
       </div>
     </div>
     <span id="sync-status" style="display:flex;align-items:center;gap:4px"><span class="sync-dot" id="sync-dot"></span><span class="sync-lbl" id="sync-lbl"></span></span>
@@ -1068,6 +1116,20 @@ function carregar(){
     rebuildContratos();
   }catch(e){ state={}; }
 }
+
+function toggleOpcoes(e){
+  if(e) e.stopPropagation();
+  const m=document.getElementById('dd-opcoes');
+  if(m) m.classList.toggle('open');
+}
+function fecharOpcoes(){
+  const m=document.getElementById('dd-opcoes');
+  if(m) m.classList.remove('open');
+}
+document.addEventListener('click',function(e){
+  const wrap=document.getElementById('dropdown-wrap');
+  if(wrap&&!wrap.contains(e.target)) fecharOpcoes();
+});
 
 function exportarJSON(){
   const blob=new Blob([JSON.stringify({state,currentComp},null,2)],{type:'application/json'});

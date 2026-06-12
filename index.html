@@ -3031,11 +3031,130 @@ function toggleRdgEdit(){
 }
 
 function imprimirDashboard(){
-  const prev=document.title;
-  document.title='Dashboard – '+compLabel(currentComp);
-  const cleanup=function(){document.title=prev;window.removeEventListener('afterprint',cleanup);};
-  window.addEventListener('afterprint',cleanup);
-  setTimeout(()=>window.print(),300);
+  /* ── Dados ── */
+  const comp=compLabel(currentComp);
+  const data=getMesData(currentComp);
+  const pctMap=getPctMap(currentComp);
+  const totalMes=totalDespesas(currentComp);
+  const allComps=Object.keys(state).filter(k=>/^\d{4}-\d{2}$/.test(k)).sort();
+  const quantPcts=CONTRATOS.map(ct=>(pctMap[ct.id]||0)*100);
+  const maxQIdx=CONTRATOS.reduce((a,c,i)=>quantPcts[i]>quantPcts[a]?i:a,0);
+  const iqual=(data.iqual)||{};
+  const totaisQ={};
+  INDICADORES_QUAL.forEach(ind=>{totaisQ[ind.id]=CONTRATOS.reduce((s,cg)=>s+((iqual[ind.id]||{})[cg.id]||0),0);});
+  const hasQualData=INDICADORES_QUAL.some(ind=>totaisQ[ind.id]>0);
+  const reprPcts=CONTRATOS.map(cg=>{
+    const p8=INDICADORES_QUAL.map(ind=>{const qtd=(iqual[ind.id]||{})[cg.id]||0;return totaisQ[ind.id]>0?qtd/totaisQ[ind.id]:0;});
+    return p8.reduce((a,b)=>a+b,0)/INDICADORES_QUAL.length*100;
+  });
+
+  /* ── Capturar gráficos como PNG ── */
+  const ci={};
+  ['ch-donut','ch-cat','ch-hist','ch-cg','ch-repr','ch-compare','ch-scatter'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) try{ ci[id]=el.toDataURL('image/png'); }catch(e){}
+  });
+
+  /* ── Logo ── */
+  const logoEl=document.querySelector('.rdg-page-hdr img')||document.querySelector('.app-header img');
+  const logoSrc=logoEl?logoEl.src:'';
+
+  /* ── Helpers ── */
+  const kS='border-radius:6px;padding:12px 14px;-webkit-print-color-adjust:exact;print-color-adjust:exact';
+  const cS='background:#fff;border-radius:7px;border:1px solid #E5E7EB;padding:12px;margin-bottom:11px;page-break-inside:avoid;break-inside:avoid';
+  const slS='font-size:9px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:2px;margin:12px 0 8px;padding-bottom:4px;border-bottom:1px solid #E5E7EB';
+  const hdr=t=>'<div style="font-size:11px;font-weight:700;color:#0F2C47;margin-bottom:8px">'+t+'</div>';
+  const img=id=>ci[id]?'<img src="'+ci[id]+'" style="width:100%;height:auto;display:block">':'<div style="height:120px;color:#9CA3AF;display:flex;align-items:center;justify-content:center;font-size:11px">gráfico indisponível</div>';
+
+  /* ── Seção qualitativa ── */
+  let qual='';
+  if(hasQualData){
+    const qRows=CONTRATOS.map((cg,i)=>{
+      const q=quantPcts[i],r=reprPcts[i],d=r-q;
+      const[txt,col]=Math.abs(d)<2?['≈ Alinhado','#059669']:d>0?['↑ Qualit. superior','#7C3AED']:['↓ Quant. superior','#D97706'];
+      return '<tr>'
+        +'<td style="padding:5px 8px;font-size:10px"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:'+cg.cor+';margin-right:5px;vertical-align:middle"></span>'+cg.nome+'</td>'
+        +'<td style="text-align:center;padding:5px 8px"><span style="background:#EBF5FF;color:#0073BA;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700">'+fmtPct(q)+'</span></td>'
+        +'<td style="text-align:center;padding:5px 8px"><span style="background:#E4F7F0;color:#00A87B;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700">'+fmtPct(r)+'</span></td>'
+        +'<td style="text-align:center;padding:5px 8px;font-weight:700;font-size:10px;color:'+(d>=0?'#059669':'#DC2626')+'">'+(d>=0?'+':'')+d.toFixed(2).replace('.',',')+' pp</td>'
+        +'<td style="text-align:center;padding:5px 8px;font-size:10px;font-weight:600;color:'+col+'">'+txt+'</td>'
+        +'</tr>';
+    }).join('');
+    const thS='background:#1B3A5C;color:#fff;padding:6px 8px;font-size:10px;-webkit-print-color-adjust:exact;print-color-adjust:exact';
+    qual='<div style="page-break-before:always;padding-top:12px">'
+      +'<div style="font-size:12px;font-weight:700;color:#00A87B;padding:7px 0 6px;border-top:2px solid #00A87B;margin-bottom:12px">Análise Qualitativa – '+comp+'</div>'
+      +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:11px">'
+      +'<div style="'+cS.replace('margin-bottom:11px','margin-bottom:0')+';border-top:3px solid #00A87B">'+hdr('Representatividade Qualitativa por CG')+img('ch-repr')+'</div>'
+      +'<div style="'+cS.replace('margin-bottom:11px','margin-bottom:0')+';border-top:3px solid #7C3AED">'+hdr('Correlação: % Quantitativo × % Representatividade')+img('ch-scatter')+'</div>'
+      +'</div>'
+      +'<div style="'+cS+';border-top:3px solid #F59E0B">'+hdr('Comparativo: % Critério Quantitativo vs % Representatividade Qualitativa')+img('ch-compare')+'</div>'
+      +'<div style="'+cS+';border-top:3px solid #1B3A5C"><div style="font-size:11px;font-weight:700;color:#0F2C47;margin-bottom:8px">Análise de Alinhamento por CG</div>'
+      +'<table style="width:100%;border-collapse:collapse"><thead><tr>'
+      +'<th style="'+thS+';text-align:left;min-width:200px">Contrato de Gestão</th>'
+      +'<th style="'+thS+'">% Quantitativo</th>'
+      +'<th style="background:#00A87B;color:#fff;padding:6px 8px;font-size:10px;-webkit-print-color-adjust:exact;print-color-adjust:exact">% Representatividade</th>'
+      +'<th style="'+thS+'">Delta (pp)</th>'
+      +'<th style="'+thS+'">Alinhamento</th>'
+      +'</tr></thead><tbody>'+qRows+'</tbody></table></div>'
+      +'</div>';
+  }
+
+  /* ── Montar documento completo ── */
+  const doc='<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Dashboard – '+comp+'</title>'
+    +'<style>'
+    +'@page{margin:12mm 14mm;size:A4}'
+    +'*{box-sizing:border-box;margin:0;padding:0}'
+    +'body{font-family:"Segoe UI",Arial,sans-serif;font-size:11px;color:#0D1F33;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}'
+    +'</style></head><body>'
+    /* Cabeçalho */
+    +'<div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #1B3A5C">'
+    +'<img src="'+logoSrc+'" style="height:34px;width:auto">'
+    +'<div style="margin-left:6px">'
+    +'<div style="font-size:11px;font-weight:800;color:#1B3A5C;text-transform:uppercase;letter-spacing:.4px">Rateio de Despesas de Gestão</div>'
+    +'<div style="font-size:10px;color:#1B3A5C;margin-top:1px">Prima Qualitá Saúde – CNPJ: 40.289.134/0001-99</div>'
+    +'</div>'
+    +'<div style="margin-left:auto;text-align:right">'
+    +'<div style="font-size:11px;font-weight:700;color:#1B3A5C">Dashboard Analítico</div>'
+    +'<div style="font-size:10px;color:#5A6B80">Competência: '+comp+'</div>'
+    +'</div></div>'
+    /* KPI cards */
+    +'<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px">'
+    +'<div style="'+kS+';background:linear-gradient(135deg,#0A2338,#1B3A5C)">'
+    +'<div style="font-size:17px;font-weight:800;color:#fff">'+R$(totalMes)+'</div>'
+    +'<div style="font-size:9px;font-weight:600;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.8px;margin-top:4px">Total Rateado</div>'
+    +'<div style="font-size:9px;color:rgba(255,255,255,.45);margin-top:1px">'+comp+'</div></div>'
+    +'<div style="'+kS+';background:linear-gradient(135deg,#007356,#00A87B)">'
+    +'<div style="font-size:17px;font-weight:800;color:#fff">'+fmtPct(quantPcts[maxQIdx])+'</div>'
+    +'<div style="font-size:9px;font-weight:600;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.8px;margin-top:4px">Maior % Quantitativo</div>'
+    +'<div style="font-size:9px;color:rgba(255,255,255,.45);margin-top:1px">'+CONTRATOS[maxQIdx].sigla+'</div></div>'
+    +'<div style="'+kS+';background:linear-gradient(135deg,#00568A,#0073BA)">'
+    +'<div style="font-size:17px;font-weight:800;color:#fff">'+allComps.length+'</div>'
+    +'<div style="font-size:9px;font-weight:600;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.8px;margin-top:4px">Meses no Histórico</div>'
+    +'<div style="font-size:9px;color:rgba(255,255,255,.45);margin-top:1px">com dados</div></div>'
+    +'<div style="'+kS+';background:linear-gradient(135deg,#2D3A4A,#3D5068)">'
+    +'<div style="font-size:17px;font-weight:800;color:#fff">'+CONTRATOS.length+'</div>'
+    +'<div style="font-size:9px;font-weight:600;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.8px;margin-top:4px">Contratos de Gestão</div>'
+    +'<div style="font-size:9px;color:rgba(255,255,255,.45);margin-top:1px">participantes</div></div>'
+    +'</div>'
+    /* Distribuição */
+    +'<div style="'+slS+'">Distribuição – '+comp+'</div>'
+    +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:11px">'
+    +'<div style="'+cS.replace('margin-bottom:11px','margin-bottom:0')+';border-top:3px solid #0F2C47">'+hdr('Distribuição por Contrato de Gestão')+img('ch-donut')+'</div>'
+    +'<div style="'+cS.replace('margin-bottom:11px','margin-bottom:0')+';border-top:3px solid #0073BA">'+hdr('Distribuição por Categoria de Despesa')+img('ch-cat')+'</div>'
+    +'</div>'
+    /* Histórico */
+    +'<div style="'+slS+'">Histórico</div>'
+    +'<div style="'+cS+';border-top:3px solid #00A87B">'+hdr('Evolução Mensal do Total Rateado')+img('ch-hist')+'</div>'
+    +'<div style="'+cS+';border-top:3px solid #3B82F6">'+hdr('Valor Alocado por Contrato de Gestão – '+comp)+img('ch-cg')+'</div>'
+    +qual
+    +'</body></html>';
+
+  /* ── Abrir janela e imprimir ── */
+  const w=window.open('','_blank');
+  if(!w){alert('Pop-up bloqueado! Autorize pop-ups para este site e tente novamente.');return;}
+  w.document.write(doc);
+  w.document.close();
+  setTimeout(()=>w.print(),600);
 }
 
 function imprimirContratos(){

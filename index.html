@@ -1005,7 +1005,11 @@ const DESPESAS_EXEMPLO = [
 
 /* Reconstrói CONTRATOS com os CGs base + customizados */
 function rebuildContratos(){
-  CONTRATOS = [...CONTRATOS_BASE, ...(state.customContratos||[])];
+  const desativ=state.desativadosBase||[];
+  CONTRATOS=[
+    ...CONTRATOS_BASE.filter(c=>!desativ.includes(c.id)),
+    ...(state.customContratos||[])
+  ];
 }
 /* =====================================================================
    STATE
@@ -3836,21 +3840,45 @@ function abrirGerenciarCGs(){
 function renderModalCGs(){
   const body=document.getElementById('modal-cg-body');
   const custom=state.customContratos||[];
+  const desativ=state.desativadosBase||[];
 
   let html='';
-  // Base CGs
-  CONTRATOS_BASE.forEach(ct=>{
+
+  // CGs padrão ATIVOS
+  const baseAtivos=CONTRATOS_BASE.filter(c=>!desativ.includes(c.id));
+  baseAtivos.forEach(ct=>{
     html+=`<div style="display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid var(--border-soft)">
       <span style="width:12px;height:12px;border-radius:50%;background:${ct.cor};flex-shrink:0;display:inline-block"></span>
       <div style="flex:1;min-width:0">
         <div style="font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${ct.nome}</div>
         <div style="font-size:10px;color:var(--gray)">Sigla: ${ct.sigla} &nbsp;|&nbsp; <span class="badge badge-gray">padrão</span></div>
       </div>
+      <button class="btn btn-xs" style="background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;font-size:10px;padding:3px 8px;white-space:nowrap"
+        onclick="desativarCGBase('${ct.id}')" title="Desativar por rescisão contratual">⏸ Desativar</button>
     </div>`;
   });
 
-  // Custom CGs
+  // CGs padrão DESATIVADOS
+  const baseDesativ=CONTRATOS_BASE.filter(c=>desativ.includes(c.id));
+  if(baseDesativ.length){
+    html+=`<div style="padding:7px 14px 3px;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#DC2626;background:#FEF2F2;border-top:2px solid #FECACA;border-bottom:1px solid #FECACA">
+      ⚠ Contratos Rescindidos / Desativados</div>`;
+    baseDesativ.forEach(ct=>{
+      html+=`<div style="display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid #FECACA;background:#FFF5F5;opacity:.85">
+        <span style="width:12px;height:12px;border-radius:50%;background:#D1D5DB;flex-shrink:0;display:inline-block"></span>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-decoration:line-through;color:#9CA3AF">${ct.nome}</div>
+          <div style="font-size:10px;color:#EF4444">Sigla: ${ct.sigla} &nbsp;|&nbsp; <span style="background:#FEE2E2;color:#DC2626;padding:1px 6px;border-radius:9px;font-size:10px;font-weight:700">rescindido</span></div>
+        </div>
+        <button class="btn btn-xs" style="background:#F0FDF4;color:#16A34A;border:1px solid #BBF7D0;font-size:10px;padding:3px 8px;white-space:nowrap"
+          onclick="reativarCGBase('${ct.id}')" title="Reativar contrato">▶ Reativar</button>
+      </div>`;
+    });
+  }
+
+  // CGs customizados
   if(custom.length){
+    html+=`<div style="padding:7px 14px 3px;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--azul);background:#EFF6FF;border-top:2px solid #BFDBFE;border-bottom:1px solid #BFDBFE">CGs Adicionados</div>`;
     custom.forEach((ct,i)=>{
       html+=`<div style="display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid var(--border-soft);background:#FAFBFC">
         <span style="width:12px;height:12px;border-radius:50%;background:${ct.cor};flex-shrink:0;display:inline-block"></span>
@@ -3862,10 +3890,37 @@ function renderModalCGs(){
       </div>`;
     });
   } else {
-    html+='<div style="padding:12px 14px;font-size:12px;color:var(--gray);font-style:italic">Nenhum CG customizado ainda.</div>';
+    html+=`<div style="padding:10px 14px;font-size:11px;color:var(--gray);font-style:italic;border-top:1px solid var(--border-soft)">Nenhum CG customizado ainda.</div>`;
   }
 
   body.innerHTML=html;
+}
+
+function desativarCGBase(id){
+  const ct=CONTRATOS_BASE.find(c=>c.id===id);
+  if(!ct) return;
+  if(!confirm('Desativar "'+ct.sigla+'" por rescisão contratual?\n\nO CG será removido de todos os cálculos e relatórios futuros.\nOs dados históricos ficam preservados e podem ser restaurados reativando o CG.')) return;
+  if(!state.desativadosBase) state.desativadosBase=[];
+  if(!state.desativadosBase.includes(id)) state.desativadosBase.push(id);
+  rebuildContratos();
+  salvar();
+  renderModalCGs();
+  popularUI();
+  const tab=document.querySelector('.tab-btn.active');
+  if(tab) renderTab(tab.getAttribute('data-tab')||'criterio');
+}
+
+function reativarCGBase(id){
+  const ct=CONTRATOS_BASE.find(c=>c.id===id);
+  if(!ct) return;
+  if(!confirm('Reativar "'+ct.sigla+'"?\n\nO CG voltará a aparecer em todos os cálculos e relatórios.')) return;
+  state.desativadosBase=(state.desativadosBase||[]).filter(d=>d!==id);
+  rebuildContratos();
+  salvar();
+  renderModalCGs();
+  popularUI();
+  const tab=document.querySelector('.tab-btn.active');
+  if(tab) renderTab(tab.getAttribute('data-tab')||'criterio');
 }
 
 function adicionarCG(){
@@ -4086,7 +4141,7 @@ init();
 <div id="modal-cg" class="modal-overlay" style="display:none" onclick="if(event.target===this)document.getElementById('modal-cg').style.display='none'">
   <div class="modal-box" style="width:560px;max-width:95vw">
     <div class="modal-title">🏥 Contratos de Gestão</div>
-    <div class="modal-sub">Os CGs base fazem parte da configuração padrão e não podem ser removidos. Você pode adicionar novos CGs customizados.</div>
+    <div class="modal-sub">CGs padrão não podem ser excluídos, mas podem ser <strong>desativados</strong> por rescisão contratual. Os dados históricos são preservados e o CG pode ser reativado a qualquer momento. Use o botão <strong>⏸ Desativar</strong> ao lado de cada CG.</div>
     <div id="modal-cg-body" style="max-height:360px;overflow-y:auto;margin-bottom:16px;border:1px solid var(--border);border-radius:var(--r-md)"></div>
     <div style="border-top:1px solid var(--border);padding-top:14px">
       <div style="font-size:11px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px">Novo Contrato de Gestão</div>

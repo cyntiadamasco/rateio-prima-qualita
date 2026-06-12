@@ -3052,12 +3052,12 @@
           "pdfNome": ""
         },
         "movimentacao": {
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202606_movimentacao.pdf",
-          "pdfNome": "MOVIMENTAÇÃO CIGAC 05.2025.pdf"
+          "pdfUrl": "",
+          "pdfNome": ""
         },
         "razao": {
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202606_razao.pdf",
-          "pdfNome": "RAZÃO CIGAC 05.2026.pdf"
+          "pdfUrl": "",
+          "pdfNome": ""
         },
         "bl_saldoInicial": 0,
         "bl_transferencias": 0,

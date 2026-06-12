@@ -1658,7 +1658,2684 @@
         "bl_resgateFinanceiro": 46910.67,
         "bl_saldoFinal": 192.42,
         "ex_saldoFinal": 0,
-        "obs": ""
+        "obs": "",
+        "extratoData": {
+          "txCount": 436,
+          "countCreditos": 373,
+          "countDebitos": 63,
+          "totalCreditos": 1359252.4099999995,
+          "totalDebitos": 1359252.4100000001,
+          "saldoFinal": 0,
+          "cats": {
+            "Resgate Contamax": {
+              "count": 8,
+              "total": 46910.67
+            },
+            "Pgto a Fornecedores": {
+              "count": 9,
+              "total": -161388.08000000002
+            },
+            "Receb. de Fornecedores": {
+              "count": 328,
+              "total": 1273283.09
+            },
+            "TED Recebido": {
+              "count": 28,
+              "total": 22808.660000000003
+            },
+            "Pgto de Título": {
+              "count": 23,
+              "total": -327473.79
+            },
+            "Pix Recebido": {
+              "count": 9,
+              "total": 16249.99
+            },
+            "Outros": {
+              "count": 5,
+              "total": -27.9
+            },
+            "Aplicação Contamax": {
+              "count": 5,
+              "total": -47042.770000000004
+            },
+            "TED Pgto Fornecedores": {
+              "count": 15,
+              "total": -227921.71999999997
+            },
+            "Pagfor PIX Outra Inst": {
+              "count": 2,
+              "total": -73012.28
+            },
+            "Folha Salarial": {
+              "count": 2,
+              "total": -522345.87
+            },
+            "Tarifas Bancárias": {
+              "count": 2,
+              "total": -40
+            }
+          },
+          "txs": [
+            {
+              "data": "29/05/2026",
+              "desc": "Resgate Contamax Automatico",
+              "valor": 8610.07,
+              "saldo": 0
+            },
+            {
+              "data": "29/05/2026",
+              "desc": "Pagamento A Fornecedores",
+              "valor": -36000,
+              "saldo": -8610.07
+            },
+            {
+              "data": "29/05/2026",
+              "desc": "Pgto Fornecedores - Trib Federal",
+              "valor": -6699.39,
+              "saldo": 27389.93
+            },
+            {
+              "data": "29/05/2026",
+              "desc": "Pgto Fornecedores - Trib Federal",
+              "valor": -2161.1,
+              "saldo": 34089.32
+            },
+            {
+              "data": "29/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 12918.32,
+              "saldo": 36250.42
+            },
+            {
+              "data": "29/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 8661.22,
+              "saldo": 23332.1
+            },
+            {
+              "data": "29/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1150.57,
+              "saldo": 14670.88
+            },
+            {
+              "data": "29/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 3560.37,
+              "saldo": 13520.31
+            },
+            {
+              "data": "29/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 3189.63,
+              "saldo": 9959.94
+            },
+            {
+              "data": "29/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 741.48,
+              "saldo": 6770.31
+            },
+            {
+              "data": "29/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 2908.38,
+              "saldo": 6028.83
+            },
+            {
+              "data": "29/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 747.87,
+              "saldo": 3120.45
+            },
+            {
+              "data": "29/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 250.42,
+              "saldo": 2372.58
+            },
+            {
+              "data": "29/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1073.86,
+              "saldo": 2122.16
+            },
+            {
+              "data": "29/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 1048.3,
+              "saldo": 1048.3
+            },
+            {
+              "data": "28/05/2026",
+              "desc": "Resgate Contamax Automatico",
+              "valor": 250.43,
+              "saldo": 0
+            },
+            {
+              "data": "28/05/2026",
+              "desc": "Pagamento De Titulo 3003.4906177381 310528",
+              "valor": -2532.11,
+              "saldo": -250.43
+            },
+            {
+              "data": "28/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 609.2,
+              "saldo": 2281.68
+            },
+            {
+              "data": "28/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 908.63,
+              "saldo": 1672.48
+            },
+            {
+              "data": "28/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 204.56,
+              "saldo": 763.85
+            },
+            {
+              "data": "28/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 224.35,
+              "saldo": 559.29
+            },
+            {
+              "data": "28/05/2026",
+              "desc": "Pix Recebido 40289134000199",
+              "valor": 73.73,
+              "saldo": 334.94
+            },
+            {
+              "data": "28/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 80.93,
+              "saldo": 261.21
+            },
+            {
+              "data": "28/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 52.6,
+              "saldo": 180.28
+            },
+            {
+              "data": "28/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 52.15,
+              "saldo": 127.68
+            },
+            {
+              "data": "28/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 75.53,
+              "saldo": 75.53
+            },
+            {
+              "data": "27/05/2026",
+              "desc": "Pagamento De Titulo 3003.4906177381 310527",
+              "valor": -349.17,
+              "saldo": 0
+            },
+            {
+              "data": "27/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 349.17,
+              "saldo": 349.17
+            },
+            {
+              "data": "25/05/2026",
+              "desc": "Resgate Contamax Automatico",
+              "valor": 3.51,
+              "saldo": 0
+            },
+            {
+              "data": "25/05/2026",
+              "desc": "Pagamento De Titulo 3003.4906177381 310525",
+              "valor": -2809.45,
+              "saldo": -3.51
+            },
+            {
+              "data": "25/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1008.15,
+              "saldo": 2805.94
+            },
+            {
+              "data": "25/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 89.79,
+              "saldo": 1797.79
+            },
+            {
+              "data": "25/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 277.85,
+              "saldo": 1708
+            },
+            {
+              "data": "25/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 226.97,
+              "saldo": 1430.15
+            },
+            {
+              "data": "25/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 57.87,
+              "saldo": 1203.18
+            },
+            {
+              "data": "25/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 675.92,
+              "saldo": 1145.31
+            },
+            {
+              "data": "25/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 83.8,
+              "saldo": 469.39
+            },
+            {
+              "data": "25/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 248.92,
+              "saldo": 385.59
+            },
+            {
+              "data": "25/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 58.36,
+              "saldo": 136.67
+            },
+            {
+              "data": "25/05/2026",
+              "desc": "Pix Recebido 40289134000199",
+              "valor": 81.81,
+              "saldo": 78.31
+            },
+            {
+              "data": "25/05/2026",
+              "desc": "Tar Emissao Ted Cip Pgto Fornec 497381",
+              "valor": -3.5,
+              "saldo": -3.5
+            },
+            {
+              "data": "22/05/2026",
+              "desc": "Aplicacao Contamax",
+              "valor": -7296.38,
+              "saldo": 0
+            },
+            {
+              "data": "22/05/2026",
+              "desc": "Ted Pgto Fornecedores Cip",
+              "valor": -111397.13,
+              "saldo": 7296.38
+            },
+            {
+              "data": "22/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 28557.25,
+              "saldo": 118693.51
+            },
+            {
+              "data": "22/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 11739.03,
+              "saldo": 90136.26
+            },
+            {
+              "data": "22/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 9589.34,
+              "saldo": 78397.23
+            },
+            {
+              "data": "22/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 2444.75,
+              "saldo": 68807.89
+            },
+            {
+              "data": "22/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 2465.83,
+              "saldo": 66363.14
+            },
+            {
+              "data": "22/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 3540.68,
+              "saldo": 63897.31
+            },
+            {
+              "data": "22/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 3793.58,
+              "saldo": 60356.63
+            },
+            {
+              "data": "22/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 10516.66,
+              "saldo": 56563.05
+            },
+            {
+              "data": "22/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 42593.51,
+              "saldo": 46046.39
+            },
+            {
+              "data": "22/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 3456.38,
+              "saldo": 3452.88
+            },
+            {
+              "data": "22/05/2026",
+              "desc": "Tar Emissao Ted Cip Pgto Fornec 497381",
+              "valor": -3.5,
+              "saldo": -3.5
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Resgate Contamax Automatico",
+              "valor": 35358.22,
+              "saldo": 0
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento De Titulo 3003.4906177381 310521",
+              "valor": -132180,
+              "saldo": -35358.22
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento De Titulo 3003.4906177381 310521",
+              "valor": -51391.8,
+              "saldo": 96821.78
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Ted Pgto Fornecedores Cip",
+              "valor": -35358.21,
+              "saldo": 148213.58
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento De Titulo 3003.4906177381 310521",
+              "valor": -1138.7,
+              "saldo": 183571.79
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pgto Fornec Tit Proprios",
+              "valor": -331.8,
+              "saldo": 184710.49
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pgto Fornecedores -concessionarias",
+              "valor": -75.84,
+              "saldo": 185042.29
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pgto Fornecedores -concessionarias",
+              "valor": -70.56,
+              "saldo": 185118.13
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento De Titulo 3003.4906177381 310521",
+              "valor": -68.97,
+              "saldo": 185188.69
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pix Recebido 40289134000199",
+              "valor": 68.97,
+              "saldo": 185257.66
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 11711.26,
+              "saldo": 185188.69
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 4553.36,
+              "saldo": 173477.43
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 100.89,
+              "saldo": 168924.07
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 29.4,
+              "saldo": 168823.18
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 47431.78,
+              "saldo": 168793.78
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 18441.55,
+              "saldo": 121362
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 408.61,
+              "saldo": 102920.45
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 119.06,
+              "saldo": 102511.84
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 31801.12,
+              "saldo": 102392.78
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 12364.33,
+              "saldo": 70591.66
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 273.96,
+              "saldo": 58227.33
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 79.83,
+              "saldo": 57953.37
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 13072.49,
+              "saldo": 57873.54
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 5082.61,
+              "saldo": 44801.05
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 4151.86,
+              "saldo": 39718.44
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 32.81,
+              "saldo": 35566.58
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 112.62,
+              "saldo": 35533.77
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO 010521",
+              "valor": 10678.6,
+              "saldo": 35421.15
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 91.99,
+              "saldo": 24742.55
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 26.81,
+              "saldo": 24650.56
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 2722.46,
+              "saldo": 24623.75
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 1058.5,
+              "saldo": 21901.29
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 23.45,
+              "saldo": 20842.79
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 6.83,
+              "saldo": 20819.34
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 2745.93,
+              "saldo": 20812.51
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 23.66,
+              "saldo": 18066.58
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 1067.62,
+              "saldo": 18042.92
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 6.89,
+              "saldo": 16975.3
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 3942.87,
+              "saldo": 16968.41
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 33.97,
+              "saldo": 13025.54
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1532.99,
+              "saldo": 12991.57
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 9.9,
+              "saldo": 11458.58
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 4224.5,
+              "saldo": 11448.68
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1642.49,
+              "saldo": 7224.18
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 36.39,
+              "saldo": 5581.69
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 10.6,
+              "saldo": 5545.3
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 75.84,
+              "saldo": 5534.7
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 70.56,
+              "saldo": 5458.86
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 9.66,
+              "saldo": 5388.3
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 3848.99,
+              "saldo": 5378.64
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 33.16,
+              "saldo": 1529.65
+            },
+            {
+              "data": "21/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 1496.49,
+              "saldo": 1496.49
+            },
+            {
+              "data": "20/05/2026",
+              "desc": "Aplicacao Contamax",
+              "valor": -6679.27,
+              "saldo": 0
+            },
+            {
+              "data": "20/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 49.6,
+              "saldo": 6679.27
+            },
+            {
+              "data": "20/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 3496.9,
+              "saldo": 6629.67
+            },
+            {
+              "data": "20/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 3132.77,
+              "saldo": 3132.77
+            },
+            {
+              "data": "19/05/2026",
+              "desc": "Aplicacao Contamax",
+              "valor": -28675.45,
+              "saldo": 0
+            },
+            {
+              "data": "19/05/2026",
+              "desc": "Pagamento De Titulo 3003.4906177381 310519",
+              "valor": -501.56,
+              "saldo": 28675.45
+            },
+            {
+              "data": "19/05/2026",
+              "desc": "Pix Recebido 40289134000199",
+              "valor": 1029.61,
+              "saldo": 29177.01
+            },
+            {
+              "data": "19/05/2026",
+              "desc": "Pix Recebido 40289134000199",
+              "valor": 14.61,
+              "saldo": 28147.4
+            },
+            {
+              "data": "19/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 8506.81,
+              "saldo": 28132.79
+            },
+            {
+              "data": "19/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 120.67,
+              "saldo": 19625.98
+            },
+            {
+              "data": "19/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 14.96,
+              "saldo": 19505.31
+            },
+            {
+              "data": "19/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 40.52,
+              "saldo": 19490.35
+            },
+            {
+              "data": "19/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 2856.53,
+              "saldo": 19449.83
+            },
+            {
+              "data": "19/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1054.72,
+              "saldo": 16593.3
+            },
+            {
+              "data": "19/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 734.54,
+              "saldo": 15538.58
+            },
+            {
+              "data": "19/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 10.42,
+              "saldo": 14804.04
+            },
+            {
+              "data": "19/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 44.44,
+              "saldo": 14793.62
+            },
+            {
+              "data": "19/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 16.03,
+              "saldo": 14749.18
+            },
+            {
+              "data": "19/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1130.06,
+              "saldo": 14733.15
+            },
+            {
+              "data": "19/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 10.33,
+              "saldo": 13603.09
+            },
+            {
+              "data": "19/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 728.26,
+              "saldo": 13592.76
+            },
+            {
+              "data": "19/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 12688.02,
+              "saldo": 12864.5
+            },
+            {
+              "data": "19/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 179.98,
+              "saldo": 176.48
+            },
+            {
+              "data": "19/05/2026",
+              "desc": "Tar Emissao Ted Cip Pgto Fornec 497381",
+              "valor": -3.5,
+              "saldo": -3.5
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Resgate Contamax Automatico",
+              "valor": 0.02,
+              "saldo": 0
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pgto Fornecedores - Trib Federal",
+              "valor": -66757.3,
+              "saldo": -0.02
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagfor Pix Outra Inst- Diferen Tit",
+              "valor": -21729.18,
+              "saldo": 66757.28
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento De Titulo 3003.4906177381 310518",
+              "valor": -7611.11,
+              "saldo": 88486.46
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento De Titulo 3003.4906177381 310518",
+              "valor": -2276.96,
+              "saldo": 96097.57
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Ted Pgto Fornecedores Cip",
+              "valor": -1800,
+              "saldo": 98374.53
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 2731.19,
+              "saldo": 100174.53
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 752.73,
+              "saldo": 97443.34
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 614.89,
+              "saldo": 96690.61
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 66.3,
+              "saldo": 96075.72
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 1943.93,
+              "saldo": 96009.42
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 632.74,
+              "saldo": 94065.49
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 221.63,
+              "saldo": 93432.75
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1831.15,
+              "saldo": 93211.12
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 547.81,
+              "saldo": 91379.97
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 5227.81,
+              "saldo": 90832.16
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO 010518",
+              "valor": 16061.1,
+              "saldo": 85604.35
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 183.95,
+              "saldo": 69543.25
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1755.46,
+              "saldo": 69359.3
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 5393.21,
+              "saldo": 67603.84
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 201.74,
+              "saldo": 62210.63
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 674.35,
+              "saldo": 62008.89
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1925.22,
+              "saldo": 61334.54
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 5914.75,
+              "saldo": 59409.32
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 156.76,
+              "saldo": 53494.57
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 46.9,
+              "saldo": 53337.81
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 447.55,
+              "saldo": 53290.91
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 1374.97,
+              "saldo": 52843.36
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 648.17,
+              "saldo": 51468.39
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 227.04,
+              "saldo": 50820.22
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 67.92,
+              "saldo": 50593.18
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1991.34,
+              "saldo": 50525.26
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 817.07,
+              "saldo": 48533.92
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 7797.35,
+              "saldo": 47716.85
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 23955.35,
+              "saldo": 39919.5
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 243.25,
+              "saldo": 15964.15
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1800,
+              "saldo": 15720.9
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 72.77,
+              "saldo": 13920.9
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 694.47,
+              "saldo": 13848.13
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 2133.58,
+              "saldo": 13153.66
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 225.19,
+              "saldo": 11020.08
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 2149,
+              "saldo": 10794.89
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 158.11,
+              "saldo": 8645.89
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 1386.83,
+              "saldo": 8487.78
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 47.3,
+              "saldo": 7100.95
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 6602.24,
+              "saldo": 7053.65
+            },
+            {
+              "data": "18/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 451.41,
+              "saldo": 451.41
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Resgate Contamax Automatico",
+              "valor": 2634.43,
+              "saldo": 0
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Pagfor Pix Outra Inst- Diferen Tit",
+              "valor": -51283.1,
+              "saldo": -2634.43
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Pgto Fornecedores - Trib Federal",
+              "valor": -48918.78,
+              "saldo": 48648.67
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Pagamento De Titulo 3003.4906177381 310514",
+              "valor": -2634.44,
+              "saldo": 97567.45
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 11769.34,
+              "saldo": 100201.89
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1563.46,
+              "saldo": 88432.55
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 4838.03,
+              "saldo": 86869.09
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 12338.17,
+              "saldo": 82031.06
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 5071.85,
+              "saldo": 69692.89
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO 010514",
+              "valor": 1639.02,
+              "saldo": 64621.04
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 4334.25,
+              "saldo": 62982.02
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 3952.07,
+              "saldo": 58647.77
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1529.75,
+              "saldo": 54695.7
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 4143.08,
+              "saldo": 53165.95
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1459.22,
+              "saldo": 49022.87
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 4543.73,
+              "saldo": 47563.65
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 1007.56,
+              "saldo": 43019.92
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 1065.36,
+              "saldo": 42012.36
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 1056.26,
+              "saldo": 40947
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 1016.25,
+              "saldo": 39890.74
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 17554.13,
+              "saldo": 38874.49
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 18402.55,
+              "saldo": 21320.36
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 1493.33,
+              "saldo": 2917.81
+            },
+            {
+              "data": "14/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 1424.48,
+              "saldo": 1424.48
+            },
+            {
+              "data": "13/05/2026",
+              "desc": "Resgate Contamax Automatico",
+              "valor": 14,
+              "saldo": 0
+            },
+            {
+              "data": "13/05/2026",
+              "desc": "Tar Emissao Ted Cip Pgto Fornec 497381",
+              "valor": -14,
+              "saldo": -14
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Aplicacao Contamax",
+              "valor": -2834.45,
+              "saldo": 0
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Ted Pgto Fornecedores Cip",
+              "valor": -26084.8,
+              "saldo": 2834.45
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Ted Pgto Fornecedores Cip",
+              "valor": -11000,
+              "saldo": 28919.25
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Ted Pgto Fornecedores Cip",
+              "valor": -7000,
+              "saldo": 39919.25
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Ted Pgto Fornecedores Cip",
+              "valor": -1500,
+              "saldo": 46919.25
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Ted Pgto Fornecedores Cip",
+              "valor": -1373.72,
+              "saldo": 48419.25
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 200,
+              "saldo": 49792.97
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 330.5,
+              "saldo": 49592.97
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 6275.73,
+              "saldo": 49262.47
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 2646.48,
+              "saldo": 42986.74
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1684.13,
+              "saldo": 40340.26
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 633.82,
+              "saldo": 38656.13
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 135.86,
+              "saldo": 38022.31
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 2579.76,
+              "saldo": 37886.45
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 260.54,
+              "saldo": 35306.69
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1087.89,
+              "saldo": 35046.15
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 40.98,
+              "saldo": 33958.26
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 692.29,
+              "saldo": 33917.28
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 328.13,
+              "saldo": 33224.99
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 778.1,
+              "saldo": 32896.86
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 78.58,
+              "saldo": 32118.76
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 208.81,
+              "saldo": 32040.18
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 43.9,
+              "saldo": 31831.37
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 84.2,
+              "saldo": 31787.47
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 223.72,
+              "saldo": 31703.27
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 833.68,
+              "saldo": 31479.55
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 351.56,
+              "saldo": 30645.87
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 541.89,
+              "saldo": 30294.31
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 228.52,
+              "saldo": 29752.42
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 28.54,
+              "saldo": 29523.9
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 54.73,
+              "saldo": 29495.36
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 145.42,
+              "saldo": 29440.63
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 226.56,
+              "saldo": 29295.21
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 144.18,
+              "saldo": 29068.65
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 28.29,
+              "saldo": 28924.47
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 537.26,
+              "saldo": 28896.18
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 54.26,
+              "saldo": 28358.92
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 110.98,
+              "saldo": 28304.66
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 2107.35,
+              "saldo": 28193.68
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 212.83,
+              "saldo": 26086.33
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 565.52,
+              "saldo": 25873.5
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 888.67,
+              "saldo": 25307.98
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 121.71,
+              "saldo": 24419.31
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 2311.14,
+              "saldo": 24297.6
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 974.61,
+              "saldo": 21986.46
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 233.41,
+              "saldo": 21011.85
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 620.21,
+              "saldo": 20778.44
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1500,
+              "saldo": 20158.23
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 492.95,
+              "saldo": 18658.23
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 945.35,
+              "saldo": 18165.28
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 3947.27,
+              "saldo": 17219.93
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 9360.33,
+              "saldo": 13272.66
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 2511.9,
+              "saldo": 3912.33
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 759.57,
+              "saldo": 1400.43
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 320.31,
+              "saldo": 640.86
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 203.84,
+              "saldo": 320.55
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 40,
+              "saldo": 116.71
+            },
+            {
+              "data": "12/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 76.71,
+              "saldo": 76.71
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Aplicacao Contamax",
+              "valor": -1557.22,
+              "saldo": 0
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento De Titulo 3003.4906177381 310511",
+              "valor": -28573.12,
+              "saldo": 1557.22
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Ted Pgto Fornecedores Cip",
+              "valor": -19239.25,
+              "saldo": 30130.34
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento De Titulo 3003.4906177381 310511",
+              "valor": -17080,
+              "saldo": 49369.59
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento De Titulo 3003.4906177381 310511",
+              "valor": -9787.85,
+              "saldo": 66449.59
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pgto Fornec Tit Proprios",
+              "valor": -4576.17,
+              "saldo": 76237.44
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Ted Pgto Fornecedores Cip",
+              "valor": -3167,
+              "saldo": 80813.61
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Ted Pgto Fornecedores Cip",
+              "valor": -2700,
+              "saldo": 83980.61
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento De Titulo 3003.4906177381 310511",
+              "valor": -653.32,
+              "saldo": 86680.61
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores",
+              "valor": -628.32,
+              "saldo": 87333.93
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento De Titulo 3003.4906177381 310511",
+              "valor": -106.54,
+              "saldo": 87962.25
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pgto Fornecedores -concessionarias",
+              "valor": -76.79,
+              "saldo": 88068.79
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1173.12,
+              "saldo": 88145.58
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 761.95,
+              "saldo": 86972.46
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 6874.39,
+              "saldo": 86210.51
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 4109.27,
+              "saldo": 79336.12
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 4932.08,
+              "saldo": 75226.85
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 2354.85,
+              "saldo": 70294.77
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 151.17,
+              "saldo": 67939.92
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 155.84,
+              "saldo": 67788.75
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 101.22,
+              "saldo": 67632.91
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 545.88,
+              "saldo": 67531.69
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 913.2,
+              "saldo": 66985.81
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 312.82,
+              "saldo": 66072.61
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 655.18,
+              "saldo": 65759.79
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 20.08,
+              "saldo": 65104.61
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 106.54,
+              "saldo": 65084.53
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 76.79,
+              "saldo": 64977.99
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 482.24,
+              "saldo": 64901.2
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 2825.86,
+              "saldo": 64418.96
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1689.2,
+              "saldo": 61593.1
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 313.21,
+              "saldo": 59903.9
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 968.01,
+              "saldo": 59590.69
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 2027.43,
+              "saldo": 58622.68
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 62.14,
+              "saldo": 56595.25
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 255.86,
+              "saldo": 56533.11
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 393.93,
+              "saldo": 56277.25
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 2308.38,
+              "saldo": 55883.32
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1379.87,
+              "saldo": 53574.94
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 50.76,
+              "saldo": 52195.07
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 790.74,
+              "saldo": 52144.31
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1656.16,
+              "saldo": 51353.57
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 432.02,
+              "saldo": 49697.41
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 280.6,
+              "saldo": 49265.39
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1513.3,
+              "saldo": 48984.79
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 2531.6,
+              "saldo": 47471.49
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 653.32,
+              "saldo": 44939.89
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 55.67,
+              "saldo": 44286.57
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1816.32,
+              "saldo": 44230.9
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 867.21,
+              "saldo": 42414.58
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 94.47,
+              "saldo": 41547.37
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 509.49,
+              "saldo": 41452.9
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 852.32,
+              "saldo": 40943.41
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 145.45,
+              "saldo": 40091.09
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 291.97,
+              "saldo": 39945.64
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 18.74,
+              "saldo": 39653.67
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 611.51,
+              "saldo": 39634.93
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 2700,
+              "saldo": 39023.42
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 101.3,
+              "saldo": 36323.42
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 65.79,
+              "saldo": 36222.12
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 354.82,
+              "saldo": 36156.33
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 593.58,
+              "saldo": 35801.51
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 425.87,
+              "saldo": 35207.93
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 203.33,
+              "saldo": 34782.06
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 13.05,
+              "saldo": 34578.73
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 65.23,
+              "saldo": 34565.68
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 100.43,
+              "saldo": 34500.45
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 588.51,
+              "saldo": 34400.02
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 351.79,
+              "saldo": 33811.51
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 201.6,
+              "saldo": 33459.72
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 422.23,
+              "saldo": 33258.12
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 12.94,
+              "saldo": 32835.89
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1749.73,
+              "saldo": 32822.95
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 3512.29,
+              "saldo": 31073.22
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1136.45,
+              "saldo": 27560.93
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 10253.24,
+              "saldo": 26424.48
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 6129.03,
+              "saldo": 16171.24
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 225.47,
+              "saldo": 10042.21
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 7356.27,
+              "saldo": 9816.74
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 141.99,
+              "saldo": 2460.47
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 596.95,
+              "saldo": 2318.48
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 832.03,
+              "saldo": 1721.53
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 92.22,
+              "saldo": 889.5
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 18.3,
+              "saldo": 797.28
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 285.02,
+              "saldo": 778.98
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 497.36,
+              "saldo": 493.96
+            },
+            {
+              "data": "11/05/2026",
+              "desc": "Tar Extrato Conciliacao Bancaria 876408",
+              "valor": -3.4,
+              "saldo": -3.4
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Resgate Contamax Automatico",
+              "valor": 39.99,
+              "saldo": 0
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Ted Pgto Fornecedores Cip",
+              "valor": -631.74,
+              "saldo": -39.99
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Debito Pagamento De Salario PAGSAL:",
+              "valor": -51211.63,
+              "saldo": 591.75
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 18376.9,
+              "saldo": 51803.38
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 226.7,
+              "saldo": 33426.48
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1636.74,
+              "saldo": 33199.78
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 20.19,
+              "saldo": 31563.04
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 5064.79,
+              "saldo": 31542.85
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 62.48,
+              "saldo": 26478.06
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 4537.39,
+              "saldo": 26415.58
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 51.04,
+              "saldo": 21878.19
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 4137.3,
+              "saldo": 21827.15
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 55.97,
+              "saldo": 17689.85
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 1054.78,
+              "saldo": 17633.88
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1063.88,
+              "saldo": 16579.1
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 13.12,
+              "saldo": 15515.22
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 13.01,
+              "saldo": 15502.1
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 151.99,
+              "saldo": 15489.09
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1527.62,
+              "saldo": 15337.1
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 12320.98,
+              "saldo": 13809.48
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 18.84,
+              "saldo": 1488.5
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 18.4,
+              "saldo": 1469.66
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 1491.25,
+              "saldo": 1451.26
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Tarifa Pagfor Comprovante Lote 497381",
+              "valor": -20,
+              "saldo": -39.99
+            },
+            {
+              "data": "08/05/2026",
+              "desc": "Tarifa Folha Comprovante Lote 832391",
+              "valor": -20,
+              "saldo": -19.99
+            },
+            {
+              "data": "07/05/2026",
+              "desc": "Pagamento De Titulo 3003.4906177381 310507",
+              "valor": -44239.4,
+              "saldo": 0.01
+            },
+            {
+              "data": "07/05/2026",
+              "desc": "Pagamento De Titulo 3003.4906177381 310507",
+              "valor": -16178.43,
+              "saldo": 44239.41
+            },
+            {
+              "data": "07/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 1288.22,
+              "saldo": 60417.84
+            },
+            {
+              "data": "07/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 15874.97,
+              "saldo": 59129.62
+            },
+            {
+              "data": "07/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 5805.51,
+              "saldo": 43254.65
+            },
+            {
+              "data": "07/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 4375.24,
+              "saldo": 37449.14
+            },
+            {
+              "data": "07/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 10643.53,
+              "saldo": 33073.9
+            },
+            {
+              "data": "07/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 3892.36,
+              "saldo": 22430.37
+            },
+            {
+              "data": "07/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1600.03,
+              "saldo": 18538.01
+            },
+            {
+              "data": "07/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 3574.03,
+              "saldo": 16937.98
+            },
+            {
+              "data": "07/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1307.03,
+              "saldo": 13363.95
+            },
+            {
+              "data": "07/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 3919.65,
+              "saldo": 12056.92
+            },
+            {
+              "data": "07/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1433.42,
+              "saldo": 8137.27
+            },
+            {
+              "data": "07/05/2026",
+              "desc": "Ted Recebida 40289134000199",
+              "valor": 471.1,
+              "saldo": 6703.85
+            },
+            {
+              "data": "07/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1413.9,
+              "saldo": 6232.75
+            },
+            {
+              "data": "07/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 517.07,
+              "saldo": 4818.85
+            },
+            {
+              "data": "07/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 333.22,
+              "saldo": 4301.78
+            },
+            {
+              "data": "07/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 919.04,
+              "saldo": 3968.56
+            },
+            {
+              "data": "07/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 336.09,
+              "saldo": 3049.52
+            },
+            {
+              "data": "07/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 911.18,
+              "saldo": 2713.43
+            },
+            {
+              "data": "07/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 482.6,
+              "saldo": 1802.25
+            },
+            {
+              "data": "07/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 1319.64,
+              "saldo": 1319.65
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Ted Pgto Fornecedores Cip",
+              "valor": -5048.05,
+              "saldo": 0.01
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento De Titulo 3003.4906177381 310506",
+              "valor": -1214.92,
+              "saldo": 5048.06
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Ted Pgto Fornecedores Cip 030506",
+              "valor": -930.64,
+              "saldo": 6262.98
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento De Titulo 3003.4906177381 310506",
+              "valor": -924.3,
+              "saldo": 7193.62
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Ted Pgto Fornecedores Cip",
+              "valor": -691.18,
+              "saldo": 8117.92
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento De Titulo 3003.4906177381 310506",
+              "valor": -313.67,
+              "saldo": 8809.1
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Debito Pagamento De Salario PAGSAL:",
+              "valor": -471134.24,
+              "saldo": 9122.77
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pix Recebido 40289134000199",
+              "valor": 13719.11,
+              "saldo": 480257.01
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pix Recebido 40289134000199",
+              "valor": 20.13,
+              "saldo": 466537.9
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pix Recebido 40289134000199",
+              "valor": 1214.92,
+              "saldo": 466517.77
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pix Recebido 40289134000199",
+              "valor": 27.1,
+              "saldo": 465302.85
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 27.76,
+              "saldo": 465275.75
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 20.62,
+              "saldo": 465247.99
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 14053.72,
+              "saldo": 465227.37
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 313.67,
+              "saldo": 451173.65
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 5048.05,
+              "saldo": 450859.98
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 924.3,
+              "saldo": 445811.93
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 223.9,
+              "saldo": 444887.63
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 166.29,
+              "saldo": 444663.73
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 113349.95,
+              "saldo": 444497.44
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 29.74,
+              "saldo": 331147.49
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 22.09,
+              "saldo": 331117.75
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 9703.76,
+              "saldo": 331095.66
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 15057.56,
+              "saldo": 321391.9
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 19.17,
+              "saldo": 306334.34
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 19.33,
+              "saldo": 306315.17
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 14.24,
+              "saldo": 306295.84
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 9787.41,
+              "saldo": 306281.6
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores CNPJ",
+              "valor": 14.36,
+              "saldo": 296494.19
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 333.95,
+              "saldo": 296479.83
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 248.02,
+              "saldo": 296145.88
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 169062.91,
+              "saldo": 295897.86
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 92.04,
+              "saldo": 126834.95
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 68.36,
+              "saldo": 126742.91
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 46594.77,
+              "saldo": 126674.55
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 38062.16,
+              "saldo": 80079.78
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 75.18,
+              "saldo": 42017.62
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 55.84,
+              "saldo": 41942.44
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 61.24,
+              "saldo": 41886.6
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 82.46,
+              "saldo": 41825.36
+            },
+            {
+              "data": "06/05/2026",
+              "desc": "Pagamento A Fornecedores PROJETO",
+              "valor": 41742.9,
+              "saldo": 41742.9
+            }
+          ],
+          "parsedAt": "12/06/2026 15:20"
+        }
       }
     },
     "2026-06": {

@@ -3044,12 +3044,12 @@
       },
       "demoContabil": {
         "balancete": {
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202606_balancete.pdf",
-          "pdfNome": "BALANCETE CIGAC 05.2025.pdf"
+          "pdfUrl": "",
+          "pdfNome": ""
         },
         "extrato": {
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202606_extrato.pdf",
-          "pdfNome": "EXTRATO - CIGAC 05.2026.pdf"
+          "pdfUrl": "",
+          "pdfNome": ""
         },
         "movimentacao": {
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202606_movimentacao.pdf",

@@ -1726,10 +1726,10 @@ function renderMemorias(){
     <thead>
       <tr>
         <th>Nº do Contrato / Ano</th>
-        <th class="th-azul">CLT</th>
-        <th class="th-azul">Efetivo</th>
-        <th class="th-azul">PJ</th>
-        <th class="th-azul th-r">Total</th>
+        <th class="th-azul th-c">CLT</th>
+        <th class="th-azul th-c">Efetivo</th>
+        <th class="th-azul th-c">PJ</th>
+        <th class="th-azul th-c">Total</th>
         <th class="th-azul th-c">% Alocação</th>
       </tr>
     </thead>
@@ -1765,7 +1765,7 @@ function renderMemorias(){
       const v=(d.valor||0)*(pctMap[ct.id]||0);
       return `<tr class="${v===0?'tr-zero':''}">
         <td>${ct.nome}</td>
-        <td class="td-r fw-bold">${v>0?R$(v):'R$ -'}</td>
+        <td class="td-c fw-bold">${v>0?R$(v):'R$ -'}</td>
         <td class="td-c"><span class="pct-pill">${fmtPct(pcts[i]*100)}</span></td>
       </tr>`;
     }).join('');
@@ -1778,20 +1778,21 @@ function renderMemorias(){
       <div class="id-sheet-hdr no-print">
         <h3>Memória de Cálculo – ID ${d.id}</h3>
         <div style="display:flex;gap:8px">
-          <button class="btn btn-outline btn-xs" onclick="imprimirIDsheet('${d.uid}')">🖨 Imprimir</button>
+          <button class="btn btn-outline btn-xs" onclick="imprimirIDsheet('${d.uid}','${d.id}')">🖨 Imprimir</button>
         </div>
       </div>
       <div class="id-sheet-body">
         <!-- Cabeçalho de impressão com logo -->
         <div class="print-logo-hdr">
           ${logoSVG}
-          <div>
-            <div style="font-size:10px;color:#6B7280;margin-top:2px">CNPJ: 40.289.134/0001-99 &nbsp;|&nbsp; www.primaqualitasaude.org</div>
+          <div style="margin-left:10px">
+            <div style="font-size:11px;font-weight:800;color:#1B3A5C;line-height:1.3;letter-spacing:.4px;text-transform:uppercase">Rateio de Despesas de Gestão</div>
+            <div style="font-size:11px;color:#1B3A5C;margin-top:2px">Prima Qualitá Saúde – CNPJ: 40.289.134/0001-99</div>
           </div>
           <div class="logo-right">
-            <strong>RATEIO DE DESPESAS DE GESTÃO</strong>
-            Memória de Cálculo – ID ${d.id}<br>
-            Competência: ${compLabel(currentComp)}
+            <strong>Memória de Cálculo – ID ${d.id}</strong>
+            Competência: ${compLabel(currentComp)}<br>
+            Ref. Colaboradores: ${refColab}
           </div>
         </div>
         <div style="text-align:center;font-weight:700;font-size:13px;color:var(--navy);margin-bottom:12px" class="no-print">
@@ -1820,12 +1821,12 @@ function renderMemorias(){
           <div class="id-section-title">Rateio Aplicado</div>
           <div class="tbl-wrap">
             <table>
-              <thead><tr><th>Nº do Contrato / Ano</th><th class="th-r">Valor (R$)</th><th class="th-c">% Alocação</th></tr></thead>
+              <thead><tr><th>Nº do Contrato / Ano</th><th class="th-c">Valor (R$)</th><th class="th-c">% Alocação</th></tr></thead>
               <tbody>${rateioRows}</tbody>
               <tfoot>
                 <tr class="tr-total">
                   <td class="fw-bold">TOTAL</td>
-                  <td class="td-r fw-bold">${R$(d.valor)}</td>
+                  <td class="td-c fw-bold">${R$(d.valor)}</td>
                   <td class="td-c fw-bold">100,00%</td>
                 </tr>
               </tfoot>
@@ -2780,13 +2781,13 @@ function imprimirTodasIDs(){
   setTimeout(()=>window.print(),300);
 }
 
-function imprimirIDsheet(duid){
+function imprimirIDsheet(duid,did){
   const el=document.getElementById('id-sheet-'+duid);
   if(!el){ alert('Folha não encontrada.'); return; }
   const content=el.outerHTML;
   const w=window.open('','_blank');
   w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8">
-  <title>Memória de Cálculo</title>
+  <title>Memória de Cálculo ID ${did||''}</title>
   <style>
     body{font-family:'Segoe UI',Arial,sans-serif;font-size:11px;margin:16px 20px;color:#1F2937}
     table{width:100%;border-collapse:collapse;font-size:10px}

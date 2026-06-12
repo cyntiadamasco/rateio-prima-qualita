@@ -833,6 +833,46 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   .rdg-section-title{font-size:11px}
 }
 
+/* ── READONLY MODE (edit lock) ───────────────────────────────── */
+body.readonly .edit-only{display:none!important}
+body.readonly .btn-danger{display:none!important}
+body.readonly input[type="file"]{display:none!important}
+/* upload trigger buttons */
+body.readonly [onclick="this.nextElementSibling.click()"]{display:none!important}
+/* buttons by onclick prefix */
+body.readonly [onclick^="upload"]{display:none!important}
+body.readonly [onclick^="Upload"]{display:none!important}
+body.readonly [onclick^="remov"]{display:none!important}
+body.readonly [onclick^="Remov"]{display:none!important}
+body.readonly [onclick^="adicionar"]{display:none!important}
+body.readonly [onclick^="desativar"]{display:none!important}
+body.readonly [onclick^="reativar"]{display:none!important}
+body.readonly [onclick^="lerExtra"]{display:none!important}
+body.readonly [onclick^="limparMes"]{display:none!important}
+body.readonly [onclick^="importar"]{display:none!important}
+body.readonly .dd-danger{display:none!important}
+/* make form inputs display-only */
+body.readonly input[type="number"],
+body.readonly input[type="text"]:not(.always-edit),
+body.readonly textarea:not(.always-edit),
+body.readonly select:not(.always-edit){
+  pointer-events:none!important;
+  cursor:default!important;
+  background:#F9FAFB!important;
+  border-color:#E5E7EB!important;
+  color:#6B7280!important;
+}
+/* lock button style */
+#btn-lock-edit{
+  display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600;
+  padding:5px 10px;border-radius:6px;border:1px solid #BFDBFE;
+  background:#EFF6FF;color:#1D4ED8;cursor:pointer;transition:all .2s
+}
+#btn-lock-edit.unlocked{
+  background:#FEF3C7;color:#92400E;border-color:#FDE68A
+}
+#btn-lock-edit:hover{filter:brightness(.95)}
+
 </style>
 </head>
 <body>
@@ -874,7 +914,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
         </button>
         <div class="dd-sep"></div>
         <div class="dd-group-lbl">Configurações</div>
-        <button class="dd-item" onclick="abrirGerenciarCGs();fecharOpcoes()">
+        <button class="dd-item edit-only" onclick="abrirGerenciarCGs();fecharOpcoes()">
           <span class="dd-ico">🏥</span><span>Gerenciar Contratos de Gestão</span>
         </button>
         <button class="dd-item" onclick="abrirConfigSync();fecharOpcoes()">
@@ -887,7 +927,8 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
       </div>
     </div>
     <span id="sync-status" style="display:flex;align-items:center;gap:4px"><span class="sync-dot" id="sync-dot"></span><span class="sync-lbl" id="sync-lbl"></span></span>
-    <button class="btn btn-teal btn-sm" onclick="salvar()">💾 Salvar</button>
+    <button class="btn btn-teal btn-sm edit-only" onclick="salvar()">💾 Salvar</button>
+    <button id="btn-lock-edit" onclick="toggleEditMode()" title="Modo de edição">🔒 Editar</button>
   </div>
 </header>
 
@@ -4234,11 +4275,105 @@ function anexarPDF(uid){
   inp.click();
 }
 
+
+/* =====================================================================
+   CONTROLE DE ACESSO – MODO EDIÇÃO
+===================================================================== */
+const EDIT_PWD_KEY='pq_edit_pwd_hash';
+const DEFAULT_PWD='Prima@2024';
+
+function _pwdHash(s){
+  // djb2 hash
+  let h=5381;
+  for(let i=0;i<s.length;i++) h=((h<<5)+h)+s.charCodeAt(i)|0;
+  return h.toString(36);
+}
+
+function isEditUnlocked(){
+  return sessionStorage.getItem('pq_edit_ok')==='1';
+}
+
+function applyEditMode(){
+  const unlocked=isEditUnlocked();
+  if(unlocked){
+    document.body.classList.remove('readonly');
+  } else {
+    document.body.classList.add('readonly');
+  }
+  const btn=document.getElementById('btn-lock-edit');
+  if(!btn) return;
+  if(unlocked){
+    btn.textContent='🔓 Bloquear';
+    btn.classList.add('unlocked');
+    btn.title='Clique para bloquear a edição';
+  } else {
+    btn.textContent='🔒 Editar';
+    btn.classList.remove('unlocked');
+    btn.title='Clique para habilitar a edição';
+  }
+}
+
+function toggleEditMode(){
+  if(isEditUnlocked()){
+    sessionStorage.removeItem('pq_edit_ok');
+    applyEditMode();
+  } else {
+    document.getElementById('edit-pwd-input').value='';
+    document.getElementById('edit-pwd-err').textContent='';
+    document.getElementById('modal-edit-pwd').style.display='flex';
+    setTimeout(()=>document.getElementById('edit-pwd-input').focus(),50);
+  }
+}
+
+function confirmarSenhaEdicao(){
+  const stored=localStorage.getItem(EDIT_PWD_KEY)||_pwdHash(DEFAULT_PWD);
+  const val=document.getElementById('edit-pwd-input').value;
+  if(!val){ document.getElementById('edit-pwd-err').textContent='Digite a senha.'; return; }
+  if(_pwdHash(val)===stored){
+    sessionStorage.setItem('pq_edit_ok','1');
+    document.getElementById('modal-edit-pwd').style.display='none';
+    applyEditMode();
+  } else {
+    document.getElementById('edit-pwd-err').textContent='❌ Senha incorreta. Tente novamente.';
+    document.getElementById('edit-pwd-input').value='';
+    document.getElementById('edit-pwd-input').focus();
+  }
+}
+
+function fecharModalEditPwd(){
+  document.getElementById('modal-edit-pwd').style.display='none';
+}
+
+function abrirAlterarSenha(){
+  document.getElementById('modal-edit-pwd').style.display='none';
+  ['chpwd-atual','chpwd-nova','chpwd-conf'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('chpwd-err').textContent='';
+  document.getElementById('modal-change-pwd').style.display='flex';
+}
+
+function salvarNovaSenha(){
+  const stored=localStorage.getItem(EDIT_PWD_KEY)||_pwdHash(DEFAULT_PWD);
+  const atual=document.getElementById('chpwd-atual').value;
+  const nova=document.getElementById('chpwd-nova').value;
+  const conf=document.getElementById('chpwd-conf').value;
+  const errEl=document.getElementById('chpwd-err');
+  if(_pwdHash(atual)!==stored){ errEl.textContent='Senha atual incorreta.'; return; }
+  if(nova.length<4){ errEl.textContent='A nova senha deve ter pelo menos 4 caracteres.'; return; }
+  if(nova!==conf){ errEl.textContent='As senhas não conferem.'; return; }
+  localStorage.setItem(EDIT_PWD_KEY,_pwdHash(nova));
+  document.getElementById('modal-change-pwd').style.display='none';
+  sessionStorage.setItem('pq_edit_ok','1');
+  applyEditMode();
+  alert('✅ Senha alterada com sucesso!');
+}
+
 /* =====================================================================
    INICIALIZAÇÃO
 ===================================================================== */
 function init(){
   carregar();
+  // Aplicar modo readonly se não estiver autenticado
+  applyEditMode();
   // Sempre carrega do GitHub (público, sem token)
   githubCarregar().then(ok=>{if(ok){popularCompetencias();popularUI();renderCriterio();}});
 
@@ -5062,6 +5197,51 @@ function removerManualRDG(){
     <iframe id="modal-pdf-frame" style="flex:1;border:none;width:100%" src=""></iframe>
     <input type="hidden" id="modal-pdf-uid">
     <input type="hidden" id="modal-pdf-url">
+  </div>
+</div>
+
+
+<!-- MODAL: Edit Password -->
+<div id="modal-edit-pwd" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9999;align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:14px;padding:32px 28px;max-width:360px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.3);text-align:center">
+    <div style="font-size:36px;margin-bottom:8px">🔒</div>
+    <div style="font-size:18px;font-weight:700;color:#1B3A5C;margin-bottom:6px">Modo Edição</div>
+    <div style="font-size:13px;color:#6B7280;margin-bottom:20px">Digite a senha para habilitar a edição dos dados.</div>
+    <input id="edit-pwd-input" type="password" placeholder="Senha"
+      class="always-edit"
+      style="width:100%;box-sizing:border-box;border:1.5px solid #CBD5E1;border-radius:8px;padding:10px 14px;font-size:14px;margin-bottom:6px;outline:none;font-family:inherit"
+      onkeydown="if(event.key==='Enter')confirmarSenhaEdicao()">
+    <div id="edit-pwd-err" style="font-size:12px;color:#DC2626;min-height:18px;margin-bottom:10px"></div>
+    <div style="display:flex;gap:10px;justify-content:center">
+      <button onclick="fecharModalEditPwd()" style="flex:1;padding:10px;border-radius:8px;border:1px solid #CBD5E1;background:#F8FAFC;color:#374151;font-size:13px;font-weight:600;cursor:pointer">Cancelar</button>
+      <button onclick="confirmarSenhaEdicao()" style="flex:1;padding:10px;border-radius:8px;border:none;background:#1D4ED8;color:#fff;font-size:13px;font-weight:600;cursor:pointer">Entrar</button>
+    </div>
+    <div style="margin-top:18px;padding-top:14px;border-top:1px solid #F1F5F9">
+      <button onclick="abrirAlterarSenha()" style="font-size:11px;color:#94A3B8;background:none;border:none;cursor:pointer;text-decoration:underline">Alterar senha</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Change Password -->
+<div id="modal-change-pwd" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9999;align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:14px;padding:28px;max-width:360px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.3)">
+    <div style="font-size:16px;font-weight:700;color:#1B3A5C;margin-bottom:16px">🔑 Alterar Senha de Edição</div>
+    <label style="font-size:12px;color:#64748B;display:block;margin-bottom:4px">Senha atual</label>
+    <input id="chpwd-atual" type="password" class="always-edit" placeholder="Senha atual"
+      style="width:100%;box-sizing:border-box;border:1.5px solid #CBD5E1;border-radius:8px;padding:9px 12px;font-size:13px;margin-bottom:12px;font-family:inherit">
+    <label style="font-size:12px;color:#64748B;display:block;margin-bottom:4px">Nova senha</label>
+    <input id="chpwd-nova" type="password" class="always-edit" placeholder="Nova senha (mín. 4 caracteres)"
+      style="width:100%;box-sizing:border-box;border:1.5px solid #CBD5E1;border-radius:8px;padding:9px 12px;font-size:13px;margin-bottom:12px;font-family:inherit">
+    <label style="font-size:12px;color:#64748B;display:block;margin-bottom:4px">Confirmar nova senha</label>
+    <input id="chpwd-conf" type="password" class="always-edit" placeholder="Confirmar nova senha"
+      style="width:100%;box-sizing:border-box;border:1.5px solid #CBD5E1;border-radius:8px;padding:9px 12px;font-size:13px;margin-bottom:6px;font-family:inherit">
+    <div id="chpwd-err" style="font-size:12px;color:#DC2626;min-height:18px;margin-bottom:12px"></div>
+    <div style="display:flex;gap:10px">
+      <button onclick="document.getElementById('modal-change-pwd').style.display='none'"
+        style="flex:1;padding:10px;border-radius:8px;border:1px solid #CBD5E1;background:#F8FAFC;color:#374151;font-size:13px;font-weight:600;cursor:pointer">Cancelar</button>
+      <button onclick="salvarNovaSenha()"
+        style="flex:1;padding:10px;border-radius:8px;border:none;background:#16A34A;color:#fff;font-size:13px;font-weight:600;cursor:pointer">Salvar</button>
+    </div>
   </div>
 </div>
 

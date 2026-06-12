@@ -1589,7 +1589,7 @@
           "clt": 0,
           "efetivo": 0,
           "pj": 0,
-          "obs": ""
+          "obs": "504"
         }
       ],
       "despesas": [
@@ -2920,5 +2920,5 @@
     },
     "customContratos": []
   },
-  "currentComp": "2026-06"
+  "currentComp": "2026-05"
 }

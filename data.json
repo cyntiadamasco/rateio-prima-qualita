@@ -1614,7 +1614,14 @@
             "valor": 349.17
           }
         ],
-        "cordeiro": [],
+        "cordeiro": [
+          {
+            "id": "dl1781278356623",
+            "objeto": "Imóvel Sede Administrativa Cordeiro",
+            "fornecedor": "Rw Imobiliária Ltda",
+            "valor": 1214.92
+          }
+        ],
         "saq_esp": [],
         "saq_pri": []
       }

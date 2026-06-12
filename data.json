@@ -1531,6 +1531,12 @@
             "objeto": "Energia Elétrica Sede de Madalena",
             "fornecedor": "AMPLA ENERGIA E SERVICOS S.A.",
             "valor": 106.54
+          },
+          {
+            "id": "dl1781274146234",
+            "objeto": "Água e Esgoto Sede de Madalena",
+            "fornecedor": "COMPANHIA ESTADUAL DE AGUAS E ESGOTOS CEDAE",
+            "valor": 76.79
           }
         ],
         "cachoeiras": [

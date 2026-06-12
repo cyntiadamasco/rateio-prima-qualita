@@ -1606,6 +1606,12 @@
             "objeto": "Aluguel da Sede Administrativa Quissamã",
             "fornecedor": "Crislane Silva da Conceição",
             "valor": 2700
+          },
+          {
+            "id": "dl1781278252667",
+            "objeto": "Energia Elétrica Sede Administrativa Quissamã",
+            "fornecedor": "Ampla Energia e Serviços S.A.",
+            "valor": 349.17
           }
         ],
         "cordeiro": [],

@@ -416,6 +416,44 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 .dd-danger:hover{background:#FEF2F2!important;color:#B91C1C!important}
 .dd-sep{height:1px;background:#F1F5F9;margin:4px 0}
 
+/* ── DEMONSTRATIVOS CONTÁBEIS (DCF) ──────────────────────────── */
+.dcf-docs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:10px}
+.dcf-doc-card{
+  display:flex;align-items:center;gap:12px;padding:12px 14px;
+  border:1.5px solid var(--border);border-radius:10px;
+  background:#FAFBFC;transition:.15s;
+}
+.dcf-doc-card.has-pdf{border-color:#BBF7D0;background:#F0FDF4}
+.dcf-doc-card:hover{box-shadow:var(--shadow-sm)}
+.dcf-doc-icon{font-size:26px;flex-shrink:0;line-height:1}
+.dcf-doc-info{flex:1;min-width:0}
+.dcf-doc-label{font-size:12px;font-weight:700;color:#1E293B}
+.dcf-doc-desc{font-size:11px;color:var(--gray);margin-top:2px}
+.dcf-doc-acts{display:flex;align-items:center;gap:6px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
+.dcf-bl-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:4px}
+.dcf-bl-col{border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.dcf-col-hdr{padding:8px 14px;font-size:11px;font-weight:700;letter-spacing:.05em}
+.dcf-field{display:flex;align-items:center;padding:7px 14px;border-bottom:1px solid #F1F5F9;gap:8px}
+.dcf-field-label{flex:1;font-size:11px;color:#64748B;line-height:1.3}
+.dcf-field-input{
+  width:130px;padding:5px 8px;border:1px solid var(--border);
+  border-radius:5px;font-size:12px;text-align:right;font-family:inherit;
+}
+.dcf-field-input:focus{border-color:var(--azul);outline:none;box-shadow:0 0 0 2px rgba(0,115,186,.15)}
+.dcf-total-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:8px 14px;background:#F8FAFC;font-size:12px;
+  border-top:2px solid var(--border-soft);
+}
+.dcf-saldo-bar{
+  margin-top:14px;padding:10px 16px;background:#F8FAFC;
+  border-radius:8px;border:1px solid #E2E8F0;
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+}
+.dcf-confer-ok{background:#F0FDF4;color:#16A34A;border:1px solid #BBF7D0;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700}
+.dcf-confer-err{background:#FEF2F2;color:#DC2626;border:1px solid #FECACA;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700}
+@media(max-width:640px){.dcf-bl-grid{grid-template-columns:1fr}}
+
 /* ── PRINT LOGO HEADER ────────────────────────────────────────── */
 .print-logo-hdr{display:none;align-items:center;gap:14px;margin-bottom:14px;padding-bottom:10px;border-bottom:2.5px solid #1B3A5C}
 .print-logo-hdr svg{width:48px;height:48px;flex-shrink:0}
@@ -876,6 +914,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   <button class="tab-btn" onclick="abrirTab('graficos',this)">📊 Dashboard</button>
   <button class="tab-btn" onclick="abrirTab('analise',this)">🔍 Análise por CG</button>
   <button class="tab-btn" onclick="abrirTab('validacao',this)">✅ Validação 3%</button>
+  <button class="tab-btn" onclick="abrirTab('dcf',this)">📊 Demonstrativos</button>
 </nav>
 
 <!-- PANELS -->
@@ -889,6 +928,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 <div class="panel" id="panel-graficos"></div>
 <div class="panel" id="panel-analise"></div>
 <div class="panel" id="panel-validacao"></div>
+<div class="panel" id="panel-dcf"></div>
 
 <!-- hidden print area -->
 <div id="print-area"></div>
@@ -1049,6 +1089,14 @@ function getMesData(comp){
   });
   if(!state[comp].despesasLocais) state[comp].despesasLocais={};
   CONTRATOS.forEach(c=>{ if(!Array.isArray(state[comp].despesasLocais[c.id])) state[comp].despesasLocais[c.id]=[]; });
+  // Demonstrativos Contábeis e Financeiros
+  if(!state[comp].demoContabil) state[comp].demoContabil={};
+  const _dc=state[comp].demoContabil;
+  ['balancete','extrato','movimentacao','razao'].forEach(k=>{ if(!_dc[k]) _dc[k]={pdfUrl:'',pdfNome:''}; });
+  ['bl_saldoInicial','bl_transferencias','bl_aplicacao','bl_rendimento',
+   'bl_despesasExec','bl_iof','bl_ir','bl_resgateFinanceiro','bl_saldoFinal',
+   'ex_saldoFinal'].forEach(f=>{ if(_dc[f]===undefined) _dc[f]=0; });
+  if(_dc.obs===undefined) _dc.obs='';
   return state[comp];
 }
 
@@ -1273,6 +1321,7 @@ function renderTab(id){
     case 'graficos':     renderGraficos();      break;
     case 'analise':      renderAnalise();       break;
     case 'validacao':    renderValidacao();     break;
+    case 'dcf':          renderDCF();           break;
   }
 }
 
@@ -4117,11 +4166,216 @@ function init(){
 
 // Set data-tab on tab buttons on load
 document.querySelectorAll('.tab-btn').forEach((b,i)=>{
-  const tabNames=['criterio','qualitativo','despesas','demonstrativo','memorias','contratos','relatorio','graficos','analise','validacao'];
+  const tabNames=['criterio','qualitativo','despesas','demonstrativo','memorias','contratos','relatorio','graficos','analise','validacao','dcf'];
   b.setAttribute('data-tab',tabNames[i]||'criterio');
 });
 
 init();
+
+/* =====================================================================
+   TAB: DEMONSTRATIVOS CONTÁBEIS E FINANCEIROS
+===================================================================== */
+function renderDCF(){
+  const data=getMesData(currentComp);
+  const dc=data.demoContabil;
+  const hasToken=!!ghToken();
+  const comp=currentComp;
+  const [ano,mes]=comp.split('-');
+
+  const DOCS=[
+    {key:'balancete',   icon:'📊', label:'Balancete CIGAC',         desc:'Resumo de entradas e saídas'},
+    {key:'extrato',     icon:'🏦', label:'Extrato Bancário CIGAC',   desc:'Extrato da conta corrente'},
+    {key:'movimentacao',icon:'📋', label:'Movimentação de Despesas', desc:'Movimentação por CG'},
+    {key:'razao',       icon:'📒', label:'Razão CIGAC',              desc:'Razão contábil'},
+  ];
+
+  const docCards=DOCS.map(d=>{
+    const hasPdf=!!(dc[d.key]&&dc[d.key].pdfUrl);
+    const uid='dcf_'+comp.replace('-','')+'_'+d.key;
+    const btnVer=hasPdf
+      ?`<button class="btn btn-sm" style="background:#EFF6FF;color:#1D4ED8;border:1px solid #BFDBFE;white-space:nowrap"
+           onclick="verDCFPdf('${d.key}')">📄 Ver</button>`:'';
+    const btnUpload=hasToken
+      ?`<button class="btn btn-sm ${hasPdf?'btn-outline':'btn-teal'}" style="white-space:nowrap"
+           onclick="document.getElementById('dcf-up-${d.key}').click()">
+           ${hasPdf?'↻ Substituir':'📎 Anexar'}</button>`
+      :`<span style="font-size:10px;color:var(--gray)">🔒 Token GitHub necessário</span>`;
+    const btnRem=hasPdf
+      ?`<button class="btn btn-xs" style="background:#FEE2E2;color:#DC2626;border:1px solid #FECACA"
+           onclick="removerDCFPdf('${d.key}')" title="Remover PDF">✕</button>`:'';
+    return `<div class="dcf-doc-card ${hasPdf?'has-pdf':''}">
+      <span class="dcf-doc-icon">${d.icon}</span>
+      <div class="dcf-doc-info">
+        <div class="dcf-doc-label">${d.label}</div>
+        <div class="dcf-doc-desc">${hasPdf
+          ?`<span style="color:#16A34A;font-weight:600">✓ ${esc(dc[d.key].pdfNome)}</span>`
+          :d.desc}</div>
+      </div>
+      <div class="dcf-doc-acts">
+        ${btnVer}${btnUpload}${btnRem}
+        <input type="file" id="dcf-up-${d.key}" accept=".pdf" style="display:none"
+          onchange="uploadDCFPdf('${d.key}',this)">
+      </div>
+    </div>`;
+  }).join('');
+
+  // Balancete values
+  const si=dc.bl_saldoInicial||0;
+  const tr=dc.bl_transferencias||0;
+  const ap=dc.bl_aplicacao||0;
+  const rd=dc.bl_rendimento||0;
+  const de=dc.bl_despesasExec||0;
+  const io=dc.bl_iof||0;
+  const ir=dc.bl_ir||0;
+  const rf=dc.bl_resgateFinanceiro||0;
+  const sf=dc.bl_saldoFinal||0;
+  const totE=si+tr+ap+rd;
+  const totS=de+io+ir+rf;
+  const calc=totE-totS;
+  const diff=Math.abs(calc-sf);
+  const conferOk=sf>0&&diff<0.02;
+
+  const fld=(id,val,label)=>`<div class="dcf-field">
+    <span class="dcf-field-label">${label}</span>
+    <input type="number" min="0" step="0.01" value="${val.toFixed(2)}"
+      onchange="saveDCFField('${id}',this.value)" class="dcf-field-input">
+  </div>`;
+
+  const mesLabel=mes+'/'+ano;
+
+  document.getElementById('panel-dcf').innerHTML=`
+  <div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#0F2C47 0%,#1B4F76 100%);color:#fff;border:none">
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+      <div>
+        <div style="font-size:15px;font-weight:800;letter-spacing:-.01em">📊 DEMONSTRATIVOS CONTÁBEIS E FINANCEIROS</div>
+        <div style="font-size:12px;opacity:.75;margin-top:3px">CIGAC – Competência de Referência: ${compLabel(comp)}</div>
+      </div>
+      <div style="margin-left:auto;text-align:right">
+        <div style="font-size:10px;opacity:.7;font-weight:600;letter-spacing:.05em">RELATÓRIO RDG – ANEXO V</div>
+        <div style="font-size:12px;font-weight:700;opacity:.9;margin-top:1px">Prima Qualitá Saúde</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:14px">
+    <div class="card-hdr"><div class="card-title">📎 Documentos Contábeis – ${compLabel(comp)}</div></div>
+    <div class="dcf-docs-grid">${docCards}</div>
+    ${!hasToken?`<div class="alert" style="margin-top:10px">⚙ Configure o token GitHub em <strong>Opções → Config Sincronização GitHub</strong> para habilitar o upload de PDFs.</div>`:''}
+  </div>
+
+  <div class="card" style="margin-bottom:14px">
+    <div class="card-hdr">
+      <div class="card-title">📊 Balancete CIGAC – ${compLabel(comp)}</div>
+      <div class="card-acts" style="font-size:11px;color:var(--gray)">Preencha os valores conforme o documento</div>
+    </div>
+    <div class="dcf-bl-grid">
+      <div class="dcf-bl-col">
+        <div class="dcf-col-hdr" style="background:#EFF6FF;color:#1E40AF">⬆ ENTRADAS (DÉBITO)</div>
+        ${fld('bl_saldoInicial',si,'Saldo em 01/'+mesLabel)}
+        ${fld('bl_transferencias',tr,'Transferências Contratos de Gestão')}
+        ${fld('bl_aplicacao',ap,'Aplicação Financeira')}
+        ${fld('bl_rendimento',rd,'Rendimento de Aplicação')}
+        <div class="dcf-total-row">
+          <span class="fw-bold">TOTAL ENTRADAS</span>
+          <span class="fw-bold" style="color:#1D4ED8;font-size:13px">${R$(totE)}</span>
+        </div>
+      </div>
+      <div class="dcf-bl-col">
+        <div class="dcf-col-hdr" style="background:#FEF2F2;color:#B91C1C">⬇ SAÍDAS (CRÉDITO)</div>
+        ${fld('bl_despesasExec',de,'Despesas Executadas')}
+        ${fld('bl_iof',io,'Despesas IOF')}
+        ${fld('bl_ir',ir,'Despesas IR')}
+        ${fld('bl_resgateFinanceiro',rf,'Resgate Financeiro')}
+        <div class="dcf-total-row">
+          <span class="fw-bold">TOTAL SAÍDAS</span>
+          <span class="fw-bold" style="color:#DC2626;font-size:13px">${R$(totS)}</span>
+        </div>
+      </div>
+    </div>
+    <div class="dcf-saldo-bar">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="font-size:12px;color:var(--gray);font-weight:600">Saldo em 31/${mesLabel}</span>
+        <input type="number" min="0" step="0.01" value="${sf.toFixed(2)}"
+          onchange="saveDCFField('bl_saldoFinal',this.value)"
+          style="width:150px;padding:6px 10px;border:1.5px solid #CBD5E1;border-radius:6px;font-size:13px;font-weight:700;text-align:right">
+      </div>
+      <div style="margin-left:auto">
+        ${conferOk
+          ?`<span class="dcf-confer-ok">✓ BALANCETE CONFERE — calculado: ${R$(calc)}</span>`
+          :(totE===0&&totS===0
+            ?`<span style="font-size:11px;color:var(--gray)">Preencha os campos para conferência automática</span>`
+            :`<span class="dcf-confer-err">⚠ Diferença de ${R$(diff)} (calculado: ${R$(calc)})</span>`)
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-hdr"><div class="card-title">📝 Observações do Período</div></div>
+    <textarea onchange="saveDCFObs(this.value)"
+      placeholder="Observações sobre os demonstrativos contábeis e financeiros do período..."
+      style="width:100%;min-height:80px;padding:10px;border:1px solid var(--border);border-radius:6px;font-family:inherit;font-size:12px;resize:vertical;box-sizing:border-box"
+    >${esc(dc.obs||'')}</textarea>
+  </div>`;
+}
+
+function saveDCFField(field,value){
+  const data=getMesData(currentComp);
+  data.demoContabil[field]=parseFloat(value)||0;
+  salvar();
+  renderDCF();
+}
+function saveDCFObs(value){
+  const data=getMesData(currentComp);
+  data.demoContabil.obs=value;
+  salvar();
+}
+function uploadDCFPdf(docKey,input){
+  const file=input.files[0];
+  if(!file) return;
+  const comp=currentComp;
+  const uid='dcf_'+comp.replace('-','')+'_'+docKey;
+  const btn=input.previousElementSibling;
+  if(btn){btn.disabled=true;btn.textContent='⏳ Enviando...';}
+  githubUploadPDF(uid,file)
+    .then(url=>{
+      const data=getMesData(comp);
+      data.demoContabil[docKey]={pdfUrl:url,pdfNome:file.name};
+      const blobUrl=URL.createObjectURL(file);
+      _pdfBlobCache.set(uid,{url:blobUrl,nome:file.name});
+      salvar();
+      renderDCF();
+    })
+    .catch(err=>{
+      alert('Erro ao enviar PDF: '+err.message);
+      if(btn){btn.disabled=false;btn.textContent='📎 Anexar';}
+    });
+  input.value='';
+}
+function verDCFPdf(docKey){
+  const data=getMesData(currentComp);
+  const doc=data.demoContabil[docKey];
+  if(!doc||!doc.pdfUrl) return;
+  const uid='dcf_'+currentComp.replace('-','')+'_'+docKey;
+  const cached=_pdfBlobCache.get(uid);
+  document.getElementById('modal-pdf-frame').src=cached?cached.url:doc.pdfUrl;
+  document.getElementById('modal-pdf-nome').textContent=doc.pdfNome||docKey;
+  document.getElementById('modal-pdf-uid').value=uid;
+  document.getElementById('modal-pdf-url').value=doc.pdfUrl;
+  document.getElementById('modal-pdf-link').href=doc.pdfUrl;
+  document.getElementById('modal-pdf').style.display='flex';
+}
+function removerDCFPdf(docKey){
+  if(!confirm('Remover o PDF anexado? Esta ação não pode ser desfeita.')) return;
+  const data=getMesData(currentComp);
+  const uid='dcf_'+currentComp.replace('-','')+'_'+docKey;
+  data.demoContabil[docKey]={pdfUrl:'',pdfNome:''};
+  const cached=_pdfBlobCache.get(uid);
+  if(cached){URL.revokeObjectURL(cached.url);_pdfBlobCache.delete(uid);}
+  githubDeletePDF(uid).catch(()=>{});
+  salvar();
+  renderDCF();
+}
 </script>
 
 <div id="modal-sync" class="modal-overlay" style="display:none" onclick="if(event.target===this)fecharModal()">

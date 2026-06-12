@@ -1636,72 +1636,72 @@
       "colaboradores": [
         {
           "id": "madalena",
-          "clt": 0,
-          "efetivo": 0,
-          "pj": 0,
+          "clt": 120,
+          "efetivo": 25,
+          "pj": 32,
           "obs": ""
         },
         {
           "id": "cachoeiras",
-          "clt": 0,
+          "clt": 372,
           "efetivo": 0,
-          "pj": 0,
+          "pj": 128,
           "obs": ""
         },
         {
           "id": "saq_hosp",
-          "clt": 0,
-          "efetivo": 0,
-          "pj": 0,
+          "clt": 1399,
+          "efetivo": 19,
+          "pj": 622,
           "obs": ""
         },
         {
           "id": "upa_pac",
-          "clt": 0,
+          "clt": 82,
           "efetivo": 0,
-          "pj": 0,
+          "pj": 36,
           "obs": ""
         },
         {
           "id": "upa_nc",
-          "clt": 0,
+          "clt": 80,
           "efetivo": 0,
-          "pj": 0,
+          "pj": 36,
           "obs": ""
         },
         {
           "id": "arraial",
-          "clt": 0,
-          "efetivo": 0,
-          "pj": 0,
+          "clt": 905,
+          "efetivo": 91,
+          "pj": 327,
           "obs": ""
         },
         {
           "id": "quissama",
-          "clt": 0,
-          "efetivo": 0,
-          "pj": 0,
+          "clt": 54,
+          "efetivo": 108,
+          "pj": 5,
           "obs": ""
         },
         {
           "id": "cordeiro",
-          "clt": 0,
+          "clt": 93,
           "efetivo": 0,
-          "pj": 0,
+          "pj": 69,
           "obs": ""
         },
         {
           "id": "saq_esp",
-          "clt": 0,
-          "efetivo": 0,
-          "pj": 0,
+          "clt": 302,
+          "efetivo": 71,
+          "pj": 116,
           "obs": ""
         },
         {
           "id": "saq_pri",
-          "clt": 0,
-          "efetivo": 0,
-          "pj": 0,
+          "clt": 539,
+          "efetivo": 41,
+          "pj": 11,
           "obs": "504"
         }
       ],
@@ -3045,5 +3045,5 @@
     },
     "customContratos": []
   },
-  "currentComp": "2026-05"
+  "currentComp": "2026-06"
 }

@@ -1150,6 +1150,15 @@ function alocarDespesa(valor,pctMap){
 }
 
 function compLabel(comp){ return fmtComp(comp)||comp; }
+/* Retorna a competência do mês anterior (ex: "2026-05" → "2026-04") */
+function prevComp(comp){
+  if(!comp) return comp;
+  const [y,m]=comp.split('-');
+  let yi=parseInt(y), mi=parseInt(m)-1;
+  if(mi<1){mi=12;yi--;}
+  return yi+'-'+(mi<10?'0'+mi:String(mi));
+}
+function prevCompLabel(comp){ return compLabel(prevComp(comp)); }
 
 /* =====================================================================
    PERSISTÊNCIA
@@ -1401,8 +1410,8 @@ function renderQualitativo(){
   // Gerar cards de PDF por indicador
   const _iqpdfs=data.iqual_pdfs||{};
   const iqualPdfCards='<div class="card" style="margin-top:12px">'
-    +'<div class="card-hdr"><div class="card-title">📎 Relatórios dos Indicadores Qualitativos</div>'
-    +'<div class="card-acts"><span class="text-muted" style="font-size:11px">Anexe o relatório encaminhado por cada departamento</span></div></div>'
+    +'<div class="card-hdr"><div class="card-title">📎 Relatórios dos Indicadores – '+prevCompLabel(currentComp)+'</div>'
+    +'<div class="card-acts"><span class="text-muted" style="font-size:11px">Relatórios de <strong>'+prevCompLabel(currentComp)+'</strong> anexados à prestação de contas de '+compLabel(currentComp)+'</span></div></div>'
     +'<div style="padding:16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px">'
     +INDICADORES_QUAL.map(ind=>{
       const pdf=_iqpdfs[ind.id]||{pdfUrl:'',pdfNome:''};
@@ -1429,18 +1438,24 @@ function renderQualitativo(){
     </div>
     <div style="margin-left:auto;text-align:right">
       <div style="font-size:11px;font-weight:700;color:#1B3A5C">Indicadores Qualitativos de Rateio</div>
-      <div style="font-size:11px;color:#1B3A5C">Competência: <strong>${compLabel(currentComp)}</strong></div>
+      <div style="font-size:11px;color:#1B3A5C">Período de Apuração: <strong>${prevCompLabel(currentComp)}</strong></div>
+      <div style="font-size:10px;color:#1B3A5C;opacity:.8">Competência de Pagamento: ${compLabel(currentComp)}</div>
     </div>
   </div>
   <div class="card">
     <div class="card-hdr">
-      <div class="card-title">📈 Indicadores Qualitativos – ${compLabel(currentComp)}</div>
+      <div class="card-title">📈 Indicadores Qualitativos – ${prevCompLabel(currentComp)}</div>
       <div class="card-acts">
-        <span class="text-muted" style="font-size:11px">Competência: <strong>${compLabel(currentComp)}</strong></span>
+        <span class="text-muted" style="font-size:11px">Apuração: <strong>${prevCompLabel(currentComp)}</strong> &nbsp;|&nbsp; Pagamento: ${compLabel(currentComp)}</span>
         <button class="btn btn-outline btn-sm no-print" onclick="imprimirQualitativo()">🖨 Imprimir</button>
       </div>
     </div>
-    <div class="alert alert-info no-print" style="margin:12px 16px 0">
+    <div class="alert no-print" style="margin:12px 16px 0;background:#FFF7ED;border-left:4px solid #F59E0B;color:#92400E">
+      <span>📅</span>
+      <div><strong>Período de apuração: ${prevCompLabel(currentComp)}</strong> &nbsp;→&nbsp; Competência de pagamento: <strong>${compLabel(currentComp)}</strong><br>
+      <span style="font-size:11px">Os relatórios e quantitativos dos indicadores desta competência referem-se ao mês de <strong>${prevCompLabel(currentComp)}</strong>.</span></div>
+    </div>
+    <div class="alert alert-info no-print" style="margin:8px 16px 0">
       <span>ℹ</span>
       <div>Informe a <strong>quantidade (QTD)</strong> de cada indicador por CG. Os percentuais e a Representatividade são calculados automaticamente.<br>
       <em>Representatividade = média dos percentuais dos 8 indicadores para cada CG.</em></div>

@@ -1517,7 +1517,26 @@
           "dept": "SUPERINTENDÊNCIA",
           "funcao": "SUPERINTENDENTE ASSISTENCIAL"
         }
-      ]
+      ],
+      "despesasLocais": {
+        "madalena": [],
+        "cachoeiras": [
+          {
+            "id": "dl1781273565610",
+            "objeto": "Energia Elétrica Sede",
+            "fornecedor": "Ampla Energia",
+            "valor": 653.32
+          }
+        ],
+        "saq_hosp": [],
+        "upa_pac": [],
+        "upa_nc": [],
+        "arraial": [],
+        "quissama": [],
+        "cordeiro": [],
+        "saq_esp": [],
+        "saq_pri": []
+      }
     },
     "2026-06": {
       "colaboradores": [

@@ -1097,6 +1097,7 @@ function getMesData(comp){
    'bl_despesasExec','bl_iof','bl_ir','bl_resgateFinanceiro','bl_saldoFinal',
    'ex_saldoFinal'].forEach(f=>{ if(_dc[f]===undefined) _dc[f]=0; });
   if(_dc.obs===undefined) _dc.obs='';
+  if(_dc.extratoData===undefined) _dc.extratoData=null;
   return state[comp];
 }
 
@@ -4195,6 +4196,10 @@ function renderDCF(){
     const btnVer=hasPdf
       ?`<button class="btn btn-sm" style="background:#EFF6FF;color:#1D4ED8;border:1px solid #BFDBFE;white-space:nowrap"
            onclick="verDCFPdf('${d.key}')">📄 Ver</button>`:'';
+    const btnLer=(d.key==='extrato'&&hasPdf)
+      ?`<button id="btn-ler-extrato" class="btn btn-sm" style="background:#FEF3C7;color:#92400E;border:1px solid #FDE68A;white-space:nowrap"
+           onclick="lerExtratoBancario()">📖 Ler</button>`
+      :'';
     const btnUpload=hasToken
       ?`<button class="btn btn-sm ${hasPdf?'btn-outline':'btn-teal'}" style="white-space:nowrap"
            onclick="document.getElementById('dcf-up-${d.key}').click()">
@@ -4212,7 +4217,7 @@ function renderDCF(){
           :d.desc}</div>
       </div>
       <div class="dcf-doc-acts">
-        ${btnVer}${btnUpload}${btnRem}
+        ${btnLer}${btnVer}${btnUpload}${btnRem}
         <input type="file" id="dcf-up-${d.key}" accept=".pdf" style="display:none"
           onchange="uploadDCFPdf('${d.key}',this)">
       </div>
@@ -4310,6 +4315,8 @@ function renderDCF(){
     </div>
   </div>
 
+  ${renderExtratoAnalise(dc,comp)}
+
   <div class="card">
     <div class="card-hdr"><div class="card-title">📝 Observações do Período</div></div>
     <textarea onchange="saveDCFObs(this.value)"
@@ -4317,6 +4324,242 @@ function renderDCF(){
       style="width:100%;min-height:80px;padding:10px;border:1px solid var(--border);border-radius:6px;font-family:inherit;font-size:12px;resize:vertical;box-sizing:border-box"
     >${esc(dc.obs||'')}</textarea>
   </div>`;
+}
+
+/* ── DCF: Leitura automática do Extrato Bancário ──────────────── */
+
+function renderExtratoAnalise(dc,comp){
+  const ed=dc.extratoData;
+  const hasPdf=!!(dc.extrato&&dc.extrato.pdfUrl);
+  if(!hasPdf) return '';
+  if(!ed){
+    return `<div class="card" style="margin-bottom:14px">
+      <div class="card-hdr"><div class="card-title">🏦 Análise do Extrato Bancário</div></div>
+      <div style="padding:20px 16px;text-align:center;color:var(--gray)">
+        <div style="font-size:28px;margin-bottom:8px">📊</div>
+        <div style="font-size:13px;font-weight:600;margin-bottom:5px">Extrato ainda não analisado</div>
+        <div style="font-size:11px">Clique em <strong>📖 Ler</strong> no card do Extrato Bancário acima para extrair as transações do PDF.</div>
+      </div>
+    </div>`;
+  }
+  const kpiHtml=[
+    {l:'Saldo Final',     v:R$(ed.saldoFinal),       c:'#0F2C47',i:'💰',s:''},
+    {l:'Total Créditos',  v:R$(ed.totalCreditos),    c:'#16A34A',i:'⬆',s:ed.countCreditos+' lançamentos'},
+    {l:'Total Débitos',   v:R$(ed.totalDebitos),     c:'#DC2626',i:'⬇',s:ed.countDebitos+' lançamentos'},
+    {l:'Lançamentos',     v:ed.txCount,              c:'#7C3AED',i:'📋',s:'no período'},
+  ].map(k=>`<div style="background:#F8FAFC;border:1px solid var(--border);border-radius:8px;padding:11px 14px;border-left:3px solid ${k.c}">
+    <div style="font-size:10px;color:var(--gray);font-weight:700;letter-spacing:.05em;text-transform:uppercase">${k.i} ${k.l}</div>
+    <div style="font-size:15px;font-weight:800;color:${k.c};margin-top:3px">${k.v}</div>
+    ${k.s?`<div style="font-size:10px;color:var(--gray);margin-top:2px">${k.s}</div>`:''}
+  </div>`).join('');
+
+  const catRows=Object.entries(ed.cats||{})
+    .sort((a,b)=>Math.abs(b[1].total)-Math.abs(a[1].total))
+    .map(([cat,v])=>{
+      const isPos=v.total>=0;
+      return `<tr>
+        <td style="padding:5px 10px;font-size:11px">${cat}</td>
+        <td style="padding:5px 10px;font-size:11px;text-align:center;color:var(--gray)">${v.count}</td>
+        <td style="padding:5px 10px;font-size:12px;text-align:right;font-weight:600;color:${isPos?'#16A34A':'#DC2626'}">${R$(Math.abs(v.total))}</td>
+        <td style="padding:5px 10px;font-size:10px;color:var(--gray)">${isPos?'⬆ entrada':'⬇ saída'}</td>
+      </tr>`;
+    }).join('');
+
+  const txCount=(ed.txs||[]).length;
+  const txRows=(ed.txs||[]).map(t=>{
+    const isPos=t.valor>=0;
+    return `<tr>
+      <td style="padding:4px 8px;font-size:11px;white-space:nowrap">${t.data}</td>
+      <td style="padding:4px 8px;font-size:11px;max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${esc(t.desc)}">${esc(t.desc)}</td>
+      <td style="padding:4px 8px;font-size:11px;text-align:right;font-weight:600;color:${isPos?'#16A34A':'#DC2626'};white-space:nowrap">${R$(t.valor)}</td>
+      <td style="padding:4px 8px;font-size:11px;text-align:right;color:var(--gray);white-space:nowrap">${R$(t.saldo)}</td>
+    </tr>`;
+  }).join('');
+
+  return `<div class="card" style="margin-bottom:14px">
+    <div class="card-hdr">
+      <div class="card-title">🏦 Análise do Extrato Bancário – ${compLabel(comp)}</div>
+      <div class="card-acts" style="display:flex;align-items:center;gap:8px">
+        <span style="font-size:10px;color:var(--gray)">Lido em: ${ed.parsedAt||''}</span>
+        <button class="btn btn-outline btn-sm" onclick="lerExtratoBancario()">🔄 Reler</button>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px">${kpiHtml}</div>
+    <div style="margin-bottom:12px">
+      <div style="font-size:10px;font-weight:700;color:#64748B;letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px">Categorias de Movimentação</div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Categoria</th><th class="th-c">Qtd</th><th class="th-r">Valor (R$)</th><th>Tipo</th></tr></thead>
+        <tbody>${catRows}</tbody>
+      </table></div>
+    </div>
+    <div>
+      <button class="btn btn-outline btn-sm" data-count="${txCount}" onclick="toggleExtratoTxs(this)" style="margin-bottom:6px">
+        📋 Ver todas as transações (${txCount})
+      </button>
+      <div id="extrato-txs-table" style="display:none">
+        <div class="tbl-wrap" style="max-height:380px;overflow-y:auto"><table>
+          <thead><tr><th style="white-space:nowrap">Data</th><th>Histórico</th><th class="th-r">Valor (R$)</th><th class="th-r">Saldo (R$)</th></tr></thead>
+          <tbody>${txRows}</tbody>
+        </table></div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function toggleExtratoTxs(btn){
+  const div=document.getElementById('extrato-txs-table');
+  if(!div) return;
+  const show=div.style.display==='none';
+  div.style.display=show?'block':'none';
+  const count=btn.getAttribute('data-count')||'';
+  btn.textContent=show
+    ?'📋 Ocultar transações'
+    :'📋 Ver todas as transações'+(count?' ('+count+')':'');
+}
+
+async function loadPDFJS(){
+  if(window.pdfjsLib) return window.pdfjsLib;
+  return new Promise((resolve,reject)=>{
+    const s=document.createElement('script');
+    s.src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+    s.onload=()=>{
+      window.pdfjsLib.GlobalWorkerOptions.workerSrc=
+        'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      resolve(window.pdfjsLib);
+    };
+    s.onerror=()=>reject(new Error('Falha ao carregar PDF.js'));
+    document.head.appendChild(s);
+  });
+}
+
+function pageToText(tc){
+  const items=tc.items.filter(it=>it.str&&it.str.trim());
+  if(!items.length) return '';
+  const tol=4;
+  const groups=[];
+  for(const it of items){
+    const y=it.transform[5];
+    const g=groups.find(g=>Math.abs(g.y-y)<=tol);
+    if(g) g.items.push({x:it.transform[4],str:it.str});
+    else groups.push({y,items:[{x:it.transform[4],str:it.str}]});
+  }
+  groups.sort((a,b)=>b.y-a.y);
+  return groups.map(g=>{
+    g.items.sort((a,b)=>a.x-b.x);
+    return g.items.map(i=>i.str).join(' ');
+  }).join('\n');
+}
+
+function parseSantanderExtrato(allText){
+  const dateRe=/^(\d{2}\/\d{2}\/\d{4})\s+(.*)/;
+  const moneyRe=/(-?[\d.]+,\d{2})\s+(-?[\d.]+,\d{2})$/;
+  const docRe=/^\d{5,8}$/;
+  const skipRe=/^(SO\s+\d|[\d]{3,}[.\d]+|Data\s+Hist|Saldo\s+disp|\d+\/\d+$|Santander|PROJETO SOCIAL|Per[ií]odo|Ag[eê]ncia|Posi[cç][aã]o|Saldo de Conta|Saldo de Inv|Saldo Dispo|[A-Z]\s+[–-]\s|Central de At|Ouvidoria)/i;
+  function parseBR(s){return parseFloat(s.replace(/\./g,'').replace(',','.'))}
+  const lines=allText.split('\n').map(l=>l.trim()).filter(l=>l);
+  const txs=[];
+  let pending=null;
+  for(const line of lines){
+    if(skipRe.test(line)) continue;
+    const dm=line.match(dateRe);
+    if(dm){
+      const rest=dm[2];
+      const mm=rest.match(moneyRe);
+      if(mm){
+        const valor=parseBR(mm[1]);
+        const saldo=parseBR(mm[2]);
+        const idx=rest.lastIndexOf(mm[0]);
+        const descRaw=idx>=0?rest.slice(0,idx).trim():rest;
+        const desc=(!descRaw||docRe.test(descRaw))?(pending||descRaw):descRaw;
+        txs.push({data:dm[1],desc:(desc||'').slice(0,80),valor,saldo});
+        pending=null;
+      }
+    } else if(!moneyRe.test(line)&&!skipRe.test(line)){
+      pending=line;
+    }
+  }
+  return txs;
+}
+
+function categorizarTx(desc,valor){
+  const d=(desc||'').toLowerCase();
+  if(/resgate.*contamax|contamax.*resgate/.test(d)) return valor>0?'Resgate Contamax':'Aplicação Contamax';
+  if(/aplicac|contamax.*-/.test(d)&&valor<0) return 'Aplicação Contamax';
+  if(/ted recebida/.test(d)) return 'TED Recebido';
+  if(/pix recebido/.test(d)) return 'Pix Recebido';
+  if(/ted pgto fornecedores|pgto fornecedores cip/.test(d)) return 'TED Pgto Fornecedores';
+  if((/pagamento a fornecedores|pgto fornecedores/.test(d))&&valor>0) return 'Receb. de Fornecedores';
+  if((/pagamento a fornecedores|pgto fornecedores/).test(d)&&valor<0) return 'Pgto a Fornecedores';
+  if(/pagamento de titulo|pgto titulo|pgto fornec tit proprios/.test(d)) return 'Pgto de Título';
+  if(/pagfor pix|pix outra inst/.test(d)) return 'Pagfor PIX Outra Inst';
+  if(/debito pagamento de salario|pagsal/.test(d)) return 'Folha Salarial';
+  if(/tarifa|tar[ia]/.test(d)) return 'Tarifas Bancárias';
+  return 'Outros';
+}
+
+async function lerExtratoBancario(){
+  const data=getMesData(currentComp);
+  const dc=data.demoContabil;
+  if(!dc.extrato||!dc.extrato.pdfUrl){
+    alert('Nenhum extrato bancário anexado.\nFaça o upload do PDF do Extrato Bancário primeiro.');
+    return;
+  }
+  const btn=document.getElementById('btn-ler-extrato');
+  if(btn){btn.disabled=true;btn.textContent='⏳ Lendo...';}
+  try{
+    const pdfjs=await loadPDFJS();
+    const uid='dcf_'+currentComp.replace('-','')+'_extrato';
+    const cached=_pdfBlobCache.get(uid);
+    const src=cached?cached.url:dc.extrato.pdfUrl;
+    const resp=await fetch(src);
+    if(!resp.ok) throw new Error('Falha ao buscar PDF (HTTP '+resp.status+')');
+    const buf=await resp.arrayBuffer();
+    const pdf=await pdfjs.getDocument({data:buf}).promise;
+    const maxPg=Math.min(pdf.numPages,21);
+    let allText='';
+    for(let i=1;i<=maxPg;i++){
+      const pg=await pdf.getPage(i);
+      const tc=await pg.getTextContent();
+      allText+=pageToText(tc)+'\n';
+    }
+    const txs=parseSantanderExtrato(allText);
+    if(!txs.length){
+      if(btn){btn.disabled=false;btn.textContent='📖 Ler';}
+      alert('Nenhuma transação encontrada.\nVerifique se o PDF é o extrato Santander no formato correto.');
+      return;
+    }
+    const creditos=txs.filter(t=>t.valor>0);
+    const debitos=txs.filter(t=>t.valor<0);
+    const totalC=creditos.reduce((a,t)=>a+t.valor,0);
+    const totalD=Math.abs(debitos.reduce((a,t)=>a+t.valor,0));
+    const saldoFinal=txs.length?txs[0].saldo:0;
+    const cats={};
+    for(const t of txs){
+      const cat=categorizarTx(t.desc,t.valor);
+      if(!cats[cat]) cats[cat]={count:0,total:0};
+      cats[cat].count++;
+      cats[cat].total+=t.valor;
+    }
+    const now=new Date();
+    const parsedAt=now.toLocaleDateString('pt-BR')+' '+now.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+    data.demoContabil.extratoData={
+      txCount:txs.length,
+      countCreditos:creditos.length,
+      countDebitos:debitos.length,
+      totalCreditos:totalC,
+      totalDebitos:totalD,
+      saldoFinal,
+      cats,
+      txs,
+      parsedAt
+    };
+    salvar();
+    renderDCF();
+  }catch(err){
+    console.error('lerExtratoBancario erro:',err);
+    if(btn){btn.disabled=false;btn.textContent='📖 Ler';}
+    alert('Erro ao ler o extrato:\n'+err.message);
+  }
 }
 
 function saveDCFField(field,value){

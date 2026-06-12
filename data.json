@@ -1702,7 +1702,7 @@
           "clt": 539,
           "efetivo": 41,
           "pj": 11,
-          "obs": "504"
+          "obs": ""
         }
       ],
       "despesas": [
@@ -3041,6 +3041,35 @@
         "cordeiro": [],
         "saq_esp": [],
         "saq_pri": []
+      },
+      "demoContabil": {
+        "balancete": {
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202606_balancete.pdf",
+          "pdfNome": "BALANCETE CIGAC 05.2025.pdf"
+        },
+        "extrato": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "movimentacao": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "razao": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "bl_saldoInicial": 0,
+        "bl_transferencias": 0,
+        "bl_aplicacao": 0,
+        "bl_rendimento": 0,
+        "bl_despesasExec": 0,
+        "bl_iof": 0,
+        "bl_ir": 0,
+        "bl_resgateFinanceiro": 0,
+        "bl_saldoFinal": 0,
+        "ex_saldoFinal": 0,
+        "obs": ""
       }
     },
     "customContratos": []

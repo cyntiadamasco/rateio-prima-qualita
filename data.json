@@ -1600,7 +1600,14 @@
             "valor": 32.47
           }
         ],
-        "quissama": [],
+        "quissama": [
+          {
+            "id": "dl1781278168993",
+            "objeto": "Aluguel da Sede Administrativa Quissamã",
+            "fornecedor": "Crislane Silva da Conceição",
+            "valor": 2700
+          }
+        ],
         "cordeiro": [],
         "saq_esp": [],
         "saq_pri": []

@@ -915,6 +915,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   <button class="tab-btn" onclick="abrirTab('analise',this)">🔍 Análise por CG</button>
   <button class="tab-btn" onclick="abrirTab('validacao',this)">✅ Validação 3%</button>
   <button class="tab-btn" onclick="abrirTab('dcf',this)">🏦 Dem. Contábeis</button>
+  <button class="tab-btn" onclick="abrirTab('manual',this)">📖 Manual RDG</button>
 </nav>
 
 <!-- PANELS -->
@@ -929,6 +930,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 <div class="panel" id="panel-analise"></div>
 <div class="panel" id="panel-validacao"></div>
 <div class="panel" id="panel-dcf"></div>
+<div class="panel" id="panel-manual"></div>
 
 <!-- hidden print area -->
 <div id="print-area"></div>
@@ -1167,6 +1169,7 @@ function carregar(){
     const c=localStorage.getItem('pq_comp');
     if(c) currentComp=c;
     rebuildContratos();
+    if(!state.manualRDG) state.manualRDG={pdfUrl:'',pdfNome:''};
   }catch(e){ state={}; }
 }
 
@@ -1323,6 +1326,7 @@ function renderTab(id){
     case 'analise':      renderAnalise();       break;
     case 'validacao':    renderValidacao();     break;
     case 'dcf':          renderDCF();           break;
+    case 'manual':       renderManual();        break;
   }
 }
 
@@ -4167,7 +4171,7 @@ function init(){
 
 // Set data-tab on tab buttons on load
 document.querySelectorAll('.tab-btn').forEach((b,i)=>{
-  const tabNames=['criterio','qualitativo','despesas','demonstrativo','memorias','contratos','relatorio','graficos','analise','validacao','dcf'];
+  const tabNames=['criterio','qualitativo','despesas','demonstrativo','memorias','contratos','relatorio','graficos','analise','validacao','dcf','manual'];
   b.setAttribute('data-tab',tabNames[i]||'criterio');
 });
 
@@ -4619,9 +4623,292 @@ function removerDCFPdf(docKey){
   salvar();
   renderDCF();
 }
+
+/* =====================================================================
+   TAB: MANUAL DO RATEIO DE DESPESAS DE GESTÃO (ANEXO VI RDG)
+===================================================================== */
+function renderManual(){
+  const mr=state.manualRDG||{};
+  const hasPdf=!!(mr.pdfUrl);
+  const hasToken=!!ghToken();
+
+  const pdfCard=`
+    <div class="card" style="margin-bottom:14px">
+      <div class="card-hdr">
+        <div class="card-title">📎 Manual RDG – Arquivo PDF (Anexo VI)</div>
+        <div class="card-acts" style="font-size:11px;color:var(--gray)">Versão única • válida para todos os meses</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;padding:4px 0;flex-wrap:wrap">
+        <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,#1D4ED8,#3B82F6);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">📖</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:13px;font-weight:700;color:var(--navy)">Manual do Rateio de Despesas de Gestão</div>
+          <div style="font-size:11px;color:var(--gray);margin-top:2px">
+            ${hasPdf
+              ? `<span style="color:#16A34A;font-weight:600">✓ Anexado: ${esc(mr.pdfNome)}</span>`
+              : 'Nenhum arquivo anexado — faça o upload do PDF do Manual'}
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          ${hasPdf ? `<button class="btn btn-sm" style="background:#EFF6FF;color:#1D4ED8;border:1px solid #BFDBFE" onclick="verManualRDG()">📄 Ver PDF</button>` : ''}
+          ${hasToken
+            ? `<button class="btn btn-sm ${hasPdf?'btn-outline':'btn-teal'}" onclick="document.getElementById('manual-up').click()">
+                ${hasPdf ? '↻ Substituir' : '📎 Anexar Manual'}
+               </button>`
+            : `<span style="font-size:10px;color:var(--gray)">🔒 Token GitHub necessário</span>`}
+          ${hasPdf ? `<button class="btn btn-xs" style="background:#FEE2E2;color:#DC2626;border:1px solid #FECACA" onclick="removerManualRDG()" title="Remover PDF">✕</button>` : ''}
+          <input type="file" id="manual-up" accept=".pdf" style="display:none" onchange="uploadManualRDG(this)">
+        </div>
+      </div>
+      ${!hasToken ? `<div class="alert" style="margin-top:10px">⚙ Configure o token GitHub em <strong>Opções → Config Sincronização GitHub</strong> para habilitar o upload.</div>` : ''}
+    </div>`;
+
+  const infoCards=`
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:16px">
+
+      <div class="card" style="margin:0;border-left:4px solid #0073BA">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <div style="width:36px;height:36px;border-radius:8px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;font-size:18px">🏛</div>
+          <div style="font-size:13px;font-weight:700;color:var(--navy)">Fundamentos do CIGAC</div>
+        </div>
+        <p style="font-size:12px;color:#334155;line-height:1.7;margin-bottom:10px">
+          O <strong>CIGAC – Centro Integrado de Gestão Administrativa Compartilhada</strong> é a estrutura organizacional
+          da Prima Qualitá que executa, de forma centralizada, as atividades administrativas comuns a todos os
+          Contratos de Gestão geridos pela Instituição.
+        </p>
+        <p style="font-size:12px;color:#334155;line-height:1.7;margin-bottom:10px">
+          Compreende a <strong>Sede Administrativa</strong>, o <strong>Almoxarifado Central</strong> e o
+          <strong>Centro de Logística e Distribuição</strong>, onde são executadas as atividades de:
+        </p>
+        <ul style="font-size:11px;color:#475569;line-height:1.8;padding-left:18px">
+          <li>Diretoria do Nível Central (Adm.-Financeira, Jurídico, Compliance)</li>
+          <li>Gestão de Recursos Humanos e Departamento Pessoal</li>
+          <li>Contabilidade e Prestação de Contas</li>
+          <li>Compras, Gestão de Contratos e Licitações</li>
+          <li>Gestão Financeira e Tesouraria</li>
+          <li>Comunicação Institucional e Tecnologia da Informação</li>
+          <li>Gestão de Suprimentos, Logística e Distribuição</li>
+        </ul>
+        <div style="margin-top:12px;padding:8px 12px;background:#EFF6FF;border-radius:6px;font-size:11px;color:#1D4ED8;font-weight:600">
+          ℹ Somente as despesas executadas na Sede e no CIGAC são objeto do rateio — as despesas das filiais/escritórios regionais são exclusivas de cada contrato.
+        </div>
+      </div>
+
+      <div class="card" style="margin:0;border-left:4px solid #00A87B">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <div style="width:36px;height:36px;border-radius:8px;background:#E4F7F0;display:flex;align-items:center;justify-content:center;font-size:18px">💡</div>
+          <div style="font-size:13px;font-weight:700;color:var(--navy)">Economicidade das Despesas Compartilhadas</div>
+        </div>
+        <p style="font-size:12px;color:#334155;line-height:1.7;margin-bottom:10px">
+          A gestão centralizada e compartilhada gera <strong>ganho em escala</strong> que se traduz em economia
+          real para os contratos. Estudos demonstram que a implementação de gestão centralizada proporciona
+          <strong>redução de até 80%</strong> no número de sistemas financeiros.
+        </p>
+        <p style="font-size:12px;color:#334155;line-height:1.7;margin-bottom:10px">
+          A economicidade se manifesta:
+        </p>
+        <ul style="font-size:11px;color:#475569;line-height:1.8;padding-left:18px;margin-bottom:10px">
+          <li>Padronização de contratações, processos e boas práticas em todos os contratos</li>
+          <li>Poder de negociação ampliado com fornecedores por volume consolidado</li>
+          <li>Diluição dos custos fixos (pessoal especializado, sistemas, infraestrutura)</li>
+          <li>Eliminação de redundâncias administrativas entre unidades</li>
+          <li>Disseminação de boas práticas e correção de desvios de forma unificada</li>
+        </ul>
+        <div style="padding:8px 12px;background:#E4F7F0;border-radius:6px;font-size:11px;color:#065F46;font-weight:600">
+          ✓ O Rateio de Despesas de Gestão NÃO configura "Taxa de Administração" (vedada), pois representa a apuração e divisão proporcional de custos reais e comprovados.
+        </div>
+      </div>
+
+    </div>`;
+
+  const baseLegal=`
+    <div class="card" style="margin-bottom:14px">
+      <div class="card-hdr">
+        <div class="card-title">⚖️ Fundamentação Legal e Jurisprudencial</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-bottom:16px">
+
+        <div style="border:1px solid #BFDBFE;border-radius:8px;padding:12px 14px;background:#EFF6FF">
+          <div style="font-size:11px;font-weight:800;color:#1E40AF;letter-spacing:.04em;margin-bottom:5px">📜 Lei nº 9.637/1998</div>
+          <div style="font-size:11px;color:#1D4ED8;font-weight:600;margin-bottom:4px">Lei das Organizações Sociais</div>
+          <div style="font-size:11px;color:#334155;line-height:1.6">
+            Dispõe sobre a qualificação de entidades como organizações sociais, a criação do Programa Nacional de Publicização e o
+            fomento e execução de atividades relativas ao ensino, à pesquisa científica, ao desenvolvimento tecnológico, à proteção
+            e preservação do meio ambiente, à cultura e à saúde.
+          </div>
+          <div style="margin-top:6px;font-size:10px;color:#3B82F6">Art. 5º – natureza de parceria (interesse mútuo)</div>
+        </div>
+
+        <div style="border:1px solid #BBF7D0;border-radius:8px;padding:12px 14px;background:#F0FDF4">
+          <div style="font-size:11px;font-weight:800;color:#166534;letter-spacing:.04em;margin-bottom:5px">⚖️ ADI nº 1.923/DF – STF</div>
+          <div style="font-size:11px;color:#16A34A;font-weight:600;margin-bottom:4px">Constitucionalidade das OS e Contratos de Gestão</div>
+          <div style="font-size:11px;color:#334155;line-height:1.6">
+            O STF reconheceu a constitucionalidade do modelo de OS e da celebração de Contratos de Gestão, definindo sua natureza
+            como de <em>parceria</em> e não como contrato administrativo com contraposição de interesses, dispensando licitação por
+            ausência do intuito lucrativo.
+          </div>
+          <div style="margin-top:6px;font-size:10px;color:#16A34A">Ementa: eficiência, flexibilidade, controle pelo TCU</div>
+        </div>
+
+        <div style="border:1px solid #FDE68A;border-radius:8px;padding:12px 14px;background:#FFFBEB">
+          <div style="font-size:11px;font-weight:800;color:#92400E;letter-spacing:.04em;margin-bottom:5px">📋 Resolução SES/RJ nº 1.557/2017</div>
+          <div style="font-size:11px;color:#D97706;font-weight:600;margin-bottom:4px">Parâmetro regulatório por analogia</div>
+          <div style="font-size:11px;color:#334155;line-height:1.6">
+            Estabelece o limite de <strong>3% do valor mensal</strong> do contrato de gestão para despesas de rateio da sede.
+            Define os critérios obrigatórios: <em>Rastreabilidade, Clareza, Desdobramento analítico de sua composição
+            e Proporcionalidade.</em>
+          </div>
+          <div style="margin-top:6px;font-size:10px;color:#D97706">Art. 1º e 2º – limite e critérios do rateio</div>
+        </div>
+
+        <div style="border:1px solid #E9D5FF;border-radius:8px;padding:12px 14px;background:#FAF5FF">
+          <div style="font-size:11px;font-weight:800;color:#6B21A8;letter-spacing:.04em;margin-bottom:5px">🏛 TCU e Tribunais de Contas Estaduais</div>
+          <div style="font-size:11px;color:#7C3AED;font-weight:600;margin-bottom:4px">Jurisprudência consolidada</div>
+          <div style="font-size:11px;color:#334155;line-height:1.6">
+            Diversas cortes de contas no Brasil já se manifestaram validando a execução de despesas administrativas gerenciais
+            compartilhadas por Organizações Sociais, desde que observadas rastreabilidade, proporcionalidade e transparência
+            na sua demonstração.
+          </div>
+          <div style="margin-top:6px;font-size:10px;color:#7C3AED">Acórdãos TCU, TCE-RJ e demais cortes de contas</div>
+        </div>
+
+      </div>
+
+      <div style="background:#0F2C47;border-radius:8px;padding:14px 16px;color:#fff">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;opacity:.7;margin-bottom:8px">Os 4 Critérios Obrigatórios do Rateio (Res. SES/RJ 1.557/2017)</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px">
+          <div style="background:rgba(255,255,255,.08);border-radius:6px;padding:10px 12px">
+            <div style="font-size:13px;font-weight:700;margin-bottom:3px">🔍 Rastreabilidade</div>
+            <div style="font-size:11px;opacity:.8;line-height:1.5">Comprovação documental que permita conciliação bancária entre as contas destinatárias dos recursos.</div>
+          </div>
+          <div style="background:rgba(255,255,255,.08);border-radius:6px;padding:10px 12px">
+            <div style="font-size:13px;font-weight:700;margin-bottom:3px">📋 Clareza</div>
+            <div style="font-size:11px;opacity:.8;line-height:1.5">Identificação clara do objeto da despesa, favorecido, data e valor, sem dubiedades ou generalizações.</div>
+          </div>
+          <div style="background:rgba(255,255,255,.08);border-radius:6px;padding:10px 12px">
+            <div style="font-size:13px;font-weight:700;margin-bottom:3px">📊 Desdobramento Analítico</div>
+            <div style="font-size:11px;opacity:.8;line-height:1.5">Demonstração detalhada da composição das despesas com planilhas, registros contábeis e comprovantes.</div>
+          </div>
+          <div style="background:rgba(255,255,255,.08);border-radius:6px;padding:10px 12px">
+            <div style="font-size:13px;font-weight:700;margin-bottom:3px">⚖️ Proporcionalidade</div>
+            <div style="font-size:11px;opacity:.8;line-height:1.5">Rateio proporcional ao número de colaboradores vinculados a cada contrato em relação ao total da OS.</div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+
+  const metodologia=`
+    <div class="card" style="margin-bottom:14px">
+      <div class="card-hdr">
+        <div class="card-title">📐 Metodologia de Rateio Aplicada pela Prima Qualitá</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--azul);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px">Critério Quantitativo</div>
+          <p style="font-size:12px;color:#334155;line-height:1.7">
+            A proporção de <strong>colaboradores vinculados a cada Contrato de Gestão</strong> em relação ao total de
+            colaboradores da OS é utilizada como parâmetro de distribuição das despesas. Esse critério é obtido
+            mensalmente via Sistema de DP/RH, garantindo fidedignidade e atualização.
+          </p>
+          <div style="margin-top:8px;padding:8px 12px;background:#EFF6FF;border-radius:6px;font-size:11px;color:#1D4ED8">
+            Base: Resolução SES/RJ nº 1.557/2017, art. 2º, §2º — <em>"razão entre o número de colaboradores vinculados a cada contrato e a totalidade dos colaboradores da OS"</em>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px">Critério Qualitativo</div>
+          <p style="font-size:12px;color:#334155;line-height:1.7">
+            Indicadores de <strong>complexidade e volume de produção</strong> de cada unidade/contrato são utilizados
+            como fator de ponderação complementar, permitindo ajustes que reflitam a real demanda por serviços
+            administrativos centrais.
+          </p>
+          <div style="margin-top:8px;padding:8px 12px;background:#E4F7F0;border-radius:6px;font-size:11px;color:#065F46">
+            Inclui: indicadores de produção assistencial, número de leitos, atendimentos, complexidade clínica e
+            demais métricas dos contratos de gestão vigentes.
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:14px;padding:10px 14px;background:#F8FAFC;border:1px solid var(--border);border-radius:6px;font-size:11px;color:#64748B">
+        <strong>Limite máximo por contrato:</strong> As despesas de rateio são limitadas a <strong>3% do valor mensal</strong> de cada Contrato de Gestão, conforme Resolução SES/RJ nº 1.557/2017 (aplicada por analogia na ausência de legislação federal específica).
+      </div>
+    </div>`;
+
+  document.getElementById('panel-manual').innerHTML=`
+  <div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#0F2C47 0%,#1B4F76 60%,#1A5276 100%);color:#fff;border:none">
+    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+      <div style="font-size:36px">📖</div>
+      <div>
+        <div style="font-size:16px;font-weight:800;letter-spacing:-.01em">MANUAL DO RATEIO DE DESPESAS DE GESTÃO</div>
+        <div style="font-size:12px;opacity:.75;margin-top:3px">Fundamentação Legal, Técnica e Metodológica – Anexo VI do Relatório RDG</div>
+        <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+          <span style="background:rgba(255,255,255,.15);padding:3px 10px;border-radius:12px;font-size:10px;font-weight:700">Lei 9.637/1998</span>
+          <span style="background:rgba(255,255,255,.15);padding:3px 10px;border-radius:12px;font-size:10px;font-weight:700">ADI 1.923/DF – STF</span>
+          <span style="background:rgba(255,255,255,.15);padding:3px 10px;border-radius:12px;font-size:10px;font-weight:700">Res. SES/RJ 1.557/2017</span>
+          <span style="background:rgba(0,168,123,.35);padding:3px 10px;border-radius:12px;font-size:10px;font-weight:700">Versão: 1ª Ed. – Maio 2024</span>
+        </div>
+      </div>
+      <div style="margin-left:auto;text-align:right">
+        <div style="font-size:10px;opacity:.6;font-weight:600;letter-spacing:.05em">PRIMA QUALITÁ SAÚDE</div>
+        <div style="font-size:11px;font-weight:700;opacity:.85;margin-top:2px">CNPJ: 40.289.134/0001-99</div>
+        <div style="font-size:10px;opacity:.55;margin-top:2px">Relatório RDG – Anexo VI</div>
+      </div>
+    </div>
+  </div>
+
+  ${pdfCard}
+  ${infoCards}
+  ${baseLegal}
+  ${metodologia}`;
+}
+
+function uploadManualRDG(input){
+  const file=input.files[0];
+  if(!file) return;
+  const uid='manual_rdg';
+  const btn=input.previousElementSibling;
+  if(btn){btn.disabled=true;btn.textContent='⏳ Enviando...';}
+  githubUploadPDF(uid,file)
+    .then(url=>{
+      if(!state.manualRDG) state.manualRDG={};
+      state.manualRDG.pdfUrl=url;
+      state.manualRDG.pdfNome=file.name;
+      const blobUrl=URL.createObjectURL(file);
+      _pdfBlobCache.set(uid,{url:blobUrl,nome:file.name});
+      salvar();
+      renderManual();
+    })
+    .catch(err=>{
+      alert('Erro ao enviar Manual: '+err.message);
+      if(btn){btn.disabled=false;btn.textContent='📎 Anexar Manual';}
+    });
+  input.value='';
+}
+
+function verManualRDG(){
+  const mr=state.manualRDG||{};
+  if(!mr.pdfUrl) return;
+  const uid='manual_rdg';
+  const cached=_pdfBlobCache.get(uid);
+  document.getElementById('modal-pdf-frame').src=cached?cached.url:mr.pdfUrl;
+  document.getElementById('modal-pdf-nome').textContent=mr.pdfNome||'Manual RDG';
+  document.getElementById('modal-pdf-uid').value=uid;
+  document.getElementById('modal-pdf-url').value=mr.pdfUrl;
+  document.getElementById('modal-pdf-link').href=mr.pdfUrl;
+  document.getElementById('modal-pdf').style.display='flex';
+}
+
+function removerManualRDG(){
+  if(!confirm('Remover o PDF do Manual RDG?\n\nEsta ação não pode ser desfeita.')) return;
+  const uid='manual_rdg';
+  const cached=_pdfBlobCache.get(uid);
+  if(cached){URL.revokeObjectURL(cached.url);_pdfBlobCache.delete(uid);}
+  githubDeletePDF(uid).catch(()=>{});
+  state.manualRDG={pdfUrl:'',pdfNome:''};
+  salvar();
+  renderManual();
+}
+
 </script>
 
-<div id="modal-sync" class="modal-overlay" style="display:none" onclick="if(event.target===this)fecharModal()">
+<div id="modal-sync class="modal-overlay" style="display:none" onclick="if(event.target===this)fecharModal()">
   <div class="modal-box">
     <div class="modal-title">&#9729; Sincronização via GitHub</div>
     <div class="modal-sub">Cole aqui seu <strong>Personal Access Token</strong> do GitHub com permissão <code>repo</code>.<br>Os dados ficam salvos como <code>data.json</code> no repositório e carregados automaticamente em qualquer máquina com o token configurado.<br><br><a href="https://github.com/settings/tokens/new?scopes=repo&description=Rateio+Prima+Qualita" target="_blank" style="color:var(--azul);font-weight:600">&#10140; Gerar token no GitHub (abre nova aba)</a></div>

@@ -3056,8 +3056,8 @@
           "pdfNome": "MOVIMENTAÇÃO CIGAC 05.2025.pdf"
         },
         "razao": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202606_razao.pdf",
+          "pdfNome": "RAZÃO CIGAC 05.2026.pdf"
         },
         "bl_saldoInicial": 0,
         "bl_transferencias": 0,

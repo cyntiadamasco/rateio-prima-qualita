@@ -1526,6 +1526,12 @@
             "objeto": "Energia Elétrica Sede",
             "fornecedor": "Ampla Energia",
             "valor": 653.32
+          },
+          {
+            "id": "dl1781273603246",
+            "objeto": "Aluguel da Sede Municipal",
+            "fornecedor": "Regina Célia de Castro Mendes",
+            "valor": 1500
           }
         ],
         "saq_hosp": [],

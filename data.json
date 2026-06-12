@@ -5775,7 +5775,8 @@
         "bl_resgateFinanceiro": 0,
         "bl_saldoFinal": 0,
         "ex_saldoFinal": 0,
-        "obs": ""
+        "obs": "",
+        "extratoData": null
       }
     },
     "customContratos": [],

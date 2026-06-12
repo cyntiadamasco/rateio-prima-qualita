@@ -1519,7 +1519,14 @@
         }
       ],
       "despesasLocais": {
-        "madalena": [],
+        "madalena": [
+          {
+            "id": "dl1781273870388",
+            "objeto": "Aluguel Sede Administrativa de Santa Maria Madalena",
+            "fornecedor": "FERNANDA BOTELHO DE OLIVEIRA QUEIROZ",
+            "valor": 1800
+          }
+        ],
         "cachoeiras": [
           {
             "id": "dl1781273565610",
@@ -2947,7 +2954,19 @@
           "dept": "SUPERINTENDÊNCIA",
           "funcao": "SUPERINTENDENTE ASSISTENCIAL"
         }
-      ]
+      ],
+      "despesasLocais": {
+        "madalena": [],
+        "cachoeiras": [],
+        "saq_hosp": [],
+        "upa_pac": [],
+        "upa_nc": [],
+        "arraial": [],
+        "quissama": [],
+        "cordeiro": [],
+        "saq_esp": [],
+        "saq_pri": []
+      }
     },
     "customContratos": []
   },

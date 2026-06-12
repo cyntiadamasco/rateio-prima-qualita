@@ -993,6 +993,8 @@ function getMesData(comp){
     if(!state[comp].iqual[ind.id]) state[comp].iqual[ind.id]={};
     CONTRATOS.forEach(cg=>{ if(state[comp].iqual[ind.id][cg.id]===undefined) state[comp].iqual[ind.id][cg.id]=0; });
   });
+  if(!state[comp].despesasLocais) state[comp].despesasLocais={};
+  CONTRATOS.forEach(c=>{ if(!Array.isArray(state[comp].despesasLocais[c.id])) state[comp].despesasLocais[c.id]=[]; });
   return state[comp];
 }
 
@@ -3125,6 +3127,35 @@ function renderAnalise(){
 }
 
 /* =====================================================================
+   DESPESAS LOCAIS 100% – helpers
+===================================================================== */
+function addDespLocal(cgId){
+  const objEl=document.getElementById('dl-obj-'+cgId);
+  const fornEl=document.getElementById('dl-forn-'+cgId);
+  const valEl=document.getElementById('dl-val-'+cgId);
+  if(!objEl||!valEl) return;
+  const obj=objEl.value.trim();
+  const forn=fornEl?fornEl.value.trim():'';
+  const val=parseFloat(valEl.value)||0;
+  if(!obj||!val){alert('Preencha o Objeto e o Valor.');return;}
+  const md=getMesData(currentComp);
+  if(!md.despesasLocais) md.despesasLocais={};
+  if(!md.despesasLocais[cgId]) md.despesasLocais[cgId]=[];
+  md.despesasLocais[cgId].push({id:'dl'+Date.now(),objeto:obj,fornecedor:forn,valor:val});
+  salvar();
+  renderValidacao();
+}
+
+function delDespLocal(cgId,dlId){
+  const md=getMesData(currentComp);
+  if(md.despesasLocais&&md.despesasLocais[cgId]){
+    md.despesasLocais[cgId]=md.despesasLocais[cgId].filter(d=>d.id!==dlId);
+    salvar();
+    renderValidacao();
+  }
+}
+
+/* =====================================================================
    TAB: VALIDAÇÃO 3%
 ===================================================================== */
 function renderValidacao(){
@@ -3135,10 +3166,16 @@ function renderValidacao(){
   let alertas=0;
   let excedidos=0;
 
+  // CG selecionado para gestão de despesas locais
+  const cgSelDL=(document.getElementById('dl-cg-sel')&&document.getElementById('dl-cg-sel').value)||CONTRATOS[0].id;
+
   CONTRATOS.forEach((ct,i)=>{
     const alocado=data.despesas.reduce((a,d)=>a+(d.valor||0)*(pctMap[ct.id]||0),0);
+    const localList=(data.despesasLocais||{})[ct.id]||[];
+    const totalLocal=localList.reduce((a,d)=>a+(d.valor||0),0);
+    const totalDesp=alocado+totalLocal;
     const orc=data.orcamentos[ct.id]||0;
-    const pctUsado=orc>0?(alocado/orc)*100:null;
+    const pctUsado=orc>0?(totalDesp/orc)*100:null;
     const limite=3;
 
     let statusBadge='<span class="badge badge-gray">Sem orçamento</span>';
@@ -3162,9 +3199,13 @@ function renderValidacao(){
 
     rows+=`<tr>
       <td><span class="dot" style="background:${ct.cor}"></span>${ct.nome}</td>
-      <td class="td-r fw-bold">${R$(alocado)}</td>
+      <td class="td-r">${R$(alocado)}</td>
+      <td class="td-r" style="color:${totalLocal>0?'#7C3AED':'#9CA3AF'};font-weight:${totalLocal>0?700:400}">
+        ${totalLocal>0?R$(totalLocal):'–'}
+      </td>
+      <td class="td-r fw-bold">${R$(totalDesp)}</td>
       <td class="td-edit td-r">
-        <input type="number" min="0" step="1000" style="width:140px;text-align:right" value="${orc||0}"
+        <input type="number" min="0" step="1000" style="width:130px;text-align:right" value="${orc||0}"
           onchange="setOrc('${ct.id}',this.value)" placeholder="0" title="Valor mensal do contrato">
       </td>
       <td class="td-c">${pctUsado!==null?fmtPct(pctUsado):'–'}</td>
@@ -3172,7 +3213,7 @@ function renderValidacao(){
         <div class="progress-wrap mb-4"><div class="progress-bar ${pbClass}" style="width:${pbWidth}%"></div></div>
         ${statusBadge}
       </td>
-      <td class="td-c td-money">${pctUsado!==null&&pctUsado<=limite&&orc>0?R$(orc*limite/100-alocado):'–'}</td>
+      <td class="td-c td-money">${pctUsado!==null&&pctUsado<=limite&&orc>0?R$(orc*limite/100-totalDesp):'–'}</td>
     </tr>`;
   });
 
@@ -3182,17 +3223,32 @@ function renderValidacao(){
     `<div class="alert alert-warn">⚡ ${alertas} contrato(s) estão próximos do limite (≥2,5%). Monitore!</div>`:
     `<div class="alert alert-ok">✓ Todos os contratos com orçamento cadastrado estão dentro do limite de 3%.</div>`;
 
+  // Gestão de despesas locais para o CG selecionado
+  const ctDL=CONTRATOS.find(c=>c.id===cgSelDL)||CONTRATOS[0];
+  const despLocaisDL=(data.despesasLocais||{})[ctDL.id]||[];
+  const cgOptsDL=CONTRATOS.map(c=>`<option value="${c.id}"${c.id===cgSelDL?' selected':''}>${c.sigla} – ${c.nome}</option>`).join('');
+  const totalDL=despLocaisDL.reduce((a,d)=>a+(d.valor||0),0);
+  const dlRows=despLocaisDL.map(d=>`<tr>
+    <td style="font-size:11px;padding:5px 8px">${d.objeto}</td>
+    <td style="font-size:11px;padding:5px 8px;color:#6B7280">${d.fornecedor||'—'}</td>
+    <td style="text-align:right;padding:5px 8px;font-size:11px;font-weight:700">${R$(d.valor)}</td>
+    <td style="text-align:center;padding:5px 8px">
+      <button onclick="delDespLocal('${ctDL.id}','${d.id}')" title="Excluir"
+        style="background:#FEE2E2;color:#DC2626;border:1px solid #FECACA;border-radius:4px;padding:2px 8px;font-size:11px;cursor:pointer;font-weight:700">&#10005;</button>
+    </td>
+  </tr>`).join('');
+
   document.getElementById('panel-validacao').innerHTML=`
   <div class="alert alert-info">
     <span>ℹ</span>
-    <div>Informe o <strong>valor mensal total do contrato</strong> de cada CG para validar se o rateio respeita o limite de <strong>3%</strong>. Os dados de orçamento são salvos por mês.</div>
+    <div>Informe o <strong>valor mensal total do contrato</strong> de cada CG. O limite de <strong>3%</strong> inclui o rateio CIGAC <strong>mais</strong> as despesas locais (100%) de cada contrato.</div>
   </div>
   ${statusGlobal}
   <div class="card">
     <div class="card-hdr">
       <div class="card-title">✅ Validação do Limite de 3% – ${compLabel(currentComp)}</div>
       <div class="card-acts">
-        <span class="text-muted" style="font-size:11px">Preencha o valor mensal de cada contrato</span>
+        <span class="text-muted" style="font-size:11px">Rateio CIGAC + Despesas Locais vs Teto 3%</span>
       </div>
     </div>
     <div class="tbl-wrap">
@@ -3200,7 +3256,9 @@ function renderValidacao(){
         <thead>
           <tr>
             <th>Contrato de Gestão</th>
-            <th class="th-r">Rateio Alocado</th>
+            <th class="th-r">Rateio CIGAC</th>
+            <th class="th-r" style="color:#7C3AED">Desp. Locais (100%)</th>
+            <th class="th-r">Total Despesas</th>
             <th class="th-r">Valor Mensal do Contrato (R$)</th>
             <th class="th-c">% Utilizado</th>
             <th>Status (limite 3%)</th>
@@ -3211,7 +3269,63 @@ function renderValidacao(){
       </table>
     </div>
     <div style="font-size:11px;color:var(--gray);margin-top:10px">
-      ⚡ Atenção: ≥ 2,5% &nbsp;|&nbsp; ⚠ Excedido: &gt; 3,00% &nbsp;|&nbsp; Margem = Limite disponível restante antes de atingir 3%
+      ⚡ Atenção: ≥ 2,5% &nbsp;|&nbsp; ⚠ Excedido: &gt; 3,00% &nbsp;|&nbsp;
+      <span style="color:#7C3AED">Desp. Locais</span>: despesas 100% do CG (não integram o rateio CIGAC, mas compõem o limite de 3%)
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <div class="card-hdr" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <div class="card-title">&#127970; Despesas Locais (100%) – ${compLabel(currentComp)}</div>
+      <select id="dl-cg-sel" onchange="renderValidacao()" style="font-size:12px;padding:3px 8px;border-radius:4px;border:1px solid #D1D5DB;background:#fff">
+        ${cgOptsDL}
+      </select>
+    </div>
+    <div style="font-size:11px;color:#6B7280;margin-bottom:12px">
+      Despesas executadas <strong>100%</strong> em <strong style="color:${ctDL.cor}">${ctDL.nome}</strong> —
+      não integram o rateio do CIGAC, mas compõem o limite de 3% e são encaminhadas individualmente na prestação de contas do CG.
+    </div>
+
+    ${despLocaisDL.length>0?`
+    <div class="tbl-wrap" style="margin-bottom:14px">
+      <table>
+        <thead><tr>
+          <th>Objeto / Descrição</th>
+          <th>Fornecedor</th>
+          <th class="th-r">Valor (R$)</th>
+          <th class="th-c"></th>
+        </tr></thead>
+        <tbody>${dlRows}</tbody>
+        <tfoot><tr class="tr-total">
+          <td class="fw-bold" colspan="2">TOTAL – ${ctDL.sigla} / ${compLabel(currentComp)}</td>
+          <td class="td-r fw-bold" style="color:#7C3AED">${R$(totalDL)}</td>
+          <td></td>
+        </tr></tfoot>
+      </table>
+    </div>`:`<p style="color:#9CA3AF;font-style:italic;font-size:12px;margin-bottom:12px">Nenhuma despesa local registrada para <strong>${ctDL.sigla}</strong> em ${compLabel(currentComp)}.</p>`}
+
+    <div style="background:#F9FAFB;border-radius:6px;border:1px solid #E5E7EB;padding:12px">
+      <div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:10px">+ Adicionar Despesa Local</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 160px auto;gap:8px;align-items:end;flex-wrap:wrap">
+        <div>
+          <label style="font-size:10px;font-weight:600;color:#6B7280;display:block;margin-bottom:3px">Objeto / Descrição *</label>
+          <input id="dl-obj-${ctDL.id}" type="text" placeholder="Ex: Energia Elétrica Sede" style="width:100%;padding:5px 8px;border:1px solid #D1D5DB;border-radius:4px;font-size:12px">
+        </div>
+        <div>
+          <label style="font-size:10px;font-weight:600;color:#6B7280;display:block;margin-bottom:3px">Fornecedor</label>
+          <input id="dl-forn-${ctDL.id}" type="text" placeholder="Nome do fornecedor" style="width:100%;padding:5px 8px;border:1px solid #D1D5DB;border-radius:4px;font-size:12px">
+        </div>
+        <div>
+          <label style="font-size:10px;font-weight:600;color:#6B7280;display:block;margin-bottom:3px">Valor (R$) *</label>
+          <input id="dl-val-${ctDL.id}" type="number" min="0" step="0.01" placeholder="0,00" style="width:100%;padding:5px 8px;border:1px solid #D1D5DB;border-radius:4px;font-size:12px">
+        </div>
+        <div>
+          <button onclick="addDespLocal('${ctDL.id}')"
+            style="padding:6px 16px;background:#7C3AED;color:#fff;border:none;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;height:31px">
+            Adicionar
+          </button>
+        </div>
+      </div>
     </div>
   </div>`;
 }

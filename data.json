@@ -1525,6 +1525,12 @@
             "objeto": "Aluguel Sede Administrativa de Santa Maria Madalena",
             "fornecedor": "FERNANDA BOTELHO DE OLIVEIRA QUEIROZ",
             "valor": 1800
+          },
+          {
+            "id": "dl1781273931830",
+            "objeto": "Energia Elétrica Sede de Madalena",
+            "fornecedor": "AMPLA ENERGIA E SERVICOS S.A.",
+            "valor": 106.54
           }
         ],
         "cachoeiras": [

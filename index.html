@@ -2883,6 +2883,8 @@ function renderGraficos(){
 function renderAnalise(){
   const allComps=Object.keys(state).filter(k=>/^\d{4}-\d{2}$/.test(k)).sort();
   const cgSel=document.getElementById('analise-cg-sel')?document.getElementById('analise-cg-sel').value:CONTRATOS[0].id;
+  const anos=[...new Set(allComps.map(c=>c.split('-')[0]))].sort();
+  const anoSel=(document.getElementById('analise-ano-sel')&&document.getElementById('analise-ano-sel').value)||(anos[anos.length-1]||'');
 
   let cgOpts=CONTRATOS.map(ct=>`<option value="${ct.id}"${ct.id===cgSel?' selected':''}>${ct.nome}</option>`).join('');
 
@@ -2902,6 +2904,46 @@ function renderAnalise(){
     const pm=getPctMap(comp);
     return getMesData(comp).despesas.reduce((a,d)=>a+(d.valor||0)*(pm[ct.id]||0),0);
   });
+
+  /* Acompanhamento Anual 3% */
+  const mesesAno=allComps.filter(c=>c.split('-')[0]===anoSel);
+  let _acum3=0;
+  const anoRows=mesesAno.map(comp=>{
+    const _pm=getPctMap(comp);
+    const _md=getMesData(comp);
+    const alocado=_md.despesas.reduce((a,d)=>a+(d.valor||0)*(_pm[ct.id]||0),0);
+    const orc=(_md.orcamentos||{})[ct.id]||0;
+    const teto=orc*0.03;
+    const delta=alocado-teto;
+    _acum3+=delta;
+    return {comp,alocado,orc,teto,delta,acum:_acum3};
+  });
+  const totalAlocAno=anoRows.reduce((a,r)=>a+r.alocado,0);
+  const totalTetoAno=anoRows.reduce((a,r)=>a+r.teto,0);
+  const totalOrcAno=anoRows.reduce((a,r)=>a+r.orc,0);
+  const saldoFinal=anoRows.length?anoRows[anoRows.length-1].acum:0;
+  const mesesExcedidos=anoRows.filter(r=>r.orc>0&&r.delta>0).length;
+  const mesesCompens=anoRows.filter(r=>r.orc>0&&r.delta<=0).length;
+  const anoTblRows=anoRows.map(r=>{
+    const isSemOrc=r.orc===0;
+    const isOver=!isSemOrc&&r.delta>0;
+    const badge=isSemOrc
+      ?'<span class="badge badge-gray">Sem or&ccedil;amento</span>'
+      :isOver
+        ?'<span class="badge badge-err">&#8593; Excesso</span>'
+        :'<span class="badge badge-ok">&#8595; Compensa&ccedil;&atilde;o</span>';
+    return '<tr style="'+(isOver?'background:#FEF2F2':(!isSemOrc&&r.delta<0)?'background:#F0FDF4':'')+'">'
+      +'<td style="font-size:11px;padding:5px 8px;font-weight:600">'+fmtComp(r.comp)+'</td>'
+      +'<td style="text-align:right;padding:5px 8px;font-size:11px">'+R$(r.orc)+'</td>'
+      +'<td style="text-align:right;padding:5px 8px;font-size:11px">'+(r.orc>0?R$(r.teto):'&mdash;')+'</td>'
+      +'<td style="text-align:right;padding:5px 8px;font-size:11px;font-weight:700">'+R$(r.alocado)+'</td>'
+      +'<td style="text-align:right;padding:5px 8px;font-size:11px;font-weight:700;color:'+(isOver?'#DC2626':r.delta<0?'#059669':'#374151')+'">'
+        +(r.orc>0?((r.delta>=0?'+':'')+R$(r.delta)):'&mdash;')+'</td>'
+      +'<td style="text-align:right;padding:5px 8px;font-size:11px;font-weight:700;color:'+(r.acum>0.01?'#DC2626':r.acum<-0.01?'#059669':'#374151')+'">'
+        +(r.orc>0?((r.acum>=0?'+':'')+R$(r.acum)):'&mdash;')+'</td>'
+      +'<td style="padding:5px 8px">'+badge+'</td>'
+      +'</tr>';
+  }).join('');
 
   let rows=despAloc.map(d=>`<tr>
     <td class="td-c fw-bold">${d.id}</td>
@@ -2966,6 +3008,70 @@ function renderAnalise(){
       <div class="card-hdr"><div class="card-title">Histórico por Mês – ${ct.sigla}</div></div>
       <div class="chart-box"><canvas id="ch-analise"></canvas></div>
     </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <div class="card-hdr" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <div class="card-title">&#128197; Acompanhamento Anual &#8211; Teto de 3% Contratual</div>
+      <div class="no-print" style="display:flex;gap:8px;align-items:center">
+        <label style="font-size:12px;font-weight:600;color:#374151">Ano:</label>
+        <select id="analise-ano-sel" onchange="renderAnalise()" style="font-size:12px;padding:3px 8px;border-radius:4px;border:1px solid #D1D5DB;background:#fff">
+          ${anos.map(y=>`<option value="${y}"${y===anoSel?' selected':''}>${y}</option>`).join('')}
+        </select>
+      </div>
+    </div>
+    ${anoRows.length===0
+      ?`<p style="color:#9CA3AF;font-style:italic;padding:8px 16px">Nenhum dado registrado para ${anoSel}.</p>`
+      :`<div>
+        <div class="stats-grid" style="margin:10px 0 14px">
+          <div class="stat-card" style="border-left-color:${ct.cor}">
+            <div class="stat-val">${R$(totalAlocAno)}</div>
+            <div class="stat-lbl">Total Rateado ${anoSel}</div>
+          </div>
+          <div class="stat-card" style="border-left-color:#EF4444">
+            <div class="stat-val" style="color:#EF4444">${R$(totalTetoAno)}</div>
+            <div class="stat-lbl">Teto 3% Acumulado ${anoSel}</div>
+          </div>
+          <div class="stat-card" style="border-left-color:${saldoFinal>0.01?'#EF4444':saldoFinal<-0.01?'#10B981':'#6B7280'}">
+            <div class="stat-val" style="color:${saldoFinal>0.01?'var(--err)':saldoFinal<-0.01?'var(--ok)':''}">
+              ${(saldoFinal>=0?'+':'')+R$(saldoFinal)}
+            </div>
+            <div class="stat-lbl">${saldoFinal>0.01?'&#9888; Excesso acumulado':'&#10003; Compensa&ccedil;&atilde;o dispon&iacute;vel'}</div>
+          </div>
+          <div class="stat-card" style="border-left-color:#F59E0B">
+            <div class="stat-val">${mesesExcedidos}&thinsp;/&thinsp;${anoRows.length}</div>
+            <div class="stat-lbl">Meses acima do teto &nbsp;|&nbsp; ${mesesCompens} com compensa&ccedil;&atilde;o</div>
+          </div>
+        </div>
+        <div class="no-print" style="margin-bottom:14px">
+          <div class="chart-box" style="height:220px"><canvas id="ch-analise-anual"></canvas></div>
+        </div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr>
+              <th>M&ecirc;s</th>
+              <th class="th-r">Or&ccedil;amento</th>
+              <th class="th-r">Teto 3%</th>
+              <th class="th-r">Alocado</th>
+              <th class="th-r">Varia&ccedil;&atilde;o</th>
+              <th class="th-r">Acumulado</th>
+              <th class="th-c">Status</th>
+            </tr></thead>
+            <tbody>${anoTblRows}</tbody>
+            <tfoot><tr class="tr-total">
+              <td class="fw-bold">TOTAL ${anoSel}</td>
+              <td class="td-r">${R$(totalOrcAno)}</td>
+              <td class="td-r fw-bold">${R$(totalTetoAno)}</td>
+              <td class="td-r fw-bold">${R$(totalAlocAno)}</td>
+              <td class="td-r fw-bold" style="color:${saldoFinal>0.01?'var(--err)':saldoFinal<-0.01?'var(--ok)':''}">
+                ${(saldoFinal>=0?'+':'')+R$(saldoFinal)}
+              </td>
+              <td class="td-r" style="color:#9CA3AF;font-style:italic;font-size:11px">&mdash;</td>
+              <td class="td-c">${saldoFinal>0.01?'<span class="badge badge-err">&#9888; Excedido</span>':saldoFinal<-0.01?'<span class="badge badge-ok">&#10003; Dentro do teto</span>':'<span class="badge badge-gray">Equilibrado</span>'}</td>
+            </tr></tfoot>
+          </table>
+        </div>
+      </div>`}
   </div>`;
 
   // Destroy previous
@@ -2983,6 +3089,39 @@ function renderAnalise(){
       });
     }catch(e){}
   },50);
+
+  /* Grafico: Acompanhamento Anual 3% */
+  if(charts.analiseAnual){try{charts.analiseAnual.destroy()}catch(e){}}
+  setTimeout(()=>{
+    const elAnual=document.getElementById('ch-analise-anual');
+    if(!elAnual||!anoRows.length) return;
+    try{
+      const hasOrc=anoRows.some(r=>r.orc>0);
+      const labels=anoRows.map(r=>fmtComp(r.comp));
+      const datasets=[
+        {type:'bar',label:'Valor Alocado',data:anoRows.map(r=>r.alocado),backgroundColor:ct.cor+'BB',borderColor:ct.cor,borderWidth:1.5,borderRadius:4,order:2}
+      ];
+      if(hasOrc){
+        datasets.push({type:'line',label:'Teto 3%',data:anoRows.map(r=>r.teto),borderColor:'#EF4444',backgroundColor:'transparent',borderWidth:2.5,borderDash:[6,3],pointRadius:4,pointBackgroundColor:'#EF4444',fill:false,tension:0,order:1});
+        datasets.push({type:'line',label:'Saldo Acumulado',data:anoRows.map(r=>r.acum),borderColor:'#7C3AED',backgroundColor:'transparent',borderWidth:1.5,borderDash:[3,3],pointRadius:3,pointBackgroundColor:'#7C3AED',fill:false,tension:0.3,order:0});
+      }
+      charts.analiseAnual=new Chart(elAnual,{
+        type:'bar',
+        data:{labels,datasets},
+        options:{
+          responsive:true,maintainAspectRatio:false,
+          plugins:{
+            legend:{position:'top',labels:{font:{size:10},boxWidth:12,padding:8}},
+            tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+R$(ctx.raw)}}
+          },
+          scales:{
+            y:{ticks:{callback:v=>R$(v),font:{size:9}},grid:{color:'#F3F4F6'}},
+            x:{ticks:{font:{size:10}}}
+          }
+        }
+      });
+    }catch(e){}
+  },80);
 }
 
 /* =====================================================================

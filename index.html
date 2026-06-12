@@ -862,6 +862,27 @@ body.readonly select:not(.always-edit){
   border-color:#E5E7EB!important;
   color:#6B7280!important;
 }
+/* ── READONLY – regras complementares (botoes por prefixo de funcao) ── */
+/* Cabecalho: Novo Mes / Excluir Mes */
+body.readonly [onclick^="novaCompetencia"]{display:none!important}
+body.readonly [onclick^="excluirMesAtual"]{display:none!important}
+/* Contratos: Adicionar / remover linha */
+body.readonly [onclick^="addContrato"]{display:none!important}
+body.readonly [onclick^="remContrato"]{display:none!important}
+/* Relatorio RDG: botao Editar */
+body.readonly [onclick^="toggleRdg"]{display:none!important}
+/* Despesas locais (Validacao 3%): Editar / Excluir / Adicionar */
+body.readonly [onclick^="editDesp"]{display:none!important}
+body.readonly [onclick^="delDesp"]{display:none!important}
+body.readonly [onclick^="addDesp"]{display:none!important}
+/* Despesas CIGAC: Adicionar Item / Importar mes anterior / Anexar comprovante */
+body.readonly [onclick^="addDespesa"]{display:none!important}
+body.readonly [onclick^="duplicarMes"]{display:none!important}
+body.readonly [onclick^="anexarPDF"]{display:none!important}
+/* Dem. Contabeis + Manual RDG: botoes Substituir/Anexar que usam getElementById */
+body.readonly [onclick^="document.getElementById"]{display:none!important}
+/* Importar contratos mes anterior */
+body.readonly [onclick^="importarContrat"]{display:none!important}
 /* lock button style */
 #btn-lock-edit{
   display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600;
@@ -3642,7 +3663,7 @@ function renderValidacao(){
       </table>
     </div>`:`<p style="color:#9CA3AF;font-style:italic;font-size:12px;margin-bottom:12px">Nenhuma despesa local registrada para <strong>${ctDL.sigla}</strong> em ${compLabel(currentComp)}.</p>`}
 
-    <div style="background:#F9FAFB;border-radius:6px;border:1px solid #E5E7EB;padding:12px">
+    <div class="edit-only" style="background:#F9FAFB;border-radius:6px;border:1px solid #E5E7EB;padding:12px">
       <div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:10px">+ Adicionar Despesa Local</div>
       <div style="display:grid;grid-template-columns:1fr 1fr 160px auto;gap:8px;align-items:end;flex-wrap:wrap">
         <div>

@@ -1532,6 +1532,12 @@
             "objeto": "Aluguel da Sede Municipal",
             "fornecedor": "Regina Célia de Castro Mendes",
             "valor": 1500
+          },
+          {
+            "id": "dl1781273636002",
+            "objeto": "Tarifas Bancárias",
+            "fornecedor": "Banco Santander",
+            "valor": 741.91
           }
         ],
         "saq_hosp": [],

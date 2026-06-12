@@ -491,6 +491,8 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   .rdg-capa [style*="background:#1B3A5C"]{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
   .rdg-section{padding-top:58px!important}
   .rdg-sign{padding-top:44px!important}
+  .rdg-chart-card canvas{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  .rdg-analise-hdr{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;background:#1B3A5C!important;color:#fff!important}
   /* RDG: tabela Indicadores Qualitativos – zoom para caber na página */
   .rdg-iqual-wrap{overflow:visible!important;width:100%}
   .rdg-iqual-wrap table{width:100%!important;min-width:0!important;table-layout:fixed;font-size:7px!important}
@@ -577,6 +579,16 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 .rdg-ol li{margin:5px 0;font-size:11.5px}
 .rdg-anexos{margin-top:18px;padding:14px;background:#F3F4F6;border-radius:4px;border-left:3px solid #1B3A5C;font-family:Arial,sans-serif;font-size:12px}
 .rdg-sign{max-width:900px;margin:20px auto;padding:0 16px;font-size:12px;text-align:center;font-family:Arial,sans-serif}
+.rdg-chart-card{background:#F9FAFB;border-radius:8px;border:1px solid #E5E7EB;border-top:3px solid #1B3A5C;padding:14px;margin-bottom:12px;page-break-inside:avoid;break-inside:avoid}
+.rdg-chart-title{font-size:11px;font-weight:700;color:#0F2C47;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid #E5E7EB}
+.rdg-analise-box{border:1px solid #E5E7EB;border-radius:8px;overflow:hidden;margin-top:16px}
+.rdg-analise-hdr{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;padding:7px 12px;background:#1B3A5C;color:#fff;font-size:10px;font-weight:700;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.rdg-analise-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;align-items:center;padding:7px 12px;border-bottom:1px solid #F3F4F6;font-size:11px}
+.rdg-analise-row:last-child{border-bottom:none}
+.rdg-analise-cg{font-weight:600;color:#0F2C47}
+.rdg-analise-pct{text-align:center;padding:2px 8px;border-radius:10px;font-weight:700;font-size:10px}
+.rdg-analise-delta{text-align:center;font-weight:700;font-size:10px}
+.rdg-analise-status{text-align:center;font-weight:600;font-size:10px}
 .rdg-page-hdr{display:none}
 .rdg-sign-line{width:280px;height:1.5px;background:#111;margin:36px auto 8px}
 .rdg-sign p{margin:4px 0}
@@ -951,6 +963,7 @@ function rebuildContratos(){
 let currentComp = '2026-05';
 let state = {};
 let charts = {};
+let rdgCharts = {};
 
 function uid(){ return Math.random().toString(36).slice(2,9); }
 
@@ -2314,6 +2327,45 @@ function renderRelatorio(){
       +cells+'<td style="text-align:center;font-size:10px;font-weight:700;padding:3px 6px">'+fmtPct(repr*100)+'</td></tr>';
   }).join('');
 
+  /* Gráficos analíticos – seção 4 */
+  const cgTotals=CONTRATOS.map(ct=>desp.reduce((a,d)=>a+(d.valor||0)*(pctMap[ct.id]||0),0));
+  const quantPcts=CONTRATOS.map(ct=>(pctMap[ct.id]||0)*100);
+  const reprPcts=CONTRATOS.map(cg=>{
+    const p8=INDICADORES_QUAL.map(ind=>{const q=(iqual[ind.id]||{})[cg.id]||0,t=totaisQ[ind.id];return t>0?q/t:0;});
+    return p8.reduce((a,b)=>a+b,0)/INDICADORES_QUAL.length*100;
+  });
+  const rdgAnalyseRows=hasQualData?CONTRATOS.map((cg,i)=>{
+    const q=quantPcts[i],r=reprPcts[i],d=r-q;
+    const[txt,col]=Math.abs(d)<2?['≈ Alinhado','#059669']:d>0?['↑ Qualit. superior','#7C3AED']:['↓ Quant. superior','#D97706'];
+    return '<div class="rdg-analise-row">'
+      +'<span class="rdg-analise-cg"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:'+cg.cor+';margin-right:6px;vertical-align:middle"></span>'+cg.nome+'</span>'
+      +'<span class="rdg-analise-pct" style="background:#EBF5FF;color:#0073BA">'+fmtPct(q)+'</span>'
+      +'<span class="rdg-analise-pct" style="background:#E4F7F0;color:#00A87B">'+fmtPct(r)+'</span>'
+      +'<span class="rdg-analise-delta" style="color:'+(d>=0?'#059669':'#DC2626')+'">'+(d>=0?'+':'')+d.toFixed(2).replace('.',',')+' pp</span>'
+      +'<span class="rdg-analise-status" style="color:'+col+'">'+txt+'</span>'
+      +'</div>';
+  }).join(''):'';
+  const sec4Html='<div class="rdg-section" style="page-break-before:always">'
+    +'<h1 class="rdg-section-title">4. Análise dos Indicadores</h1>'
+    +'<h2 class="rdg-subsection-title">4.1 Distribuição Financeira das Despesas – '+mesRef+'</h2>'
+    +'<p class="rdg-p">Os gráficos a seguir apresentam a distribuição das despesas do CIGAC rateadas entre os Contratos de Gestão e por categoria de despesa, evidenciando a proporcionalidade dos encargos assumidos por cada parceiro na competência de referência.</p>'
+    +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:16px 0">'
+    +'<div class="rdg-chart-card"><div class="rdg-chart-title">Distribuição por Contrato de Gestão</div><canvas id="rdg-ch-donut" style="max-height:220px"></canvas></div>'
+    +'<div class="rdg-chart-card"><div class="rdg-chart-title">Distribuição por Categoria de Despesa</div><canvas id="rdg-ch-cat" style="max-height:220px"></canvas></div>'
+    +'</div>'
+    +(hasQualData
+      ?'<h2 class="rdg-subsection-title" style="page-break-before:always;padding-top:52px">4.2 Indicadores Qualitativos – Representatividade por CG</h2>'
+        +'<p class="rdg-p">A representatividade qualitativa de cada Contrato de Gestão é apurada pela média dos 8 indicadores qualitativos, refletindo a demanda efetiva de cada parceiro pelos serviços compartilhados do CIGAC.</p>'
+        +'<div class="rdg-chart-card" style="margin:16px 0"><div class="rdg-chart-title">Representatividade Qualitativa por Contrato de Gestão – '+mesRef+'</div><canvas id="rdg-ch-repr" style="max-height:220px"></canvas></div>'
+        +'<h2 class="rdg-subsection-title" style="page-break-before:always;padding-top:52px">4.3 Análise Comparativa: Critério Quantitativo × Representatividade Qualitativa</h2>'
+        +'<p class="rdg-p">O Manual de Rateio de Despesas de Gestão (RDG) da Prima Qualitá estabelece um <strong>critério duplo</strong> para a distribuição das despesas compartilhadas do CIGAC: <strong>(i) Critério Quantitativo</strong> – proporção de colaboradores de cada Contrato de Gestão em relação ao total do CIGAC; e <strong>(ii) Critério Qualitativo</strong> – representatividade do uso efetivo dos serviços de gestão compartilhada, mensurada pelos 8 indicadores de desempenho setorial.</p>'
+        +'<p class="rdg-p">A combinação dos dois critérios assegura que o rateio reflita tanto a capacidade administrativa instalada quanto a demanda real pelos serviços do CIGAC, promovendo equilíbrio, transparência e isonomia entre os parceiros, em conformidade com os princípios de racionalização de recursos previstos no Manual. Discrepâncias significativas entre os dois critérios sinalizam contratos onde o peso quantitativo não reflete a demanda qualitativa real, justificando revisões periódicas dos parâmetros de rateio.</p>'
+        +'<div class="rdg-chart-card" style="margin:16px 0"><div class="rdg-chart-title">Comparativo: % Critério Quantitativo vs % Representatividade Qualitativa – '+mesRef+'</div><canvas id="rdg-ch-compare" style="max-height:220px"></canvas></div>'
+        +'<div class="rdg-analise-box"><div class="rdg-analise-hdr"><span>Contrato de Gestão</span><span style="text-align:center">% Quant.</span><span style="text-align:center">% Repres.</span><span style="text-align:center">Delta</span><span style="text-align:center">Alinhamento</span></div>'
+        +rdgAnalyseRows+'</div>'
+      :'<h2 class="rdg-subsection-title">4.2 Indicadores Qualitativos</h2>'
+        +'<p class="rdg-p" style="color:#9CA3AF;font-style:italic">Dados de indicadores qualitativos não cadastrados para '+mesRef+'. Acesse a aba <strong>📈 Indicadores Qualitativos</strong> para preenchimento.</p>')
+    +'</div>';
   /* Render */
   document.getElementById('panel-relatorio').innerHTML=`
   <div id="rdg-colab-mgmt-area" class="no-print"></div>
@@ -2452,16 +2504,18 @@ function renderRelatorio(){
       ${catSectionsHtml||'<p class="rdg-p" style="color:#9CA3AF;font-style:italic">Nenhuma despesa cadastrada para '+mesRef+'. Acesse a aba <strong>📋 Despesas</strong> para preenchimento.</p>'}
     </div>
 
-    <!-- 4. RELATÓRIOS ADICIONAIS -->
+    ${sec4Html}
+
+    <!-- 5. RELATÓRIOS ADICIONAIS -->
     <div class="rdg-section">
-      <h1 class="rdg-section-title">4. Relatórios Adicionais</h1>
+      <h1 class="rdg-section-title">5. Relatórios Adicionais</h1>
       <h2 class="rdg-subsection-title">4.1 Documentos Comprobatórios</h2>
       <p class="rdg-p">As documentações de comprovação da execução de cada item descrito neste relatório estão devidamente anexadas. Isso inclui notas fiscais, recibos, relatórios de ponto eletrônico, folhas de pagamento, relatórios de auditoria, documentos de suporte jurídico, e quaisquer outros registros necessários para assegurar a transparência e a conformidade das despesas apresentadas.</p>
     </div>
 
-    <!-- 5. DISPOSIÇÕES FINAIS -->
+    <!-- 6. DISPOSIÇÕES FINAIS -->
     <div class="rdg-section">
-      <h1 class="rdg-section-title">5. Disposições Finais</h1>
+      <h1 class="rdg-section-title">6. Disposições Finais</h1>
       <p class="rdg-p">Este relatório de prestação de contas mensal foi elaborado com o objetivo de proporcionar uma visão detalhada, transparente e abrangente das despesas compartilhadas entre os diversos contratos de gestão administrados pela Prima Qualitá. Através da descrição minuciosa de cada item de despesa e da apresentação dos critérios quantitativos e qualitativos utilizados, buscamos assegurar a máxima clareza e conformidade com as exigências legais e regulatórias.</p>
       <p class="rdg-p">As despesas descritas, incluindo os serviços de assessoria jurídica, auditorias, folha de pagamento, sistemas de gestão, melhoria contínua, locação de imóvel e equipamentos, são fundamentais para a manutenção da eficiência e eficácia das operações da Prima Qualitá e o suporte a todas as unidades de saúde geridas.</p>
       <p class="rdg-p">A inclusão de documentação comprobatória anexada a este relatório reforça nosso compromisso com a transparência e a prestação de contas rigorosa. Ao concluir este relatório mensal, reafirmamos o compromisso da Prima Qualitá com a excelência na gestão dos recursos públicos. Estamos à disposição para quaisquer esclarecimentos adicionais que se façam necessários.</p>
@@ -2488,7 +2542,94 @@ function renderRelatorio(){
     </div>
 
   </div>`;
+  initRdgCharts(cgTotals,quantPcts,reprPcts,hasQualData,desp);
   renderColabMgmt();
+}
+
+function initRdgCharts(cgTotals,quantPcts,reprPcts,hasQualData,desp){
+  Object.values(rdgCharts).forEach(c=>{try{c.destroy()}catch(e){}});
+  rdgCharts={};
+  if(!document.getElementById('rdg-ch-donut')) return;
+  const cgColors=CONTRATOS.map(ct=>ct.cor);
+
+  /* Gráfico 1 – Doughnut: distribuição por CG */
+  const el1=document.getElementById('rdg-ch-donut');
+  if(el1) rdgCharts.donut=new Chart(el1.getContext('2d'),{
+    type:'doughnut',
+    data:{
+      labels:CONTRATOS.map(ct=>ct.sigla),
+      datasets:[{data:cgTotals,backgroundColor:cgColors,borderWidth:2,borderColor:'#fff'}]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:true,
+      plugins:{
+        legend:{position:'right',labels:{font:{size:10},boxWidth:12,padding:8}},
+        tooltip:{callbacks:{label:ctx=>ctx.label+': '+R$(ctx.raw)}}
+      }
+    }
+  });
+
+  /* Gráfico 2 – Barras horizontais: distribuição por categoria */
+  const catTots=CATEGORIAS.map(cat=>desp.filter(d=>d.cat===cat).reduce((a,d)=>a+(d.valor||0),0));
+  const catNms=CATEGORIAS.filter((_,i)=>catTots[i]>0).map(c=>c.length>32?c.substring(0,30)+'…':c);
+  const catVals=catTots.filter(v=>v>0);
+  const el2=document.getElementById('rdg-ch-cat');
+  if(el2&&catNms.length) rdgCharts.cat=new Chart(el2.getContext('2d'),{
+    type:'bar',
+    data:{labels:catNms,datasets:[{label:'R$',data:catVals,backgroundColor:'#0073BA',borderRadius:3}]},
+    options:{
+      indexAxis:'y',responsive:true,maintainAspectRatio:true,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>R$(ctx.raw)}}},
+      scales:{
+        x:{ticks:{callback:v=>R$(v),font:{size:9}},grid:{color:'#F3F4F6'}},
+        y:{ticks:{font:{size:9}}}
+      }
+    }
+  });
+
+  if(!hasQualData) return;
+
+  /* Gráfico 3 – Barras: representatividade qualitativa por CG */
+  const el3=document.getElementById('rdg-ch-repr');
+  if(el3) rdgCharts.repr=new Chart(el3.getContext('2d'),{
+    type:'bar',
+    data:{
+      labels:CONTRATOS.map(ct=>ct.sigla),
+      datasets:[{label:'% Representatividade',data:reprPcts,backgroundColor:cgColors,borderRadius:4}]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:true,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>fmtPct(ctx.raw)}}},
+      scales:{
+        y:{ticks:{callback:v=>fmtPct(v),font:{size:9}},grid:{color:'#F3F4F6'},max:100},
+        x:{ticks:{font:{size:10}}}
+      }
+    }
+  });
+
+  /* Gráfico 4 – Barras agrupadas: quantitativo vs qualitativo */
+  const el4=document.getElementById('rdg-ch-compare');
+  if(el4) rdgCharts.compare=new Chart(el4.getContext('2d'),{
+    type:'bar',
+    data:{
+      labels:CONTRATOS.map(ct=>ct.sigla),
+      datasets:[
+        {label:'Critério Quantitativo',data:quantPcts,backgroundColor:'#0073BA',borderRadius:3},
+        {label:'Representatividade Qualitativa',data:reprPcts,backgroundColor:'#00A87B',borderRadius:3}
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:true,
+      plugins:{
+        legend:{position:'top',labels:{font:{size:10},boxWidth:12,padding:8}},
+        tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+fmtPct(ctx.raw)}}
+      },
+      scales:{
+        y:{ticks:{callback:v=>fmtPct(v),font:{size:9}},grid:{color:'#F3F4F6'},max:100},
+        x:{ticks:{font:{size:10}}}
+      }
+    }
+  });
 }
 
 /* =====================================================================

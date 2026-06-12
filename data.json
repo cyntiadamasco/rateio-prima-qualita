@@ -4347,8 +4347,8 @@
           "pdfNome": "INDICADOR 2 - DEPARTAMENTO DE COMUNICAÇÃO ABRIL 2026.pdf"
         },
         "ind3": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202605_ind3.pdf",
+          "pdfNome": "INDICADOR 3 - FINANCEIRO -  ABRIL 26.pdf"
         },
         "ind4": {
           "pdfUrl": "",

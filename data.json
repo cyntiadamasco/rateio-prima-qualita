@@ -1620,6 +1620,12 @@
             "objeto": "Imóvel Sede Administrativa Cordeiro",
             "fornecedor": "Rw Imobiliária Ltda",
             "valor": 1214.92
+          },
+          {
+            "id": "dl1781278424571",
+            "objeto": "Energia Elétrica Sede Cordeiro",
+            "fornecedor": "Ampla Energia e Serviços S.A.",
+            "valor": 68.97
           }
         ],
         "saq_esp": [],

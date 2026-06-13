@@ -518,10 +518,10 @@
         }
       ],
       "orcamentos": {
-        "madalena": 1817000,
-        "cachoeiras": 0,
+        "madalena": 1823622.46,
+        "cachoeiras": 5569428.51,
         "saq_hosp": 0,
-        "upa_pac": 0,
+        "upa_pac": 1792620.11,
         "upa_nc": 0,
         "arraial": 0,
         "quissama": 0,
@@ -6006,5 +6006,5 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTÃO - Prima Quaitá - Versão Final - Impressão.pdf"
     }
   },
-  "currentComp": "2026-06"
+  "currentComp": "2026-05"
 }

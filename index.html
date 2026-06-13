@@ -2528,12 +2528,17 @@ async function _parsearFolhaPDF(file){
         byY[y].push({x:it.transform[4],s:it.str});
       });
 
-      // Ordenar linhas de cima para baixo (y maior = mais alto na pagina PDF)
+      // Processar linhas de cima para baixo (y maior = mais alto)
       Object.keys(byY).sort(function(a,b){return b-a;}).forEach(function(y){
-        const line=byY[y]
-          .sort(function(a,b){return a.x-b.x;})
-          .map(function(i){return i.s;})
-          .join(' ').replace(/\s+/g,' ').trim();
+        // Separar colunas: parar ao encontrar gap horizontal > 80pt
+        // Isso evita mesclar coluna esquerda (nome/cargo) com coluna direita (rubricas/valores)
+        var ySorted=byY[y].sort(function(a,b){return a.x-b.x;});
+        var leftOnly=[];
+        for(var k=0;k<ySorted.length;k++){
+          if(k>0 && ySorted[k].x-ySorted[k-1].x>80) break;
+          leftOnly.push(ySorted[k]);
+        }
+        const line=leftOnly.map(function(i){return i.s;}).join(' ').replace(/\s+/g,' ').trim();
 
         // IDs de empregados CIGAC: exatamente 4 digitos
         // Rubricas da folha: sempre 5 digitos (00001, 63101, 77101 etc.)
@@ -2554,8 +2559,11 @@ async function _parsearFolhaPDF(file){
         // Extrair cargo (linha: '****** Cargo...... Cargo Descricao')
         if(lastEmpIdx>=0){
           const mCargo=line.match(/Cargo\.{2,}\s+(.+)$/);
-          if(mCargo && !empregados[lastEmpIdx].cargo)
-            empregados[lastEmpIdx].cargo=mCargo[1].replace(/\s+/g,' ').trim();
+          if(mCargo && !empregados[lastEmpIdx].cargo){
+            // Remover qualquer dado numerico/financeiro que possa ter vindo junto
+            var cargoTxt=mCargo[1].replace(/\s*\d.*/,'').replace(/\s+/g,' ').trim();
+            if(cargoTxt) empregados[lastEmpIdx].cargo=cargoTxt;
+          }
         }
       });
     }

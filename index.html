@@ -862,6 +862,19 @@ body.readonly select:not(.always-edit){
   border-color:#E5E7EB!important;
   color:#6B7280!important;
 }
+/* ── READONLY – selects de navegacao/filtro permanecem interativos ── */
+body.readonly #sel-comp,
+body.readonly #mem-filtro,
+body.readonly #analise-cg-sel,
+body.readonly #analise-ano-sel,
+body.readonly #dl-cg-sel {
+  pointer-events:auto!important;
+  cursor:pointer!important;
+  background:#fff!important;
+  border-color:#D1D5DB!important;
+  color:inherit!important;
+  opacity:1!important;
+}
 /* ── READONLY – regras complementares (botoes por prefixo de funcao) ── */
 /* Cabecalho: Novo Mes / Excluir Mes */
 body.readonly [onclick^="novaCompetencia"]{display:none!important}

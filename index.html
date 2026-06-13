@@ -920,6 +920,33 @@ body.readonly [onclick^="importarContrat"]{display:none!important}
 }
 #btn-lock-edit:hover{filter:brightness(.95)}
 
+/* ── MODAL Validar com Folha ── */
+#modal-vf{display:none;position:fixed;inset:0;background:rgba(15,44,71,.6);
+  z-index:9990;align-items:center;justify-content:center;padding:16px}
+#modal-vf-box{background:#fff;border-radius:14px;max-width:700px;width:100%;
+  max-height:88vh;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.28);
+  display:flex;flex-direction:column}
+#modal-vf-hdr{padding:18px 22px 14px;border-bottom:1px solid #F1F5F9;
+  display:flex;align-items:flex-start;justify-content:space-between;flex-shrink:0}
+#modal-vf-body{flex:1;overflow-y:auto;padding:18px 22px}
+#modal-vf-ftr{padding:10px 22px 14px;border-top:1px solid #F1F5F9;
+  text-align:right;flex-shrink:0}
+.vf-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 12px;
+  border-radius:20px;font-size:12px;font-weight:700;margin-right:6px}
+.vf-badge-ok{background:#DCFCE7;color:#16A34A}
+.vf-badge-add{background:#FEF3C7;color:#92400E}
+.vf-badge-rev{background:#FEE2E2;color:#DC2626}
+.vf-sec-title{font-size:11px;font-weight:700;margin-bottom:8px;
+  display:flex;align-items:center;justify-content:space-between}
+.vf-list{border-radius:8px;overflow:hidden;max-height:220px;overflow-y:auto;
+  border:1px solid #E5E7EB}
+.vf-row{display:flex;align-items:center;padding:6px 10px;gap:8px;
+  border-bottom:1px solid #F3F4F6}
+.vf-row:last-child{border-bottom:none}
+.vf-row:nth-child(odd){background:#FAFAFA}
+.vf-mat{font-size:10px;color:#9CA3AF;min-width:34px;font-family:monospace}
+.vf-nome{flex:1;font-size:12px;font-weight:600;color:#1F2937}
+.vf-dept{font-size:10px;color:#9CA3AF}
 </style>
 </head>
 <body>
@@ -2435,6 +2462,228 @@ function buildColabListaRow(r,i){
     <td class="td-c no-print"><button class="btn btn-danger btn-xs" onclick="remColabLista('${r.uid}')" title="Remover">✕</button></td>
   </tr>`;
 }
+/* =====================================================================
+   VALIDAÇÃO DE COLABORADORES CIGAC COM FOLHA DE PAGAMENTO (PDF)
+   Fluxo: upload PDF -> PDF.js (CDN lazy) -> agrupamento por y-pos ->
+          regex 4 dígitos + nome -> diff vs colab_lista -> modal
+===================================================================== */
+
+function _carregarPdfJs(cb){
+  if(window.pdfjsLib){cb();return;}
+  const s=document.createElement('script');
+  s.src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+  s.onload=function(){
+    pdfjsLib.GlobalWorkerOptions.workerSrc=
+      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    cb();
+  };
+  s.onerror=function(){
+    alert('N\u00e3o foi poss\u00edvel carregar o leitor de PDF.\n'
+         +'Verifique sua conex\u00e3o com a internet.');
+  };
+  document.head.appendChild(s);
+}
+
+function validarComFolha(){
+  const inp=document.createElement('input');
+  inp.type='file';inp.accept='.pdf';
+  inp.onchange=function(e){
+    const file=e.target.files[0];if(!file)return;
+    document.getElementById('modal-vf').style.display='flex';
+    document.getElementById('modal-vf-body').innerHTML=
+      '<div style="text-align:center;padding:48px 20px;color:#6B7280">'
+     +'<div style="font-size:44px;margin-bottom:12px">⏳</div>'
+     +'<div style="font-size:14px;font-weight:600">Carregando leitor de PDF...</div>'
+     +'<div style="font-size:11px;margin-top:6px;color:#9CA3AF">Aguarde, carregando PDF.js</div></div>';
+    _carregarPdfJs(function(){_parsearFolhaPDF(file);});
+  };
+  inp.click();
+}
+
+async function _parsearFolhaPDF(file){
+  try{
+    document.getElementById('modal-vf-body').innerHTML=
+      '<div style="text-align:center;padding:48px 20px;color:#6B7280">'
+     +'<div style="font-size:44px;margin-bottom:12px">📄</div>'
+     +'<div style="font-size:14px;font-weight:600">Extraindo colaboradores da folha...</div>'
+     +'<div style="font-size:11px;margin-top:6px;color:#9CA3AF">Processando '+file.name+'</div></div>';
+
+    const buf=await file.arrayBuffer();
+    const pdf=await pdfjsLib.getDocument({data:buf}).promise;
+
+    const empregados=[];
+    const seenKeys=new Set();
+    const TOL=3; // tolerancia em pontos PDF para agrupar itens na mesma linha
+
+    for(let p=1;p<=pdf.numPages;p++){
+      const page=await pdf.getPage(p);
+      const tc=await page.getTextContent();
+
+      // Agrupar itens de texto pela posicao vertical
+      const byY={};
+      tc.items.forEach(function(it){
+        const y=Math.round(it.transform[5]/TOL)*TOL;
+        if(!byY[y])byY[y]=[];
+        byY[y].push({x:it.transform[4],s:it.str});
+      });
+
+      // Ordenar linhas de cima para baixo (y maior = mais alto na pagina PDF)
+      Object.keys(byY).sort(function(a,b){return b-a;}).forEach(function(y){
+        const line=byY[y]
+          .sort(function(a,b){return a.x-b.x;})
+          .map(function(i){return i.s;})
+          .join(' ').replace(/\s+/g,' ').trim();
+
+        // IDs de empregados CIGAC: exatamente 4 digitos
+        // Rubricas da folha: sempre 5 digitos (00001, 63101, 77101 etc.)
+        const m=line.match(/^(\d{4})\s+([A-Z\u00C0-\u00FF][A-Za-z\u00C0-\u00FF\s-]{4,60})$/);
+        if(m){
+          const nome=m[2].replace(/\s+/g,' ').trim();
+          const words=nome.split(/\s+/);
+          // Minimo 2 palavras, sem digitos, sem asteriscos
+          if(words.length>=2 && !/\d/.test(nome) && nome.indexOf('*')<0){
+            const key=_normVF(nome);
+            if(!seenKeys.has(key)){
+              seenKeys.add(key);
+              empregados.push({mat:m[1],nome:nome});
+            }
+          }
+        }
+      });
+    }
+
+    _mostrarResultadoVF(empregados,file.name);
+  }catch(err){
+    document.getElementById('modal-vf-body').innerHTML=
+      '<div style="text-align:center;padding:32px 20px">'
+     +'<div style="font-size:36px;margin-bottom:10px">⚠️</div>'
+     +'<div style="font-size:14px;font-weight:600;color:#DC2626">Erro ao processar o PDF</div>'
+     +'<div style="font-size:12px;color:#6B7280;margin-top:8px">'+err.message+'</div>'
+     +'<div style="font-size:11px;color:#9CA3AF;margin-top:6px">'
+     +'Certifique-se de que o PDF contém texto pesquisável (não é imagem escaneada)</div>'
+     +'</div>';
+  }
+}
+
+// Normaliza nome para comparacao: maiusculo sem acentos sem espacos duplos
+function _normVF(s){
+  return (s||'').trim().toUpperCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/\s+/g,' ');
+}
+
+function _mostrarResultadoVF(folha,fileName){
+  const data=getMesData(currentComp);
+  const lista=data.colab_lista||[];
+
+  const folhaMap=new Map(folha.map(function(e){return[_normVF(e.nome),e];}));
+  const listaMap=new Map(lista.map(function(e){return[_normVF(e.nome),e];}));
+
+  const match     =folha.filter(function(e){return  listaMap.has(_normVF(e.nome));});
+  const faltaApp  =folha.filter(function(e){return !listaMap.has(_normVF(e.nome));});
+  const faltaFolha=lista.filter(function(e){return !folhaMap.has(_normVF(e.nome));});
+
+  // Guarda lista de faltantes para 'Adicionar todos'
+  window._vfFaltantes=faltaApp;
+
+  let h='<div style="margin-bottom:16px">'
+   +'<div style="font-size:11px;color:#6B7280;margin-bottom:8px">'
+   +'📄 <strong>'+fileName+'</strong> \u2014 '+folha.length+' colaboradores encontrados na folha</div>'
+   +'<div>'
+   +'<span class="vf-badge vf-badge-ok">\u2713 '+match.length+' coincidem</span>'
+   +(faltaApp.length?'<span class="vf-badge vf-badge-add">⚠ '+faltaApp.length+' a adicionar no app</span>':'')
+   +(faltaFolha.length?'<span class="vf-badge vf-badge-rev">✕ '+faltaFolha.length+' a revisar</span>':'')
+   +'</div></div>';
+
+  if(!faltaApp.length&&!faltaFolha.length){
+    h+='<div style="text-align:center;padding:24px;background:#F0FDF4;border-radius:10px;'
+      +'color:#16A34A;font-size:14px;font-weight:700">'
+      +'\u2705 Lista em total conformidade com a folha de pagamento!</div>';
+  }
+
+  if(faltaApp.length){
+    h+='<div style="margin-bottom:16px">'
+      +'<div class="vf-sec-title" style="color:#92400E">'
+      +'<span>⚠ Na folha, AUSENTES do app ('+faltaApp.length+')</span>'
+      +'<button style="padding:4px 12px;background:#F59E0B;color:#fff;border:none;'
+      +'border-radius:6px;font-size:11px;font-weight:700;cursor:pointer" '
+      +'onclick="adicionarTodosColabVF()">+ Adicionar todos ('+faltaApp.length+')</button></div>'
+      +'<div class="vf-list" style="border-color:#FDE68A">'
+      +faltaApp.map(function(e,i){
+        return '<div class="vf-row" style="background:'+(i%2?'#FFFBEB':'#fff')+'">'
+          +'<span class="vf-mat">'+e.mat+'</span>'
+          +'<span class="vf-nome">'+e.nome+'</span>'
+          +'<button id="vfbtn-'+i+'" style="padding:2px 10px;background:#F59E0B;color:#fff;'
+          +'border:none;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap" '
+          +'onclick="adicionarColabVF('+i+')">+ Adicionar</button>'
+          +'</div>';
+      }).join('')
+      +'</div></div>';
+  }
+
+  if(faltaFolha.length){
+    h+='<div>'
+      +'<div class="vf-sec-title" style="color:#DC2626">'
+      +'<span>✕ No app, AUSENTES da folha ('+faltaFolha.length+') \u2014 verifique desligamentos</span></div>'
+      +'<div class="vf-list" style="border-color:#FECACA">'
+      +faltaFolha.map(function(e,i){
+        return '<div class="vf-row" style="background:'+(i%2?'#FFF5F5':'#fff')+'">'
+          +'<span class="vf-nome">'+e.nome+'</span>'
+          +'<span class="vf-dept">'+(e.dept||'\u2014')+'</span>'
+          +'<button style="padding:2px 8px;background:#FEE2E2;color:#DC2626;'
+          +'border:1px solid #FECACA;border-radius:4px;font-size:11px;cursor:pointer" '
+          +'onclick="remColabLista(\''+e.uid+'\');renderColabMgmt();renderRelatorio()"'
+          +'>✕ Remover</button>'
+          +'</div>';
+      }).join('')
+      +'</div></div>';
+  }
+
+  document.getElementById('modal-vf-body').innerHTML=h;
+}
+
+// Adiciona colaborador pelo índice na lista de faltantes (evita escaping de strings)
+function adicionarColabVF(idx){
+  const faltantes=window._vfFaltantes||[];
+  const e=faltantes[idx];if(!e)return;
+  const nome=e.nome;
+  const norm=_normVF(nome);
+  const data=getMesData(currentComp);
+  if(!data.colab_lista) data.colab_lista=[];
+  if(data.colab_lista.find(function(c){return _normVF(c.nome)===norm;})) return;
+  data.colab_lista.push({uid:uid(),nome:nome,dept:'',funcao:''});
+  salvar();
+  renderColabMgmt();
+  // Marcar faltante como adicionado
+  faltantes[idx]=null;
+  const btn=document.getElementById('vfbtn-'+idx);
+  if(btn){btn.textContent='\u2713 Adicionado';btn.style.background='#16A34A';btn.disabled=true;}
+}
+
+function adicionarTodosColabVF(){
+  const faltantes=(window._vfFaltantes||[]).filter(Boolean);
+  if(!faltantes.length) return;
+  const data=getMesData(currentComp);
+  if(!data.colab_lista) data.colab_lista=[];
+  let added=0;
+  faltantes.forEach(function(e){
+    const norm=_normVF(e.nome);
+    if(!data.colab_lista.find(function(c){return _normVF(c.nome)===norm;})){
+      data.colab_lista.push({uid:uid(),nome:e.nome,dept:'',funcao:''});
+      added++;
+    }
+  });
+  salvar();
+  renderColabMgmt();
+  window._vfFaltantes=[];
+  fecharModalVF();
+  if(added) alert('\u2705 '+added+' colaborador(es) adicionado(s) com sucesso!');
+}
+
+function fecharModalVF(){
+  document.getElementById('modal-vf').style.display='none';
+  window._vfFaltantes=[];
+}
 
 function renderColabMgmt(){
   const data=getMesData(currentComp);
@@ -2448,6 +2697,7 @@ function renderColabMgmt(){
       <div class="rdg-colab-acts">
         <button class="btn btn-sm" onclick="addColabLista();event.stopPropagation()">+ Adicionar</button>
         <button class="btn btn-sm btn-outline" onclick="importarColabListaAnt();event.stopPropagation()">⬆ Importar mês anterior</button>
+        <button class="btn btn-sm btn-outline edit-only" style="color:#0073BA;border-color:#BAE6FD" onclick="validarComFolha();event.stopPropagation()">📋 Validar com Folha</button>
       </div>
       <span style="margin-left:auto;font-size:11px;color:#6b7280">▼ expandir / recolher</span>
     </div>
@@ -5324,6 +5574,30 @@ function removerManualRDG(){
         style="flex:1;padding:10px;border-radius:8px;border:1px solid #CBD5E1;background:#F8FAFC;color:#374151;font-size:13px;font-weight:600;cursor:pointer">Cancelar</button>
       <button onclick="salvarNovaSenha()"
         style="flex:1;padding:10px;border-radius:8px;border:none;background:#16A34A;color:#fff;font-size:13px;font-weight:600;cursor:pointer">Salvar</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ── MODAL: Validar Colaboradores CIGAC com Folha de Pagamento ── -->
+<div id="modal-vf">
+  <div id="modal-vf-box">
+    <div id="modal-vf-hdr">
+      <div>
+        <div style="font-size:15px;font-weight:700;color:#0F2C47">📋 Validação de Colaboradores CIGAC</div>
+        <div style="font-size:11px;color:#6B7280;margin-top:3px">Comparando lista do app com a Folha de Pagamento mensal</div>
+      </div>
+      <button onclick="fecharModalVF()" style="background:none;border:none;font-size:22px;color:#9CA3AF;cursor:pointer;line-height:1;padding:2px 4px">✕</button>
+    </div>
+    <div id="modal-vf-body">
+      <div style="text-align:center;padding:48px 20px;color:#6B7280">
+        <div style="font-size:44px;margin-bottom:12px">📂</div>
+        <div style="font-size:14px;font-weight:600">Selecione a Folha de Pagamento (PDF)</div>
+        <div style="font-size:11px;margin-top:6px;color:#9CA3AF">A folha mensal do CIGAC em formato PDF</div>
+      </div>
+    </div>
+    <div id="modal-vf-ftr">
+      <button onclick="fecharModalVF()" style="padding:8px 22px;border-radius:8px;border:1px solid #D1D5DB;background:#F8FAFC;color:#374151;font-size:13px;font-weight:600;cursor:pointer">Fechar</button>
     </div>
   </div>
 </div>

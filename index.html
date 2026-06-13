@@ -2514,6 +2514,7 @@ async function _parsearFolhaPDF(file){
     const empregados=[];
     const seenKeys=new Set();
     const TOL=3; // tolerancia em pontos PDF para agrupar itens na mesma linha
+    let lastEmpIdx=-1; // ultimo funcionario encontrado (para associar cargo)
 
     for(let p=1;p<=pdf.numPages;p++){
       const page=await pdf.getPage(p);
@@ -2545,9 +2546,16 @@ async function _parsearFolhaPDF(file){
             const key=_normVF(nome);
             if(!seenKeys.has(key)){
               seenKeys.add(key);
-              empregados.push({mat:m[1],nome:nome});
+              empregados.push({mat:m[1],nome:nome,cargo:''});
+              lastEmpIdx=empregados.length-1;
             }
           }
+        }
+        // Extrair cargo (linha: '****** Cargo...... Cargo Descricao')
+        if(lastEmpIdx>=0){
+          const mCargo=line.match(/Cargo\.{2,}\s+(.+)$/);
+          if(mCargo && !empregados[lastEmpIdx].cargo)
+            empregados[lastEmpIdx].cargo=mCargo[1].replace(/\s+/g,' ').trim();
         }
       });
     }
@@ -2583,8 +2591,17 @@ function _mostrarResultadoVF(folha,fileName){
   const faltaApp  =folha.filter(function(e){return !listaMap.has(_normVF(e.nome));});
   const faltaFolha=lista.filter(function(e){return !folhaMap.has(_normVF(e.nome));});
 
-  // Guarda lista de faltantes para 'Adicionar todos'
+  // Divergencia de funcao: esta nos dois lados mas cargo (PDF) != funcao (app)
+  const funcaoDiff=match.filter(function(e){
+    if(!e.cargo) return false;
+    const appEntry=listaMap.get(_normVF(e.nome));
+    if(!appEntry) return false;
+    return _normVF(e.cargo)!==_normVF(appEntry.funcao||'');
+  });
+
+  // Guarda listas para acoes do modal
   window._vfFaltantes=faltaApp;
+  window._vfFuncaoDiff=funcaoDiff;
 
   let h='<div style="margin-bottom:16px">'
    +'<div style="font-size:11px;color:#6B7280;margin-bottom:8px">'
@@ -2593,9 +2610,10 @@ function _mostrarResultadoVF(folha,fileName){
    +'<span class="vf-badge vf-badge-ok">\u2713 '+match.length+' coincidem</span>'
    +(faltaApp.length?'<span class="vf-badge vf-badge-add">⚠ '+faltaApp.length+' a adicionar no app</span>':'')
    +(faltaFolha.length?'<span class="vf-badge vf-badge-rev">✕ '+faltaFolha.length+' a revisar</span>':'')
+   +(funcaoDiff.length?'<span class="vf-badge" style="background:#EDE9FE;color:#6D28D9">⚧ '+funcaoDiff.length+' funções divergem</span>':'')
    +'</div></div>';
 
-  if(!faltaApp.length&&!faltaFolha.length){
+  if(!faltaApp.length&&!faltaFolha.length&&!funcaoDiff.length){
     h+='<div style="text-align:center;padding:24px;background:#F0FDF4;border-radius:10px;'
       +'color:#16A34A;font-size:14px;font-weight:700">'
       +'\u2705 Lista em total conformidade com a folha de pagamento!</div>';
@@ -2626,18 +2644,51 @@ function _mostrarResultadoVF(folha,fileName){
       +'<div class="vf-sec-title" style="color:#DC2626">'
       +'<span>✕ No app, AUSENTES da folha ('+faltaFolha.length+') \u2014 verifique desligamentos</span></div>'
       +'<div class="vf-list" style="border-color:#FECACA">'
+    window._vfFaltaFolha=faltaFolha;
       +faltaFolha.map(function(e,i){
         return '<div class="vf-row" style="background:'+(i%2?'#FFF5F5':'#fff')+'">'
           +'<span class="vf-nome">'+e.nome+'</span>'
-          +'<span class="vf-dept">'+(e.dept||'\u2014')+'</span>'
-          +'<button style="padding:2px 8px;background:#FEE2E2;color:#DC2626;'
+          +'<span class="vf-dept">'+(e.funcao||e.dept||'\u2014')+'</span>'
+          +'<button id="vfbtn-rem-'+i+'" style="padding:2px 8px;background:#FEE2E2;color:#DC2626;'
           +'border:1px solid #FECACA;border-radius:4px;font-size:11px;cursor:pointer" '
-          +'onclick="remColabLista(\''+e.uid+'\');renderColabMgmt();renderRelatorio()"'
+          +'onclick="remColabVFapp('+i+')"'
           +'>✕ Remover</button>'
           +'</div>';
       }).join('')
       +'</div></div>';
   }
+
+  // --- Secao: Funcao divergente ---
+  if(funcaoDiff.length){
+    h+='<div style="margin-bottom:16px">' 
+      +'<div class="vf-sec-title" style="color:#6D28D9">'
+      +'<span>⚧ Função divergente ('+funcaoDiff.length+'): app ≠ folha</span></div>'
+      +'<div class="vf-list" style="border-color:#DDD6FE">'
+      +funcaoDiff.map(function(e,i){
+        const appEntry=listaMap.get(_normVF(e.nome));
+        const funcaoAtual=appEntry?(appEntry.funcao||'(vazio)'):'?';
+        return '<div class="vf-row" style="background:'+(i%2?'#FAF5FF':'#fff')+';flex-wrap:wrap">'
+          +'<span class="vf-nome" style="width:100%;margin-bottom:2px">'+e.nome+'</span>'
+          +'<span style="font-size:10px;color:#9CA3AF;flex:1">'
+          +'App: <em style="color:#6D28D9">'+funcaoAtual+'</em>'
+          +' → Folha: <em style="color:#16A34A">'+e.cargo+'</em></span>'
+          +'<button id="vfbtn-func-'+i+'" style="padding:2px 8px;background:#EDE9FE;color:#6D28D9;'
+          +'border:1px solid #DDD6FE;border-radius:4px;font-size:11px;cursor:pointer;white-space:nowrap" '
+          +'onclick="atualizarFuncaoVF('+i+')">Atualizar</button>'
+          +'</div>';
+      }).join('')
+      +'</div></div>';
+  }
+
+  // --- Painel debug: nomes extraidos da folha (caixa alta, para diagnóstico) ---
+  h+='<details style="margin-top:14px;border-top:1px solid #F1F5F9;padding-top:10px">'
+   +'<summary style="font-size:10px;color:#9CA3AF;cursor:pointer">'
+   +'🔍 '+folha.length+' nomes extraídos da folha (clique para ver)</summary>'
+   +'<div style="font-size:10px;color:#374151;margin-top:6px;line-height:1.8">'
+   +folha.map(function(e){return '<span style="background:#F3F4F6;border-radius:3px;padding:1px 5px;margin:2px">'
+     +_normVF(e.nome)+(e.cargo?' <em style="color:#9CA3AF">('+e.cargo+')</em>':'')
+     +'</span>';}).join('')
+   +'</div></details>';
 
   document.getElementById('modal-vf-body').innerHTML=h;
 }
@@ -2651,7 +2702,7 @@ function adicionarColabVF(idx){
   const data=getMesData(currentComp);
   if(!data.colab_lista) data.colab_lista=[];
   if(data.colab_lista.find(function(c){return _normVF(c.nome)===norm;})) return;
-  data.colab_lista.push({uid:uid(),nome:nome,dept:'',funcao:''});
+  data.colab_lista.push({uid:uid(),nome:nome,dept:'',funcao:e.cargo||''});
   salvar();
   renderColabMgmt();
   // Marcar faltante como adicionado
@@ -2669,7 +2720,7 @@ function adicionarTodosColabVF(){
   faltantes.forEach(function(e){
     const norm=_normVF(e.nome);
     if(!data.colab_lista.find(function(c){return _normVF(c.nome)===norm;})){
-      data.colab_lista.push({uid:uid(),nome:e.nome,dept:'',funcao:''});
+      data.colab_lista.push({uid:uid(),nome:e.nome,dept:'',funcao:e.cargo||''});
       added++;
     }
   });
@@ -2678,6 +2729,31 @@ function adicionarTodosColabVF(){
   window._vfFaltantes=[];
   fecharModalVF();
   if(added) alert('\u2705 '+added+' colaborador(es) adicionado(s) com sucesso!');
+}
+
+// Remove colaborador do app via indice (evita escaping de uid em onclick)
+function remColabVFapp(idx){
+  const e=(window._vfFaltaFolha||[])[idx];if(!e)return;
+  remColabLista(e.uid);
+  renderColabMgmt();
+  const btn=document.getElementById('vfbtn-rem-'+idx);
+  if(btn){btn.textContent='\u2713 Removido';btn.style.background='#6B7280';btn.disabled=true;}
+}
+
+// Atualiza funcao de colaborador existente com cargo extraído da folha
+function atualizarFuncaoVF(idx){
+  const e=(window._vfFuncaoDiff||[])[idx];if(!e)return;
+  const data=getMesData(currentComp);
+  if(!data.colab_lista)return;
+  const norm=_normVF(e.nome);
+  const c=data.colab_lista.find(function(x){return _normVF(x.nome)===norm;});
+  if(!c)return;
+  c.funcao=e.cargo;
+  salvar();
+  renderColabMgmt();
+  window._vfFuncaoDiff[idx]=null;
+  const btn=document.getElementById('vfbtn-func-'+idx);
+  if(btn){btn.textContent='\u2713 Atualizada';btn.style.background='#16A34A';btn.disabled=true;}
 }
 
 function fecharModalVF(){

@@ -4442,7 +4442,7 @@
           "clt": 539,
           "efetivo": 41,
           "pj": 11,
-          "obs": ""
+          "obs": "504"
         }
       ],
       "despesas": [
@@ -5921,6 +5921,12 @@
           "nome": "RALF RIBEIRO DOS SANTOS",
           "dept": "SUPERINTENDÊNCIA",
           "funcao": "SUPERINTENDENTE ASSISTENCIAL"
+        },
+        {
+          "uid": "pa85ogw",
+          "nome": "W endel Correa de Pao",
+          "dept": "",
+          "funcao": ""
         }
       ],
       "despesasLocais": {

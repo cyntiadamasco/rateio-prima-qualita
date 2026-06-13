@@ -5034,8 +5034,161 @@
           "saq_pri": 0
         }
       },
-      "contratos_ativos": [],
-      "contratos_obs": "",
+      "contratos_ativos": [
+        {
+          "uid": "cmqbmxcwnim9wp",
+          "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório",
+          "favorecido": " Pablo Siqueira Sociedade Individual de Advocacia ",
+          "cnpj": " 18.464.526/0001-98 ",
+          "nrProcesso": "117/2024",
+          "nrContrato": "001/2024"
+        },
+        {
+          "uid": "cmqbmxcwnvy9ml",
+          "objeto": "Compliance jurídico\n",
+          "favorecido": " Gauche Advogados Associados ",
+          "cnpj": " 48.916.964/0001-00 ",
+          "nrProcesso": "117/2024",
+          "nrContrato": "002/2024"
+        },
+        {
+          "uid": "cmqbmxcwnan2ik",
+          "objeto": "Contencioso e consultivo na área de direito cível e de direito médico e da saúde\n",
+          "favorecido": " E Simões Sociedade Individual de Advocacia ",
+          "cnpj": " 40.101.757/0001-96 ",
+          "nrProcesso": "117/2024",
+          "nrContrato": "003/2024"
+        },
+        {
+          "uid": "cmqbmxcwn6nw4e",
+          "objeto": "Suporte ao desenvolvimento de Ouvidoria e apoio aos processos de sindicância\n",
+          "favorecido": " Gustavo Fróes Sociedade Individual de Advocacia ",
+          "cnpj": " 43.485.758/0001-70 ",
+          "nrProcesso": "117/2024",
+          "nrContrato": "004/2024"
+        },
+        {
+          "uid": "cmqbmxcwnk4mdc",
+          "objeto": "Serviços de Auditoria Financeira e Contábil\n",
+          "favorecido": " IGF Auditores e Consultores Independentes Sociedade Simples ",
+          "cnpj": " 04.899.444/0001-61 ",
+          "nrProcesso": "121/2024",
+          "nrContrato": "024/2024"
+        },
+        {
+          "uid": "cmqbmxcwnrmw4x",
+          "objeto": "Coordenação de Revisão de Óbitos e Prontuários Institucional\n",
+          "favorecido": " Radiocom Diagnosticos LTDA ",
+          "cnpj": " 33.192.856/0001-65 ",
+          "nrProcesso": "075/2023",
+          "nrContrato": "013/2023"
+        },
+        {
+          "uid": "cmqbmxcwnl75pf",
+          "objeto": "Servidor Nuvem Privada em Data Center\n",
+          "favorecido": " Cigam Software Corporativo S.A ",
+          "cnpj": " 24.783.564/0001-06 ",
+          "nrProcesso": "067/2024",
+          "nrContrato": "-----"
+        },
+        {
+          "uid": "cmqbmxcwn5q2xj",
+          "objeto": "Sistema de Gestão ERP / MENSALIDADE\n",
+          "favorecido": " Produtiva Consultoria em Sistema de Gestão LTDA ",
+          "cnpj": " 24.783.564/0001-06 ",
+          "nrProcesso": "159/2023",
+          "nrContrato": "-----"
+        },
+        {
+          "uid": "cmqbmxcwn3h3jj",
+          "objeto": "Sistema de DP/RH\n",
+          "favorecido": " Produtiva Consultoria em Sistema de Gestão LTDA ",
+          "cnpj": " 24.783.564/0001-06 ",
+          "nrProcesso": "161/2023",
+          "nrContrato": "-----"
+        },
+        {
+          "uid": "cmqbmxcwnse3ms",
+          "objeto": "Sistema de Análise de Risco\n",
+          "favorecido": " KPMG Assessores LTDA ",
+          "cnpj": " 05.490.840/0019-22 ",
+          "nrProcesso": "139/2023",
+          "nrContrato": "-----"
+        },
+        {
+          "uid": "cmqbmxcwntq23v",
+          "objeto": "Sistema Contábil/Fiscal/DP/MENSALIDADE\n",
+          "favorecido": " Alterdata Tecnologia em Informática LTDA ",
+          "cnpj": " 36.462.778/0001-60 ",
+          "nrProcesso": "177/2021",
+          "nrContrato": "014/2021"
+        },
+        {
+          "uid": "cmqbmxcwnmnsqb",
+          "objeto": "Serviço de Treinamento de Melhoria Contínua\n",
+          "favorecido": " Six Treinamento Empresarial LTDA ",
+          "cnpj": " 19.196.342/0001-57 ",
+          "nrProcesso": "204/2023",
+          "nrContrato": "001/2024"
+        },
+        {
+          "uid": "cmqbmxcwne6rmq",
+          "objeto": "Locação de mobiliários e equipamentos para o Centro Administrativo",
+          "favorecido": " A4PM Analytics For Public Management LTDA ",
+          "cnpj": " 23.034.181/0001-72 ",
+          "nrProcesso": "192/2023",
+          "nrContrato": "038/2023"
+        },
+        {
+          "uid": "cmqbmxcwncpcvr",
+          "objeto": "Locação de veículos para atender a Central Administrativa e Logística\n",
+          "favorecido": " Promedical Serviços em Saude LTD ",
+          "cnpj": " 35.788.642/0001-81 ",
+          "nrProcesso": "195/2023",
+          "nrContrato": "014/2024"
+        },
+        {
+          "uid": "cmqbmxcwn5dpb3",
+          "objeto": "Fornecimento de Água Mineral\n",
+          "favorecido": " Rodolfo Lucas Duarte 08848690750 ",
+          "cnpj": " 11.967.651/0001-71 ",
+          "nrProcesso": "157/2023",
+          "nrContrato": "025/2023"
+        },
+        {
+          "uid": "cmqbmxcwnw5plb",
+          "objeto": "Seguro de Vida Colaboradores CIGAC\n",
+          "favorecido": " Unimed Seguradora S/A ",
+          "cnpj": " 10.414.185/0001-09 ",
+          "nrProcesso": "082/2021",
+          "nrContrato": "APÓLICE"
+        },
+        {
+          "uid": "cmqbmxcwnj2zcl",
+          "objeto": "Licença de Uso Mensal do Software Vagas For Business\n",
+          "favorecido": " Vagas Tecnologia de Software LTDA ",
+          "cnpj": " 03.689.427/0001-37 ",
+          "nrProcesso": "047/2022",
+          "nrContrato": "007/2022"
+        },
+        {
+          "uid": "cmqbmxcwnq91d0",
+          "objeto": "Serviços de SST \n",
+          "favorecido": " Icm Medicina Ocupacional Ltda ",
+          "cnpj": " 50.558.513/0001-90 ",
+          "nrProcesso": "111/2025",
+          "nrContrato": "001/2025"
+        },
+        {
+          "uid": "cmqbmxcwnme7cy",
+          "objeto": "Sistema Prestação de Contas\n",
+          "favorecido": " BR Gaap Corporation Tecnologia da Informação Ltda ",
+          "cnpj": " 16.106.178/0001-51 ",
+          "nrProcesso": "153/2023",
+          "nrContrato": "002/2025"
+        }
+      ],
+      "contratos_obs": "1. As cópias dos processos de contratação/contratos referentes aos itens 1 a 18, foram enviados na prestação de contas do mês de outubro/24;\t\t\t\t\n2. A cópia do processo de contratação/contrato referente aos itens de 18 e 19, foram enviados na prestação de contas do mês de janeiro/26.\t\t\t\t\n",
       "colab_lista": [
         {
           "uid": "c1o0iqlxe",
@@ -5853,5 +6006,5 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTÃO - Prima Quaitá - Versão Final - Impressão.pdf"
     }
   },
-  "currentComp": "2026-05"
+  "currentComp": "2026-06"
 }

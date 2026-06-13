@@ -90,6 +90,8 @@ body{
 }
 .comp-bar select:focus,.comp-bar input[type=text]:focus{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.5);outline:none}
 .comp-bar select option{background:var(--navy);color:#fff}
+/* comp-bar: grupos internos */
+.cbg-sel,.cbg-btns,.cbg-ref{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .comp-ref{color:rgba(255,255,255,.58);font-size:11px}
 
 /* ── TABS ─────────────────────────────────────────────────────── */
@@ -104,6 +106,7 @@ body{
   z-index:110;
   box-shadow:0 2px 8px rgba(15,44,71,.05);
   scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
 }
 .tabs-bar::-webkit-scrollbar{display:none}
 .tab-btn{
@@ -704,8 +707,10 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   .tab-btn{padding:10px 10px;font-size:11px}
 
   /* ── Competência bar ─────────────────────── */
-  .comp-bar{padding:8px 10px;gap:8px}
+  .comp-bar{padding:8px 10px;gap:6px 10px}
   .comp-bar label{font-size:9px;letter-spacing:.4px}
+  .cbg-sel{gap:6px}
+  .cbg-ref{gap:4px}
   .comp-bar select,.comp-bar input[type=text]{
     padding:4px 8px;
     font-size:11px;
@@ -828,7 +833,12 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   .stats-grid{grid-template-columns:1fr}
   .stat-val{font-size:15px}
   .tab-btn{padding:9px 8px;font-size:10px}
-  .comp-bar{flex-direction:column;align-items:flex-start;padding:8px 10px}
+  /* comp-bar mobile: grupos empilham mas permanecem em row */
+  .comp-bar{flex-direction:row!important;flex-wrap:wrap;align-items:flex-start;padding:8px 10px;gap:6px 10px}
+  .cbg-sel{width:100%;gap:4px}
+  .cbg-sel select{flex:1;min-width:0}
+  .cbg-ref{width:100%;gap:4px}
+  #inp-ref-colab{width:110px!important}
   .rdg-capa h1{font-size:12px}
   .rdg-section-title{font-size:11px}
 }
@@ -968,13 +978,19 @@ body.readonly [onclick^="importarContrat"]{display:none!important}
 
 <!-- COMPETÊNCIA BAR -->
 <div class="comp-bar no-print">
-  <label>Competência <span style="font-weight:400;opacity:.8">(Mês de Pagamento)</span>:</label>
-  <select id="sel-comp" onchange="mudarComp(this.value)"></select>
-  <button class="btn btn-sm" style="background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.35)" onclick="novaCompetencia()">＋ Novo Mês</button>
-  <button class="btn btn-sm" style="background:rgba(239,68,68,.28);color:#fca5a5;border:1px solid rgba(239,68,68,.45)" onclick="excluirMesAtual()">🗑 Excluir Mês</button>
-  <label style="margin-left:16px">Ref. Colaboradores:</label>
-  <input type="text" id="inp-ref-colab" style="width:160px" placeholder="ex: MARÇO/2026" onchange="setRefColab(this.value)">
-  <span class="comp-ref" id="comp-ref-info"></span>
+  <div class="cbg-sel">
+    <label>Competência <span style="font-weight:400;opacity:.8">(Mês de Pagamento)</span>:</label>
+    <select id="sel-comp" onchange="mudarComp(this.value)"></select>
+  </div>
+  <div class="cbg-btns edit-only">
+    <button class="btn btn-sm" style="background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.35)" onclick="novaCompetencia()">＋ Novo Mês</button>
+    <button class="btn btn-sm" style="background:rgba(239,68,68,.28);color:#fca5a5;border:1px solid rgba(239,68,68,.45)" onclick="excluirMesAtual()">🗑 Excluir Mês</button>
+  </div>
+  <div class="cbg-ref">
+    <label>Ref. Colaboradores:</label>
+    <input type="text" id="inp-ref-colab" style="width:160px" placeholder="ex: MARÇO/2026" onchange="setRefColab(this.value)">
+    <span class="comp-ref" id="comp-ref-info"></span>
+  </div>
 </div>
 
 <!-- TABS -->
@@ -1393,7 +1409,12 @@ function abrirTab(id, btn){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('panel-'+id).classList.add('active');
-  if(btn){ btn.classList.add('active'); btn.setAttribute('data-tab',id); }
+  if(btn){
+    btn.classList.add('active');
+    btn.setAttribute('data-tab',id);
+    // Centralizar aba no scroll horizontal (mobile)
+    try{btn.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});}catch(e){}
+  }
   document.querySelectorAll('.tab-btn').forEach(b=>{
     if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes("'"+id+"'")) b.setAttribute('data-tab',id);
   });

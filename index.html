@@ -3535,6 +3535,8 @@ function renderValidacao(){
   let rows='';
   let alertas=0;
   let excedidos=0;
+  let totalMargem=0;   // soma das margens disponíveis
+  let contMargem=0;    // contratos com orçamento informado
 
   // CG selecionado para gestão de despesas locais
   const cgSelDL=(document.getElementById('dl-cg-sel')&&document.getElementById('dl-cg-sel').value)||CONTRATOS[0].id;
@@ -3566,6 +3568,9 @@ function renderValidacao(){
         statusBadge=`<span class="badge badge-ok">✓ OK ${fmtPct(pctUsado)}</span>`;
       }
     }
+    // Margem disponível (positiva = sobra, negativa = excedido)
+    const margem=orc>0?orc*limite/100-totalDesp:null;
+    if(orc>0){totalMargem+=margem;contMargem++;}
 
     rows+=`<tr>
       <td><span class="dot" style="background:${ct.cor}"></span>${ct.nome}</td>
@@ -3583,7 +3588,7 @@ function renderValidacao(){
         <div class="progress-wrap mb-4"><div class="progress-bar ${pbClass}" style="width:${pbWidth}%"></div></div>
         ${statusBadge}
       </td>
-      <td class="td-c td-money">${pctUsado!==null&&pctUsado<=limite&&orc>0?R$(orc*limite/100-totalDesp):'–'}</td>
+      <td class="td-r td-money" style="color:${margem!==null?(margem>=0?'#16A34A':'#DC2626'):'#9CA3AF'};font-weight:${margem!==null?700:400}">${margem!==null?R$(margem):'–'}</td>
     </tr>`;
   });
 
@@ -3644,6 +3649,7 @@ function renderValidacao(){
     <div class="card-hdr">
       <div class="card-title">✅ Validação do Limite de 3% – ${compLabel(currentComp)}</div>
       <div class="card-acts">
+        <button class="btn btn-outline btn-sm edit-only" onclick="importarOrcamentosAnt()">↩ Importar mês anterior</button>
         <span class="text-muted" style="font-size:11px">Rateio CIGAC + Despesas Locais vs Teto 3%</span>
       </div>
     </div>
@@ -3662,6 +3668,12 @@ function renderValidacao(){
           </tr>
         </thead>
         <tbody>${rows}</tbody>
+        <tfoot>
+          <tr class="tr-total">
+            <td colspan="7" class="fw-bold" style="font-size:11px">TOTAL – Margem Disponível</td>
+            <td class="td-r fw-bold" style="color:${contMargem>0?(totalMargem>=0?'#16A34A':'#DC2626'):'#9CA3AF'};font-size:12px">${contMargem>0?R$(totalMargem):'–'}</td>
+          </tr>
+        </tfoot>
       </table>
     </div>
     <div style="font-size:11px;color:var(--gray);margin-top:10px">
@@ -3724,6 +3736,19 @@ function renderValidacao(){
       </div>
     </div>
   </div>`;
+}
+
+function importarOrcamentosAnt(){
+  const prev=prevComp(currentComp);
+  const prevData=getMesData(prev);
+  const curData=getMesData(currentComp);
+  const prevOrc=prevData.orcamentos||{};
+  const hasValues=Object.values(prevOrc).some(v=>v>0);
+  if(!hasValues){alert('Nenhum orçamento cadastrado em '+compLabel(prev)+'.');return;}
+  if(!confirm('Importar orçamentos de '+compLabel(prev)+' para '+compLabel(currentComp)+'?\nOs valores já informados para o mês atual serão substituídos.')) return;
+  CONTRATOS.forEach(ct=>{ if(prevOrc[ct.id]!==undefined) curData.orcamentos[ct.id]=prevOrc[ct.id]; });
+  salvar();
+  renderValidacao();
 }
 
 function setOrc(cgId, val){

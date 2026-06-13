@@ -1516,6 +1516,12 @@
           "nome": "RALF RIBEIRO DOS SANTOS",
           "dept": "SUPERINTENDÊNCIA",
           "funcao": "SUPERINTENDENTE ASSISTENCIAL"
+        },
+        {
+          "uid": "cmqbpqj3bmputl",
+          "nome": "",
+          "dept": "",
+          "funcao": ""
         }
       ],
       "despesasLocais": {
@@ -6006,5 +6012,5 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTÃO - Prima Quaitá - Versão Final - Impressão.pdf"
     }
   },
-  "currentComp": "2026-06"
+  "currentComp": "2026-05"
 }

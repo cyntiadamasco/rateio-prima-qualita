@@ -4923,16 +4923,16 @@
         }
       ],
       "orcamentos": {
-        "madalena": 0,
-        "cachoeiras": 0,
-        "saq_hosp": 0,
-        "upa_pac": 0,
-        "upa_nc": 0,
-        "arraial": 0,
-        "quissama": 0,
-        "cordeiro": 0,
-        "saq_esp": 0,
-        "saq_pri": 0,
+        "madalena": 1823622.46,
+        "cachoeiras": 5569428.51,
+        "saq_hosp": 25209398.84,
+        "upa_pac": 1792620.11,
+        "upa_nc": 1742636.68,
+        "arraial": 12712703.2,
+        "quissama": 1507247.38,
+        "cordeiro": 1149096.31,
+        "saq_esp": 5296285.19,
+        "saq_pri": 8892715.82,
         "cg_mq5ygto3": 0
       },
       "refColab": "ABRIL/2026",
@@ -6006,5 +6006,5 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTÃO - Prima Quaitá - Versão Final - Impressão.pdf"
     }
   },
-  "currentComp": "2026-05"
+  "currentComp": "2026-06"
 }

@@ -757,7 +757,19 @@
           "pdfUrl": "",
           "pdfNome": ""
         }
-      ]
+      ],
+      "orcamentos": {
+        "madalena": 0,
+        "cachoeiras": 0,
+        "saq_hosp": 0,
+        "upa_pac": 0,
+        "upa_nc": 0,
+        "arraial": 0,
+        "quissama": 0,
+        "cordeiro": 0,
+        "saq_esp": 0,
+        "saq_pri": 0
+      }
     }
   },
   "currentComp": "2026-01"

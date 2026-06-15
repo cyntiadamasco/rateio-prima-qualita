@@ -509,10 +509,14 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   .rdg-table th{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#1B3A5C!important;color:#fff!important}
   .rdg-tfoot td{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#E8F0FF!important}
   .rdg-total-geral{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#EEF4FF!important}
-  .rdg-cat-block{page-break-inside:avoid}
   .rdg-capa{page-break-after:always}
-  .rdg-section{page-break-inside:avoid}
   .rdg-sign{page-break-inside:avoid}
+  /* Títulos nunca ficam isolados no fim da página */
+  .rdg-section-title,.rdg-subsection-title,.rdg-cat-title{break-after:avoid;page-break-after:avoid}
+  /* Parágrafos com cortes limpos: mínimo 3 linhas antes/depois da quebra */
+  .rdg-p{orphans:3;widows:3}
+  /* Blocos de despesa: sem avoid para não criar espaços em branco */
+  .rdg-cat-block{break-inside:auto;page-break-inside:auto}
   /* Critério Quantitativo */
   #panel-criterio table{font-size:11px}
   #panel-criterio thead th{padding:5px 8px;font-size:11px}
@@ -2999,10 +3003,10 @@ function renderRelatorio(){
     +'<div class="rdg-chart-card"><div class="rdg-chart-title">Distribuição por Categoria de Despesa</div><canvas id="rdg-ch-cat" style="max-height:220px"></canvas></div>'
     +'</div>'
     +(hasQualData
-      ?'<h2 class="rdg-subsection-title" style="page-break-before:always;padding-top:52px">4.2 Indicadores Qualitativos – Representatividade por CG</h2>'
+      ?'<h2 class="rdg-subsection-title" style="margin-top:24px">4.2 Indicadores Qualitativos – Representatividade por CG</h2>'
         +'<p class="rdg-p">A representatividade qualitativa de cada Contrato de Gestão é apurada pela média dos 8 indicadores qualitativos, refletindo a demanda efetiva de cada parceiro pelos serviços compartilhados do CIGAC.</p>'
         +'<div class="rdg-chart-card" style="margin:16px 0"><div class="rdg-chart-title">Representatividade Qualitativa por Contrato de Gestão – '+mesRef+'</div><canvas id="rdg-ch-repr" style="max-height:220px"></canvas></div>'
-        +'<h2 class="rdg-subsection-title" style="page-break-before:always;padding-top:52px">4.3 Análise Comparativa: Critério Quantitativo × Representatividade Qualitativa</h2>'
+        +'<h2 class="rdg-subsection-title" style="margin-top:24px">4.3 Análise Comparativa: Critério Quantitativo × Representatividade Qualitativa</h2>'
         +'<p class="rdg-p">O Manual de Rateio de Despesas de Gestão (RDG) da Prima Qualitá estabelece um <strong>critério duplo</strong> para a distribuição das despesas compartilhadas do CIGAC: <strong>(i) Critério Quantitativo</strong> – proporção de colaboradores de cada Contrato de Gestão em relação ao total do CIGAC; e <strong>(ii) Critério Qualitativo</strong> – representatividade do uso efetivo dos serviços de gestão compartilhada, mensurada pelos 8 indicadores de desempenho setorial.</p>'
         +'<p class="rdg-p">A combinação dos dois critérios assegura que o rateio reflita tanto a capacidade administrativa instalada quanto a demanda real pelos serviços do CIGAC, promovendo equilíbrio, transparência e isonomia entre os parceiros, em conformidade com os princípios de racionalização de recursos previstos no Manual. Discrepâncias significativas entre os dois critérios sinalizam contratos onde o peso quantitativo não reflete a demanda qualitativa real, justificando revisões periódicas dos parâmetros de rateio.</p>'
         +'<div class="rdg-chart-card" style="margin:16px 0"><div class="rdg-chart-title">Comparativo: % Critério Quantitativo vs % Representatividade Qualitativa – '+mesRef+'</div><canvas id="rdg-ch-compare" style="max-height:220px"></canvas></div>'

@@ -1346,7 +1346,16 @@ function importarJSON(input){
   reader.onload=e=>{
     try{
       const data=JSON.parse(e.target.result);
-      if(data.state) state=data.state;
+      if(data.state){
+        const mesesNovos=Object.keys(data.state);
+        const mesesExist=mesesNovos.filter(m=>state[m]);
+        const msg=mesesExist.length
+          ?`Importar ${mesesNovos.length} mês(es)?\n\nMeses já existentes que serão atualizados: ${mesesExist.join(', ')}\n\nOs outros meses atuais serão PRESERVADOS.`
+          :`Importar ${mesesNovos.length} mês(es) (${mesesNovos.join(', ')})?\n\nOs meses atuais serão PRESERVADOS.`;
+        if(!confirm(msg)) return;
+        // Mescla: preserva meses existentes, adiciona/atualiza apenas os do arquivo
+        state=Object.assign({},state,data.state);
+      }
       if(data.currentComp) currentComp=data.currentComp;
       salvar();
       popularCompetencias();

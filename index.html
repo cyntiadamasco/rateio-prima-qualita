@@ -517,6 +517,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   /* rdg-section sem avoid: seções principais usam page-break-before:always */
   .rdg-sign{page-break-inside:avoid}
   .rdg-final-block{page-break-before:always;page-break-inside:avoid}
+  .rdg-organo{page-break-inside:avoid;break-inside:avoid}
   /* Títulos nunca ficam isolados no fim da página */
   .rdg-section-title,.rdg-subsection-title,.rdg-cat-title{break-after:avoid;page-break-after:avoid}
   /* Parágrafos com cortes limpos: mínimo 3 linhas antes/depois da quebra */
@@ -567,14 +568,14 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   .rdg-page-hdr-sub{font-size:10px;color:#1B3A5C;margin-top:1px}
   .rdg-page-hdr-right{margin-left:auto;text-align:right;font-size:10px;color:#1B3A5C}
   .rdg-page-hdr-right strong{font-size:11px;display:block;margin-bottom:1px}
-  .rdg-capa{padding-top:10px!important}
+  .rdg-capa{padding-top:20px!important}
   .rdg-capa [style*="background:#1B3A5C"]{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
-  .rdg-section{padding-top:10px!important}
+  .rdg-section{padding-top:20px!important}
   .rdg-sign{padding-top:10px!important}
   .rdg-chart-card canvas{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
   .rdg-analise-hdr{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;background:#1B3A5C!important;color:#fff!important}
   /* RDG: tabela Indicadores Qualitativos – zoom para caber na página */
-  .rdg-iqual-wrap{overflow:visible!important;width:100%}
+  .rdg-iqual-wrap{overflow:visible!important;width:100%;page-break-inside:avoid;break-inside:avoid}
   .rdg-iqual-wrap table{width:100%!important;min-width:0!important;table-layout:fixed;font-size:7px!important}
   .rdg-iqual-wrap th:first-child,.rdg-iqual-wrap td:first-child{width:24%!important}
   .rdg-iqual-wrap th,.rdg-iqual-wrap td{padding:2px 3px!important;white-space:normal!important;word-break:break-word!important;font-size:7px!important;overflow:hidden}
@@ -3100,7 +3101,7 @@ function renderRelatorio(){
       <p class="rdg-p">Nosso compromisso com a excelência na gestão de recursos públicos é refletido em cada aspecto deste relatório. Desde a coleta e análise de dados até a apresentação final, cada etapa foi conduzida com rigor e atenção aos detalhes. Com este relatório, a Prima Qualitá Saúde reafirma seu compromisso com a transparência e a boa governança.</p>
       <h2 class="rdg-subsection-title">1.6 Estrutura Organizacional do CIGAC</h2>
       <p class="rdg-p">O CIGAC está estruturado em quatro eixos de atuação (Administrativo, Financeiro, Pessoas e Assistencial) e dois departamentos transversais (Jurídico e Compliance), sob coordenação da Superintendência Executiva:</p>
-      <div style="margin:12px 0;font-size:11px">
+      <div class="rdg-organo" style="margin:12px 0;font-size:11px">
         <!-- Organograma CIGAC -->
         <div style="text-align:center;margin-bottom:12px">
           <div style="display:inline-block;background:#0F2C47;color:#fff;padding:9px 24px;border-radius:8px;font-weight:700;font-size:11.5px;letter-spacing:.4px">
@@ -3233,7 +3234,7 @@ function renderRelatorio(){
     ${sec4Html}
 
     <!-- 5. RELATÓRIOS ADICIONAIS -->
-    <div class="rdg-section">
+    <div class="rdg-section" style="page-break-before:always">
       <h1 class="rdg-section-title">5. Relatórios Adicionais</h1>
       <h2 class="rdg-subsection-title">4.1 Documentos Comprobatórios</h2>
       <p class="rdg-p">As documentações de comprovação da execução de cada item descrito neste relatório estão devidamente anexadas. Isso inclui notas fiscais, recibos, relatórios de ponto eletrônico, folhas de pagamento, relatórios de auditoria, documentos de suporte jurídico, e quaisquer outros registros necessários para assegurar a transparência e a conformidade das despesas apresentadas.</p>

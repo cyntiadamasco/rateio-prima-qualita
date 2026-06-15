@@ -513,8 +513,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
      cobrindo o cabeçalho fixo (~14mm) + folga de 4mm */
   @page{margin-top:18mm;margin-right:15mm;margin-bottom:12mm;margin-left:15mm}
   .rdg-capa{page-break-after:always}
-  /* rdg-section: sem avoid — @page margin-top garante clearance do cabeçalho
-     em continuações; avoid causava espaço em branco ao empurrar seções */
+  .rdg-section{page-break-inside:avoid}  /* seções ficam juntas na página */
   .rdg-sign{page-break-inside:avoid}
   /* Títulos nunca ficam isolados no fim da página */
   .rdg-section-title,.rdg-subsection-title,.rdg-cat-title{break-after:avoid;page-break-after:avoid}

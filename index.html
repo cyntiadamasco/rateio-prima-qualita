@@ -1206,7 +1206,7 @@ function getMesData(comp){
   }
   // Ensure all CGs have orcamento entry
   if(!state[comp].orcamentos) state[comp].orcamentos={};
-         CONTRATOS.forEach(c=>{ if(state[comp].orcamentos[c.id]===undefined) state[comp].orcamentos[c.id]=0; });
+  CONTRATOS.forEach(c=>{ if(state[comp].orcamentos[c.id]===undefined) state[comp].orcamentos[c.id]=0; });
   // Ensure contratos ativos list exists
   if(!state[comp].contratos_ativos) state[comp].contratos_ativos=[];
   if(state[comp].contratos_obs===undefined) state[comp].contratos_obs='';

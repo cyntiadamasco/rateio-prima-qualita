@@ -513,7 +513,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
      cobrindo o cabeçalho fixo (~14mm) + folga de 4mm */
   @page{margin-top:18mm;margin-right:15mm;margin-bottom:12mm;margin-left:15mm}
   .rdg-capa{page-break-after:always}
-  .rdg-section{page-break-inside:avoid}  /* seções ficam juntas na página */
+  /* rdg-section sem avoid: seções principais usam page-break-before:always */
   .rdg-sign{page-break-inside:avoid}
   /* Títulos nunca ficam isolados no fim da página */
   .rdg-section-title,.rdg-subsection-title,.rdg-cat-title{break-after:avoid;page-break-after:avoid}
@@ -2998,7 +2998,7 @@ function renderRelatorio(){
       +'<span class="rdg-analise-status" style="color:'+col+'">'+txt+'</span>'
       +'</div>';
   }).join(''):'';
-  const sec4Html='<div class="rdg-section" style="page-break-before:always">'
+  const sec4Html='<div class="rdg-section">'
     +'<h1 class="rdg-section-title">4. Análise dos Indicadores</h1>'
     +'<h2 class="rdg-subsection-title">4.1 Distribuição Financeira das Despesas – '+mesRef+'</h2>'
     +'<p class="rdg-p">Os gráficos a seguir apresentam a distribuição das despesas do CIGAC rateadas entre os Contratos de Gestão e por categoria de despesa, evidenciando a proporcionalidade dos encargos assumidos por cada parceiro na competência de referência.</p>'
@@ -3170,7 +3170,7 @@ function renderRelatorio(){
     </div>
 
     <!-- 2. METODOLOGIA -->
-    <div class="rdg-section">
+    <div class="rdg-section" style="page-break-before:always">
       <h1 class="rdg-section-title">2. Metodologia</h1>
       <p class="rdg-p">A metodologia utilizada para o rateio das despesas de gestão é baseada em critérios quantitativos rigorosos, garantindo a proporcionalidade e a razoabilidade na distribuição dos custos entre os contratos. Indicadores qualitativos são utilizados para avaliar e vincular a atividade da gestão do CIGAC entre os diferentes contratos.</p>
       <h2 class="rdg-subsection-title">2.1 Critérios Quantitativos</h2>
@@ -3208,7 +3208,7 @@ function renderRelatorio(){
         <li><strong>Assessoria Jurídica</strong> – Indicador: Número de contratos validados, ofícios enviados e colaboradores por contrato. Fonte: Relatório da Assessoria Jurídica no mês.</li>
         <li><strong>Departamento Assistencial</strong> – Indicador: Número de pacientes atendidos. Fonte: Relatório do BI no mês.</li>
       </ol>
-      <h2 class="rdg-subsection-title" style="page-break-before:always;padding-top:8px">2.3 Detalhamento dos Indicadores Qualitativos – ${mesRef}</h2>
+      <h2 class="rdg-subsection-title" style="margin-top:24px">2.3 Detalhamento dos Indicadores Qualitativos – ${mesRef}</h2>
       ${hasQualData
         ?`<div class="rdg-iqual-wrap" style="overflow-x:auto"><table class="rdg-table" style="min-width:860px">
           <thead><tr>

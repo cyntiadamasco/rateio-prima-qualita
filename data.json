@@ -11906,6 +11906,10 @@
         }
       },
       "refColab": "ABRIL/2026"
+    },
+    "manualRDG": {
+      "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/manual_rdg.pdf",
+      "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTÃO - Prima Quaitá - Versão Final - Impressão.pdf"
     }
   },
   "currentComp": "2026-05"

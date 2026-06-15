@@ -511,16 +511,18 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   .rdg-total-geral{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#EEF4FF!important}
   /* @page garante margem superior em TODAS as páginas (inclusive continuações)
      cobrindo o cabeçalho fixo (~14mm) + folga de 4mm */
-  @page{margin-top:18mm;margin-right:15mm;margin-bottom:12mm;margin-left:15mm}
+  @page{margin-top:25mm;margin-right:15mm;margin-bottom:16mm;margin-left:15mm}
+  @page{@bottom-center{content:"Pág. " counter(page);font-family:Arial,sans-serif;font-size:9pt;color:#6b7280}}
   .rdg-capa{page-break-after:always}
   /* rdg-section sem avoid: seções principais usam page-break-before:always */
   .rdg-sign{page-break-inside:avoid}
+  .rdg-final-block{page-break-before:always;page-break-inside:avoid}
   /* Títulos nunca ficam isolados no fim da página */
   .rdg-section-title,.rdg-subsection-title,.rdg-cat-title{break-after:avoid;page-break-after:avoid}
   /* Parágrafos com cortes limpos: mínimo 3 linhas antes/depois da quebra */
   .rdg-p{orphans:3;widows:3}
   /* Blocos de despesa: fluem livremente (sem espaços em branco desnecessários) */
-  .rdg-cat-block{break-inside:auto;page-break-inside:auto}
+  .rdg-cat-block{break-inside:avoid;page-break-inside:avoid}
   /* Critério Quantitativo */
   #panel-criterio table{font-size:11px}
   #panel-criterio thead th{padding:5px 8px;font-size:11px}
@@ -2998,7 +3000,7 @@ function renderRelatorio(){
       +'<span class="rdg-analise-status" style="color:'+col+'">'+txt+'</span>'
       +'</div>';
   }).join(''):'';
-  const sec4Html='<div class="rdg-section">'
+  const sec4Html='<div class="rdg-section" style="page-break-before:always">'
     +'<h1 class="rdg-section-title">4. Análise dos Indicadores</h1>'
     +'<h2 class="rdg-subsection-title">4.1 Distribuição Financeira das Despesas – '+mesRef+'</h2>'
     +'<p class="rdg-p">Os gráficos a seguir apresentam a distribuição das despesas do CIGAC rateadas entre os Contratos de Gestão e por categoria de despesa, evidenciando a proporcionalidade dos encargos assumidos por cada parceiro na competência de referência.</p>'
@@ -3237,6 +3239,7 @@ function renderRelatorio(){
       <p class="rdg-p">As documentações de comprovação da execução de cada item descrito neste relatório estão devidamente anexadas. Isso inclui notas fiscais, recibos, relatórios de ponto eletrônico, folhas de pagamento, relatórios de auditoria, documentos de suporte jurídico, e quaisquer outros registros necessários para assegurar a transparência e a conformidade das despesas apresentadas.</p>
     </div>
 
+    <div class="rdg-final-block">
     <!-- 6. DISPOSIÇÕES FINAIS -->
     <div class="rdg-section">
       <h1 class="rdg-section-title">6. Disposições Finais</h1>
@@ -3263,6 +3266,7 @@ function renderRelatorio(){
       <p><strong>Cyntia Araujo Damasco</strong></p>
       <p>Superintendente Executiva</p>
       <p style="color:#6b7280;font-size:11px;margin-top:6px">Prima Qualitá Saúde – CNPJ: 40.289.134/0001-99</p>
+    </div>
     </div>
 
   </div>`;

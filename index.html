@@ -4312,9 +4312,6 @@ async function processarPDFClickSign(input){
       md.clicksign={document_key:data.document_key,document_url:data.document_url,sign_url:data.sign_url||data.document_url,sent_at:new Date().toISOString()};
       salvar();
       renderRelatorio();
-      if(data.notif_status && data.notif_status>=400){
-        alert('Documento enviado com sucesso!\n\n⚠️ Mas o e-mail de assinatura não foi disparado (status '+data.notif_status+'):\n'+data.notif_detail+'\n\nUse o botão "Assinar no ClickSign →" para acessar diretamente.');
-      }
     } else {
       alert('Erro ao enviar: '+(data.error||JSON.stringify(data)));
       if(btn){btn.disabled=false;btn.innerHTML='📤 Enviar para Assinatura';}

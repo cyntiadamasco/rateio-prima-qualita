@@ -325,8 +325,8 @@
           "ctipo": "Boleto",
           "cnum": "",
           "valor": 1013.7,
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/ylmka5c.pdf",
+          "pdfNome": "ID 12 RIOPAR- NF 9001 - 1.013,70.pdf"
         },
         {
           "uid": "0xj2in3",

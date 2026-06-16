@@ -1578,6 +1578,12 @@
             "objeto": "ENERGIA ELÉTRICA SEDE CORDEIRO",
             "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
             "valor": 59.74
+          },
+          {
+            "id": "dl1781575371521",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE CORDEIRO",
+            "fornecedor": "R W IMOBILIAR IA LTDA",
+            "valor": 1214.92
           }
         ],
         "saq_esp": [],

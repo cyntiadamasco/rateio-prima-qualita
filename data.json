@@ -770,7 +770,16 @@
         "saq_esp": 1918202.76,
         "saq_pri": 6425248.28
       },
-      "contratos_ativos": [],
+      "contratos_ativos": [
+        {
+          "uid": "cmqg1i26zxwv21",
+          "objeto": "",
+          "favorecido": "",
+          "cnpj": "",
+          "nrProcesso": "",
+          "nrContrato": ""
+        }
+      ],
       "contratos_obs": "",
       "colab_lista": [
         {

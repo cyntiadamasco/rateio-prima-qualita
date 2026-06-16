@@ -1507,7 +1507,14 @@
         }
       ],
       "despesasLocais": {
-        "madalena": [],
+        "madalena": [
+          {
+            "id": "dl1781574814618",
+            "objeto": "ENERGIA ELÉTRICA SEDE MADALENA",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 103.61
+          }
+        ],
         "cachoeiras": [],
         "saq_hosp": [],
         "upa_pac": [],
@@ -14963,5 +14970,5 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTÃO - Prima Quaitá - Versão Final - Impressão.pdf"
     }
   },
-  "currentComp": "2026-06"
+  "currentComp": "2026-01"
 }

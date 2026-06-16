@@ -650,8 +650,8 @@
           "ctipo": "Boleto",
           "cnum": "",
           "valor": 80.61,
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/7x7llzh.pdf",
+          "pdfNome": "ID 37 AGUAS RIO-  NF 4669 - 80,61.pdf"
         },
         {
           "uid": "5dee0fb",

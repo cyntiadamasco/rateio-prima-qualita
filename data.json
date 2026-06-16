@@ -4963,8 +4963,8 @@
           "pdfNome": "MOVIMENTAÇÃO 03-26.pdf"
         },
         "razao": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202603_razao.pdf",
+          "pdfNome": "RAZÃO 03.26.pdf"
         },
         "bl_saldoInicial": 0,
         "bl_transferencias": 0,

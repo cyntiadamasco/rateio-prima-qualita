@@ -1538,7 +1538,14 @@
         "saq_hosp": [],
         "upa_pac": [],
         "upa_nc": [],
-        "arraial": [],
+        "arraial": [
+          {
+            "id": "dl1781575065347",
+            "objeto": "ENERGIA ELÉTRICA SEDE ARRAIAL - SALA 301",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 627.3
+          }
+        ],
         "quissama": [],
         "cordeiro": [],
         "saq_esp": [],

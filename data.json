@@ -572,8 +572,8 @@
           "ctipo": "Boleto",
           "cnum": "",
           "valor": 488.96,
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/c8vb105.pdf",
+          "pdfNome": "ID 31 AGUAS RIO SEDE- NF 407- 488,96.pdf"
         },
         {
           "uid": "9d3f5yu",

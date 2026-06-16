@@ -3297,7 +3297,7 @@
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202602_razao.pdf",
           "pdfNome": "RAZÃO MATRIZ 02.2026.pdf"
         },
-        "bl_saldoInicial": 0,
+        "bl_saldoInicial": 28.24,
         "bl_transferencias": 0,
         "bl_aplicacao": 0,
         "bl_rendimento": 0,
@@ -14963,5 +14963,5 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTÃO - Prima Quaitá - Versão Final - Impressão.pdf"
     }
   },
-  "currentComp": "2026-01"
+  "currentComp": "2026-02"
 }

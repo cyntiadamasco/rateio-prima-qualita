@@ -1527,6 +1527,12 @@
             "objeto": "ENERGIA ELÉTRICA SEDE CACHOEIRAS",
             "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
             "valor": 641.17
+          },
+          {
+            "id": "dl1781575004492",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE CACHOEIRAS",
+            "fornecedor": "REGINA CÉLIA DE CASTRO MENDES",
+            "valor": 1500
           }
         ],
         "saq_hosp": [],

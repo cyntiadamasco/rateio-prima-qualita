@@ -4175,9 +4175,12 @@ function renderValidacao(){
   <div class="card" style="margin-top:16px">
     <div class="card-hdr" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
       <div class="card-title">&#127970; Despesas Locais (100%) – ${compLabel(currentComp)}</div>
-      <select id="dl-cg-sel" onchange="renderValidacao()" style="font-size:12px;padding:3px 8px;border-radius:4px;border:1px solid #D1D5DB;background:#fff">
-        ${cgOptsDL}
-      </select>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+        <button class="btn btn-outline btn-sm edit-only" onclick="importarDespLocaisAnt()" title="Copiar despesas locais do mês anterior para todos os CGs">↩ Importar mês anterior</button>
+        <select id="dl-cg-sel" onchange="renderValidacao()" style="font-size:12px;padding:3px 8px;border-radius:4px;border:1px solid #D1D5DB;background:#fff">
+          ${cgOptsDL}
+        </select>
+      </div>
     </div>
     <div style="font-size:11px;color:#6B7280;margin-bottom:12px">
       Despesas executadas <strong>100%</strong> em <strong style="color:${ctDL.cor}">${ctDL.nome}</strong> —
@@ -4226,6 +4229,28 @@ function renderValidacao(){
       </div>
     </div>
   </div>`;
+}
+
+function importarDespLocaisAnt(){
+  const prev=prevComp(currentComp);
+  const prevData=getMesData(prev);
+  const curData=getMesData(currentComp);
+  const prevDL=prevData.despesasLocais||{};
+  const hasDL=Object.values(prevDL).some(arr=>arr&&arr.length>0);
+  if(!hasDL){alert('Nenhuma despesa local cadastrada em '+compLabel(prev)+'.');return;}
+  const total=Object.values(prevDL).reduce((a,arr)=>a+(arr||[]).length,0);
+  if(!confirm('Importar '+total+' despesa(s) local(is) de '+compLabel(prev)+' para '+compLabel(currentComp)+'?\n\nAs despesas locais já cadastradas no mês atual serão substituídas.')) return;
+  if(!curData.despesasLocais) curData.despesasLocais={};
+  CONTRATOS.forEach(ct=>{
+    if(prevDL[ct.id]&&prevDL[ct.id].length>0){
+      curData.despesasLocais[ct.id]=prevDL[ct.id].map(d=>({
+        ...d,
+        id:'dl'+Date.now()+Math.random().toString(36).slice(2,6)
+      }));
+    }
+  });
+  salvar();
+  renderValidacao();
 }
 
 function importarOrcamentosAnt(){

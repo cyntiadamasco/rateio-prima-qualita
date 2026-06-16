@@ -4959,8 +4959,8 @@
           "pdfNome": "EXTRATO CIGAC 03.26.pdf"
         },
         "movimentacao": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202603_movimentacao.pdf",
+          "pdfNome": "MOVIMENTAÇÃO 03-26.pdf"
         },
         "razao": {
           "pdfUrl": "",
@@ -4977,7 +4977,133 @@
         "bl_saldoFinal": 0,
         "ex_saldoFinal": 0,
         "obs": "",
-        "extratoData": null
+        "extratoData": {
+          "txCount": 15,
+          "countCreditos": 6,
+          "countDebitos": 9,
+          "totalCreditos": 49049.04,
+          "totalDebitos": 162881.22,
+          "saldoFinal": 0.01,
+          "cats": {
+            "TED Pgto Fornecedores": {
+              "count": 1,
+              "total": -7000
+            },
+            "Aplicação Contamax": {
+              "count": 4,
+              "total": -50495.95
+            },
+            "Resgate Contamax": {
+              "count": 5,
+              "total": 49013.72
+            },
+            "Pgto de Título": {
+              "count": 1,
+              "total": -10254.86
+            },
+            "Pgto a Fornecedores": {
+              "count": 3,
+              "total": -95130.41
+            },
+            "Receb. de Fornecedores": {
+              "count": 1,
+              "total": 35.32
+            }
+          },
+          "txs": [
+            {
+              "data": "03/03/2026",
+              "desc": "TED PGTO FORNECEDORES CIP 3003.4906177381 030303",
+              "valor": -7000,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "APLICACAO CONTAMAX 000000",
+              "valor": -23352.05,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
+              "valor": 23392.07,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "APLICACAO CONTAMAX 000000",
+              "valor": -26299.92,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
+              "valor": 25376.12,
+              "saldo": 0
+            },
+            {
+              "data": "11/03/2026",
+              "desc": "APLICACAO CONTAMAX 000000",
+              "valor": -612.46,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310312",
+              "valor": -10254.86,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES 3003.4906177381 010313",
+              "valor": -36000,
+              "saldo": 0.01
+            },
+            {
+              "data": "16/03/2026",
+              "desc": "PGTO FORNECEDORES -CONCESSIONARIAS 3003.4906177381 110316",
+              "valor": -80.75,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PGTO FORNECEDORES - TRIB FEDERAL 3003.4906177381 110317",
+              "valor": -59049.66,
+              "saldo": 0.03
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 35.32,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
+              "valor": 6.99,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "APLICACAO CONTAMAX 000000",
+              "valor": -231.52,
+              "saldo": 0
+            },
+            {
+              "data": "20/03/2026",
+              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
+              "valor": 238.53,
+              "saldo": 0
+            },
+            {
+              "data": "23/03/2026",
+              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
+              "valor": 0.01,
+              "saldo": 0
+            }
+          ],
+          "parsedAt": "15/06/2026 21:48"
+        }
       },
       "iqual_pdfs": {
         "ind1": {

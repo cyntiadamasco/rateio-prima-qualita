@@ -195,8 +195,8 @@
           "ctipo": "NF",
           "cnum": "202601",
           "valor": 11000,
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/anrjz7b.pdf",
+          "pdfNome": "ID 02 E SIMÕES- NF 2026.01- 11.000,00.pdf"
         },
         {
           "uid": "enp72uk",
@@ -14963,5 +14963,5 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTÃO - Prima Quaitá - Versão Final - Impressão.pdf"
     }
   },
-  "currentComp": "2026-06"
+  "currentComp": "2026-01"
 }

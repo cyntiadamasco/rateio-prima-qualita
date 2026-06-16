@@ -14656,7 +14656,12 @@
           "pdfNome": "INDICADOR 8 - DEPARTAMENTO ASSISTENCIAL ABRIL 2026.pdf"
         }
       },
-      "refColab": "MARÇO/2026"
+      "refColab": "MARÇO/2026",
+      "clicksign": {
+        "document_key": "2afbfeb3-9aeb-478c-8e60-79e4dfe59bd8",
+        "document_url": "https://app.clicksign.com/2afbfeb3-9aeb-478c-8e60-79e4dfe59bd8",
+        "sent_at": "2026-06-16T04:18:48.550Z"
+      }
     },
     "2026-06": {
       "colaboradores": [

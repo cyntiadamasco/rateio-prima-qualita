@@ -1572,7 +1572,14 @@
             "valor": 2700
           }
         ],
-        "cordeiro": [],
+        "cordeiro": [
+          {
+            "id": "dl1781575336959",
+            "objeto": "ENERGIA ELÉTRICA SEDE CORDEIRO",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 59.74
+          }
+        ],
         "saq_esp": [],
         "saq_pri": []
       },

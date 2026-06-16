@@ -1520,8 +1520,8 @@
       },
       "demoContabil": {
         "balancete": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202601_balancete.pdf",
+          "pdfNome": "Balancete Matriz 01-2026.pdf"
         },
         "extrato": {
           "pdfUrl": "",

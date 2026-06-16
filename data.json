@@ -299,8 +299,8 @@
           "ctipo": "Boleto",
           "cnum": "",
           "valor": 143280,
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/rz3b4pp.pdf",
+          "pdfNome": "ID 10 TICKET- NF 2840- 143.280,00.pdf"
         },
         {
           "uid": "7jb8sna",

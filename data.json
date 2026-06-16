@@ -5173,6 +5173,12 @@
             "objeto": "LOCAÇÃO DE IMÓVEL SEDE QUISSAMÃ",
             "fornecedor": "CRISLANE SILVA CONCEIÇÃO",
             "valor": 2700
+          },
+          {
+            "id": "dl1781576828635",
+            "objeto": "IPTU SEDE QUISSAMÃ",
+            "fornecedor": "PREFEITURA MUNICIPAL DE QUISSAMÃ",
+            "valor": 1241.09
           }
         ],
         "cordeiro": [

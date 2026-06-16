@@ -5368,7 +5368,7 @@
         {
           "uid": "ingoum3",
           "id": "5",
-          "cat": "Auditorias Contábil, Fiscal e Financeira",
+          "cat": "Folha de Pagamento CIGAC",
           "objeto": "Serviços de Auditoria Financeira e Contábil",
           "fav": "IGF Auditores e Consultores Independentes Sociedade Simples",
           "cnpj": "04.899.444/0001-61",
@@ -5381,7 +5381,7 @@
         {
           "uid": "5inc9oz",
           "id": "6",
-          "cat": "Folha de Pagamento Diretoria, Contabilidade/Recursos Humanos/Departamento Pessoal/Prestação de Contas/Compras e Contratos/Equipe Assistencial/Segurança do Trabalho e Qualidade",
+          "cat": "Folha de Pagamento CIGAC",
           "objeto": "Folha de Pagamento Colaboradores Matriz",
           "fav": "Projeto Social Cresce Comunidade - Prima Qualitá",
           "cnpj": "40.289.134/0001-99",
@@ -5394,7 +5394,7 @@
         {
           "uid": "u16sv2o",
           "id": "7",
-          "cat": "Folha de Pagamento Diretoria, Contabilidade/Recursos Humanos/Departamento Pessoal/Prestação de Contas/Compras e Contratos/Equipe Assistencial/Segurança do Trabalho e Qualidade",
+          "cat": "Folha de Pagamento CIGAC",
           "objeto": "INSS sobre Folha",
           "fav": "Instituto Nacional do Seguro Social - INSS",
           "cnpj": "40.289.134/0001-99",
@@ -5407,7 +5407,7 @@
         {
           "uid": "8vana2p",
           "id": "8",
-          "cat": "Folha de Pagamento Diretoria, Contabilidade/Recursos Humanos/Departamento Pessoal/Prestação de Contas/Compras e Contratos/Equipe Assistencial/Segurança do Trabalho e Qualidade",
+          "cat": "Folha de Pagamento CIGAC",
           "objeto": "Fundo de Garantia por Tempo de Serviços (FGTS)",
           "fav": "Caixa Econômica Federal - FGTS",
           "cnpj": "40.289.134/0001-99",
@@ -5420,7 +5420,7 @@
         {
           "uid": "ghx3md7",
           "id": "9",
-          "cat": "Folha de Pagamento Diretoria, Contabilidade/Recursos Humanos/Departamento Pessoal/Prestação de Contas/Compras e Contratos/Equipe Assistencial/Segurança do Trabalho e Qualidade",
+          "cat": "Folha de Pagamento CIGAC",
           "objeto": "Imposto de Renda Pessoa Física - Folha",
           "fav": "Receita Federal",
           "cnpj": "40.289.134/0001-99",
@@ -5433,7 +5433,7 @@
         {
           "uid": "yk7h390",
           "id": "10",
-          "cat": "Folha de Pagamento Diretoria, Contabilidade/Recursos Humanos/Departamento Pessoal/Prestação de Contas/Compras e Contratos/Equipe Assistencial/Segurança do Trabalho e Qualidade",
+          "cat": "Folha de Pagamento CIGAC",
           "objeto": "Vale Refeição/Alimentação Colaboradores Matriz",
           "fav": "Ticket Soluções HDFGT S/A",
           "cnpj": "47.866.934/0001-74",
@@ -5446,7 +5446,7 @@
         {
           "uid": "ssl0nkx",
           "id": "11",
-          "cat": "Folha de Pagamento Diretoria, Contabilidade/Recursos Humanos/Departamento Pessoal/Prestação de Contas/Compras e Contratos/Equipe Assistencial/Segurança do Trabalho e Qualidade",
+          "cat": "Folha de Pagamento CIGAC",
           "objeto": "Vale Transporte Colaboradores Matriz",
           "fav": "Riopar Participações S/A",
           "cnpj": "16.727.386/0001-86",
@@ -5459,7 +5459,7 @@
         {
           "uid": "xklcscc",
           "id": "11.1",
-          "cat": "Folha de Pagamento Diretoria, Contabilidade/Recursos Humanos/Departamento Pessoal/Prestação de Contas/Compras e Contratos/Equipe Assistencial/Segurança do Trabalho e Qualidade",
+          "cat": "Folha de Pagamento CIGAC",
           "objeto": "Vale Transporte Colaboradores Matriz",
           "fav": "Riopar Participações S/A",
           "cnpj": "16.727.386/0001-86",
@@ -5472,7 +5472,7 @@
         {
           "uid": "3pll8mv",
           "id": "12",
-          "cat": "Folha de Pagamento Diretoria, Contabilidade/Recursos Humanos/Departamento Pessoal/Prestação de Contas/Compras e Contratos/Equipe Assistencial/Segurança do Trabalho e Qualidade",
+          "cat": "Folha de Pagamento CIGAC",
           "objeto": "Vale Transporte Colaboradores Matriz",
           "fav": "CBD Bilhete Digital",
           "cnpj": "48.707.842/0001-04",
@@ -5485,7 +5485,7 @@
         {
           "uid": "6c0kv2v",
           "id": "13",
-          "cat": "Folha de Pagamento Diretoria, Contabilidade/Recursos Humanos/Departamento Pessoal/Prestação de Contas/Compras e Contratos/Equipe Assistencial/Segurança do Trabalho e Qualidade",
+          "cat": "Folha de Pagamento CIGAC",
           "objeto": "Contribuição Institucional Destinada a Manutenção do CIEE",
           "fav": "Centro de Integração Empresa Escola",
           "cnpj": "33.661.745/0001-50",
@@ -5498,7 +5498,7 @@
         {
           "uid": "gdaomnd",
           "id": "14",
-          "cat": "Folha de Pagamento Diretoria, Contabilidade/Recursos Humanos/Departamento Pessoal/Prestação de Contas/Compras e Contratos/Equipe Assistencial/Segurança do Trabalho e Qualidade",
+          "cat": "Folha de Pagamento CIGAC",
           "objeto": "Coordenação de Revisão de Óbitos e Prontuários Institucional",
           "fav": "Radiocom Diagnosticos LTDA",
           "cnpj": "33.192.856/0001-65",
@@ -5511,7 +5511,7 @@
         {
           "uid": "hf55h6i",
           "id": "15",
-          "cat": "Folha de Pagamento Diretoria, Contabilidade/Recursos Humanos/Departamento Pessoal/Prestação de Contas/Compras e Contratos/Equipe Assistencial/Segurança do Trabalho e Qualidade",
+          "cat": "Folha de Pagamento CIGAC",
           "objeto": "Empréstimo Consignado",
           "fav": "Crédito Trabalhador",
           "cnpj": "40.289.134/0001-99",
@@ -5524,7 +5524,7 @@
         {
           "uid": "dsm0xxv",
           "id": "16",
-          "cat": "Folha de Pagamento Diretoria, Contabilidade/Recursos Humanos/Departamento Pessoal/Prestação de Contas/Compras e Contratos/Equipe Assistencial/Segurança do Trabalho e Qualidade",
+          "cat": "Folha de Pagamento CIGAC",
           "objeto": "Pensão Alimentícia - Colaborador Douglas Barcellos Silva",
           "fav": "Michele Guilhermina Moraes Barcellos",
           "cnpj": "115.607.797-48",
@@ -5537,7 +5537,7 @@
         {
           "uid": "vno2nqh",
           "id": "17",
-          "cat": "Folha de Pagamento Diretoria, Contabilidade/Recursos Humanos/Departamento Pessoal/Prestação de Contas/Compras e Contratos/Equipe Assistencial/Segurança do Trabalho e Qualidade",
+          "cat": "Folha de Pagamento CIGAC",
           "objeto": "Pensão Alimentícia - Colaborador Dioni de Oliveira Schuvartz",
           "fav": "Sara Almeida Souza Schuvartz",
           "cnpj": "054.299.487-99",
@@ -5550,7 +5550,7 @@
         {
           "uid": "01yvqcd",
           "id": "18",
-          "cat": "Folha de Pagamento Diretoria, Contabilidade/Recursos Humanos/Departamento Pessoal/Prestação de Contas/Compras e Contratos/Equipe Assistencial/Segurança do Trabalho e Qualidade",
+          "cat": "Folha de Pagamento CIGAC",
           "objeto": "Provisão de Verbas Rescisórias",
           "fav": "Projeto Social Cresce Comunidade",
           "cnpj": "40.289.134/0001-99",
@@ -5680,7 +5680,7 @@
         {
           "uid": "9wffybb",
           "id": "28",
-          "cat": "Locação de Mobiliário e Equipamentos de Informática",
+          "cat": "Locação de Mobiliário e Equipamentos de Informática (CIGAC)",
           "objeto": "Locação de mobiliários e equipamentos para o Centro Admistrativo/Distribuição",
           "fav": "A4PM Analytics For Public Management LTDA",
           "cnpj": "23.034.181/0001-72",
@@ -5693,7 +5693,7 @@
         {
           "uid": "ce0fyur",
           "id": "29",
-          "cat": "Locação de Imóvel Arquivo, Central Logística, Monitoramento e Apoio Tecnológico e Despesas (Energia, Água, Telefonia e afins)",
+          "cat": "Locação de Imóvel CIGAC e Despesas",
           "objeto": "Aluguel Imóvel Centro Administrativo/Distribuição",
           "fav": "João de Deus",
           "cnpj": "518.318.487-91",
@@ -5706,7 +5706,7 @@
         {
           "uid": "htwphei",
           "id": "30",
-          "cat": "Locação de Imóvel Arquivo, Central Logística, Monitoramento e Apoio Tecnológico e Despesas (Energia, Água, Telefonia e afins)",
+          "cat": "Locação de Imóvel CIGAC e Despesas",
           "objeto": "Energia Elétrica Centro Administrativo/Distribuição",
           "fav": "Ampla Energia e Serviços S.A",
           "cnpj": "33.050.071/0001-58",
@@ -5719,7 +5719,7 @@
         {
           "uid": "c28y3dq",
           "id": "31",
-          "cat": "Locação de Imóvel Arquivo, Central Logística, Monitoramento e Apoio Tecnológico e Despesas (Energia, Água, Telefonia e afins)",
+          "cat": "Locação de Imóvel CIGAC e Despesas",
           "objeto": "Água e Esgoto do Centro Administrativo/Distribuição",
           "fav": "Águas do Rio 1 SPE s.A.",
           "cnpj": "42.310.775/0033-90",
@@ -5732,7 +5732,7 @@
         {
           "uid": "7v67qo4",
           "id": "32",
-          "cat": "Locação de Imóvel Arquivo, Central Logística, Monitoramento e Apoio Tecnológico e Despesas (Energia, Água, Telefonia e afins)",
+          "cat": "Locação de Imóvel CIGAC e Despesas",
           "objeto": "Aluguel Imóvel Arquivo Geral",
           "fav": "Nilton Alves da Fonseca",
           "cnpj": "33.050.071/0001-58",
@@ -5745,7 +5745,7 @@
         {
           "uid": "u5aw6ym",
           "id": "33",
-          "cat": "Locação de Imóvel Arquivo, Central Logística, Monitoramento e Apoio Tecnológico e Despesas (Energia, Água, Telefonia e afins)",
+          "cat": "Locação de Imóvel CIGAC e Despesas",
           "objeto": "Energia Elétrica Arquivo Geral",
           "fav": "Ampla Energia e Serviços S.A",
           "cnpj": "33.050.071/0001-58",
@@ -5758,7 +5758,7 @@
         {
           "uid": "pe6bpx8",
           "id": "34",
-          "cat": "Locação de Imóvel Arquivo, Central Logística, Monitoramento e Apoio Tecnológico e Despesas (Energia, Água, Telefonia e afins)",
+          "cat": "Locação de Imóvel CIGAC e Despesas",
           "objeto": "Água e Esgoto do Arquivo Geral",
           "fav": "Águas do Rio 1 SPE s.A.",
           "cnpj": "42.310.775/0033-90",
@@ -5771,7 +5771,7 @@
         {
           "uid": "ibr68wa",
           "id": "35",
-          "cat": "Locação de Veículo Apoio Administrativo/Logística",
+          "cat": "Locação de Veículo Apoio Administrativo",
           "objeto": "Locação de veículos para atender a Central de logística",
           "fav": "Promedical Serviços em Saude LTDA",
           "cnpj": "35.788.642/0001-81",
@@ -5784,7 +5784,7 @@
         {
           "uid": "8e9eh5c",
           "id": "36",
-          "cat": "Locação de Veículo Apoio Administrativo/Logística",
+          "cat": "Locação de Veículo Apoio Administrativo",
           "objeto": "Locação de veículos para atender a Central Administrativa",
           "fav": "Promedical Serviços em Saude LTD",
           "cnpj": "35.788.642/0001-81",
@@ -14963,5 +14963,5 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTÃO - Prima Quaitá - Versão Final - Impressão.pdf"
     }
   },
-  "currentComp": "2026-03"
+  "currentComp": "2026-04"
 }

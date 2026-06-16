@@ -1564,6 +1564,12 @@
             "objeto": "ENERGIA ELÉTRICA SEDE QUISSAMÃ",
             "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
             "valor": 312.61
+          },
+          {
+            "id": "dl1781575287935",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE QUISSAMÃ",
+            "fornecedor": "CRISLANE SILVA CONCEIÇÃO",
+            "valor": 2700
           }
         ],
         "cordeiro": [],

@@ -11095,12 +11095,6 @@
             "objeto": "LOCAÇÃO DE IMÓVEL SEDE CACHOEIRAS",
             "fornecedor": "REGINA CÉLIA DE CASTRO MENDES",
             "valor": 1500
-          },
-          {
-            "id": "dl1781577155982ger7",
-            "objeto": "IPTU SEDE CACHOEIRAS",
-            "fornecedor": "PREFEITURA MUNICIPAL DE CACHOEIRAS DE MACACU",
-            "valor": 435.74
           }
         ],
         "saq_hosp": [],
@@ -11111,7 +11105,7 @@
             "id": "dl17815771559820eve",
             "objeto": "ENERGIA ELÉTRICA SEDE ARRAIAL - SALA 301",
             "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
-            "valor": 658.65
+            "valor": 924.3
           },
           {
             "id": "dl17815771559826qhl",

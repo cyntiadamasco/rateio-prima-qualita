@@ -559,8 +559,8 @@
           "ctipo": "Boleto",
           "cnum": "",
           "valor": 13339.52,
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/kz7mddt.pdf",
+          "pdfNome": "ID 30 ENEL SEDE- NF 2026 .01 - 13.339,52.pdf"
         },
         {
           "uid": "c8vb105",

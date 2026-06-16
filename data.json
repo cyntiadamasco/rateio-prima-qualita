@@ -5098,14 +5098,103 @@
         }
       ],
       "despesasLocais": {
-        "madalena": [],
-        "cachoeiras": [],
+        "madalena": [
+          {
+            "id": "dl1781576541581focb",
+            "objeto": "ENERGIA ELÉTRICA SEDE MADALENA",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 105.35
+          },
+          {
+            "id": "dl1781576541581hxkk",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE MADALENA",
+            "fornecedor": "FERNANDA BOTELHO DE OLIVEIRA QUEIROZ",
+            "valor": 1800
+          },
+          {
+            "id": "dl17815765415810e2y",
+            "objeto": "ÁGUA E ESGOTO SEDE MADALENA",
+            "fornecedor": "COMPANHIA ESTADUAL DE ÁGUAS E ESGOTO CEDAE",
+            "valor": 73.08
+          }
+        ],
+        "cachoeiras": [
+          {
+            "id": "dl1781576541581u64c",
+            "objeto": "ENERGIA ELÉTRICA SEDE CACHOEIRAS",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 699.17
+          },
+          {
+            "id": "dl17815765415812wg3",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE CACHOEIRAS",
+            "fornecedor": "REGINA CÉLIA DE CASTRO MENDES",
+            "valor": 1500
+          }
+        ],
         "saq_hosp": [],
         "upa_pac": [],
         "upa_nc": [],
-        "arraial": [],
-        "quissama": [],
-        "cordeiro": [],
+        "arraial": [
+          {
+            "id": "dl1781576541581gbiz",
+            "objeto": "ENERGIA ELÉTRICA SEDE ARRAIAL - SALA 301",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 706.76
+          },
+          {
+            "id": "dl1781576541581bgjf",
+            "objeto": "ENERGIA ELÉTRICA SEDE ARRAIAL - SALA 302",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 227.6
+          },
+          {
+            "id": "dl17815765415814g97",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE ARRAIAL",
+            "fornecedor": "CRISTIANE RODRIGUES SILVA",
+            "valor": 5065.43
+          },
+          {
+            "id": "dl1781576541581ar4j",
+            "objeto": "IPTU SEDE ARRAIAL - SALA 302",
+            "fornecedor": "PREFEITURA MUNICIPAL DE ARRAIAL DO CABO",
+            "valor": 273.05
+          },
+          {
+            "id": "dl1781576541581e698",
+            "objeto": "IPTU SEDE ARRAIAL - SALA 301",
+            "fornecedor": "PREFEITURA MUNICIPAL DE ARRAIAL DO CABO",
+            "valor": 355.16
+          }
+        ],
+        "quissama": [
+          {
+            "id": "dl1781576541581ipoj",
+            "objeto": "ENERGIA ELÉTRICA SEDE QUISSAMÃ",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 336.3
+          },
+          {
+            "id": "dl17815765415811wg9",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE QUISSAMÃ",
+            "fornecedor": "CRISLANE SILVA CONCEIÇÃO",
+            "valor": 2700
+          }
+        ],
+        "cordeiro": [
+          {
+            "id": "dl1781576541581e07p",
+            "objeto": "ENERGIA ELÉTRICA SEDE CORDEIRO",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 59.6
+          },
+          {
+            "id": "dl1781576541581z389",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE CORDEIRO",
+            "fornecedor": "R W IMOBILIÁRIA LTDA",
+            "valor": 1214.92
+          }
+        ],
         "saq_esp": [],
         "saq_pri": []
       },
@@ -15123,5 +15212,5 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTÃO - Prima Quaitá - Versão Final - Impressão.pdf"
     }
   },
-  "currentComp": "2026-02"
+  "currentComp": "2026-03"
 }

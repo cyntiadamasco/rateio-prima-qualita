@@ -3282,8 +3282,8 @@
       },
       "demoContabil": {
         "balancete": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202602_balancete.pdf",
+          "pdfNome": "Balancete Matriz 02-2026.pdf"
         },
         "extrato": {
           "pdfUrl": "",
@@ -12025,5 +12025,5 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTÃO - Prima Quaitá - Versão Final - Impressão.pdf"
     }
   },
-  "currentComp": "2026-01"
+  "currentComp": "2026-02"
 }

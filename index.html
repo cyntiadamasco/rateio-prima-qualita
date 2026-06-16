@@ -3088,7 +3088,7 @@ function renderRelatorio(){
   <input type="file" id="cs-pdf-input" accept=".pdf" style="display:none" onchange="processarPDFClickSign(this)">
   <div class="rdg-toolbar no-print">
     <button class="btn btn-primary" onclick="window.print()">🖨 Imprimir / Salvar PDF</button>
-    ${csData ? `<a href="${csData.document_url}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#059669;color:#fff;border:none;padding:8px 16px;border-radius:7px;font-size:11px;font-weight:600;text-decoration:none">✍ Ver no ClickSign →</a>` : `<button id="cs-btn" class="btn btn-sm" style="background:#16A34A;color:#fff;border:none;padding:8px 16px;border-radius:7px;font-size:11px;font-weight:600" onclick="enviarClickSign()">📤 Enviar para Assinatura</button>`}
+    ${csData ? `<a href="${csData.sign_url||csData.document_url}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#059669;color:#fff;border:none;padding:8px 16px;border-radius:7px;font-size:11px;font-weight:600;text-decoration:none">✍ Assinar no ClickSign →</a><button onclick="resetClickSign()" style="background:none;border:none;color:#9CA3AF;font-size:10px;cursor:pointer;padding:4px 8px;text-decoration:underline" title="Remover vínculo e reenviar">↺ redefinir</button>` : `<button id="cs-btn" class="btn btn-sm" style="background:#16A34A;color:#fff;border:none;padding:8px 16px;border-radius:7px;font-size:11px;font-weight:600" onclick="enviarClickSign()">📤 Enviar para Assinatura</button>`}
     <button class="btn btn-outline" id="rdg-edit-btn" onclick="toggleRdgEdit()">✏️ Editar</button>
     <span class="text-muted" style="font-size:12px">Competência: <strong>${mesRef}</strong> &nbsp;|&nbsp; Pagamento: <strong>${mesPagto}</strong></span>
     <span class="text-muted" style="font-size:12px">Total despesas: <strong>${R$(totalDesp)}</strong></span>
@@ -4281,6 +4281,13 @@ function setOrc(cgId, val){
 function enviarClickSign(){
   document.getElementById('cs-pdf-input').click();
 }
+function resetClickSign(){
+  if(!confirm('Remover vínculo ClickSign deste mês? O documento já enviado permanece no ClickSign.')) return;
+  const md=getMesData(currentComp);
+  delete md.clicksign;
+  salvar();
+  renderRelatorio();
+}
 async function processarPDFClickSign(input){
   if(!input.files||!input.files[0]) return;
   const file=input.files[0];
@@ -4302,7 +4309,7 @@ async function processarPDFClickSign(input){
     const data=await resp.json();
     if(data.success){
       const md=getMesData(currentComp);
-      md.clicksign={document_key:data.document_key,document_url:data.document_url,sent_at:new Date().toISOString()};
+      md.clicksign={document_key:data.document_key,document_url:data.document_url,sign_url:data.sign_url||data.document_url,sent_at:new Date().toISOString()};
       salvar();
       renderRelatorio();
     } else {

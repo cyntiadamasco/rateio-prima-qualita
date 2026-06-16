@@ -1541,7 +1541,7 @@
         "bl_rendimento": 0.86,
         "bl_despesasExec": 1582364,
         "bl_iof": 0.63,
-        "bl_ir": 0,
+        "bl_ir": 0.02,
         "bl_resgateFinanceiro": 0,
         "bl_saldoFinal": 0,
         "ex_saldoFinal": 0,

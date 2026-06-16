@@ -6914,12 +6914,6 @@
             "objeto": "LOCAÇÃO DE IMÓVEL SEDE QUISSAMÃ",
             "fornecedor": "CRISLANE SILVA CONCEIÇÃO",
             "valor": 2700
-          },
-          {
-            "id": "dl1781576932198qk4f",
-            "objeto": "IPTU SEDE QUISSAMÃ",
-            "fornecedor": "PREFEITURA MUNICIPAL DE QUISSAMÃ",
-            "valor": 1241.09
           }
         ],
         "cordeiro": [
@@ -6927,7 +6921,7 @@
             "id": "dl1781576932198v3cn",
             "objeto": "ENERGIA ELÉTRICA SEDE CORDEIRO",
             "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
-            "valor": 58
+            "valor": 67.19
           },
           {
             "id": "dl17815769321988a3f",

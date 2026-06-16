@@ -3070,6 +3070,7 @@ function renderRelatorio(){
         +'<p class="rdg-p" style="color:#9CA3AF;font-style:italic">Dados de indicadores qualitativos não cadastrados para '+mesRef+'. Acesse a aba <strong>📈 Indicadores Qualitativos</strong> para preenchimento.</p>')
     +'</div>';
   /* Render */
+  const csData = getMesData(currentComp).clicksign || null;
   document.getElementById('panel-relatorio').innerHTML=`
   <div id="rdg-colab-mgmt-area" class="no-print"></div>
   <div class="card no-print" style="margin-bottom:14px;background:linear-gradient(135deg,#0F2C47 0%,#1B4F76 100%);color:#fff;border:none">
@@ -3084,8 +3085,10 @@ function renderRelatorio(){
       </div>
     </div>
   </div>
+  <input type="file" id="cs-pdf-input" accept=".pdf" style="display:none" onchange="processarPDFClickSign(this)">
   <div class="rdg-toolbar no-print">
     <button class="btn btn-primary" onclick="window.print()">🖨 Imprimir / Salvar PDF</button>
+    ${csData ? `<a href="${csData.document_url}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#059669;color:#fff;border:none;padding:8px 16px;border-radius:7px;font-size:11px;font-weight:600;text-decoration:none">✍ Ver no ClickSign →</a>` : `<button id="cs-btn" class="btn btn-sm" style="background:#16A34A;color:#fff;border:none;padding:8px 16px;border-radius:7px;font-size:11px;font-weight:600" onclick="enviarClickSign()">📤 Enviar para Assinatura</button>`}
     <button class="btn btn-outline" id="rdg-edit-btn" onclick="toggleRdgEdit()">✏️ Editar</button>
     <span class="text-muted" style="font-size:12px">Competência: <strong>${mesRef}</strong> &nbsp;|&nbsp; Pagamento: <strong>${mesPagto}</strong></span>
     <span class="text-muted" style="font-size:12px">Total despesas: <strong>${R$(totalDesp)}</strong></span>
@@ -4270,6 +4273,46 @@ function setOrc(cgId, val){
   getMesData(currentComp).orcamentos[cgId]=parseFloat(val)||0;
   // Re-render só a linha de status (full re-render é mais simples aqui)
   renderValidacao();
+}
+
+/* =====================================================================
+   CLICKSIGN
+===================================================================== */
+function enviarClickSign(){
+  document.getElementById('cs-pdf-input').click();
+}
+async function processarPDFClickSign(input){
+  if(!input.files||!input.files[0]) return;
+  const file=input.files[0];
+  if(file.type!=='application/pdf'){alert('Selecione um arquivo PDF.');return;}
+  const btn=document.getElementById('cs-btn');
+  if(btn){btn.disabled=true;btn.innerHTML='⏳ Enviando…';}
+  try{
+    const base64=await new Promise((res,rej)=>{
+      const r=new FileReader();
+      r.onload=e=>res(e.target.result.split(',')[1]);
+      r.onerror=rej;
+      r.readAsDataURL(file);
+    });
+    const resp=await fetch('https://clicksign-rateio.cyntia-damasco.workers.dev',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({pdf_base64:base64,filename:`Relatorio-RDG-${currentComp}.pdf`,competencia:compLabel(currentComp)})
+    });
+    const data=await resp.json();
+    if(data.success){
+      const md=getMesData(currentComp);
+      md.clicksign={document_key:data.document_key,document_url:data.document_url,sent_at:new Date().toISOString()};
+      salvar();
+      renderRelatorio();
+    } else {
+      alert('Erro ao enviar: '+(data.error||JSON.stringify(data)));
+      if(btn){btn.disabled=false;btn.innerHTML='📤 Enviar para Assinatura';}
+    }
+  }catch(e){
+    alert('Erro de conexão: '+e.message);
+    if(btn){btn.disabled=false;btn.innerHTML='📤 Enviar para Assinatura';}
+  }finally{input.value='';}
 }
 
 /* =====================================================================

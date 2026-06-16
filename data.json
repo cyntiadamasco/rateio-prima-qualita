@@ -3340,14 +3340,85 @@
         }
       ],
       "despesasLocais": {
-        "madalena": [],
-        "cachoeiras": [],
+        "madalena": [
+          {
+            "id": "dl1781575924286wahl",
+            "objeto": "ENERGIA ELÉTRICA SEDE MADALENA",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 103.61
+          },
+          {
+            "id": "dl1781575924286sone",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE MADALENA",
+            "fornecedor": "FERNANDA BOTELHO DE OLIVEIRA QUEIROZ",
+            "valor": 1800
+          }
+        ],
+        "cachoeiras": [
+          {
+            "id": "dl1781575924286bcy8",
+            "objeto": "ENERGIA ELÉTRICA SEDE CACHOEIRAS",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 641.17
+          },
+          {
+            "id": "dl17815759242861esr",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE CACHOEIRAS",
+            "fornecedor": "REGINA CÉLIA DE CASTRO MENDES",
+            "valor": 1500
+          }
+        ],
         "saq_hosp": [],
         "upa_pac": [],
         "upa_nc": [],
-        "arraial": [],
-        "quissama": [],
-        "cordeiro": [],
+        "arraial": [
+          {
+            "id": "dl1781575924286p3l9",
+            "objeto": "ENERGIA ELÉTRICA SEDE ARRAIAL - SALA 301",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 627.3
+          },
+          {
+            "id": "dl1781575924286f4rn",
+            "objeto": "ENERGIA ELÉTRICA SEDE ARRAIAL - SALA 302",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 205.09
+          },
+          {
+            "id": "dl17815759242861lym",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE ARRAIAL",
+            "fornecedor": "CRISTIANE RODRIGUES SILVA",
+            "valor": 5047.38
+          }
+        ],
+        "quissama": [
+          {
+            "id": "dl1781575924286dicx",
+            "objeto": "ENERGIA ELÉTRICA SEDE QUISSAMÃ",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 312.61
+          },
+          {
+            "id": "dl17815759242868wao",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE QUISSAMÃ",
+            "fornecedor": "CRISLANE SILVA CONCEIÇÃO",
+            "valor": 2700
+          }
+        ],
+        "cordeiro": [
+          {
+            "id": "dl1781575924286dvsf",
+            "objeto": "ENERGIA ELÉTRICA SEDE CORDEIRO",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 59.74
+          },
+          {
+            "id": "dl1781575924286veki",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE CORDEIRO",
+            "fornecedor": "R W IMOBILIÁRIA LTDA",
+            "valor": 1214.92
+          }
+        ],
         "saq_esp": [],
         "saq_pri": []
       },

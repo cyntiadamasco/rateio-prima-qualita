@@ -761,7 +761,7 @@
       "orcamentos": {
         "madalena": 1823622.46,
         "cachoeiras": 5569428.51,
-        "saq_hosp": 27800651.66,
+        "saq_hosp": 27839691.66,
         "upa_pac": 1738091.52,
         "upa_nc": 1742636.68,
         "arraial": 12712703.2,
@@ -2370,12 +2370,12 @@
       ],
       "orcamentos": {
         "madalena": 1823622.46,
-        "cachoeiras": 0,
-        "saq_hosp": 0,
-        "upa_pac": 0,
-        "upa_nc": 0,
-        "arraial": 0,
-        "quissama": 0,
+        "cachoeiras": 5569428.51,
+        "saq_hosp": 27839691.66,
+        "upa_pac": 1738091.52,
+        "upa_nc": 1742636.68,
+        "arraial": 12712703.2,
+        "quissama": 1507247.38,
         "cordeiro": 0,
         "saq_esp": 0,
         "saq_pri": 0
@@ -3914,13 +3914,13 @@
         }
       ],
       "orcamentos": {
-        "madalena": 0,
-        "cachoeiras": 0,
-        "saq_hosp": 0,
-        "upa_pac": 0,
-        "upa_nc": 0,
-        "arraial": 0,
-        "quissama": 0,
+        "madalena": 1823622.46,
+        "cachoeiras": 5569428.51,
+        "saq_hosp": 25209398.84,
+        "upa_pac": 1738091.52,
+        "upa_nc": 1742636.68,
+        "arraial": 12712703.2,
+        "quissama": 1507247.38,
         "cordeiro": 0,
         "saq_esp": 0,
         "saq_pri": 0
@@ -5446,13 +5446,13 @@
         }
       ],
       "orcamentos": {
-        "madalena": 0,
-        "cachoeiras": 0,
-        "saq_hosp": 0,
-        "upa_pac": 0,
-        "upa_nc": 0,
-        "arraial": 0,
-        "quissama": 0,
+        "madalena": 1823622.46,
+        "cachoeiras": 5569428.51,
+        "saq_hosp": 25209398.84,
+        "upa_pac": 1738091.52,
+        "upa_nc": 1742636.68,
+        "arraial": 12712703.2,
+        "quissama": 1507247.38,
         "cordeiro": 0,
         "saq_esp": 0,
         "saq_pri": 0
@@ -6887,13 +6887,13 @@
         }
       ],
       "orcamentos": {
-        "madalena": 0,
-        "cachoeiras": 0,
-        "saq_hosp": 0,
-        "upa_pac": 0,
-        "upa_nc": 0,
-        "arraial": 0,
-        "quissama": 0,
+        "madalena": 1823622.46,
+        "cachoeiras": 5569428.51,
+        "saq_hosp": 25209398.84,
+        "upa_pac": 1792620.11,
+        "upa_nc": 1742636.68,
+        "arraial": 12712703.2,
+        "quissama": 1507247.38,
         "cordeiro": 0,
         "saq_esp": 0,
         "saq_pri": 0
@@ -11043,13 +11043,13 @@
         }
       ],
       "orcamentos": {
-        "madalena": 0,
-        "cachoeiras": 0,
-        "saq_hosp": 0,
-        "upa_pac": 0,
-        "upa_nc": 0,
-        "arraial": 0,
-        "quissama": 0,
+        "madalena": 1823622.46,
+        "cachoeiras": 5569428.51,
+        "saq_hosp": 25209398.84,
+        "upa_pac": 1792620.11,
+        "upa_nc": 1742636.68,
+        "arraial": 12712703.2,
+        "quissama": 1507247.38,
         "cordeiro": 0,
         "saq_esp": 0,
         "saq_pri": 0
@@ -11873,5 +11873,5 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTÃO - Prima Quaitá - Versão Final - Impressão.pdf"
     }
   },
-  "currentComp": "2026-01"
+  "currentComp": "2026-06"
 }

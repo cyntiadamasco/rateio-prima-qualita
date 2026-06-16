@@ -11063,6 +11063,12 @@
             "objeto": "LOCAÇÃO DE IMÓVEL SEDE MADALENA",
             "fornecedor": "FERNANDA BOTELHO DE OLIVEIRA QUEIROZ",
             "valor": 1800
+          },
+          {
+            "id": "dl1781577273958",
+            "objeto": "ÁGUA E ESGOTO SEDE MADALENA",
+            "fornecedor": "COMPANHIA ESTADUAL E ÁGUAS E ESGOTOS - CEDAE",
+            "valor": 75.84
           }
         ],
         "cachoeiras": [

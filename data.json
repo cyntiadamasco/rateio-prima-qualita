@@ -1521,7 +1521,14 @@
             "valor": 1800
           }
         ],
-        "cachoeiras": [],
+        "cachoeiras": [
+          {
+            "id": "dl1781574953329",
+            "objeto": "ENERGIA ELÉTRICA SEDE CACHOEIRAS",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 641.17
+          }
+        ],
         "saq_hosp": [],
         "upa_pac": [],
         "upa_nc": [],

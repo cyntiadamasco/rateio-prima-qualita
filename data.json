@@ -3294,8 +3294,8 @@
           "pdfNome": "Movimentação 02.2026.pdf"
         },
         "razao": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202602_razao.pdf",
+          "pdfNome": "RAZÃO MATRIZ 02.2026.pdf"
         },
         "bl_saldoInicial": 0,
         "bl_transferencias": 0,

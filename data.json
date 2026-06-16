@@ -611,8 +611,8 @@
           "ctipo": "Fatura",
           "cnum": "",
           "valor": 950,
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/7r6wbrs.pdf",
+          "pdfNome": "ID 34 NILTON- NF 2026.01- 950,00.pdf"
         },
         {
           "uid": "n3mgatl",

@@ -1558,7 +1558,14 @@
             "valor": 5047.38
           }
         ],
-        "quissama": [],
+        "quissama": [
+          {
+            "id": "dl1781575235154",
+            "objeto": "ENERGIA ELÉTRICA SEDE QUISSAMÃ",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 312.61
+          }
+        ],
         "cordeiro": [],
         "saq_esp": [],
         "saq_pri": []

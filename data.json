@@ -6871,6 +6871,12 @@
             "objeto": "LOCAÇÃO DE IMÓVEL SEDE CACHOEIRAS",
             "fornecedor": "REGINA CÉLIA DE CASTRO MENDES",
             "valor": 1500
+          },
+          {
+            "id": "dl1781577031864",
+            "objeto": "IPTU SEDE CACHOEIRAS",
+            "fornecedor": "PREFEITURA MUNICIPAL DE CACHOEIRAS DE MACACU",
+            "valor": 435.74
           }
         ],
         "saq_hosp": [],

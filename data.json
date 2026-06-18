@@ -15301,8 +15301,8 @@
           "ctipo": "Boleto",
           "cnum": "",
           "valor": 2398.52,
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/qbhgwbf.pdf",
+          "pdfNome": "UNIMED-NF 2750178-2.398,52.pdf"
         },
         {
           "uid": "8yk6mfj",

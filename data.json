@@ -14911,8 +14911,8 @@
           "ctipo": "Folha de Pagamento",
           "cnum": "",
           "valor": 457572.91,
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/zbjyyg9.pdf",
+          "pdfNome": "FOLHA DE PAGAMENTO - CIGAC - 05.2026.pdf"
         },
         {
           "uid": "426sxug",
@@ -16302,5 +16302,5 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTÃO - Prima Quaitá - Versão Final - Impressão.pdf"
     }
   },
-  "currentComp": "2026-05"
+  "currentComp": "2026-06"
 }

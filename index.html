@@ -1920,14 +1920,11 @@ function buildDespesaRow(d, i, pctMap, catOpts, tipoOpts, n){
   const totalRateado=CONTRATOS.reduce((a,ct)=>a+(d.valor||0)*(pctMap[ct.id]||0),0);
   const compStr=d.ctipo?(d.cnum?d.ctipo+' '+d.cnum:d.ctipo):'';
   const hasPdf   = !!(d.pdfUrl);
-  const hasToken = !!ghToken();
   let btnAnexo;
   if(hasPdf){
     btnAnexo = `<button id="anexo-btn-${d.uid}" class="btn-pdf has-pdf" onclick="verAnexo('${d.uid}')" title="${esc(d.pdfNome||'Comprovante')}">&#x1F4C4;</button>`;
-  } else if(hasToken){
-    btnAnexo = `<button id="anexo-btn-${d.uid}" class="btn-pdf" onclick="anexarPDF('${d.uid}')" title="Anexar comprovante (PDF)">&#x1F4CE;</button>`;
   } else {
-    btnAnexo = '<button class="btn-pdf" disabled title="Configure o token GitHub para anexar comprovantes" style="opacity:.4;cursor:default">&#x1F512;</button>';
+    btnAnexo = `<button id="anexo-btn-${d.uid}" class="btn-pdf" onclick="anexarPDF('${d.uid}')" title="Anexar comprovante (PDF)">&#x1F4CE;</button>`;
   }
   return `<tr id="desp-row-${d.uid}" class="${(d.valor||0)===0?'tr-zero':''}">
     <td class="td-edit td-c"><input style="text-align:center;width:55px" value="${d.id}" onchange="updDesp('${d.uid}','id',this.value)"></td>
@@ -1960,7 +1957,10 @@ function addDespesa(){
 function remDesp(duid){
   const data=getMesData(currentComp);
   const dd=data.despesas.find(d=>d.uid===duid);
-  if(dd && dd.pdfUrl) githubDeletePDF(duid).catch(()=>{});
+  if(dd && dd.pdfUrl){
+    if(dd.pdfUrl.startsWith('local:')) localStorage.removeItem('pq_pdf_'+duid);
+    else githubDeletePDF(duid).catch(()=>{});
+  }
   const cached=_pdfBlobCache.get(duid);
   if(cached){URL.revokeObjectURL(cached.url);_pdfBlobCache.delete(duid);}
   data.despesas=data.despesas.filter(d=>d.uid!==duid);
@@ -4903,18 +4903,37 @@ function githubDeletePDF(uid){
     .catch(() => {});
 }
 
+function _b64toBlob(dataUrl){
+  const arr=dataUrl.split(',');
+  const mime=((arr[0].match(/:(.*?);/)||[])[1])||'application/pdf';
+  const bstr=atob(arr[1]);
+  const u8=new Uint8Array(bstr.length);
+  for(let i=0;i<bstr.length;i++) u8[i]=bstr.charCodeAt(i);
+  return new Blob([u8],{type:mime});
+}
+
 function verAnexo(uid){
   const data = getMesData(currentComp);
   const d    = data.despesas.find(x => x.uid === uid);
   if(!d || !d.pdfUrl) return;
-  // Usa blob local se disponível (mesmo dispositivo, sem espera CDN)
-  // Senão usa URL pública do GitHub (funciona em qualquer dispositivo)
   const cached = _pdfBlobCache.get(uid);
-  document.getElementById('modal-pdf-frame').src      = cached ? cached.url : d.pdfUrl;
+  let src;
+  if(cached){
+    src = cached.url;
+  } else if(d.pdfUrl.startsWith('local:')){
+    const b64 = localStorage.getItem('pq_pdf_'+uid);
+    if(!b64){ alert('Arquivo local não encontrado. Reanexa o comprovante.'); return; }
+    const blobUrl = URL.createObjectURL(_b64toBlob(b64));
+    _pdfBlobCache.set(uid, {url:blobUrl, nome:d.pdfNome});
+    src = blobUrl;
+  } else {
+    src = d.pdfUrl;
+  }
+  document.getElementById('modal-pdf-frame').src      = src;
   document.getElementById('modal-pdf-nome').textContent = d.pdfNome || 'Comprovante';
   document.getElementById('modal-pdf-uid').value       = uid;
   document.getElementById('modal-pdf-url').value       = d.pdfUrl;
-  document.getElementById('modal-pdf-link').href       = d.pdfUrl;
+  document.getElementById('modal-pdf-link').href       = src;
   document.getElementById('modal-pdf').style.display   = 'flex';
 }
 
@@ -4928,22 +4947,19 @@ function excluirAnexo(){
   const uid = document.getElementById('modal-pdf-uid').value;
   if(!uid || !confirm('Remover o comprovante anexado? Esta ação não pode ser desfeita.')) return;
   fecharModalPDF();
-  githubDeletePDF(uid).catch(() => {});
-  // Libera blob local se houver
-  const cached = _pdfBlobCache.get(uid);
-  if(cached){ URL.revokeObjectURL(cached.url); _pdfBlobCache.delete(uid); }
-  // Remove do dado da despesa e salva
   const data = getMesData(currentComp);
   const d    = data.despesas.find(x => x.uid === uid);
+  if(d && d.pdfUrl){
+    if(d.pdfUrl.startsWith('local:')) localStorage.removeItem('pq_pdf_'+uid);
+    else githubDeletePDF(uid).catch(() => {});
+  }
+  const cached = _pdfBlobCache.get(uid);
+  if(cached){ URL.revokeObjectURL(cached.url); _pdfBlobCache.delete(uid); }
   if(d){ d.pdfUrl = null; d.pdfNome = null; salvar(); }
   renderDespesas();
 }
 
 function anexarPDF(uid){
-  if(!ghToken()){
-    alert('Configure o token do GitHub para anexar comprovantes.\n\nMenu ⋯ → ☁ Config Sincronização GitHub.');
-    return;
-  }
   const inp = document.createElement('input');
   inp.type   = 'file';
   inp.accept = '.pdf,application/pdf';
@@ -4953,22 +4969,41 @@ function anexarPDF(uid){
     if(file.size > 20 * 1024 * 1024){ alert('Arquivo muito grande. Limite: 20 MB.'); return; }
     const btn = document.getElementById('anexo-btn-' + uid);
     if(btn){ btn.textContent = '⏳'; btn.disabled = true; }
-    githubUploadPDF(uid, file)
-      .then(pdfUrl => {
-        if(!pdfUrl) throw new Error('URL vazia após upload');
-        // Guarda blob no cache de sessão → sem delay CDN ao visualizar imediatamente
+    if(ghToken()){
+      // Upload para GitHub (acesso remoto, permanente)
+      githubUploadPDF(uid, file)
+        .then(pdfUrl => {
+          if(!pdfUrl) throw new Error('URL vazia após upload');
+          const blobUrl = URL.createObjectURL(file);
+          _pdfBlobCache.set(uid, {url: blobUrl, nome: file.name});
+          const data = getMesData(currentComp);
+          const d    = data.despesas.find(x => x.uid === uid);
+          if(d){ d.pdfUrl = pdfUrl; d.pdfNome = file.name; salvar(); }
+          renderDespesas();
+        })
+        .catch(e => {
+          alert('Erro ao enviar PDF: ' + e.message);
+          if(btn){ btn.textContent = '📎'; btn.disabled = false; }
+        });
+    } else {
+      // Armazena localmente no navegador (sem GitHub)
+      const reader = new FileReader();
+      reader.onload = e => {
+        try { localStorage.setItem('pq_pdf_'+uid, e.target.result); }
+        catch(err){
+          alert('Arquivo muito grande para armazenamento local.\nTente um PDF menor ou configure o GitHub para armazenamento em nuvem (Menu ⋯ → ☁ Config Sincronização).');
+          if(btn){ btn.textContent = '📎'; btn.disabled = false; }
+          return;
+        }
         const blobUrl = URL.createObjectURL(file);
         _pdfBlobCache.set(uid, {url: blobUrl, nome: file.name});
-        // Persiste URL e nome no dado da despesa
         const data = getMesData(currentComp);
         const d    = data.despesas.find(x => x.uid === uid);
-        if(d){ d.pdfUrl = pdfUrl; d.pdfNome = file.name; salvar(); }
+        if(d){ d.pdfUrl = 'local:'+uid; d.pdfNome = file.name; salvar(); }
         renderDespesas();
-      })
-      .catch(e => {
-        alert('Erro ao enviar PDF: ' + e.message);
-        if(btn){ btn.textContent = '📎'; btn.disabled = false; }
-      });
+      };
+      reader.readAsDataURL(file);
+    }
   };
   inp.click();
 }

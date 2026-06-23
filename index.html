@@ -1861,8 +1861,9 @@ function renderDespesas(){
   const tipoOpts=COMP_TIPOS.map(t=>`<option>${t}</option>`).join('');
 
   let rows='';
+  const n=data.despesas.length;
   data.despesas.forEach((d,i)=>{
-    rows+=buildDespesaRow(d,i,pctMap,catOpts,tipoOpts);
+    rows+=buildDespesaRow(d,i,pctMap,catOpts,tipoOpts,n);
   });
 
   document.getElementById('panel-despesas').innerHTML=`
@@ -1896,7 +1897,7 @@ function renderDespesas(){
             <th style="width:100px">Comprov.</th>
             <th style="width:80px" class="th-r">Valor (R$)</th>
             <th style="width:130px" class="th-r">Total Rateado</th>
-            <th style="width:82px" class="th-c no-print">Ações</th>
+            <th style="width:108px" class="th-c no-print">Ações</th>
           </tr>
         </thead>
         <tbody id="desp-body">${rows}</tbody>
@@ -1913,7 +1914,7 @@ function renderDespesas(){
   </div>`;
 }
 
-function buildDespesaRow(d, i, pctMap, catOpts, tipoOpts){
+function buildDespesaRow(d, i, pctMap, catOpts, tipoOpts, n){
   if(!catOpts){catOpts=CATEGORIAS.map(c=>`<option${c===d.cat?' selected':''}>` +c+'</option>').join('');}
   if(!tipoOpts){tipoOpts=COMP_TIPOS.map(t=>`<option${t===d.ctipo?' selected':''}>` +t+'</option>').join('');}
   const totalRateado=CONTRATOS.reduce((a,ct)=>a+(d.valor||0)*(pctMap[ct.id]||0),0);
@@ -1939,6 +1940,8 @@ function buildDespesaRow(d, i, pctMap, catOpts, tipoOpts){
     <td class="td-r text-muted">${R$(totalRateado)}</td>
     <td class="td-c no-print" style="white-space:nowrap">
       ${btnAnexo}
+      <button class="btn btn-xs" onclick="moverDesp('${d.uid}',-1)" ${i===0?'disabled':''} title="Mover para cima" style="padding:2px 5px;font-size:12px">↑</button>
+      <button class="btn btn-xs" onclick="moverDesp('${d.uid}',1)" ${i===n-1?'disabled':''} title="Mover para baixo" style="padding:2px 5px;font-size:12px">↓</button>
       <button class="btn btn-danger btn-xs" onclick="remDesp('${d.uid}')" title="Remover">✕</button>
     </td>
   </tr>`;
@@ -1962,6 +1965,18 @@ function remDesp(duid){
   if(cached){URL.revokeObjectURL(cached.url);_pdfBlobCache.delete(duid);}
   data.despesas=data.despesas.filter(d=>d.uid!==duid);
   data.despesas.forEach((d,i)=>{d.id=String(i+1);});
+  renderDespesas();
+}
+
+function moverDesp(duid, dir){
+  const data=getMesData(currentComp);
+  const idx=data.despesas.findIndex(d=>d.uid===duid);
+  if(idx<0) return;
+  const newIdx=idx+dir;
+  if(newIdx<0||newIdx>=data.despesas.length) return;
+  [data.despesas[idx],data.despesas[newIdx]]=[data.despesas[newIdx],data.despesas[idx]];
+  data.despesas.forEach((d,i)=>{d.id=String(i+1);});
+  salvar();
   renderDespesas();
 }
 

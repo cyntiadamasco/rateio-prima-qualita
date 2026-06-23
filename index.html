@@ -900,6 +900,7 @@ body.readonly .dd-danger{display:none!important}
 /* make form inputs display-only */
 body.readonly input[type="number"],
 body.readonly input[type="text"]:not(.always-edit),
+body.readonly input:not([type]):not(.always-edit),
 body.readonly textarea:not(.always-edit),
 body.readonly select:not(.always-edit){
   pointer-events:none!important;

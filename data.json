@@ -6030,9 +6030,10 @@
           "cnpj": "18.464.526/0001-98",
           "ctipo": "NF",
           "cnum": "11",
-          "valor": 36000,
+          "valor": 35000,
           "pdfUrl": "",
-          "pdfNome": ""
+          "pdfNome": "",
+          "dtPgto": "2026-04-30"
         },
         {
           "uid": "xhhyh69",

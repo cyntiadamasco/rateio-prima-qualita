@@ -6022,21 +6022,8 @@
       },
       "despesas": [
         {
-          "uid": "xhhyh69",
-          "id": "1",
-          "cat": "Assessoria Jurídica",
-          "objeto": "Contencioso e consultivo na área de direito cível e de direito médico e da saúde",
-          "fav": "E Simões Sociedade Individual de Advocacia",
-          "cnpj": "40.101.757/0001-96",
-          "ctipo": "NF",
-          "cnum": "6",
-          "valor": 11000,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
           "uid": "nfl6ksd",
-          "id": "2",
+          "id": "1",
           "cat": "Assessoria Jurídica",
           "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório",
           "fav": "Pablo Siqueira Sociedade Individual de Advocacia",
@@ -6044,6 +6031,19 @@
           "ctipo": "NF",
           "cnum": "11",
           "valor": 36000,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "xhhyh69",
+          "id": "2",
+          "cat": "Assessoria Jurídica",
+          "objeto": "Contencioso e consultivo na área de direito cível e de direito médico e da saúde",
+          "fav": "E Simões Sociedade Individual de Advocacia",
+          "cnpj": "40.101.757/0001-96",
+          "ctipo": "NF",
+          "cnum": "6",
+          "valor": 11000,
           "pdfUrl": "",
           "pdfNome": ""
         },

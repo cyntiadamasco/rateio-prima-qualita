@@ -511,13 +511,14 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   .rdg-total-geral{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#EEF4FF!important}
   /* @page garante margem superior em TODAS as páginas (inclusive continuações)
      cobrindo o cabeçalho fixo (~14mm) + folga de 4mm */
-  @page{margin-top:25mm;margin-right:15mm;margin-bottom:16mm;margin-left:15mm}
+  @page{margin-top:30mm;margin-right:15mm;margin-bottom:16mm;margin-left:15mm}
   @page{@bottom-center{content:"Pág. " counter(page);font-family:Arial,sans-serif;font-size:9pt;color:#6b7280}}
   .rdg-capa{page-break-after:always}
   /* rdg-section sem avoid: seções principais usam page-break-before:always */
   .rdg-sign{page-break-inside:avoid}
   .rdg-final-block{page-break-before:always;page-break-inside:avoid}
-  .rdg-organo{page-break-inside:avoid;break-inside:avoid}
+  .rdg-organo{page-break-inside:avoid;break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .rdg-organo *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   /* Títulos nunca ficam isolados no fim da página */
   .rdg-section-title,.rdg-subsection-title,.rdg-cat-title{break-after:avoid;page-break-after:avoid}
   /* Parágrafos com cortes limpos: mínimo 3 linhas antes/depois da quebra */
@@ -568,9 +569,9 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   .rdg-page-hdr-sub{font-size:10px;color:#1B3A5C;margin-top:1px}
   .rdg-page-hdr-right{margin-left:auto;text-align:right;font-size:10px;color:#1B3A5C}
   .rdg-page-hdr-right strong{font-size:11px;display:block;margin-bottom:1px}
-  .rdg-capa{padding-top:20px!important}
+  .rdg-capa{padding-top:65px!important}
   .rdg-capa [style*="background:#1B3A5C"]{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
-  .rdg-section{padding-top:20px!important}
+  .rdg-section{padding-top:60px!important}
   .rdg-sign{padding-top:10px!important}
   .rdg-chart-card canvas{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
   .rdg-analise-hdr{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;background:#1B3A5C!important;color:#fff!important}

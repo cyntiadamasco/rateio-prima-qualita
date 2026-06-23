@@ -511,8 +511,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   #panel-despesas table input,#panel-despesas table select{border:none!important;background:transparent!important;-webkit-appearance:none;appearance:none;padding:0!important;font-size:inherit!important;width:100%!important;max-width:100%!important}
   #panel-despesas table input[type="date"]::-webkit-calendar-picker-indicator{display:none!important}
   #panel-despesas .tbl-wrap{overflow:visible!important}
-  #panel-despesas tfoot{display:table-row-group!important}
-  #panel-despesas .tr-total td{height:auto!important;padding:4px 6px!important}
+  #panel-despesas tfoot{display:none!important}
   .only-print{display:block!important}
   .contratos-tbl input,.contratos-tbl textarea{border:none!important;background:transparent!important;resize:none!important;-webkit-appearance:none;appearance:none}
   .cont-obs-area{border:none!important;background:transparent!important;resize:none!important;-webkit-appearance:none;appearance:none}
@@ -1942,6 +1941,10 @@ function renderDespesas(){
           </tr>
         </tfoot>
       </table>
+    </div>
+    <div class="only-print" style="-webkit-print-color-adjust:exact;print-color-adjust:exact;background:var(--navy);color:#fff;padding:4px 8px;font-size:7pt;font-weight:700;display:flex;justify-content:space-between;align-items:center">
+      <span>VALOR TOTAL</span>
+      <span id="desp-print-total">${R$(total)}</span>
     </div>
   </div>`;
 }

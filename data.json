@@ -6076,7 +6076,7 @@
         {
           "uid": "ingoum3",
           "id": "5",
-          "cat": "Folha de Pagamento CIGAC",
+          "cat": "Auditorias Contábil, Fiscal e Financeira",
           "objeto": "Serviços de Auditoria Financeira e Contábil",
           "fav": "IGF Auditores e Consultores Independentes Sociedade Simples",
           "cnpj": "04.899.444/0001-61",
@@ -16385,5 +16385,5 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTÃO - Prima Quaitá - Versão Final - Impressão.pdf"
     }
   },
-  "currentComp": "2026-06"
+  "currentComp": "2026-04"
 }

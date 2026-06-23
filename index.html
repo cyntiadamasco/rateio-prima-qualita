@@ -1897,7 +1897,7 @@ function renderDespesas(){
             <th style="width:100px">Comprov.</th>
             <th style="width:80px" class="th-r">Valor (R$)</th>
             <th style="width:130px" class="th-r">Total Rateado</th>
-            <th style="width:108px" class="th-c no-print">Ações</th>
+            <th style="width:136px" class="th-c no-print">Ações</th>
           </tr>
         </thead>
         <tbody id="desp-body">${rows}</tbody>
@@ -1919,13 +1919,14 @@ function buildDespesaRow(d, i, pctMap, catOpts, tipoOpts, n){
   if(!tipoOpts){tipoOpts=COMP_TIPOS.map(t=>`<option${t===d.ctipo?' selected':''}>` +t+'</option>').join('');}
   const totalRateado=CONTRATOS.reduce((a,ct)=>a+(d.valor||0)*(pctMap[ct.id]||0),0);
   const compStr=d.ctipo?(d.cnum?d.ctipo+' '+d.cnum:d.ctipo):'';
-  const hasPdf   = !!(d.pdfUrl);
-  let btnAnexo;
-  if(hasPdf){
-    btnAnexo = `<button id="anexo-btn-${d.uid}" class="btn-pdf has-pdf" onclick="verAnexo('${d.uid}')" title="${esc(d.pdfNome||'Comprovante')}">&#x1F4C4;</button>`;
-  } else {
-    btnAnexo = `<button id="anexo-btn-${d.uid}" class="btn-pdf" onclick="anexarPDF('${d.uid}')" title="Anexar comprovante (PDF)">&#x1F4CE;</button>`;
-  }
+  const hasPdf1 = !!(d.pdfUrl);
+  const hasPdf2 = !!(d.pdfUrl2);
+  const btnNF = hasPdf1
+    ? `<button id="anexo-btn-${d.uid}-1" class="btn-pdf has-pdf" onclick="verAnexo('${d.uid}',1)" title="NF/Recibo: ${esc(d.pdfNome||'Comprovante')}">&#x1F4C4;</button>`
+    : `<button id="anexo-btn-${d.uid}-1" class="btn-pdf" onclick="anexarPDF('${d.uid}',1)" title="Anexar NF / Recibo">&#x1F4CE;</button>`;
+  const btnBanco = hasPdf2
+    ? `<button id="anexo-btn-${d.uid}-2" class="btn-pdf has-pdf" onclick="verAnexo('${d.uid}',2)" title="Comp. Bancário: ${esc(d.pdfNome2||'Comprovante')}">&#x1F3E6;</button>`
+    : `<button id="anexo-btn-${d.uid}-2" class="btn-pdf" onclick="anexarPDF('${d.uid}',2)" title="Anexar Comprovante Bancário" style="color:#9CA3AF">&#x1F3E6;</button>`;
   return `<tr id="desp-row-${d.uid}" class="${(d.valor||0)===0?'tr-zero':''}">
     <td class="td-edit td-c"><input style="text-align:center;width:55px" value="${d.id}" onchange="updDesp('${d.uid}','id',this.value)"></td>
     <td class="td-edit"><select onchange="updDesp('${d.uid}','cat',this.value)">${CATEGORIAS.map(c=>`<option${c===d.cat?' selected':''}>${c}</option>`).join('')}</select></td>
@@ -1936,7 +1937,7 @@ function buildDespesaRow(d, i, pctMap, catOpts, tipoOpts, n){
     <td class="td-edit td-r"><input type="number" min="0" step="0.01" style="text-align:right;width:110px" value="${d.valor||0}" onchange="updDesp('${d.uid}','valor',this.value)" oninput="updDespVal('${d.uid}',this.value)"></td>
     <td class="td-r text-muted">${R$(totalRateado)}</td>
     <td class="td-c no-print" style="white-space:nowrap">
-      ${btnAnexo}
+      ${btnNF}${btnBanco}
       <button class="btn btn-xs" onclick="moverDesp('${d.uid}',-1)" ${i===0?'disabled':''} title="Mover para cima" style="padding:2px 5px;font-size:12px">↑</button>
       <button class="btn btn-xs" onclick="moverDesp('${d.uid}',1)" ${i===n-1?'disabled':''} title="Mover para baixo" style="padding:2px 5px;font-size:12px">↓</button>
       <button class="btn btn-danger btn-xs" onclick="remDesp('${d.uid}')" title="Remover">✕</button>
@@ -1961,8 +1962,14 @@ function remDesp(duid){
     if(dd.pdfUrl.startsWith('local:')) localStorage.removeItem('pq_pdf_'+duid);
     else githubDeletePDF(duid).catch(()=>{});
   }
+  if(dd && dd.pdfUrl2){
+    if(dd.pdfUrl2.startsWith('local:')) localStorage.removeItem('pq_pdf_'+duid+'_b');
+    else githubDeletePDF(duid+'_b').catch(()=>{});
+  }
   const cached=_pdfBlobCache.get(duid);
   if(cached){URL.revokeObjectURL(cached.url);_pdfBlobCache.delete(duid);}
+  const cached2=_pdfBlobCache.get(duid+'_b');
+  if(cached2){URL.revokeObjectURL(cached2.url);_pdfBlobCache.delete(duid+'_b');}
   data.despesas=data.despesas.filter(d=>d.uid!==duid);
   data.despesas.forEach((d,i)=>{d.id=String(i+1);});
   renderDespesas();
@@ -4912,29 +4919,36 @@ function _b64toBlob(dataUrl){
   return new Blob([u8],{type:mime});
 }
 
-function verAnexo(uid){
+function verAnexo(uid, slot){
+  slot = slot || 1;
+  const urlField  = slot === 1 ? 'pdfUrl'  : 'pdfUrl2';
+  const nomeField = slot === 1 ? 'pdfNome' : 'pdfNome2';
+  const cacheKey  = uid + (slot === 2 ? '_b' : '');
+  const localKey  = 'pq_pdf_' + cacheKey;
   const data = getMesData(currentComp);
   const d    = data.despesas.find(x => x.uid === uid);
-  if(!d || !d.pdfUrl) return;
-  const cached = _pdfBlobCache.get(uid);
+  if(!d || !d[urlField]) return;
+  const cached = _pdfBlobCache.get(cacheKey);
   let src;
   if(cached){
     src = cached.url;
-  } else if(d.pdfUrl.startsWith('local:')){
-    const b64 = localStorage.getItem('pq_pdf_'+uid);
+  } else if(d[urlField].startsWith('local:')){
+    const b64 = localStorage.getItem(localKey);
     if(!b64){ alert('Arquivo local não encontrado. Reanexa o comprovante.'); return; }
     const blobUrl = URL.createObjectURL(_b64toBlob(b64));
-    _pdfBlobCache.set(uid, {url:blobUrl, nome:d.pdfNome});
+    _pdfBlobCache.set(cacheKey, {url:blobUrl, nome:d[nomeField]});
     src = blobUrl;
   } else {
-    src = d.pdfUrl;
+    src = d[urlField];
   }
-  document.getElementById('modal-pdf-frame').src      = src;
-  document.getElementById('modal-pdf-nome').textContent = d.pdfNome || 'Comprovante';
-  document.getElementById('modal-pdf-uid').value       = uid;
-  document.getElementById('modal-pdf-url').value       = d.pdfUrl;
-  document.getElementById('modal-pdf-link').href       = src;
-  document.getElementById('modal-pdf').style.display   = 'flex';
+  const label = slot === 1 ? 'NF/Recibo' : 'Comprovante Bancário';
+  document.getElementById('modal-pdf-frame').src        = src;
+  document.getElementById('modal-pdf-nome').textContent = (d[nomeField] || label);
+  document.getElementById('modal-pdf-uid').value        = uid;
+  document.getElementById('modal-pdf-slot').value       = slot;
+  document.getElementById('modal-pdf-url').value        = d[urlField];
+  document.getElementById('modal-pdf-link').href        = src;
+  document.getElementById('modal-pdf').style.display    = 'flex';
 }
 
 function fecharModalPDF(){
@@ -4944,22 +4958,32 @@ function fecharModalPDF(){
 }
 
 function excluirAnexo(){
-  const uid = document.getElementById('modal-pdf-uid').value;
+  const uid  = document.getElementById('modal-pdf-uid').value;
+  const slot = parseInt(document.getElementById('modal-pdf-slot').value) || 1;
   if(!uid || !confirm('Remover o comprovante anexado? Esta ação não pode ser desfeita.')) return;
   fecharModalPDF();
+  const urlField  = slot === 1 ? 'pdfUrl'  : 'pdfUrl2';
+  const nomeField = slot === 1 ? 'pdfNome' : 'pdfNome2';
+  const cacheKey  = uid + (slot === 2 ? '_b' : '');
   const data = getMesData(currentComp);
   const d    = data.despesas.find(x => x.uid === uid);
-  if(d && d.pdfUrl){
-    if(d.pdfUrl.startsWith('local:')) localStorage.removeItem('pq_pdf_'+uid);
-    else githubDeletePDF(uid).catch(() => {});
+  if(d && d[urlField]){
+    if(d[urlField].startsWith('local:')) localStorage.removeItem('pq_pdf_' + cacheKey);
+    else githubDeletePDF(cacheKey).catch(() => {});
   }
-  const cached = _pdfBlobCache.get(uid);
-  if(cached){ URL.revokeObjectURL(cached.url); _pdfBlobCache.delete(uid); }
-  if(d){ d.pdfUrl = null; d.pdfNome = null; salvar(); }
+  const cached = _pdfBlobCache.get(cacheKey);
+  if(cached){ URL.revokeObjectURL(cached.url); _pdfBlobCache.delete(cacheKey); }
+  if(d){ d[urlField] = null; d[nomeField] = null; salvar(); }
   renderDespesas();
 }
 
-function anexarPDF(uid){
+function anexarPDF(uid, slot){
+  slot = slot || 1;
+  const urlField  = slot === 1 ? 'pdfUrl'  : 'pdfUrl2';
+  const nomeField = slot === 1 ? 'pdfNome' : 'pdfNome2';
+  const ghUid     = uid + (slot === 2 ? '_b' : '');
+  const cacheKey  = ghUid;
+  const btnId     = 'anexo-btn-' + uid + '-' + slot;
   const inp = document.createElement('input');
   inp.type   = 'file';
   inp.accept = '.pdf,application/pdf';
@@ -4967,18 +4991,17 @@ function anexarPDF(uid){
     const file = inp.files[0];
     if(!file) return;
     if(file.size > 20 * 1024 * 1024){ alert('Arquivo muito grande. Limite: 20 MB.'); return; }
-    const btn = document.getElementById('anexo-btn-' + uid);
+    const btn = document.getElementById(btnId);
     if(btn){ btn.textContent = '⏳'; btn.disabled = true; }
     if(ghToken()){
-      // Upload para GitHub (acesso remoto, permanente)
-      githubUploadPDF(uid, file)
+      githubUploadPDF(ghUid, file)
         .then(pdfUrl => {
           if(!pdfUrl) throw new Error('URL vazia após upload');
           const blobUrl = URL.createObjectURL(file);
-          _pdfBlobCache.set(uid, {url: blobUrl, nome: file.name});
+          _pdfBlobCache.set(cacheKey, {url: blobUrl, nome: file.name});
           const data = getMesData(currentComp);
           const d    = data.despesas.find(x => x.uid === uid);
-          if(d){ d.pdfUrl = pdfUrl; d.pdfNome = file.name; salvar(); }
+          if(d){ d[urlField] = pdfUrl; d[nomeField] = file.name; salvar(); }
           renderDespesas();
         })
         .catch(e => {
@@ -4986,20 +5009,19 @@ function anexarPDF(uid){
           if(btn){ btn.textContent = '📎'; btn.disabled = false; }
         });
     } else {
-      // Armazena localmente no navegador (sem GitHub)
       const reader = new FileReader();
       reader.onload = e => {
-        try { localStorage.setItem('pq_pdf_'+uid, e.target.result); }
+        try { localStorage.setItem('pq_pdf_' + cacheKey, e.target.result); }
         catch(err){
           alert('Arquivo muito grande para armazenamento local.\nTente um PDF menor ou configure o GitHub para armazenamento em nuvem (Menu ⋯ → ☁ Config Sincronização).');
           if(btn){ btn.textContent = '📎'; btn.disabled = false; }
           return;
         }
         const blobUrl = URL.createObjectURL(file);
-        _pdfBlobCache.set(uid, {url: blobUrl, nome: file.name});
+        _pdfBlobCache.set(cacheKey, {url: blobUrl, nome: file.name});
         const data = getMesData(currentComp);
         const d    = data.despesas.find(x => x.uid === uid);
-        if(d){ d.pdfUrl = 'local:'+uid; d.pdfNome = file.name; salvar(); }
+        if(d){ d[urlField] = 'local:' + cacheKey; d[nomeField] = file.name; salvar(); }
         renderDespesas();
       };
       reader.readAsDataURL(file);
@@ -5989,6 +6011,7 @@ function removerManualRDG(){
     </div>
     <iframe id="modal-pdf-frame" style="flex:1;border:none;width:100%" src=""></iframe>
     <input type="hidden" id="modal-pdf-uid">
+    <input type="hidden" id="modal-pdf-slot">
     <input type="hidden" id="modal-pdf-url">
   </div>
 </div>

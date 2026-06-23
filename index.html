@@ -938,6 +938,11 @@ body.readonly [onclick^="addDesp"]{display:none!important}
 body.readonly [onclick^="addDespesa"]{display:none!important}
 body.readonly [onclick^="duplicarMes"]{display:none!important}
 body.readonly [onclick^="anexarPDF"]{display:none!important}
+/* Despesas CIGAC: mover ordem / editar valor */
+body.readonly [onclick^="moverDesp"]{display:none!important}
+body.readonly [onclick^="editarValor"]{pointer-events:none!important;cursor:default!important}
+/* input[type=date] não coberto pela regra geral de text/number */
+body.readonly input[type="date"]{pointer-events:none!important;cursor:default!important;background:#F9FAFB!important;border-color:#E5E7EB!important;color:#6B7280!important}
 /* Dem. Contabeis + Manual RDG: botoes Substituir/Anexar que usam getElementById */
 body.readonly [onclick^="document.getElementById"]{display:none!important}
 /* Importar contratos mes anterior */

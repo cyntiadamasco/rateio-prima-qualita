@@ -10456,8 +10456,8 @@
           "ctipo": "NF",
           "cnum": "14",
           "valor": 36000,
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/e0yjh7r.pdf",
+          "pdfNome": "dcf_202604_balancete.pdf"
         },
         {
           "uid": "gggjra6",
@@ -16360,5 +16360,5 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTÃO - Prima Quaitá - Versão Final - Impressão.pdf"
     }
   },
-  "currentComp": "2026-04"
+  "currentComp": "2026-05"
 }

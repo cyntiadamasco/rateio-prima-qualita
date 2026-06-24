@@ -1848,6 +1848,21 @@ function renderCriterio(){
         <span class="dot" style="background:${ct.cor}"></span>${ct.sigla}: <strong>${(pcts[i]*100).toFixed(2).replace('.',',')}%</strong>
       </span>`).join('')}
     </div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#1B3A5C">📄 Relatório Quantitativo</div>
+        <div style="font-size:11px;color:#6B7280;margin-top:3px">Gerência de Gestão de Pessoas</div>
+      </div>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:8px">
+        ${data.relQuant
+          ? `<button id="btn-relquant" class="btn btn-sm has-pdf" onclick="verRelQuant()" title="${esc(data.relQuantNome||'Relatório')}">📄 ${esc(data.relQuantNome||'Relatório')}</button>
+             <button class="btn btn-sm btn-danger" onclick="removerRelQuant()" title="Remover PDF">✕</button>`
+          : `<button id="btn-relquant" class="btn btn-sm edit-only" onclick="anexarRelQuant()">📎 Anexar Relatório PDF</button>`
+        }
+      </div>
+    </div>
   </div>`;
 }
 
@@ -5099,6 +5114,97 @@ function anexarPDF(uid, slot){
   inp.click();
 }
 
+
+/* =====================================================================
+   RELATÓRIO QUANTITATIVO – PDF por competência
+===================================================================== */
+function verRelQuant(){
+  const data = getMesData(currentComp);
+  if(!data.relQuant) return;
+  const cacheKey = 'relquant_' + currentComp;
+  const localKey = 'pq_pdf_' + cacheKey;
+  if(_pdfBlobCache.has(cacheKey)){
+    window.open(_pdfBlobCache.get(cacheKey).url, '_blank');
+    return;
+  }
+  if(data.relQuant.startsWith('local:')){
+    const b64 = localStorage.getItem(localKey);
+    if(b64){
+      const blob = b64ToBlob(b64.split(',')[1], 'application/pdf');
+      const blobUrl = URL.createObjectURL(blob);
+      _pdfBlobCache.set(cacheKey, {url: blobUrl, nome: data.relQuantNome||'Relatório'});
+      window.open(blobUrl, '_blank');
+    } else {
+      alert('PDF não encontrado no armazenamento local.');
+    }
+  } else {
+    window.open(data.relQuant, '_blank');
+  }
+}
+
+function anexarRelQuant(){
+  const cacheKey = 'relquant_' + currentComp;
+  const localKey = 'pq_pdf_' + cacheKey;
+  const inp = document.createElement('input');
+  inp.type = 'file';
+  inp.accept = '.pdf,application/pdf';
+  inp.onchange = () => {
+    const file = inp.files[0];
+    if(!file) return;
+    if(file.size > 20 * 1024 * 1024){ alert('Arquivo muito grande. Limite: 20 MB.'); return; }
+    const btn = document.getElementById('btn-relquant');
+    if(btn){ btn.textContent = '⏳'; btn.disabled = true; }
+    if(ghToken()){
+      githubUploadPDF(cacheKey, file)
+        .then(pdfUrl => {
+          if(!pdfUrl) throw new Error('URL vazia após upload');
+          const blobUrl = URL.createObjectURL(file);
+          _pdfBlobCache.set(cacheKey, {url: blobUrl, nome: file.name});
+          const data = getMesData(currentComp);
+          data.relQuant = pdfUrl;
+          data.relQuantNome = file.name;
+          salvar();
+          renderCriterio();
+        })
+        .catch(e => {
+          alert('Erro ao enviar PDF: ' + e.message);
+          if(btn){ btn.textContent = '📎 Anexar Relatório PDF'; btn.disabled = false; }
+        });
+    } else {
+      const reader = new FileReader();
+      reader.onload = ev => {
+        try { localStorage.setItem(localKey, ev.target.result); }
+        catch(err){
+          alert('Arquivo muito grande para armazenamento local.\nTente um PDF menor ou configure o GitHub para armazenamento em nuvem (Menu ⋯ → ☁ Config Sincronização).');
+          if(btn){ btn.textContent = '📎 Anexar Relatório PDF'; btn.disabled = false; }
+          return;
+        }
+        const blobUrl = URL.createObjectURL(file);
+        _pdfBlobCache.set(cacheKey, {url: blobUrl, nome: file.name});
+        const data = getMesData(currentComp);
+        data.relQuant = 'local:' + cacheKey;
+        data.relQuantNome = file.name;
+        salvar();
+        renderCriterio();
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+  inp.click();
+}
+
+function removerRelQuant(){
+  if(!confirm('Remover o relatório quantitativo anexado?')) return;
+  const cacheKey = 'relquant_' + currentComp;
+  const cached = _pdfBlobCache.get(cacheKey);
+  if(cached){ URL.revokeObjectURL(cached.url); _pdfBlobCache.delete(cacheKey); }
+  localStorage.removeItem('pq_pdf_' + cacheKey);
+  const data = getMesData(currentComp);
+  data.relQuant = null;
+  data.relQuantNome = null;
+  salvar();
+  renderCriterio();
+}
 
 /* =====================================================================
    CONTROLE DE ACESSO – MODO EDIÇÃO

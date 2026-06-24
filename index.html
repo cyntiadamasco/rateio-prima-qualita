@@ -971,6 +971,8 @@ body.readonly [onclick^="lerExtra"]{display:none!important}
 body.readonly [onclick^="limparMes"]{display:none!important}
 body.readonly [onclick^="importar"]{display:none!important}
 body.readonly .dd-danger{display:none!important}
+body.readonly .rdg-toolbar button:not(#cs-dl-btn),
+body.readonly .rdg-toolbar a{display:none!important}
 /* make form inputs display-only */
 body.readonly input[type="number"],
 body.readonly input[type="text"]:not(.always-edit),
@@ -3269,7 +3271,7 @@ function renderRelatorio(){
   </div>
   <input type="file" id="cs-pdf-input" accept=".pdf" style="display:none" onchange="processarPDFClickSign(this)">
   <div class="rdg-toolbar no-print">
-    <button class="btn btn-primary" onclick="window.print()">🖨 Imprimir / Salvar PDF</button>
+    <button class="btn btn-primary" onclick="imprimirRelatorio()">🖨 Imprimir / Salvar PDF</button>
     ${csData ? `<a href="${csData.sign_url||csData.document_url}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#059669;color:#fff;border:none;padding:8px 16px;border-radius:7px;font-size:11px;font-weight:600;text-decoration:none">✍ Assinar no ClickSign →</a><button id="cs-dl-btn" onclick="baixarAssinadoClickSign()" style="display:inline-flex;align-items:center;gap:5px;background:#1D4ED8;color:#fff;border:none;padding:8px 14px;border-radius:7px;font-size:11px;font-weight:600;cursor:pointer">⬇ Baixar Assinado</button><button onclick="resetClickSign()" style="background:none;border:none;color:#9CA3AF;font-size:10px;cursor:pointer;padding:4px 8px;text-decoration:underline" title="Remover vínculo e reenviar">↺ redefinir</button>` : `<button id="cs-btn" class="btn btn-sm" style="background:#16A34A;color:#fff;border:none;padding:8px 16px;border-radius:7px;font-size:11px;font-weight:600" onclick="enviarClickSign()">📤 Enviar para Assinatura</button>`}
     <button class="btn btn-outline" id="rdg-edit-btn" onclick="toggleRdgEdit()">✏️ Editar</button>
     <span class="text-muted" style="font-size:12px">Competência: <strong>${mesRef}</strong> &nbsp;|&nbsp; Pagamento: <strong>${mesPagto}</strong></span>
@@ -4866,6 +4868,23 @@ function imprimirDCF(){
   const cleanup=function(){
     document.title=prev;
     const el=document.getElementById('dcf-landscape-style');
+    if(el)el.remove();
+    window.removeEventListener('afterprint',cleanup);
+  };
+  window.addEventListener('afterprint',cleanup);
+  setTimeout(()=>window.print(),300);
+}
+
+function imprimirRelatorio(){
+  const prev=document.title;
+  document.title='Relatório RDG – '+compLabel(currentComp);
+  const st=document.createElement('style');
+  st.id='relatorio-portrait-style';
+  st.textContent='@media print{@page{size:A4 portrait;margin:8mm 12mm}}';
+  document.head.appendChild(st);
+  const cleanup=function(){
+    document.title=prev;
+    const el=document.getElementById('relatorio-portrait-style');
     if(el)el.remove();
     window.removeEventListener('afterprint',cleanup);
   };

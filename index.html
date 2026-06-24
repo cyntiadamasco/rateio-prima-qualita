@@ -4518,7 +4518,7 @@ function imprimirTodasIDs(){
     w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8">
   <title>Memórias de Cálculo</title>
   <style>
-    @page{margin:12mm 15mm}
+    @page{size:A4 portrait;margin:12mm 15mm}
     body{font-family:'Segoe UI',Arial,sans-serif;font-size:11px;margin:0;color:#1F2937;-webkit-print-color-adjust:exact;print-color-adjust:exact}
     table{width:100%;border-collapse:collapse;font-size:10px}
     th{background:#1B3A5C;color:#fff;padding:5px 8px;text-align:left;-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -4716,6 +4716,7 @@ function imprimirIDsheet(duid,did){
   w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8">
   <title>Memória de Cálculo ID ${did||''}</title>
   <style>
+    @page{size:A4 portrait;margin:12mm 15mm}
     body{font-family:'Segoe UI',Arial,sans-serif;font-size:11px;margin:16px 20px;color:#1F2937}
     table{width:100%;border-collapse:collapse;font-size:10px}
     th{background:#1B3A5C;color:#fff;padding:5px 8px;text-align:left;-webkit-print-color-adjust:exact;print-color-adjust:exact}

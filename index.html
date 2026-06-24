@@ -4843,7 +4843,7 @@ function imprimirManual(){
   document.title='Manual do Rateio de Despesas de Gestão – Anexo VI';
   const st=document.createElement('style');
   st.id='manual-landscape-style';
-  st.textContent='@media print{@page{size:A4 landscape;margin:8mm 12mm}}';
+  st.textContent='@media print{@page{size:A4 portrait;margin:8mm 12mm}}';
   document.head.appendChild(st);
   const cleanup=function(){
     document.title=prev;

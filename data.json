@@ -14635,7 +14635,13 @@
       },
       "refColab": "MARÇO/2026",
       "relQuant": null,
-      "relQuantNome": null
+      "relQuantNome": null,
+      "clicksign": {
+        "document_key": "4bb2441d-1aee-440d-80e4-8dc44fd256ee",
+        "document_url": "https://app.clicksign.com/documents/4bb2441d-1aee-440d-80e4-8dc44fd256ee",
+        "sign_url": "https://app.clicksign.com/sign/9b64dbdd-3698-4e73-9c3a-13aa52b656df",
+        "sent_at": "2026-06-24T04:01:46.539Z"
+      }
     },
     "2026-06": {
       "colaboradores": [

@@ -543,11 +543,24 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   .rdg-p{orphans:3;widows:3}
   /* Blocos de despesa: fluem livremente (sem espaços em branco desnecessários) */
   .rdg-cat-block{break-inside:avoid;page-break-inside:avoid}
-  /* Critério Quantitativo */
-  #panel-criterio table{font-size:11px}
-  #panel-criterio thead th{padding:5px 8px;font-size:11px}
-  #panel-criterio tbody td{padding:4px 8px;font-size:11px}
-  #panel-criterio tfoot td{font-size:11px}
+  /* Critério Quantitativo – paisagem, página única */
+  #panel-criterio .alert{display:none!important}
+  #panel-criterio .no-print{display:none!important}
+  #panel-criterio .card{padding:6px 8px!important;margin-bottom:6px!important}
+  #panel-criterio .tbl-wrap{overflow:visible!important}
+  #panel-criterio table{font-size:8pt!important;width:100%!important;table-layout:fixed!important;border-collapse:collapse!important}
+  #panel-criterio thead th{padding:3px 5px!important;font-size:8pt!important;white-space:normal!important}
+  #panel-criterio tbody td{padding:2px 5px!important;font-size:8pt!important;white-space:normal!important;word-break:break-word!important}
+  #panel-criterio tfoot td{font-size:8pt!important;padding:3px 5px!important}
+  #panel-criterio table th:nth-child(1),#panel-criterio table td:nth-child(1){width:40%!important}
+  #panel-criterio table th:nth-child(2),#panel-criterio table td:nth-child(2){width:8%!important}
+  #panel-criterio table th:nth-child(3),#panel-criterio table td:nth-child(3){width:8%!important}
+  #panel-criterio table th:nth-child(4),#panel-criterio table td:nth-child(4){width:8%!important}
+  #panel-criterio table th:nth-child(5),#panel-criterio table td:nth-child(5){width:8%!important}
+  #panel-criterio table th:nth-child(6),#panel-criterio table td:nth-child(6){width:12%!important}
+  #panel-criterio table th:nth-child(7),#panel-criterio table td:nth-child(7){width:16%!important}
+  #panel-criterio table input,#panel-criterio table select{border:none!important;background:transparent!important;-webkit-appearance:none;appearance:none;padding:0!important;font-size:inherit!important;width:100%!important;max-width:100%!important}
+  #panel-criterio .mt-12{margin-top:4px!important;font-size:8pt!important}
   input::placeholder{color:transparent!important}
   /* Indicadores Qualitativos – compacto para paisagem */
   #panel-qualitativo table{zoom:0.62;min-width:0!important}
@@ -1751,9 +1764,18 @@ function setIqual(indId, cgId, val){
 function imprimirCriterio(){
   const prev=document.title;
   document.title='Critério Quantitativo de Rateio - Competência: '+compLabel(currentComp);
-  const cleanup=function(){document.title=prev;window.removeEventListener('afterprint',cleanup);};
+  const st=document.createElement('style');
+  st.id='crit-landscape-style';
+  st.textContent='@media print{@page{size:A4 landscape;margin:8mm 12mm}}';
+  document.head.appendChild(st);
+  const cleanup=function(){
+    document.title=prev;
+    const el=document.getElementById('crit-landscape-style');
+    if(el)el.remove();
+    window.removeEventListener('afterprint',cleanup);
+  };
   window.addEventListener('afterprint',cleanup);
-  window.print();
+  setTimeout(()=>window.print(),300);
 }
 
 function renderCriterio(){
@@ -1849,7 +1871,7 @@ function renderCriterio(){
       </span>`).join('')}
     </div>
   </div>
-  <div class="card" style="margin-top:14px">
+  <div class="card no-print" style="margin-top:14px">
     <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
       <div>
         <div style="font-size:13px;font-weight:700;color:#1B3A5C">📄 Relatório Quantitativo</div>

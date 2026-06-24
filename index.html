@@ -515,8 +515,17 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   #desp-total-bar{display:flex!important;justify-content:space-between;align-items:center}
   .only-print{display:block!important}
   .contratos-tbl input,.contratos-tbl textarea{border:none!important;background:transparent!important;resize:none!important;-webkit-appearance:none;appearance:none}
-  .cont-obs-area{border:none!important;background:transparent!important;resize:none!important;-webkit-appearance:none;appearance:none}
-  .contratos-tbl{font-size:9pt}
+  .cont-obs-area{border:none!important;background:transparent!important;resize:none!important;-webkit-appearance:none;appearance:none;font-size:9pt!important}
+  .contratos-tbl{font-size:9pt!important;width:100%!important;border-collapse:collapse!important}
+  .contratos-tbl th{padding:4px 6px!important;font-size:8pt!important}
+  .contratos-tbl td{padding:3px 5px!important;font-size:9pt!important}
+  .cont-upload-btn{display:none!important}
+  .cont-pdf-view{background:none!important;border:none!important;padding:0!important;color:#059669!important;font-size:8pt!important;font-weight:700!important;text-decoration:none!important}
+  .cont-pdf-view::after{content:none!important}
+  #panel-contratos .card{box-shadow:none!important;margin-bottom:6px!important}
+  #panel-contratos .tbl-wrap{overflow:visible!important;padding:4px 0!important}
+  #panel-contratos .alert{display:none!important}
+  .contratos-tbl tr.has-pdf .td-num{border-left:3px solid #059669!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
   .analise-print-hdr{display:flex!important}
   #panel-analise .grid-2{display:block!important}
   #panel-analise .grid-2 > .card:first-child{width:100%!important}
@@ -718,6 +727,12 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 .contratos-tbl textarea{min-height:40px;line-height:1.4}
 .cont-obs-area{width:100%;min-height:60px;font-size:11px;border:1px solid #D1D5DB;border-radius:6px;padding:8px 10px;font-family:inherit;resize:vertical;box-sizing:border-box;color:#374151}
 .cont-obs-area:focus{outline:none;border-color:#0073BA;background:#EFF6FF}
+.td-pdf{text-align:center;vertical-align:middle;width:90px}
+.cont-pdf-view{display:inline-flex;align-items:center;gap:3px;font-size:10px;color:#1D4ED8;text-decoration:none;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:4px;padding:2px 7px;white-space:nowrap;font-weight:500}
+.cont-pdf-view:hover{background:#DBEAFE}
+.cont-upload-btn{font-size:10px!important;padding:2px 7px!important;background:#F3F4F6!important;color:#374151!important;border:1px solid #D1D5DB!important;border-radius:4px!important;white-space:nowrap;cursor:pointer!important;line-height:1.4}
+.cont-upload-btn:hover{background:#E5E7EB!important}
+.contratos-tbl tr.has-pdf .td-num{border-left:3px solid #059669!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 
 /* ── Relatorio RDG ───────────────────────────────────── */
 .rdg-toolbar{display:flex;align-items:center;gap:16px;padding:10px 16px;background:#fff;border-bottom:1px solid #E5E7EB;flex-wrap:wrap}
@@ -2526,13 +2541,22 @@ function renderMemorias(){
 ===================================================================== */
 function buildContratoRow(r,i){
   const esc2=v=>(v||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/`/g,'&#96;');
-  return `<tr id="cont-row-${r.uid}">
+  const hasPdf=!!(r.pdfData);
+  const shortName=hasPdf?(r.pdfName||'PDF').length>18?(r.pdfName||'PDF').slice(0,15)+'...':(r.pdfName||'PDF'):'';
+  const pdfCell=hasPdf
+    ?`<a href="${r.pdfData}" target="_blank" class="cont-pdf-view" title="${esc2(r.pdfName||'Contrato.pdf')}">📄 ${esc2(shortName)}</a>
+      <div class="no-print" style="margin-top:3px"><button onclick="removePdfContrato('${r.uid}')" style="font-size:9px;padding:1px 5px;background:#FEE2E2;color:#DC2626;border:1px solid #FECACA;border-radius:3px;cursor:pointer">✕ remover</button></div>
+      <div class="only-print" style="color:#059669;font-size:8pt;font-weight:700">✓ Anexado</div>`
+    :`<button class="btn btn-xs cont-upload-btn no-print" onclick="document.getElementById('pdf-inp-${r.uid}').click()">📎 Carregar PDF</button>
+      <span class="only-print" style="color:#9CA3AF;font-size:8pt">—</span>`;
+  return `<tr id="cont-row-${r.uid}"${hasPdf?' class="has-pdf"':''}>
     <td class="td-num">${i+1}</td>
     <td class="td-obj"><textarea rows="2" oninput="setContrato('${r.uid}','objeto',this.value)">${esc2(r.objeto||'')}</textarea></td>
     <td><input type="text" value="${esc2(r.favorecido||'')}" oninput="setContrato('${r.uid}','favorecido',this.value)"></td>
     <td><input type="text" value="${esc2(r.cnpj||'')}" oninput="setContrato('${r.uid}','cnpj',this.value)" style="text-align:center;font-size:10px"></td>
     <td><input type="text" value="${esc2(r.nrProcesso||'')}" oninput="setContrato('${r.uid}','nrProcesso',this.value)" style="text-align:center"></td>
     <td><input type="text" value="${esc2(r.nrContrato||'')}" oninput="setContrato('${r.uid}','nrContrato',this.value)" style="text-align:center"></td>
+    <td class="td-pdf">${pdfCell}<input type="file" id="pdf-inp-${r.uid}" accept=".pdf" style="display:none" onchange="uploadPdfContrato('${r.uid}',this)"></td>
     <td class="td-c no-print"><button class="btn btn-danger btn-xs" onclick="remContrato('${r.uid}')" title="Remover">✕</button></td>
   </tr>`;
 }
@@ -2544,6 +2568,9 @@ function renderContratos(){
   const emptyMsg=data.contratos_ativos.length===0
     ?'<div id="cont-empty" style="text-align:center;color:var(--gray);padding:28px;font-size:12px">Nenhum contrato cadastrado. Clique em <strong>&#xFF0B; Adicionar</strong> ou use <strong>&#8629; Importar m&ecirc;s anterior</strong>.</div>'
     :'';
+  const totalC=data.contratos_ativos.length;
+  const comPdf=data.contratos_ativos.filter(r=>r.pdfData).length;
+  const semPdf=totalC-comPdf;
 
   document.getElementById('panel-contratos').innerHTML=`
   <div class="cont-print-hdr">
@@ -2563,14 +2590,28 @@ function renderContratos(){
     </div>
   </div>
   <div class="card no-print" style="margin-bottom:14px;background:linear-gradient(135deg,#0F2C47 0%,#1B4F76 100%);color:#fff;border:none">
-    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
-      <div>
+    <div style="display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap">
+      <div style="flex:1;min-width:200px">
         <div style="font-size:15px;font-weight:800;letter-spacing:-.01em">📋 CONTRATOS ATIVOS</div>
         <div style="font-size:12px;opacity:.75;margin-top:3px">Competência: ${compLabel(currentComp)} – CIGAC</div>
+        <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap">
+          <div style="background:rgba(255,255,255,.13);border-radius:7px;padding:6px 14px;text-align:center;min-width:64px">
+            <div style="font-size:20px;font-weight:800;line-height:1">${totalC}</div>
+            <div style="font-size:10px;opacity:.7;margin-top:2px">Contratos</div>
+          </div>
+          <div style="background:rgba(5,150,105,.25);border:1px solid rgba(5,150,105,.4);border-radius:7px;padding:6px 14px;text-align:center;min-width:64px">
+            <div style="font-size:20px;font-weight:800;line-height:1;color:#6EE7B7">${comPdf}</div>
+            <div style="font-size:10px;opacity:.7;margin-top:2px">Com PDF</div>
+          </div>
+          ${semPdf>0?`<div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;padding:6px 14px;text-align:center;min-width:64px">
+            <div style="font-size:20px;font-weight:800;line-height:1;color:#FCA5A5">${semPdf}</div>
+            <div style="font-size:10px;opacity:.7;margin-top:2px">Sem PDF</div>
+          </div>`:''}
+        </div>
       </div>
-      <div style="margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-        <button class="btn btn-sm" style="background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.28);font-size:11px;padding:6px 14px;border-radius:7px" onclick="importarContratosAnt()" title="Copiar contratos do mês anterior">↩ Importar mês anterior</button>
-        <button class="btn btn-sm" style="background:rgba(255,255,255,.25);color:#fff;border:1px solid rgba(255,255,255,.4);font-size:11px;padding:6px 14px;border-radius:7px" onclick="addContrato()">＋ Adicionar</button>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding-top:2px">
+        <button class="btn btn-sm edit-only" style="background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.28);font-size:11px;padding:6px 14px;border-radius:7px" onclick="importarContratosAnt()" title="Copiar contratos do mês anterior">↩ Importar mês anterior</button>
+        <button class="btn btn-sm edit-only" style="background:rgba(255,255,255,.25);color:#fff;border:1px solid rgba(255,255,255,.4);font-size:11px;padding:6px 14px;border-radius:7px" onclick="addContrato()">＋ Adicionar</button>
         <button class="btn btn-sm" style="background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.28);font-size:11px;padding:6px 14px;border-radius:7px" onclick="imprimirContratos()">🖨 Imprimir</button>
       </div>
     </div>
@@ -2584,11 +2625,12 @@ function renderContratos(){
         <thead>
           <tr>
             <th style="width:38px">ITEM</th>
-            <th style="min-width:240px;text-align:left;padding-left:8px">OBJETO</th>
-            <th style="min-width:155px;text-align:left;padding-left:6px">FAVORECIDO</th>
-            <th style="width:125px">CNPJ/CPF</th>
-            <th style="width:90px">Nº DO PROCESSO DE CONTRATAÇÃO</th>
-            <th style="width:84px">Nº DO CONTRATO</th>
+            <th style="min-width:220px;text-align:left;padding-left:8px">OBJETO</th>
+            <th style="min-width:140px;text-align:left;padding-left:6px">FAVORECIDO</th>
+            <th style="width:120px">CNPJ/CPF</th>
+            <th style="width:88px">Nº DO PROCESSO DE CONTRATAÇÃO</th>
+            <th style="width:80px">Nº DO CONTRATO</th>
+            <th style="width:90px">PDF DO CONTRATO</th>
             <th style="width:46px" class="no-print">Ações</th>
           </tr>
         </thead>
@@ -2651,6 +2693,32 @@ function setContratosObs(val){
   const data=getMesData(currentComp);
   data.contratos_obs=val;
   salvar();
+}
+function uploadPdfContrato(uid,inp){
+  const file=inp.files[0];
+  if(!file) return;
+  if(file.size>5*1024*1024){alert('Arquivo muito grande. O PDF deve ter no máximo 5 MB.');inp.value='';return;}
+  const reader=new FileReader();
+  reader.onload=function(e){
+    const data=getMesData(currentComp);
+    const r=data.contratos_ativos.find(x=>x.uid===uid);
+    if(!r) return;
+    r.pdfData=e.target.result;
+    r.pdfName=file.name;
+    try{salvar();}catch(ex){alert('Espaço insuficiente no localStorage. Tente um arquivo menor ou remova dados antigos.');delete r.pdfData;delete r.pdfName;inp.value='';return;}
+    const oldRow=document.getElementById('cont-row-'+uid);
+    if(oldRow){const idx=Array.from(oldRow.parentElement.children).indexOf(oldRow);oldRow.outerHTML=buildContratoRow(r,idx);}
+  };
+  reader.readAsDataURL(file);
+}
+function removePdfContrato(uid){
+  const data=getMesData(currentComp);
+  const r=data.contratos_ativos.find(x=>x.uid===uid);
+  if(!r) return;
+  delete r.pdfData;delete r.pdfName;
+  salvar();
+  const oldRow=document.getElementById('cont-row-'+uid);
+  if(oldRow){const idx=Array.from(oldRow.parentElement.children).indexOf(oldRow);oldRow.outerHTML=buildContratoRow(r,idx);}
 }
 
 function _renumContratosRows(){
@@ -4894,8 +4962,17 @@ function imprimirRelatorio(){
 
 function imprimirContratos(){
   const prev=document.title;
-  document.title='Contratos Ativos '+currentComp.replace('/','-');
-  const cleanup=function(){document.title=prev;window.removeEventListener('afterprint',cleanup);};
+  document.title='Contratos Ativos – '+compLabel(currentComp);
+  const st=document.createElement('style');
+  st.id='contratos-landscape-style';
+  st.textContent='@media print{@page{size:A4 landscape;margin:8mm 12mm}}';
+  document.head.appendChild(st);
+  const cleanup=function(){
+    document.title=prev;
+    const el=document.getElementById('contratos-landscape-style');
+    if(el)el.remove();
+    window.removeEventListener('afterprint',cleanup);
+  };
   window.addEventListener('afterprint',cleanup);
   setTimeout(()=>window.print(),300);
 }

@@ -607,7 +607,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   #panel-manual [style*="repeat(auto-fit,minmax(280px"]{grid-template-columns:1fr 1fr!important}
   #panel-manual [style*="repeat(auto-fit,minmax(180px"]{grid-template-columns:repeat(4,1fr)!important}
   #panel-manual [style*="repeat(auto-fit,minmax(130px"]{grid-template-columns:repeat(4,1fr)!important}
-  #panel-manual [style*="-webkit-print-color-adjust:exact"]{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #panel-manual *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
   #panel-manual .mnl-pgbrk{page-break-before:always;break-before:page}
   #panel-validacao .tbl-wrap{overflow:visible!important}
   #panel-validacao .card{margin-bottom:8px!important;padding:6px 8px!important;box-shadow:none!important}
@@ -6220,7 +6220,7 @@ function renderManual(){
     </div>`;
 
   const metodologia=`
-    <div class="card mnl-pgbrk" style="margin-bottom:14px">
+    <div class="card" style="margin-bottom:14px">
       <div class="card-hdr">
         <div class="card-title">📐 Metodologia de Rateio Aplicada pela Prima Qualitá</div>
       </div>

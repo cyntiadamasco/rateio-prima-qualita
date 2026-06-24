@@ -563,7 +563,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   #panel-criterio .mt-12{margin-top:4px!important;font-size:8pt!important}
   /* Validação 3% */
   .val-print-hdr{display:flex!important}
-  .val-dl-print-section{display:block!important}
+  .val-dl-print-section{display:block!important;page-break-before:always;break-before:page}
   #panel-validacao .alert-info{display:none!important}
   #panel-validacao .no-print{display:none!important}
   #panel-validacao .tbl-wrap{overflow:visible!important}
@@ -4275,11 +4275,11 @@ function renderValidacao(){
     if(!localList.length) return;
     hasDLPrint=true;
     const totalLocal=localList.reduce((a,d)=>a+(d.valor||0),0);
-    allDLprintHTML+=`<tr style="-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#F3F4F6"><td colspan="3" style="font-weight:700;font-size:8pt;color:${ct.cor};padding:3px 5px">${ct.sigla} – ${ct.nome}</td></tr>`;
+    allDLprintHTML+=`<tr><td colspan="3" style="font-weight:700;font-size:8pt;color:${ct.cor};padding:3px 5px;background:#F3F4F6;-webkit-print-color-adjust:exact;print-color-adjust:exact">${ct.sigla} – ${ct.nome}</td></tr>`;
     localList.forEach(d=>{
       allDLprintHTML+=`<tr><td style="font-size:8pt;padding:2px 5px">${esc(d.objeto)}</td><td style="font-size:8pt;padding:2px 5px;color:#6B7280">${esc(d.fornecedor||'—')}</td><td style="font-size:8pt;padding:2px 5px;text-align:right;font-weight:700">${R$(d.valor)}</td></tr>`;
     });
-    allDLprintHTML+=`<tr style="-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#1B3A5C"><td style="font-weight:700;font-size:8pt;color:#fff;padding:3px 5px" colspan="2">TOTAL – ${ct.sigla}</td><td style="font-weight:700;font-size:8pt;color:#fff;text-align:right;padding:3px 5px">${R$(totalLocal)}</td></tr>`;
+    allDLprintHTML+=`<tr><td style="font-weight:700;font-size:8pt;color:#fff;padding:3px 5px;background:#1B3A5C;-webkit-print-color-adjust:exact;print-color-adjust:exact" colspan="2">TOTAL – ${ct.sigla}</td><td style="font-weight:700;font-size:8pt;color:#fff;text-align:right;padding:3px 5px;background:#1B3A5C;-webkit-print-color-adjust:exact;print-color-adjust:exact">${R$(totalLocal)}</td></tr>`;
   });
 
   document.getElementById('panel-validacao').innerHTML=`
@@ -4347,10 +4347,10 @@ function renderValidacao(){
   ${hasDLPrint?`<div class="val-dl-print-section">
     <div style="margin-top:10px;margin-bottom:6px;font-size:10pt;font-weight:800;color:#1B3A5C;letter-spacing:.3px;text-transform:uppercase;border-bottom:1.5px solid #1B3A5C;padding-bottom:4px">Despesas Locais (100%) por Contrato de Gestão</div>
     <table style="width:100%;border-collapse:collapse;font-size:8pt">
-      <thead><tr style="-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#1B3A5C">
-        <th style="color:#fff;padding:3px 5px;text-align:left;font-size:8pt;font-weight:700">Objeto / Descrição</th>
-        <th style="color:#fff;padding:3px 5px;text-align:left;font-size:8pt;font-weight:700">Fornecedor</th>
-        <th style="color:#fff;padding:3px 5px;text-align:right;font-size:8pt;font-weight:700">Valor (R$)</th>
+      <thead><tr>
+        <th style="color:#fff;padding:3px 5px;text-align:left;font-size:8pt;font-weight:700;background:#1B3A5C;-webkit-print-color-adjust:exact;print-color-adjust:exact">Objeto / Descrição</th>
+        <th style="color:#fff;padding:3px 5px;text-align:left;font-size:8pt;font-weight:700;background:#1B3A5C;-webkit-print-color-adjust:exact;print-color-adjust:exact">Fornecedor</th>
+        <th style="color:#fff;padding:3px 5px;text-align:right;font-size:8pt;font-weight:700;background:#1B3A5C;-webkit-print-color-adjust:exact;print-color-adjust:exact">Valor (R$)</th>
       </tr></thead>
       <tbody>${allDLprintHTML}</tbody>
     </table>

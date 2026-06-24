@@ -4861,7 +4861,7 @@ function imprimirDCF(){
   document.title='Demonstrativos Contábeis e Financeiros – '+compLabel(currentComp);
   const st=document.createElement('style');
   st.id='dcf-landscape-style';
-  st.textContent='@media print{@page{size:A4 landscape;margin:8mm 12mm}}';
+  st.textContent='@media print{@page{size:A4 portrait;margin:8mm 12mm}}';
   document.head.appendChild(st);
   const cleanup=function(){
     document.title=prev;

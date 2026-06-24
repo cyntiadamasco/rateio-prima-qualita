@@ -3800,7 +3800,7 @@ function renderAnalise(){
   const anos=[...new Set(allComps.map(c=>c.split('-')[0]))].sort();
   const anoSel=(document.getElementById('analise-ano-sel')&&document.getElementById('analise-ano-sel').value)||(anos[anos.length-1]||'');
 
-  let cgOpts=CONTRATOS.map(ct=>`<option value="${ct.id}"${ct.id===cgSel?' selected':''}>${ct.nome}</option>`).join('');
+  let cgOpts=CONTRATOS.map(ct=>`<option value="${ct.id}" style="color:#1F2937;background:#fff"${ct.id===cgSel?' selected':''}>${ct.nome}</option>`).join('');
 
   const ct=CONTRATOS.find(c=>c.id===cgSel)||CONTRATOS[0];
   const data=getMesData(currentComp);

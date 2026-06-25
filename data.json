@@ -15090,9 +15090,9 @@
           "objeto": "Sistema de Gestão RH /  HORAS",
           "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
           "cnpj": "24.783.564/0001-06",
-          "ctipo": "NF",
-          "cnum": "2364",
-          "valor": 28573.12,
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/yeie8ac.pdf",
           "pdfNome": "PRODUTIVA - NF 2364 - 28.573,12.pdf"
         },
@@ -15104,7 +15104,7 @@
           "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
           "cnpj": "24.783.564/0001-06",
           "ctipo": "NF",
-          "cnum": "2363",
+          "cnum": "2364",
           "valor": 28573.12,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/y0s8gw4.pdf",
           "pdfNome": "PRODUTIVA - NF 2363 - 17.080,00.pdf"

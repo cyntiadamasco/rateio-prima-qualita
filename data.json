@@ -14921,9 +14921,9 @@
           "objeto": "Fundo de Garantia por Tempo de Serviços (FGTS)",
           "fav": "Caixa Econômica Federal - FGTS",
           "cnpj": "40.289.134/0001-99",
-          "ctipo": "",
+          "ctipo": "GUIA",
           "cnum": "",
-          "valor": 0,
+          "valor": 51551.43,
           "pdfUrl": "",
           "pdfNome": ""
         },

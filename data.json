@@ -1748,8 +1748,8 @@
           "pdfNome": "Balancete Matriz 01-2026.pdf"
         },
         "extrato": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202601_extrato.pdf",
+          "pdfNome": "EXTRATO 01.2026.pdf"
         },
         "movimentacao": {
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202601_movimentacao.pdf",
@@ -2032,7 +2032,7 @@
           "clt": 475,
           "efetivo": 42,
           "pj": 11,
-          "obs": "504"
+          "obs": ""
         }
       ],
       "iqual": {
@@ -3754,8 +3754,8 @@
           "pdfNome": "Balancete Matriz 02-2026.pdf"
         },
         "extrato": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202602_extrato.pdf",
+          "pdfNome": "EXTRATO MATRIZ 02.2026.pdf"
         },
         "movimentacao": {
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202602_movimentacao.pdf",
@@ -16896,5 +16896,5 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTÃO - Prima Quaitá - Versão Final - Impressão.pdf"
     }
   },
-  "currentComp": "2026-01"
+  "currentComp": "2026-02"
 }

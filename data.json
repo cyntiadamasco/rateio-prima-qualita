@@ -12688,7 +12688,7 @@
         },
         "bl_saldoInicial": 0,
         "bl_transferencias": 0,
-        "bl_aplicacao": 58108.29,
+        "bl_aplicacao": 0,
         "bl_rendimento": 0.45,
         "bl_despesasExec": 1622783.67,
         "bl_iof": 0.35,
@@ -28321,5 +28321,5 @@
     }
   },
   "currentComp": "2026-03",
-  "savedAt": 1782489328577
+  "savedAt": 1782489332031
 }

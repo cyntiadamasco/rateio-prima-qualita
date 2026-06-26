@@ -12693,7 +12693,7 @@
         "bl_despesasExec": 0,
         "bl_iof": 0,
         "bl_ir": 0,
-        "bl_resgateFinanceiro": 58193.72,
+        "bl_resgateFinanceiro": 0,
         "bl_saldoFinal": 46.45,
         "ex_saldoFinal": 0,
         "obs": "",
@@ -28321,5 +28321,5 @@
     }
   },
   "currentComp": "2026-03",
-  "savedAt": 1782489338878
+  "savedAt": 1782489342724
 }

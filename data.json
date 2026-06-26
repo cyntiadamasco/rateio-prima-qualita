@@ -5689,7 +5689,4579 @@
         "bl_saldoFinal": 46.45,
         "ex_saldoFinal": 0,
         "obs": "",
-        "extratoData": null
+        "extratoData": {
+          "txCount": 752,
+          "countCreditos": 651,
+          "countDebitos": 100,
+          "totalCreditos": 1622783.6699999995,
+          "totalDebitos": 1622783.6700000002,
+          "saldoFinal": 0,
+          "cats": {
+            "Outros": {
+              "count": 9,
+              "total": -53036.29
+            },
+            "TED Recebido": {
+              "count": 60,
+              "total": 46928.03
+            },
+            "Receb. de Fornecedores": {
+              "count": 579,
+              "total": 1516336.08
+            },
+            "Folha Salarial": {
+              "count": 11,
+              "total": -708701.4500000002
+            },
+            "TED Pgto Fornecedores": {
+              "count": 20,
+              "total": -285406.20999999996
+            },
+            "Pgto de Título": {
+              "count": 23,
+              "total": -261357.06
+            },
+            "Pgto a Fornecedores": {
+              "count": 18,
+              "total": -175133.57
+            },
+            "Pagfor PIX Outra Inst": {
+              "count": 12,
+              "total": -81000.79999999999
+            },
+            "Aplicação Contamax": {
+              "count": 6,
+              "total": -58108.29
+            },
+            "Tarifas Bancárias": {
+              "count": 2,
+              "total": -40
+            },
+            "Resgate Contamax": {
+              "count": 7,
+              "total": 58193.72
+            },
+            "Pix Recebido": {
+              "count": 5,
+              "total": 1325.84
+            }
+          },
+          "txs": [
+            {
+              "data": "03/03/2026",
+              "desc": "SALDO ANTERIOR",
+              "valor": 0,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 1196.6,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 212.35,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 14752.22,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010303",
+              "valor": 2870.45,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010303",
+              "valor": 199415.31,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010303",
+              "valor": 213.6,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010303",
+              "valor": 14839,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010303",
+              "valor": 1203.64,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010303",
+              "valor": 3477.19,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010303",
+              "valor": 3723.55,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010303",
+              "valor": 1266.99,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010303",
+              "valor": 9544.67,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010303",
+              "valor": 816.51,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010303",
+              "valor": 816.51,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010303",
+              "valor": 1224.76,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010303",
+              "valor": 16175.26,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "DEBITO PAGAMENTO DE SALARIO PAGSAL: 1 PAGTOS 010303",
+              "valor": -39445.68,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010303",
+              "valor": 144.9,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010303",
+              "valor": 144.9,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010303",
+              "valor": 217.34,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010303",
+              "valor": 224.84,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010303",
+              "valor": 617.06,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010303",
+              "valor": 660.78,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010303",
+              "valor": 1693.79,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010303",
+              "valor": 10066.22,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010303",
+              "valor": 10066.22,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010303",
+              "valor": 15099.33,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010303",
+              "valor": 15620,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010303",
+              "valor": 42868.22,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010303",
+              "valor": 45905.44,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010303",
+              "valor": 117670.66,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "DEBITO PAGAMENTO DE SALARIO PAGSAL: 131 PAGTOS 010303",
+              "valor": -486302.62,
+              "saldo": 0
+            },
+            {
+              "data": "03/03/2026",
+              "desc": "TED PGTO FORNECEDORES CIP 3003.4906177381 030303",
+              "valor": -7000,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010305",
+              "valor": 13.79,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 795.95,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010305",
+              "valor": 202.6,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010305",
+              "valor": 227.69,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010305",
+              "valor": 539.94,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010305",
+              "valor": 10.38,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 20.33,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 1038.37,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 335.65,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 298.67,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 47.35,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 15.3,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 21.4,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 62.91,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 314.38,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 2462.32,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 97.38,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 923.94,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 273.27,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 837.84,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 4013.65,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 353.32,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 16.11,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 10696.44,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 4510.71,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 205.67,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 1214.92,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 20.22,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 333.69,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 791.29,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 15.22,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 296.92,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 58.74,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 44.21,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 969.66,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 2299.41,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 548.37,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 862.81,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010305",
+              "valor": 539.94,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010305",
+              "valor": 202.6,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010305",
+              "valor": 10.38,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010305",
+              "valor": 13.79,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010305",
+              "valor": 227.69,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 121.36,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 161.25,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 282.39,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 768.5,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 2368.37,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 2661.67,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 5047.3,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010305",
+              "valor": 6311.74,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310305",
+              "valor": -97.38,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310305",
+              "valor": -282.39,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310305",
+              "valor": -501.56,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310305",
+              "valor": -548.37,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES 3003.4906177381 010305",
+              "valor": -666.4,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310305",
+              "valor": -768.5,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310305",
+              "valor": -1214.92,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGFOR PIX OUTRA INST- DIFEREN TIT 3003.4906177381 030305",
+              "valor": -1241.09,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "TED PGTO FORNECEDORES CIP 3003.4906177381 030305",
+              "valor": -5047.3,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310305",
+              "valor": -9787.85,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "TED PGTO FORNECEDORES CIP 3003.4906177381 030305",
+              "valor": -11000,
+              "saldo": 0.01
+            },
+            {
+              "data": "05/03/2026",
+              "desc": "APLICACAO CONTAMAX 000000",
+              "valor": -23352.05,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "TARIFA FOLHA COMPROVANTE LOTE 832391",
+              "valor": -20,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "TARIFA PAGFOR COMPROVANTE LOTE 497381",
+              "valor": -20,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 273.89,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 2567.62,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 428.78,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 2718.65,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 454,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 290,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 20480.53,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 2184.65,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 3420.14,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 2582.72,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 275.5,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 431.3,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 34708.15,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 5796.08,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 3702.3,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 852.27,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 1334.26,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 7989.82,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 15.57,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 20.69,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 186.89,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010306",
+              "valor": 186.89,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 280.33,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 292.58,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010306",
+              "valor": 292.58,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 303.91,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 341.54,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 438.87,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 809.91,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 1241.09,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 1752.02,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010306",
+              "valor": 1752.02,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 2628.03,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "DEBITO PAGAMENTO DE SALARIO PAGSAL: 15 PAGTOS 010306",
+              "valor": -98775.32,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 185.25,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 225.19,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010306",
+              "valor": 19.26,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010306",
+              "valor": 19.26,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010306",
+              "valor": 15.85,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 29.89,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010306",
+              "valor": 15.85,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 24.59,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 23.77,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 28.9,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 82.04,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 67.49,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 313.95,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 381.62,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 23.22,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 28.23,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 23.36,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 28.4,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 72.27,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010306",
+              "valor": 87.85,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010306",
+              "valor": 795.88,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010306",
+              "valor": 1245.98,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010306",
+              "valor": 7461.19,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "PAGFOR PIX OUTRA INST- DIFEREN TIT 3003.4906177381 030306",
+              "valor": -9028.58,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "TED PGTO FORNECEDORES CIP 3003.4906177381 030306",
+              "valor": -765.6,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "TED PGTO FORNECEDORES CIP 3003.4906177381 030306",
+              "valor": -930.64,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "TED PGTO FORNECEDORES CIP 3003.4906177381 030306",
+              "valor": -26084.8,
+              "saldo": 0
+            },
+            {
+              "data": "06/03/2026",
+              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
+              "valor": 23392.07,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 21.33,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 1999.49,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 1128.66,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 7003.9,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 10661.67,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 11497.15,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 4.59,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 429.83,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 242.63,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 2471.54,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 2291.93,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 1505.62,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010309",
+              "valor": 100.93,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010309",
+              "valor": 1.08,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010309",
+              "valor": 56.97,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010309",
+              "valor": 353.55,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010309",
+              "valor": 538.19,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010309",
+              "valor": 580.36,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010309",
+              "valor": 100.93,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010309",
+              "valor": 56.97,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010309",
+              "valor": 1.08,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010309",
+              "valor": 538.19,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010309",
+              "valor": 353.55,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010309",
+              "valor": 580.36,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 156.62,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 1.67,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 88.41,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 835.12,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 900.56,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 548.61,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 1800,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 12.59,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 1179.86,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 6291.22,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 666,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 4132.85,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 6784.22,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 148.79,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 83.99,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 855.53,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 1.59,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 793.36,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 521.18,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 151.4,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 1.62,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 85.46,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 807.28,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 870.54,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 530.32,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 2700,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 518.13,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 788.72,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 1.58,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 147.92,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 83.5,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 850.53,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 4.91,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 259.82,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 460.28,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 1612.3,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 2454.32,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010309",
+              "valor": 2646.65,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310309",
+              "valor": -52.02,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "TED PGTO FORNECEDORES CIP 3003.4906177381 030309",
+              "valor": -1800,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "TED PGTO FORNECEDORES CIP 3003.4906177381 030309",
+              "valor": -2700,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310309",
+              "valor": -2752.4,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PGTO FORNEC TIT PROPRIOS 3003.4906177381 300309",
+              "valor": -4576.17,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310309",
+              "valor": -17080,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310309",
+              "valor": -28037.44,
+              "saldo": 0
+            },
+            {
+              "data": "09/03/2026",
+              "desc": "APLICACAO CONTAMAX 000000",
+              "valor": -26299.92,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "TAR EXTRATO CONCILIACAO BANCARIA 876408",
+              "valor": -3.4,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 1298.67,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 389.56,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 8406.32,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010310",
+              "valor": 65.56,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010310",
+              "valor": 19.66,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010310",
+              "valor": 424.34,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010310",
+              "valor": 65.56,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010310",
+              "valor": 19.66,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010310",
+              "valor": 424.34,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 98.33,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 29.5,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 1935.14,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 89.68,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 298.95,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 96.64,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 28.99,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 279.18,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 83.74,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 1807.1,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 28.82,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 621.88,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 96.07,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 101.72,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 107.15,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 30.51,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 658.46,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 63.22,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 7.97,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 24.66,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "DEBITO PAGAMENTO DE SALARIO PAGSAL: 1 PAGTOS 010310",
+              "valor": -261.29,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010310",
+              "valor": 5.41,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 8.39,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010310",
+              "valor": 23.03,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 229.87,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 636.51,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 766.32,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 4960.39,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 5.41,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010310",
+              "valor": 8.11,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PGTO FORNECEDORES - TRIB FEDERAL 3003.4906177381 110310",
+              "valor": -235,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PGTO FORNECEDORES - TRIB FEDERAL 3003.4906177381 110310",
+              "valor": -235,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PGTO FORNECEDORES - TRIB FEDERAL 3003.4906177381 110310",
+              "valor": -235,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PGTO FORNECEDORES - TRIB FEDERAL 3003.4906177381 110310",
+              "valor": -235,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PGTO FORNECEDORES - TRIB FEDERAL 3003.4906177381 110310",
+              "valor": -235,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "TED PGTO FORNECEDORES CIP 3003.4906177381 030310",
+              "valor": -950,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "TED PGTO FORNECEDORES CIP 3003.4906177381 030310",
+              "valor": -3167,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PGTO FORNECEDORES-CTA POUPANCA 3003.4906177381 050310",
+              "valor": -4965,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "PGTO FORNECEDORES-CTA POUPANCA 3003.4906177381 050310",
+              "valor": -4965,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "TED PGTO FORNECEDORES CIP 3003.4906177381 030310",
+              "valor": -4965,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "TED PGTO FORNECEDORES CIP 3003.4906177381 030310",
+              "valor": -4965,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "TED PGTO FORNECEDORES CIP 3003.4906177381 030310",
+              "valor": -4965,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "TED PGTO FORNECEDORES CIP 3003.4906177381 030310",
+              "valor": -19239.25,
+              "saldo": 0
+            },
+            {
+              "data": "10/03/2026",
+              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
+              "valor": 25376.12,
+              "saldo": 0
+            },
+            {
+              "data": "11/03/2026",
+              "desc": "TAR EMISSAO TED CIP PGTO FORNEC 497381",
+              "valor": -21,
+              "saldo": 0
+            },
+            {
+              "data": "11/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 86.95,
+              "saldo": 0
+            },
+            {
+              "data": "11/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010311",
+              "valor": 89,
+              "saldo": 0
+            },
+            {
+              "data": "11/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010311",
+              "valor": 693.57,
+              "saldo": 0
+            },
+            {
+              "data": "11/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010311",
+              "valor": 270.57,
+              "saldo": 0
+            },
+            {
+              "data": "11/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010311",
+              "valor": 1175.38,
+              "saldo": 0
+            },
+            {
+              "data": "11/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010311",
+              "valor": 59.33,
+              "saldo": 0
+            },
+            {
+              "data": "11/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010311",
+              "valor": 252.67,
+              "saldo": 0
+            },
+            {
+              "data": "11/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010311",
+              "valor": 59.33,
+              "saldo": 0
+            },
+            {
+              "data": "11/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010311",
+              "valor": 87.46,
+              "saldo": 0
+            },
+            {
+              "data": "11/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010311",
+              "valor": 625.54,
+              "saldo": 0
+            },
+            {
+              "data": "11/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010311",
+              "valor": 92.07,
+              "saldo": 0
+            },
+            {
+              "data": "11/03/2026",
+              "desc": "PIX RECEBIDO 40289134000199 000000",
+              "valor": 7.93,
+              "saldo": 0
+            },
+            {
+              "data": "11/03/2026",
+              "desc": "DEBITO PAGAMENTO DE SALARIO PAGSAL: 1 PAGTOS 010311",
+              "valor": -2866.34,
+              "saldo": 0
+            },
+            {
+              "data": "11/03/2026",
+              "desc": "APLICACAO CONTAMAX 000000",
+              "valor": -612.46,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 396.98,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 878.13,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 58,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 311.09,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010312",
+              "valor": 318.41,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010312",
+              "valor": 212.27,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010312",
+              "valor": 212.27,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010312",
+              "valor": 270.88,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010312",
+              "valor": 406.32,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010312",
+              "valor": 329.39,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010312",
+              "valor": 270.88,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010312",
+              "valor": 420.33,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010312",
+              "valor": 599.2,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010312",
+              "valor": 599.2,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010312",
+              "valor": 898.79,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010312",
+              "valor": 929.79,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010312",
+              "valor": 5366.26,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010312",
+              "valor": 4205.15,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010312",
+              "valor": 312.92,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010312",
+              "valor": 11870.28,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010312",
+              "valor": 3166.51,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010312",
+              "valor": 7004.4,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010312",
+              "valor": 903.98,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010312",
+              "valor": 883.3,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010312",
+              "valor": 2732.54,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010312",
+              "valor": 399.32,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010312",
+              "valor": 968.03,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010312",
+              "valor": 1235.31,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010312",
+              "valor": 1153.58,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010312",
+              "valor": 2481.37,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010312",
+              "valor": 2551.75,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "DEBITO PAGAMENTO DE SALARIO PAGSAL: 1 PAGTOS 010312",
+              "valor": -28947.37,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310312",
+              "valor": -58,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGFOR PIX OUTRA INST- DIFEREN TIT 3003.4906177381 030312",
+              "valor": -13086.39,
+              "saldo": 0
+            },
+            {
+              "data": "12/03/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310312",
+              "valor": -10254.86,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010313",
+              "valor": 52.57,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010313",
+              "valor": 745.18,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010313",
+              "valor": 745.18,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010313",
+              "valor": 52.57,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 224.94,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 56.7,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 49.57,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 154.59,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 37.8,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 149.96,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 33.04,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010313",
+              "valor": 37.8,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010313",
+              "valor": 33.04,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010313",
+              "valor": 149.96,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010313",
+              "valor": 154.59,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 58.66,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 51.27,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 232.7,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 81.58,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 1156.32,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 1041.51,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 14762.31,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 78.86,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 1117.77,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 239.76,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 3398.29,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 223.89,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 3173.45,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 2970.82,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 3062.43,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 748.85,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 654.61,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 4046.82,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 4117.18,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 441.88,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 4641.96,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 1753.01,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 1807.07,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 386.27,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 1981.63,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 169.52,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010313",
+              "valor": 169.52,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 231.88,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 239.88,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 254.28,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 263.05,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 346.19,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010313",
+              "valor": 346.19,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 352.21,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010313",
+              "valor": 352.21,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 397.1,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010313",
+              "valor": 397.1,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 519.28,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 528.31,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 537.19,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 546.53,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 595.65,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 616.19,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010313",
+              "valor": 140.72,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 519.2,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 510.33,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 55.72,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 48.71,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 221.07,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 585.38,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 249.9,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 227.88,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 77.5,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 172.38,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 150.69,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010313",
+              "valor": 160.98,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010313",
+              "valor": 638.64,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010313",
+              "valor": 658.33,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 683.88,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 704.97,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010313",
+              "valor": 721.92,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 773.07,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 1098.5,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010313",
+              "valor": 1474.28,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010313",
+              "valor": 1499.91,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 1578.74,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 1606.18,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010313",
+              "valor": 1691.1,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 1810.91,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 3358.24,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 6858.1,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 6977.34,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 7866.69,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 77.05,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 1092.08,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 248.43,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 581.96,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 516.17,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 219.77,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 226.55,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 507.34,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 55.4,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 48.43,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 614.57,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010313",
+              "valor": 8710.92,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "DEBITO PAGAMENTO DE SALARIO PAGSAL: 5 PAGTOS 010313",
+              "valor": -44098.05,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGFOR PIX OUTRA INST- DIFEREN TIT 3003.4906177381 030313",
+              "valor": -1596.35,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGFOR PIX OUTRA INST- DIFEREN TIT 3003.4906177381 030313",
+              "valor": -1826.17,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGFOR PIX OUTRA INST- DIFEREN TIT 3003.4906177381 030313",
+              "valor": -7244.76,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGFOR PIX OUTRA INST- DIFEREN TIT 3003.4906177381 030313",
+              "valor": -7468.17,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGFOR PIX OUTRA INST- DIFEREN TIT 3003.4906177381 030313",
+              "valor": -17015.23,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310313",
+              "valor": -2539.87,
+              "saldo": 0.01
+            },
+            {
+              "data": "13/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES 3003.4906177381 010313",
+              "valor": -36000,
+              "saldo": 0.01
+            },
+            {
+              "data": "16/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010316",
+              "valor": 80.14,
+              "saldo": 0.01
+            },
+            {
+              "data": "16/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010316",
+              "valor": 80.75,
+              "saldo": 0.01
+            },
+            {
+              "data": "16/03/2026",
+              "desc": "PGTO FORNECEDORES -CONCESSIONARIAS 3003.4906177381 110316",
+              "valor": -80.14,
+              "saldo": 0.01
+            },
+            {
+              "data": "16/03/2026",
+              "desc": "PGTO FORNECEDORES -CONCESSIONARIAS 3003.4906177381 110316",
+              "valor": -80.75,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 1791.3,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 47.48,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 126.69,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010317",
+              "valor": 137.97,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010317",
+              "valor": 5205.31,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010317",
+              "valor": 24214.15,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010317",
+              "valor": 641.81,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010317",
+              "valor": 147.74,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010317",
+              "valor": 1222.3,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010317",
+              "valor": 32.4,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010317",
+              "valor": 47.76,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010317",
+              "valor": 48.6,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010317",
+              "valor": 1833.45,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010317",
+              "valor": 1010.51,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010317",
+              "valor": 1896.67,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010317",
+              "valor": 50.27,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010317",
+              "valor": 32.4,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010317",
+              "valor": 1222.3,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010317",
+              "valor": 129.67,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010317",
+              "valor": 86.44,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010317",
+              "valor": 86.44,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010317",
+              "valor": 1500,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010317",
+              "valor": 127.43,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010317",
+              "valor": 134.14,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010317",
+              "valor": 394.22,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010317",
+              "valor": 1712.5,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010317",
+              "valor": 1801.84,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010317",
+              "valor": 5574.1,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010317",
+              "valor": 368.14,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010317",
+              "valor": 378.72,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010317",
+              "valor": 14288.25,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "TED PGTO FORNECEDORES CIP 3003.4906177381 030317",
+              "valor": -1500,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "TED PGTO FORNECEDORES CIP 3003.4906177381 030317",
+              "valor": -1565.14,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PGTO FORNECEDORES - TRIB FEDERAL 3003.4906177381 110317",
+              "valor": -4176.18,
+              "saldo": 0.01
+            },
+            {
+              "data": "17/03/2026",
+              "desc": "PGTO FORNECEDORES - TRIB FEDERAL 3003.4906177381 110317",
+              "valor": -59049.66,
+              "saldo": 0.03
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "TAR EMISSAO TED CIP PGTO FORNEC 497381",
+              "valor": -7,
+              "saldo": 0.03
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 2.67,
+              "saldo": 0.03
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 805.53,
+              "saldo": 0.03
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 1694.65,
+              "saldo": 0.03
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 78.62,
+              "saldo": 0.03
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 833.3,
+              "saldo": 0.03
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 1753.09,
+              "saldo": 0.03
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 81.33,
+              "saldo": 0.03
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 2.77,
+              "saldo": 0.03
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010318",
+              "valor": 1.78,
+              "saldo": 0.03
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010318",
+              "valor": 1129.77,
+              "saldo": 0.03
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010318",
+              "valor": 52.41,
+              "saldo": 0.03
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010318",
+              "valor": 537.02,
+              "saldo": 0.03
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010318",
+              "valor": 52.41,
+              "saldo": 0.03
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010318",
+              "valor": 1.78,
+              "saldo": 0.03
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010318",
+              "valor": 537.02,
+              "saldo": 0.03
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010318",
+              "valor": 1129.77,
+              "saldo": 0.03
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 1038.33,
+              "saldo": 0.03
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 35.32,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 10638.5,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 22381.07,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 7.59,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 4811.25,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 223.21,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 2286.95,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 2.63,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 77.26,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 8.13,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 20.84,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 612.69,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 6277.55,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 13206.59,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 239.02,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 791.64,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 1665.43,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 2448.98,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010318",
+              "valor": 5152.13,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 1655.69,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 2.61,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 787.01,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 76.81,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PGTO FORNECEDORES -CONCESSIONARIAS 3003.4906177381 110318",
+              "valor": -86.14,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310318",
+              "valor": -2532.11,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "TED PGTO FORNECEDORES CIP 3003.4906177381 030318",
+              "valor": -25943.49,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "PGTO FORNECEDORES - TRIB FEDERAL 3003.4906177381 110318",
+              "valor": -54579.43,
+              "saldo": 9760.6
+            },
+            {
+              "data": "18/03/2026",
+              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
+              "valor": 6.99,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "TAR EMISSAO TED CIP PGTO FORNEC 497381",
+              "valor": -3.5,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 531.55,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 439.71,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 1607.5,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 609.13,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 7.13,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 0.26,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 19.44,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 21729.67,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 8234.05,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 5943.82,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 7185.24,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010319",
+              "valor": 362.7,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010319",
+              "valor": 1096.88,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010319",
+              "valor": 1096.88,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010319",
+              "valor": 415.64,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010319",
+              "valor": 300.04,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010319",
+              "valor": 300.04,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010319",
+              "valor": 415.64,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010319",
+              "valor": 362.7,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 4671.22,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 1277.74,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 1544.61,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 1770.07,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 4858.74,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 12822.21,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 3507.32,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 4239.86,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 1645.33,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 623.47,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 450.05,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 96.38,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 544.05,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 3.53,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 262.85,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 2.09,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 56.87,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 155.1,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010319",
+              "valor": 56.5,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010319",
+              "valor": 20.72,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010319",
+              "valor": 0.76,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 644.96,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 1702.06,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 465.57,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 562.81,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 20.59,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 0.28,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 7.55,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 0.27,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 19.9,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 7.3,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 0.18,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 4.87,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 13.27,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010319",
+              "valor": 13.27,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010319",
+              "valor": 0.18,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 0.26,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010319",
+              "valor": 4.87,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 19.56,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 0.81,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 7.17,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 60.51,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 22.19,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 442.29,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 534.67,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 612.72,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 1368.27,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 1616.96,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 1654.04,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 1895.48,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010319",
+              "valor": 5002.17,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "DEBITO PAGAMENTO DE SALARIO PAGSAL: 1 PAGTOS 010319",
+              "valor": -640.99,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PIX ENVIADO CEF MATRIZ 000000",
+              "valor": -52990.89,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGFOR PIX OUTRA INST- DIFEREN TIT 3003.4906177381 030319",
+              "valor": -8.62,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310319",
+              "valor": -14494.85,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "TED PGTO FORNECEDORES CIP 3003.4906177381 030319",
+              "valor": -17522.24,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "PAGFOR PIX OUTRA INST- DIFEREN TIT 3003.4906177381 030319",
+              "valor": -20079.91,
+              "saldo": 0
+            },
+            {
+              "data": "19/03/2026",
+              "desc": "APLICACAO CONTAMAX 000000",
+              "valor": -231.52,
+              "saldo": 0
+            },
+            {
+              "data": "20/03/2026",
+              "desc": "TAR EMISSAO TED CIP PGTO FORNEC 497381",
+              "valor": -3.5,
+              "saldo": 0
+            },
+            {
+              "data": "20/03/2026",
+              "desc": "DEBITO PAGAMENTO DE SALARIO PAGSAL: 1 PAGTOS 010320",
+              "valor": -235.03,
+              "saldo": 0
+            },
+            {
+              "data": "20/03/2026",
+              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
+              "valor": 238.53,
+              "saldo": 0
+            },
+            {
+              "data": "23/03/2026",
+              "desc": "PIX RECEBIDO 40289134000199 000000",
+              "valor": 1028.33,
+              "saldo": 0
+            },
+            {
+              "data": "23/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010323",
+              "valor": 701.68,
+              "saldo": 0
+            },
+            {
+              "data": "23/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010323",
+              "valor": 1088.82,
+              "saldo": 0
+            },
+            {
+              "data": "23/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010323",
+              "valor": 701.68,
+              "saldo": 0
+            },
+            {
+              "data": "23/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010323",
+              "valor": 13900.61,
+              "saldo": 0
+            },
+            {
+              "data": "23/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010323",
+              "valor": 1052.53,
+              "saldo": 0
+            },
+            {
+              "data": "23/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010323",
+              "valor": 1034.38,
+              "saldo": 0
+            },
+            {
+              "data": "23/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010323",
+              "valor": 3199.92,
+              "saldo": 0
+            },
+            {
+              "data": "23/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010323",
+              "valor": 2988.21,
+              "saldo": 0
+            },
+            {
+              "data": "23/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010323",
+              "valor": 8202.45,
+              "saldo": 0
+            },
+            {
+              "data": "23/03/2026",
+              "desc": "TED PGTO FORNECEDORES CIP 3003.4906177381 030323",
+              "valor": -33898.62,
+              "saldo": 0
+            },
+            {
+              "data": "23/03/2026",
+              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
+              "valor": 0.01,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "TAR EMISSAO TED CIP PGTO FORNEC 497381",
+              "valor": -3.5,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010324",
+              "valor": 2456.97,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010324",
+              "valor": 9.3,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010324",
+              "valor": 9.3,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010324",
+              "valor": 2736.06,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010324",
+              "valor": 2456.97,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010324",
+              "valor": 4245.61,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010324",
+              "valor": 2736.06,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010324",
+              "valor": 184.27,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010324",
+              "valor": 14.43,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010324",
+              "valor": 48673.4,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010324",
+              "valor": 3812.54,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010324",
+              "valor": 54202.29,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010324",
+              "valor": 42.42,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 13.63,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 4009.74,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 3600.73,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010324",
+              "valor": 13.71,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010324",
+              "valor": 3621.91,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010324",
+              "valor": 4033.33,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010324",
+              "valor": 11204.62,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010324",
+              "valor": 12477.38,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010324",
+              "valor": 13.95,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010324",
+              "valor": 4104.09,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010324",
+              "valor": 3685.45,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010324",
+              "valor": 39.61,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010324",
+              "valor": 11651.84,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010324",
+              "valor": 10463.3,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010324",
+              "valor": 108.74,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010324",
+              "valor": 28721.12,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010324",
+              "valor": 31983.6,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PGTO FORNECEDORES -CONCESSIONARIAS 3003.4906177381 110324",
+              "valor": -449.38,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "TED PGTO FORNECEDORES CIP 3003.4906177381 030324",
+              "valor": -111397.13,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310324",
+              "valor": -132180,
+              "saldo": 0
+            },
+            {
+              "data": "24/03/2026",
+              "desc": "APLICACAO CONTAMAX 000000",
+              "valor": -7296.36,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "TAR EMISSAO TED CIP PGTO FORNEC 497381",
+              "valor": -3.5,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010325",
+              "valor": 1571.33,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010325",
+              "valor": 556.44,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010325",
+              "valor": 943,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010325",
+              "valor": 2662.92,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010325",
+              "valor": 198.15,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010325",
+              "valor": 70.17,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010325",
+              "valor": 201.63,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010325",
+              "valor": 71.4,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010325",
+              "valor": 47.6,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010325",
+              "valor": 134.42,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010325",
+              "valor": 134.42,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010325",
+              "valor": 572.45,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010325",
+              "valor": 613.01,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010325",
+              "valor": 202.72,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010325",
+              "valor": 73.86,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010325",
+              "valor": 47.6,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010325",
+              "valor": 208.58,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010325",
+              "valor": 217.08,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "DEBITO PAGAMENTO DE SALARIO PAGSAL: 1 PAGTOS 010325",
+              "valor": -6493.92,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "PIX RECEBIDO 40289134000199 000000",
+              "valor": 197,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "PIX RECEBIDO 40289134000199 000000",
+              "valor": 69.76,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "PAGFOR PIX OUTRA INST- DIFEREN TIT 3003.4906177381 030325",
+              "valor": -2299.63,
+              "saldo": 0
+            },
+            {
+              "data": "25/03/2026",
+              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
+              "valor": 3.51,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 960.72,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 3.21,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 9.59,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 12.19,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "TED RECEBIDA 40289134000199 000000",
+              "valor": 19.26,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010326",
+              "valor": 655.55,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010326",
+              "valor": 8.31,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010326",
+              "valor": 655.55,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010326",
+              "valor": 6.54,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010326",
+              "valor": 6.54,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 12986.65,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 164.72,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 129.58,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 10.15,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 1017.23,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 12.9,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 76.46,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 9.81,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 12.47,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 29.83,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 37.92,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 2989.53,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 9.64,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 12.26,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 25.62,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 153.61,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 43.43,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 260.33,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010326",
+              "valor": 55.96,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010326",
+              "valor": 9.34,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010326",
+              "valor": 8.31,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 2791.73,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 27.86,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 35.41,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 3.29,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010326",
+              "valor": 2.19,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 2.19,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010326",
+              "valor": 13.14,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 13.14,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 19.37,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 3.23,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 10,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 59.93,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 3.4,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 20.39,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "DEBITO PAGAMENTO DE SALARIO PAGSAL: 1 PAGTOS 010326",
+              "valor": -634.84,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 19.71,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 97.2,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 983.32,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 7663.14,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010326",
+              "valor": 966.37,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGFOR PIX OUTRA INST- DIFEREN TIT 3003.4906177381 030326",
+              "valor": -105.9,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310326",
+              "valor": -401.7,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310326",
+              "valor": -31669.8,
+              "saldo": 0
+            },
+            {
+              "data": "26/03/2026",
+              "desc": "APLICACAO CONTAMAX 000000",
+              "valor": -315.98,
+              "saldo": 0
+            },
+            {
+              "data": "27/03/2026",
+              "desc": "PGTO FORNEC TIT PROPRIOS 3003.4906177381 300327",
+              "valor": -316,
+              "saldo": 0
+            },
+            {
+              "data": "27/03/2026",
+              "desc": "PGTO FORNECEDORES - TRIB FEDERAL 3003.4906177381 110327",
+              "valor": -2161.09,
+              "saldo": 0
+            },
+            {
+              "data": "27/03/2026",
+              "desc": "PGTO FORNECEDORES - TRIB FEDERAL 3003.4906177381 110327",
+              "valor": -6699.4,
+              "saldo": 0
+            },
+            {
+              "data": "27/03/2026",
+              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
+              "valor": 9176.49,
+              "saldo": 0
+            },
+            {
+              "data": "30/03/2026",
+              "desc": "PIX RECEBIDO 40289134000199 000000",
+              "valor": 22.82,
+              "saldo": 0
+            },
+            {
+              "data": "30/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010330",
+              "valor": 308.51,
+              "saldo": 0
+            },
+            {
+              "data": "30/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010330",
+              "valor": 23.36,
+              "saldo": 0
+            },
+            {
+              "data": "30/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010330",
+              "valor": 15.57,
+              "saldo": 0
+            },
+            {
+              "data": "30/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010330",
+              "valor": 458.53,
+              "saldo": 0
+            },
+            {
+              "data": "30/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES CNPJ 040289134000199 010330",
+              "valor": 15.57,
+              "saldo": 0
+            },
+            {
+              "data": "30/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010330",
+              "valor": 66.32,
+              "saldo": 0
+            },
+            {
+              "data": "30/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010330",
+              "valor": 22.96,
+              "saldo": 0
+            },
+            {
+              "data": "30/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010330",
+              "valor": 71.02,
+              "saldo": 0
+            },
+            {
+              "data": "30/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010330",
+              "valor": 182.04,
+              "saldo": 0
+            },
+            {
+              "data": "30/03/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010330",
+              "valor": 24.17,
+              "saldo": 0
+            },
+            {
+              "data": "30/03/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310330",
+              "valor": -458.53,
+              "saldo": 0
+            },
+            {
+              "data": "30/03/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310330",
+              "valor": -752.34,
+              "saldo": 0
+            }
+          ],
+          "parsedAt": "26/06/2026 12:09"
+        }
       },
       "iqual_pdfs": {
         "ind1": {
@@ -16741,5 +21313,5 @@
     }
   },
   "currentComp": "2026-03",
-  "savedAt": 1782486557225
+  "savedAt": 1782486562595
 }

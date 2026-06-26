@@ -1763,10 +1763,10 @@
         "bl_transferencias": 0,
         "bl_aplicacao": 0,
         "bl_rendimento": 0,
-        "bl_despesasExec": 1582364,
+        "bl_despesasExec": 0,
         "bl_iof": 0,
-        "bl_ir": 0.02,
-        "bl_resgateFinanceiro": 50849.03,
+        "bl_ir": 0,
+        "bl_resgateFinanceiro": 0,
         "bl_saldoFinal": 28.23,
         "ex_saldoFinal": 0,
         "obs": "",
@@ -28321,5 +28321,5 @@
     }
   },
   "currentComp": "2026-01",
-  "savedAt": 1782489178842
+  "savedAt": 1782489184762
 }

@@ -5706,10 +5706,15 @@ function renderDCF(){
   const diff=Math.abs(calc-sf);
   const conferOk=sf>0&&diff<0.02;
 
+  const fmtBRL=(n)=>new Intl.NumberFormat('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n||0);
   const fld=(id,val,label)=>`<div class="dcf-field">
     <span class="dcf-field-label">${label}</span>
-    <input type="number" min="0" step="0.01" value="${val.toFixed(2)}"
-      onchange="saveDCFField('${id}',this.value)" class="dcf-field-input">
+    <div style="display:flex;align-items:center;gap:4px">
+      <span style="font-size:11px;font-weight:600;color:#64748B;white-space:nowrap">R$</span>
+      <input type="text" value="${fmtBRL(val)}"
+        onfocus="this.select()"
+        onchange="saveDCFField('${id}',this.value)" class="dcf-field-input">
+    </div>
   </div>`;
 
   const mesLabel=mes+'/'+ano;
@@ -5781,9 +5786,13 @@ function renderDCF(){
     <div class="dcf-saldo-bar">
       <div style="display:flex;align-items:center;gap:10px">
         <span style="font-size:12px;color:var(--gray);font-weight:600">Saldo em 31/${mesLabel}</span>
-        <input type="number" min="0" step="0.01" value="${sf.toFixed(2)}"
-          onchange="saveDCFField('bl_saldoFinal',this.value)"
-          style="width:150px;padding:6px 10px;border:1.5px solid #CBD5E1;border-radius:6px;font-size:13px;font-weight:700;text-align:right">
+        <div style="display:flex;align-items:center;gap:4px">
+          <span style="font-size:12px;font-weight:700;color:#475569">R$</span>
+          <input type="text" value="${new Intl.NumberFormat('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(sf||0)}"
+            onfocus="this.select()"
+            onchange="saveDCFField('bl_saldoFinal',this.value)"
+            style="width:140px;padding:6px 10px;border:1.5px solid #CBD5E1;border-radius:6px;font-size:13px;font-weight:700;text-align:right;font-family:inherit">
+        </div>
       </div>
       <div style="margin-left:auto">
         ${conferOk
@@ -6132,7 +6141,9 @@ async function lerExtratoBancario(){
 
 function saveDCFField(field,value){
   const data=getMesData(currentComp);
-  data.demoContabil[field]=parseFloat(value)||0;
+  const s=String(value).replace(/R\$\s*/g,'').trim();
+  const n=s.includes(',')?parseFloat(s.replace(/\./g,'').replace(',','.')):parseFloat(s);
+  data.demoContabil[field]=n||0;
   salvar();
   renderDCF();
 }

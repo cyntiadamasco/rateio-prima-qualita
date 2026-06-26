@@ -1748,8 +1748,8 @@
           "pdfNome": "Balancete Matriz 01-2026.pdf"
         },
         "extrato": {
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202601_extrato.pdf",
-          "pdfNome": "EXTRATO 01.2026.pdf"
+          "pdfUrl": "",
+          "pdfNome": ""
         },
         "movimentacao": {
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202601_movimentacao.pdf",
@@ -1921,7 +1921,7 @@
               "saldo": 0
             }
           ],
-          "parsedAt": "26/06/2026 10:20"
+          "parsedAt": "26/06/2026 10:19"
         }
       },
       "iqual_pdfs": {

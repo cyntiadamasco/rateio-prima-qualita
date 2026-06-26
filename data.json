@@ -12686,14 +12686,14 @@
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202603_razao.pdf",
           "pdfNome": "RAZÃO 03.26.pdf"
         },
-        "bl_saldoInicial": 0,
-        "bl_transferencias": 0,
-        "bl_aplicacao": 0,
-        "bl_rendimento": 0,
-        "bl_despesasExec": 0,
-        "bl_iof": 0,
+        "bl_saldoInicial": 131.78,
+        "bl_transferencias": 1622783.67,
+        "bl_aplicacao": 58108.29,
+        "bl_rendimento": 0.45,
+        "bl_despesasExec": 1622783.67,
+        "bl_iof": 0.35,
         "bl_ir": 0,
-        "bl_resgateFinanceiro": 0,
+        "bl_resgateFinanceiro": 58193.72,
         "bl_saldoFinal": 46.45,
         "ex_saldoFinal": 0,
         "obs": "",
@@ -28321,5 +28321,5 @@
     }
   },
   "currentComp": "2026-03",
-  "savedAt": 1782489358719
+  "savedAt": 1782489363259
 }

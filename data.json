@@ -18986,8 +18986,8 @@
           "pdfNome": "BALANCETE CIGAC 04.26.pdf"
         },
         "extrato": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202604_extrato.pdf",
+          "pdfNome": "EXTRATO CIGAC 04.2026.pdf"
         },
         "movimentacao": {
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202604_movimentacao.pdf",
@@ -25141,5 +25141,5 @@
     }
   },
   "currentComp": "2026-04",
-  "savedAt": 1782486863996
+  "savedAt": 1782486875214
 }

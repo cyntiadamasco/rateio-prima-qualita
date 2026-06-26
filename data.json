@@ -1748,8 +1748,8 @@
           "pdfNome": "Balancete Matriz 01-2026.pdf"
         },
         "extrato": {
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202601_extrato.pdf",
-          "pdfNome": "EXTRATO 01.2026.pdf"
+          "pdfUrl": "",
+          "pdfNome": ""
         },
         "movimentacao": {
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202601_movimentacao.pdf",
@@ -1770,159 +1770,7 @@
         "bl_saldoFinal": 28.23,
         "ex_saldoFinal": 0,
         "obs": "",
-        "extratoData": {
-          "txCount": 20,
-          "countCreditos": 11,
-          "countDebitos": 9,
-          "totalCreditos": 56828.43,
-          "totalDebitos": 122524.3,
-          "saldoFinal": 47.47,
-          "cats": {
-            "Pgto de Título": {
-              "count": 1,
-              "total": -641.17
-            },
-            "Aplicação Contamax": {
-              "count": 7,
-              "total": -50749.350000000006
-            },
-            "Resgate Contamax": {
-              "count": 10,
-              "total": 50852.53
-            },
-            "Pgto a Fornecedores": {
-              "count": 1,
-              "total": -71133.78
-            },
-            "Receb. de Fornecedores": {
-              "count": 1,
-              "total": 5975.9
-            }
-          },
-          "txs": [
-            {
-              "data": "07/01/2026",
-              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310107",
-              "valor": -641.17,
-              "saldo": 47.47
-            },
-            {
-              "data": "08/01/2026",
-              "desc": "APLICACAO CONTAMAX 000000",
-              "valor": -3032.58,
-              "saldo": 0
-            },
-            {
-              "data": "09/01/2026",
-              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
-              "valor": 0.02,
-              "saldo": 0
-            },
-            {
-              "data": "12/01/2026",
-              "desc": "APLICACAO CONTAMAX 000000",
-              "valor": -1246.66,
-              "saldo": 0
-            },
-            {
-              "data": "13/01/2026",
-              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
-              "valor": 14,
-              "saldo": 0
-            },
-            {
-              "data": "14/01/2026",
-              "desc": "PGTO FORNECEDORES - TRIB FEDERAL 3003.4906177381 110114",
-              "valor": -71133.78,
-              "saldo": 0.05
-            },
-            {
-              "data": "15/01/2026",
-              "desc": "APLICACAO CONTAMAX 000000",
-              "valor": -2138.63,
-              "saldo": 0
-            },
-            {
-              "data": "16/01/2026",
-              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
-              "valor": 2138.56,
-              "saldo": 0
-            },
-            {
-              "data": "19/01/2026",
-              "desc": "APLICACAO CONTAMAX 000000",
-              "valor": -2996.38,
-              "saldo": 0
-            },
-            {
-              "data": "20/01/2026",
-              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
-              "valor": 3088.53,
-              "saldo": 0
-            },
-            {
-              "data": "21/01/2026",
-              "desc": "APLICACAO CONTAMAX 000000",
-              "valor": -7705.2,
-              "saldo": 0
-            },
-            {
-              "data": "22/01/2026",
-              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
-              "valor": 3.5,
-              "saldo": 0
-            },
-            {
-              "data": "23/01/2026",
-              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
-              "valor": 0.02,
-              "saldo": 0
-            },
-            {
-              "data": "26/01/2026",
-              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010126",
-              "valor": 5975.9,
-              "saldo": 13603.39
-            },
-            {
-              "data": "26/01/2026",
-              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
-              "valor": 1487.23,
-              "saldo": 0
-            },
-            {
-              "data": "27/01/2026",
-              "desc": "APLICACAO CONTAMAX 000000",
-              "valor": -6166.59,
-              "saldo": 0
-            },
-            {
-              "data": "28/01/2026",
-              "desc": "APLICACAO CONTAMAX 000000",
-              "valor": -27463.31,
-              "saldo": 0
-            },
-            {
-              "data": "29/01/2026",
-              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
-              "valor": 31740.14,
-              "saldo": 0
-            },
-            {
-              "data": "30/01/2026",
-              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
-              "valor": 12377.03,
-              "saldo": 0
-            },
-            {
-              "data": "02/02/2026",
-              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
-              "valor": 3.5,
-              "saldo": 0
-            }
-          ],
-          "parsedAt": "26/06/2026 11:28"
-        }
+        "extratoData": null
       },
       "iqual_pdfs": {
         "ind1": {
@@ -21312,6 +21160,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTÃO - Prima Quaitá - Versão Final - Impressão.pdf"
     }
   },
-  "currentComp": "2026-03",
-  "savedAt": 1782486572125
+  "currentComp": "2026-01",
+  "savedAt": 1782486584948
 }

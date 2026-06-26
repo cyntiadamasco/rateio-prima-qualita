@@ -5916,8 +5916,9 @@ function pageToText(tc){
 
 function parseSantanderExtrato(allText){
   const dateRe=/^(\d{2}\/\d{2}\/\d{4})\s*(.*)/;
-  const moneyRe=/(-?[\d.]+,\d{2})\s+(-?[\d.]+,\d{2})$/;
-  const onlyMoneyRe=/^(-?[\d.]+,\d{2})\s+(-?[\d.]+,\d{2})$/;
+  // saldo é opcional: Santander omite a coluna quando não muda (ex: vários lançamentos no mesmo dia)
+  const moneyRe=/(-?[\d.]+,\d{2})(?:\s+(-?[\d.]+,\d{2}))?$/;
+  const onlyMoneyRe=/^(-?[\d.]+,\d{2})(?:\s+(-?[\d.]+,\d{2}))?$/;
   const docRe=/^\d{5,8}$/;
   const skipRe=/^(SO\s+\d|[\d]{3,}[.\d]+|Data\s+Hist|Saldo\s+disp|\d+\/\d+$|Santander|PROJETO SOCIAL|Per[ií]odo|Ag[eê]ncia|Posi[cç][aã]o|Saldo de Conta|Saldo de Inv|Saldo Dispo|[A-Z]\s+[–-]\s|Central de At|Ouvidoria)/i;
   function parseBR(s){return parseFloat(s.replace(/\./g,'').replace(',','.'))}
@@ -5926,13 +5927,15 @@ function parseSantanderExtrato(allText){
   let pending=null;
   let pendingDate=null;
   let pendingDesc=null;
+  let lastSaldo=0;
   for(const line of lines){
     if(skipRe.test(line)) continue;
-    // Linha com APENAS dois valores monetários — pertence ao pendingDate (transação em 2 linhas)
+    // Linha com APENAS um ou dois valores monetários — pertence ao pendingDate (transação em 2 linhas)
     const om=line.match(onlyMoneyRe);
     if(om&&pendingDate){
       const valor=parseBR(om[1]);
-      const saldo=parseBR(om[2]);
+      const saldo=om[2]?parseBR(om[2]):lastSaldo;
+      if(om[2]) lastSaldo=saldo;
       const d=pendingDesc||pending||'';
       txs.push({data:pendingDate,desc:d.slice(0,80),valor,saldo});
       pendingDate=null;pendingDesc=null;pending=null;
@@ -5944,7 +5947,8 @@ function parseSantanderExtrato(allText){
       const mm=rest.match(moneyRe);
       if(mm){
         const valor=parseBR(mm[1]);
-        const saldo=parseBR(mm[2]);
+        const saldo=mm[2]?parseBR(mm[2]):lastSaldo;
+        if(mm[2]) lastSaldo=saldo;
         const idx=rest.lastIndexOf(mm[0]);
         const descRaw=idx>=0?rest.slice(0,idx).trim():rest;
         const desc=(!descRaw||docRe.test(descRaw))?(pending||descRaw):descRaw;

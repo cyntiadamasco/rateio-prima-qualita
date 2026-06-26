@@ -5662,6 +5662,9 @@ function renderDCF(){
     const btnLer=(d.key==='extrato'&&hasPdf)
       ?`<button id="btn-ler-extrato" class="btn btn-sm" style="background:#FEF3C7;color:#92400E;border:1px solid #FDE68A;white-space:nowrap"
            onclick="lerExtratoBancario()">📖 Ler</button>`
+      :(d.key==='balancete'&&hasPdf)
+      ?`<button id="btn-ler-balancete" class="btn btn-sm" style="background:#FEF3C7;color:#92400E;border:1px solid #FDE68A;white-space:nowrap"
+           onclick="lerBalancete()">📖 Ler</button>`
       :'';
     const btnUpload=hasToken
       ?`<button class="btn btn-sm ${hasPdf?'btn-outline':'btn-teal'}" style="white-space:nowrap"
@@ -5749,7 +5752,7 @@ function renderDCF(){
   <div class="card" style="margin-bottom:14px">
     <div class="card-hdr">
       <div class="card-title">📊 Balancete CIGAC – ${compLabel(comp)}</div>
-      <div class="card-acts" style="font-size:11px;color:var(--gray)">Preencha os valores conforme o documento</div>
+      <div class="card-acts" style="font-size:11px;color:var(--gray)">Anexe o PDF e clique em 📖 Ler para preencher automaticamente</div>
     </div>
     <div class="dcf-bl-grid">
       <div class="dcf-bl-col">
@@ -5997,6 +6000,69 @@ function categorizarTx(desc,valor){
   if(/debito pagamento de salario|pagsal/.test(d)) return 'Folha Salarial';
   if(/tarifa|tar[ia]/.test(d)) return 'Tarifas Bancárias';
   return 'Outros';
+}
+
+function parseBalanceteCIGAC(allText){
+  function parseBR(s){ return parseFloat(s.replace(/\./g,'').replace(',','.')); }
+  function find(re){
+    const m=allText.match(re);
+    return m ? parseBR(m[1]) : 0;
+  }
+  const bl_saldoInicial      = find(/Saldo em \d{2}\/\d{2}\/\d{4}\s+R\$\s*([\d.]+,\d{2})/);
+  const bl_transferencias    = find(/Transfer[eê]ncias Contratos de Gest[aã]o\s+R\$\s*([\d.]+,\d{2})/i);
+  const bl_aplicacao         = find(/Aplica[cç][aã]o Financeira\s+R\$\s*([\d.]+,\d{2})/i);
+  const bl_rendimento        = find(/\bRendimento(?:\s+de\s+Aplica[cç][aã]o)?\s+R\$\s*([\d.]+,\d{2})/i);
+  const bl_despesasExec      = find(/Despesas Executadas\s+R\$\s*([\d.]+,\d{2})/i);
+  const bl_iof               = find(/Despesas IOF\s+R\$\s*([\d.]+,\d{2})/i);
+  const bl_ir                = find(/Despesas IR\s+R\$\s*([\d.]+,\d{2})/i);
+  const bl_resgateFinanceiro = find(/Resgate Financeiro\s+R\$\s*([\d.]+,\d{2})/i);
+  // Saldo final: pode estar na mesma linha que "Saldo em 31" ou sozinho após Total
+  let bl_saldoFinal = find(/Saldo em 31[^\n]*R\$\s*([\d.]+,\d{2})/);
+  if(!bl_saldoFinal) bl_saldoFinal = find(/Total[^\n]*\n\s*R\$\s*([\d.]+,\d{2})/);
+  if(!bl_saldoFinal) bl_saldoFinal = bl_saldoInicial+bl_transferencias+bl_aplicacao+bl_rendimento
+                                    -bl_despesasExec-bl_iof-bl_ir-bl_resgateFinanceiro;
+  return { bl_saldoInicial, bl_transferencias, bl_aplicacao, bl_rendimento,
+           bl_despesasExec, bl_iof, bl_ir, bl_resgateFinanceiro, bl_saldoFinal };
+}
+
+async function lerBalancete(){
+  const data=getMesData(currentComp);
+  const dc=data.demoContabil;
+  if(!dc.balancete||!dc.balancete.pdfUrl){
+    alert('Nenhum Balancete CIGAC anexado.\nFaça o upload do PDF primeiro.');
+    return;
+  }
+  const btn=document.getElementById('btn-ler-balancete');
+  if(btn){btn.disabled=true;btn.textContent='⏳ Lendo...';}
+  try{
+    const pdfjs=await loadPDFJS();
+    const uid='dcf_'+currentComp.replace('-','')+'_balancete';
+    const cached=_pdfBlobCache.get(uid);
+    const src=cached?cached.url:dc.balancete.pdfUrl;
+    const resp=await fetch(src);
+    if(!resp.ok) throw new Error('Falha ao buscar PDF (HTTP '+resp.status+')');
+    const buf=await resp.arrayBuffer();
+    const pdf=await pdfjs.getDocument({data:buf}).promise;
+    let allText='';
+    for(let i=1;i<=pdf.numPages;i++){
+      const pg=await pdf.getPage(i);
+      const tc=await pg.getTextContent();
+      allText+=pageToText(tc)+'\n';
+    }
+    const vals=parseBalanceteCIGAC(allText);
+    if(!Object.values(vals).some(v=>v>0)){
+      if(btn){btn.disabled=false;btn.textContent='📖 Ler';}
+      alert('Nenhum valor encontrado no PDF.\nVerifique se é o Balancete CIGAC no formato correto.');
+      return;
+    }
+    Object.assign(data.demoContabil,vals);
+    salvar();
+    renderDCF();
+  }catch(err){
+    console.error('lerBalancete erro:',err);
+    if(btn){btn.disabled=false;btn.textContent='📖 Ler';}
+    alert('Erro ao ler o balancete:\n'+err.message);
+  }
 }
 
 async function lerExtratoBancario(){

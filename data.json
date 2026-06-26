@@ -7399,7 +7399,7 @@
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202602_razao.pdf",
           "pdfNome": "RAZÃO MATRIZ 02.2026.pdf"
         },
-        "bl_saldoInicial": 0,
+        "bl_saldoInicial": 28.24,
         "bl_transferencias": 1563118.93,
         "bl_aplicacao": 46069.62,
         "bl_rendimento": 0.79,
@@ -12686,8 +12686,8 @@
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202603_razao.pdf",
           "pdfNome": "RAZÃO 03.26.pdf"
         },
-        "bl_saldoInicial": 131.78,
-        "bl_transferencias": 1622783.67,
+        "bl_saldoInicial": 0,
+        "bl_transferencias": 0,
         "bl_aplicacao": 58108.29,
         "bl_rendimento": 0.45,
         "bl_despesasExec": 1622783.67,
@@ -28320,6 +28320,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTÃO - Prima Quaitá - Versão Final - Impressão.pdf"
     }
   },
-  "currentComp": "2026-02",
-  "savedAt": 1782489264544
+  "currentComp": "2026-03",
+  "savedAt": 1782489328577
 }

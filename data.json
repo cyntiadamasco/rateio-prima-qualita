@@ -1744,8 +1744,8 @@
       },
       "demoContabil": {
         "balancete": {
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202601_balancete.pdf",
-          "pdfNome": "Balancete Matriz 01-2026.pdf"
+          "pdfUrl": "",
+          "pdfNome": ""
         },
         "extrato": {
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202601_extrato.pdf",
@@ -1767,7 +1767,7 @@
         "bl_iof": 0,
         "bl_ir": 0,
         "bl_resgateFinanceiro": 0,
-        "bl_saldoFinal": 28.23,
+        "bl_saldoFinal": 0,
         "ex_saldoFinal": 0,
         "obs": "",
         "extratoData": {
@@ -28321,5 +28321,5 @@
     }
   },
   "currentComp": "2026-01",
-  "savedAt": 1782489184762
+  "savedAt": 1782489193464
 }

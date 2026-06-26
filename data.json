@@ -1921,7 +1921,7 @@
               "saldo": 0
             }
           ],
-          "parsedAt": "26/06/2026 09:33"
+          "parsedAt": "26/06/2026 09:35"
         }
       },
       "iqual_pdfs": {
@@ -3899,7 +3899,7 @@
               "saldo": 0
             }
           ],
-          "parsedAt": "26/06/2026 09:34"
+          "parsedAt": "15/06/2026 22:16"
         }
       },
       "iqual_pdfs": {
@@ -14721,7 +14721,7 @@
           "clt": 539,
           "efetivo": 41,
           "pj": 11,
-          "obs": "504"
+          "obs": ""
         }
       ],
       "iqual": {
@@ -16374,5 +16374,5 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTÃO - Prima Quaitá - Versão Final - Impressão.pdf"
     }
   },
-  "currentComp": "2026-02"
+  "currentComp": "2026-01"
 }

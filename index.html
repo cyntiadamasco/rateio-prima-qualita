@@ -1419,6 +1419,7 @@ function salvar(){
   try{
     localStorage.setItem('pq_rateio_v2',JSON.stringify(state));
     localStorage.setItem('pq_comp',currentComp);
+    localStorage.setItem('pq_saved_at',String(Date.now()));
     const el=document.getElementById('save-ind');
     el.style.display='block';
     setTimeout(()=>el.style.display='none',2200);
@@ -5039,8 +5040,13 @@ async function githubCarregar(){
     if(r.status===404){setSyncStatus('ok','Sem dados remotos ainda');return false;}
     if(!r.ok){setSyncStatus('err','Erro ao carregar');return false;}
     const raw=await r.json();
-    if(raw.state) state=raw.state;
-    if(raw.currentComp) currentComp=raw.currentComp;
+    // Só sobrescreve estado local se GitHub for mais recente (evita condição de corrida)
+    const localSavedAt=parseInt(localStorage.getItem('pq_saved_at')||'0');
+    const remoteSavedAt=raw.savedAt||0;
+    if(remoteSavedAt>=localSavedAt){
+      if(raw.state) state=raw.state;
+      if(raw.currentComp) currentComp=raw.currentComp;
+    }
     rebuildContratos();
     const t=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
     setSyncStatus('ok','Atualizado '+t);
@@ -5054,7 +5060,8 @@ async function githubSalvar(){
     const rG=await fetch('https://api.github.com/repos/'+GH_REPO+'/contents/'+GH_FILE,
       {headers:{'Authorization':'token '+token,'Accept':'application/vnd.github.v3+json'}});
     const sha=rG.ok?(await rG.json()).sha:(localStorage.getItem('pq_gh_sha')||undefined);
-    const content=btoa(unescape(encodeURIComponent(JSON.stringify({state,currentComp},null,2))));
+    const savedAt=parseInt(localStorage.getItem('pq_saved_at')||'0');
+    const content=btoa(unescape(encodeURIComponent(JSON.stringify({state,currentComp,savedAt},null,2))));
     const body={message:'Rateio: '+currentComp,content};
     if(sha) body.sha=sha;
     const rP=await fetch('https://api.github.com/repos/'+GH_REPO+'/contents/'+GH_FILE,{
@@ -6096,14 +6103,21 @@ function verDCFPdf(docKey){
 }
 function removerDCFPdf(docKey){
   if(!confirm('Remover o PDF anexado? Esta ação não pode ser desfeita.')) return;
-  const data=getMesData(currentComp);
-  const uid='dcf_'+currentComp.replace('-','')+'_'+docKey;
-  data.demoContabil[docKey]={pdfUrl:'',pdfNome:''};
-  const cached=_pdfBlobCache.get(uid);
-  if(cached){URL.revokeObjectURL(cached.url);_pdfBlobCache.delete(uid);}
-  githubDeletePDF(uid).catch(()=>{});
-  salvar();
-  renderDCF();
+  try{
+    const data=getMesData(currentComp);
+    const uid='dcf_'+currentComp.replace('-','')+'_'+docKey;
+    data.demoContabil[docKey]={pdfUrl:'',pdfNome:''};
+    // Limpa dados parsed do extrato para liberar espaço no localStorage
+    if(docKey==='extrato') data.demoContabil.extratoData=null;
+    const cached=_pdfBlobCache.get(uid);
+    if(cached){URL.revokeObjectURL(cached.url);_pdfBlobCache.delete(uid);}
+    githubDeletePDF(uid).catch(()=>{});
+    salvar();
+    renderDCF();
+  }catch(e){
+    console.error('removerDCFPdf erro:',e);
+    alert('Erro ao remover PDF: '+e.message);
+  }
 }
 
 /* =====================================================================

@@ -5915,16 +5915,29 @@ function pageToText(tc){
 }
 
 function parseSantanderExtrato(allText){
-  const dateRe=/^(\d{2}\/\d{2}\/\d{4})\s+(.*)/;
+  const dateRe=/^(\d{2}\/\d{2}\/\d{4})\s*(.*)/;
   const moneyRe=/(-?[\d.]+,\d{2})\s+(-?[\d.]+,\d{2})$/;
+  const onlyMoneyRe=/^(-?[\d.]+,\d{2})\s+(-?[\d.]+,\d{2})$/;
   const docRe=/^\d{5,8}$/;
   const skipRe=/^(SO\s+\d|[\d]{3,}[.\d]+|Data\s+Hist|Saldo\s+disp|\d+\/\d+$|Santander|PROJETO SOCIAL|Per[ií]odo|Ag[eê]ncia|Posi[cç][aã]o|Saldo de Conta|Saldo de Inv|Saldo Dispo|[A-Z]\s+[–-]\s|Central de At|Ouvidoria)/i;
   function parseBR(s){return parseFloat(s.replace(/\./g,'').replace(',','.'))}
   const lines=allText.split('\n').map(l=>l.trim()).filter(l=>l);
   const txs=[];
   let pending=null;
+  let pendingDate=null;
+  let pendingDesc=null;
   for(const line of lines){
     if(skipRe.test(line)) continue;
+    // Linha com APENAS dois valores monetários — pertence ao pendingDate (transação em 2 linhas)
+    const om=line.match(onlyMoneyRe);
+    if(om&&pendingDate){
+      const valor=parseBR(om[1]);
+      const saldo=parseBR(om[2]);
+      const d=pendingDesc||pending||'';
+      txs.push({data:pendingDate,desc:d.slice(0,80),valor,saldo});
+      pendingDate=null;pendingDesc=null;pending=null;
+      continue;
+    }
     const dm=line.match(dateRe);
     if(dm){
       const rest=dm[2];
@@ -5936,9 +5949,14 @@ function parseSantanderExtrato(allText){
         const descRaw=idx>=0?rest.slice(0,idx).trim():rest;
         const desc=(!descRaw||docRe.test(descRaw))?(pending||descRaw):descRaw;
         txs.push({data:dm[1],desc:(desc||'').slice(0,80),valor,saldo});
+        pending=null;pendingDate=null;pendingDesc=null;
+      } else {
+        // Linha com data mas sem valores — salva e aguarda linha seguinte com os valores
+        pendingDate=dm[1];
+        pendingDesc=rest.trim()||null;
         pending=null;
       }
-    } else if(!moneyRe.test(line)&&!skipRe.test(line)){
+    } else if(!moneyRe.test(line)){
       pending=line;
     }
   }
@@ -5979,7 +5997,7 @@ async function lerExtratoBancario(){
     if(!resp.ok) throw new Error('Falha ao buscar PDF (HTTP '+resp.status+')');
     const buf=await resp.arrayBuffer();
     const pdf=await pdfjs.getDocument({data:buf}).promise;
-    const maxPg=Math.min(pdf.numPages,21);
+    const maxPg=pdf.numPages;
     let allText='';
     for(let i=1;i<=maxPg;i++){
       const pg=await pdf.getPage(i);

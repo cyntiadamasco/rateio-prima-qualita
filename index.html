@@ -1430,7 +1430,13 @@ function salvar(){
 function carregar(){
   try{
     const s=localStorage.getItem('pq_rateio_v2');
-    if(s) state=JSON.parse(s);
+    if(s){
+      state=JSON.parse(s);
+      // Protege dados locais: sem timestamp → cria um para evitar sobrescrita pelo GitHub
+      if(!localStorage.getItem('pq_saved_at')){
+        localStorage.setItem('pq_saved_at',String(Date.now()));
+      }
+    }
     const c=localStorage.getItem('pq_comp');
     if(c) currentComp=c;
     rebuildContratos();
@@ -5923,11 +5929,10 @@ function pageToText(tc){
 
 function parseSantanderExtrato(allText){
   const dateRe=/^(\d{2}\/\d{2}\/\d{4})\s*(.*)/;
-  // saldo é opcional: Santander omite a coluna quando não muda (ex: vários lançamentos no mesmo dia)
+  // saldo é opcional: Santander omite coluna quando não muda
   const moneyRe=/(-?[\d.]+,\d{2})(?:\s+(-?[\d.]+,\d{2}))?$/;
-  const onlyMoneyRe=/^(-?[\d.]+,\d{2})(?:\s+(-?[\d.]+,\d{2}))?$/;
   const docRe=/^\d{5,8}$/;
-  const skipRe=/^(SO\s+\d|[\d]{3,}[.\d]+|Data\s+Hist|Saldo\s+disp|\d+\/\d+$|Santander|PROJETO SOCIAL|Per[ií]odo|Ag[eê]ncia|Posi[cç][aã]o|Saldo de Conta|Saldo de Inv|Saldo Dispo|[A-Z]\s+[–-]\s|Central de At|Ouvidoria)/i;
+  const skipRe=/^(SO\s+\d|Data\s+Hist|Saldo\s+disp|\d+\/\d+$|Santander|PROJETO SOCIAL|Per[ií]odo|Ag[eê]ncia|Posi[cç][aã]o|Saldo de Conta|Saldo de Inv|Saldo Dispo|[A-Z]\s+[–-]\s|Central de At|Ouvidoria)/i;
   function parseBR(s){return parseFloat(s.replace(/\./g,'').replace(',','.'))}
   const lines=allText.split('\n').map(l=>l.trim()).filter(l=>l);
   const txs=[];
@@ -5936,13 +5941,16 @@ function parseSantanderExtrato(allText){
   let pendingDesc=null;
   let lastSaldo=0;
   for(const line of lines){
-    if(skipRe.test(line)) continue;
-    // Linha com APENAS um ou dois valores monetários — pertence ao pendingDate (transação em 2 linhas)
-    const om=line.match(onlyMoneyRe);
-    if(om&&pendingDate){
-      const valor=parseBR(om[1]);
-      const saldo=om[2]?parseBR(om[2]):lastSaldo;
-      if(om[2]) lastSaldo=saldo;
+    const hasMoneyAtEnd=moneyRe.test(line);
+    // Pula cabeçalhos/metadados — mas NÃO se há transação pendente esperando o valor
+    if(skipRe.test(line)&&!(pendingDate&&hasMoneyAtEnd)) continue;
+    // Linha de continuação: data pendente + linha termina com valor monetário
+    // (cobre: "010303 617,06", "40289134000199 010303 617,06", "617,06 0,01", etc.)
+    if(pendingDate&&hasMoneyAtEnd){
+      const mm2=line.match(moneyRe);
+      const valor=parseBR(mm2[1]);
+      const saldo=mm2[2]?parseBR(mm2[2]):lastSaldo;
+      if(mm2[2]) lastSaldo=saldo;
       const d=pendingDesc||pending||'';
       txs.push({data:pendingDate,desc:d.slice(0,80),valor,saldo});
       pendingDate=null;pendingDesc=null;pending=null;
@@ -5962,12 +5970,12 @@ function parseSantanderExtrato(allText){
         txs.push({data:dm[1],desc:(desc||'').slice(0,80),valor,saldo});
         pending=null;pendingDate=null;pendingDesc=null;
       } else {
-        // Linha com data mas sem valores — salva e aguarda linha seguinte com os valores
+        // Data mas sem valor — aguarda linha seguinte com o valor
         pendingDate=dm[1];
         pendingDesc=rest.trim()||null;
         pending=null;
       }
-    } else if(!moneyRe.test(line)){
+    } else if(!hasMoneyAtEnd){
       pending=line;
     }
   }
@@ -6101,23 +6109,39 @@ function verDCFPdf(docKey){
   document.getElementById('modal-pdf-link').href=doc.pdfUrl;
   document.getElementById('modal-pdf').style.display='flex';
 }
+function _confirmar(msg,onSim){
+  const ov=document.createElement('div');
+  ov.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:99999;display:flex;align-items:center;justify-content:center';
+  ov.innerHTML=`<div style="background:#fff;border-radius:12px;padding:24px 28px;max-width:380px;width:92%;box-shadow:0 8px 40px rgba(0,0,0,.3)">
+    <p style="margin:0 0 20px;font-size:14px;line-height:1.55;color:#111">${msg}</p>
+    <div style="display:flex;gap:10px;justify-content:flex-end">
+      <button id="_conf_nao" style="padding:8px 18px;border:1px solid #D1D5DB;border-radius:8px;background:#fff;cursor:pointer;font-size:13px;font-weight:500">Não, manter</button>
+      <button id="_conf_sim" style="padding:8px 20px;border:none;border-radius:8px;background:#DC2626;color:#fff;cursor:pointer;font-size:13px;font-weight:700">Sim, remover</button>
+    </div>
+  </div>`;
+  document.body.appendChild(ov);
+  const close=()=>document.body.removeChild(ov);
+  ov.querySelector('#_conf_sim').onclick=()=>{close();onSim();};
+  ov.querySelector('#_conf_nao').onclick=close;
+  ov.onclick=(e)=>{if(e.target===ov)close();};
+}
 function removerDCFPdf(docKey){
-  if(!confirm('Remover o PDF anexado? Esta ação não pode ser desfeita.')) return;
-  try{
-    const data=getMesData(currentComp);
-    const uid='dcf_'+currentComp.replace('-','')+'_'+docKey;
-    data.demoContabil[docKey]={pdfUrl:'',pdfNome:''};
-    // Limpa dados parsed do extrato para liberar espaço no localStorage
-    if(docKey==='extrato') data.demoContabil.extratoData=null;
-    const cached=_pdfBlobCache.get(uid);
-    if(cached){URL.revokeObjectURL(cached.url);_pdfBlobCache.delete(uid);}
-    githubDeletePDF(uid).catch(()=>{});
-    salvar();
-    renderDCF();
-  }catch(e){
-    console.error('removerDCFPdf erro:',e);
-    alert('Erro ao remover PDF: '+e.message);
-  }
+  _confirmar('Remover o PDF anexado?<br><small style="color:#6B7280">Esta ação não pode ser desfeita.</small>',function(){
+    try{
+      const data=getMesData(currentComp);
+      const uid='dcf_'+currentComp.replace('-','')+'_'+docKey;
+      data.demoContabil[docKey]={pdfUrl:'',pdfNome:''};
+      if(docKey==='extrato') data.demoContabil.extratoData=null;
+      const cached=_pdfBlobCache.get(uid);
+      if(cached){URL.revokeObjectURL(cached.url);_pdfBlobCache.delete(uid);}
+      githubDeletePDF(uid).catch(()=>{});
+      salvar();
+      renderDCF();
+    }catch(e){
+      console.error('removerDCFPdf erro:',e);
+      alert('Erro ao remover PDF: '+e.message);
+    }
+  });
 }
 
 /* =====================================================================

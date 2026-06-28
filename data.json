@@ -28287,8 +28287,8 @@
           "pdfNome": "INDICADOR 2 - COMUNICAÇÃO INSTITUCIONAL - MAIO.2026.pdf"
         },
         "ind3": {
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202606_ind3.pdf",
-          "pdfNome": "INDICADOR 6 - COMPRAS E CONTRATOS - MAIO.2026.pdf"
+          "pdfUrl": "",
+          "pdfNome": ""
         },
         "ind4": {
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202606_ind4.pdf",
@@ -28321,5 +28321,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1782616741132
+  "savedAt": 1782616756343
 }

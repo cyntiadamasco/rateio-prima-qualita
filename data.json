@@ -28299,8 +28299,8 @@
           "pdfNome": "INDICADOR 5 - LOGISTICA E SUPRIMENTOS - MAIO 2026.pdf"
         },
         "ind6": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202606_ind6.pdf",
+          "pdfNome": "INDICADOR 6 - COMPRAS E CONTRATOS - MAIO.2026.pdf"
         },
         "ind7": {
           "pdfUrl": "",
@@ -28321,5 +28321,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1782614450233
+  "savedAt": 1782614468794
 }

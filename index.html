@@ -6036,7 +6036,7 @@ function cgNameToId(name){
 
 function parseIndicadorQualitativo(allText){
   const result={};
-  // Método 1: extração direta de texto (indicadores com fonte legível, coluna única de QTD)
+  // Método 1: extração direta de texto (PDFs com fonte legível, coluna única de QTD)
   const re=/Contrato de Gest[aã]o[^-]+-\s*([^\n0-9]+?)\s+(\d+)\s+[\d,.]+%/gi;
   let m;
   while((m=re.exec(allText))!==null){
@@ -6044,22 +6044,23 @@ function parseIndicadorQualitativo(allText){
     if(cgId&&!result[cgId]) result[cgId]=parseInt(m[2],10);
   }
   if(Object.keys(result).length>0) return result;
-  // Método 2: tabela multi-coluna ou saída OCR (Contratos + Processos + Total + %)
-  // Extrai o último inteiro antes do valor percentual em cada linha de CG
-  const lines=allText.split(/\r?\n/);
+  // Método 2: tabela multi-coluna ou saída OCR — combina até 5 linhas por CG
+  // (cobre wrapping de nomes longos e células em linhas separadas)
+  const lines=allText.split(/\r?\n/).filter(l=>l.trim().length>0);
   for(let i=0;i<lines.length;i++){
-    const line=lines[i];
-    if(!/contrato.{0,6}gest/i.test(line)) continue;
-    const full=(i+1<lines.length)?line+' '+lines[i+1]:line;
-    const di=full.lastIndexOf(' - ');
+    if(!/contrato.{0,6}gest/i.test(lines[i])) continue;
+    // Combina linhas suficientes para capturar nome e todos os números do CG
+    const chunk=lines.slice(i,Math.min(i+5,lines.length)).join(' ');
+    // Nome do CG: texto após o último " - " até o primeiro dígito
+    const di=chunk.lastIndexOf(' - ');
     if(di<0) continue;
-    const aft=full.slice(di+3);
+    const aft=chunk.slice(di+3);
     const nm=aft.match(/^([^\d]+)/);
     if(!nm) continue;
     const cgId=cgNameToId(nm[1].trim());
     if(!cgId) continue;
-    // Captura tudo antes do valor percentual (X,XX% ou XX,XX%)
-    const pm=full.match(/^(.+)\s+\d+[,.]\d+%/)||full.match(/^(.+)\s+\d+%/);
+    // Total: último inteiro antes do valor percentual (X,XX% ou XX,XX%)
+    const pm=chunk.match(/^(.+)\s+\d+[,.]\d+%/)||chunk.match(/^(.+)\s+\d+%/);
     if(!pm) continue;
     const ints=(pm[1].match(/\d+/g)||[]);
     if(ints.length===0) continue;
@@ -6070,33 +6071,37 @@ function parseIndicadorQualitativo(allText){
 
 async function loadTesseract(){
   if(window.Tesseract) return window.Tesseract;
-  return new Promise((resolve,reject)=>{
+  await new Promise((resolve,reject)=>{
     const s=document.createElement('script');
     s.src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js';
-    s.onload=()=>resolve(window.Tesseract);
-    s.onerror=()=>reject(new Error('Tesseract.js não pôde ser carregado do CDN'));
+    s.onload=resolve;
+    s.onerror=()=>reject(new Error('Não foi possível carregar Tesseract.js do CDN.\nVerifique sua conexão de internet.'));
     document.head.appendChild(s);
   });
+  if(!window.Tesseract) throw new Error('Tesseract.js carregado mas objeto global não encontrado.');
+  return window.Tesseract;
 }
 
 async function lerIndicadorOCR(pdfDoc,btn){
-  if(btn) btn.textContent='⏳ Carregando OCR...';
+  if(btn) btn.textContent='⏳ Carregando OCR (1ª vez pode demorar)...';
   const Tesseract=await loadTesseract();
-  if(btn) btn.textContent='⏳ Renderizando PDF...';
+  if(btn) btn.textContent='⏳ Renderizando página...';
   const pg=await pdfDoc.getPage(1);
   const scale=2.5;
   const vp=pg.getViewport({scale});
   const canvas=document.createElement('canvas');
   canvas.width=vp.width; canvas.height=vp.height;
   await pg.render({canvasContext:canvas.getContext('2d'),viewport:vp}).promise;
-  if(btn) btn.textContent='⏳ Reconhecendo texto (OCR)...';
+  if(btn) btn.textContent='⏳ Iniciando OCR...';
   const {data:{text}}=await Tesseract.recognize(canvas,'por',{
+    langPath:'https://tessdata.projectnaptha.com/4.0.0_fast',
     logger:ev=>{
-      if(ev.status==='recognizing text'&&btn)
-        btn.textContent='⏳ OCR '+Math.round((ev.progress||0)*100)+'%...';
+      if(!btn) return;
+      if(ev.status==='loading language traineddata') btn.textContent='⏳ Baixando modelo OCR...';
+      else if(ev.status==='recognizing text') btn.textContent='⏳ OCR '+Math.round((ev.progress||0)*100)+'%...';
     }
   });
-  console.log('[OCR Indicador] texto:\n',text);
+  console.log('[OCR ind'+'] primeiras 800 chars:\n',text.substring(0,800));
   return text;
 }
 
@@ -6123,18 +6128,23 @@ async function lerIndicador(indId){
     const allText=pageToText(tc);
     let vals=parseIndicadorQualitativo(allText);
     if(Object.keys(vals).length===0){
-      // Fonte CID — tentar leitura por OCR (renderiza a página como imagem)
+      // PDF com fonte CID — fallback: OCR via renderização canvas
+      let ocrErr=null;
       try{
         const ocrText=await lerIndicadorOCR(pdfDoc,btn);
         vals=parseIndicadorQualitativo(ocrText);
-      }catch(ocrErr){
-        console.warn('[lerIndicador] OCR falhou:',ocrErr);
+      }catch(e){
+        ocrErr=e;
+        console.error('[lerIndicador] OCR falhou:',e);
       }
-    }
-    if(Object.keys(vals).length===0){
-      if(btn){btn.disabled=false;btn.textContent='📖 Ler';}
-      alert('Nenhum quantitativo encontrado no PDF.\nVerifique se é o relatório de Indicadores no formato correto.');
-      return;
+      if(Object.keys(vals).length===0){
+        if(btn){btn.disabled=false;btn.textContent='📖 Ler';}
+        const msg=ocrErr
+          ?'Falha ao ler por OCR:\n'+ocrErr.message+'\n\nInsira os valores manualmente.'
+          :'Nenhum quantitativo encontrado no PDF.\nVerifique se é o relatório de Indicadores no formato correto.';
+        alert(msg);
+        return;
+      }
     }
     if(!data.iqual[indId]) data.iqual[indId]={};
     Object.assign(data.iqual[indId],vals);

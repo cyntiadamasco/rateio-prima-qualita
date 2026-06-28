@@ -1131,7 +1131,7 @@ body.readonly [onclick^="importarContrat"]{display:none!important}
       </div>
     </div>
     <span id="sync-status" style="display:flex;align-items:center;gap:4px"><span class="sync-dot" id="sync-dot"></span><span class="sync-lbl" id="sync-lbl"></span></span>
-    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-06-28</span>
+    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-06-28b</span>
     <button class="btn btn-teal btn-sm edit-only" onclick="salvar()">💾 Salvar</button>
     <button id="btn-lock-edit" onclick="toggleEditMode()" title="Modo de edição">🔒 Editar</button>
   </div>
@@ -6082,6 +6082,89 @@ async function loadTesseract(){
   return window.Tesseract;
 }
 
+async function lerIndicadorCIDFonte(pdfDoc){
+  // Mapeamento glyph-ID → dígito para a fonte CID do Indicador 6
+  // Derivado de análise com pdfplumber: (cid:N) → caractere correspondente
+  const CID_MAP={21:'0',22:'3',23:'/',24:'2',25:'5',30:'7',31:'9',32:'8',33:',',34:'6',35:'1',42:'4'};
+  const CG_ORDER=['madalena','cachoeiras','saq_hosp','upa_pac','upa_nc','arraial','quissama','cordeiro','saq_esp','saq_pri'];
+  try{
+    const pdfjs=window.pdfjsLib;
+    if(!pdfjs||!pdfjs.OPS) return {};
+    const OPS=pdfjs.OPS;
+    const page=await pdfDoc.getPage(1);
+    const ops=await page.getOperatorList();
+    let tx=0,ty=0;
+    const items=[];
+    function decodeGlyphs(gs){
+      if(!Array.isArray(gs)) return '';
+      return gs.map(g=>{
+        if(g===null||g===undefined) return '';
+        const d=CID_MAP[g.id];
+        if(d!==undefined) return d;
+        // Fallback: 3 dígitos que têm ToUnicode no PDF desta fonte
+        if(g.unicode==='"') return '6';
+        if(g.unicode==='#') return '1';
+        if(g.unicode==='*') return '4';
+        if(g.unicode&&g.unicode>='0'&&g.unicode<='9') return g.unicode;
+        return '';
+      }).join('');
+    }
+    for(let i=0;i<ops.fnArray.length;i++){
+      const fn=ops.fnArray[i],args=ops.argsArray[i];
+      if(fn===OPS.setTextMatrix){
+        if(args&&args.length>=6){tx=args[4];ty=args[5];}
+      }else if(fn===OPS.moveText){
+        if(args&&args.length>=2){tx+=args[0];ty+=args[1];}
+      }else if(fn===OPS.showText){
+        const text=decodeGlyphs(args&&args[0]);
+        if(text.trim()) items.push({x:tx,y:ty,text});
+      }else if(fn===OPS.showSpacedText){
+        const chunks=args&&args[0];
+        if(Array.isArray(chunks)){
+          for(const ch of chunks){
+            if(!Array.isArray(ch)) continue;
+            const text=decodeGlyphs(ch);
+            if(text.trim()) items.push({x:tx,y:ty,text});
+          }
+        }
+      }
+    }
+    const numItems=items.filter(it=>/[0-9]/.test(it.text));
+    console.log('[CID] itens com dígitos ('+numItems.length+'):',
+      numItems.slice(0,25).map(it=>({x:Math.round(it.x),y:Math.round(it.y),t:it.text})));
+    if(numItems.length===0) return {};
+    // Agrupar por Y com tolerância ±8 unidades PDF
+    const rows=[];
+    for(const it of items){
+      let row=rows.find(r=>Math.abs(r.y-it.y)<=8);
+      if(!row){row={y:it.y,items:[]};rows.push(row);}
+      row.items.push(it);
+    }
+    // Coluna Total do PDF ≈ x 460-560 (confirmado via PyMuPDF ≈ 488-502)
+    const dataRows=[];
+    for(const row of rows){
+      const tot=row.items.filter(it=>it.x>=460&&it.x<=560);
+      if(!tot.length) continue;
+      const numStr=tot.map(it=>it.text).join('').replace(/[^0-9]/g,'');
+      if(numStr) dataRows.push({y:row.y,total:parseInt(numStr,10)});
+    }
+    dataRows.sort((a,b)=>b.y-a.y);
+    console.log('[CID] linhas coluna Total:',dataRows);
+    // Valores por CG: 1-500; total geral ≥ 600 (excluir)
+    const valid=dataRows.filter(r=>r.total>=1&&r.total<600);
+    if(valid.length===0) return {};
+    const result={};
+    for(let i=0;i<Math.min(valid.length,CG_ORDER.length);i++){
+      result[CG_ORDER[i]]=valid[i].total;
+    }
+    console.log('[CID] resultado:',result);
+    return result;
+  }catch(e){
+    console.warn('[CID] falhou:',e);
+    return {};
+  }
+}
+
 async function lerIndicadorOCR(pdfDoc,btn){
   if(btn) btn.textContent='⏳ Carregando OCR (1ª vez pode demorar)...';
   const Tesseract=await loadTesseract();
@@ -6128,7 +6211,12 @@ async function lerIndicador(indId){
     const allText=pageToText(tc);
     let vals=parseIndicadorQualitativo(allText);
     if(Object.keys(vals).length===0){
-      // PDF com fonte CID — fallback: OCR via renderização canvas
+      // Fallback 1: decodificação direta de glifos CID (rápido, sem rede)
+      if(btn) btn.textContent='⏳ Decodificando fonte...';
+      vals=await lerIndicadorCIDFonte(pdfDoc);
+    }
+    if(Object.keys(vals).length===0){
+      // Fallback 2: OCR via renderização canvas
       let ocrErr=null;
       try{
         const ocrText=await lerIndicadorOCR(pdfDoc,btn);

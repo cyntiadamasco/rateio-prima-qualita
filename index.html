@@ -4551,8 +4551,10 @@ function importarDespLocaisAnt(){
   CONTRATOS.forEach(ct=>{
     if(prevDL[ct.id]&&prevDL[ct.id].length>0){
       curData.despesasLocais[ct.id]=prevDL[ct.id].map(d=>({
-        ...d,
-        id:'dl'+Date.now()+Math.random().toString(36).slice(2,6)
+        id:'dl'+Date.now()+Math.random().toString(36).slice(2,6),
+        objeto:d.objeto,
+        fornecedor:d.fornecedor,
+        valor:0
       }));
     }
   });

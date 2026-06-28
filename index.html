@@ -6135,37 +6135,29 @@ async function lerIndicadorCIDFonte(pdfDoc){
     console.log('[CID] todos itens numéricos:',
       numItems.map(it=>({x:Math.round(it.x),y:Math.round(it.y),t:it.text})));
     if(numItems.length===0) return {};
-    // Agrupar itens numéricos por X (bucket ±15) para identificar colunas
-    const xBuckets=new Map();
-    for(const it of numItems){
-      const xKey=Math.round(it.x/15)*15;
-      if(!xBuckets.has(xKey)) xBuckets.set(xKey,[]);
-      xBuckets.get(xKey).push(it);
-    }
-    const cols=[...xBuckets.entries()].map(([x,its])=>({x,count:its.length,its}))
-      .sort((a,b)=>a.x-b.x);
-    console.log('[CID] colunas numéricas:',cols.map(c=>({x:c.x,count:c.count})));
-    // Coluna Total: mais à direita com 7-12 itens (10 CGs esperadas)
-    const candidates=cols.filter(c=>c.count>=7&&c.count<=13).sort((a,b)=>b.x-a.x);
-    if(!candidates.length) return {};
-    const totalColItems=candidates[0].its;
-    // Agrupar itens da coluna Total por Y (linha), tolerância ±8
+    // Coluna Total = itens nos últimos 50 unidades de X (dígitos ~3 unidades apart,
+    // colunas adjacentes ~150 unidades apart → 50 captura coluna sem vazar)
+    const maxXg=Math.max(...numItems.map(it=>it.x));
+    const totColItems=numItems.filter(it=>it.x>=maxXg-50);
+    console.log('[CID] maxX='+Math.round(maxXg)+', coluna Total (x≥'+Math.round(maxXg-50)+'):',
+      totColItems.map(it=>({x:Math.round(it.x),y:Math.round(it.y),t:it.text})));
+    // Agrupar por Y (linha), tolerância ±8
     const rows=[];
-    for(const it of totalColItems){
+    for(const it of totColItems){
       let row=rows.find(r=>Math.abs(r.y-it.y)<=8);
-      if(!row){row={y:it.y,items:[]};rows.push(row);}
-      row.items.push(it);
+      if(!row){row={y:it.y,its:[]};rows.push(row);}
+      row.its.push(it);
     }
     rows.sort((a,b)=>b.y-a.y);
     const dataRows=rows.map(row=>{
-      const numStr=row.items.map(it=>it.text).join('').replace(/[^0-9]/g,'');
+      const numStr=row.its.sort((a,b)=>a.x-b.x).map(it=>it.text).join('').replace(/[^0-9]/g,'');
       return {y:Math.round(row.y),total:numStr?parseInt(numStr,10):0};
-    }).filter(r=>r.total>=1&&r.total<600);
-    console.log('[CID] linhas coluna Total (detecção dinâmica):',dataRows);
+    }).filter(r=>r.total>=1&&r.total<2000);
+    console.log('[CID] linhas coluna Total:',dataRows);
     if(dataRows.length===0) return {};
     const result={};
-    for(let i=0;i<Math.min(valid.length,CG_ORDER.length);i++){
-      result[CG_ORDER[i]]=valid[i].total;
+    for(let i=0;i<Math.min(dataRows.length,CG_ORDER.length);i++){
+      result[CG_ORDER[i]]=dataRows[i].total;
     }
     console.log('[CID] resultado:',result);
     return result;

@@ -28295,8 +28295,8 @@
           "pdfNome": ""
         },
         "ind5": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202606_ind5.pdf",
+          "pdfNome": "INDICADOR 5 - LOGISTICA E SUPRIMENTOS - MAIO 2026.pdf"
         },
         "ind6": {
           "pdfUrl": "",
@@ -28321,5 +28321,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1782613231408
+  "savedAt": 1782613258394
 }

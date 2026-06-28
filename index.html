@@ -1131,7 +1131,7 @@ body.readonly [onclick^="importarContrat"]{display:none!important}
       </div>
     </div>
     <span id="sync-status" style="display:flex;align-items:center;gap:4px"><span class="sync-dot" id="sync-dot"></span><span class="sync-lbl" id="sync-lbl"></span></span>
-    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-06-26</span>
+    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-06-27</span>
     <button class="btn btn-teal btn-sm edit-only" onclick="salvar()">💾 Salvar</button>
     <button id="btn-lock-edit" onclick="toggleEditMode()" title="Modo de edição">🔒 Editar</button>
   </div>
@@ -1691,6 +1691,7 @@ function renderQualitativo(){
       const pdf=_iqpdfs[ind.id]||{pdfUrl:'',pdfNome:''};
       const hasPdf=!!pdf.pdfUrl;
       const btnVer=hasPdf?'<button class="btn btn-sm btn-outline no-print" onclick="verIqualPdf(\''+ind.id+'\')">👁 Ver</button>':'';
+      const btnLer=hasPdf?'<button id="btn-ler-ind-'+ind.id+'" class="btn btn-sm no-print" style="background:#FEF3C7;color:#92400E;border:1px solid #FDE68A;white-space:nowrap" onclick="lerIndicador(\''+ind.id+'\')">📖 Ler</button>':'';
       const btnRem=hasPdf?'<button class="btn btn-sm btn-danger no-print" onclick="removerIqualPdf(\''+ind.id+'\')">✕</button>':'';
       const btnUpload='<button class="btn btn-sm no-print '+(hasPdf?'btn-outline':'btn-primary')+'" onclick="this.nextElementSibling.click()">'+(hasPdf?'🔄 Subst.':'📎 Anexar')+'</button><input type="file" accept=".pdf" style="display:none" onchange="uploadIqualPdf(\''+ind.id+'\',this)">';
       return '<div style="border:1px solid var(--border-soft);border-radius:8px;padding:12px;background:'+(hasPdf?'#F0FFF4':'#FAFBFC')+'">'
@@ -1700,7 +1701,7 @@ function renderQualitativo(){
         +'<div style="font-size:10px;color:var(--gray);margin-top:2px">'+ind.dept+'</div>'
         +(hasPdf?'<div style="font-size:10px;color:#16A34A;margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:200px">✓ '+(pdf.pdfNome||'PDF')+'</div>':'')+'</div>'
         +'<div class="no-print" style="display:flex;gap:4px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end">'
-        +btnVer+btnRem+btnUpload+'</div></div></div>';
+        +btnVer+btnLer+btnRem+btnUpload+'</div></div></div>';
     }).join('')+'</div></div>';
 
   document.getElementById('panel-qualitativo').innerHTML=`
@@ -6011,6 +6012,72 @@ function categorizarTx(desc,valor){
   if(/debito pagamento de salario|pagsal/.test(d)) return 'Folha Salarial';
   if(/tarifa|tar[ia]/.test(d)) return 'Tarifas Bancárias';
   return 'Outros';
+}
+
+function cgNameToId(name){
+  const n=name.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+  if(n.includes('madalena')) return 'madalena';
+  if(n.includes('cachoeiras')||n.includes('macacu')) return 'cachoeiras';
+  if(n.includes('saquarema')){
+    if(n.includes('hospitalar')) return 'saq_hosp';
+    if(n.includes('especializada')) return 'saq_esp';
+    return 'saq_pri';
+  }
+  if(n.includes('pacheco')) return 'upa_pac';
+  if(n.includes('nova cidade')) return 'upa_nc';
+  if(n.includes('arraial')) return 'arraial';
+  if(n.includes('quissam')) return 'quissama';
+  if(n.includes('cordeiro')) return 'cordeiro';
+  return null;
+}
+
+function parseIndicadorQualitativo(allText){
+  const result={};
+  const re=/Contrato de Gest[aã]o[^-]+-\s*([^\n0-9]+?)\s+(\d+)\s+[\d,]+%/gi;
+  let m;
+  while((m=re.exec(allText))!==null){
+    const cgId=cgNameToId(m[1].trim());
+    if(cgId) result[cgId]=parseInt(m[2],10);
+  }
+  return result;
+}
+
+async function lerIndicador(indId){
+  const data=getMesData(currentComp);
+  const pdf=(data.iqual_pdfs||{})[indId];
+  if(!pdf||!pdf.pdfUrl){
+    alert('Nenhum PDF do indicador anexado.\nFaça o upload do PDF primeiro.');
+    return;
+  }
+  const btn=document.getElementById('btn-ler-ind-'+indId);
+  if(btn){btn.disabled=true;btn.textContent='⏳ Lendo...';}
+  try{
+    const pdfjs=await loadPDFJS();
+    const uid='iqual_'+currentComp.replace('-','')+'_'+indId;
+    const cached=_pdfBlobCache.get(uid);
+    const src=cached?cached.url:pdf.pdfUrl;
+    const resp=await fetch(src);
+    if(!resp.ok) throw new Error('Falha ao buscar PDF (HTTP '+resp.status+')');
+    const buf=await resp.arrayBuffer();
+    const pdfDoc=await pdfjs.getDocument({data:buf}).promise;
+    const pg=await pdfDoc.getPage(1);
+    const tc=await pg.getTextContent();
+    const allText=pageToText(tc);
+    const vals=parseIndicadorQualitativo(allText);
+    if(Object.keys(vals).length===0){
+      if(btn){btn.disabled=false;btn.textContent='📖 Ler';}
+      alert('Nenhum quantitativo encontrado no PDF.\nVerifique se é o relatório de Indicadores no formato correto.');
+      return;
+    }
+    if(!data.iqual[indId]) data.iqual[indId]={};
+    Object.assign(data.iqual[indId],vals);
+    salvar();
+    renderQualitativo();
+  }catch(err){
+    console.error('lerIndicador erro:',err);
+    if(btn){btn.disabled=false;btn.textContent='📖 Ler';}
+    alert('Erro ao ler o indicador:\n'+err.message);
+  }
 }
 
 function parseBalanceteCIGAC(allText){

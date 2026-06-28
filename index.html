@@ -1775,6 +1775,8 @@ function uploadIqualPdf(indId,input){
     .then(url=>{
       const data=getMesData(comp);
       if(!data.iqual_pdfs) data.iqual_pdfs={};
+      const substituindo=!!data.iqual_pdfs[indId]?.pdfUrl;
+      if(substituindo&&data.iqual&&data.iqual[indId]) CONTRATOS.forEach(cg=>{ data.iqual[indId][cg.id]=0; });
       data.iqual_pdfs[indId]={pdfUrl:url,pdfNome:file.name};
       salvar();
       renderQualitativo();
@@ -1799,11 +1801,12 @@ function verIqualPdf(indId){
   document.getElementById('modal-pdf').style.display='flex';
 }
 function removerIqualPdf(indId){
-  if(!confirm('Remover o PDF anexado? Esta ação não pode ser desfeita.')) return;
+  if(!confirm('Remover o PDF anexado? Esta ação não pode ser desfeita.\nOs valores de QTD lidos deste PDF serão zerados.')) return;
   const data=getMesData(currentComp);
   const uid='iqual_'+currentComp.replace('-','')+'_'+indId;
   if(!data.iqual_pdfs) data.iqual_pdfs={};
   data.iqual_pdfs[indId]={pdfUrl:'',pdfNome:''};
+  if(data.iqual&&data.iqual[indId]) CONTRATOS.forEach(cg=>{ data.iqual[indId][cg.id]=0; });
   const cached=_pdfBlobCache.get(uid);
   if(cached){URL.revokeObjectURL(cached.url);_pdfBlobCache.delete(uid);}
   githubDeletePDF(uid).catch(()=>{});

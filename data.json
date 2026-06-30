@@ -28515,8 +28515,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 0,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/5pl9dx4.pdf",
-          "pdfNome": "GUIA IRRF FERIAS -  CIGAC - 1.313,91.pdf",
+          "pdfUrl": null,
+          "pdfNome": null,
           "dtPgto": ""
         },
         {
@@ -29838,5 +29838,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1782827623993
+  "savedAt": 1782827631245
 }

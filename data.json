@@ -28459,8 +28459,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 0,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/i3cqa3s.pdf",
-          "pdfNome": "IGF - NF 1101 - 3.167,00.pdf",
+          "pdfUrl": null,
+          "pdfNome": null,
           "dtPgto": ""
         },
         {
@@ -29838,5 +29838,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1782827609638
+  "savedAt": 1782827617052
 }

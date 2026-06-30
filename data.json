@@ -28323,71 +28323,71 @@
       "colaboradores": [
         {
           "id": "madalena",
-          "clt": 0,
-          "efetivo": 0,
+          "clt": 122,
+          "efetivo": 25,
           "pj": 0,
           "obs": ""
         },
         {
           "id": "cachoeiras",
-          "clt": 0,
+          "clt": 376,
           "efetivo": 0,
           "pj": 0,
           "obs": ""
         },
         {
           "id": "saq_hosp",
-          "clt": 0,
-          "efetivo": 0,
+          "clt": 1407,
+          "efetivo": 20,
           "pj": 0,
           "obs": ""
         },
         {
           "id": "upa_pac",
-          "clt": 0,
+          "clt": 82,
           "efetivo": 0,
           "pj": 0,
           "obs": ""
         },
         {
           "id": "upa_nc",
-          "clt": 0,
+          "clt": 79,
           "efetivo": 0,
           "pj": 0,
           "obs": ""
         },
         {
           "id": "arraial",
-          "clt": 0,
-          "efetivo": 0,
+          "clt": 907,
+          "efetivo": 89,
           "pj": 0,
           "obs": ""
         },
         {
           "id": "quissama",
-          "clt": 0,
-          "efetivo": 0,
+          "clt": 54,
+          "efetivo": 111,
           "pj": 0,
           "obs": ""
         },
         {
           "id": "cordeiro",
-          "clt": 0,
+          "clt": 92,
           "efetivo": 0,
           "pj": 0,
           "obs": ""
         },
         {
           "id": "saq_esp",
-          "clt": 0,
-          "efetivo": 0,
+          "clt": 309,
+          "efetivo": 69,
           "pj": 0,
           "obs": ""
         },
         {
           "id": "saq_pri",
-          "clt": 0,
-          "efetivo": 0,
+          "clt": 625,
+          "efetivo": 41,
           "pj": 0,
           "obs": ""
         }
@@ -29838,5 +29838,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1782827704332
+  "savedAt": 1782827918913
 }

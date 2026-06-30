@@ -28725,8 +28725,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 0,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/52ntwp4.pdf",
-          "pdfNome": "KPMG - NF 544 - 4.876,04.pdf",
+          "pdfUrl": null,
+          "pdfNome": null,
           "dtPgto": ""
         },
         {
@@ -29838,5 +29838,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1782827694235
+  "savedAt": 1782827704332
 }

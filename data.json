@@ -29672,7 +29672,7 @@
           "quissama": 0,
           "cordeiro": 0,
           "saq_esp": 0,
-          "saq_pri": 0
+          "saq_pri": 320
         },
         "ind2": {
           "madalena": 0,
@@ -29838,5 +29838,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1782877782444
+  "savedAt": 1782877794863
 }

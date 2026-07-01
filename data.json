@@ -29803,8 +29803,8 @@
       },
       "iqual_pdfs": {
         "ind1": {
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202607_ind1.pdf",
-          "pdfNome": "Relatórios de Indicadores Qualitativos RG-DP — Prima Qualita Saúde.pdf"
+          "pdfUrl": "",
+          "pdfNome": ""
         },
         "ind2": {
           "pdfUrl": "",
@@ -29838,5 +29838,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1782876888735
+  "savedAt": 1782876897427
 }

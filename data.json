@@ -28389,7 +28389,7 @@
           "clt": 625,
           "efetivo": 41,
           "pj": 0,
-          "obs": ""
+          "obs": "504"
         }
       ],
       "despesas": [
@@ -29807,8 +29807,8 @@
           "pdfNome": ""
         },
         "ind2": {
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202607_ind2.pdf",
-          "pdfNome": "INDICADOR 2.pdf"
+          "pdfUrl": "",
+          "pdfNome": ""
         },
         "ind3": {
           "pdfUrl": "",
@@ -29838,5 +29838,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1782876093874
+  "savedAt": 1782876876574
 }

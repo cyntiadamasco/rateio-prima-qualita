@@ -29672,7 +29672,7 @@
           "quissama": 0,
           "cordeiro": 0,
           "saq_esp": 0,
-          "saq_pri": 638
+          "saq_pri": 0
         },
         "ind2": {
           "madalena": 0,
@@ -29803,8 +29803,8 @@
       },
       "iqual_pdfs": {
         "ind1": {
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202607_ind1.pdf",
-          "pdfNome": "Relatórios de Indicadores Qualitativos — Prima Qualita Saúde.pdf"
+          "pdfUrl": "",
+          "pdfNome": ""
         },
         "ind2": {
           "pdfUrl": "",
@@ -29838,5 +29838,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1782875923506
+  "savedAt": 1782875951493
 }

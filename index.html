@@ -1131,7 +1131,7 @@ body.readonly [onclick^="importarContrat"]{display:none!important}
       </div>
     </div>
     <span id="sync-status" style="display:flex;align-items:center;gap:4px"><span class="sync-dot" id="sync-dot"></span><span class="sync-lbl" id="sync-lbl"></span></span>
-    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-07-02a</span>
+    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-07-03a</span>
     <button class="btn btn-teal btn-sm edit-only" onclick="salvar()">💾 Salvar</button>
     <button id="btn-lock-edit" onclick="toggleEditMode()" title="Modo de edição">🔒 Editar</button>
   </div>
@@ -1312,6 +1312,8 @@ let currentComp = '2026-05';
 let state = {};
 let charts = {};
 let rdgCharts = {};
+let _colabSortAZ=false;
+let _colabFilter='';
 
 function uid(){ return Math.random().toString(36).slice(2,9); }
 
@@ -1564,6 +1566,8 @@ function excluirMesAtual(){
 
 function mudarComp(comp){
   currentComp=comp;
+  _colabSortAZ=false;
+  _colabFilter='';
   popularUI();
   renderTab(document.querySelector('.tab-btn.active').getAttribute('data-tab')||'criterio');
 }
@@ -3130,14 +3134,21 @@ function fecharModalVF(){
 }
 
 function renderColabMgmt(){
+  const wasOpen=document.getElementById('rdg-colab-wrap')?.classList.contains('rdg-colab-open');
   const data=getMesData(currentComp);
   const cl=data.colab_lista||[];
   const area=document.getElementById('rdg-colab-mgmt-area');
   if(!area) return;
-  area.innerHTML=`<div class="rdg-colab-wrap" id="rdg-colab-wrap">
+  const displayCl=_colabGetFiltered(cl);
+  const countLabel=displayCl.length<cl.length
+    ?displayCl.length+' / '+cl.length+' colaboradores'
+    :cl.length+' colaboradores';
+  const sortStyle=_colabSortAZ?'background:#EFF6FF;border-color:#93C5FD;color:#1D4ED8;font-weight:700':'';
+  const filterEsc=(_colabFilter||'').replace(/"/g,'&quot;');
+  area.innerHTML=`<div class="rdg-colab-wrap${wasOpen?' rdg-colab-open':''}" id="rdg-colab-wrap">
     <div class="rdg-colab-hdr" onclick="document.getElementById('rdg-colab-wrap').classList.toggle('rdg-colab-open')">
       <strong style="font-size:12px;color:#1B3A5C">👥 Colaboradores CIGAC</strong>
-      <span id="rdg-colab-count" style="font-size:11px;color:#6b7280;background:#E5E7EB;padding:2px 8px;border-radius:10px">${cl.length} colaboradores</span>
+      <span id="rdg-colab-count" style="font-size:11px;color:#6b7280;background:#E5E7EB;padding:2px 8px;border-radius:10px">${countLabel}</span>
       <div class="rdg-colab-acts">
         <button class="btn btn-sm" onclick="addColabLista();event.stopPropagation()">+ Adicionar</button>
         <button class="btn btn-sm btn-outline" onclick="importarColabListaAnt();event.stopPropagation()">⬆ Importar mês anterior</button>
@@ -3146,6 +3157,10 @@ function renderColabMgmt(){
       <span style="margin-left:auto;font-size:11px;color:#6b7280">▼ expandir / recolher</span>
     </div>
     <div class="rdg-colab-body">
+      <div style="display:flex;align-items:center;gap:6px;padding:8px 4px 4px" onclick="event.stopPropagation()">
+        <input type="search" id="rdg-colab-filter" value="${filterEsc}" oninput="filterColab(this.value)" placeholder="🔍 Filtrar por nome, departamento ou função..." style="flex:1;padding:5px 10px;border:1px solid #D1D5DB;border-radius:6px;font-size:11px;outline:none">
+        <button id="rdg-colab-sort-btn" class="btn btn-sm btn-outline" onclick="sortColabAZ()" title="Ordenar alfabeticamente pelo nome" style="${sortStyle}">${_colabSortAZ?'A→Z ✓':'A→Z'}</button>
+      </div>
       <div style="overflow-x:auto;max-height:340px;overflow-y:auto;margin-top:4px">
         <table class="contratos-tbl" style="min-width:700px">
           <thead><tr>
@@ -3155,12 +3170,50 @@ function renderColabMgmt(){
             <th style="width:200px">Função</th>
             <th style="width:38px" class="no-print"></th>
           </tr></thead>
-          <tbody id="rdg-colab-tbody">${cl.map((r,i)=>buildColabListaRow(r,i)).join('')}</tbody>
+          <tbody id="rdg-colab-tbody">${displayCl.map((r,i)=>buildColabListaRow(r,i)).join('')}</tbody>
         </table>
       </div>
       <p style="font-size:10px;color:#9CA3AF;margin:6px 0 0;padding:0 4px">Dados armazenados localmente. Use "Importar mês anterior" para copiar a lista do mês precedente.</p>
     </div>
   </div>`;
+}
+
+function _colabGetFiltered(cl){
+  let list=(cl||getMesData(currentComp).colab_lista||[]).slice();
+  const q=(_colabFilter||'').trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+  if(q) list=list.filter(r=>{
+    const norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+    return norm(r.nome).includes(q)||norm(r.dept).includes(q)||norm(r.funcao).includes(q);
+  });
+  if(_colabSortAZ) list.sort((a,b)=>(a.nome||'').localeCompare(b.nome||'','pt-BR'));
+  return list;
+}
+
+function _refreshColabTable(){
+  const data=getMesData(currentComp);
+  const cl=data.colab_lista||[];
+  const displayCl=_colabGetFiltered(cl);
+  const tbody=document.getElementById('rdg-colab-tbody');
+  if(tbody) tbody.innerHTML=displayCl.map((r,i)=>buildColabListaRow(r,i)).join('');
+  const btn=document.getElementById('rdg-colab-sort-btn');
+  if(btn){
+    btn.textContent=_colabSortAZ?'A→Z ✓':'A→Z';
+    btn.style.cssText=_colabSortAZ?'background:#EFF6FF;border-color:#93C5FD;color:#1D4ED8;font-weight:700':'';
+  }
+  const cnt=document.getElementById('rdg-colab-count');
+  if(cnt) cnt.textContent=displayCl.length<cl.length
+    ?displayCl.length+' / '+cl.length+' colaboradores'
+    :cl.length+' colaboradores';
+}
+
+function filterColab(val){
+  _colabFilter=val;
+  _refreshColabTable();
+}
+
+function sortColabAZ(){
+  _colabSortAZ=!_colabSortAZ;
+  _refreshColabTable();
 }
 
 function setColabLista(uid,field,val){

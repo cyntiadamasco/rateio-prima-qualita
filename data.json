@@ -14874,8 +14874,9 @@
           "ctipo": "NF2026/7",
           "cnum": "",
           "valor": 7000,
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/33nmhb2.pdf",
+          "pdfNome": "ID 04 GUSTAVO FROES-  NF 2026.07- 07 - 7.000,00.pdf",
+          "dtPgto": "2026-06-15"
         },
         {
           "uid": "i3cqa3s",
@@ -16377,5 +16378,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783041630417
+  "savedAt": 1783041663390
 }

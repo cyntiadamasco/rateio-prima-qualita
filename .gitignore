@@ -1,5 +1,8 @@
 # Ignorar tudo
 *
-# Manter apenas o arquivo da ferramenta
+# Manter apenas o arquivo da ferramenta e workflow
 !index.html
 !.gitignore
+!.github/
+!.github/workflows/
+!.github/workflows/deploy.yml

@@ -16348,8 +16348,8 @@
           "pdfNome": "MOVIMENTAÇÃO CIGAC 06.2026.pdf"
         },
         "razao": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202606_razao.pdf",
+          "pdfNome": "RAZÃO CIGAC 06.2026.PDF"
         },
         "bl_saldoInicial": 192.42,
         "bl_transferencias": 1428091.44,
@@ -19528,5 +19528,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783044175582
+  "savedAt": 1783044183678
 }

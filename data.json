@@ -14947,9 +14947,9 @@
           "objeto": "Vale Refeição/Alimentação Colaboradores CIGAC",
           "fav": "Ticket Soluções HDFGT S/A",
           "cnpj": "47.866.934/0001-74",
-          "ctipo": "",
+          "ctipo": "BOLETO",
           "cnum": "",
-          "valor": 0,
+          "valor": 155580,
           "pdfUrl": "",
           "pdfNome": ""
         },
@@ -16375,5 +16375,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783040297878
+  "savedAt": 1783040316796
 }

@@ -14786,7 +14786,7 @@
           "saq_pri": 47
         },
         "ind6": {
-          "madalena": 0,
+          "madalena": 1,
           "cachoeiras": 0,
           "saq_hosp": 0,
           "upa_pac": 0,
@@ -19528,5 +19528,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783044666366
+  "savedAt": 1783044669959
 }

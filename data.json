@@ -15069,8 +15069,8 @@
           "ctipo": "Pensão",
           "cnum": "",
           "valor": 549.85,
-          "pdfUrl": null,
-          "pdfNome": null
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/swkfah8.pdf",
+          "pdfNome": "ID 17 PENSÃO SARA- 549,85.pdf"
         },
         {
           "uid": "bxok5kv",
@@ -16390,5 +16390,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783042734660
+  "savedAt": 1783042744632
 }

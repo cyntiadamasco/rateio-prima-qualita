@@ -15290,8 +15290,8 @@
           "ctipo": "NF",
           "cnum": "365",
           "valor": 1373.72,
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/a7p5w5u.pdf",
+          "pdfNome": "ID 34 ICM MEDICINA- NMF 365 - 1.373,72.pdf"
         },
         {
           "uid": "qbhgwbf",
@@ -16390,5 +16390,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783043005778
+  "savedAt": 1783043025182
 }

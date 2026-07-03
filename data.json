@@ -14738,16 +14738,16 @@
           "saq_pri": 0
         },
         "ind2": {
-          "madalena": 0,
-          "cachoeiras": 0,
-          "saq_hosp": 0,
-          "upa_pac": 0,
-          "upa_nc": 0,
-          "arraial": 0,
-          "quissama": 0,
-          "cordeiro": 0,
-          "saq_esp": 0,
-          "saq_pri": 0
+          "madalena": 28,
+          "cachoeiras": 18,
+          "saq_hosp": 32,
+          "upa_pac": 21,
+          "upa_nc": 21,
+          "arraial": 25,
+          "quissama": 28,
+          "cordeiro": 18,
+          "saq_esp": 41,
+          "saq_pri": 43
         },
         "ind3": {
           "madalena": 174,
@@ -19528,5 +19528,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783044556717
+  "savedAt": 1783044559758
 }

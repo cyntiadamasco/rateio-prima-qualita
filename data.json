@@ -15095,8 +15095,8 @@
           "ctipo": "NF",
           "cnum": "4288",
           "valor": 9787.85,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/oz7bbyb.pdf",
-          "pdfNome": "CIGAM - NF 42488 - 9.787,85.pdf"
+          "pdfUrl": null,
+          "pdfNome": null
         },
         {
           "uid": "yeie8ac",
@@ -16390,5 +16390,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783042618768
+  "savedAt": 1783042632732
 }

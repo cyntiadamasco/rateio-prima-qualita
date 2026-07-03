@@ -15160,8 +15160,8 @@
           "ctipo": "NF",
           "cnum": "2380",
           "valor": 3392.16,
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/3xyjx6k.pdf",
+          "pdfNome": "ID 24 PRODUTIVA- NF 2380 -3.392,16.pdf"
         },
         {
           "uid": "0oay12h",
@@ -16390,5 +16390,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783042840947
+  "savedAt": 1783042854695
 }

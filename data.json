@@ -16002,7 +16002,7 @@
           "uid": "cegn2s0ix",
           "nome": "MARIA DA CONCEIÇÃO BALDINI BENEVIDES BLANC",
           "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "SUPERVISOR DE EDUCAÇÃO PERMANENTE I"
+          "funcao": "SUPERVISOR DE EDUCAÇÃO PERMANENTE III"
         },
         {
           "uid": "cipm6badc",
@@ -16188,7 +16188,7 @@
           "uid": "ckyxe61tc",
           "nome": "MARIANA GONÇALVES FELIX",
           "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ANALISTA DE DEPARTAMENTO"
+          "funcao": "ANALISTA DE DEPARTAMENTO PESS"
         },
         {
           "uid": "crxgmldv7",
@@ -19528,5 +19528,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783051236423
+  "savedAt": 1783051256511
 }

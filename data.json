@@ -15194,9 +15194,9 @@
           "objeto": "Locação de mobiliários e equipamentos para o CIGAC",
           "fav": "A4PM Analytics For Public Management LTDA",
           "cnpj": "23.034.181/0001-72",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "400",
+          "valor": 118697,
           "pdfUrl": "",
           "pdfNome": ""
         },
@@ -16375,5 +16375,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783040652284
+  "savedAt": 1783040674771
 }

@@ -15121,8 +15121,8 @@
           "ctipo": "NF",
           "cnum": "2364",
           "valor": 28573.12,
-          "pdfUrl": null,
-          "pdfNome": null
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/y0s8gw4.pdf",
+          "pdfNome": "ID 21 PRODUTIVA- NF 2364 -28.573,12.pdf"
         },
         {
           "uid": "566oi6c",
@@ -16390,5 +16390,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783042782682
+  "savedAt": 1783042806028
 }

@@ -14944,8 +14944,8 @@
           "ctipo": "DARF",
           "cnum": "",
           "valor": 67497.5,
-          "pdfUrl": null,
-          "pdfNome": null,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/5pl9dx4.pdf",
+          "pdfNome": "ID 09 IRRF FOLHA- 67.497,50.pdf",
           "dtPgto": "2026-06-12"
         },
         {
@@ -16383,5 +16383,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783042047478
+  "savedAt": 1783042065941
 }

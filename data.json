@@ -19486,8 +19486,8 @@
       },
       "iqual_pdfs": {
         "ind1": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202606_ind1.pdf",
+          "pdfNome": "INDICADOR 1 - DEPARTAMENTO PESSOAL-RH - MAIO26 .pdf"
         },
         "ind2": {
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202606_ind2.pdf",
@@ -19528,5 +19528,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783044559758
+  "savedAt": 1783044630035
 }

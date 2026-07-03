@@ -14889,7 +14889,8 @@
           "cnum": "1101",
           "valor": 3167,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/i3cqa3s.pdf",
-          "pdfNome": "ID 05 IGF AUDITORES- NF 1101 - 3.167,00.pdf"
+          "pdfNome": "ID 05 IGF AUDITORES- NF 1101 - 3.167,00.pdf",
+          "dtPgto": "2026-06-03"
         },
         {
           "uid": "zbjyyg9",
@@ -14901,8 +14902,9 @@
           "ctipo": "Folha de Pagamento",
           "cnum": "",
           "valor": 457572.91,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/zbjyyg9.pdf",
-          "pdfNome": "FOLHA DE PAGAMENTO - CIGAC - 05.2026.pdf"
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": "2026-06-02"
         },
         {
           "uid": "426sxug",
@@ -14914,8 +14916,8 @@
           "ctipo": "DARF",
           "cnum": "",
           "valor": 49248.87,
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/426sxug.pdf",
+          "pdfNome": "ID 07 INSS FOLHA PAGAMENTO- 49.248,87.pdf"
         },
         {
           "uid": "jipnd12",
@@ -16378,5 +16380,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783041695313
+  "savedAt": 1783041951304
 }

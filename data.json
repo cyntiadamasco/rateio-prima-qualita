@@ -15947,14 +15947,14 @@
         {
           "uid": "cfgpmt3a0",
           "nome": "VICTOR TEIXEIRA LESSA",
-          "dept": "DEPARTAMENTO FIN",
+          "dept": "DEPARTAMENTO FINANCEIRO",
           "funcao": "ASSISTENTE ADMINISTRATIVO I"
         },
         {
           "uid": "c93m8pj9g",
           "nome": "ZILANDA RODRIGUES DOS SANTOS",
           "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
-          "funcao": "AUXILIAR ADMINISTRATIVO"
+          "funcao": "AUXILIAR ADMINISTRATIVO III"
         },
         {
           "uid": "ckg36wtuu",
@@ -16038,7 +16038,7 @@
           "uid": "cljzeqgd4",
           "nome": "WENDEL CORREA DE PAO",
           "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "ASSISTENTE DE REMUNERAÇÃO"
+          "funcao": "ASSISTENTE DE REMUNERAÇÃO III"
         },
         {
           "uid": "c1k8i8k7m",
@@ -16092,7 +16092,7 @@
           "uid": "cmdra4sxa",
           "nome": "YASMIM FAGGIAN OLIVEIRA",
           "dept": "DEPARTAMENTO FINANCEIRO",
-          "funcao": "ASSISTENTE ADMINISTRATIVO II"
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
         },
         {
           "uid": "c6rplngz4",
@@ -16237,6 +16237,12 @@
           "nome": "RALF RIBEIRO DOS SANTOS",
           "dept": "SUPERINTENDÊNCIA",
           "funcao": "SUPERINTENDENTE ASSISTENCIAL"
+        },
+        {
+          "uid": "cmr4eyoyi7fj5x",
+          "nome": "",
+          "dept": "",
+          "funcao": ""
         }
       ],
       "despesasLocais": {
@@ -19528,5 +19534,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783051666691
+  "savedAt": 1783051731167
 }

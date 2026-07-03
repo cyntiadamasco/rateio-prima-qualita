@@ -14908,7 +14908,7 @@
           "objeto": "INSS sobre Folha",
           "fav": "Instituto Nacional do Seguro Social - INSS",
           "cnpj": "40.289.134/0001-99",
-          "ctipo": "GUIA",
+          "ctipo": "DARF",
           "cnum": "",
           "valor": 49248.87,
           "pdfUrl": "",
@@ -14921,9 +14921,9 @@
           "objeto": "Fundo de Garantia por Tempo de Serviços (FGTS)",
           "fav": "Caixa Econômica Federal - FGTS",
           "cnpj": "40.289.134/0001-99",
-          "ctipo": "",
+          "ctipo": "DARF",
           "cnum": "",
-          "valor": 0,
+          "valor": 51551.43,
           "pdfUrl": "",
           "pdfNome": ""
         },
@@ -16375,5 +16375,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783040240773
+  "savedAt": 1783040267769
 }

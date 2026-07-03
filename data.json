@@ -14810,16 +14810,16 @@
           "saq_pri": 0
         },
         "ind8": {
-          "madalena": 0,
-          "cachoeiras": 0,
-          "saq_hosp": 0,
-          "upa_pac": 0,
-          "upa_nc": 0,
-          "arraial": 0,
-          "quissama": 0,
-          "cordeiro": 0,
-          "saq_esp": 0,
-          "saq_pri": 0
+          "madalena": 4728,
+          "cachoeiras": 11167,
+          "saq_hosp": 32097,
+          "upa_pac": 11172,
+          "upa_nc": 11510,
+          "arraial": 45346,
+          "quissama": 6037,
+          "cordeiro": 4403,
+          "saq_esp": 53484,
+          "saq_pri": 53126
         }
       },
       "despesas": [
@@ -19528,5 +19528,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783045014434
+  "savedAt": 1783045095742
 }

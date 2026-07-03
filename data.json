@@ -15277,8 +15277,8 @@
           "ctipo": "NF",
           "cnum": "90610001",
           "valor": 723.52,
-          "pdfUrl": null,
-          "pdfNome": null
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/s2kol3w.pdf",
+          "pdfNome": "ID 33 RODOLFO LUCAS- NF 90610001 - 723,52.pdf"
         },
         {
           "uid": "a7p5w5u",
@@ -16390,5 +16390,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783042988764
+  "savedAt": 1783043005778
 }

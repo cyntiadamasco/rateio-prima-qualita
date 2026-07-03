@@ -15155,9 +15155,9 @@
           "objeto": "Sistema Contábil/Fiscal/DP/MENSALIDADE",
           "fav": "Alterdata Tecnologia em Informática LTDA",
           "cnpj": "36.462.778/0001-60",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "613621",
+          "valor": 2809.45,
           "pdfUrl": "",
           "pdfNome": ""
         },
@@ -16375,5 +16375,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783040674771
+  "savedAt": 1783040707277
 }

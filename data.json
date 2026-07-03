@@ -15238,8 +15238,8 @@
           "ctipo": "Boleto",
           "cnum": "",
           "valor": 49025.53,
-          "pdfUrl": null,
-          "pdfNome": null
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/e7utrs3.pdf",
+          "pdfNome": "ID 30 COND. SÃO GONÇALO SHOPP- NF 101 - 49.025,53.pdf"
         },
         {
           "uid": "44j2amj",
@@ -16390,5 +16390,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783042941028
+  "savedAt": 1783042953873
 }

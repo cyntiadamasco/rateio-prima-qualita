@@ -16340,8 +16340,8 @@
           "pdfNome": "BALANCETE CIGAC 06.2026.pdf"
         },
         "extrato": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202606_extrato.pdf",
+          "pdfNome": "EXTRATO CIGAC - 06.2026.PDF"
         },
         "movimentacao": {
           "pdfUrl": "",
@@ -16351,15 +16351,15 @@
           "pdfUrl": "",
           "pdfNome": ""
         },
-        "bl_saldoInicial": 0,
-        "bl_transferencias": 0,
-        "bl_aplicacao": 0,
-        "bl_rendimento": 0,
-        "bl_despesasExec": 0,
-        "bl_iof": 0,
-        "bl_ir": 0,
-        "bl_resgateFinanceiro": 0,
-        "bl_saldoFinal": 0,
+        "bl_saldoInicial": 192.42,
+        "bl_transferencias": 1428091.44,
+        "bl_aplicacao": 53400.76,
+        "bl_rendimento": 0.96,
+        "bl_despesasExec": 1428091.44,
+        "bl_iof": 0.75,
+        "bl_ir": 0.02,
+        "bl_resgateFinanceiro": 53472.67,
+        "bl_saldoFinal": 120.6999999999025,
         "ex_saldoFinal": 0,
         "obs": "",
         "extratoData": null
@@ -16408,5 +16408,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783044136607
+  "savedAt": 1783044152410
 }

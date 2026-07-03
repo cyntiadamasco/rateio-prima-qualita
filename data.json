@@ -15199,8 +15199,8 @@
           "ctipo": "NF",
           "cnum": "7",
           "valor": 26084.8,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/su96ehu.pdf",
-          "pdfNome": "SIX -  NF 7 - 26.084,80.pdf"
+          "pdfUrl": null,
+          "pdfNome": null
         },
         {
           "uid": "qeccsvm",
@@ -15225,8 +15225,8 @@
           "ctipo": "Boleto",
           "cnum": "",
           "valor": 16178.43,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/t252ngm.pdf",
-          "pdfNome": "ALUGUEL SEDE CIGAC GSR - 16.178,43.pdf"
+          "pdfUrl": null,
+          "pdfNome": null
         },
         {
           "uid": "e7utrs3",
@@ -15238,8 +15238,8 @@
           "ctipo": "Boleto",
           "cnum": "",
           "valor": 49025.53,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/e7utrs3.pdf",
-          "pdfNome": "ALUGUEL SEDE CIGAC COND SG - 49.025,53.pdf"
+          "pdfUrl": null,
+          "pdfNome": null
         },
         {
           "uid": "44j2amj",
@@ -16390,5 +16390,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783042674048
+  "savedAt": 1783042700037
 }

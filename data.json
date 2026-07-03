@@ -16098,13 +16098,13 @@
           "uid": "c6rplngz4",
           "nome": "ROBSON LOUREIRO FERNANDES",
           "dept": "DEPARTAMENTO JURÍDICO",
-          "funcao": "GERENTE JURÍDICO I"
+          "funcao": "GERENTE JURÍDICO II"
         },
         {
           "uid": "c6oxnwopg",
           "nome": "RODRIGO PAPAZIAN PINHO",
           "dept": "DEPARTAMENTO JURÍDICO",
-          "funcao": "COORDENADOR JURÍDICO"
+          "funcao": "COORDENADOR JURÍDICO III"
         },
         {
           "uid": "chdkcpk09",
@@ -19528,5 +19528,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783051472027
+  "savedAt": 1783051477091
 }

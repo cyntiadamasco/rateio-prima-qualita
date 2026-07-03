@@ -15612,7 +15612,7 @@
           "uid": "cpjid002v",
           "nome": "CASSANDRA SOARES DE OLIVEIRA",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "COORDENADOR DE REDE DE CUIDADOS III"
+          "funcao": "COORDENADOR A"
         },
         {
           "uid": "ceoikk6cv",
@@ -19528,5 +19528,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783050279311
+  "savedAt": 1783050339265
 }

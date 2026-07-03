@@ -15272,9 +15272,9 @@
           "objeto": "Serviços de SST",
           "fav": "ICM Medicina Ocupacional LTDA",
           "cnpj": "50.558.513/0001-90",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "365",
+          "valor": 1373.72,
           "pdfUrl": "",
           "pdfNome": ""
         },
@@ -16375,5 +16375,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783040610241
+  "savedAt": 1783040632965
 }

@@ -15064,7 +15064,7 @@
           "objeto": "Provisão de Verbas Rescisórias CIGAC",
           "fav": "Projeto Social Cresce Comunidade",
           "cnpj": "40.289.134/0001-99",
-          "ctipo": "",
+          "ctipo": "PLANILHA",
           "cnum": "",
           "valor": 200598.95,
           "pdfUrl": "",
@@ -15298,9 +15298,9 @@
           "objeto": "Licença de Uso Mensal do Software Vagas For Business",
           "fav": "Vagas Tecnologia de Software LTDA",
           "cnpj": "03.689.427/0001-37",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "314281",
+          "valor": 2532.11,
           "pdfUrl": "",
           "pdfNome": ""
         }
@@ -16375,5 +16375,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783040497158
+  "savedAt": 1783040610241
 }

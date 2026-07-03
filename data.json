@@ -15108,8 +15108,8 @@
           "ctipo": "NF",
           "cnum": "2381",
           "valor": 3356.1,
-          "pdfUrl": null,
-          "pdfNome": null
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/yeie8ac.pdf",
+          "pdfNome": "ID 20 PRODUTIVA- NF 2381 -3.356,10.pdf"
         },
         {
           "uid": "y0s8gw4",
@@ -16390,5 +16390,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783042776394
+  "savedAt": 1783042782682
 }

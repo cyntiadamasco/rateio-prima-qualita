@@ -15540,7 +15540,7 @@
           "uid": "cowehqpwg",
           "nome": "JOCIMAR SILVA DO NASCIMENTO",
           "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "AUXILIAR OPERACIONAL III"
+          "funcao": "AUXILIAR OPERACIONAL II"
         },
         {
           "uid": "c7f0hu80f",
@@ -15678,13 +15678,13 @@
           "uid": "c3iydn2se",
           "nome": "JOAO LUCAS BRITO DE OLIVEIRA",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "SUPERVISOR DE R"
+          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
         },
         {
           "uid": "c91o73p78",
           "nome": "JOAO VICTOR SIQUEIRA CAMPOS",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "AUXILIAR ADMINISTRATIVO"
+          "funcao": "ASSISTENTE ADMINISTRATIVO II"
         },
         {
           "uid": "cr8d2wiwa",
@@ -19528,5 +19528,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783050916506
+  "savedAt": 1783050991726
 }

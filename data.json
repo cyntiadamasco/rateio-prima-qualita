@@ -15043,7 +15043,8 @@
           "cnum": "",
           "valor": 24466.22,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/4un4xy0.pdf",
-          "pdfNome": "ID 15 CRÉDITO DO TRABALHADOR- 24.466,22.pdf"
+          "pdfNome": "ID 15 CRÉDITO DO TRABALHADOR- 24.466,22.pdf",
+          "dtPgto": "2026-06-17"
         },
         {
           "uid": "r45ddmo",
@@ -15055,8 +15056,8 @@
           "ctipo": "Pensão",
           "cnum": "",
           "valor": 691.18,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/r45ddmo.pdf",
-          "pdfNome": "PENSÃO ALIMENTÍCIA - CIGAC - 052026.pdf"
+          "pdfUrl": null,
+          "pdfNome": null
         },
         {
           "uid": "swkfah8",
@@ -16389,5 +16390,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783042443007
+  "savedAt": 1783042609669
 }

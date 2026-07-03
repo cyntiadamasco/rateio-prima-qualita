@@ -15121,8 +15121,8 @@
           "ctipo": "NF",
           "cnum": "2364",
           "valor": 28573.12,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/y0s8gw4.pdf",
-          "pdfNome": "PRODUTIVA - NF 2363 - 17.080,00.pdf"
+          "pdfUrl": null,
+          "pdfNome": null
         },
         {
           "uid": "566oi6c",
@@ -16390,5 +16390,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783042636030
+  "savedAt": 1783042647646
 }

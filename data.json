@@ -14960,9 +14960,9 @@
           "objeto": "Vale Transporte Colaboradores CIGAC",
           "fav": "Riopar Participações S/A",
           "cnpj": "16.727.386/0001-86",
-          "ctipo": "",
+          "ctipo": "BOLETO",
           "cnum": "",
-          "valor": 0,
+          "valor": 536.3,
           "pdfUrl": "",
           "pdfNome": ""
         },
@@ -14973,7 +14973,7 @@
           "objeto": "Vale Transporte Colaboradores CIGAC",
           "fav": "Riopar Participações S/A",
           "cnpj": "16.727.386/0001-86",
-          "ctipo": "",
+          "ctipo": "BOLETO",
           "cnum": "",
           "valor": 0,
           "pdfUrl": "",
@@ -14986,7 +14986,7 @@
           "objeto": "Vale Transporte Colaboradores CIGAC",
           "fav": "CBD Bilhete Digital",
           "cnpj": "48.707.842/0001-04",
-          "ctipo": "",
+          "ctipo": "BOLETO",
           "cnum": "",
           "valor": 0,
           "pdfUrl": "",
@@ -16375,5 +16375,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783040316796
+  "savedAt": 1783040347972
 }

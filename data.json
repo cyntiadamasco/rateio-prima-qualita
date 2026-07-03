@@ -15966,7 +15966,7 @@
           "uid": "cssty2if0",
           "nome": "EDLENE PAIVA DA SILVA",
           "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "SUPERVISOR DE EDUCAÇÃO"
+          "funcao": "SUPERVISOR DE EDUCAÇÃO CONTINUADA "
         },
         {
           "uid": "cf0lopc57",
@@ -16050,7 +16050,7 @@
           "uid": "c2x4l6wsg",
           "nome": "DIOGO DE OLIVEIRA CUNHA",
           "dept": "DEPARTAMENTO FINANCEIRO",
-          "funcao": "ASSISTENTE ADMINISTRATIVO II"
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
         },
         {
           "uid": "c15ln0cs0",
@@ -16138,7 +16138,7 @@
         },
         {
           "uid": "ckx7vrbgt",
-          "nome": "CRISTIANE ROSA CHAVES DO",
+          "nome": "CRISTIANE ROSA CHAVES DOS SANTOS",
           "dept": "DEPARTAMENTO PESSOAL",
           "funcao": "ASSISTENTE ADMINISTRATIVO II"
         },
@@ -19528,5 +19528,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783050422607
+  "savedAt": 1783050486800
 }

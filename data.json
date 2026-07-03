@@ -15744,7 +15744,7 @@
           "uid": "cz1g86332",
           "nome": "RAFAELA DA SILVA LEMOS",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "SUPERVISOR"
+          "funcao": "SUPERVISOR DE INFORMAÇÃO EM SAUDE I"
         },
         {
           "uid": "c54006au4",
@@ -15756,7 +15756,7 @@
           "uid": "cltr6o8e8",
           "nome": "RAPHAEL AREAS CAVALCANTE",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "SUPERVISORA DE REDES DE CUIDADOS I"
+          "funcao": "SUPERVISOR DE REDES DE CUIDADOS I"
         },
         {
           "uid": "cv5zk7l76",
@@ -16098,7 +16098,7 @@
           "uid": "c6rplngz4",
           "nome": "ROBSON LOUREIRO FERNANDES",
           "dept": "DEPARTAMENTO JURÍDICO",
-          "funcao": "GERENTE JURÍDICO"
+          "funcao": "GERENTE JURÍDICO I"
         },
         {
           "uid": "c6oxnwopg",
@@ -19528,5 +19528,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783051393945
+  "savedAt": 1783051472027
 }

@@ -16237,6 +16237,12 @@
           "nome": "RALF RIBEIRO DOS SANTOS",
           "dept": "SUPERINTENDÊNCIA",
           "funcao": "SUPERINTENDENTE ASSISTENCIAL"
+        },
+        {
+          "uid": "cmr4crdiuaxexi",
+          "nome": "",
+          "dept": "",
+          "funcao": ""
         }
       ],
       "despesasLocais": {
@@ -19528,5 +19534,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783047944389
+  "savedAt": 1783048030521
 }

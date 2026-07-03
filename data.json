@@ -15015,7 +15015,8 @@
           "cnum": "29723",
           "valor": 501.56,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/y0uqjqu.pdf",
-          "pdfNome": "ID 13 CIEE  - NF 29723 - 501,56.pdf"
+          "pdfNome": "ID 13 CIEE  - NF 29723 - 501,56.pdf",
+          "dtPgto": "2026-06-25"
         },
         {
           "uid": "p9otr4g",
@@ -15028,7 +15029,8 @@
           "cnum": "224",
           "valor": 20500,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/p9otr4g.pdf",
-          "pdfNome": "ID 14 RADIOCOM - NF 224 - 20.500,00.pdf"
+          "pdfNome": "ID 14 RADIOCOM - NF 224 - 20.500,00.pdf",
+          "dtPgto": "2026-06-12"
         },
         {
           "uid": "4un4xy0",
@@ -16387,5 +16389,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783042303372
+  "savedAt": 1783042443007
 }

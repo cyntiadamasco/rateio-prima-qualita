@@ -15939,12 +15939,6 @@
           "funcao": "ASSISTENTE ADMINISTRATIVO I"
         },
         {
-          "uid": "c872jkyvy",
-          "nome": "MARIA BIANCA NOBREGA MARINS",
-          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
-          "funcao": "JOVEM APRENDIZ"
-        },
-        {
           "uid": "cfgpmt3a0",
           "nome": "VICTOR TEIXEIRA LESSA",
           "dept": "DEPARTAMENTO FINANCEIRO",
@@ -16240,9 +16234,9 @@
         },
         {
           "uid": "cmr4eyoyi7fj5x",
-          "nome": "ANDREA DOS ",
-          "dept": "",
-          "funcao": ""
+          "nome": "ANDREA DOS SANTOS CARDOZO",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "SUPERVISOR DE RH I"
         }
       ],
       "despesasLocais": {
@@ -19534,5 +19528,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783051744089
+  "savedAt": 1783051808880
 }

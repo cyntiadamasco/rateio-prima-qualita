@@ -14958,8 +14958,9 @@
           "ctipo": "BOLETO",
           "cnum": "",
           "valor": 155580,
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/kazc6l1.pdf",
+          "pdfNome": "ID 10 TICKET - NF 94860 -155.580,00.pdf",
+          "dtPgto": "2026-06-22"
         },
         {
           "uid": "g4ljewj",
@@ -14972,7 +14973,8 @@
           "cnum": "",
           "valor": 536.3,
           "pdfUrl": "",
-          "pdfNome": ""
+          "pdfNome": "",
+          "dtPgto": "2026-06-23"
         },
         {
           "uid": "qirt7x8",
@@ -14985,7 +14987,8 @@
           "cnum": "",
           "valor": 62804.7,
           "pdfUrl": "",
-          "pdfNome": ""
+          "pdfNome": "",
+          "dtPgto": "2026-06-23"
         },
         {
           "uid": "vgid5ey",
@@ -14998,7 +15001,8 @@
           "cnum": "",
           "valor": 363.4,
           "pdfUrl": "",
-          "pdfNome": ""
+          "pdfNome": "",
+          "dtPgto": "2026-06-25"
         },
         {
           "uid": "y0uqjqu",
@@ -16383,5 +16387,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783042065941
+  "savedAt": 1783042211900
 }

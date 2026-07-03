@@ -14999,9 +14999,9 @@
           "objeto": "Contribuição Institucional Destinada a Manutenção do CIEE",
           "fav": "Centro de Integração Empresa Escola",
           "cnpj": "33.661.745/0001-50",
-          "ctipo": "",
+          "ctipo": "DARF",
           "cnum": "",
-          "valor": 24466.22,
+          "valor": 501.56,
           "pdfUrl": "",
           "pdfNome": ""
         },
@@ -16375,5 +16375,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783040373138
+  "savedAt": 1783040422386
 }

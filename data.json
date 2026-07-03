@@ -15040,8 +15040,8 @@
           "ctipo": "DARF",
           "cnum": "",
           "valor": 24466.22,
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/4un4xy0.pdf",
+          "pdfNome": "ID 15 CRÉDITO DO TRABALHADOR- 24.466,22.pdf"
         },
         {
           "uid": "r45ddmo",
@@ -16387,5 +16387,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783042293218
+  "savedAt": 1783042303372
 }

@@ -15014,8 +15014,8 @@
           "ctipo": "NF",
           "cnum": "29723",
           "valor": 501.56,
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/y0uqjqu.pdf",
+          "pdfNome": "ID 13 CIEE  - NF 29723 - 501,56.pdf"
         },
         {
           "uid": "p9otr4g",
@@ -16387,5 +16387,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783042258410
+  "savedAt": 1783042283280
 }

@@ -1764,27 +1764,45 @@ function renderQualitativo(){
   ${iqualPdfCards}`;
 }
 
-function uploadIqualPdf(indId,input){
+async function uploadIqualPdf(indId,input){
   const file=input.files[0];
   if(!file) return;
   const comp=currentComp;
   const uid='iqual_'+comp.replace('-','')+'_'+indId;
   const btn=input.previousElementSibling;
-  if(btn){btn.disabled=true;btn.textContent='⏳ Enviando...';}
+  if(btn){btn.disabled=true;btn.textContent='⏳ Lendo...';}
+
+  // Lê ArrayBuffer diretamente — funciona em file:// sem fetch/blob URL
+  const buf=await file.arrayBuffer();
+  _pdfBlobCache.set(uid,{buf:buf,nome:file.name});
+  // Persiste no localStorage para sobreviver ao reload
+  const reader=new FileReader();
+  reader.onload=e=>{
+    try{ localStorage.setItem('pq_iqual_'+uid,e.target.result); }
+    catch(err){ console.warn('[uploadIqualPdf] localStorage cheio:',err.message); }
+  };
+  reader.readAsDataURL(file);
+
+  const dataLocal=getMesData(comp);
+  if(!dataLocal.iqual_pdfs) dataLocal.iqual_pdfs={};
+  const substituindo=!!dataLocal.iqual_pdfs[indId]?.pdfUrl;
+  if(substituindo&&dataLocal.iqual&&dataLocal.iqual[indId]) CONTRATOS.forEach(cg=>{dataLocal.iqual[indId][cg.id]=0;});
+  dataLocal.iqual_pdfs[indId]={pdfUrl:'local:'+uid,pdfNome:file.name};
+  salvar();
+  renderQualitativo();
+  if(btn){btn.disabled=false;btn.textContent='📎 Anexar';}
+
+  // Tenta salvar no GitHub em segundo plano (opcional)
   githubUploadPDF(uid,file)
     .then(url=>{
-      const data=getMesData(comp);
-      if(!data.iqual_pdfs) data.iqual_pdfs={};
-      const substituindo=!!data.iqual_pdfs[indId]?.pdfUrl;
-      if(substituindo&&data.iqual&&data.iqual[indId]) CONTRATOS.forEach(cg=>{ data.iqual[indId][cg.id]=0; });
-      data.iqual_pdfs[indId]={pdfUrl:url,pdfNome:file.name};
-      salvar();
-      renderQualitativo();
+      if(url){
+        const data=getMesData(comp);
+        if(!data.iqual_pdfs) data.iqual_pdfs={};
+        data.iqual_pdfs[indId]={pdfUrl:url,pdfNome:file.name};
+        salvar();
+      }
     })
-    .catch(err=>{
-      alert('Erro ao enviar PDF: '+err.message);
-      if(btn){btn.disabled=false;btn.textContent='📎 Anexar';}
-    });
+    .catch(err=>console.warn('[uploadIqualPdf] GitHub falhou:',err.message));
   input.value='';
 }
 function verIqualPdf(indId){
@@ -1793,7 +1811,28 @@ function verIqualPdf(indId){
   if(!pdf||!pdf.pdfUrl) return;
   const uid='iqual_'+currentComp.replace('-','')+'_'+indId;
   const cached=_pdfBlobCache.get(uid);
-  document.getElementById('modal-pdf-frame').src=cached?cached.url:pdf.pdfUrl;
+  let src=null;
+  if(cached){
+    if(cached.url) src=cached.url;
+    else if(cached.buf){
+      const blob=new Blob([cached.buf],{type:'application/pdf'});
+      src=URL.createObjectURL(blob);
+      cached.url=src;
+    }
+  }
+  if(!src&&pdf.pdfUrl&&pdf.pdfUrl.startsWith('local:')){
+    const b64=localStorage.getItem('pq_iqual_'+uid);
+    if(b64){
+      const blobLocal=_b64toBlob(b64);
+      src=URL.createObjectURL(blobLocal);
+      _pdfBlobCache.set(uid,{url:src,nome:pdf.pdfNome});
+    } else {
+      alert('PDF disponível apenas nesta sessão.\nFaça o upload novamente para visualizar.');
+      return;
+    }
+  }
+  src=src||pdf.pdfUrl;
+  document.getElementById('modal-pdf-frame').src=src;
   document.getElementById('modal-pdf-nome').textContent=pdf.pdfNome||indId;
   document.getElementById('modal-pdf-uid').value=uid;
   document.getElementById('modal-pdf-url').value=pdf.pdfUrl;
@@ -1809,6 +1848,7 @@ function removerIqualPdf(indId){
   if(data.iqual&&data.iqual[indId]) CONTRATOS.forEach(cg=>{ data.iqual[indId][cg.id]=0; });
   const cached=_pdfBlobCache.get(uid);
   if(cached){URL.revokeObjectURL(cached.url);_pdfBlobCache.delete(uid);}
+  localStorage.removeItem('pq_iqual_'+uid);
   githubDeletePDF(uid).catch(()=>{});
   salvar();
   renderQualitativo();
@@ -6036,22 +6076,19 @@ function cgNameToId(name){
 
 function parseIndicadorQualitativo(allText){
   const result={};
-  // Método 1: extração direta de texto (PDFs com fonte legível, coluna única de QTD)
-  const re=/Contrato de Gest[aã]o[^-]+-\s*([^\n0-9]+?)\s+(\d+)\s+[\d,.]+%/gi;
+  // Método 1: extração direta de texto — aceita espaço antes de %
+  const re=/Contrato de Gest[aã]o[^-]+-\s*([^\n0-9]+?)\s+(\d+)\s+[\d,.]+\s*%/gi;
   let m;
   while((m=re.exec(allText))!==null){
     const cgId=cgNameToId(m[1].trim());
     if(cgId&&!result[cgId]) result[cgId]=parseInt(m[2],10);
   }
   if(Object.keys(result).length>0) return result;
-  // Método 2: tabela multi-coluna ou saída OCR — combina até 5 linhas por CG
-  // (cobre wrapping de nomes longos e células em linhas separadas)
+  // Método 2: tabela multi-coluna ou OCR — primeiro número após o nome do CG = QTD
   const lines=allText.split(/\r?\n/).filter(l=>l.trim().length>0);
   for(let i=0;i<lines.length;i++){
     if(!/contrato.{0,6}gest/i.test(lines[i])) continue;
-    // Combina linhas suficientes para capturar nome e todos os números do CG
     const chunk=lines.slice(i,Math.min(i+5,lines.length)).join(' ');
-    // Nome do CG: texto após o último " - " até o primeiro dígito
     const di=chunk.lastIndexOf(' - ');
     if(di<0) continue;
     const aft=chunk.slice(di+3);
@@ -6059,12 +6096,11 @@ function parseIndicadorQualitativo(allText){
     if(!nm) continue;
     const cgId=cgNameToId(nm[1].trim());
     if(!cgId) continue;
-    // Total: último inteiro antes do valor percentual (X,XX% ou XX,XX%)
-    const pm=chunk.match(/^(.+)\s+\d+[,.]\d+%/)||chunk.match(/^(.+)\s+\d+%/);
-    if(!pm) continue;
-    const ints=(pm[1].match(/\d+/g)||[]);
-    if(ints.length===0) continue;
-    result[cgId]=parseInt(ints[ints.length-1],10);
+    // QTD = primeiro inteiro após o nome do CG (ignora rodapé e totais)
+    const afterName=aft.slice(nm[0].length);
+    const firstNum=afterName.match(/(\d+)/);
+    if(!firstNum) continue;
+    if(!result[cgId]) result[cgId]=parseInt(firstNum[1],10);
   }
   return result;
 }
@@ -6197,16 +6233,35 @@ async function lerIndicador(indId){
     alert('Nenhum PDF do indicador anexado.\nFaça o upload do PDF primeiro.');
     return;
   }
+  const uid='iqual_'+currentComp.replace('-','')+'_'+indId;
+  // blob local expirou após reload — pede novo upload
+  const _cachedBlob=_pdfBlobCache.get(uid);
+  if(!_cachedBlob&&pdf.pdfUrl&&pdf.pdfUrl.startsWith('local:')){
+    const b64=localStorage.getItem('pq_iqual_'+uid);
+    if(b64){
+      const blobLocal=_b64toBlob(b64);
+      const restoredBuf=await blobLocal.arrayBuffer();
+      _pdfBlobCache.set(uid,{buf:restoredBuf,nome:pdf.pdfNome});
+    } else {
+      alert('PDF disponível apenas nesta sessão.\nFaça o upload novamente para reler.');
+      return;
+    }
+  }
   const btn=document.getElementById('btn-ler-ind-'+indId);
   if(btn){btn.disabled=true;btn.textContent='⏳ Lendo...';}
   try{
     const pdfjs=await loadPDFJS();
-    const uid='iqual_'+currentComp.replace('-','')+'_'+indId;
     const cached=_pdfBlobCache.get(uid);
-    const src=cached?cached.url:pdf.pdfUrl;
-    const resp=await fetch(src);
-    if(!resp.ok) throw new Error('Falha ao buscar PDF (HTTP '+resp.status+')');
-    const buf=await resp.arrayBuffer();
+    let buf;
+    if(cached&&cached.buf){
+      // ArrayBuffer local — não precisa de fetch (funciona em file://)
+      buf=cached.buf;
+    } else {
+      const src=cached?cached.url:pdf.pdfUrl;
+      const resp=await fetch(src);
+      if(!resp.ok) throw new Error('Falha ao buscar PDF (HTTP '+resp.status+')');
+      buf=await resp.arrayBuffer();
+    }
     const pdfDoc=await pdfjs.getDocument({data:buf}).promise;
     const pg=await pdfDoc.getPage(1);
     const tc=await pg.getTextContent();

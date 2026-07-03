@@ -15966,7 +15966,7 @@
           "uid": "cssty2if0",
           "nome": "EDLENE PAIVA DA SILVA",
           "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "SUPERVISOR DE EDUCAÇÃO CONTINUADA "
+          "funcao": "SUPERVISOR DE EDUCAÇÃO CONTINUADA I"
         },
         {
           "uid": "cf0lopc57",
@@ -16146,7 +16146,7 @@
           "uid": "co8ztt05g",
           "nome": "ELENA VIANA MACEDO",
           "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "GERENTE DE DEPARTAMENTO PESSOAL"
+          "funcao": "GERENTE DE GES"
         },
         {
           "uid": "cewcxvdg7",
@@ -19528,5 +19528,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783050486800
+  "savedAt": 1783050502882
 }

@@ -14847,8 +14847,8 @@
           "ctipo": "NF",
           "cnum": "8",
           "valor": 11000,
-          "pdfUrl": null,
-          "pdfNome": null,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/kjnmwtj.pdf",
+          "pdfNome": "ID 02 E SIMÔES- NF 08 - 11.000,00.pdf",
           "dtPgto": "2026-06-12"
         },
         {
@@ -16377,5 +16377,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783041612250
+  "savedAt": 1783041630417
 }

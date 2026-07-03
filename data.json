@@ -15912,7 +15912,7 @@
           "uid": "cvuz2vq99",
           "nome": "SANDY KEYTMA MELO RAMALHO",
           "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
-          "funcao": "ASSISTENTE ADMINISTRATIVO"
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
         },
         {
           "uid": "chjymghbu",
@@ -16206,7 +16206,7 @@
           "uid": "c0abx06y7",
           "nome": "SHIRLEY DE OLIVEIRA MATOS",
           "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ASSISTENTE ADMINISTRATIVO"
+          "funcao": "ASSISTENTE ADMINISTRATIVO I"
         },
         {
           "uid": "cnbebi1ou",
@@ -19528,5 +19528,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783051552009
+  "savedAt": 1783051577776
 }

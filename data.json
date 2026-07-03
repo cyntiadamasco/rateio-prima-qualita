@@ -14798,16 +14798,16 @@
           "saq_pri": 61
         },
         "ind7": {
-          "madalena": 56,
-          "cachoeiras": 45,
-          "saq_hosp": 23,
-          "upa_pac": 69,
-          "upa_nc": 85,
-          "arraial": 45,
-          "quissama": 62,
-          "cordeiro": 84,
-          "saq_esp": 52,
-          "saq_pri": 35
+          "madalena": 0,
+          "cachoeiras": 0,
+          "saq_hosp": 0,
+          "upa_pac": 0,
+          "upa_nc": 0,
+          "arraial": 0,
+          "quissama": 0,
+          "cordeiro": 0,
+          "saq_esp": 0,
+          "saq_pri": 0
         },
         "ind8": {
           "madalena": 4728,
@@ -19510,8 +19510,8 @@
           "pdfNome": "INDICADOR 6 - COMPRAS E CONTRATOS - MAIO.2026.pdf"
         },
         "ind7": {
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202606_ind7.pdf",
-          "pdfNome": "IND1 - Departamento de Pessoal - Recursos Humanos - JUN-2026.pdf"
+          "pdfUrl": "",
+          "pdfNome": ""
         },
         "ind8": {
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202606_ind8.pdf",
@@ -19528,5 +19528,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783047904144
+  "savedAt": 1783047941883
 }

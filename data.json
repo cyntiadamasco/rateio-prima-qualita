@@ -15636,7 +15636,7 @@
           "uid": "cg8mv8gk8",
           "nome": "FABIO PINTO DA MATTA",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "SUPERVISOR DE TI "
+          "funcao": "SUPERVISOR DE TI III"
         },
         {
           "uid": "cknrxc8dh",
@@ -16158,7 +16158,7 @@
           "uid": "cbzangbh1",
           "nome": "GIOVANA FERREIRA DA CONCEICAO RODRIGUES",
           "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ASSISTENTE ADMINISTRATIVO II"
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
         },
         {
           "uid": "cvlvqmx8d",
@@ -19528,5 +19528,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783050588152
+  "savedAt": 1783050613873
 }

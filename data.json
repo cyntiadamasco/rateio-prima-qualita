@@ -15978,7 +15978,7 @@
           "uid": "cinag40fu",
           "nome": "JANDARA TEIXEIRA DIAS ROCHA",
           "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "ASSISTENTE DE RECURSOS HUMANOS I"
+          "funcao": "ASSISTENTE DE RECURSOS I"
         },
         {
           "uid": "ca11pptja",
@@ -16168,7 +16168,7 @@
         },
         {
           "uid": "cxg7ip5e6",
-          "nome": "ITALO LUIZ RODRIGUES DA COSTA JUST",
+          "nome": "ITALO LUIZ RODRIGUES DA COSTA JUSTINO",
           "dept": "DEPARTAMENTO PESSOAL",
           "funcao": "SUPERVISOR DE DEPARTAMENTO PESSOAL III"
         },
@@ -19528,5 +19528,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783050787203
+  "savedAt": 1783050838460
 }

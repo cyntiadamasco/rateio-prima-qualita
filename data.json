@@ -14658,7 +14658,7 @@
           "clt": 120,
           "efetivo": 25,
           "pj": 32,
-          "obs": "O número de colaboradores é referente a competência de ABRIL/2026"
+          "obs": ""
         },
         {
           "id": "cachoeiras",
@@ -14721,7 +14721,7 @@
           "clt": 539,
           "efetivo": 41,
           "pj": 11,
-          "obs": "504"
+          "obs": ""
         }
       ],
       "iqual": {
@@ -14869,9 +14869,9 @@
           "objeto": "Suporte ao desenvolvimento de Ouvidoria e apoio aos processos de sindicância",
           "fav": "Gustavo Fróes Sociedade Individual de Advocacia",
           "cnpj": "43.485.758/0001-70",
-          "ctipo": "",
+          "ctipo": "NF2026/7",
           "cnum": "",
-          "valor": 0,
+          "valor": 7000,
           "pdfUrl": "",
           "pdfNome": ""
         },
@@ -16375,5 +16375,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1782916347079
+  "savedAt": 1783040207740
 }

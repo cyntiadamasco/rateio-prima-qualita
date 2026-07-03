@@ -15057,7 +15057,8 @@
           "cnum": "",
           "valor": 691.18,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/r45ddmo.pdf",
-          "pdfNome": "ID 16 PENSÃO MICHELLE- 691,18.pdf"
+          "pdfNome": "ID 16 PENSÃO MICHELLE- 691,18.pdf",
+          "dtPgto": "2026-06-03"
         },
         {
           "uid": "swkfah8",
@@ -15070,7 +15071,8 @@
           "cnum": "",
           "valor": 549.85,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/swkfah8.pdf",
-          "pdfNome": "ID 17 PENSÃO SARA- 549,85.pdf"
+          "pdfNome": "ID 17 PENSÃO SARA- 549,85.pdf",
+          "dtPgto": "2026-06-03"
         },
         {
           "uid": "bxok5kv",
@@ -15096,7 +15098,8 @@
           "cnum": "4288",
           "valor": 9787.85,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/oz7bbyb.pdf",
-          "pdfNome": "ID 19 CIGAM- NF 42488- 9.787,85.pdf"
+          "pdfNome": "ID 19 CIGAM- NF 42488- 9.787,85.pdf",
+          "dtPgto": "2026-06-09"
         },
         {
           "uid": "yeie8ac",
@@ -15109,7 +15112,8 @@
           "cnum": "2381",
           "valor": 3356.1,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/yeie8ac.pdf",
-          "pdfNome": "ID 20 PRODUTIVA- NF 2381 -3.356,10.pdf"
+          "pdfNome": "ID 20 PRODUTIVA- NF 2381 -3.356,10.pdf",
+          "dtPgto": "2026-06-25"
         },
         {
           "uid": "y0s8gw4",
@@ -15122,7 +15126,8 @@
           "cnum": "2364",
           "valor": 28573.12,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/y0s8gw4.pdf",
-          "pdfNome": "ID 21 PRODUTIVA- NF 2364 -28.573,12.pdf"
+          "pdfNome": "ID 21 PRODUTIVA- NF 2364 -28.573,12.pdf",
+          "dtPgto": "2026-06-09"
         },
         {
           "uid": "566oi6c",
@@ -15135,7 +15140,8 @@
           "cnum": "2363",
           "valor": 17080,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/566oi6c.pdf",
-          "pdfNome": "ID 22 PRODUTIVA- NF 2363 - 17.080,00.pdf"
+          "pdfNome": "ID 22 PRODUTIVA- NF 2363 - 17.080,00.pdf",
+          "dtPgto": "2026-06-09"
         },
         {
           "uid": "52ntwp4",
@@ -15148,7 +15154,8 @@
           "cnum": "544",
           "valor": 4876.04,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/52ntwp4.pdf",
-          "pdfNome": "ID 23 KPMG - NF  544 - 4.876,04.pdf"
+          "pdfNome": "ID 23 KPMG - NF  544 - 4.876,04.pdf",
+          "dtPgto": "2026-06-29"
         },
         {
           "uid": "3xyjx6k",
@@ -15161,7 +15168,8 @@
           "cnum": "2380",
           "valor": 3392.16,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/3xyjx6k.pdf",
-          "pdfNome": "ID 24 PRODUTIVA- NF 2380 -3.392,16.pdf"
+          "pdfNome": "ID 24 PRODUTIVA- NF 2380 -3.392,16.pdf",
+          "dtPgto": "2026-06-25"
         },
         {
           "uid": "0oay12h",
@@ -15174,7 +15182,8 @@
           "cnum": "613621",
           "valor": 2809.45,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/0oay12h.pdf",
-          "pdfNome": "ID 25 ALTERDATA - NF 613621 - 2.809,45.pdf"
+          "pdfNome": "ID 25 ALTERDATA - NF 613621 - 2.809,45.pdf",
+          "dtPgto": "2026-06-25"
         },
         {
           "uid": "wk4rq1i",
@@ -15200,7 +15209,8 @@
           "cnum": "7",
           "valor": 26084.8,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/su96ehu.pdf",
-          "pdfNome": "ID 27 SIX TREINAMENTO- NF 07 - 26.084,80.pdf"
+          "pdfNome": "ID 27 SIX TREINAMENTO- NF 07 - 26.084,80.pdf",
+          "dtPgto": "2026-06-08"
         },
         {
           "uid": "qeccsvm",
@@ -15213,7 +15223,8 @@
           "cnum": "400",
           "valor": 118697,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/qeccsvm.pdf",
-          "pdfNome": "ID 28 A4PM ANALYTICS - NF 400 - 118.697,00.pdf"
+          "pdfNome": "ID 28 A4PM ANALYTICS - NF 400 - 118.697,00.pdf",
+          "dtPgto": "2026-06-29"
         },
         {
           "uid": "t252ngm",
@@ -15226,7 +15237,8 @@
           "cnum": "",
           "valor": 16178.43,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/t252ngm.pdf",
-          "pdfNome": "ID 29 RIZA SECURATIZAÇÃO - NF 101 - 16.178,43.pdf"
+          "pdfNome": "ID 29 RIZA SECURATIZAÇÃO - NF 101 - 16.178,43.pdf",
+          "dtPgto": "2026-06-03"
         },
         {
           "uid": "e7utrs3",
@@ -15239,7 +15251,8 @@
           "cnum": "",
           "valor": 49025.53,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/e7utrs3.pdf",
-          "pdfNome": "ID 30 COND. SÃO GONÇALO SHOPP- NF 101 - 49.025,53.pdf"
+          "pdfNome": "ID 30 COND. SÃO GONÇALO SHOPP- NF 101 - 49.025,53.pdf",
+          "dtPgto": "2026-06-03"
         },
         {
           "uid": "44j2amj",
@@ -15265,7 +15278,8 @@
           "cnum": "352",
           "valor": 37505.57,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/w6g2ebc.pdf",
-          "pdfNome": "ID 32 PROMEDICAL- NF352 - 37.505,57.pdf"
+          "pdfNome": "ID 32 PROMEDICAL- NF352 - 37.505,57.pdf",
+          "dtPgto": "2026-06-23"
         },
         {
           "uid": "s2kol3w",
@@ -15278,7 +15292,8 @@
           "cnum": "90610001",
           "valor": 723.52,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/s2kol3w.pdf",
-          "pdfNome": "ID 33 RODOLFO LUCAS- NF 90610001 - 723,52.pdf"
+          "pdfNome": "ID 33 RODOLFO LUCAS- NF 90610001 - 723,52.pdf",
+          "dtPgto": "2026-06-09"
         },
         {
           "uid": "a7p5w5u",
@@ -15291,7 +15306,8 @@
           "cnum": "365",
           "valor": 1373.72,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/a7p5w5u.pdf",
-          "pdfNome": "ID 34 ICM MEDICINA- NMF 365 - 1.373,72.pdf"
+          "pdfNome": "ID 34 ICM MEDICINA- NMF 365 - 1.373,72.pdf",
+          "dtPgto": "2026-06-12"
         },
         {
           "uid": "qbhgwbf",
@@ -15304,7 +15320,8 @@
           "cnum": "",
           "valor": 2398.52,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/qbhgwbf.pdf",
-          "pdfNome": "ID 35 UNIMED - NF 0178 - 2.398,52.pdf"
+          "pdfNome": "ID 35 UNIMED - NF 0178 - 2.398,52.pdf",
+          "dtPgto": "2026-06-02"
         },
         {
           "uid": "8yk6mfj",
@@ -15317,7 +15334,8 @@
           "cnum": "314281",
           "valor": 2532.11,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/8yk6mfj.pdf",
-          "pdfNome": "ID 36 VAGAS- NF 214281 - 2.532,11.pdf"
+          "pdfNome": "ID 36 VAGAS- NF 214281 - 2.532,11.pdf",
+          "dtPgto": "2026-06-12"
         }
       ],
       "orcamentos": {
@@ -16390,5 +16408,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783043060722
+  "savedAt": 1783044068915
 }

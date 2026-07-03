@@ -15303,8 +15303,8 @@
           "ctipo": "Boleto",
           "cnum": "",
           "valor": 2398.52,
-          "pdfUrl": null,
-          "pdfNome": null
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/qbhgwbf.pdf",
+          "pdfNome": "ID 35 UNIMED - NF 0178 - 2.398,52.pdf"
         },
         {
           "uid": "8yk6mfj",
@@ -16390,5 +16390,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783043025182
+  "savedAt": 1783043044439
 }

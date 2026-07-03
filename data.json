@@ -15948,7 +15948,7 @@
           "uid": "cfgpmt3a0",
           "nome": "VICTOR TEIXEIRA LESSA",
           "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
-          "funcao": "ASSISTENTE ADMINISTRATIVO"
+          "funcao": "ASSISTENTE ADMINISTRATIVO I"
         },
         {
           "uid": "c93m8pj9g",
@@ -19528,5 +19528,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783051645506
+  "savedAt": 1783051659424
 }

@@ -15828,7 +15828,7 @@
           "uid": "cfyk1qoj5",
           "nome": "NICOLE CANTINI FIGUEIRA LIMA",
           "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
-          "funcao": "ASSISTENTE DE COMPRAS"
+          "funcao": "ASSISTENTE DE COMPRAS III"
         },
         {
           "uid": "cph7zpwcj",
@@ -16188,7 +16188,7 @@
           "uid": "ckyxe61tc",
           "nome": "MARIANA GONÇALVES FELIX",
           "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ANALISTA DE DEPARTAMENTO PESS"
+          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
         },
         {
           "uid": "crxgmldv7",
@@ -19528,5 +19528,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783051256511
+  "savedAt": 1783051270551
 }

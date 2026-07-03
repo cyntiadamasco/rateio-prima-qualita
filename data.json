@@ -16344,8 +16344,8 @@
           "pdfNome": "EXTRATO CIGAC - 06.2026.PDF"
         },
         "movimentacao": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202606_movimentacao.pdf",
+          "pdfNome": "MOVIMENTAÇÃO CIGAC 06.2026.pdf"
         },
         "razao": {
           "pdfUrl": "",
@@ -19528,5 +19528,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783044156347
+  "savedAt": 1783044175582
 }

@@ -19510,8 +19510,8 @@
           "pdfNome": "INDICADOR 6 - COMPRAS E CONTRATOS - MAIO.2026.pdf"
         },
         "ind7": {
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202606_ind7.pdf",
-          "pdfNome": "Relatório Prestação de Contas - Jurídico - MAIO 2026.pdf"
+          "pdfUrl": "",
+          "pdfNome": ""
         },
         "ind8": {
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202606_ind8.pdf",
@@ -19528,5 +19528,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783352565961
+  "savedAt": 1783352609222
 }

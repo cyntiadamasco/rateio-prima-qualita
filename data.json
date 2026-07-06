@@ -14758,8 +14758,8 @@
           "arraial": 258,
           "quissama": 145,
           "cordeiro": 82,
-          "saq_esp": 0,
-          "saq_pri": 0
+          "saq_esp": 152,
+          "saq_pri": 202
         },
         "ind4": {
           "madalena": 745,
@@ -19528,5 +19528,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1783352717448
+  "savedAt": 1783352944095
 }

@@ -1131,7 +1131,7 @@ body.readonly [onclick^="importarContrat"]{display:none!important}
       </div>
     </div>
     <span id="sync-status" style="display:flex;align-items:center;gap:4px"><span class="sync-dot" id="sync-dot"></span><span class="sync-lbl" id="sync-lbl"></span></span>
-    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-07-06a</span>
+    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-07-06b</span>
     <button class="btn btn-teal btn-sm edit-only" onclick="salvar()">💾 Salvar</button>
     <button id="btn-lock-edit" onclick="toggleEditMode()" title="Modo de edição">🔒 Editar</button>
   </div>
@@ -1419,11 +1419,11 @@ function prevCompLabel(comp){ return compLabel(prevComp(comp)); }
    PERSISTÊNCIA
 ===================================================================== */
 function _liberarEspacoLS(){
-  // Remove caches de PDF (base64) que podem ser re-carregados
+  // Remove caches de PDF e o bloco antigo monolítico (libera a maior parte do espaço)
   const remover=[];
   for(let i=0;i<localStorage.length;i++){
     const k=localStorage.key(i);
-    if(k&&(k.startsWith('pq_iqual_')||k.startsWith('pq_pdf_')))
+    if(k&&(k.startsWith('pq_iqual_')||k.startsWith('pq_pdf_')||k==='pq_rateio_v2'))
       remover.push(k);
   }
   remover.forEach(k=>localStorage.removeItem(k));
@@ -1432,7 +1432,13 @@ function _liberarEspacoLS(){
 
 function salvar(){
   const _gravar=()=>{
-    localStorage.setItem('pq_rateio_v2',JSON.stringify(state));
+    // Remove bloco antigo único antes de escrever (evita precisar de espaço duplo)
+    try{ localStorage.removeItem('pq_rateio_v2'); }catch(ex){}
+    // Salva cada mês em chave separada – cada uma é pequena (~100-200 KB)
+    Object.keys(state).forEach(k=>{
+      if(/^\d{4}-\d{2}$/.test(k))
+        localStorage.setItem('pq_mes_'+k, JSON.stringify(state[k]));
+    });
     localStorage.setItem('pq_comp',currentComp);
     localStorage.setItem('pq_saved_at',String(Date.now()));
   };
@@ -1440,17 +1446,16 @@ function salvar(){
     _gravar();
   }catch(e){
     if(e.name==='QuotaExceededError'||e.code===22||e.code===1014){
-      const n=_liberarEspacoLS();
+      _liberarEspacoLS();
       try{
         _gravar();
         const el=document.getElementById('save-ind');
         el.style.display='block';
         setTimeout(()=>el.style.display='none',2200);
-        if(n>0) console.info('[salvar] Liberados '+n+' caches de PDF para abrir espaço no localStorage.');
         if(ghToken()) githubSalvar();
         return;
       }catch(e2){
-        alert('Armazenamento local cheio.\n\nOs dados NÃO foram salvos.\n\nSolução: abra as Opções → Sincronizar com GitHub para enviar os dados, depois recarregue a página.\n\n(Detalhe técnico: '+e2.message+')');
+        alert('Armazenamento local cheio.\n\nOs dados NÃO foram salvos localmente mas estão preservados na memória desta sessão.\n\nFaça o backup agora: Opções → Exportar Dados (JSON).\n\n(Detalhe: '+e2.message+')');
         return;
       }
     }
@@ -1465,12 +1470,25 @@ function salvar(){
 
 function carregar(){
   try{
-    const s=localStorage.getItem('pq_rateio_v2');
-    if(s){
-      state=JSON.parse(s);
-      // Protege dados locais: sem timestamp → cria um para evitar sobrescrita pelo GitHub
-      if(!localStorage.getItem('pq_saved_at')){
-        localStorage.setItem('pq_saved_at',String(Date.now()));
+    // Tenta formato novo: uma chave por mês (pq_mes_YYYY-MM)
+    const meses=[];
+    for(let i=0;i<localStorage.length;i++){
+      const k=localStorage.key(i);
+      if(k&&k.startsWith('pq_mes_')) meses.push(k);
+    }
+    if(meses.length>0){
+      state={};
+      meses.forEach(k=>{
+        const comp=k.slice(7); // remove 'pq_mes_'
+        try{ state[comp]=JSON.parse(localStorage.getItem(k)); }catch(ex){}
+      });
+    } else {
+      // Formato legado: bloco único pq_rateio_v2
+      const s=localStorage.getItem('pq_rateio_v2');
+      if(s){
+        state=JSON.parse(s);
+        if(!localStorage.getItem('pq_saved_at'))
+          localStorage.setItem('pq_saved_at',String(Date.now()));
       }
     }
     const c=localStorage.getItem('pq_comp');

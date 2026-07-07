@@ -1966,1984 +1966,6 @@
       "relQuant": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/relquant_2026-01.pdf",
       "relQuantNome": "1. CRITÉRIO QUANTITATIVO - COMPLETO_.pdf"
     },
-    "2026-02": {
-      "colaboradores": [
-        {
-          "id": "madalena",
-          "clt": 122,
-          "efetivo": 27,
-          "pj": 30,
-          "obs": "O número de colaboradores é referente a competência de DEZEMBRO/2025."
-        },
-        {
-          "id": "cachoeiras",
-          "clt": 365,
-          "efetivo": 0,
-          "pj": 125,
-          "obs": ""
-        },
-        {
-          "id": "saq_hosp",
-          "clt": 1504,
-          "efetivo": 59,
-          "pj": 715,
-          "obs": ""
-        },
-        {
-          "id": "upa_pac",
-          "clt": 81,
-          "efetivo": 0,
-          "pj": 36,
-          "obs": ""
-        },
-        {
-          "id": "upa_nc",
-          "clt": 79,
-          "efetivo": 0,
-          "pj": 36,
-          "obs": ""
-        },
-        {
-          "id": "arraial",
-          "clt": 896,
-          "efetivo": 98,
-          "pj": 332,
-          "obs": ""
-        },
-        {
-          "id": "quissama",
-          "clt": 63,
-          "efetivo": 108,
-          "pj": 4,
-          "obs": ""
-        },
-        {
-          "id": "cordeiro",
-          "clt": 104,
-          "efetivo": 0,
-          "pj": 69,
-          "obs": ""
-        },
-        {
-          "id": "saq_esp",
-          "clt": 91,
-          "efetivo": 40,
-          "pj": 30,
-          "obs": ""
-        },
-        {
-          "id": "saq_pri",
-          "clt": 475,
-          "efetivo": 42,
-          "pj": 11,
-          "obs": ""
-        }
-      ],
-      "iqual": {
-        "ind1": {
-          "madalena": 122,
-          "cachoeiras": 367,
-          "saq_hosp": 1506,
-          "upa_pac": 80,
-          "upa_nc": 80,
-          "arraial": 905,
-          "quissama": 63,
-          "cordeiro": 101,
-          "saq_esp": 90,
-          "saq_pri": 476
-        },
-        "ind2": {
-          "madalena": 16,
-          "cachoeiras": 12,
-          "saq_hosp": 19,
-          "upa_pac": 15,
-          "upa_nc": 15,
-          "arraial": 46,
-          "quissama": 12,
-          "cordeiro": 12,
-          "saq_esp": 21,
-          "saq_pri": 38
-        },
-        "ind3": {
-          "madalena": 174,
-          "cachoeiras": 244,
-          "saq_hosp": 365,
-          "upa_pac": 141,
-          "upa_nc": 145,
-          "arraial": 289,
-          "quissama": 117,
-          "cordeiro": 136,
-          "saq_esp": 123,
-          "saq_pri": 165
-        },
-        "ind4": {
-          "madalena": 629,
-          "cachoeiras": 1250,
-          "saq_hosp": 2069,
-          "upa_pac": 619,
-          "upa_nc": 583,
-          "arraial": 1432,
-          "quissama": 527,
-          "cordeiro": 836,
-          "saq_esp": 597,
-          "saq_pri": 699
-        },
-        "ind5": {
-          "madalena": 25,
-          "cachoeiras": 65,
-          "saq_hosp": 90,
-          "upa_pac": 33,
-          "upa_nc": 26,
-          "arraial": 99,
-          "quissama": 30,
-          "cordeiro": 30,
-          "saq_esp": 18,
-          "saq_pri": 48
-        },
-        "ind6": {
-          "madalena": 83,
-          "cachoeiras": 100,
-          "saq_hosp": 144,
-          "upa_pac": 60,
-          "upa_nc": 51,
-          "arraial": 109,
-          "quissama": 53,
-          "cordeiro": 67,
-          "saq_esp": 63,
-          "saq_pri": 77
-        },
-        "ind7": {
-          "madalena": 157,
-          "cachoeiras": 475,
-          "saq_hosp": 1661,
-          "upa_pac": 108,
-          "upa_nc": 150,
-          "arraial": 980,
-          "quissama": 75,
-          "cordeiro": 132,
-          "saq_esp": 124,
-          "saq_pri": 522
-        },
-        "ind8": {
-          "madalena": 4424,
-          "cachoeiras": 11429,
-          "saq_hosp": 60296,
-          "upa_pac": 8803,
-          "upa_nc": 10780,
-          "arraial": 67320,
-          "quissama": 6596,
-          "cordeiro": 4018,
-          "saq_esp": 8733,
-          "saq_pri": 43521
-        }
-      },
-      "despesas": [
-        {
-          "uid": "lu625jo",
-          "id": "1",
-          "cat": "Assessoria Jurídica",
-          "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório",
-          "fav": "Pablo Siqueira Sociedade Individual de Advocacia",
-          "cnpj": "18.464.526/0001-98",
-          "ctipo": "NF",
-          "cnum": "1",
-          "valor": 36000,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "ybx89rl",
-          "id": "1.1",
-          "cat": "Assessoria Jurídica",
-          "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório",
-          "fav": "Pablo Siqueira Sociedade Individual de Advocacia",
-          "cnpj": "18.464.526/0001-98",
-          "ctipo": "NF",
-          "cnum": "4",
-          "valor": 36000,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "gyt82w2",
-          "id": "2",
-          "cat": "Assessoria Jurídica",
-          "objeto": "Contencioso e consultivo na área de direito cível e de direito médico e da saúde",
-          "fav": "E Simões Sociedade Individual de Advocacia",
-          "cnpj": "40.101.757/0001-96",
-          "ctipo": "NF",
-          "cnum": "2",
-          "valor": 11000,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "w1jd920",
-          "id": "3",
-          "cat": "Assessoria Jurídica",
-          "objeto": "Compliance jurídico",
-          "fav": "Gauche Advogados Associados",
-          "cnpj": "48.916.964/0001-00",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "ijppopw",
-          "id": "4",
-          "cat": "Assessoria Jurídica",
-          "objeto": "Suporte ao desenvolvimento de Ouvidoria e apoio aos processos de sindicância",
-          "fav": "Gustavo Fróes Sociedade Individual de Advocacia",
-          "cnpj": "43.485.758/0001-70",
-          "ctipo": "NF",
-          "cnum": "202602",
-          "valor": 7000,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "qsr0hy2",
-          "id": "5",
-          "cat": "Auditorias Contábil, Fiscal e Financeira",
-          "objeto": "Serviços de Auditoria Financeira e Contábil",
-          "fav": "IGF Auditores e Consultores Independentes Sociedade Simples",
-          "cnpj": "04.899.444/0001-61",
-          "ctipo": "NF",
-          "cnum": "1066",
-          "valor": 3167,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "itmx7sl",
-          "id": "6",
-          "cat": "Folha de Pagamento CIGAC",
-          "objeto": "Folha de Pagamento Colaboradores Matriz",
-          "fav": "Projeto Social Cresce Comunidade - Prima Qualitá",
-          "cnpj": "40.289.134/0001-99",
-          "ctipo": "Folha de Pagamento",
-          "cnum": "",
-          "valor": 525508.31,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "ekcvzwz",
-          "id": "7",
-          "cat": "Folha de Pagamento CIGAC",
-          "objeto": "INSS sobre Folha",
-          "fav": "Instituto Nacional do Seguro Social - INSS",
-          "cnpj": "40.289.134/0001-99",
-          "ctipo": "Guia",
-          "cnum": "",
-          "valor": 52710.68,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "tisucgb",
-          "id": "8",
-          "cat": "Folha de Pagamento CIGAC",
-          "objeto": "Fundo de Garantia por Tempo de Serviços (FGTS)",
-          "fav": "Caixa Econômica Federal - FGTS",
-          "cnpj": "40.289.134/0001-99",
-          "ctipo": "Guia",
-          "cnum": "",
-          "valor": 56991.46,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "qs01dc5",
-          "id": "9",
-          "cat": "Folha de Pagamento CIGAC",
-          "objeto": "Imposto de Renda Pessoa Física - Folha",
-          "fav": "Receita Federal",
-          "cnpj": "40.289.134/0001-99",
-          "ctipo": "Guia",
-          "cnum": "",
-          "valor": 67426.62,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "b5r70h2",
-          "id": "10",
-          "cat": "Folha de Pagamento CIGAC",
-          "objeto": "Vale Refeição/Alimentação Colaboradores Matriz",
-          "fav": "Ticket Soluções HDFGT S/A",
-          "cnpj": "47.866.934/0001-74",
-          "ctipo": "Boleto",
-          "cnum": "",
-          "valor": 147540,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "xht9b71",
-          "id": "11",
-          "cat": "Folha de Pagamento CIGAC",
-          "objeto": "Vale Transporte Colaboradores Matriz",
-          "fav": "Riopar Participações S/A",
-          "cnpj": "16.727.386/0001-86",
-          "ctipo": "Boleto",
-          "cnum": "",
-          "valor": 16772.1,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "2mhnjop",
-          "id": "12",
-          "cat": "Folha de Pagamento CIGAC",
-          "objeto": "Vale Transporte Colaboradores Matriz",
-          "fav": "Riopar Participações S/A",
-          "cnpj": "16.727.386/0001-86",
-          "ctipo": "Boleto",
-          "cnum": "",
-          "valor": 36387,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "bwwc1jr",
-          "id": "12.1",
-          "cat": "Folha de Pagamento CIGAC",
-          "objeto": "Vale Transporte Colaboradores Matriz",
-          "fav": "CDB Bilhete Digital",
-          "cnpj": "48.707.842/0001-04",
-          "ctipo": "Boleto",
-          "cnum": "",
-          "valor": 347.6,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "8g292eu",
-          "id": "13",
-          "cat": "Folha de Pagamento CIGAC",
-          "objeto": "Contribuição Institucional Destinada a Manutenção do CIEE",
-          "fav": "Centro de Integração Empresa Escola",
-          "cnpj": "33.661.745/0001-50",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "7aibrlb",
-          "id": "14",
-          "cat": "Folha de Pagamento CIGAC",
-          "objeto": "Coordenação de Revisão de Óbitos e Prontuários Institucional",
-          "fav": "Radiocom Diagnosticos LTDA",
-          "cnpj": "33.192.856/0001-65",
-          "ctipo": "NF",
-          "cnum": "63",
-          "valor": 20500,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "8ns5mmw",
-          "id": "15",
-          "cat": "Folha de Pagamento CIGAC",
-          "objeto": "Empréstimo Consignado",
-          "fav": "Crédito Trabalhador",
-          "cnpj": "40.289.134/0001-99",
-          "ctipo": "Guia",
-          "cnum": "",
-          "valor": 20289.46,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "btpluvt",
-          "id": "16",
-          "cat": "Folha de Pagamento CIGAC",
-          "objeto": "Pensão Alimentícia - Colaborador Douglas Barcellos Silva",
-          "fav": "Michele Guilhermina Moraes Barcellos",
-          "cnpj": "115.607.797-48",
-          "ctipo": "Relatório",
-          "cnum": "",
-          "valor": 346.22,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "u5w3kb3",
-          "id": "17",
-          "cat": "Folha de Pagamento CIGAC",
-          "objeto": "Pensão Alimentícia - Colaborador Dioni de Oliveira Schuvartz",
-          "fav": "Sara Almeida Souza Schuvartz",
-          "cnpj": "054.299.487-99",
-          "ctipo": "Relatório",
-          "cnum": "",
-          "valor": 930.64,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "2pbgev5",
-          "id": "18",
-          "cat": "Folha de Pagamento CIGAC",
-          "objeto": "Provisão de Verbas Rescisórias",
-          "fav": "Projeto Social Cresce Comunidade",
-          "cnpj": "40.289.134/0001-99",
-          "ctipo": "Planilha",
-          "cnum": "",
-          "valor": 222211.54,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "cpxtwtn",
-          "id": "19",
-          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
-          "objeto": "Servidor Nuvem Privada em Data Center",
-          "fav": "Cigam Software Corporativo S.A",
-          "cnpj": "93.578.813/0001-44",
-          "ctipo": "NF",
-          "cnum": "38343",
-          "valor": 9787.85,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "wd9667w",
-          "id": "20",
-          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
-          "objeto": "Sistema de Gestão RH /  HORAS",
-          "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
-          "cnpj": "24.783.564/0001-06",
-          "ctipo": "NF",
-          "cnum": "2134",
-          "valor": 39310.94,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "3tit0df",
-          "id": "21",
-          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
-          "objeto": "Sistema de Gestão ERP / MENSALIDADE",
-          "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
-          "cnpj": "24.783.564/0001-06",
-          "ctipo": "NF",
-          "cnum": "2115",
-          "valor": 28037.44,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "l3xudj5",
-          "id": "22",
-          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
-          "objeto": "Sistema de DP/RH",
-          "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
-          "cnpj": "24.783.564/0001-06",
-          "ctipo": "NF",
-          "cnum": "2114",
-          "valor": 17080,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "0gp2kkc",
-          "id": "23",
-          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
-          "objeto": "Sistema de Análise de Risco",
-          "fav": "KPMG Assessores LTDA",
-          "cnpj": "05.490.840/0019-22",
-          "ctipo": "NF",
-          "cnum": "88",
-          "valor": 4876.04,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "bi5k4aw",
-          "id": "24",
-          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
-          "objeto": "Sistema de Gestão ERP / HORAS",
-          "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
-          "cnpj": "24.783.564/0001-06",
-          "ctipo": "NF",
-          "cnum": "2133",
-          "valor": 9803.37,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "uddqdc7",
-          "id": "25",
-          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
-          "objeto": "Sistema Contábil/Fiscal/DP/MENSALIDADE",
-          "fav": "Alterdata Tecnologia em Informática LTDA",
-          "cnpj": "36.462.778/0001-60",
-          "ctipo": "Boleto",
-          "cnum": "",
-          "valor": 14494.85,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "m0cbq0r",
-          "id": "26",
-          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
-          "objeto": "Sistema Prestação de Contas",
-          "fav": "BR Gaap Corporation Tecnologia da Informação Ltda",
-          "cnpj": "16.106.178/0001-51",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "hcp48jf",
-          "id": "27",
-          "cat": "Melhoria Contínua",
-          "objeto": "Serviço de Treinamento de Melhoria Contínua",
-          "fav": "Six Treinamento Empresarial LTDA",
-          "cnpj": "19.196.342/0001-57",
-          "ctipo": "NF",
-          "cnum": "3",
-          "valor": 26084.8,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "a1mrj5m",
-          "id": "28",
-          "cat": "Locação de Mobiliário e Equipamentos de Informática (CIGAC)",
-          "objeto": "Locação de mobiliários e equipamentos para o Centro Admistrativo/Distribuição",
-          "fav": "A4PM Analytics For Public Management LTDA",
-          "cnpj": "23.034.181/0001-72",
-          "ctipo": "NF",
-          "cnum": "117",
-          "valor": 118697,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "frh1hdn",
-          "id": "29",
-          "cat": "Locação de Imóvel CIGAC e Despesas",
-          "objeto": "Aluguel Imóvel Centro Administrativo/Distribuição",
-          "fav": "João de Deus",
-          "cnpj": "518.318.487-91",
-          "ctipo": "Recibo",
-          "cnum": "",
-          "valor": 26000,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "ot85aqz",
-          "id": "30",
-          "cat": "Locação de Imóvel CIGAC e Despesas",
-          "objeto": "Energia Elétrica Centro Administrativo/Distribuição",
-          "fav": "Ampla Energia e Serviços S.A",
-          "cnpj": "33.050.071/0001-58",
-          "ctipo": "Boleto",
-          "cnum": "",
-          "valor": 11947.43,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "qsqa37x",
-          "id": "31",
-          "cat": "Locação de Imóvel CIGAC e Despesas",
-          "objeto": "Água e Esgoto do Centro Administrativo/Distribuição",
-          "fav": "Águas do Rio 1 SPE s.A.",
-          "cnpj": "42.310.775/0033-90",
-          "ctipo": "Boleto",
-          "cnum": "",
-          "valor": 528.55,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "w3f71qc",
-          "id": "32",
-          "cat": "Locação de Imóvel CIGAC e Despesas",
-          "objeto": "IPTU Centro Administrativo",
-          "fav": "Prefeitura Municipal de Rio Bonito",
-          "cnpj": "28.741.072/0001-09",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "ovt9x3n",
-          "id": "33",
-          "cat": "Locação de Imóvel CIGAC e Despesas",
-          "objeto": "Taxa Prevenção e Extinção de Incêndio (Corpo de Bombeiros)",
-          "fav": "Governo do Estado do Rio de Janeiro - SEDEC/CBMERJ",
-          "cnpj": "28.176.998/0004-41",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "o02asaj",
-          "id": "34",
-          "cat": "Locação de Imóvel CIGAC e Despesas",
-          "objeto": "Aluguel Imóvel Arquivo Geral",
-          "fav": "Nilton Alves da Fonseca",
-          "cnpj": "33.050.071/0001-58",
-          "ctipo": "Recibo",
-          "cnum": "",
-          "valor": 950,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "xq23xi5",
-          "id": "35",
-          "cat": "Locação de Imóvel CIGAC e Despesas",
-          "objeto": "Energia Elétrica Arquivo Geral",
-          "fav": "Ampla Energia e Serviços S.A",
-          "cnpj": "33.050.071/0001-58",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "ty9ck0q",
-          "id": "36",
-          "cat": "Locação de Imóvel CIGAC e Despesas",
-          "objeto": "Energia Elétrica Arquivo Geral",
-          "fav": "Ampla Energia e Serviços S.A",
-          "cnpj": "33.050.071/0001-58",
-          "ctipo": "Boleto",
-          "cnum": "",
-          "valor": 52.24,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "rhdho4g",
-          "id": "37",
-          "cat": "Locação de Imóvel CIGAC e Despesas",
-          "objeto": "Água e Esgoto do Arquivo Geral",
-          "fav": "Águas do Rio 1 SPE s.A.",
-          "cnpj": "42.310.775/0033-90",
-          "ctipo": "Boleto",
-          "cnum": "",
-          "valor": 80.72,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "6cq9q7n",
-          "id": "38",
-          "cat": "Locação de Imóvel CIGAC e Despesas",
-          "objeto": "IPTU Centro Administrativo",
-          "fav": "Prefeitura Municipal de Rio Bonito",
-          "cnpj": "28.741.072/0001-09",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "a2z5wvt",
-          "id": "39",
-          "cat": "Locação de Imóvel CIGAC e Despesas",
-          "objeto": "Taxa Prevenção e Extinção de Incêndio (Corpo de Bombeiros)",
-          "fav": "Governo do Estado do Rio de Janeiro - SEDEC/CBMERJ",
-          "cnpj": "28.176.998/0004-41",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "q4vbpb2",
-          "id": "40",
-          "cat": "Locação de Imóvel CIGAC e Despesas",
-          "objeto": "Locação de veículos para atender a Central de logística",
-          "fav": "Promedical Serviços em Saude LTDA",
-          "cnpj": "35.788.642/0001-81",
-          "ctipo": "NF",
-          "cnum": "8",
-          "valor": 16423.95,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "myzqsi6",
-          "id": "41",
-          "cat": "Locação de Veículo Apoio Administrativo",
-          "objeto": "Locação de veículos para atender a Central Administrativa",
-          "fav": "Promedical Serviços em Saude LTD",
-          "cnpj": "35.788.642/0001-81",
-          "ctipo": "NF",
-          "cnum": "313",
-          "valor": 36395.58,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "r92y0z1",
-          "id": "42",
-          "cat": "Despesas de materiais de expediente e afins",
-          "objeto": "Fornecimento de Água Mineral",
-          "fav": "Rodolfo Lucas Duarte 08848690750",
-          "cnpj": "11.967.651/0001-71",
-          "ctipo": "NF",
-          "cnum": "11071588",
-          "valor": 761.6,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "84ft49m",
-          "id": "43",
-          "cat": "Medicina do Trabalho",
-          "objeto": "Serviços de SST",
-          "fav": "ICM Medicina Ocupacional LTDA",
-          "cnpj": "50.558.513/0001-90",
-          "ctipo": "NF",
-          "cnum": "74",
-          "valor": 1576.4,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "tpt3vcy",
-          "id": "44",
-          "cat": "Seguro de Vida",
-          "objeto": "Seguro de Vida Colaboradores Matriz",
-          "fav": "Unimed Seguradora S/A",
-          "cnpj": "10.414.185/0001-09",
-          "ctipo": "Boleto",
-          "cnum": "",
-          "valor": 2752.4,
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        {
-          "uid": "j5uzp5n",
-          "id": "45",
-          "cat": "Plataforma Processo Seletivo",
-          "objeto": "Licença de Uso Mensal do Software Vagas For Business",
-          "fav": "Vagas Tecnologia de Software LTDA",
-          "cnpj": "03.689.427/0001-37",
-          "ctipo": "NF",
-          "cnum": "311257",
-          "valor": 2532.11,
-          "pdfUrl": "",
-          "pdfNome": ""
-        }
-      ],
-      "orcamentos": {
-        "madalena": 1823622.46,
-        "cachoeiras": 5569428.51,
-        "saq_hosp": 27839691.66,
-        "upa_pac": 1738091.52,
-        "upa_nc": 1742636.68,
-        "arraial": 12712703.2,
-        "quissama": 1507247.38,
-        "cordeiro": 1149096.31,
-        "saq_esp": 2091258.28,
-        "saq_pri": 7668646.47
-      },
-      "contratos_ativos": [
-        {
-          "uid": "cmqg21186cdc0s",
-          "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório\n",
-          "favorecido": " Pablo Siqueira Sociedade Individual de Advocacia ",
-          "cnpj": " 18.464.526/0001-98 ",
-          "nrProcesso": "117/2024",
-          "nrContrato": "001/2024"
-        },
-        {
-          "uid": "cmqg211865vh49",
-          "objeto": "Compliance jurídico\n",
-          "favorecido": " Gauche Advogados Associados ",
-          "cnpj": " 48.916.964/0001-00 ",
-          "nrProcesso": "117/2024",
-          "nrContrato": "002/2024"
-        },
-        {
-          "uid": "cmqg21186eez9a",
-          "objeto": "Contencioso e consultivo na área de direito cível e de direito médico e da saúde\n",
-          "favorecido": " E Simões Sociedade Individual de Advocacia ",
-          "cnpj": " 40.101.757/0001-96 ",
-          "nrProcesso": "117/2024",
-          "nrContrato": "003/2024"
-        },
-        {
-          "uid": "cmqg21186nyozo",
-          "objeto": "Suporte ao desenvolvimento de Ouvidoria e apoio aos processos de sindicância\n",
-          "favorecido": " Gustavo Fróes Sociedade Individual de Advocacia ",
-          "cnpj": " 43.485.758/0001-70 ",
-          "nrProcesso": "117/2024",
-          "nrContrato": "004/2024"
-        },
-        {
-          "uid": "cmqg21186yigxw",
-          "objeto": "Serviços de Auditoria Financeira e Contábil\n",
-          "favorecido": " IGF Auditores e Consultores Independentes Sociedade Simples ",
-          "cnpj": " 04.899.444/0001-61 ",
-          "nrProcesso": "121/2024",
-          "nrContrato": "024/2024"
-        },
-        {
-          "uid": "cmqg21186smvor",
-          "objeto": "Coordenação de Revisão de Óbitos e Prontuários Institucional\n",
-          "favorecido": " Radiocom Diagnosticos LTDA ",
-          "cnpj": " 33.192.856/0001-65 ",
-          "nrProcesso": "075/2023",
-          "nrContrato": "013/2023"
-        },
-        {
-          "uid": "cmqg21186fjt3l",
-          "objeto": "Servidor Nuvem Privada em Data Center\n",
-          "favorecido": " Cigam Software Corporativo S.A ",
-          "cnpj": " 24.783.564/0001-06 ",
-          "nrProcesso": "067/2024",
-          "nrContrato": "-"
-        },
-        {
-          "uid": "cmqg21186za2pf",
-          "objeto": "Sistema de Gestão ERP / MENSALIDADE\n",
-          "favorecido": " Produtiva Consultoria em Sistema de Gestão LTDA ",
-          "cnpj": " 24.783.564/0001-06 ",
-          "nrProcesso": "159/2023",
-          "nrContrato": "-"
-        },
-        {
-          "uid": "cmqg21186kvfa5",
-          "objeto": "Sistema de DP/RH\n",
-          "favorecido": " Produtiva Consultoria em Sistema de Gestão LTDA ",
-          "cnpj": " 24.783.564/0001-06 ",
-          "nrProcesso": "161/2023",
-          "nrContrato": "-"
-        },
-        {
-          "uid": "cmqg21186e9e2f",
-          "objeto": "Sistema de Análise de Risco\n",
-          "favorecido": " KPMG Assessores LTDA ",
-          "cnpj": " 05.490.840/0019-22 ",
-          "nrProcesso": "139/2023",
-          "nrContrato": "-"
-        },
-        {
-          "uid": "cmqg211869yheh",
-          "objeto": "Sistema Contábil/Fiscal/DP/MENSALIDADE\n",
-          "favorecido": " Alterdata Tecnologia em Informática LTDA ",
-          "cnpj": " 36.462.778/0001-60 ",
-          "nrProcesso": "177/2021",
-          "nrContrato": "014/2021"
-        },
-        {
-          "uid": "cmqg211866o9ly",
-          "objeto": "Serviço de Treinamento de Melhoria Contínua\n",
-          "favorecido": " Six Treinamento Empresarial LTDA ",
-          "cnpj": " 19.196.342/0001-57 ",
-          "nrProcesso": "204/2023",
-          "nrContrato": "001/2024"
-        },
-        {
-          "uid": "cmqg21186tkkfi",
-          "objeto": "Locação de mobiliários e equipamentos para o CIGAC",
-          "favorecido": " A4PM Analytics For Public Management LTDA ",
-          "cnpj": " 23.034.181/0001-72 ",
-          "nrProcesso": "192/2023",
-          "nrContrato": "038/2023"
-        },
-        {
-          "uid": "cmqg21186zes7o",
-          "objeto": "Locação de veículos para atender ao CIGAC\n",
-          "favorecido": " Promedical Serviços em Saude LTD ",
-          "cnpj": " 35.788.642/0001-81 ",
-          "nrProcesso": "195/2023",
-          "nrContrato": "014/2024"
-        },
-        {
-          "uid": "cmqg21186pwwcq",
-          "objeto": "Fornecimento de Água Mineral\n",
-          "favorecido": " Rodolfo Lucas Duarte 08848690750 ",
-          "cnpj": " 11.967.651/0001-71 ",
-          "nrProcesso": "157/2023",
-          "nrContrato": "025/2023"
-        },
-        {
-          "uid": "cmqg21186uaoaf",
-          "objeto": "Seguro de Vida Colaboradores CIGAC\n",
-          "favorecido": " Unimed Seguradora S/A ",
-          "cnpj": " 10.414.185/0001-09 ",
-          "nrProcesso": "082/2021",
-          "nrContrato": "APÓLICE"
-        },
-        {
-          "uid": "cmqg21186mp9rb",
-          "objeto": "Licença de Uso Mensal do Software Vagas For Business\n",
-          "favorecido": " Vagas Tecnologia de Software LTDA ",
-          "cnpj": " 03.689.427/0001-37 ",
-          "nrProcesso": "047/2022",
-          "nrContrato": "007/2022"
-        },
-        {
-          "uid": "cmqg211866x3x1",
-          "objeto": "Serviços de SST colaboradores CIGAC\n",
-          "favorecido": " Icm Medicina Ocupacional Ltda ",
-          "cnpj": " 50.558.513/0001-90 ",
-          "nrProcesso": "111/2025",
-          "nrContrato": "001/2025"
-        },
-        {
-          "uid": "cmqg211862326m",
-          "objeto": "Sistema Prestação de Contas\n",
-          "favorecido": " BR Gaap Corporation Tecnologia da Informação Ltda ",
-          "cnpj": " 16.106.178/0001-51 ",
-          "nrProcesso": "153/2023",
-          "nrContrato": "002/2025"
-        }
-      ],
-      "contratos_obs": "1. As cópias dos processos de contratação/contratos referentes aos itens 1 a 17, foram enviados na prestação de contas do mês de outubro/24;\t\t\t\t\n2. A cópia do processo de contratação/contrato referente aos itens de 18 e 19, foram enviados na prestação de contas do mês de janeiro/26.\t\t\t\t\n",
-      "colab_lista": [
-        {
-          "uid": "cbmyvlkad",
-          "nome": "EMERSON RODRIGUES SARDINHA",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "AUXILIAR OPERACIONAL"
-        },
-        {
-          "uid": "c4e4aci97",
-          "nome": "FABIA FIALHO MOREIRA BRAZIL",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "ANALISTA ADMINISTRATIVO III"
-        },
-        {
-          "uid": "cwihlrhex",
-          "nome": "FERNANDA FONSECA COUTINHO GROSS",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "ANALISTA ADMINISTRATIVO III"
-        },
-        {
-          "uid": "c8vw2xqji",
-          "nome": "FLAVIO HENRIQUE DE SOUZA COSTA",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "AUXILIAR OPERACIONAL"
-        },
-        {
-          "uid": "cqtzxcfen",
-          "nome": "GILSON GOUVEA",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "SUPERVISOR DE SEGURANÇA"
-        },
-        {
-          "uid": "cisnuw0ht",
-          "nome": "JOCIMAR SILVA DO NASCIMENTO",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "AUXILIAR OPERACIONAL III"
-        },
-        {
-          "uid": "ctkmn0hac",
-          "nome": "JORGE MARCIO DE OLIVEIRA RIBEIRO",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "AUXILIAR ADMINISTRATIVO"
-        },
-        {
-          "uid": "c6nnbvovt",
-          "nome": "LEONARDO BARCELOS MARTINS",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "AUXILIAR ADMINISTRATIVO"
-        },
-        {
-          "uid": "cl7y2fplt",
-          "nome": "LUCAS DA COSTA SILVA PEREIRA",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "AUXILIAR OPERACIONAL"
-        },
-        {
-          "uid": "cse9sm8wj",
-          "nome": "LUIS AUGUSTO DA SILVA SANTANA",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "ANALISTA OPERACIONAL I"
-        },
-        {
-          "uid": "cdr2cu3pb",
-          "nome": "MARINALVA PEREIRA MACHADO",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "COORDENADOR ADMINISTRATIVO I - RT"
-        },
-        {
-          "uid": "c355sb3js",
-          "nome": "NELI DA CONCEICAO MARINS",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "AUXILIAR DE SERVIÇOS GERAIS III"
-        },
-        {
-          "uid": "c6tejf0r1",
-          "nome": "RODRIGO PEÇANHA DOS SANTOS",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "AUXILIAR DE SERVIÇOS GERAIS III"
-        },
-        {
-          "uid": "ckhrfppsv",
-          "nome": "VERONICA PEREIRA DO NASCIMENTO ABREU",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "ASSISTENTE ADMINISTRATIVO II"
-        },
-        {
-          "uid": "cgxu18skj",
-          "nome": "CARLA DA COSTA LEITE",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "AUXILIAR ADMINISTRATIVO"
-        },
-        {
-          "uid": "cwr0xf0bk",
-          "nome": "ALEXANDER DINIZ DOS SANTOS",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ANALISTA ADMINISTRATIVO III"
-        },
-        {
-          "uid": "cp0dlyj5z",
-          "nome": "ANA PAULA DAS GRAÇAS LIMA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ASSISTENTE ADMINISTRATIVO III"
-        },
-        {
-          "uid": "cq0cgyz9u",
-          "nome": "CASSANDRA SOARES DE OLIVEIRA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "COORDENADOR DE REDE DE CUIDADOS III"
-        },
-        {
-          "uid": "cikl9zjcl",
-          "nome": "DANIEL BARBOSA PROCOPIO",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "SUPERVISOR DE INFORMACAO EM SAUDE I"
-        },
-        {
-          "uid": "cuk1tyi2k",
-          "nome": "DIONI DE OLIVEIRA SCHUVARTZ",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ANALISTA ASSISTENCIAL III"
-        },
-        {
-          "uid": "cwcva0d99",
-          "nome": "ESTER SOARES ALVES XIMENES",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "COORDENADOR DE REDE DE CUIDADOS I"
-        },
-        {
-          "uid": "cmcw85hbe",
-          "nome": "FABIO PINTO DA MATTA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "SUPERVISOR DE TI"
-        },
-        {
-          "uid": "cj0fslkl9",
-          "nome": "FRANCIELE DE LIMA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
-        },
-        {
-          "uid": "cu2rmbm7x",
-          "nome": "GLAUCIA DE OLIVEIRA PINHEIRO CAPIBARIBE",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "COORDENADOR DE REDE DE CUIDADOS II"
-        },
-        {
-          "uid": "ccaeagy9m",
-          "nome": "GREICIANE SOUZA CARDOSO",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ASSISTENTE ADMINISTRATIVO II"
-        },
-        {
-          "uid": "cw8q8az5y",
-          "nome": "HENRIQUE CASTRO VALVIESSE",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ANALISTA DE CONTRATO III"
-        },
-        {
-          "uid": "cpdas85uv",
-          "nome": "JACI XAVIER DA FONSECA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ASSISTENTE DE TI II"
-        },
-        {
-          "uid": "cxtg5cjl4",
-          "nome": "JOANE DE OLIVEIRA RÔLA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
-        },
-        {
-          "uid": "cgpktaf1a",
-          "nome": "JOAO LUCAS BRITO DE OLIVEIRA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ASSISTENTE ADMINISTRATIVO III"
-        },
-        {
-          "uid": "cdlxisair",
-          "nome": "JOAO VICTOR SIQUEIRA CAMPOS",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "AUXILIAR ADMINISTRATIVO"
-        },
-        {
-          "uid": "clqi9o4pw",
-          "nome": "JOSE ROBERTO LOPES DA SILVA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ASSISTENTE ADMINISTRATIVO I"
-        },
-        {
-          "uid": "clwbozn51",
-          "nome": "LEONARDO LIMA CARVALHO",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ANALISTA ADMINISTRATIVO III"
-        },
-        {
-          "uid": "cptc3kx6n",
-          "nome": "LEONARDO RODRIGUES FRIAS",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "GERENTE DE TI II"
-        },
-        {
-          "uid": "cwixm519w",
-          "nome": "LINCON DA SILVA FULY",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ASSISTENTE DE TI II"
-        },
-        {
-          "uid": "cs0xg4gcj",
-          "nome": "MARCELA ROCHA FERREIRA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
-        },
-        {
-          "uid": "cx76tu002",
-          "nome": "MARIA EDUARDA MORAES XAVIER",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
-        },
-        {
-          "uid": "cr4agdpkj",
-          "nome": "MARIANA LATTANZI CRISPINO",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
-        },
-        {
-          "uid": "cpsouwz0o",
-          "nome": "MARINA CARVALHO PASSOS SOARES",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ASSISTENTE ADMINISTRATIVO III"
-        },
-        {
-          "uid": "c4ccqksxw",
-          "nome": "PALOMA SUZANO MEDEIROS",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ANALISTA ADMINISTRATIVO III"
-        },
-        {
-          "uid": "cy5r2gai2",
-          "nome": "RAFAELA DA SILVA LEMOS",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ANALISTA ASSISTENCIAL I"
-        },
-        {
-          "uid": "chte381ro",
-          "nome": "RAFAELA OLIVEIRA FERREIRA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "GERENTE DE SAÚDE III"
-        },
-        {
-          "uid": "c3s1gjh7u",
-          "nome": "RAPHAEL AREAS CAVALCANTE",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "SUPERVISORA DE REDES DE CUIDADOS I"
-        },
-        {
-          "uid": "cwb3vse8e",
-          "nome": "RICARDO DE ALMEIDA MANGABEIRA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "COORDENADOR DE REDE DE CUIDADOS II"
-        },
-        {
-          "uid": "ctu0wijo3",
-          "nome": "ROGERIO DA COSTA AZEVEDO",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
-        },
-        {
-          "uid": "coj1jpvvy",
-          "nome": "SUELLEN PIRES DE FREITAS",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "AUXILIAR ADMINISTRATIVO"
-        },
-        {
-          "uid": "cu3nnf85k",
-          "nome": "VALDECY MOTA RIBEIRO",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ASSISTENTE OPERACIONAL I"
-        },
-        {
-          "uid": "c2fzz38qn",
-          "nome": "VANESSA VIEIRA DA SILVEIRA MENDONÇA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
-        },
-        {
-          "uid": "c603oo4b7",
-          "nome": "DIEGO DE FIGUEIREDO SANTOS",
-          "dept": "DEPARTAMENTO DE COMPLIANCE",
-          "funcao": "COORDENADOR DE COMPLIANCE"
-        },
-        {
-          "uid": "ca7j0xrpe",
-          "nome": "ROGERIO DE CARVALHO OLIVEIRA",
-          "dept": "DEPARTAMENTO DE COMPLIANCE",
-          "funcao": "ANALISTA ADMINISTRATIVO III"
-        },
-        {
-          "uid": "cvvb003fs",
-          "nome": "ANDERSON DE SOUZA MOUTINHO",
-          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
-          "funcao": "ANALISTA DE COMPRAS I"
-        },
-        {
-          "uid": "c8yheb4nn",
-          "nome": "ANNA VICTORIA DOS SANTOS DE OLIVEIRA",
-          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
-          "funcao": "JOVEM APRENDIZ"
-        },
-        {
-          "uid": "co14r86ci",
-          "nome": "DANIELA MOTA SANTOS",
-          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
-          "funcao": "JOVEM APRENDIZ"
-        },
-        {
-          "uid": "c4j29zud0",
-          "nome": "IVANETE DA SILVA MOTTA CARVALHO",
-          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
-          "funcao": "ANALISTA DE COMPRAS III"
-        },
-        {
-          "uid": "c9bjqbiz7",
-          "nome": "NICOLE CANTINI FIGUEIRA LIMA",
-          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
-          "funcao": "ASSISTENTE DE COMPRAS"
-        },
-        {
-          "uid": "cpr2p7jkw",
-          "nome": "RAFAEL VIANA DA MOTTA",
-          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
-          "funcao": "ANALISTA DE COMPRAS I"
-        },
-        {
-          "uid": "ce5xz7lga",
-          "nome": "SORAYA ARAUJO DAMASCO",
-          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
-          "funcao": "COORDENADOR DE COMPRAS"
-        },
-        {
-          "uid": "ccf37eohn",
-          "nome": "THACIA DUARTE BRANCO",
-          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
-          "funcao": "ANALISTA ADMINISTRATIVO I"
-        },
-        {
-          "uid": "cspfp9rzt",
-          "nome": "AYRA DE ARAUJO ROSA",
-          "dept": "DEPARTAMENTO DE COMUNICAÇÃO INSTITUCIONAL",
-          "funcao": "ANALISTA DE COMUNICAÇAO III"
-        },
-        {
-          "uid": "c1rtj2121",
-          "nome": "JEFFERSON IGOR MARTINS SILVA",
-          "dept": "DEPARTAMENTO DE COMUNICAÇÃO INSTITUCIONAL",
-          "funcao": "ASSISTENTE ADMINISTRATIVO III"
-        },
-        {
-          "uid": "ce3g2iylj",
-          "nome": "PAULA MARTINEZ MELLO",
-          "dept": "DEPARTAMENTO DE COMUNICAÇÃO INSTITUCIONAL",
-          "funcao": "GERENTE DE COMUNICAÇÃO"
-        },
-        {
-          "uid": "cz7zxzxw2",
-          "nome": "PEARGENTINO CHIAFRINO NETO",
-          "dept": "DEPARTAMENTO DE COMUNICAÇÃO INSTITUCIONAL",
-          "funcao": "ANALISTA DE COMUNICAÇAO III"
-        },
-        {
-          "uid": "cmvm2pia9",
-          "nome": "BRUNO DA SILVA MENDONCA",
-          "dept": "DEPARTAMENTO DE CONTABILIDADE",
-          "funcao": "COORDENADOR CONTÁBIL III"
-        },
-        {
-          "uid": "cfq6hn90i",
-          "nome": "FRANCINE CORDEIRO MONTEIRO",
-          "dept": "DEPARTAMENTO DE CONTABILIDADE",
-          "funcao": "SUPERVISOR CONTÁBIL III"
-        },
-        {
-          "uid": "cms650wkl",
-          "nome": "THASSIA ARAUJO DO AMARAL",
-          "dept": "DEPARTAMENTO DE CONTABILIDADE",
-          "funcao": "ANALISTA CONTABIL III"
-        },
-        {
-          "uid": "c3s98tuov",
-          "nome": "GUILHERME MARTINS ALMEIDA SILVA",
-          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
-          "funcao": "SUPERVISOR ADMINISTRATIVO III"
-        },
-        {
-          "uid": "cmdykbe2j",
-          "nome": "JEFFERSON DA SILVA AMORIM",
-          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
-          "funcao": "ANALISTA DE FARMÁCIA II"
-        },
-        {
-          "uid": "c8i7d8sto",
-          "nome": "KARLA FERNANDA KLEINSORGEN",
-          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
-          "funcao": "ASSISTENTE ADMINISTRATIVO II"
-        },
-        {
-          "uid": "cd0gux8it",
-          "nome": "SANDY KEYTMA MELO RAMALHO",
-          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
-          "funcao": "AUXILIAR ADMINISTRATIVO"
-        },
-        {
-          "uid": "chawtwhed",
-          "nome": "TATIELE DA SILVA RIBEIRO",
-          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
-          "funcao": "SUPERVISOR DE FARMÁCIA"
-        },
-        {
-          "uid": "cskeabm0o",
-          "nome": "IGOR MOTTA CARVALHO",
-          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
-          "funcao": "AUXILIAR ADMINISTRATIVO"
-        },
-        {
-          "uid": "c0iq2c2xi",
-          "nome": "JONATHAS MARQUES RIBEIRO",
-          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
-          "funcao": "AUXILIAR ADMINISTRATIVO III"
-        },
-        {
-          "uid": "cbr4h2t1n",
-          "nome": "LUISA FERREIRA ALBUQUERQUE",
-          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
-          "funcao": "ASSISTENTE ADMINISTRATIVO"
-        },
-        {
-          "uid": "ch6nbimqs",
-          "nome": "MARIA BIANCA NOBREGA MARINS",
-          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
-          "funcao": "JOVEM APRENDIZ"
-        },
-        {
-          "uid": "cwp7vfbib",
-          "nome": "VICTOR TEIXEIRA LESSA",
-          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
-          "funcao": "ASSISTENTE ADMINISTRATIVO"
-        },
-        {
-          "uid": "cnn6gk6iz",
-          "nome": "ZILANDA RODRIGUES DOS SANTOS",
-          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
-          "funcao": "AUXILIAR ADMINISTRATIVO"
-        },
-        {
-          "uid": "caiwgjzbe",
-          "nome": "CRISTIANE SONCINI DE ARAUJO",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "ASSISTENTE ADMINISTRATIVO III"
-        },
-        {
-          "uid": "c3vwktmzw",
-          "nome": "EDLENE PAIVA DA SILVA",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "SUPERVISOR DE EDUCAÇÃO"
-        },
-        {
-          "uid": "c38nww19f",
-          "nome": "GIANLUCAS CORREIA MENDES",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "TECNICO SEGURANÇA DO TRABALHO"
-        },
-        {
-          "uid": "cwgi5nxbx",
-          "nome": "JANDARA TEIXEIRA DIAS ROCHA",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "ASSISTENTE DE RECURSOS HUMANOS I"
-        },
-        {
-          "uid": "c78hsuebv",
-          "nome": "JOAO VITOR DA SILVA BORGES",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "JOVEM APRENDIZ"
-        },
-        {
-          "uid": "c74su3dgp",
-          "nome": "JULIO CESAR DE OLIVEIRA JUNIOR",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "ANALISTA DE REMUNERAÇAO"
-        },
-        {
-          "uid": "c0zw99ht7",
-          "nome": "LORRAYNE DA SILVA FERNANDEZ DE OLIVEIRA",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "ANALISTA ADMINISTRATIVO I"
-        },
-        {
-          "uid": "cbus44yha",
-          "nome": "MARIA DA CONCEIÇÃO BALDINI BENEVIDES BLAN",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "SUPERVISOR DE EDUCAÇÃO"
-        },
-        {
-          "uid": "cljou3v3e",
-          "nome": "ROSEMARY CRUZ CERQUEIRA",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "COORDENADOR DE EDUCACAO CONTINUADA I"
-        },
-        {
-          "uid": "c80muyagx",
-          "nome": "SABRYNA MARQUES MOREIRA MENDES",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "ASSISTENTE ADMINISTRATIVO III"
-        },
-        {
-          "uid": "chndcpulu",
-          "nome": "SERGIO LUIS MACHADO BRAZIL",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "COORDENADOR DE QUALIDADE"
-        },
-        {
-          "uid": "c9ftbivsc",
-          "nome": "THAINARA TAVARES MOREIRA DOS SANTOS",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "ASSISTENTE DE RECURSOS HUMANOS I"
-        },
-        {
-          "uid": "csbygwbaz",
-          "nome": "VICTORIA LINO DE SOUSA",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "ASSISTENTE DE RH I"
-        },
-        {
-          "uid": "cr0mxdguc",
-          "nome": "WENDEL CORREA DE PAO",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "ASSISTENTE DE REMUNERAÇÃO"
-        },
-        {
-          "uid": "c6xuwa13x",
-          "nome": "BERNARDO COSTA DE SA GOUVEA",
-          "dept": "DEPARTAMENTO FINANCEIRO",
-          "funcao": "ASSISTENTE FINANCEIRO III"
-        },
-        {
-          "uid": "coc78mcx0",
-          "nome": "DIOGO DE OLIVEIRA CUNHA",
-          "dept": "DEPARTAMENTO FINANCEIRO",
-          "funcao": "ASSISTENTE ADMINISTRATIVO II"
-        },
-        {
-          "uid": "cbj6cghp9",
-          "nome": "DOUGLAS BARCELLOS SILVA",
-          "dept": "DEPARTAMENTO FINANCEIRO",
-          "funcao": "ANALISTA ADMINISTRATIVO I"
-        },
-        {
-          "uid": "cohfxmvdq",
-          "nome": "LUCAS DA COSTA",
-          "dept": "DEPARTAMENTO FINANCEIRO",
-          "funcao": "ASSISTENTE ADMINISTRATIVO I"
-        },
-        {
-          "uid": "cu4l4h16s",
-          "nome": "LUDMILA DA COSTA CARVALHO",
-          "dept": "DEPARTAMENTO FINANCEIRO",
-          "funcao": "ASSISTENTE FINANCEIRO I"
-        },
-        {
-          "uid": "c7falx9a6",
-          "nome": "RAFAELA PINA RIBEIRO",
-          "dept": "DEPARTAMENTO FINANCEIRO",
-          "funcao": "ASSISTENTE ADMINISTRATIVO II"
-        },
-        {
-          "uid": "c5qg1bg94",
-          "nome": "RUI ANDERSON MORAES DOS SANTOS",
-          "dept": "DEPARTAMENTO FINANCEIRO",
-          "funcao": "COORDENADOR FINANCEIRO I"
-        },
-        {
-          "uid": "cdzffzk55",
-          "nome": "SORAIA MUZI XAVIER",
-          "dept": "DEPARTAMENTO FINANCEIRO",
-          "funcao": "ASSISTENTE ADMINISTRATIVO II"
-        },
-        {
-          "uid": "cvr90xucj",
-          "nome": "YASMIM FAGGIAN OLIVEIRA",
-          "dept": "DEPARTAMENTO FINANCEIRO",
-          "funcao": "ASSISTENTE ADMINISTRATIVO II"
-        },
-        {
-          "uid": "c42ttg3iw",
-          "nome": "ROBSON LOUREIRO FERNANDES",
-          "dept": "DEPARTAMENTO JURÍDICO",
-          "funcao": "GERENTE JURÍDICO"
-        },
-        {
-          "uid": "cg4tdnewl",
-          "nome": "RODRIGO PAPAZIAN PINHO",
-          "dept": "DEPARTAMENTO JURÍDICO",
-          "funcao": "COORDENADOR JURÍDICO"
-        },
-        {
-          "uid": "ct7fo118n",
-          "nome": "THIAGO FARIAS DIAS",
-          "dept": "DEPARTAMENTO JURÍDICO",
-          "funcao": "GERENTE JURÍDICO II"
-        },
-        {
-          "uid": "chkboymvf",
-          "nome": "AMANDA DE OLIVEIRA ALMEIDA",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
-        },
-        {
-          "uid": "cuzub3glv",
-          "nome": "ANNA JULIA ANTUNES DE OLIVEIRA",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "JOVEM APRENDIZ"
-        },
-        {
-          "uid": "cgctjwth7",
-          "nome": "BIANCA BARCELOS MARTINS",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ASSISTENTE DE DEPARTAMENTO"
-        },
-        {
-          "uid": "c7x6cdhnk",
-          "nome": "CLAUDIA ALJAN BRAGA DE MIRANDA",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
-        },
-        {
-          "uid": "cwv5pmk1y",
-          "nome": "CRISTIANE ROSA CHAVES",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ASSISTENTE ADMINISTRATIVO"
-        },
-        {
-          "uid": "c0rgsb2kj",
-          "nome": "ELENA VIANA MACEDO",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "GERENTE DE DEPARTAMENTO PESSOAL"
-        },
-        {
-          "uid": "cwipohynv",
-          "nome": "EMILIA PEREIRA DARIO RANGEL",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "SUPERVISOR DE DEPARTAMENTO PESSOAL III"
-        },
-        {
-          "uid": "cu4u3jkx2",
-          "nome": "GIOVANA FERREIRA DA CONCEICAO RODRIGUES",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ASSISTENTE ADMINISTRATIVO II"
-        },
-        {
-          "uid": "c8y20etet",
-          "nome": "GRAZIELA SCARPONETI MARREIRO",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
-        },
-        {
-          "uid": "cllethxqg",
-          "nome": "ITALO LUIZ RODRIGUES DA COSTA",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
-        },
-        {
-          "uid": "c7c5jy5d8",
-          "nome": "JOAO VITOR DE FRANCA TEIXEIRA",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "AUXILIAR ADMINISTRATIVO"
-        },
-        {
-          "uid": "cf23q2irq",
-          "nome": "LUCIANA SOUZA DA SILVA",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ASSISTENTE ADMINISTRATIVO"
-        },
-        {
-          "uid": "c9op7bd71",
-          "nome": "MARIANA GONÇALVES FELIX",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ANALISTA DE DEPARTAMENTO"
-        },
-        {
-          "uid": "cl4tggf5v",
-          "nome": "PHAMYLA DE SOUZA POSSAO ABDALLA REBEQUE",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
-        },
-        {
-          "uid": "ckgdn8hvg",
-          "nome": "SAMUEL LUCAS ALVES DE MELO",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "JOVEM APRENDIZ"
-        },
-        {
-          "uid": "c9zz5945o",
-          "nome": "SHIRLEY DE OLIVEIRA MATOS",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ASSISTENTE ADMINISTRATIVO"
-        },
-        {
-          "uid": "cqq7j63ed",
-          "nome": "SOLANGE SEIXAS MURRO",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
-        },
-        {
-          "uid": "cyixz5ew8",
-          "nome": "THAYZA QUEIROZ DA SILVA",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ASSISTENTE DE DEPARTAMENTO"
-        },
-        {
-          "uid": "cdit4rmmw",
-          "nome": "CAMILLO DE LELLIS CARNEIRO JUNQUEIRA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "MÉDICO RT"
-        },
-        {
-          "uid": "cro2no2ov",
-          "nome": "CYNTIA ARAUJO DAMASCO",
-          "dept": "SUPERINTENDÊNCIA",
-          "funcao": "SUPERINTENDENTE EXECUTIVA"
-        },
-        {
-          "uid": "c0j3t71r3",
-          "nome": "RALF RIBEIRO DOS SANTOS",
-          "dept": "SUPERINTENDÊNCIA",
-          "funcao": "SUPERINTENDENTE ASSISTENCIAL"
-        }
-      ],
-      "despesasLocais": {
-        "madalena": [
-          {
-            "id": "dl1781575924286wahl",
-            "objeto": "ENERGIA ELÉTRICA SEDE MADALENA",
-            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
-            "valor": 105.35
-          },
-          {
-            "id": "dl1781575924286sone",
-            "objeto": "LOCAÇÃO DE IMÓVEL SEDE MADALENA",
-            "fornecedor": "FERNANDA BOTELHO DE OLIVEIRA QUEIROZ",
-            "valor": 1800
-          },
-          {
-            "id": "dl1781576079020",
-            "objeto": "ÁGUA E ESGOTO SEDE MADALENA",
-            "fornecedor": "COMPANHIA ESTADUAL DE ÁGUAS E ESGOTO CEDAE",
-            "valor": 73.08
-          }
-        ],
-        "cachoeiras": [
-          {
-            "id": "dl1781575924286bcy8",
-            "objeto": "ENERGIA ELÉTRICA SEDE CACHOEIRAS",
-            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
-            "valor": 699.17
-          },
-          {
-            "id": "dl17815759242861esr",
-            "objeto": "LOCAÇÃO DE IMÓVEL SEDE CACHOEIRAS",
-            "fornecedor": "REGINA CÉLIA DE CASTRO MENDES",
-            "valor": 1500
-          }
-        ],
-        "saq_hosp": [],
-        "upa_pac": [],
-        "upa_nc": [],
-        "arraial": [
-          {
-            "id": "dl1781575924286p3l9",
-            "objeto": "ENERGIA ELÉTRICA SEDE ARRAIAL - SALA 301",
-            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
-            "valor": 706.76
-          },
-          {
-            "id": "dl1781575924286f4rn",
-            "objeto": "ENERGIA ELÉTRICA SEDE ARRAIAL - SALA 302",
-            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
-            "valor": 227.6
-          },
-          {
-            "id": "dl17815759242861lym",
-            "objeto": "LOCAÇÃO DE IMÓVEL SEDE ARRAIAL",
-            "fornecedor": "CRISTIANE RODRIGUES SILVA",
-            "valor": 5065.43
-          },
-          {
-            "id": "dl1781576361726",
-            "objeto": "IPTU SEDE ARRAIAL - SALA 302",
-            "fornecedor": "PREFEITURA MUNICIPAL DE ARRAIAL DO CABO",
-            "valor": 273.05
-          },
-          {
-            "id": "dl1781576401637",
-            "objeto": "IPTU SEDE ARRAIAL - SALA 301",
-            "fornecedor": "PREFEITURA MUNICIPAL DE ARRAIAL DO CABO",
-            "valor": 355.16
-          }
-        ],
-        "quissama": [
-          {
-            "id": "dl1781575924286dicx",
-            "objeto": "ENERGIA ELÉTRICA SEDE QUISSAMÃ",
-            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
-            "valor": 336.3
-          },
-          {
-            "id": "dl17815759242868wao",
-            "objeto": "LOCAÇÃO DE IMÓVEL SEDE QUISSAMÃ",
-            "fornecedor": "CRISLANE SILVA CONCEIÇÃO",
-            "valor": 2700
-          }
-        ],
-        "cordeiro": [
-          {
-            "id": "dl1781575924286dvsf",
-            "objeto": "ENERGIA ELÉTRICA SEDE CORDEIRO",
-            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
-            "valor": 59.6
-          },
-          {
-            "id": "dl1781575924286veki",
-            "objeto": "LOCAÇÃO DE IMÓVEL SEDE CORDEIRO",
-            "fornecedor": "R W IMOBILIÁRIA LTDA",
-            "valor": 1214.92
-          }
-        ],
-        "saq_esp": [],
-        "saq_pri": []
-      },
-      "demoContabil": {
-        "balancete": {
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202602_balancete.pdf",
-          "pdfNome": "Balancete Matriz 02-2026.pdf"
-        },
-        "extrato": {
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202602_extrato.pdf",
-          "pdfNome": "EXTRATO MATRIZ 02.2026.pdf"
-        },
-        "movimentacao": {
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202602_movimentacao.pdf",
-          "pdfNome": "Movimentação 02.2026.pdf"
-        },
-        "razao": {
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202602_razao.pdf",
-          "pdfNome": "RAZÃO MATRIZ 02.2026.pdf"
-        },
-        "bl_saldoInicial": 28.24,
-        "bl_transferencias": 1563118.93,
-        "bl_aplicacao": 46069.62,
-        "bl_rendimento": 0.79,
-        "bl_despesasExec": 1563118.93,
-        "bl_iof": 0.53,
-        "bl_ir": 0.04,
-        "bl_resgateFinanceiro": 45966.3,
-        "bl_saldoFinal": 131.78,
-        "ex_saldoFinal": 0,
-        "obs": "",
-        "extratoData": {
-          "txCount": 16,
-          "countCreditos": 9,
-          "countDebitos": 7,
-          "totalCreditos": 46434.47,
-          "totalDebitos": 74107.06,
-          "saldoFinal": 0,
-          "cats": {
-            "Resgate Contamax": {
-              "count": 8,
-              "total": 45966.3
-            },
-            "Aplicação Contamax": {
-              "count": 6,
-              "total": -46069.62
-            },
-            "Pgto de Título": {
-              "count": 1,
-              "total": -28037.44
-            },
-            "Receb. de Fornecedores": {
-              "count": 1,
-              "total": 468.17
-            }
-          },
-          "txs": [
-            {
-              "data": "02/02/2026",
-              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
-              "valor": 3.5,
-              "saldo": 0
-            },
-            {
-              "data": "06/02/2026",
-              "desc": "APLICACAO CONTAMAX 000000",
-              "valor": -180,
-              "saldo": 0
-            },
-            {
-              "data": "09/02/2026",
-              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310209",
-              "valor": -28037.44,
-              "saldo": 18.22
-            },
-            {
-              "data": "10/02/2026",
-              "desc": "APLICACAO CONTAMAX 000000",
-              "valor": -1447.13,
-              "saldo": 0
-            },
-            {
-              "data": "11/02/2026",
-              "desc": "APLICACAO CONTAMAX 000000",
-              "valor": -1253.75,
-              "saldo": 0
-            },
-            {
-              "data": "12/02/2026",
-              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
-              "valor": 14,
-              "saldo": 0
-            },
-            {
-              "data": "13/02/2026",
-              "desc": "APLICACAO CONTAMAX 000000",
-              "valor": -26084.83,
-              "saldo": 0
-            },
-            {
-              "data": "18/02/2026",
-              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
-              "valor": 3.5,
-              "saldo": 0
-            },
-            {
-              "data": "19/02/2026",
-              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
-              "valor": 4280.77,
-              "saldo": 0
-            },
-            {
-              "data": "20/02/2026",
-              "desc": "APLICACAO CONTAMAX 000000",
-              "valor": -13080.66,
-              "saldo": 0
-            },
-            {
-              "data": "23/02/2026",
-              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
-              "valor": 31611.52,
-              "saldo": 0
-            },
-            {
-              "data": "24/02/2026",
-              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
-              "valor": 7,
-              "saldo": 0
-            },
-            {
-              "data": "25/02/2026",
-              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010225",
-              "valor": 468.17,
-              "saldo": 75926.21
-            },
-            {
-              "data": "25/02/2026",
-              "desc": "APLICACAO CONTAMAX 000000",
-              "valor": -4023.25,
-              "saldo": 0
-            },
-            {
-              "data": "26/02/2026",
-              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
-              "valor": 10042.51,
-              "saldo": 0
-            },
-            {
-              "data": "27/02/2026",
-              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
-              "valor": 3.5,
-              "saldo": 0
-            }
-          ],
-          "parsedAt": "15/06/2026 22:16"
-        }
-      },
-      "iqual_pdfs": {
-        "ind1": {
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        "ind2": {
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        "ind3": {
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        "ind4": {
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        "ind5": {
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        "ind6": {
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        "ind7": {
-          "pdfUrl": "",
-          "pdfNome": ""
-        },
-        "ind8": {
-          "pdfUrl": "",
-          "pdfNome": ""
-        }
-      },
-      "refColab": "DEZEMBRO/2025",
-      "relQuant": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/relquant_2026-02.pdf",
-      "relQuantNome": "1. CRITÉRIO QUANTITATIVO - COMPLETO_.pdf"
-    },
     "2026-05": {
       "colaboradores": [
         {
@@ -21010,11 +19032,1989 @@
         "sent_at": "2026-07-06T15:51:52.919Z"
       }
     },
+    "2026-02": {
+      "colaboradores": [
+        {
+          "id": "madalena",
+          "clt": 122,
+          "efetivo": 27,
+          "pj": 30,
+          "obs": "O número de colaboradores é referente a competência de DEZEMBRO/2025."
+        },
+        {
+          "id": "cachoeiras",
+          "clt": 365,
+          "efetivo": 0,
+          "pj": 125,
+          "obs": ""
+        },
+        {
+          "id": "saq_hosp",
+          "clt": 1504,
+          "efetivo": 59,
+          "pj": 715,
+          "obs": ""
+        },
+        {
+          "id": "upa_pac",
+          "clt": 81,
+          "efetivo": 0,
+          "pj": 36,
+          "obs": ""
+        },
+        {
+          "id": "upa_nc",
+          "clt": 79,
+          "efetivo": 0,
+          "pj": 36,
+          "obs": ""
+        },
+        {
+          "id": "arraial",
+          "clt": 896,
+          "efetivo": 98,
+          "pj": 332,
+          "obs": ""
+        },
+        {
+          "id": "quissama",
+          "clt": 63,
+          "efetivo": 108,
+          "pj": 4,
+          "obs": ""
+        },
+        {
+          "id": "cordeiro",
+          "clt": 104,
+          "efetivo": 0,
+          "pj": 69,
+          "obs": ""
+        },
+        {
+          "id": "saq_esp",
+          "clt": 91,
+          "efetivo": 40,
+          "pj": 30,
+          "obs": ""
+        },
+        {
+          "id": "saq_pri",
+          "clt": 475,
+          "efetivo": 42,
+          "pj": 11,
+          "obs": ""
+        }
+      ],
+      "iqual": {
+        "ind1": {
+          "madalena": 122,
+          "cachoeiras": 367,
+          "saq_hosp": 1506,
+          "upa_pac": 80,
+          "upa_nc": 80,
+          "arraial": 905,
+          "quissama": 63,
+          "cordeiro": 101,
+          "saq_esp": 90,
+          "saq_pri": 476
+        },
+        "ind2": {
+          "madalena": 16,
+          "cachoeiras": 12,
+          "saq_hosp": 19,
+          "upa_pac": 15,
+          "upa_nc": 15,
+          "arraial": 46,
+          "quissama": 12,
+          "cordeiro": 12,
+          "saq_esp": 21,
+          "saq_pri": 38
+        },
+        "ind3": {
+          "madalena": 174,
+          "cachoeiras": 244,
+          "saq_hosp": 365,
+          "upa_pac": 141,
+          "upa_nc": 145,
+          "arraial": 289,
+          "quissama": 117,
+          "cordeiro": 136,
+          "saq_esp": 123,
+          "saq_pri": 165
+        },
+        "ind4": {
+          "madalena": 629,
+          "cachoeiras": 1250,
+          "saq_hosp": 2069,
+          "upa_pac": 619,
+          "upa_nc": 583,
+          "arraial": 1432,
+          "quissama": 527,
+          "cordeiro": 836,
+          "saq_esp": 597,
+          "saq_pri": 699
+        },
+        "ind5": {
+          "madalena": 25,
+          "cachoeiras": 65,
+          "saq_hosp": 90,
+          "upa_pac": 33,
+          "upa_nc": 26,
+          "arraial": 99,
+          "quissama": 30,
+          "cordeiro": 30,
+          "saq_esp": 18,
+          "saq_pri": 48
+        },
+        "ind6": {
+          "madalena": 83,
+          "cachoeiras": 100,
+          "saq_hosp": 144,
+          "upa_pac": 60,
+          "upa_nc": 51,
+          "arraial": 109,
+          "quissama": 53,
+          "cordeiro": 67,
+          "saq_esp": 63,
+          "saq_pri": 77
+        },
+        "ind7": {
+          "madalena": 157,
+          "cachoeiras": 475,
+          "saq_hosp": 1661,
+          "upa_pac": 108,
+          "upa_nc": 150,
+          "arraial": 980,
+          "quissama": 75,
+          "cordeiro": 132,
+          "saq_esp": 124,
+          "saq_pri": 522
+        },
+        "ind8": {
+          "madalena": 4424,
+          "cachoeiras": 11429,
+          "saq_hosp": 60296,
+          "upa_pac": 8803,
+          "upa_nc": 10780,
+          "arraial": 67320,
+          "quissama": 6596,
+          "cordeiro": 4018,
+          "saq_esp": 8733,
+          "saq_pri": 43521
+        }
+      },
+      "despesas": [
+        {
+          "uid": "lu625jo",
+          "id": "1",
+          "cat": "Assessoria Jurídica",
+          "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório",
+          "fav": "Pablo Siqueira Sociedade Individual de Advocacia",
+          "cnpj": "18.464.526/0001-98",
+          "ctipo": "NF",
+          "cnum": "1",
+          "valor": 36000,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "ybx89rl",
+          "id": "1.1",
+          "cat": "Assessoria Jurídica",
+          "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório",
+          "fav": "Pablo Siqueira Sociedade Individual de Advocacia",
+          "cnpj": "18.464.526/0001-98",
+          "ctipo": "NF",
+          "cnum": "4",
+          "valor": 36000,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "gyt82w2",
+          "id": "2",
+          "cat": "Assessoria Jurídica",
+          "objeto": "Contencioso e consultivo na área de direito cível e de direito médico e da saúde",
+          "fav": "E Simões Sociedade Individual de Advocacia",
+          "cnpj": "40.101.757/0001-96",
+          "ctipo": "NF",
+          "cnum": "2",
+          "valor": 11000,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "w1jd920",
+          "id": "3",
+          "cat": "Assessoria Jurídica",
+          "objeto": "Compliance jurídico",
+          "fav": "Gauche Advogados Associados",
+          "cnpj": "48.916.964/0001-00",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "ijppopw",
+          "id": "4",
+          "cat": "Assessoria Jurídica",
+          "objeto": "Suporte ao desenvolvimento de Ouvidoria e apoio aos processos de sindicância",
+          "fav": "Gustavo Fróes Sociedade Individual de Advocacia",
+          "cnpj": "43.485.758/0001-70",
+          "ctipo": "NF",
+          "cnum": "202602",
+          "valor": 7000,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "qsr0hy2",
+          "id": "5",
+          "cat": "Auditorias Contábil, Fiscal e Financeira",
+          "objeto": "Serviços de Auditoria Financeira e Contábil",
+          "fav": "IGF Auditores e Consultores Independentes Sociedade Simples",
+          "cnpj": "04.899.444/0001-61",
+          "ctipo": "NF",
+          "cnum": "1066",
+          "valor": 3167,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "itmx7sl",
+          "id": "6",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Folha de Pagamento Colaboradores Matriz",
+          "fav": "Projeto Social Cresce Comunidade - Prima Qualitá",
+          "cnpj": "40.289.134/0001-99",
+          "ctipo": "Folha de Pagamento",
+          "cnum": "",
+          "valor": 525508.31,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "ekcvzwz",
+          "id": "7",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "INSS sobre Folha",
+          "fav": "Instituto Nacional do Seguro Social - INSS",
+          "cnpj": "40.289.134/0001-99",
+          "ctipo": "Guia",
+          "cnum": "",
+          "valor": 52710.68,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "tisucgb",
+          "id": "8",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Fundo de Garantia por Tempo de Serviços (FGTS)",
+          "fav": "Caixa Econômica Federal - FGTS",
+          "cnpj": "40.289.134/0001-99",
+          "ctipo": "Guia",
+          "cnum": "",
+          "valor": 56991.46,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "qs01dc5",
+          "id": "9",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Imposto de Renda Pessoa Física - Folha",
+          "fav": "Receita Federal",
+          "cnpj": "40.289.134/0001-99",
+          "ctipo": "Guia",
+          "cnum": "",
+          "valor": 67426.62,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "b5r70h2",
+          "id": "10",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Vale Refeição/Alimentação Colaboradores Matriz",
+          "fav": "Ticket Soluções HDFGT S/A",
+          "cnpj": "47.866.934/0001-74",
+          "ctipo": "Boleto",
+          "cnum": "",
+          "valor": 147540,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "xht9b71",
+          "id": "11",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Vale Transporte Colaboradores Matriz",
+          "fav": "Riopar Participações S/A",
+          "cnpj": "16.727.386/0001-86",
+          "ctipo": "Boleto",
+          "cnum": "",
+          "valor": 16772.1,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "2mhnjop",
+          "id": "12",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Vale Transporte Colaboradores Matriz",
+          "fav": "Riopar Participações S/A",
+          "cnpj": "16.727.386/0001-86",
+          "ctipo": "Boleto",
+          "cnum": "",
+          "valor": 36387,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "bwwc1jr",
+          "id": "12.1",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Vale Transporte Colaboradores Matriz",
+          "fav": "CDB Bilhete Digital",
+          "cnpj": "48.707.842/0001-04",
+          "ctipo": "Boleto",
+          "cnum": "",
+          "valor": 347.6,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "8g292eu",
+          "id": "13",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Contribuição Institucional Destinada a Manutenção do CIEE",
+          "fav": "Centro de Integração Empresa Escola",
+          "cnpj": "33.661.745/0001-50",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "7aibrlb",
+          "id": "14",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Coordenação de Revisão de Óbitos e Prontuários Institucional",
+          "fav": "Radiocom Diagnosticos LTDA",
+          "cnpj": "33.192.856/0001-65",
+          "ctipo": "NF",
+          "cnum": "63",
+          "valor": 20500,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "8ns5mmw",
+          "id": "15",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Empréstimo Consignado",
+          "fav": "Crédito Trabalhador",
+          "cnpj": "40.289.134/0001-99",
+          "ctipo": "Guia",
+          "cnum": "",
+          "valor": 20289.46,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "btpluvt",
+          "id": "16",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Pensão Alimentícia - Colaborador Douglas Barcellos Silva",
+          "fav": "Michele Guilhermina Moraes Barcellos",
+          "cnpj": "115.607.797-48",
+          "ctipo": "Relatório",
+          "cnum": "",
+          "valor": 346.22,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "u5w3kb3",
+          "id": "17",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Pensão Alimentícia - Colaborador Dioni de Oliveira Schuvartz",
+          "fav": "Sara Almeida Souza Schuvartz",
+          "cnpj": "054.299.487-99",
+          "ctipo": "Relatório",
+          "cnum": "",
+          "valor": 930.64,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "2pbgev5",
+          "id": "18",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Provisão de Verbas Rescisórias",
+          "fav": "Projeto Social Cresce Comunidade",
+          "cnpj": "40.289.134/0001-99",
+          "ctipo": "Planilha",
+          "cnum": "",
+          "valor": 222211.54,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "cpxtwtn",
+          "id": "19",
+          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
+          "objeto": "Servidor Nuvem Privada em Data Center",
+          "fav": "Cigam Software Corporativo S.A",
+          "cnpj": "93.578.813/0001-44",
+          "ctipo": "NF",
+          "cnum": "38343",
+          "valor": 9787.85,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "wd9667w",
+          "id": "20",
+          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
+          "objeto": "Sistema de Gestão RH /  HORAS",
+          "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
+          "cnpj": "24.783.564/0001-06",
+          "ctipo": "NF",
+          "cnum": "2134",
+          "valor": 39310.94,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "3tit0df",
+          "id": "21",
+          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
+          "objeto": "Sistema de Gestão ERP / MENSALIDADE",
+          "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
+          "cnpj": "24.783.564/0001-06",
+          "ctipo": "NF",
+          "cnum": "2115",
+          "valor": 28037.44,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "l3xudj5",
+          "id": "22",
+          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
+          "objeto": "Sistema de DP/RH",
+          "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
+          "cnpj": "24.783.564/0001-06",
+          "ctipo": "NF",
+          "cnum": "2114",
+          "valor": 17080,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "0gp2kkc",
+          "id": "23",
+          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
+          "objeto": "Sistema de Análise de Risco",
+          "fav": "KPMG Assessores LTDA",
+          "cnpj": "05.490.840/0019-22",
+          "ctipo": "NF",
+          "cnum": "88",
+          "valor": 4876.04,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "bi5k4aw",
+          "id": "24",
+          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
+          "objeto": "Sistema de Gestão ERP / HORAS",
+          "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
+          "cnpj": "24.783.564/0001-06",
+          "ctipo": "NF",
+          "cnum": "2133",
+          "valor": 9803.37,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "uddqdc7",
+          "id": "25",
+          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
+          "objeto": "Sistema Contábil/Fiscal/DP/MENSALIDADE",
+          "fav": "Alterdata Tecnologia em Informática LTDA",
+          "cnpj": "36.462.778/0001-60",
+          "ctipo": "Boleto",
+          "cnum": "",
+          "valor": 14494.85,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "m0cbq0r",
+          "id": "26",
+          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
+          "objeto": "Sistema Prestação de Contas",
+          "fav": "BR Gaap Corporation Tecnologia da Informação Ltda",
+          "cnpj": "16.106.178/0001-51",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "hcp48jf",
+          "id": "27",
+          "cat": "Melhoria Contínua",
+          "objeto": "Serviço de Treinamento de Melhoria Contínua",
+          "fav": "Six Treinamento Empresarial LTDA",
+          "cnpj": "19.196.342/0001-57",
+          "ctipo": "NF",
+          "cnum": "3",
+          "valor": 26084.8,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "a1mrj5m",
+          "id": "28",
+          "cat": "Locação de Mobiliário e Equipamentos de Informática (CIGAC)",
+          "objeto": "Locação de mobiliários e equipamentos para o Centro Admistrativo/Distribuição",
+          "fav": "A4PM Analytics For Public Management LTDA",
+          "cnpj": "23.034.181/0001-72",
+          "ctipo": "NF",
+          "cnum": "117",
+          "valor": 118697,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "frh1hdn",
+          "id": "29",
+          "cat": "Locação de Imóvel CIGAC e Despesas",
+          "objeto": "Aluguel Imóvel Centro Administrativo/Distribuição",
+          "fav": "João de Deus",
+          "cnpj": "518.318.487-91",
+          "ctipo": "Recibo",
+          "cnum": "",
+          "valor": 26000,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "ot85aqz",
+          "id": "30",
+          "cat": "Locação de Imóvel CIGAC e Despesas",
+          "objeto": "Energia Elétrica Centro Administrativo/Distribuição",
+          "fav": "Ampla Energia e Serviços S.A",
+          "cnpj": "33.050.071/0001-58",
+          "ctipo": "Boleto",
+          "cnum": "",
+          "valor": 11947.43,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "qsqa37x",
+          "id": "31",
+          "cat": "Locação de Imóvel CIGAC e Despesas",
+          "objeto": "Água e Esgoto do Centro Administrativo/Distribuição",
+          "fav": "Águas do Rio 1 SPE s.A.",
+          "cnpj": "42.310.775/0033-90",
+          "ctipo": "Boleto",
+          "cnum": "",
+          "valor": 528.55,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "w3f71qc",
+          "id": "32",
+          "cat": "Locação de Imóvel CIGAC e Despesas",
+          "objeto": "IPTU Centro Administrativo",
+          "fav": "Prefeitura Municipal de Rio Bonito",
+          "cnpj": "28.741.072/0001-09",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "ovt9x3n",
+          "id": "33",
+          "cat": "Locação de Imóvel CIGAC e Despesas",
+          "objeto": "Taxa Prevenção e Extinção de Incêndio (Corpo de Bombeiros)",
+          "fav": "Governo do Estado do Rio de Janeiro - SEDEC/CBMERJ",
+          "cnpj": "28.176.998/0004-41",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "o02asaj",
+          "id": "34",
+          "cat": "Locação de Imóvel CIGAC e Despesas",
+          "objeto": "Aluguel Imóvel Arquivo Geral",
+          "fav": "Nilton Alves da Fonseca",
+          "cnpj": "33.050.071/0001-58",
+          "ctipo": "Recibo",
+          "cnum": "",
+          "valor": 950,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "xq23xi5",
+          "id": "35",
+          "cat": "Locação de Imóvel CIGAC e Despesas",
+          "objeto": "Energia Elétrica Arquivo Geral",
+          "fav": "Ampla Energia e Serviços S.A",
+          "cnpj": "33.050.071/0001-58",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "ty9ck0q",
+          "id": "36",
+          "cat": "Locação de Imóvel CIGAC e Despesas",
+          "objeto": "Energia Elétrica Arquivo Geral",
+          "fav": "Ampla Energia e Serviços S.A",
+          "cnpj": "33.050.071/0001-58",
+          "ctipo": "Boleto",
+          "cnum": "",
+          "valor": 52.24,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "rhdho4g",
+          "id": "37",
+          "cat": "Locação de Imóvel CIGAC e Despesas",
+          "objeto": "Água e Esgoto do Arquivo Geral",
+          "fav": "Águas do Rio 1 SPE s.A.",
+          "cnpj": "42.310.775/0033-90",
+          "ctipo": "Boleto",
+          "cnum": "",
+          "valor": 80.72,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "6cq9q7n",
+          "id": "38",
+          "cat": "Locação de Imóvel CIGAC e Despesas",
+          "objeto": "IPTU Centro Administrativo",
+          "fav": "Prefeitura Municipal de Rio Bonito",
+          "cnpj": "28.741.072/0001-09",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "a2z5wvt",
+          "id": "39",
+          "cat": "Locação de Imóvel CIGAC e Despesas",
+          "objeto": "Taxa Prevenção e Extinção de Incêndio (Corpo de Bombeiros)",
+          "fav": "Governo do Estado do Rio de Janeiro - SEDEC/CBMERJ",
+          "cnpj": "28.176.998/0004-41",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "q4vbpb2",
+          "id": "40",
+          "cat": "Locação de Imóvel CIGAC e Despesas",
+          "objeto": "Locação de veículos para atender a Central de logística",
+          "fav": "Promedical Serviços em Saude LTDA",
+          "cnpj": "35.788.642/0001-81",
+          "ctipo": "NF",
+          "cnum": "8",
+          "valor": 16423.95,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "myzqsi6",
+          "id": "41",
+          "cat": "Locação de Veículo Apoio Administrativo",
+          "objeto": "Locação de veículos para atender a Central Administrativa",
+          "fav": "Promedical Serviços em Saude LTD",
+          "cnpj": "35.788.642/0001-81",
+          "ctipo": "NF",
+          "cnum": "313",
+          "valor": 36395.58,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "r92y0z1",
+          "id": "42",
+          "cat": "Despesas de materiais de expediente e afins",
+          "objeto": "Fornecimento de Água Mineral",
+          "fav": "Rodolfo Lucas Duarte 08848690750",
+          "cnpj": "11.967.651/0001-71",
+          "ctipo": "NF",
+          "cnum": "11071588",
+          "valor": 761.6,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "84ft49m",
+          "id": "43",
+          "cat": "Medicina do Trabalho",
+          "objeto": "Serviços de SST",
+          "fav": "ICM Medicina Ocupacional LTDA",
+          "cnpj": "50.558.513/0001-90",
+          "ctipo": "NF",
+          "cnum": "74",
+          "valor": 1576.4,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "tpt3vcy",
+          "id": "44",
+          "cat": "Seguro de Vida",
+          "objeto": "Seguro de Vida Colaboradores Matriz",
+          "fav": "Unimed Seguradora S/A",
+          "cnpj": "10.414.185/0001-09",
+          "ctipo": "Boleto",
+          "cnum": "",
+          "valor": 2752.4,
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        {
+          "uid": "j5uzp5n",
+          "id": "45",
+          "cat": "Plataforma Processo Seletivo",
+          "objeto": "Licença de Uso Mensal do Software Vagas For Business",
+          "fav": "Vagas Tecnologia de Software LTDA",
+          "cnpj": "03.689.427/0001-37",
+          "ctipo": "NF",
+          "cnum": "311257",
+          "valor": 2532.11,
+          "pdfUrl": "",
+          "pdfNome": ""
+        }
+      ],
+      "orcamentos": {
+        "madalena": 1823622.46,
+        "cachoeiras": 5569428.51,
+        "saq_hosp": 27839691.66,
+        "upa_pac": 1738091.52,
+        "upa_nc": 1742636.68,
+        "arraial": 12712703.2,
+        "quissama": 1507247.38,
+        "cordeiro": 1149096.31,
+        "saq_esp": 2091258.28,
+        "saq_pri": 7668646.47
+      },
+      "contratos_ativos": [
+        {
+          "uid": "cmqg21186cdc0s",
+          "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório\n",
+          "favorecido": " Pablo Siqueira Sociedade Individual de Advocacia ",
+          "cnpj": " 18.464.526/0001-98 ",
+          "nrProcesso": "117/2024",
+          "nrContrato": "001/2024"
+        },
+        {
+          "uid": "cmqg211865vh49",
+          "objeto": "Compliance jurídico\n",
+          "favorecido": " Gauche Advogados Associados ",
+          "cnpj": " 48.916.964/0001-00 ",
+          "nrProcesso": "117/2024",
+          "nrContrato": "002/2024"
+        },
+        {
+          "uid": "cmqg21186eez9a",
+          "objeto": "Contencioso e consultivo na área de direito cível e de direito médico e da saúde\n",
+          "favorecido": " E Simões Sociedade Individual de Advocacia ",
+          "cnpj": " 40.101.757/0001-96 ",
+          "nrProcesso": "117/2024",
+          "nrContrato": "003/2024"
+        },
+        {
+          "uid": "cmqg21186nyozo",
+          "objeto": "Suporte ao desenvolvimento de Ouvidoria e apoio aos processos de sindicância\n",
+          "favorecido": " Gustavo Fróes Sociedade Individual de Advocacia ",
+          "cnpj": " 43.485.758/0001-70 ",
+          "nrProcesso": "117/2024",
+          "nrContrato": "004/2024"
+        },
+        {
+          "uid": "cmqg21186yigxw",
+          "objeto": "Serviços de Auditoria Financeira e Contábil\n",
+          "favorecido": " IGF Auditores e Consultores Independentes Sociedade Simples ",
+          "cnpj": " 04.899.444/0001-61 ",
+          "nrProcesso": "121/2024",
+          "nrContrato": "024/2024"
+        },
+        {
+          "uid": "cmqg21186smvor",
+          "objeto": "Coordenação de Revisão de Óbitos e Prontuários Institucional\n",
+          "favorecido": " Radiocom Diagnosticos LTDA ",
+          "cnpj": " 33.192.856/0001-65 ",
+          "nrProcesso": "075/2023",
+          "nrContrato": "013/2023"
+        },
+        {
+          "uid": "cmqg21186fjt3l",
+          "objeto": "Servidor Nuvem Privada em Data Center\n",
+          "favorecido": " Cigam Software Corporativo S.A ",
+          "cnpj": " 24.783.564/0001-06 ",
+          "nrProcesso": "067/2024",
+          "nrContrato": "-"
+        },
+        {
+          "uid": "cmqg21186za2pf",
+          "objeto": "Sistema de Gestão ERP / MENSALIDADE\n",
+          "favorecido": " Produtiva Consultoria em Sistema de Gestão LTDA ",
+          "cnpj": " 24.783.564/0001-06 ",
+          "nrProcesso": "159/2023",
+          "nrContrato": "-"
+        },
+        {
+          "uid": "cmqg21186kvfa5",
+          "objeto": "Sistema de DP/RH\n",
+          "favorecido": " Produtiva Consultoria em Sistema de Gestão LTDA ",
+          "cnpj": " 24.783.564/0001-06 ",
+          "nrProcesso": "161/2023",
+          "nrContrato": "-"
+        },
+        {
+          "uid": "cmqg21186e9e2f",
+          "objeto": "Sistema de Análise de Risco\n",
+          "favorecido": " KPMG Assessores LTDA ",
+          "cnpj": " 05.490.840/0019-22 ",
+          "nrProcesso": "139/2023",
+          "nrContrato": "-"
+        },
+        {
+          "uid": "cmqg211869yheh",
+          "objeto": "Sistema Contábil/Fiscal/DP/MENSALIDADE\n",
+          "favorecido": " Alterdata Tecnologia em Informática LTDA ",
+          "cnpj": " 36.462.778/0001-60 ",
+          "nrProcesso": "177/2021",
+          "nrContrato": "014/2021"
+        },
+        {
+          "uid": "cmqg211866o9ly",
+          "objeto": "Serviço de Treinamento de Melhoria Contínua\n",
+          "favorecido": " Six Treinamento Empresarial LTDA ",
+          "cnpj": " 19.196.342/0001-57 ",
+          "nrProcesso": "204/2023",
+          "nrContrato": "001/2024"
+        },
+        {
+          "uid": "cmqg21186tkkfi",
+          "objeto": "Locação de mobiliários e equipamentos para o CIGAC",
+          "favorecido": " A4PM Analytics For Public Management LTDA ",
+          "cnpj": " 23.034.181/0001-72 ",
+          "nrProcesso": "192/2023",
+          "nrContrato": "038/2023"
+        },
+        {
+          "uid": "cmqg21186zes7o",
+          "objeto": "Locação de veículos para atender ao CIGAC\n",
+          "favorecido": " Promedical Serviços em Saude LTD ",
+          "cnpj": " 35.788.642/0001-81 ",
+          "nrProcesso": "195/2023",
+          "nrContrato": "014/2024"
+        },
+        {
+          "uid": "cmqg21186pwwcq",
+          "objeto": "Fornecimento de Água Mineral\n",
+          "favorecido": " Rodolfo Lucas Duarte 08848690750 ",
+          "cnpj": " 11.967.651/0001-71 ",
+          "nrProcesso": "157/2023",
+          "nrContrato": "025/2023"
+        },
+        {
+          "uid": "cmqg21186uaoaf",
+          "objeto": "Seguro de Vida Colaboradores CIGAC\n",
+          "favorecido": " Unimed Seguradora S/A ",
+          "cnpj": " 10.414.185/0001-09 ",
+          "nrProcesso": "082/2021",
+          "nrContrato": "APÓLICE"
+        },
+        {
+          "uid": "cmqg21186mp9rb",
+          "objeto": "Licença de Uso Mensal do Software Vagas For Business\n",
+          "favorecido": " Vagas Tecnologia de Software LTDA ",
+          "cnpj": " 03.689.427/0001-37 ",
+          "nrProcesso": "047/2022",
+          "nrContrato": "007/2022"
+        },
+        {
+          "uid": "cmqg211866x3x1",
+          "objeto": "Serviços de SST colaboradores CIGAC\n",
+          "favorecido": " Icm Medicina Ocupacional Ltda ",
+          "cnpj": " 50.558.513/0001-90 ",
+          "nrProcesso": "111/2025",
+          "nrContrato": "001/2025"
+        },
+        {
+          "uid": "cmqg211862326m",
+          "objeto": "Sistema Prestação de Contas\n",
+          "favorecido": " BR Gaap Corporation Tecnologia da Informação Ltda ",
+          "cnpj": " 16.106.178/0001-51 ",
+          "nrProcesso": "153/2023",
+          "nrContrato": "002/2025"
+        }
+      ],
+      "contratos_obs": "1. As cópias dos processos de contratação/contratos referentes aos itens 1 a 17, foram enviados na prestação de contas do mês de outubro/24;\t\t\t\t\n2. A cópia do processo de contratação/contrato referente aos itens de 18 e 19, foram enviados na prestação de contas do mês de janeiro/26.\t\t\t\t\n",
+      "colab_lista": [
+        {
+          "uid": "cbmyvlkad",
+          "nome": "EMERSON RODRIGUES SARDINHA",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "AUXILIAR OPERACIONAL"
+        },
+        {
+          "uid": "c4e4aci97",
+          "nome": "FABIA FIALHO MOREIRA BRAZIL",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "ANALISTA ADMINISTRATIVO III"
+        },
+        {
+          "uid": "cwihlrhex",
+          "nome": "FERNANDA FONSECA COUTINHO GROSS",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "ANALISTA ADMINISTRATIVO III"
+        },
+        {
+          "uid": "c8vw2xqji",
+          "nome": "FLAVIO HENRIQUE DE SOUZA COSTA",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "AUXILIAR OPERACIONAL"
+        },
+        {
+          "uid": "cqtzxcfen",
+          "nome": "GILSON GOUVEA",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "SUPERVISOR DE SEGURANÇA"
+        },
+        {
+          "uid": "cisnuw0ht",
+          "nome": "JOCIMAR SILVA DO NASCIMENTO",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "AUXILIAR OPERACIONAL III"
+        },
+        {
+          "uid": "ctkmn0hac",
+          "nome": "JORGE MARCIO DE OLIVEIRA RIBEIRO",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "AUXILIAR ADMINISTRATIVO"
+        },
+        {
+          "uid": "c6nnbvovt",
+          "nome": "LEONARDO BARCELOS MARTINS",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "AUXILIAR ADMINISTRATIVO"
+        },
+        {
+          "uid": "cl7y2fplt",
+          "nome": "LUCAS DA COSTA SILVA PEREIRA",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "AUXILIAR OPERACIONAL"
+        },
+        {
+          "uid": "cse9sm8wj",
+          "nome": "LUIS AUGUSTO DA SILVA SANTANA",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "ANALISTA OPERACIONAL I"
+        },
+        {
+          "uid": "cdr2cu3pb",
+          "nome": "MARINALVA PEREIRA MACHADO",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "COORDENADOR ADMINISTRATIVO I - RT"
+        },
+        {
+          "uid": "c355sb3js",
+          "nome": "NELI DA CONCEICAO MARINS",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "AUXILIAR DE SERVIÇOS GERAIS III"
+        },
+        {
+          "uid": "c6tejf0r1",
+          "nome": "RODRIGO PEÇANHA DOS SANTOS",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "AUXILIAR DE SERVIÇOS GERAIS III"
+        },
+        {
+          "uid": "ckhrfppsv",
+          "nome": "VERONICA PEREIRA DO NASCIMENTO ABREU",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "ASSISTENTE ADMINISTRATIVO II"
+        },
+        {
+          "uid": "cgxu18skj",
+          "nome": "CARLA DA COSTA LEITE",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "AUXILIAR ADMINISTRATIVO"
+        },
+        {
+          "uid": "cwr0xf0bk",
+          "nome": "ALEXANDER DINIZ DOS SANTOS",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ANALISTA ADMINISTRATIVO III"
+        },
+        {
+          "uid": "cp0dlyj5z",
+          "nome": "ANA PAULA DAS GRAÇAS LIMA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
+        },
+        {
+          "uid": "cq0cgyz9u",
+          "nome": "CASSANDRA SOARES DE OLIVEIRA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "COORDENADOR DE REDE DE CUIDADOS III"
+        },
+        {
+          "uid": "cikl9zjcl",
+          "nome": "DANIEL BARBOSA PROCOPIO",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "SUPERVISOR DE INFORMACAO EM SAUDE I"
+        },
+        {
+          "uid": "cuk1tyi2k",
+          "nome": "DIONI DE OLIVEIRA SCHUVARTZ",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ANALISTA ASSISTENCIAL III"
+        },
+        {
+          "uid": "cwcva0d99",
+          "nome": "ESTER SOARES ALVES XIMENES",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "COORDENADOR DE REDE DE CUIDADOS I"
+        },
+        {
+          "uid": "cmcw85hbe",
+          "nome": "FABIO PINTO DA MATTA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "SUPERVISOR DE TI"
+        },
+        {
+          "uid": "cj0fslkl9",
+          "nome": "FRANCIELE DE LIMA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
+        },
+        {
+          "uid": "cu2rmbm7x",
+          "nome": "GLAUCIA DE OLIVEIRA PINHEIRO CAPIBARIBE",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "COORDENADOR DE REDE DE CUIDADOS II"
+        },
+        {
+          "uid": "ccaeagy9m",
+          "nome": "GREICIANE SOUZA CARDOSO",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ASSISTENTE ADMINISTRATIVO II"
+        },
+        {
+          "uid": "cw8q8az5y",
+          "nome": "HENRIQUE CASTRO VALVIESSE",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ANALISTA DE CONTRATO III"
+        },
+        {
+          "uid": "cpdas85uv",
+          "nome": "JACI XAVIER DA FONSECA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ASSISTENTE DE TI II"
+        },
+        {
+          "uid": "cxtg5cjl4",
+          "nome": "JOANE DE OLIVEIRA RÔLA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
+        },
+        {
+          "uid": "cgpktaf1a",
+          "nome": "JOAO LUCAS BRITO DE OLIVEIRA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
+        },
+        {
+          "uid": "cdlxisair",
+          "nome": "JOAO VICTOR SIQUEIRA CAMPOS",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "AUXILIAR ADMINISTRATIVO"
+        },
+        {
+          "uid": "clqi9o4pw",
+          "nome": "JOSE ROBERTO LOPES DA SILVA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ASSISTENTE ADMINISTRATIVO I"
+        },
+        {
+          "uid": "clwbozn51",
+          "nome": "LEONARDO LIMA CARVALHO",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ANALISTA ADMINISTRATIVO III"
+        },
+        {
+          "uid": "cptc3kx6n",
+          "nome": "LEONARDO RODRIGUES FRIAS",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "GERENTE DE TI II"
+        },
+        {
+          "uid": "cwixm519w",
+          "nome": "LINCON DA SILVA FULY",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ASSISTENTE DE TI II"
+        },
+        {
+          "uid": "cs0xg4gcj",
+          "nome": "MARCELA ROCHA FERREIRA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
+        },
+        {
+          "uid": "cx76tu002",
+          "nome": "MARIA EDUARDA MORAES XAVIER",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
+        },
+        {
+          "uid": "cr4agdpkj",
+          "nome": "MARIANA LATTANZI CRISPINO",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
+        },
+        {
+          "uid": "cpsouwz0o",
+          "nome": "MARINA CARVALHO PASSOS SOARES",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
+        },
+        {
+          "uid": "c4ccqksxw",
+          "nome": "PALOMA SUZANO MEDEIROS",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ANALISTA ADMINISTRATIVO III"
+        },
+        {
+          "uid": "cy5r2gai2",
+          "nome": "RAFAELA DA SILVA LEMOS",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ANALISTA ASSISTENCIAL I"
+        },
+        {
+          "uid": "chte381ro",
+          "nome": "RAFAELA OLIVEIRA FERREIRA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "GERENTE DE SAÚDE III"
+        },
+        {
+          "uid": "c3s1gjh7u",
+          "nome": "RAPHAEL AREAS CAVALCANTE",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "SUPERVISORA DE REDES DE CUIDADOS I"
+        },
+        {
+          "uid": "cwb3vse8e",
+          "nome": "RICARDO DE ALMEIDA MANGABEIRA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "COORDENADOR DE REDE DE CUIDADOS II"
+        },
+        {
+          "uid": "ctu0wijo3",
+          "nome": "ROGERIO DA COSTA AZEVEDO",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
+        },
+        {
+          "uid": "coj1jpvvy",
+          "nome": "SUELLEN PIRES DE FREITAS",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "AUXILIAR ADMINISTRATIVO"
+        },
+        {
+          "uid": "cu3nnf85k",
+          "nome": "VALDECY MOTA RIBEIRO",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ASSISTENTE OPERACIONAL I"
+        },
+        {
+          "uid": "c2fzz38qn",
+          "nome": "VANESSA VIEIRA DA SILVEIRA MENDONÇA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
+        },
+        {
+          "uid": "c603oo4b7",
+          "nome": "DIEGO DE FIGUEIREDO SANTOS",
+          "dept": "DEPARTAMENTO DE COMPLIANCE",
+          "funcao": "COORDENADOR DE COMPLIANCE"
+        },
+        {
+          "uid": "ca7j0xrpe",
+          "nome": "ROGERIO DE CARVALHO OLIVEIRA",
+          "dept": "DEPARTAMENTO DE COMPLIANCE",
+          "funcao": "ANALISTA ADMINISTRATIVO III"
+        },
+        {
+          "uid": "cvvb003fs",
+          "nome": "ANDERSON DE SOUZA MOUTINHO",
+          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
+          "funcao": "ANALISTA DE COMPRAS I"
+        },
+        {
+          "uid": "c8yheb4nn",
+          "nome": "ANNA VICTORIA DOS SANTOS DE OLIVEIRA",
+          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
+          "funcao": "JOVEM APRENDIZ"
+        },
+        {
+          "uid": "co14r86ci",
+          "nome": "DANIELA MOTA SANTOS",
+          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
+          "funcao": "JOVEM APRENDIZ"
+        },
+        {
+          "uid": "c4j29zud0",
+          "nome": "IVANETE DA SILVA MOTTA CARVALHO",
+          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
+          "funcao": "ANALISTA DE COMPRAS III"
+        },
+        {
+          "uid": "c9bjqbiz7",
+          "nome": "NICOLE CANTINI FIGUEIRA LIMA",
+          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
+          "funcao": "ASSISTENTE DE COMPRAS"
+        },
+        {
+          "uid": "cpr2p7jkw",
+          "nome": "RAFAEL VIANA DA MOTTA",
+          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
+          "funcao": "ANALISTA DE COMPRAS I"
+        },
+        {
+          "uid": "ce5xz7lga",
+          "nome": "SORAYA ARAUJO DAMASCO",
+          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
+          "funcao": "COORDENADOR DE COMPRAS"
+        },
+        {
+          "uid": "ccf37eohn",
+          "nome": "THACIA DUARTE BRANCO",
+          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
+          "funcao": "ANALISTA ADMINISTRATIVO I"
+        },
+        {
+          "uid": "cspfp9rzt",
+          "nome": "AYRA DE ARAUJO ROSA",
+          "dept": "DEPARTAMENTO DE COMUNICAÇÃO INSTITUCIONAL",
+          "funcao": "ANALISTA DE COMUNICAÇAO III"
+        },
+        {
+          "uid": "c1rtj2121",
+          "nome": "JEFFERSON IGOR MARTINS SILVA",
+          "dept": "DEPARTAMENTO DE COMUNICAÇÃO INSTITUCIONAL",
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
+        },
+        {
+          "uid": "ce3g2iylj",
+          "nome": "PAULA MARTINEZ MELLO",
+          "dept": "DEPARTAMENTO DE COMUNICAÇÃO INSTITUCIONAL",
+          "funcao": "GERENTE DE COMUNICAÇÃO"
+        },
+        {
+          "uid": "cz7zxzxw2",
+          "nome": "PEARGENTINO CHIAFRINO NETO",
+          "dept": "DEPARTAMENTO DE COMUNICAÇÃO INSTITUCIONAL",
+          "funcao": "ANALISTA DE COMUNICAÇAO III"
+        },
+        {
+          "uid": "cmvm2pia9",
+          "nome": "BRUNO DA SILVA MENDONCA",
+          "dept": "DEPARTAMENTO DE CONTABILIDADE",
+          "funcao": "COORDENADOR CONTÁBIL III"
+        },
+        {
+          "uid": "cfq6hn90i",
+          "nome": "FRANCINE CORDEIRO MONTEIRO",
+          "dept": "DEPARTAMENTO DE CONTABILIDADE",
+          "funcao": "SUPERVISOR CONTÁBIL III"
+        },
+        {
+          "uid": "cms650wkl",
+          "nome": "THASSIA ARAUJO DO AMARAL",
+          "dept": "DEPARTAMENTO DE CONTABILIDADE",
+          "funcao": "ANALISTA CONTABIL III"
+        },
+        {
+          "uid": "c3s98tuov",
+          "nome": "GUILHERME MARTINS ALMEIDA SILVA",
+          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
+          "funcao": "SUPERVISOR ADMINISTRATIVO III"
+        },
+        {
+          "uid": "cmdykbe2j",
+          "nome": "JEFFERSON DA SILVA AMORIM",
+          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
+          "funcao": "ANALISTA DE FARMÁCIA II"
+        },
+        {
+          "uid": "c8i7d8sto",
+          "nome": "KARLA FERNANDA KLEINSORGEN",
+          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
+          "funcao": "ASSISTENTE ADMINISTRATIVO II"
+        },
+        {
+          "uid": "cd0gux8it",
+          "nome": "SANDY KEYTMA MELO RAMALHO",
+          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
+          "funcao": "AUXILIAR ADMINISTRATIVO"
+        },
+        {
+          "uid": "chawtwhed",
+          "nome": "TATIELE DA SILVA RIBEIRO",
+          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
+          "funcao": "SUPERVISOR DE FARMÁCIA"
+        },
+        {
+          "uid": "cskeabm0o",
+          "nome": "IGOR MOTTA CARVALHO",
+          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
+          "funcao": "AUXILIAR ADMINISTRATIVO"
+        },
+        {
+          "uid": "c0iq2c2xi",
+          "nome": "JONATHAS MARQUES RIBEIRO",
+          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
+          "funcao": "AUXILIAR ADMINISTRATIVO III"
+        },
+        {
+          "uid": "cbr4h2t1n",
+          "nome": "LUISA FERREIRA ALBUQUERQUE",
+          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
+          "funcao": "ASSISTENTE ADMINISTRATIVO"
+        },
+        {
+          "uid": "ch6nbimqs",
+          "nome": "MARIA BIANCA NOBREGA MARINS",
+          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
+          "funcao": "JOVEM APRENDIZ"
+        },
+        {
+          "uid": "cwp7vfbib",
+          "nome": "VICTOR TEIXEIRA LESSA",
+          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
+          "funcao": "ASSISTENTE ADMINISTRATIVO"
+        },
+        {
+          "uid": "cnn6gk6iz",
+          "nome": "ZILANDA RODRIGUES DOS SANTOS",
+          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
+          "funcao": "AUXILIAR ADMINISTRATIVO"
+        },
+        {
+          "uid": "caiwgjzbe",
+          "nome": "CRISTIANE SONCINI DE ARAUJO",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
+        },
+        {
+          "uid": "c3vwktmzw",
+          "nome": "EDLENE PAIVA DA SILVA",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "SUPERVISOR DE EDUCAÇÃO"
+        },
+        {
+          "uid": "c38nww19f",
+          "nome": "GIANLUCAS CORREIA MENDES",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "TECNICO SEGURANÇA DO TRABALHO"
+        },
+        {
+          "uid": "cwgi5nxbx",
+          "nome": "JANDARA TEIXEIRA DIAS ROCHA",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "ASSISTENTE DE RECURSOS HUMANOS I"
+        },
+        {
+          "uid": "c78hsuebv",
+          "nome": "JOAO VITOR DA SILVA BORGES",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "JOVEM APRENDIZ"
+        },
+        {
+          "uid": "c74su3dgp",
+          "nome": "JULIO CESAR DE OLIVEIRA JUNIOR",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "ANALISTA DE REMUNERAÇAO"
+        },
+        {
+          "uid": "c0zw99ht7",
+          "nome": "LORRAYNE DA SILVA FERNANDEZ DE OLIVEIRA",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "ANALISTA ADMINISTRATIVO I"
+        },
+        {
+          "uid": "cbus44yha",
+          "nome": "MARIA DA CONCEIÇÃO BALDINI BENEVIDES BLAN",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "SUPERVISOR DE EDUCAÇÃO"
+        },
+        {
+          "uid": "cljou3v3e",
+          "nome": "ROSEMARY CRUZ CERQUEIRA",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "COORDENADOR DE EDUCACAO CONTINUADA I"
+        },
+        {
+          "uid": "c80muyagx",
+          "nome": "SABRYNA MARQUES MOREIRA MENDES",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
+        },
+        {
+          "uid": "chndcpulu",
+          "nome": "SERGIO LUIS MACHADO BRAZIL",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "COORDENADOR DE QUALIDADE"
+        },
+        {
+          "uid": "c9ftbivsc",
+          "nome": "THAINARA TAVARES MOREIRA DOS SANTOS",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "ASSISTENTE DE RECURSOS HUMANOS I"
+        },
+        {
+          "uid": "csbygwbaz",
+          "nome": "VICTORIA LINO DE SOUSA",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "ASSISTENTE DE RH I"
+        },
+        {
+          "uid": "cr0mxdguc",
+          "nome": "WENDEL CORREA DE PAO",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "ASSISTENTE DE REMUNERAÇÃO"
+        },
+        {
+          "uid": "c6xuwa13x",
+          "nome": "BERNARDO COSTA DE SA GOUVEA",
+          "dept": "DEPARTAMENTO FINANCEIRO",
+          "funcao": "ASSISTENTE FINANCEIRO III"
+        },
+        {
+          "uid": "coc78mcx0",
+          "nome": "DIOGO DE OLIVEIRA CUNHA",
+          "dept": "DEPARTAMENTO FINANCEIRO",
+          "funcao": "ASSISTENTE ADMINISTRATIVO II"
+        },
+        {
+          "uid": "cbj6cghp9",
+          "nome": "DOUGLAS BARCELLOS SILVA",
+          "dept": "DEPARTAMENTO FINANCEIRO",
+          "funcao": "ANALISTA ADMINISTRATIVO I"
+        },
+        {
+          "uid": "cohfxmvdq",
+          "nome": "LUCAS DA COSTA",
+          "dept": "DEPARTAMENTO FINANCEIRO",
+          "funcao": "ASSISTENTE ADMINISTRATIVO I"
+        },
+        {
+          "uid": "cu4l4h16s",
+          "nome": "LUDMILA DA COSTA CARVALHO",
+          "dept": "DEPARTAMENTO FINANCEIRO",
+          "funcao": "ASSISTENTE FINANCEIRO I"
+        },
+        {
+          "uid": "c7falx9a6",
+          "nome": "RAFAELA PINA RIBEIRO",
+          "dept": "DEPARTAMENTO FINANCEIRO",
+          "funcao": "ASSISTENTE ADMINISTRATIVO II"
+        },
+        {
+          "uid": "c5qg1bg94",
+          "nome": "RUI ANDERSON MORAES DOS SANTOS",
+          "dept": "DEPARTAMENTO FINANCEIRO",
+          "funcao": "COORDENADOR FINANCEIRO I"
+        },
+        {
+          "uid": "cdzffzk55",
+          "nome": "SORAIA MUZI XAVIER",
+          "dept": "DEPARTAMENTO FINANCEIRO",
+          "funcao": "ASSISTENTE ADMINISTRATIVO II"
+        },
+        {
+          "uid": "cvr90xucj",
+          "nome": "YASMIM FAGGIAN OLIVEIRA",
+          "dept": "DEPARTAMENTO FINANCEIRO",
+          "funcao": "ASSISTENTE ADMINISTRATIVO II"
+        },
+        {
+          "uid": "c42ttg3iw",
+          "nome": "ROBSON LOUREIRO FERNANDES",
+          "dept": "DEPARTAMENTO JURÍDICO",
+          "funcao": "GERENTE JURÍDICO"
+        },
+        {
+          "uid": "cg4tdnewl",
+          "nome": "RODRIGO PAPAZIAN PINHO",
+          "dept": "DEPARTAMENTO JURÍDICO",
+          "funcao": "COORDENADOR JURÍDICO"
+        },
+        {
+          "uid": "ct7fo118n",
+          "nome": "THIAGO FARIAS DIAS",
+          "dept": "DEPARTAMENTO JURÍDICO",
+          "funcao": "GERENTE JURÍDICO II"
+        },
+        {
+          "uid": "chkboymvf",
+          "nome": "AMANDA DE OLIVEIRA ALMEIDA",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
+        },
+        {
+          "uid": "cuzub3glv",
+          "nome": "ANNA JULIA ANTUNES DE OLIVEIRA",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "JOVEM APRENDIZ"
+        },
+        {
+          "uid": "cgctjwth7",
+          "nome": "BIANCA BARCELOS MARTINS",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ASSISTENTE DE DEPARTAMENTO"
+        },
+        {
+          "uid": "c7x6cdhnk",
+          "nome": "CLAUDIA ALJAN BRAGA DE MIRANDA",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
+        },
+        {
+          "uid": "cwv5pmk1y",
+          "nome": "CRISTIANE ROSA CHAVES",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ASSISTENTE ADMINISTRATIVO"
+        },
+        {
+          "uid": "c0rgsb2kj",
+          "nome": "ELENA VIANA MACEDO",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "GERENTE DE DEPARTAMENTO PESSOAL"
+        },
+        {
+          "uid": "cwipohynv",
+          "nome": "EMILIA PEREIRA DARIO RANGEL",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "SUPERVISOR DE DEPARTAMENTO PESSOAL III"
+        },
+        {
+          "uid": "cu4u3jkx2",
+          "nome": "GIOVANA FERREIRA DA CONCEICAO RODRIGUES",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ASSISTENTE ADMINISTRATIVO II"
+        },
+        {
+          "uid": "c8y20etet",
+          "nome": "GRAZIELA SCARPONETI MARREIRO",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
+        },
+        {
+          "uid": "cllethxqg",
+          "nome": "ITALO LUIZ RODRIGUES DA COSTA",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
+        },
+        {
+          "uid": "c7c5jy5d8",
+          "nome": "JOAO VITOR DE FRANCA TEIXEIRA",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "AUXILIAR ADMINISTRATIVO"
+        },
+        {
+          "uid": "cf23q2irq",
+          "nome": "LUCIANA SOUZA DA SILVA",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ASSISTENTE ADMINISTRATIVO"
+        },
+        {
+          "uid": "c9op7bd71",
+          "nome": "MARIANA GONÇALVES FELIX",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ANALISTA DE DEPARTAMENTO"
+        },
+        {
+          "uid": "cl4tggf5v",
+          "nome": "PHAMYLA DE SOUZA POSSAO ABDALLA REBEQUE",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
+        },
+        {
+          "uid": "ckgdn8hvg",
+          "nome": "SAMUEL LUCAS ALVES DE MELO",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "JOVEM APRENDIZ"
+        },
+        {
+          "uid": "c9zz5945o",
+          "nome": "SHIRLEY DE OLIVEIRA MATOS",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ASSISTENTE ADMINISTRATIVO"
+        },
+        {
+          "uid": "cqq7j63ed",
+          "nome": "SOLANGE SEIXAS MURRO",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
+        },
+        {
+          "uid": "cyixz5ew8",
+          "nome": "THAYZA QUEIROZ DA SILVA",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ASSISTENTE DE DEPARTAMENTO"
+        },
+        {
+          "uid": "cdit4rmmw",
+          "nome": "CAMILLO DE LELLIS CARNEIRO JUNQUEIRA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "MÉDICO RT"
+        },
+        {
+          "uid": "cro2no2ov",
+          "nome": "CYNTIA ARAUJO DAMASCO",
+          "dept": "SUPERINTENDÊNCIA",
+          "funcao": "SUPERINTENDENTE EXECUTIVA"
+        },
+        {
+          "uid": "c0j3t71r3",
+          "nome": "RALF RIBEIRO DOS SANTOS",
+          "dept": "SUPERINTENDÊNCIA",
+          "funcao": "SUPERINTENDENTE ASSISTENCIAL"
+        }
+      ],
+      "despesasLocais": {
+        "madalena": [
+          {
+            "id": "dl1781575924286wahl",
+            "objeto": "ENERGIA ELÉTRICA SEDE MADALENA",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 105.35
+          },
+          {
+            "id": "dl1781575924286sone",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE MADALENA",
+            "fornecedor": "FERNANDA BOTELHO DE OLIVEIRA QUEIROZ",
+            "valor": 1800
+          },
+          {
+            "id": "dl1781576079020",
+            "objeto": "ÁGUA E ESGOTO SEDE MADALENA",
+            "fornecedor": "COMPANHIA ESTADUAL DE ÁGUAS E ESGOTO CEDAE",
+            "valor": 73.08
+          }
+        ],
+        "cachoeiras": [
+          {
+            "id": "dl1781575924286bcy8",
+            "objeto": "ENERGIA ELÉTRICA SEDE CACHOEIRAS",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 699.17
+          },
+          {
+            "id": "dl17815759242861esr",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE CACHOEIRAS",
+            "fornecedor": "REGINA CÉLIA DE CASTRO MENDES",
+            "valor": 1500
+          }
+        ],
+        "saq_hosp": [],
+        "upa_pac": [],
+        "upa_nc": [],
+        "arraial": [
+          {
+            "id": "dl1781575924286p3l9",
+            "objeto": "ENERGIA ELÉTRICA SEDE ARRAIAL - SALA 301",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 706.76
+          },
+          {
+            "id": "dl1781575924286f4rn",
+            "objeto": "ENERGIA ELÉTRICA SEDE ARRAIAL - SALA 302",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 227.6
+          },
+          {
+            "id": "dl17815759242861lym",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE ARRAIAL",
+            "fornecedor": "CRISTIANE RODRIGUES SILVA",
+            "valor": 5065.43
+          },
+          {
+            "id": "dl1781576361726",
+            "objeto": "IPTU SEDE ARRAIAL - SALA 302",
+            "fornecedor": "PREFEITURA MUNICIPAL DE ARRAIAL DO CABO",
+            "valor": 273.05
+          },
+          {
+            "id": "dl1781576401637",
+            "objeto": "IPTU SEDE ARRAIAL - SALA 301",
+            "fornecedor": "PREFEITURA MUNICIPAL DE ARRAIAL DO CABO",
+            "valor": 355.16
+          }
+        ],
+        "quissama": [
+          {
+            "id": "dl1781575924286dicx",
+            "objeto": "ENERGIA ELÉTRICA SEDE QUISSAMÃ",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 336.3
+          },
+          {
+            "id": "dl17815759242868wao",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE QUISSAMÃ",
+            "fornecedor": "CRISLANE SILVA CONCEIÇÃO",
+            "valor": 2700
+          }
+        ],
+        "cordeiro": [
+          {
+            "id": "dl1781575924286dvsf",
+            "objeto": "ENERGIA ELÉTRICA SEDE CORDEIRO",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 59.6
+          },
+          {
+            "id": "dl1781575924286veki",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE CORDEIRO",
+            "fornecedor": "R W IMOBILIÁRIA LTDA",
+            "valor": 1214.92
+          }
+        ],
+        "saq_esp": [],
+        "saq_pri": []
+      },
+      "demoContabil": {
+        "balancete": {
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202602_balancete.pdf",
+          "pdfNome": "Balancete Matriz 02-2026.pdf"
+        },
+        "extrato": {
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202602_extrato.pdf",
+          "pdfNome": "EXTRATO MATRIZ 02.2026.pdf"
+        },
+        "movimentacao": {
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202602_movimentacao.pdf",
+          "pdfNome": "Movimentação 02.2026.pdf"
+        },
+        "razao": {
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202602_razao.pdf",
+          "pdfNome": "RAZÃO MATRIZ 02.2026.pdf"
+        },
+        "bl_saldoInicial": 28.24,
+        "bl_transferencias": 1563118.93,
+        "bl_aplicacao": 46069.62,
+        "bl_rendimento": 0.79,
+        "bl_despesasExec": 1563118.93,
+        "bl_iof": 0.53,
+        "bl_ir": 0.04,
+        "bl_resgateFinanceiro": 45966.3,
+        "bl_saldoFinal": 131.78,
+        "ex_saldoFinal": 0,
+        "obs": "",
+        "extratoData": {
+          "txCount": 16,
+          "countCreditos": 9,
+          "countDebitos": 7,
+          "totalCreditos": 46434.47,
+          "totalDebitos": 74107.06,
+          "saldoFinal": 0,
+          "cats": {
+            "Resgate Contamax": {
+              "count": 8,
+              "total": 45966.3
+            },
+            "Aplicação Contamax": {
+              "count": 6,
+              "total": -46069.62
+            },
+            "Pgto de Título": {
+              "count": 1,
+              "total": -28037.44
+            },
+            "Receb. de Fornecedores": {
+              "count": 1,
+              "total": 468.17
+            }
+          },
+          "txs": [
+            {
+              "data": "02/02/2026",
+              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
+              "valor": 3.5,
+              "saldo": 0
+            },
+            {
+              "data": "06/02/2026",
+              "desc": "APLICACAO CONTAMAX 000000",
+              "valor": -180,
+              "saldo": 0
+            },
+            {
+              "data": "09/02/2026",
+              "desc": "PAGAMENTO DE TITULO 3003.4906177381 310209",
+              "valor": -28037.44,
+              "saldo": 18.22
+            },
+            {
+              "data": "10/02/2026",
+              "desc": "APLICACAO CONTAMAX 000000",
+              "valor": -1447.13,
+              "saldo": 0
+            },
+            {
+              "data": "11/02/2026",
+              "desc": "APLICACAO CONTAMAX 000000",
+              "valor": -1253.75,
+              "saldo": 0
+            },
+            {
+              "data": "12/02/2026",
+              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
+              "valor": 14,
+              "saldo": 0
+            },
+            {
+              "data": "13/02/2026",
+              "desc": "APLICACAO CONTAMAX 000000",
+              "valor": -26084.83,
+              "saldo": 0
+            },
+            {
+              "data": "18/02/2026",
+              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
+              "valor": 3.5,
+              "saldo": 0
+            },
+            {
+              "data": "19/02/2026",
+              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
+              "valor": 4280.77,
+              "saldo": 0
+            },
+            {
+              "data": "20/02/2026",
+              "desc": "APLICACAO CONTAMAX 000000",
+              "valor": -13080.66,
+              "saldo": 0
+            },
+            {
+              "data": "23/02/2026",
+              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
+              "valor": 31611.52,
+              "saldo": 0
+            },
+            {
+              "data": "24/02/2026",
+              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
+              "valor": 7,
+              "saldo": 0
+            },
+            {
+              "data": "25/02/2026",
+              "desc": "PAGAMENTO A FORNECEDORES PROJETO SO 40289134000199 010225",
+              "valor": 468.17,
+              "saldo": 75926.21
+            },
+            {
+              "data": "25/02/2026",
+              "desc": "APLICACAO CONTAMAX 000000",
+              "valor": -4023.25,
+              "saldo": 0
+            },
+            {
+              "data": "26/02/2026",
+              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
+              "valor": 10042.51,
+              "saldo": 0
+            },
+            {
+              "data": "27/02/2026",
+              "desc": "RESGATE CONTAMAX AUTOMATICO 000000",
+              "valor": 3.5,
+              "saldo": 0
+            }
+          ],
+          "parsedAt": "15/06/2026 22:16"
+        }
+      },
+      "iqual_pdfs": {
+        "ind1": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind2": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind3": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind4": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind5": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind6": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind7": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind8": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        }
+      },
+      "refColab": "DEZEMBRO/2025",
+      "relQuant": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/relquant_2026-02.pdf",
+      "relQuantNome": "1. CRITÉRIO QUANTITATIVO - COMPLETO_.pdf"
+    },
     "manualRDG": {
       "pdfUrl": "",
       "pdfNome": ""
     }
   },
   "currentComp": "2026-01",
-  "savedAt": 1783392513764
+  "savedAt": 1783392540629
 }

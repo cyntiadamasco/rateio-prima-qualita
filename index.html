@@ -1131,7 +1131,7 @@ body.readonly [onclick^="importarContrat"]{display:none!important}
       </div>
     </div>
     <span id="sync-status" style="display:flex;align-items:center;gap:4px"><span class="sync-dot" id="sync-dot"></span><span class="sync-lbl" id="sync-lbl"></span></span>
-    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-07-03a</span>
+    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-07-06a</span>
     <button class="btn btn-teal btn-sm edit-only" onclick="salvar()">💾 Salvar</button>
     <button id="btn-lock-edit" onclick="toggleEditMode()" title="Modo de edição">🔒 Editar</button>
   </div>
@@ -1418,16 +1418,49 @@ function prevCompLabel(comp){ return compLabel(prevComp(comp)); }
 /* =====================================================================
    PERSISTÊNCIA
 ===================================================================== */
+function _liberarEspacoLS(){
+  // Remove caches de PDF (base64) que podem ser re-carregados
+  const remover=[];
+  for(let i=0;i<localStorage.length;i++){
+    const k=localStorage.key(i);
+    if(k&&(k.startsWith('pq_iqual_')||k.startsWith('pq_pdf_')))
+      remover.push(k);
+  }
+  remover.forEach(k=>localStorage.removeItem(k));
+  return remover.length;
+}
+
 function salvar(){
-  try{
+  const _gravar=()=>{
     localStorage.setItem('pq_rateio_v2',JSON.stringify(state));
     localStorage.setItem('pq_comp',currentComp);
     localStorage.setItem('pq_saved_at',String(Date.now()));
-    const el=document.getElementById('save-ind');
-    el.style.display='block';
-    setTimeout(()=>el.style.display='none',2200);
-    if(ghToken()) githubSalvar();
-  }catch(e){ alert('Erro ao salvar: '+e.message); }
+  };
+  try{
+    _gravar();
+  }catch(e){
+    if(e.name==='QuotaExceededError'||e.code===22||e.code===1014){
+      const n=_liberarEspacoLS();
+      try{
+        _gravar();
+        const el=document.getElementById('save-ind');
+        el.style.display='block';
+        setTimeout(()=>el.style.display='none',2200);
+        if(n>0) console.info('[salvar] Liberados '+n+' caches de PDF para abrir espaço no localStorage.');
+        if(ghToken()) githubSalvar();
+        return;
+      }catch(e2){
+        alert('Armazenamento local cheio.\n\nOs dados NÃO foram salvos.\n\nSolução: abra as Opções → Sincronizar com GitHub para enviar os dados, depois recarregue a página.\n\n(Detalhe técnico: '+e2.message+')');
+        return;
+      }
+    }
+    alert('Erro ao salvar: '+e.message);
+    return;
+  }
+  const el=document.getElementById('save-ind');
+  el.style.display='block';
+  setTimeout(()=>el.style.display='none',2200);
+  if(ghToken()) githubSalvar();
 }
 
 function carregar(){

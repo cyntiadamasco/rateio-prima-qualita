@@ -6494,7 +6494,7 @@
           "cnpj": "40.289.134/0001-99",
           "ctipo": "",
           "cnum": "",
-          "valor": 0,
+          "valor": 467306.53,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -21022,5 +21022,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1783394374606
+  "savedAt": 1783394428394
 }

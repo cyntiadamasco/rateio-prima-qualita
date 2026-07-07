@@ -1131,7 +1131,7 @@ body.readonly [onclick^="importarContrat"]{display:none!important}
       </div>
     </div>
     <span id="sync-status" style="display:flex;align-items:center;gap:4px"><span class="sync-dot" id="sync-dot"></span><span class="sync-lbl" id="sync-lbl"></span></span>
-    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-07-06d</span>
+    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-07-06e</span>
     <button class="btn btn-teal btn-sm edit-only" onclick="salvar()">💾 Salvar</button>
     <button id="btn-lock-edit" onclick="toggleEditMode()" title="Modo de edição">🔒 Editar</button>
   </div>
@@ -1432,12 +1432,20 @@ function _liberarEspacoLS(){
 
 function salvar(){
   const _gravar=()=>{
-    // Remove bloco antigo único antes de escrever (evita precisar de espaço duplo)
+    // Remove bloco antigo único (formato legado)
     try{ localStorage.removeItem('pq_rateio_v2'); }catch(ex){}
-    // Salva cada mês em chave separada – cada uma é pequena (~100-200 KB)
-    Object.keys(state).forEach(k=>{
-      if(/^\d{4}-\d{2}$/.test(k))
-        localStorage.setItem('pq_mes_'+k, JSON.stringify(state[k]));
+    // Salva apenas os 6 meses mais recentes + mês atual no localStorage
+    // (o total de todos os meses pode ultrapassar o limite de 5 MB do browser)
+    const todosMeses=Object.keys(state).filter(k=>/^\d{4}-\d{2}$/.test(k)).sort();
+    const mesesSalvar=new Set([currentComp,...todosMeses.slice(-6)]);
+    // Remove meses antigos que possam estar guardados
+    for(let i=localStorage.length-1;i>=0;i--){
+      const k=localStorage.key(i);
+      if(k&&k.startsWith('pq_mes_')&&!mesesSalvar.has(k.slice(7)))
+        try{localStorage.removeItem(k);}catch(ex){}
+    }
+    mesesSalvar.forEach(m=>{
+      if(state[m]) localStorage.setItem('pq_mes_'+m, JSON.stringify(state[m]));
     });
     localStorage.setItem('pq_comp',currentComp);
     localStorage.setItem('pq_saved_at',String(Date.now()));

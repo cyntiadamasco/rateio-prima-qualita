@@ -1131,7 +1131,7 @@ body.readonly [onclick^="importarContrat"]{display:none!important}
       </div>
     </div>
     <span id="sync-status" style="display:flex;align-items:center;gap:4px"><span class="sync-dot" id="sync-dot"></span><span class="sync-lbl" id="sync-lbl"></span></span>
-    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-07-06b</span>
+    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-07-06c</span>
     <button class="btn btn-teal btn-sm edit-only" onclick="salvar()">💾 Salvar</button>
     <button id="btn-lock-edit" onclick="toggleEditMode()" title="Modo de edição">🔒 Editar</button>
   </div>
@@ -1419,12 +1419,12 @@ function prevCompLabel(comp){ return compLabel(prevComp(comp)); }
    PERSISTÊNCIA
 ===================================================================== */
 function _liberarEspacoLS(){
-  // Remove caches de PDF e o bloco antigo monolítico (libera a maior parte do espaço)
+  // Limpeza total: remove TODAS as chaves pq_* exceto token e senha
+  const preservar=new Set([EDIT_PWD_KEY,'pq_gh_token']);
   const remover=[];
   for(let i=0;i<localStorage.length;i++){
     const k=localStorage.key(i);
-    if(k&&(k.startsWith('pq_iqual_')||k.startsWith('pq_pdf_')||k==='pq_rateio_v2'))
-      remover.push(k);
+    if(k&&k.startsWith('pq_')&&!preservar.has(k)) remover.push(k);
   }
   remover.forEach(k=>localStorage.removeItem(k));
   return remover.length;

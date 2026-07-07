@@ -1131,7 +1131,7 @@ body.readonly [onclick^="importarContrat"]{display:none!important}
       </div>
     </div>
     <span id="sync-status" style="display:flex;align-items:center;gap:4px"><span class="sync-dot" id="sync-dot"></span><span class="sync-lbl" id="sync-lbl"></span></span>
-    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-07-06c</span>
+    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-07-06d</span>
     <button class="btn btn-teal btn-sm edit-only" onclick="salvar()">💾 Salvar</button>
     <button id="btn-lock-edit" onclick="toggleEditMode()" title="Modo de edição">🔒 Editar</button>
   </div>
@@ -1830,13 +1830,6 @@ async function uploadIqualPdf(indId,input){
   // Lê ArrayBuffer diretamente — funciona em file:// sem fetch/blob URL
   const buf=await file.arrayBuffer();
   _pdfBlobCache.set(uid,{buf:buf,nome:file.name});
-  // Persiste no localStorage para sobreviver ao reload
-  const reader=new FileReader();
-  reader.onload=e=>{
-    try{ localStorage.setItem('pq_iqual_'+uid,e.target.result); }
-    catch(err){ console.warn('[uploadIqualPdf] localStorage cheio:',err.message); }
-  };
-  reader.readAsDataURL(file);
 
   const dataLocal=getMesData(comp);
   if(!dataLocal.iqual_pdfs) dataLocal.iqual_pdfs={};
@@ -1876,15 +1869,8 @@ function verIqualPdf(indId){
     }
   }
   if(!src&&pdf.pdfUrl&&pdf.pdfUrl.startsWith('local:')){
-    const b64=localStorage.getItem('pq_iqual_'+uid);
-    if(b64){
-      const blobLocal=_b64toBlob(b64);
-      src=URL.createObjectURL(blobLocal);
-      _pdfBlobCache.set(uid,{url:src,nome:pdf.pdfNome});
-    } else {
-      alert('PDF disponível apenas nesta sessão.\nFaça o upload novamente para visualizar.');
-      return;
-    }
+    alert('PDF disponível apenas nesta sessão.\nFaça o upload novamente para visualizar.');
+    return;
   }
   src=src||pdf.pdfUrl;
   document.getElementById('modal-pdf-frame').src=src;
@@ -1903,7 +1889,6 @@ function removerIqualPdf(indId){
   if(data.iqual&&data.iqual[indId]) CONTRATOS.forEach(cg=>{ data.iqual[indId][cg.id]=0; });
   const cached=_pdfBlobCache.get(uid);
   if(cached){URL.revokeObjectURL(cached.url);_pdfBlobCache.delete(uid);}
-  localStorage.removeItem('pq_iqual_'+uid);
   githubDeletePDF(uid).catch(()=>{});
   salvar();
   renderQualitativo();
@@ -6341,15 +6326,8 @@ async function lerIndicador(indId){
   // blob local expirou após reload — pede novo upload
   const _cachedBlob=_pdfBlobCache.get(uid);
   if(!_cachedBlob&&pdf.pdfUrl&&pdf.pdfUrl.startsWith('local:')){
-    const b64=localStorage.getItem('pq_iqual_'+uid);
-    if(b64){
-      const blobLocal=_b64toBlob(b64);
-      const restoredBuf=await blobLocal.arrayBuffer();
-      _pdfBlobCache.set(uid,{buf:restoredBuf,nome:pdf.pdfNome});
-    } else {
-      alert('PDF disponível apenas nesta sessão.\nFaça o upload novamente para reler.');
-      return;
-    }
+    alert('PDF disponível apenas nesta sessão.\nFaça o upload novamente para reler.');
+    return;
   }
   const btn=document.getElementById('btn-ler-ind-'+indId);
   if(btn){btn.disabled=true;btn.textContent='⏳ Lendo...';}

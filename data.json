@@ -21048,7 +21048,14 @@
         "perfil": "Administrador",
         "comp": "2026-06"
       }
-    ]
+    ],
+    "tokenCripto": {
+      "admin": {
+        "salt": "JrSJm1fyRn4ssRRrQLKzYQ==",
+        "iv": "A+r13WN40cyKzxd/",
+        "ct": "bFiB7qQAMj9Qnmtbv6GUsLcOXZvnArJFB2Ay1aaoFSELHx6v6eBs29IfjEcgmk1wTQhTJ9EUXIc="
+      }
+    }
   },
   "currentComp": "2026-06",
   "savedAt": 1784935710877

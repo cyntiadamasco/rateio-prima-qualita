@@ -14270,7 +14270,7 @@
           "clt": 539,
           "efetivo": 41,
           "pj": 11,
-          "obs": "504"
+          "obs": ""
         }
       ],
       "iqual": {
@@ -21047,6 +21047,11 @@
         "t": 1784935710874,
         "perfil": "Administrador",
         "comp": "2026-06"
+      },
+      {
+        "t": 1784937166467,
+        "perfil": "Administrador",
+        "comp": "2026-06"
       }
     ],
     "tokenCripto": {
@@ -21058,5 +21063,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1784935710877
+  "savedAt": 1784937166472
 }

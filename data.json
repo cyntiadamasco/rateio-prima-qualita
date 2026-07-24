@@ -21019,8 +21019,18 @@
     "manualRDG": {
       "pdfUrl": "",
       "pdfNome": ""
-    }
+    },
+    "perfilSenhas": {
+      "superint": "-ernuxd"
+    },
+    "auditLog": [
+      {
+        "t": 1784935225408,
+        "perfil": "Administrador",
+        "comp": "2026-06"
+      }
+    ]
   },
   "currentComp": "2026-06",
-  "savedAt": 1783396790562
+  "savedAt": 1784935225438
 }

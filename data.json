@@ -21022,7 +21022,15 @@
     },
     "perfilSenhas": {
       "superint": "-ernuxd",
-      "rh": "-ernuxc"
+      "rh": "-ernuxc",
+      "comunicacao": "-ernuxb",
+      "financeiro": "-ernuxa",
+      "contabilidade": "-ernux9",
+      "suprimentos": "-ernux8",
+      "compras": "-ernux7",
+      "juridico": "-ernux6",
+      "assistencial": "-ernux5",
+      "prestacao": "9ux1a7"
     },
     "auditLog": [
       {
@@ -21034,9 +21042,14 @@
         "t": 1784935288168,
         "perfil": "Administrador",
         "comp": "2026-06"
+      },
+      {
+        "t": 1784935710874,
+        "perfil": "Administrador",
+        "comp": "2026-06"
       }
     ]
   },
   "currentComp": "2026-06",
-  "savedAt": 1784935288171
+  "savedAt": 1784935710877
 }

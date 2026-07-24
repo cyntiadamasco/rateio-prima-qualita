@@ -5180,13 +5180,9 @@ async function githubCarregar(){
     if(r.status===404){setSyncStatus('ok','Sem dados remotos ainda');return false;}
     if(!r.ok){setSyncStatus('err','Erro ao carregar');return false;}
     const raw=await r.json();
-    // Só sobrescreve estado local se GitHub for mais recente (evita condição de corrida)
-    const localSavedAt=parseInt(localStorage.getItem('pq_saved_at')||'0');
-    const remoteSavedAt=raw.savedAt||0;
-    if(remoteSavedAt>=localSavedAt){
-      if(raw.state) state=raw.state;
-      if(raw.currentComp) currentComp=raw.currentComp;
-    }
+    // GitHub é a fonte da verdade: sempre sobrescreve o estado local
+    if(raw.state) state=raw.state;
+    if(raw.currentComp) currentComp=raw.currentComp;
     rebuildContratos();
     const t=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
     setSyncStatus('ok','Atualizado '+t);

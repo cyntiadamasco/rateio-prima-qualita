@@ -21052,6 +21052,11 @@
         "t": 1784937166467,
         "perfil": "Administrador",
         "comp": "2026-06"
+      },
+      {
+        "t": 1784937284625,
+        "perfil": "Administrador",
+        "comp": "2026-06"
       }
     ],
     "tokenCripto": {
@@ -21059,9 +21064,59 @@
         "salt": "JrSJm1fyRn4ssRRrQLKzYQ==",
         "iv": "A+r13WN40cyKzxd/",
         "ct": "bFiB7qQAMj9Qnmtbv6GUsLcOXZvnArJFB2Ay1aaoFSELHx6v6eBs29IfjEcgmk1wTQhTJ9EUXIc="
+      },
+      "superint": {
+        "salt": "LSe1zXkmbJocZkHDEzZK7A==",
+        "iv": "N+QNEIxDuTkC8uNb",
+        "ct": "QvnV6z5WbxKOuHcWxxFg7NeNxV4EjVE8XNs1uUiF/5OXxpytsN6K58EpzCyjVnobHJkJkY53/+4="
+      },
+      "rh": {
+        "salt": "EmqGePh2gjLmyyF/yF1/Ew==",
+        "iv": "34FtKqUbVunbB26w",
+        "ct": "98r1oMg9oP7Qz9bAY0zY7tDpaOoIE5dEFtNCoVUfW5QzTTMYbDSEXWleVdiv3325QmaXBa4xgu4="
+      },
+      "comunicacao": {
+        "salt": "k5vc/f/8XEPWnZMr47ZQbA==",
+        "iv": "jnbWnvBs2+NemseP",
+        "ct": "YWxhQi7BaUam2tXf/yzsZJ7ccVuDQWCzZNrS7ahhEVZsfG7qLMTqd/PvA3REmZCoBD8/X/F+Egw="
+      },
+      "financeiro": {
+        "salt": "hRKmm1XA2q81wQFMyeHLVA==",
+        "iv": "koT1rpZd0ZSA5Jld",
+        "ct": "6UxdAvvOqBdmwWrGzsAjLSwRu6i4OJ4ZuO10rf1PVaN1auSZTq/2dEUjgfTWN4sO/RgYbvMpPwo="
+      },
+      "contabilidade": {
+        "salt": "jCHSEoSCvDy0DNRpiXFL3Q==",
+        "iv": "+weNfUs3nLhz1wOE",
+        "ct": "B/D5v0iv3RfTaWNJcnH/d2bYxWEhN0lyU7RJuh1oQa2eAVo7kvxjLExDFZn1oIYD8UnpRAnTzfA="
+      },
+      "suprimentos": {
+        "salt": "Mr0a+l1Q7mQkzsMPBM9emg==",
+        "iv": "CrXfeLEZ8nM2Urku",
+        "ct": "DKbH5sPCpkgEPe7Bcn7aLgHkjY04EGMIIs1DJTGlKMhYEo0LH7cJA88ovx9LJP/Y+NMISGUhVVU="
+      },
+      "compras": {
+        "salt": "a+iUei17RR7N+v8DxHPRGA==",
+        "iv": "IEtTqFRSa0mR1FnD",
+        "ct": "BpsxTkdrN3YfCOKvx2oXHlvN8reqHwyx/TdSasEuqW4clxn28QCYSOogJHn7/7zpyjCisrHJxCw="
+      },
+      "juridico": {
+        "salt": "e8NDNQq4YA/jTESzns/mGg==",
+        "iv": "sC+k/hFrvEzZLDCO",
+        "ct": "jiFhBB0CApQLo6GeEdQGqkFjAMJXum1OhbSwiLLgBNkV2usmjiR6l9NFMW+2P7VrxSS18HJ57xc="
+      },
+      "assistencial": {
+        "salt": "cQVHVoQvlK0PNWZJOFvxhQ==",
+        "iv": "V1WJ1dXTeT1A8GV+",
+        "ct": "iXnohZ4jHBRxFdBkHRX0Yvx/vzUKLuZQukoi0Q7S/oMg+Ji+uYNAYpHuejequChvWoa7zUWYscg="
+      },
+      "prestacao": {
+        "salt": "lKPaw+HfYbWapygpjz0DZw==",
+        "iv": "8zn1cwfe+W/g/b8W",
+        "ct": "XSh2mv1T755Qf5goXMG0q3tUn1M+dxDveUZAx7m2d1yLPZHBurnQJeCNLuKUQNhFHRhXxobzVqA="
       }
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1784937166472
+  "savedAt": 1784937284628
 }

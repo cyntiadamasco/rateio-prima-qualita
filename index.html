@@ -1155,7 +1155,7 @@ body:not(.perfil-logado) .logado-only{display:none!important}
       </div>
     </div>
     <span id="sync-status" style="display:flex;align-items:center;gap:4px"><span class="sync-dot" id="sync-dot"></span><span class="sync-lbl" id="sync-lbl"></span></span>
-    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-07-24a</span>
+    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-07-24b</span>
     <button class="btn btn-teal btn-sm edit-only" onclick="salvar()">💾 Salvar</button>
     <button id="btn-lock-edit" onclick="toggleEditMode()" title="Modo de edição">🔒 Editar</button>
   </div>
@@ -5261,7 +5261,14 @@ function fecharModal(){document.getElementById('modal-sync').style.display='none
 function salvarToken(){
   const t=document.getElementById('sync-token-input').value.trim();
   if(!t){alert('Cole o token antes de salvar.');return;}
+  const anterior=ghToken();
   localStorage.setItem('pq_gh_token',t);
+  // Token trocado: os pacotes criptografados distribuem o token antigo — descarta e avisa
+  if(anterior&&anterior!==t&&state.tokenCripto&&Object.keys(state.tokenCripto).length){
+    state.tokenCripto={};
+    salvar();
+    alert('⚠ O token foi trocado.\nRefaça as senhas em Opções → Perfis de Acesso para redistribuir o novo token aos departamentos.\n(Os logins continuam funcionando; só o salvamento automático em máquinas novas precisa disso.)');
+  }
   fecharModal();
   githubCarregar().then(ok=>{
     if(ok){popularCompetencias();popularUI();renderCriterio();}
@@ -5712,6 +5719,32 @@ function _pwdHash(s){
   return h.toString(36);
 }
 
+/* ── Distribuição automática do token GitHub ──
+   O token é gravado em state.tokenCripto criptografado (AES-GCM + PBKDF2)
+   com a senha de cada perfil. No login, o app descriptografa com a senha
+   digitada e configura o token na máquina automaticamente. */
+function _b64(buf){return btoa(String.fromCharCode(...new Uint8Array(buf)));}
+function _unb64(s){return Uint8Array.from(atob(s),c=>c.charCodeAt(0));}
+async function _deriveKey(pwd,salt){
+  const base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pwd),'PBKDF2',false,['deriveKey']);
+  return crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:100000,hash:'SHA-256'},base,
+    {name:'AES-GCM',length:256},false,['encrypt','decrypt']);
+}
+async function criptografarToken(pwd,token){
+  const salt=crypto.getRandomValues(new Uint8Array(16));
+  const iv=crypto.getRandomValues(new Uint8Array(12));
+  const key=await _deriveKey(pwd,salt);
+  const ct=await crypto.subtle.encrypt({name:'AES-GCM',iv},key,new TextEncoder().encode(token));
+  return {salt:_b64(salt),iv:_b64(iv),ct:_b64(ct)};
+}
+async function descriptografarToken(pwd,pacote){
+  try{
+    const key=await _deriveKey(pwd,_unb64(pacote.salt));
+    const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:_unb64(pacote.iv)},key,_unb64(pacote.ct));
+    return new TextDecoder().decode(pt);
+  }catch(e){return null;}
+}
+
 function perfilAtual(){
   if(sessionStorage.getItem('pq_edit_ok')!=='1') return null;
   const id=sessionStorage.getItem('pq_perfil')||'admin';
@@ -5787,7 +5820,7 @@ function toggleEditMode(){
   }
 }
 
-function confirmarSenhaEdicao(){
+async function confirmarSenhaEdicao(){
   const val=document.getElementById('edit-pwd-input').value;
   if(!val){ document.getElementById('edit-pwd-err').textContent='Digite a senha.'; return; }
   const h=_pwdHash(val);
@@ -5801,6 +5834,23 @@ function confirmarSenhaEdicao(){
   if(perfilId){
     sessionStorage.setItem('pq_edit_ok','1');
     sessionStorage.setItem('pq_perfil',perfilId);
+    // Distribuição automática do token GitHub
+    try{
+      const pacotes=state.tokenCripto||{};
+      if(!ghToken()&&pacotes[perfilId]){
+        // Máquina sem token: descriptografa com a senha digitada e configura sozinho
+        const tk=await descriptografarToken(val,pacotes[perfilId]);
+        if(tk){
+          localStorage.setItem('pq_gh_token',tk);
+          setSyncStatus('ok','Sincronização configurada');
+        }
+      } else if(ghToken()&&!pacotes[perfilId]){
+        // Auto-cura: máquina tem token e este perfil ainda não tem pacote → cria e envia
+        if(!state.tokenCripto) state.tokenCripto={};
+        state.tokenCripto[perfilId]=await criptografarToken(val,ghToken());
+        githubSalvar();
+      }
+    }catch(e){}
     document.getElementById('modal-edit-pwd').style.display='none';
     applyEditMode();
     renderTab(abaAtiva());
@@ -5837,8 +5887,12 @@ function salvarNovaSenha(){
   sessionStorage.setItem('pq_edit_ok','1');
   sessionStorage.setItem('pq_perfil','admin');
   applyEditMode();
-  salvar();
-  alert('✅ Senha alterada com sucesso!');
+  // Reempacota o token com a nova senha do admin antes de salvar
+  const _fim=()=>{salvar();alert('✅ Senha alterada com sucesso!');};
+  if(ghToken()){
+    if(!state.tokenCripto) state.tokenCripto={};
+    criptografarToken(nova,ghToken()).then(pc=>{state.tokenCripto.admin=pc;_fim();}).catch(_fim);
+  } else _fim();
 }
 
 /* ── Gerenciar perfis de acesso (admin) ── */
@@ -5875,17 +5929,19 @@ function abrirPerfis(){
 
 function fecharPerfis(){document.getElementById('modal-perfis').style.display='none';}
 
-function salvarPerfis(){
+async function salvarPerfis(){
   const errEl=document.getElementById('modal-perfis-err');
   if(!state.perfilSenhas) state.perfilSenhas={};
   const senhas=state.perfilSenhas;
   const novos={};
+  const senhasDigitadas={};
   for(const p of PERFIS){
     const el=document.getElementById('perfil-pwd-'+p.id);
     const v=(el&&el.value||'').trim();
     if(!v) continue;
     if(v.length<4){ errEl.textContent='A senha de '+p.nome+' deve ter pelo menos 4 caracteres.'; return; }
     novos[p.id]=_pwdHash(v);
+    senhasDigitadas[p.id]=v;
   }
   // Cada perfil precisa de senha diferente (a senha identifica o perfil no login)
   const finais={};
@@ -5900,9 +5956,19 @@ function salvarPerfis(){
   }
   Object.assign(senhas,novos);
   if(novos.admin) localStorage.setItem(EDIT_PWD_KEY,novos.admin);
+  // Empacota o token GitHub criptografado com cada senha digitada:
+  // quem logar com essa senha em outra máquina recebe o token automaticamente
+  const token=ghToken();
+  if(token){
+    if(!state.tokenCripto) state.tokenCripto={};
+    for(const id in senhasDigitadas){
+      try{ state.tokenCripto[id]=await criptografarToken(senhasDigitadas[id],token); }catch(e){}
+    }
+  }
   fecharPerfis();
   salvar();
-  alert('✅ Perfis atualizados!\nAs senhas valem em qualquer computador após a sincronização com o GitHub.');
+  alert('✅ Perfis atualizados!\nAs senhas valem em qualquer computador após a sincronização com o GitHub.'
+    +(token?'\n\nO salvamento automático também já foi habilitado para esses perfis em qualquer máquina.':''));
 }
 
 /* ── Histórico de alterações (auditoria) ── */

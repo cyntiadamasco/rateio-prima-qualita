@@ -21021,16 +21021,22 @@
       "pdfNome": ""
     },
     "perfilSenhas": {
-      "superint": "-ernuxd"
+      "superint": "-ernuxd",
+      "rh": "-ernuxc"
     },
     "auditLog": [
       {
         "t": 1784935225408,
         "perfil": "Administrador",
         "comp": "2026-06"
+      },
+      {
+        "t": 1784935288168,
+        "perfil": "Administrador",
+        "comp": "2026-06"
       }
     ]
   },
   "currentComp": "2026-06",
-  "savedAt": 1784935225438
+  "savedAt": 1784935288171
 }

@@ -1039,6 +1039,21 @@ body.readonly input[type="date"]{pointer-events:none!important;cursor:default!im
 body.readonly [onclick^="document.getElementById"]{display:none!important}
 /* Importar contratos mes anterior */
 body.readonly [onclick^="importarContrat"]{display:none!important}
+/* ── PERFIS DE ACESSO ── */
+/* Externo (sem login): esconde Validação 3% e o Acompanhamento Anual – Teto 3% */
+body.externo [data-tab="validacao"]{display:none!important}
+body.externo .teto-3pct{display:none!important}
+/* Controles de estrutura (mês, contratos, limpeza, importação) só para admin/superintendência */
+body:not(.perfil-total) [onclick^="novaCompetencia"]{display:none!important}
+body:not(.perfil-total) [onclick^="excluirMesAtual"]{display:none!important}
+body:not(.perfil-total) [onclick^="limparMes"]{display:none!important}
+body:not(.perfil-total) [onclick^="duplicarMesAnterior"]{display:none!important}
+body:not(.perfil-total) [onclick*="abrirGerenciarCGs"]{display:none!important}
+body:not(.perfil-total) [onclick*="import-file"]{display:none!important}
+/* Itens exclusivos do administrador */
+body:not(.perfil-admin) .admin-only{display:none!important}
+/* Itens que exigem estar logado em algum perfil */
+body:not(.perfil-logado) .logado-only{display:none!important}
 /* lock button style */
 #btn-lock-edit{
   display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600;
@@ -1108,6 +1123,12 @@ body.readonly [onclick^="importarContrat"]{display:none!important}
         <button class="dd-item" onclick="document.getElementById('import-file').click();fecharOpcoes()">
           <span class="dd-ico">📤</span><span>Importar Dados (JSON)</span>
         </button>
+        <button class="dd-item logado-only" onclick="baixarBackupCompleto();fecharOpcoes()">
+          <span class="dd-ico">💾</span><span>Baixar Backup Completo</span>
+        </button>
+        <button class="dd-item logado-only" onclick="abrirHistorico();fecharOpcoes()">
+          <span class="dd-ico">🕑</span><span>Histórico de Alterações</span>
+        </button>
         <div class="dd-sep"></div>
         <div class="dd-group-lbl">Impressão</div>
         <button class="dd-item" onclick="imprimirDemonstrativo();fecharOpcoes()">
@@ -1121,8 +1142,11 @@ body.readonly [onclick^="importarContrat"]{display:none!important}
         <button class="dd-item edit-only" onclick="abrirGerenciarCGs();fecharOpcoes()">
           <span class="dd-ico">🏥</span><span>Gerenciar Contratos de Gestão</span>
         </button>
-        <button class="dd-item" onclick="abrirConfigSync();fecharOpcoes()">
+        <button class="dd-item logado-only" onclick="abrirConfigSync();fecharOpcoes()">
           <span class="dd-ico">☁</span><span>Config Sincronização GitHub</span>
+        </button>
+        <button class="dd-item admin-only" onclick="abrirPerfis();fecharOpcoes()">
+          <span class="dd-ico">👥</span><span>Perfis de Acesso</span>
         </button>
         <div class="dd-sep"></div>
         <button class="dd-item dd-danger" onclick="limparMesAtual();fecharOpcoes()">
@@ -1131,7 +1155,7 @@ body.readonly [onclick^="importarContrat"]{display:none!important}
       </div>
     </div>
     <span id="sync-status" style="display:flex;align-items:center;gap:4px"><span class="sync-dot" id="sync-dot"></span><span class="sync-lbl" id="sync-lbl"></span></span>
-    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-07-06f</span>
+    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-07-24a</span>
     <button class="btn btn-teal btn-sm edit-only" onclick="salvar()">💾 Salvar</button>
     <button id="btn-lock-edit" onclick="toggleEditMode()" title="Modo de edição">🔒 Editar</button>
   </div>
@@ -1431,6 +1455,14 @@ function _liberarEspacoLS(){
 }
 
 function salvar(){
+  // Registro de auditoria: quem alterou, quando e em qual competência
+  try{
+    const p=perfilAtual();
+    if(!state.auditLog) state.auditLog=[];
+    state.auditLog.push({t:Date.now(),perfil:p?p.nome:'—',comp:currentComp});
+    if(state.auditLog.length>300) state.auditLog=state.auditLog.slice(-300);
+  }catch(e){}
+
   // GitHub é o armazenamento principal quando o token está configurado
   if(ghToken()) githubSalvar();
 
@@ -1637,6 +1669,8 @@ function popularUI(){
    NAVEGAÇÃO DE ABAS
 ===================================================================== */
 function abrirTab(id, btn){
+  // Validação 3% é restrita a usuários logados
+  if(id==='validacao'&&!perfilAtual()) return;
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('panel-'+id).classList.add('active');
@@ -1649,6 +1683,7 @@ function abrirTab(id, btn){
   document.querySelectorAll('.tab-btn').forEach(b=>{
     if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes("'"+id+"'")) b.setAttribute('data-tab',id);
   });
+  applyEditMode();
   renderTab(id);
 }
 
@@ -1716,7 +1751,10 @@ function renderQualitativo(){
       const total = totais[ind.id];
       const pct   = total>0 ? qtd/total : 0;
       pcts8.push(pct);
-      cells += `<td class="td-edit td-c" style="padding:3px 2px"><input type="number" min="0" style="text-align:center;width:54px;font-size:11px" value="${qtd}" oninput="setIqual('${ind.id}','${cg.id}',this.value)"></td>`;
+      // Cada departamento edita apenas o próprio indicador
+      cells += canEditInd(ind.id)
+        ? `<td class="td-edit td-c" style="padding:3px 2px"><input type="number" min="0" style="text-align:center;width:54px;font-size:11px" value="${qtd}" oninput="setIqual('${ind.id}','${cg.id}',this.value)"></td>`
+        : `<td class="td-c" style="padding:3px 2px;font-size:11px">${qtd}</td>`;
       cells += `<td class="td-c" id="iq-pct-${ind.id}-${cg.id}" style="padding:3px 6px;font-size:10px">${fmtPct(pct*100)}</td>`;
     });
     const repres = pcts8.reduce((a,b)=>a+b,0)/INDICADORES_QUAL.length;
@@ -1743,10 +1781,11 @@ function renderQualitativo(){
     +INDICADORES_QUAL.map(ind=>{
       const pdf=_iqpdfs[ind.id]||{pdfUrl:'',pdfNome:''};
       const hasPdf=!!pdf.pdfUrl;
+      const podeInd=canEditInd(ind.id);
       const btnVer=hasPdf?'<button class="btn btn-sm btn-outline no-print" onclick="verIqualPdf(\''+ind.id+'\')">👁 Ver</button>':'';
-      const btnLer=hasPdf?'<button id="btn-ler-ind-'+ind.id+'" class="btn btn-sm no-print" style="background:#FEF3C7;color:#92400E;border:1px solid #FDE68A;white-space:nowrap" onclick="lerIndicador(\''+ind.id+'\')">📖 Ler</button>':'';
-      const btnRem=hasPdf?'<button class="btn btn-sm btn-danger no-print" onclick="removerIqualPdf(\''+ind.id+'\')">✕</button>':'';
-      const btnUpload='<button class="btn btn-sm no-print '+(hasPdf?'btn-outline':'btn-primary')+'" onclick="this.nextElementSibling.click()">'+(hasPdf?'🔄 Subst.':'📎 Anexar')+'</button><input type="file" accept=".pdf" style="display:none" onchange="uploadIqualPdf(\''+ind.id+'\',this)">';
+      const btnLer=hasPdf&&podeInd?'<button id="btn-ler-ind-'+ind.id+'" class="btn btn-sm no-print" style="background:#FEF3C7;color:#92400E;border:1px solid #FDE68A;white-space:nowrap" onclick="lerIndicador(\''+ind.id+'\')">📖 Ler</button>':'';
+      const btnRem=hasPdf&&podeInd?'<button class="btn btn-sm btn-danger no-print" onclick="removerIqualPdf(\''+ind.id+'\')">✕</button>':'';
+      const btnUpload=podeInd?'<button class="btn btn-sm no-print '+(hasPdf?'btn-outline':'btn-primary')+'" onclick="this.nextElementSibling.click()">'+(hasPdf?'🔄 Subst.':'📎 Anexar')+'</button><input type="file" accept=".pdf" style="display:none" onchange="uploadIqualPdf(\''+ind.id+'\',this)">':'';
       return '<div style="border:1px solid var(--border-soft);border-radius:8px;padding:12px;background:'+(hasPdf?'#F0FFF4':'#FAFBFC')+'">'
         +'<div style="display:flex;align-items:flex-start;gap:8px">'
         +'<div style="flex:1;min-width:0">'
@@ -1893,6 +1932,7 @@ function removerIqualPdf(indId){
 }
 
 function setIqual(indId, cgId, val){
+  if(!canEditInd(indId)) return;
   const data = getMesData(currentComp);
   data.iqual[indId][cgId] = parseInt(val)||0;
 
@@ -4236,7 +4276,7 @@ function renderAnalise(){
     </div>
   </div>
 
-  <div class="card" style="margin-top:16px">
+  <div class="card teto-3pct" style="margin-top:16px">
     <div class="card-hdr" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
       <div class="card-title">&#128197; Acompanhamento Anual &#8211; Teto de 3% Contratual</div>
       <div class="no-print" style="display:flex;gap:8px;align-items:center">
@@ -5647,6 +5687,24 @@ function removerRelQuant(){
 const EDIT_PWD_KEY='pq_edit_pwd_hash';
 const DEFAULT_PWD='Prima@2024';
 
+/* Perfis de acesso.
+   tipo: 'admin' = tudo | 'total' = edita todas as abas | 'dept' = edita só sua área | 'viewer' = só visualiza/imprime.
+   tabs: abas que o perfil edita | inds: indicadores qualitativos que o perfil edita.
+   Senhas (hash) ficam em state.perfilSenhas e sincronizam via GitHub. */
+const PERFIS=[
+  {id:'admin',        nome:'Administrador',              sigla:'Admin',        tipo:'admin'},
+  {id:'superint',     nome:'Superintendência Executiva', sigla:'Superint.',    tipo:'total'},
+  {id:'rh',           nome:'RH/DP',                      sigla:'RH/DP',        tipo:'dept', tabs:['criterio'],             inds:['ind1']},
+  {id:'comunicacao',  nome:'Comunicação',                sigla:'Comunic.',     tipo:'dept', tabs:[],                       inds:['ind2']},
+  {id:'financeiro',   nome:'Financeiro',                 sigla:'Financeiro',   tipo:'dept', tabs:['despesas','validacao'], inds:['ind3']},
+  {id:'contabilidade',nome:'Contabilidade',              sigla:'Contab.',      tipo:'dept', tabs:['dcf'],                  inds:['ind4']},
+  {id:'suprimentos',  nome:'Suprimentos',                sigla:'Suprim.',      tipo:'dept', tabs:[],                       inds:['ind5']},
+  {id:'compras',      nome:'Compras',                    sigla:'Compras',      tipo:'dept', tabs:['contratos'],            inds:['ind6']},
+  {id:'juridico',     nome:'Jurídico',                   sigla:'Jurídico',     tipo:'dept', tabs:[],                       inds:['ind7']},
+  {id:'assistencial', nome:'Assistencial',               sigla:'Assist.',      tipo:'dept', tabs:[],                       inds:['ind8']},
+  {id:'prestacao',    nome:'Prestação de Contas',        sigla:'Prest.Contas', tipo:'viewer'},
+];
+
 function _pwdHash(s){
   // djb2 hash
   let h=5381;
@@ -5654,34 +5712,73 @@ function _pwdHash(s){
   return h.toString(36);
 }
 
+function perfilAtual(){
+  if(sessionStorage.getItem('pq_edit_ok')!=='1') return null;
+  const id=sessionStorage.getItem('pq_perfil')||'admin';
+  return PERFIS.find(p=>p.id===id)||null;
+}
+
 function isEditUnlocked(){
-  return sessionStorage.getItem('pq_edit_ok')==='1';
+  return !!perfilAtual();
+}
+
+function canEditTab(tab){
+  const p=perfilAtual(); if(!p) return false;
+  if(p.tipo==='admin'||p.tipo==='total') return true;
+  if(p.tipo!=='dept') return false;
+  if(tab==='qualitativo') return (p.inds||[]).length>0;
+  return (p.tabs||[]).includes(tab);
+}
+
+function canEditInd(indId){
+  const p=perfilAtual(); if(!p) return false;
+  if(p.tipo==='admin'||p.tipo==='total') return true;
+  return p.tipo==='dept'&&(p.inds||[]).includes(indId);
+}
+
+function _adminHash(){
+  return (state.perfilSenhas&&state.perfilSenhas.admin)
+    ||localStorage.getItem(EDIT_PWD_KEY)
+    ||_pwdHash(DEFAULT_PWD);
+}
+
+function abaAtiva(){
+  const b=document.querySelector('.tab-btn.active');
+  return (b&&b.getAttribute('data-tab'))||'criterio';
 }
 
 function applyEditMode(){
-  const unlocked=isEditUnlocked();
-  if(unlocked){
-    document.body.classList.remove('readonly');
-  } else {
-    document.body.classList.add('readonly');
+  const p=perfilAtual();
+  // Externo não pode permanecer na Validação 3%
+  if(!p&&abaAtiva()==='validacao'){
+    const btn=document.querySelector('[data-tab="criterio"]');
+    if(btn){ abrirTab('criterio',btn); return; }
   }
+  const editable=canEditTab(abaAtiva());
+  document.body.classList.toggle('readonly',!editable);
+  document.body.classList.toggle('externo',!p);
+  document.body.classList.toggle('perfil-logado',!!p);
+  document.body.classList.toggle('perfil-total',!!p&&(p.tipo==='admin'||p.tipo==='total'));
+  document.body.classList.toggle('perfil-admin',!!p&&p.tipo==='admin');
   const btn=document.getElementById('btn-lock-edit');
   if(!btn) return;
-  if(unlocked){
-    btn.textContent='🔓 Bloquear';
+  if(p){
+    btn.textContent='🔓 '+p.sigla;
     btn.classList.add('unlocked');
-    btn.title='Clique para bloquear a edição';
+    btn.title='Perfil: '+p.nome+' — clique para sair';
   } else {
-    btn.textContent='🔒 Editar';
+    btn.textContent='🔒 Entrar';
     btn.classList.remove('unlocked');
-    btn.title='Clique para habilitar a edição';
+    btn.title='Clique para entrar com a senha do seu perfil';
   }
 }
 
 function toggleEditMode(){
   if(isEditUnlocked()){
     sessionStorage.removeItem('pq_edit_ok');
+    sessionStorage.removeItem('pq_perfil');
     applyEditMode();
+    renderTab(abaAtiva());
   } else {
     document.getElementById('edit-pwd-input').value='';
     document.getElementById('edit-pwd-err').textContent='';
@@ -5691,13 +5788,22 @@ function toggleEditMode(){
 }
 
 function confirmarSenhaEdicao(){
-  const stored=localStorage.getItem(EDIT_PWD_KEY)||_pwdHash(DEFAULT_PWD);
   const val=document.getElementById('edit-pwd-input').value;
   if(!val){ document.getElementById('edit-pwd-err').textContent='Digite a senha.'; return; }
-  if(_pwdHash(val)===stored){
+  const h=_pwdHash(val);
+  const senhas=state.perfilSenhas||{};
+  let perfilId=null;
+  if(h===_adminHash()) perfilId='admin';
+  else{
+    const m=PERFIS.find(p=>p.id!=='admin'&&senhas[p.id]&&senhas[p.id]===h);
+    if(m) perfilId=m.id;
+  }
+  if(perfilId){
     sessionStorage.setItem('pq_edit_ok','1');
+    sessionStorage.setItem('pq_perfil',perfilId);
     document.getElementById('modal-edit-pwd').style.display='none';
     applyEditMode();
+    renderTab(abaAtiva());
   } else {
     document.getElementById('edit-pwd-err').textContent='❌ Senha incorreta. Tente novamente.';
     document.getElementById('edit-pwd-input').value='';
@@ -5717,25 +5823,129 @@ function abrirAlterarSenha(){
 }
 
 function salvarNovaSenha(){
-  const stored=localStorage.getItem(EDIT_PWD_KEY)||_pwdHash(DEFAULT_PWD);
   const atual=document.getElementById('chpwd-atual').value;
   const nova=document.getElementById('chpwd-nova').value;
   const conf=document.getElementById('chpwd-conf').value;
   const errEl=document.getElementById('chpwd-err');
-  if(_pwdHash(atual)!==stored){ errEl.textContent='Senha atual incorreta.'; return; }
+  if(_pwdHash(atual)!==_adminHash()){ errEl.textContent='Senha atual incorreta.'; return; }
   if(nova.length<4){ errEl.textContent='A nova senha deve ter pelo menos 4 caracteres.'; return; }
   if(nova!==conf){ errEl.textContent='As senhas não conferem.'; return; }
+  if(!state.perfilSenhas) state.perfilSenhas={};
+  state.perfilSenhas.admin=_pwdHash(nova);
   localStorage.setItem(EDIT_PWD_KEY,_pwdHash(nova));
   document.getElementById('modal-change-pwd').style.display='none';
   sessionStorage.setItem('pq_edit_ok','1');
+  sessionStorage.setItem('pq_perfil','admin');
   applyEditMode();
+  salvar();
   alert('✅ Senha alterada com sucesso!');
+}
+
+/* ── Gerenciar perfis de acesso (admin) ── */
+function _descPerfil(p){
+  if(p.tipo==='admin')  return 'Acesso total, inclusive configurações e perfis';
+  if(p.tipo==='total')  return 'Edita todas as abas, inclusive o relatório';
+  if(p.tipo==='viewer') return 'Visualiza e imprime todas as páginas, sem edição';
+  const nomes={criterio:'Critério Quantitativo',despesas:'Despesas',validacao:'Validação 3%',dcf:'Dem. Contábeis',contratos:'Contratos'};
+  const partes=(p.tabs||[]).map(t=>nomes[t]||t);
+  (p.inds||[]).forEach(i=>partes.push('Indicador '+i.replace('ind','')));
+  return 'Edita: '+partes.join(', ');
+}
+
+function abrirPerfis(){
+  const senhas=state.perfilSenhas||{};
+  const body=document.getElementById('modal-perfis-body');
+  body.innerHTML=PERFIS.map(p=>{
+    const tem=p.id==='admin'?true:!!senhas[p.id];
+    const badge=tem
+      ?'<span style="font-size:9px;background:#DCFCE7;color:#16A34A;padding:2px 8px;border-radius:10px;font-weight:700">senha definida</span>'
+      :'<span style="font-size:9px;background:#F3F4F6;color:#9CA3AF;padding:2px 8px;border-radius:10px;font-weight:700">sem senha</span>';
+    return `<div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #F1F5F9">
+      <div style="flex:1;min-width:0">
+        <div style="font-size:13px;font-weight:700;color:#1B3A5C;display:flex;align-items:center;gap:8px">${p.nome} ${badge}</div>
+        <div style="font-size:11px;color:#6B7280;margin-top:2px">${_descPerfil(p)}</div>
+      </div>
+      <input type="password" class="always-edit" id="perfil-pwd-${p.id}" placeholder="${tem?'Nova senha (opcional)':'Definir senha'}"
+        style="width:170px;box-sizing:border-box;border:1.5px solid #CBD5E1;border-radius:7px;padding:7px 10px;font-size:12px;font-family:inherit">
+    </div>`;
+  }).join('');
+  document.getElementById('modal-perfis-err').textContent='';
+  document.getElementById('modal-perfis').style.display='flex';
+}
+
+function fecharPerfis(){document.getElementById('modal-perfis').style.display='none';}
+
+function salvarPerfis(){
+  const errEl=document.getElementById('modal-perfis-err');
+  if(!state.perfilSenhas) state.perfilSenhas={};
+  const senhas=state.perfilSenhas;
+  const novos={};
+  for(const p of PERFIS){
+    const el=document.getElementById('perfil-pwd-'+p.id);
+    const v=(el&&el.value||'').trim();
+    if(!v) continue;
+    if(v.length<4){ errEl.textContent='A senha de '+p.nome+' deve ter pelo menos 4 caracteres.'; return; }
+    novos[p.id]=_pwdHash(v);
+  }
+  // Cada perfil precisa de senha diferente (a senha identifica o perfil no login)
+  const finais={};
+  PERFIS.forEach(p=>{
+    const h=novos[p.id]||(p.id==='admin'?_adminHash():senhas[p.id]);
+    if(h) finais[p.id]=h;
+  });
+  const vals=Object.values(finais);
+  if(new Set(vals).size!==vals.length){
+    errEl.textContent='Há senhas repetidas entre perfis. Cada perfil precisa de uma senha diferente.';
+    return;
+  }
+  Object.assign(senhas,novos);
+  if(novos.admin) localStorage.setItem(EDIT_PWD_KEY,novos.admin);
+  fecharPerfis();
+  salvar();
+  alert('✅ Perfis atualizados!\nAs senhas valem em qualquer computador após a sincronização com o GitHub.');
+}
+
+/* ── Histórico de alterações (auditoria) ── */
+function abrirHistorico(){
+  const log=(state.auditLog||[]).slice().reverse().slice(0,80);
+  const body=document.getElementById('modal-hist-body');
+  body.innerHTML=log.length
+    ?log.map(e=>{
+      const d=new Date(e.t);
+      const quando=d.toLocaleDateString('pt-BR')+' às '+d.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+      return `<div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid #F1F5F9;font-size:12px">
+        <span style="color:#6B7280;min-width:150px">${quando}</span>
+        <span style="font-weight:700;color:#1B3A5C;flex:1">${e.perfil||'—'}</span>
+        <span style="color:#9CA3AF;font-size:11px">${e.comp?compLabel(e.comp):''}</span>
+      </div>`;
+    }).join('')
+    :'<p style="color:#9CA3AF;font-style:italic;padding:12px 0">Nenhuma alteração registrada ainda.</p>';
+  document.getElementById('modal-hist').style.display='flex';
+}
+
+function fecharHistorico(){document.getElementById('modal-hist').style.display='none';}
+
+/* ── Backup completo ── */
+function baixarBackupCompleto(){
+  const blob=new Blob([JSON.stringify({state,currentComp,savedAt:Date.now()},null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  const hoje=new Date().toISOString().slice(0,10);
+  a.href=url;a.download='backup-rateio-completo-'+hoje+'.json';a.click();
+  URL.revokeObjectURL(url);
 }
 
 /* =====================================================================
    INICIALIZAÇÃO
 ===================================================================== */
 function init(){
+  // Link direto para prestação de contas: ?modo=prestacao abre na visão externa limpa
+  try{
+    if(new URLSearchParams(location.search).get('modo')==='prestacao'){
+      sessionStorage.removeItem('pq_edit_ok');
+      sessionStorage.removeItem('pq_perfil');
+    }
+  }catch(e){}
   carregar();
   // Aplicar modo readonly se não estiver autenticado
   applyEditMode();
@@ -7024,8 +7234,8 @@ function removerManualRDG(){
 <div id="modal-edit-pwd" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9999;align-items:center;justify-content:center">
   <div style="background:#fff;border-radius:14px;padding:32px 28px;max-width:360px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.3);text-align:center">
     <div style="font-size:36px;margin-bottom:8px">🔒</div>
-    <div style="font-size:18px;font-weight:700;color:#1B3A5C;margin-bottom:6px">Modo Edição</div>
-    <div style="font-size:13px;color:#6B7280;margin-bottom:20px">Digite a senha para habilitar a edição dos dados.</div>
+    <div style="font-size:18px;font-weight:700;color:#1B3A5C;margin-bottom:6px">Entrar</div>
+    <div style="font-size:13px;color:#6B7280;margin-bottom:20px">Digite a senha do seu perfil de acesso. O sistema identifica automaticamente o seu departamento.</div>
     <input id="edit-pwd-input" type="password" placeholder="Senha"
       class="always-edit"
       style="width:100%;box-sizing:border-box;border:1.5px solid #CBD5E1;border-radius:8px;padding:10px 14px;font-size:14px;margin-bottom:6px;outline:none;font-family:inherit"
@@ -7036,7 +7246,7 @@ function removerManualRDG(){
       <button onclick="confirmarSenhaEdicao()" style="flex:1;padding:10px;border-radius:8px;border:none;background:#1D4ED8;color:#fff;font-size:13px;font-weight:600;cursor:pointer">Entrar</button>
     </div>
     <div style="margin-top:18px;padding-top:14px;border-top:1px solid #F1F5F9">
-      <button onclick="abrirAlterarSenha()" style="font-size:11px;color:#94A3B8;background:none;border:none;cursor:pointer;text-decoration:underline">Alterar senha</button>
+      <button onclick="abrirAlterarSenha()" style="font-size:11px;color:#94A3B8;background:none;border:none;cursor:pointer;text-decoration:underline">Alterar senha do administrador</button>
     </div>
   </div>
 </div>
@@ -7044,7 +7254,7 @@ function removerManualRDG(){
 <!-- MODAL: Change Password -->
 <div id="modal-change-pwd" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9999;align-items:center;justify-content:center">
   <div style="background:#fff;border-radius:14px;padding:28px;max-width:360px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.3)">
-    <div style="font-size:16px;font-weight:700;color:#1B3A5C;margin-bottom:16px">🔑 Alterar Senha de Edição</div>
+    <div style="font-size:16px;font-weight:700;color:#1B3A5C;margin-bottom:16px">🔑 Alterar Senha do Administrador</div>
     <label style="font-size:12px;color:#64748B;display:block;margin-bottom:4px">Senha atual</label>
     <input id="chpwd-atual" type="password" class="always-edit" placeholder="Senha atual"
       style="width:100%;box-sizing:border-box;border:1.5px solid #CBD5E1;border-radius:8px;padding:9px 12px;font-size:13px;margin-bottom:12px;font-family:inherit">
@@ -7064,6 +7274,35 @@ function removerManualRDG(){
   </div>
 </div>
 
+
+<!-- MODAL: Perfis de Acesso (admin) -->
+<div id="modal-perfis" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9999;align-items:center;justify-content:center;padding:16px">
+  <div style="background:#fff;border-radius:14px;padding:24px 26px;max-width:640px;width:100%;max-height:86vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3)">
+    <div style="font-size:16px;font-weight:700;color:#1B3A5C;margin-bottom:4px">👥 Perfis de Acesso</div>
+    <div style="font-size:12px;color:#6B7280;margin-bottom:14px">
+      Defina uma senha para cada perfil. No login, a senha digitada identifica o perfil — por isso cada uma precisa ser diferente.
+      Deixe em branco para manter a senha atual.
+    </div>
+    <div id="modal-perfis-body"></div>
+    <div id="modal-perfis-err" style="font-size:12px;color:#DC2626;min-height:18px;margin:10px 0 6px"></div>
+    <div style="display:flex;gap:10px">
+      <button onclick="fecharPerfis()" style="flex:1;padding:10px;border-radius:8px;border:1px solid #CBD5E1;background:#F8FAFC;color:#374151;font-size:13px;font-weight:600;cursor:pointer">Cancelar</button>
+      <button onclick="salvarPerfis()" style="flex:1;padding:10px;border-radius:8px;border:none;background:#16A34A;color:#fff;font-size:13px;font-weight:600;cursor:pointer">Salvar Perfis</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Histórico de Alterações -->
+<div id="modal-hist" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9999;align-items:center;justify-content:center;padding:16px">
+  <div style="background:#fff;border-radius:14px;padding:24px 26px;max-width:520px;width:100%;max-height:80vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.3)">
+    <div style="font-size:16px;font-weight:700;color:#1B3A5C;margin-bottom:4px">🕑 Histórico de Alterações</div>
+    <div style="font-size:12px;color:#6B7280;margin-bottom:12px">Últimos salvamentos registrados: quem alterou, quando e em qual competência.</div>
+    <div id="modal-hist-body" style="flex:1;overflow-y:auto"></div>
+    <div style="margin-top:14px;text-align:right">
+      <button onclick="fecharHistorico()" style="padding:9px 22px;border-radius:8px;border:1px solid #CBD5E1;background:#F8FAFC;color:#374151;font-size:13px;font-weight:600;cursor:pointer">Fechar</button>
+    </div>
+  </div>
+</div>
 
 <!-- ── MODAL: Validar Colaboradores CIGAC com Folha de Pagamento ── -->
 <div id="modal-vf">

@@ -19020,8 +19020,8 @@
           "pdfNome": "INDICADOR 6 - COMPRAS E CONTRATOS - MAIO.2026.pdf"
         },
         "ind7": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202606_ind7.pdf",
+          "pdfNome": "INDICADOR 8 - DEPARTAMENTO ASSISTENCIAL MAIO 2026.pdf"
         },
         "ind8": {
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202606_ind8.pdf",
@@ -21057,6 +21057,16 @@
         "t": 1784937284625,
         "perfil": "Administrador",
         "comp": "2026-06"
+      },
+      {
+        "t": 1785176690562,
+        "perfil": "Administrador",
+        "comp": "2026-06"
+      },
+      {
+        "t": 1785176694610,
+        "perfil": "Administrador",
+        "comp": "2026-06"
       }
     ],
     "tokenCripto": {
@@ -21118,5 +21128,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1784937284628
+  "savedAt": 1785176694615
 }

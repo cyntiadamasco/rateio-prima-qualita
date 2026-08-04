@@ -6509,8 +6509,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 0,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/426sxug.pdf",
-          "pdfNome": "ID 07 INSS FOLHA PAGAMENTO- 49.248,87.pdf",
+          "pdfUrl": null,
+          "pdfNome": null,
           "dtPgto": ""
         },
         {
@@ -6523,8 +6523,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 0,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/jipnd12.pdf",
-          "pdfNome": "ID 08 FGTS FOLHA - 51.551,43.pdf",
+          "pdfUrl": null,
+          "pdfNome": null,
           "dtPgto": ""
         },
         {
@@ -6915,8 +6915,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 0,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/qbhgwbf.pdf",
-          "pdfNome": "ID 35 UNIMED - NF 0178 - 2.398,52.pdf",
+          "pdfUrl": null,
+          "pdfNome": null,
           "dtPgto": ""
         },
         {
@@ -6929,8 +6929,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 0,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/8yk6mfj.pdf",
-          "pdfNome": "ID 36 VAGAS- NF 214281 - 2.532,11.pdf",
+          "pdfUrl": null,
+          "pdfNome": null,
           "dtPgto": ""
         }
       ],
@@ -21122,6 +21122,31 @@
         "t": 1785813910605,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785813916521,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785813921218,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785813923050,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785813930855,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785813937292,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -21183,5 +21208,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785813910609
+  "savedAt": 1785813937296
 }

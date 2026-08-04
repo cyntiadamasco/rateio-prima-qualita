@@ -7747,14 +7747,14 @@
         "ind6": {
           "madalena": 58,
           "cachoeiras": 89,
-          "saq_hosp": 110,
-          "upa_pac": 0,
+          "saq_hosp": 114,
+          "upa_pac": 45,
           "upa_nc": 43,
-          "arraial": 98,
+          "arraial": 99,
           "quissama": 36,
           "cordeiro": 56,
-          "saq_esp": 68,
-          "saq_pri": 60
+          "saq_esp": 69,
+          "saq_pri": 62
         },
         "ind7": {
           "madalena": 0,
@@ -7845,7 +7845,7 @@
           "pdfNome": "INDICADOR 5 - LOGISTICA E SUPRIMENTOS - JUNHO 2026.pdf"
         },
         "ind6": {
-          "pdfUrl": "local:iqual_202607_ind6",
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202607_ind6.pdf",
           "pdfNome": "INDICADOR 6 - COMPRAS E CONTRATOS - JUN.26.pdf"
         },
         "ind7": {
@@ -21412,6 +21412,16 @@
         "t": 1785870555231,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785870572554,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785870607500,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -22990,5 +23000,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785870555233
+  "savedAt": 1785870607502
 }

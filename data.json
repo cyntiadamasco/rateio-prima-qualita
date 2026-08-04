@@ -6425,8 +6425,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 0,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/jhny26m.pdf",
-          "pdfNome": "ID 01 PABLO SIQUEIRA - NF 17 - 36.000,00.pdf",
+          "pdfUrl": null,
+          "pdfNome": null,
           "dtPgto": ""
         },
         {
@@ -14424,8 +14424,8 @@
           "ctipo": "NF",
           "cnum": "1101",
           "valor": 3167,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/i3cqa3s.pdf",
-          "pdfNome": "ID 05 IGF AUDITORES- NF 1101 - 3.167,00.pdf",
+          "pdfUrl": null,
+          "pdfNome": null,
           "dtPgto": "2026-06-03"
         },
         {
@@ -21092,6 +21092,21 @@
         "t": 1785813861957,
         "perfil": "Administrador",
         "comp": "2026-06"
+      },
+      {
+        "t": 1785813867848,
+        "perfil": "Administrador",
+        "comp": "2026-06"
+      },
+      {
+        "t": 1785813870135,
+        "perfil": "Administrador",
+        "comp": "2026-06"
+      },
+      {
+        "t": 1785813890763,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -21152,6 +21167,6 @@
       }
     }
   },
-  "currentComp": "2026-06",
-  "savedAt": 1785813861960
+  "currentComp": "2026-07",
+  "savedAt": 1785813890766
 }

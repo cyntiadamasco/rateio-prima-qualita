@@ -7952,8 +7952,8 @@
           "pdfNome": "BALANCETE CIGAC 07.2026.pdf"
         },
         "extrato": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202607_extrato.pdf",
+          "pdfNome": "EXTRATO CIGAC - 07.2026.PDF"
         },
         "movimentacao": {
           "pdfUrl": "",
@@ -7963,15 +7963,15 @@
           "pdfUrl": "",
           "pdfNome": ""
         },
-        "bl_saldoInicial": 0,
-        "bl_transferencias": 0,
+        "bl_saldoInicial": 120.7,
+        "bl_transferencias": 802910.13,
         "bl_aplicacao": 0,
-        "bl_rendimento": 0,
-        "bl_despesasExec": 0,
+        "bl_rendimento": 0.01,
+        "bl_despesasExec": 802910.12,
         "bl_iof": 0,
         "bl_ir": 0,
-        "bl_resgateFinanceiro": 0,
-        "bl_saldoFinal": 0,
+        "bl_resgateFinanceiro": 46.92,
+        "bl_saldoFinal": 73.8,
         "ex_saldoFinal": 0,
         "obs": "",
         "extratoData": null
@@ -21585,6 +21585,16 @@
         "t": 1785870687864,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785870693931,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785870706470,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -23163,5 +23173,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785870687869
+  "savedAt": 1785870706472
 }

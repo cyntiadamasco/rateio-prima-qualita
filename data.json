@@ -7745,16 +7745,16 @@
           "saq_pri": 44
         },
         "ind6": {
-          "madalena": 0,
-          "cachoeiras": 0,
-          "saq_hosp": 0,
+          "madalena": 58,
+          "cachoeiras": 89,
+          "saq_hosp": 110,
           "upa_pac": 0,
-          "upa_nc": 0,
-          "arraial": 0,
-          "quissama": 0,
-          "cordeiro": 0,
-          "saq_esp": 0,
-          "saq_pri": 0
+          "upa_nc": 43,
+          "arraial": 98,
+          "quissama": 36,
+          "cordeiro": 56,
+          "saq_esp": 68,
+          "saq_pri": 60
         },
         "ind7": {
           "madalena": 0,
@@ -7833,8 +7833,8 @@
           "pdfNome": ""
         },
         "ind3": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202607_ind3.pdf",
+          "pdfNome": "INDICADOR 3 - FINANCEIRO - JUNHO.pdf"
         },
         "ind4": {
           "pdfUrl": "local:iqual_202607_ind4",
@@ -7845,8 +7845,8 @@
           "pdfNome": "INDICADOR 5 - LOGISTICA E SUPRIMENTOS - JUNHO 2026.pdf"
         },
         "ind6": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "local:iqual_202607_ind6",
+          "pdfNome": "INDICADOR 6 - COMPRAS E CONTRATOS - JUN.26.pdf"
         },
         "ind7": {
           "pdfUrl": "",
@@ -21392,6 +21392,26 @@
         "t": 1785870493170,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785870504519,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785870509041,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785870547747,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785870555231,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -22970,5 +22990,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785870493172
+  "savedAt": 1785870555233
 }

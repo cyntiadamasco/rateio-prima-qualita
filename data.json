@@ -7717,8 +7717,8 @@
           "arraial": 356,
           "quissama": 104,
           "cordeiro": 131,
-          "saq_esp": 0,
-          "saq_pri": 0
+          "saq_esp": 138,
+          "saq_pri": 170
         },
         "ind4": {
           "madalena": 0,
@@ -7833,12 +7833,12 @@
           "pdfNome": ""
         },
         "ind3": {
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202607_ind3.pdf",
-          "pdfNome": "INDICADOR 3 - FINANCEIRO - JUNHO.pdf"
-        },
-        "ind4": {
           "pdfUrl": "",
           "pdfNome": ""
+        },
+        "ind4": {
+          "pdfUrl": "local:iqual_202607_ind4",
+          "pdfNome": "INDICADOR 4 - CONTABILIDADE JUNHO 26.pdf"
         },
         "ind5": {
           "pdfUrl": "",
@@ -21359,17 +21359,7 @@
         "comp": "2026-07"
       },
       {
-        "t": 1785870256798,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785870259833,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785870264124,
+        "t": 1785870414608,
         "perfil": "Administrador",
         "comp": "2026-07"
       }
@@ -22950,5 +22940,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785870264131
+  "savedAt": 1785870414612
 }

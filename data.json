@@ -14382,8 +14382,8 @@
           "ctipo": "NF",
           "cnum": "17",
           "valor": 36000,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/jhny26m.pdf",
-          "pdfNome": "ID 01 PABLO SIQUEIRA - NF 17 - 36.000,00.pdf",
+          "pdfUrl": null,
+          "pdfNome": null,
           "dtPgto": "2026-06-09"
         },
         {
@@ -21077,6 +21077,11 @@
         "t": 1785176734072,
         "perfil": "Administrador",
         "comp": "2026-06"
+      },
+      {
+        "t": 1785813851399,
+        "perfil": "Administrador",
+        "comp": "2026-06"
       }
     ],
     "tokenCripto": {
@@ -21138,5 +21143,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1785176734075
+  "savedAt": 1785813851403
 }

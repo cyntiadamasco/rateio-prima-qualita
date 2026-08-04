@@ -7721,16 +7721,16 @@
           "saq_pri": 170
         },
         "ind4": {
-          "madalena": 0,
-          "cachoeiras": 0,
-          "saq_hosp": 0,
-          "upa_pac": 0,
-          "upa_nc": 0,
-          "arraial": 0,
-          "quissama": 0,
-          "cordeiro": 0,
-          "saq_esp": 0,
-          "saq_pri": 0
+          "madalena": 728,
+          "cachoeiras": 1400,
+          "saq_hosp": 2001,
+          "upa_pac": 733,
+          "upa_nc": 717,
+          "arraial": 1774,
+          "quissama": 512,
+          "cordeiro": 611,
+          "saq_esp": 877,
+          "saq_pri": 866
         },
         "ind5": {
           "madalena": 0,
@@ -21362,6 +21362,16 @@
         "t": 1785870414608,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785870421766,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785870431240,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -22940,5 +22950,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785870414612
+  "savedAt": 1785870431242
 }

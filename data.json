@@ -6537,8 +6537,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 66047.94,
-          "pdfUrl": null,
-          "pdfNome": null,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/kfxjozr.pdf",
+          "pdfNome": "ID 09 IRRF FOLHA COLABORADORES- 66.047,94.pdf",
           "dtPgto": "2026-07-16"
         },
         {
@@ -21332,6 +21332,11 @@
         "t": 1785869699130,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785869708584,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -22910,5 +22915,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785869699132
+  "savedAt": 1785869708586
 }

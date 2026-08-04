@@ -7841,8 +7841,8 @@
           "pdfNome": "INDICADOR 4 - CONTABILIDADE JUNHO 26.pdf"
         },
         "ind5": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "local:iqual_202607_ind5",
+          "pdfNome": "INDICADOR 5 - LOGISTICA E SUPRIMENTOS - JUNHO 2026.pdf"
         },
         "ind6": {
           "pdfUrl": "",
@@ -21372,6 +21372,11 @@
         "t": 1785870431240,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785870480382,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -22950,5 +22955,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785870431242
+  "savedAt": 1785870480384
 }

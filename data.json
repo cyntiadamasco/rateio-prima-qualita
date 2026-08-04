@@ -6536,10 +6536,10 @@
           "cnpj": "40.289.134/0001-99",
           "ctipo": "",
           "cnum": "",
-          "valor": 0,
+          "valor": 66047.94,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-07-16"
         },
         {
           "uid": "3ywlp8q",
@@ -21327,6 +21327,11 @@
         "t": 1785869662016,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785869699130,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -22905,5 +22910,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785869662017
+  "savedAt": 1785869699132
 }

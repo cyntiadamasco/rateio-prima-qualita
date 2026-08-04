@@ -6439,8 +6439,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 0,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/kjnmwtj.pdf",
-          "pdfNome": "ID 02 E SIMÔES- NF 08 - 11.000,00.pdf",
+          "pdfUrl": null,
+          "pdfNome": null,
           "dtPgto": ""
         },
         {
@@ -6467,8 +6467,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 0,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/33nmhb2.pdf",
-          "pdfNome": "ID 04 GUSTAVO FROES-  NF 2026.07- 07 - 7.000,00.pdf",
+          "pdfUrl": null,
+          "pdfNome": null,
           "dtPgto": ""
         },
         {
@@ -6481,8 +6481,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 0,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/i3cqa3s.pdf",
-          "pdfNome": "ID 05 IGF AUDITORES- NF 1101 - 3.167,00.pdf",
+          "pdfUrl": null,
+          "pdfNome": null,
           "dtPgto": ""
         },
         {
@@ -21107,6 +21107,21 @@
         "t": 1785813890763,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785813898151,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785813901359,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785813910605,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -21168,5 +21183,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785813890766
+  "savedAt": 1785813910609
 }

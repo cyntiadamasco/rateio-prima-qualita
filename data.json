@@ -6506,12 +6506,12 @@
           "objeto": "INSS sobre Folha",
           "fav": "Instituto Nacional do Seguro Social - INSS",
           "cnpj": "40.289.134/0001-99",
-          "ctipo": "",
+          "ctipo": "Darf",
           "cnum": "",
-          "valor": 0,
+          "valor": 51110.7,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-07-16"
         },
         {
           "uid": "9ko11i9",
@@ -21307,6 +21307,11 @@
         "t": 1785869532270,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785869592193,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -22885,5 +22890,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785869532274
+  "savedAt": 1785869592195
 }

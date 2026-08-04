@@ -7709,14 +7709,14 @@
           "saq_pri": 0
         },
         "ind3": {
-          "madalena": 0,
-          "cachoeiras": 0,
-          "saq_hosp": 0,
-          "upa_pac": 0,
-          "upa_nc": 0,
-          "arraial": 0,
-          "quissama": 0,
-          "cordeiro": 0,
+          "madalena": 137,
+          "cachoeiras": 253,
+          "saq_hosp": 416,
+          "upa_pac": 136,
+          "upa_nc": 137,
+          "arraial": 356,
+          "quissama": 104,
+          "cordeiro": 131,
           "saq_esp": 0,
           "saq_pri": 0
         },
@@ -7833,8 +7833,8 @@
           "pdfNome": ""
         },
         "ind3": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202607_ind3.pdf",
+          "pdfNome": "INDICADOR 3 - FINANCEIRO - JUNHO.pdf"
         },
         "ind4": {
           "pdfUrl": "",
@@ -21357,6 +21357,21 @@
         "t": 1785870226405,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785870256798,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785870259833,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785870264124,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -22935,5 +22950,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785870226407
+  "savedAt": 1785870264131
 }

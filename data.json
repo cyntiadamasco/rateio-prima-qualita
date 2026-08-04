@@ -7948,8 +7948,8 @@
       },
       "demoContabil": {
         "balancete": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dcf_202607_balancete.pdf",
+          "pdfNome": "BALANCETE CIGAC 07.2026.pdf"
         },
         "extrato": {
           "pdfUrl": "",
@@ -21580,6 +21580,11 @@
         "t": 1785870660003,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785870687864,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -23158,5 +23163,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785870660005
+  "savedAt": 1785870687869
 }

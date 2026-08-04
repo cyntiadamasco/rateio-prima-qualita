@@ -7733,16 +7733,16 @@
           "saq_pri": 866
         },
         "ind5": {
-          "madalena": 0,
-          "cachoeiras": 0,
-          "saq_hosp": 0,
-          "upa_pac": 0,
-          "upa_nc": 0,
-          "arraial": 0,
-          "quissama": 0,
-          "cordeiro": 0,
-          "saq_esp": 0,
-          "saq_pri": 0
+          "madalena": 27,
+          "cachoeiras": 57,
+          "saq_hosp": 116,
+          "upa_pac": 21,
+          "upa_nc": 27,
+          "arraial": 81,
+          "quissama": 20,
+          "cordeiro": 28,
+          "saq_esp": 19,
+          "saq_pri": 44
         },
         "ind6": {
           "madalena": 0,
@@ -7841,7 +7841,7 @@
           "pdfNome": "INDICADOR 4 - CONTABILIDADE JUNHO 26.pdf"
         },
         "ind5": {
-          "pdfUrl": "local:iqual_202607_ind5",
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202607_ind5.pdf",
           "pdfNome": "INDICADOR 5 - LOGISTICA E SUPRIMENTOS - JUNHO 2026.pdf"
         },
         "ind6": {
@@ -21377,6 +21377,21 @@
         "t": 1785870480382,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785870483163,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785870487259,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785870493170,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -22955,5 +22970,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785870480384
+  "savedAt": 1785870493172
 }

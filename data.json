@@ -6495,8 +6495,8 @@
           "ctipo": "Folha",
           "cnum": "de Pagamento",
           "valor": 467306.53,
-          "pdfUrl": null,
-          "pdfNome": null,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/xqo7umz.pdf",
+          "pdfNome": "ID 06 FOLHA COLABORADORES- 467.306,53.pdf",
           "dtPgto": "2026-07-06"
         },
         {
@@ -21302,6 +21302,11 @@
         "t": 1785814227189,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1785869532270,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -22879,6 +22884,6 @@
       }
     }
   },
-  "currentComp": "2026-08",
-  "savedAt": 1785814227192
+  "currentComp": "2026-07",
+  "savedAt": 1785869532274
 }

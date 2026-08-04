@@ -6534,7 +6534,7 @@
           "objeto": "Imposto de Renda Pessoa Física - Folha",
           "fav": "Receita Federal",
           "cnpj": "40.289.134/0001-99",
-          "ctipo": "",
+          "ctipo": "Darf",
           "cnum": "",
           "valor": 66047.94,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/kfxjozr.pdf",
@@ -21347,6 +21347,11 @@
         "t": 1785869992327,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785870012626,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -22925,5 +22930,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785869992329
+  "savedAt": 1785870012627
 }

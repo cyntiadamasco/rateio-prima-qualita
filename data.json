@@ -14396,8 +14396,8 @@
           "ctipo": "NF",
           "cnum": "8",
           "valor": 11000,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/kjnmwtj.pdf",
-          "pdfNome": "ID 02 E SIMÔES- NF 08 - 11.000,00.pdf",
+          "pdfUrl": null,
+          "pdfNome": null,
           "dtPgto": "2026-06-12"
         },
         {
@@ -14410,8 +14410,8 @@
           "ctipo": "NF2026/7",
           "cnum": "",
           "valor": 7000,
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/33nmhb2.pdf",
-          "pdfNome": "ID 04 GUSTAVO FROES-  NF 2026.07- 07 - 7.000,00.pdf",
+          "pdfUrl": null,
+          "pdfNome": null,
           "dtPgto": "2026-06-15"
         },
         {
@@ -21082,6 +21082,16 @@
         "t": 1785813851399,
         "perfil": "Administrador",
         "comp": "2026-06"
+      },
+      {
+        "t": 1785813854567,
+        "perfil": "Administrador",
+        "comp": "2026-06"
+      },
+      {
+        "t": 1785813861957,
+        "perfil": "Administrador",
+        "comp": "2026-06"
       }
     ],
     "tokenCripto": {
@@ -21143,5 +21153,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1785813851403
+  "savedAt": 1785813861960
 }

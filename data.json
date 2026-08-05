@@ -6828,11 +6828,11 @@
           "objeto": "Aluguel Imóvel Centro Integrado de Gestão e Assistência Compartilhada - CIGAC",
           "fav": "Riza Securitizadora S. A",
           "cnpj": "08.769.451/0001-08",
-          "ctipo": "",
+          "ctipo": "Boleto",
           "cnum": "",
           "valor": 16178.43,
-          "pdfUrl": null,
-          "pdfNome": null,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/xiak33r.pdf",
+          "pdfNome": "ID 29 RIZA SECURITIZADA - NF 101 -16.178,43.pdf",
           "dtPgto": "2026-07-08"
         },
         {
@@ -23372,6 +23372,11 @@
         "t": 1785936876817,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785936951529,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24950,5 +24955,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785936876820
+  "savedAt": 1785936951535
 }

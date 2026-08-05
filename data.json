@@ -7123,7 +7123,7 @@
           "uid": "cmsggp7y7d15jx",
           "nome": "TATIELE DA SILVA RIBEIRO",
           "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
-          "funcao": "SUPERVISOR DE SUPRIMENTOS I"
+          "funcao": "SUPERVISOR DE SUPRIMENTOS III"
         },
         {
           "uid": "cmsggp7y7jkpd1",
@@ -23195,6 +23195,21 @@
         "t": 1785957573276,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785957574138,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785957575164,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785957586805,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24773,5 +24788,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785957573277
+  "savedAt": 1785957586807
 }

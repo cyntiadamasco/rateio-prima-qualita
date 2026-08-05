@@ -6845,8 +6845,8 @@
           "ctipo": "Boleto",
           "cnum": "",
           "valor": 46424.52,
-          "pdfUrl": null,
-          "pdfNome": null,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/dbbg0wc.pdf",
+          "pdfNome": "ID 30 CONDOMINIO SÃO GONÇÃLO- NF  101 - 46.424,52.pdf",
           "dtPgto": "2026-07-06"
         },
         {
@@ -23377,6 +23377,11 @@
         "t": 1785936951529,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785936962029,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24955,5 +24960,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785936951535
+  "savedAt": 1785936962035
 }

@@ -6649,8 +6649,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 0,
-          "pdfUrl": null,
-          "pdfNome": null,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/v39d29r.pdf",
+          "pdfNome": "ID 16 PENSÃO MICHELLE GUILHERMINA- 765,60.pdf",
           "dtPgto": ""
         },
         {
@@ -6663,8 +6663,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 0,
-          "pdfUrl": null,
-          "pdfNome": null,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/yh8v78f.pdf",
+          "pdfNome": "ID 17 PENSÃO SARA ALMEIDA- 831,13.pdf",
           "dtPgto": ""
         },
         {
@@ -23382,6 +23382,16 @@
         "t": 1785936962029,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785936978400,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785936984344,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24960,5 +24970,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785936962035
+  "savedAt": 1785936984346
 }

@@ -6745,7 +6745,7 @@
           "uid": "cmsggp7y71uj73",
           "nome": "JOCIMAR SILVA DO NASCIMENTO",
           "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "AUXILIAR OPERACIONAL II"
+          "funcao": "AS OPERACIONAL II"
         },
         {
           "uid": "cmsggp7y7s17d2",
@@ -23080,6 +23080,16 @@
         "t": 1785957127271,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785957543324,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785957543620,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24658,5 +24668,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785957127273
+  "savedAt": 1785957543621
 }

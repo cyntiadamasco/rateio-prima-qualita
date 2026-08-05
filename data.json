@@ -6632,12 +6632,12 @@
           "objeto": "Empréstimo Consignado CIGAC",
           "fav": "Crédito Trabalhador",
           "cnpj": "40.289.134/0001-99",
-          "ctipo": "",
+          "ctipo": "GFD",
           "cnum": "",
           "valor": 25931.51,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/plgzk83.pdf",
           "pdfNome": "ID 15 EMPRESTIMO CONSIGNADO - 25.931,51.pdf",
-          "dtPgto": ""
+          "dtPgto": "2026-07-16"
         },
         {
           "uid": "v39d29r",
@@ -23447,6 +23447,11 @@
         "t": 1785956372208,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785956457548,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -25025,5 +25030,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785956372211
+  "savedAt": 1785956457550
 }

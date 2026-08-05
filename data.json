@@ -6646,12 +6646,12 @@
           "objeto": "Pensão Alimentícia - Colaborador Douglas Barcellos Silva",
           "fav": "Michele Guilhermina Moraes Barcellos",
           "cnpj": "115.607.797-48",
-          "ctipo": "",
+          "ctipo": "Pensão",
           "cnum": "",
-          "valor": 0,
+          "valor": 765.6,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/v39d29r.pdf",
           "pdfNome": "ID 16 PENSÃO MICHELLE GUILHERMINA- 765,60.pdf",
-          "dtPgto": ""
+          "dtPgto": "2026-07-07"
         },
         {
           "uid": "yh8v78f",
@@ -23392,6 +23392,11 @@
         "t": 1785936984344,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785937039580,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24970,5 +24975,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785936984346
+  "savedAt": 1785937039583
 }

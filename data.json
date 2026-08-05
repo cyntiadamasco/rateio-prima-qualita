@@ -7910,16 +7910,16 @@
           "saq_pri": 62
         },
         "ind7": {
-          "madalena": 0,
-          "cachoeiras": 0,
-          "saq_hosp": 0,
-          "upa_pac": 0,
-          "upa_nc": 0,
-          "arraial": 0,
-          "quissama": 0,
-          "cordeiro": 0,
-          "saq_esp": 0,
-          "saq_pri": 0
+          "madalena": 191,
+          "cachoeiras": 508,
+          "saq_hosp": 1595,
+          "upa_pac": 157,
+          "upa_nc": 185,
+          "arraial": 1125,
+          "quissama": 101,
+          "cordeiro": 164,
+          "saq_esp": 421,
+          "saq_pri": 750
         },
         "ind8": {
           "madalena": 4442,
@@ -9744,8 +9744,8 @@
           "pdfNome": "INDICADOR 6 - COMPRAS E CONTRATOS - JUN.26.pdf"
         },
         "ind7": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "local:iqual_202607_ind7",
+          "pdfNome": "INDICADOR 7 - JURÍDICO JUNHO 2026.pdf"
         },
         "ind8": {
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202607_ind8.pdf",
@@ -23402,6 +23402,11 @@
         "t": 1785937070754,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785955040645,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24980,5 +24985,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785937070757
+  "savedAt": 1785955040648
 }

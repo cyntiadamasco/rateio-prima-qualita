@@ -7850,16 +7850,16 @@
           "saq_pri": 632
         },
         "ind2": {
-          "madalena": 0,
-          "cachoeiras": 0,
-          "saq_hosp": 0,
-          "upa_pac": 0,
-          "upa_nc": 0,
-          "arraial": 0,
-          "quissama": 0,
-          "cordeiro": 0,
-          "saq_esp": 0,
-          "saq_pri": 0
+          "madalena": 29,
+          "cachoeiras": 28,
+          "saq_hosp": 35,
+          "upa_pac": 29,
+          "upa_nc": 33,
+          "arraial": 32,
+          "quissama": 27,
+          "cordeiro": 28,
+          "saq_esp": 39,
+          "saq_pri": 45
         },
         "ind3": {
           "madalena": 137,
@@ -23417,6 +23417,11 @@
         "t": 1785955269687,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785955535886,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24995,5 +25000,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785955269690
+  "savedAt": 1785955535888
 }

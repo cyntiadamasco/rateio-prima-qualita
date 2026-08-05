@@ -6830,10 +6830,10 @@
           "cnpj": "08.769.451/0001-08",
           "ctipo": "",
           "cnum": "",
-          "valor": 0,
+          "valor": 16178.43,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-07-08"
         },
         {
           "uid": "dbbg0wc",
@@ -23367,6 +23367,11 @@
         "t": 1785936755490,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785936876817,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24945,5 +24950,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785936755493
+  "savedAt": 1785936876820
 }

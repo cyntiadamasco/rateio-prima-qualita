@@ -6660,12 +6660,12 @@
           "objeto": "Pensão Alimentícia - Colaborador Dioni de Oliveira Schuvartz",
           "fav": "Sara Almeida Souza Schuvartz",
           "cnpj": "054.299.487-99",
-          "ctipo": "",
+          "ctipo": "Pensão",
           "cnum": "",
-          "valor": 0,
+          "valor": 831.13,
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/yh8v78f.pdf",
           "pdfNome": "ID 17 PENSÃO SARA ALMEIDA- 831,13.pdf",
-          "dtPgto": ""
+          "dtPgto": "2026-07-07"
         },
         {
           "uid": "h4a9ig4",
@@ -23397,6 +23397,11 @@
         "t": 1785937039580,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785937070754,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24975,5 +24980,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785937039583
+  "savedAt": 1785937070757
 }

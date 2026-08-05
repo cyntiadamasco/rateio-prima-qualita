@@ -6745,7 +6745,7 @@
           "uid": "cmsggp7y71uj73",
           "nome": "JOCIMAR SILVA DO NASCIMENTO",
           "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "AS OPERACIONAL II"
+          "funcao": "ASSISTENTE OPERACIONAL II"
         },
         {
           "uid": "cmsggp7y7s17d2",
@@ -7123,7 +7123,7 @@
           "uid": "cmsggp7y7d15jx",
           "nome": "TATIELE DA SILVA RIBEIRO",
           "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
-          "funcao": "SUPERVISOR DE FARMÁCIA"
+          "funcao": "SUPERVISOR DE SU"
         },
         {
           "uid": "cmsggp7y7jkpd1",
@@ -23090,6 +23090,56 @@
         "t": 1785957543620,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785957544067,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785957544070,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785957544422,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785957544425,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785957544492,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785957544748,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785957544972,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785957545092,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785957566737,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785957566953,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24668,5 +24718,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785957543621
+  "savedAt": 1785957566955
 }

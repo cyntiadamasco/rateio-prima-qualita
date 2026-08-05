@@ -6635,8 +6635,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 0,
-          "pdfUrl": null,
-          "pdfNome": null,
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/plgzk83.pdf",
+          "pdfNome": "ID 15 EMPRESTIMO CONSIGNADO - 25.931,51.pdf",
           "dtPgto": ""
         },
         {
@@ -23432,6 +23432,16 @@
         "t": 1785956298950,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785956300837,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785956357494,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -25010,5 +25020,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785956298958
+  "savedAt": 1785956357496
 }

@@ -9748,8 +9748,8 @@
           "pdfNome": ""
         },
         "ind8": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202607_ind8.pdf",
+          "pdfNome": "INDICADOR 8 - DEPARTAMENTO ASSISTENCIAL JUNHO 2026.pdf"
         }
       }
     },
@@ -23352,6 +23352,16 @@
         "t": 1785870739491,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785936669779,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785936673420,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24930,5 +24940,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785870739494
+  "savedAt": 1785936673424
 }

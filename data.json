@@ -7922,16 +7922,16 @@
           "saq_pri": 0
         },
         "ind8": {
-          "madalena": 0,
-          "cachoeiras": 0,
-          "saq_hosp": 0,
-          "upa_pac": 0,
-          "upa_nc": 0,
-          "arraial": 0,
-          "quissama": 0,
-          "cordeiro": 0,
-          "saq_esp": 0,
-          "saq_pri": 0
+          "madalena": 4442,
+          "cachoeiras": 11186,
+          "saq_hosp": 33266,
+          "upa_pac": 10943,
+          "upa_nc": 11605,
+          "arraial": 49428,
+          "quissama": 6543,
+          "cordeiro": 4501,
+          "saq_esp": 53696,
+          "saq_pri": 55519
         }
       },
       "despesasLocais": {
@@ -23362,6 +23362,11 @@
         "t": 1785936673420,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785936755490,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24940,5 +24945,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785936673424
+  "savedAt": 1785936755493
 }

@@ -23075,6 +23075,11 @@
         "t": 1785957024895,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785957127271,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24653,5 +24658,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785957024898
+  "savedAt": 1785957127273
 }

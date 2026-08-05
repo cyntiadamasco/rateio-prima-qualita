@@ -9724,8 +9724,8 @@
           "pdfNome": ""
         },
         "ind2": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202607_ind2.pdf",
+          "pdfNome": "INDICADOR 2 - COMUNICAÇÃO INSTITUCIONAL - JUNHO.2026.pdf"
         },
         "ind3": {
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202607_ind3.pdf",
@@ -23422,6 +23422,16 @@
         "t": 1785955535886,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785956294963,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785956298950,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -25000,5 +25010,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785955535888
+  "savedAt": 1785956298958
 }

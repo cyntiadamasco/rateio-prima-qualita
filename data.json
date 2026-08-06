@@ -6988,12 +6988,6 @@
           "funcao": "COORDENADOR DE COMPLIANCE"
         },
         {
-          "uid": "cmsggp7y7sjjkp",
-          "nome": "ROGERIO DE CARVALHO OLIVEIRA",
-          "dept": "DEPARTAMENTO DE COMPLIANCE",
-          "funcao": "ANALISTA ADMINISTRATIVO III"
-        },
-        {
           "uid": "cmsggp7y7lhj5w",
           "nome": "ANDERSON DE SOUZA MOUTINHO",
           "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
@@ -7178,12 +7172,6 @@
           "nome": "LORRAYNE DA SILVA FERNANDEZ DE OLIVEIRA",
           "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
           "funcao": "ANALISTA ADMINISTRATIVO I"
-        },
-        {
-          "uid": "cmsggp7y749abq",
-          "nome": "MARIA DA CONCEIÇÃO BALDINI BENEVIDES BLANC",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "SUPERVISOR DE EDUCAÇÃO PERMANENTE III"
         },
         {
           "uid": "cmsggp7y7qor2a",
@@ -7442,6 +7430,12 @@
           "nome": "IGOR SILVA MARINHO",
           "dept": "ASSISTENCIAL - MONITORAMENTO DE D",
           "funcao": "ASSISTENTE DE TI II"
+        },
+        {
+          "uid": "bgbcd7u",
+          "nome": "MARIA DA CONCEICAO BALDINI BENEVIDES BLANCK",
+          "dept": "RECURSOS HUMANOS - NEP",
+          "funcao": "SUPERVISOR DE EDUCACAO PERMANENTE III"
         }
       ],
       "iqual": {
@@ -23360,6 +23354,26 @@
         "t": 1785982575280,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785982577663,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785982582653,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785982584245,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785982592610,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24938,5 +24952,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785982575284
+  "savedAt": 1785982592613
 }

@@ -7436,12 +7436,6 @@
           "nome": "MARIA DA CONCEICAO BALDINI BENEVIDES BLANCK",
           "dept": "RECURSOS HUMANOS - NEP",
           "funcao": "SUPERVISOR DE EDUCACAO PERMANENTE III"
-        },
-        {
-          "uid": "cmsgvysx055xvb",
-          "nome": "",
-          "dept": "",
-          "funcao": ""
         }
       ],
       "iqual": {
@@ -23385,6 +23379,16 @@
         "t": 1785982666212,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785982669299,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785982713171,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24963,5 +24967,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785982666216
+  "savedAt": 1785982713174
 }

@@ -9322,7 +9322,7 @@
       },
       "iqual_pdfs": {
         "ind1": {
-          "pdfUrl": "local:iqual_202607_ind1",
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202607_ind1.pdf",
           "pdfNome": "INDICADOR 1 - DEPARTAMENTO PESSOAL-RH - JUNHO.pdf"
         },
         "ind2": {
@@ -23529,6 +23529,16 @@
         "t": 1786020692725,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1786020695249,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1786020782899,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -25107,5 +25117,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1786020692727
+  "savedAt": 1786020782902
 }

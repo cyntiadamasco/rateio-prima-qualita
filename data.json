@@ -6832,12 +6832,6 @@
           "funcao": "ANALISTA ASSISTENCIAL III"
         },
         {
-          "uid": "cmsggp7y7qx736",
-          "nome": "ESTER SOARES ALVES XIMENES",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "COORDENADOR DE REDE DE CUIDADOS II"
-        },
-        {
           "uid": "cmsggp7y7dboco",
           "nome": "FABIO PINTO DA MATTA",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
@@ -23240,6 +23234,11 @@
         "t": 1785982117149,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785982222383,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24818,5 +24817,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785982117153
+  "savedAt": 1785982222387
 }

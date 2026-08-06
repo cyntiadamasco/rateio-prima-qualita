@@ -7416,13 +7416,13 @@
         {
           "uid": "2omw607",
           "nome": "VERONICA RODRIGUES DOS SANTOS COSTA",
-          "dept": "FINANCEIRO",
+          "dept": "DEPAFINANCEIRO",
           "funcao": "ASSISTENTE FINANCEIRO III"
         },
         {
           "uid": "je4ohkz",
           "nome": "LUCAS CARREIRA MATTOS",
-          "dept": "deFINANCEIRO",
+          "dept": "DEPARTAMENTO FINANCEIRO",
           "funcao": "ASSISTENTE FINANCEIRO III"
         },
         {
@@ -23419,6 +23419,101 @@
         "t": 1785983357776,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785983358862,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785983359035,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785983359785,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785983360003,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785983361058,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785983361470,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785983361716,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785983361948,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785983362124,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785983362491,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785983362669,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785983362858,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785983363159,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785983363491,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785983364176,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785983367964,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785983368236,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785983368530,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785983368807,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24997,5 +25092,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785983357787
+  "savedAt": 1785983368811
 }

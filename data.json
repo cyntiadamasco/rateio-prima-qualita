@@ -6417,7 +6417,7 @@
       "despesas": [
         {
           "uid": "xqo7umz",
-          "id": "1",
+          "id": "6",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Folha de Pagamento Colaboradores CIGAC",
           "fav": "Projeto Social Cresce Comunidade - Prima Qualitá",
@@ -6431,7 +6431,7 @@
         },
         {
           "uid": "uvaw9yq",
-          "id": "2",
+          "id": "7",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "INSS sobre Folha",
           "fav": "Instituto Nacional do Seguro Social - INSS",
@@ -6445,7 +6445,7 @@
         },
         {
           "uid": "9ko11i9",
-          "id": "3",
+          "id": "8",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Fundo de Garantia por Tempo de Serviços (FGTS)",
           "fav": "Caixa Econômica Federal - FGTS",
@@ -6459,7 +6459,7 @@
         },
         {
           "uid": "kfxjozr",
-          "id": "4",
+          "id": "9",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Imposto de Renda Pessoa Física - Folha",
           "fav": "Receita Federal",
@@ -6473,7 +6473,7 @@
         },
         {
           "uid": "plgzk83",
-          "id": "5",
+          "id": "15",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Empréstimo Consignado CIGAC",
           "fav": "Crédito Trabalhador",
@@ -6487,7 +6487,7 @@
         },
         {
           "uid": "v39d29r",
-          "id": "6",
+          "id": "16",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Pensão Alimentícia - Colaborador Douglas Barcellos Silva",
           "fav": "Michele Guilhermina Moraes Barcellos",
@@ -6501,7 +6501,7 @@
         },
         {
           "uid": "yh8v78f",
-          "id": "7",
+          "id": "17",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Pensão Alimentícia - Colaborador Dioni de Oliveira Schuvartz",
           "fav": "Sara Almeida Souza Schuvartz",
@@ -6515,7 +6515,7 @@
         },
         {
           "uid": "xiak33r",
-          "id": "8",
+          "id": "29",
           "cat": "Locação de Imóvel CIGAC e Despesas",
           "objeto": "Aluguel Imóvel Centro Integrado de Gestão e Assistência Compartilhada - CIGAC",
           "fav": "Riza Securitizadora S. A",
@@ -6529,7 +6529,7 @@
         },
         {
           "uid": "dbbg0wc",
-          "id": "9",
+          "id": "30",
           "cat": "Locação de Imóvel CIGAC e Despesas",
           "objeto": "Condomínio e Taxas do Imóvel Centro Integrado de Gestão e Assistência Compartilhada - CIGAC",
           "fav": "Condomínio do São Gonçalo Shopping Rio",
@@ -23544,6 +23544,11 @@
         "t": 1786021155899,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1786021862786,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -25122,5 +25127,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1786021155902
+  "savedAt": 1786021862789
 }

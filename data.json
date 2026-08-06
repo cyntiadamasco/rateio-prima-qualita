@@ -7266,7 +7266,7 @@
         {
           "uid": "cmsggp7y70c11d",
           "nome": "LUDMILA DA COSTA CARVALHO CRUZ",
-          "dept": "DEPARTAMENTO FINANCEIRO",
+          "dept": "CONTABILIDADE",
           "funcao": "ANALISTA CONTÁBIL I"
         },
         {
@@ -7344,7 +7344,7 @@
         {
           "uid": "cmsggp7y73eezr",
           "nome": "ELENA VIANA MACEDO",
-          "dept": "DEPARTAMENTO PESSOAL",
+          "dept": "GESTAO DE PESSOAS",
           "funcao": "GERENTE DE GESTÃO DE PESSOAS III"
         },
         {
@@ -23230,6 +23230,16 @@
         "t": 1785982021849,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785982028395,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785982117149,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24808,5 +24818,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785982021854
+  "savedAt": 1785982117153
 }

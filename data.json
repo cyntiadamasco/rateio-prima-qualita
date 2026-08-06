@@ -7436,6 +7436,12 @@
           "nome": "LUCAS CARREIRA MATTOS",
           "dept": "FINANCEIRO",
           "funcao": "ASSISTENTE FINANCEIRO III"
+        },
+        {
+          "uid": "x88a7o5",
+          "nome": "IGOR SILVA MARINHO",
+          "dept": "ASSISTENCIAL - MONITORAMENTO DE D",
+          "funcao": "ASSISTENTE DE TI II"
         }
       ],
       "iqual": {
@@ -23349,6 +23355,11 @@
         "t": 1785982510829,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785982575280,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24927,5 +24938,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785982510833
+  "savedAt": 1785982575284
 }

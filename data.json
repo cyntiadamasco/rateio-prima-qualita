@@ -7422,7 +7422,7 @@
         {
           "uid": "je4ohkz",
           "nome": "LUCAS CARREIRA MATTOS",
-          "dept": "FINANCEIRO",
+          "dept": "deFINANCEIRO",
           "funcao": "ASSISTENTE FINANCEIRO III"
         },
         {
@@ -23409,6 +23409,16 @@
         "t": 1785983016160,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785983357566,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785983357776,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24987,5 +24997,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785983016164
+  "savedAt": 1785983357787
 }

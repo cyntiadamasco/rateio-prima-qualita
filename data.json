@@ -7165,7 +7165,7 @@
           "uid": "cmsggp7y7ofpys",
           "nome": "JULIO CESAR DE OLIVEIRA JUNIOR",
           "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "COORDENADOR DE REMUNERAÇAO/RH I"
+          "funcao": "COORDENADOR DE REMUNERACAO / RH I"
         },
         {
           "uid": "cmsggp7y78vmbk",
@@ -23399,6 +23399,11 @@
         "t": 1785982871641,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785982911457,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24977,5 +24982,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785982871645
+  "savedAt": 1785982911461
 }

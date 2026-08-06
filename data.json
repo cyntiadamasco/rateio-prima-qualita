@@ -6904,12 +6904,6 @@
           "funcao": "GERENTE DE TI II"
         },
         {
-          "uid": "cmsggp7y70koiu",
-          "nome": "LINCON DA SILVA FULY",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ASSISTENTE DE TI II"
-        },
-        {
           "uid": "cmsggp7y7i9hhs",
           "nome": "MARCELA ROCHA FERREIRA",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
@@ -7172,12 +7166,6 @@
           "nome": "JANDARA TEIXEIRA DIAS ROCHA",
           "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
           "funcao": "ASSISTENTE DE RH I"
-        },
-        {
-          "uid": "cmsggp7y7yz3j5",
-          "nome": "JOAO VITOR DA SILVA BORGES",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "JOVEM APRENDIZ"
         },
         {
           "uid": "cmsggp7y7ofpys",
@@ -23239,6 +23227,16 @@
         "t": 1785982222383,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785982226301,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785982245477,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24817,5 +24815,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785982222387
+  "savedAt": 1785982245482
 }

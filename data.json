@@ -6949,7 +6949,7 @@
           "uid": "cmsggp7y70l8ak",
           "nome": "RAPHAEL AREAS CAVALCANTE DA SILVA",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "SUPERVISOR DE REDES DE CUIDADOS I"
+          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
         },
         {
           "uid": "cmsggp7y71seac",
@@ -23389,6 +23389,16 @@
         "t": 1785982713171,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785982714912,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785982871641,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24967,5 +24977,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785982713174
+  "savedAt": 1785982871645
 }

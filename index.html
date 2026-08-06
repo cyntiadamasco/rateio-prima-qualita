@@ -1155,7 +1155,7 @@ body:not(.perfil-logado) .logado-only{display:none!important}
       </div>
     </div>
     <span id="sync-status" style="display:flex;align-items:center;gap:4px"><span class="sync-dot" id="sync-dot"></span><span class="sync-lbl" id="sync-lbl"></span></span>
-    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-08-05a</span>
+    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-08-05b</span>
     <button class="btn btn-teal btn-sm edit-only" onclick="salvar()">💾 Salvar</button>
     <button id="btn-lock-edit" onclick="toggleEditMode()" title="Modo de edição">🔒 Editar</button>
   </div>
@@ -3414,7 +3414,9 @@ function filterColab(val){
 
 function sortColabAZ(){
   _colabSortAZ=!_colabSortAZ;
-  _refreshColabTable();
+  // Re-renderiza a aba inteira para o relatório impresso acompanhar a ordenação
+  if(abaAtiva()==='relatorio'){ renderRelatorio(); }
+  else _refreshColabTable();
 }
 
 function setColabLista(uid,field,val){
@@ -3495,7 +3497,9 @@ function renderRelatorio(){
   const totalPJ=colabs.reduce((a,c)=>a+(c.pj||0),0);
   const totalColab=totalCLT+totalPJ;
   const iqual=data.iqual||{};
-  const colabLista=data.colab_lista||[];
+  // Relatório segue a ordenação A→Z quando ativada na lista de colaboradores
+  const colabLista=(data.colab_lista||[]).slice();
+  if(_colabSortAZ) colabLista.sort((a,b)=>(a.nome||'').localeCompare(b.nome||'','pt-BR'));
 
   /* Descrições de categorias */
   const CAT_DESC={

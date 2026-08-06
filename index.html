@@ -1155,7 +1155,7 @@ body:not(.perfil-logado) .logado-only{display:none!important}
       </div>
     </div>
     <span id="sync-status" style="display:flex;align-items:center;gap:4px"><span class="sync-dot" id="sync-dot"></span><span class="sync-lbl" id="sync-lbl"></span></span>
-    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-07-24b</span>
+    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-08-05a</span>
     <button class="btn btn-teal btn-sm edit-only" onclick="salvar()">💾 Salvar</button>
     <button id="btn-lock-edit" onclick="toggleEditMode()" title="Modo de edição">🔒 Editar</button>
   </div>
@@ -2901,9 +2901,10 @@ function buildColabListaRow(r,i){
   </tr>`;
 }
 /* =====================================================================
-   VALIDAÇÃO DE COLABORADORES CIGAC COM FOLHA DE PAGAMENTO (PDF)
-   Fluxo: upload PDF -> PDF.js (CDN lazy) -> agrupamento por y-pos ->
-          regex 4 dígitos + nome -> diff vs colab_lista -> modal
+   VALIDAÇÃO DE COLABORADORES CIGAC COM FOLHA DE PAGAMENTO (Excel ou PDF)
+   Fluxo preferido: upload XLSX (colunas NOME / DEPARTAMENTO / FUNÇÃO)
+   -> SheetJS (CDN lazy) -> diff vs colab_lista -> modal
+   Fluxo legado: upload PDF -> PDF.js -> regex 4 dígitos + nome
 ===================================================================== */
 
 function _carregarPdfJs(cb){
@@ -2924,18 +2925,90 @@ function _carregarPdfJs(cb){
 
 function validarComFolha(){
   const inp=document.createElement('input');
-  inp.type='file';inp.accept='.pdf';
+  inp.type='file';inp.accept='.xlsx,.xls,.pdf';
   inp.onchange=function(e){
     const file=e.target.files[0];if(!file)return;
+    const ehExcel=/\.xlsx?$/i.test(file.name);
     document.getElementById('modal-vf').style.display='flex';
     document.getElementById('modal-vf-body').innerHTML=
       '<div style="text-align:center;padding:48px 20px;color:#6B7280">'
      +'<div style="font-size:44px;margin-bottom:12px">⏳</div>'
-     +'<div style="font-size:14px;font-weight:600">Carregando leitor de PDF...</div>'
-     +'<div style="font-size:11px;margin-top:6px;color:#9CA3AF">Aguarde, carregando PDF.js</div></div>';
-    _carregarPdfJs(function(){_parsearFolhaPDF(file);});
+     +'<div style="font-size:14px;font-weight:600">Carregando leitor de '+(ehExcel?'planilha':'PDF')+'...</div>'
+     +'<div style="font-size:11px;margin-top:6px;color:#9CA3AF">Aguarde alguns segundos</div></div>';
+    if(ehExcel) _carregarXlsxJs(function(){_parsearFolhaXLSX(file);});
+    else _carregarPdfJs(function(){_parsearFolhaPDF(file);});
   };
   inp.click();
+}
+
+function _carregarXlsxJs(cb){
+  if(window.XLSX){cb();return;}
+  const s=document.createElement('script');
+  s.src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';
+  s.onload=function(){cb();};
+  s.onerror=function(){
+    alert('Não foi possível carregar o leitor de planilhas.\n'
+         +'Verifique sua conexão com a internet.');
+  };
+  document.head.appendChild(s);
+}
+
+async function _parsearFolhaXLSX(file){
+  try{
+    document.getElementById('modal-vf-body').innerHTML=
+      '<div style="text-align:center;padding:48px 20px;color:#6B7280">'
+     +'<div style="font-size:44px;margin-bottom:12px">📊</div>'
+     +'<div style="font-size:14px;font-weight:600">Extraindo colaboradores da planilha...</div>'
+     +'<div style="font-size:11px;margin-top:6px;color:#9CA3AF">Processando '+file.name+'</div></div>';
+
+    const buf=await file.arrayBuffer();
+    const wb=XLSX.read(buf,{type:'array'});
+    const ws=wb.Sheets[wb.SheetNames[0]];
+    const rows=XLSX.utils.sheet_to_json(ws,{header:1,defval:''});
+
+    // Localiza o cabeçalho (linha com "NOME") e mapeia as colunas
+    let hdrIdx=-1,colNome=-1,colDept=-1,colFuncao=-1;
+    for(let i=0;i<Math.min(rows.length,10);i++){
+      const cells=rows[i].map(function(c){return _normVF(String(c||''));});
+      const iN=cells.findIndex(function(c){return c.indexOf('NOME')>=0;});
+      if(iN>=0){
+        hdrIdx=i;colNome=iN;
+        colDept=cells.findIndex(function(c){return c.indexOf('DEPART')>=0;});
+        colFuncao=cells.findIndex(function(c){return c.indexOf('FUN')>=0&&c.indexOf('NOME')<0;});
+        break;
+      }
+    }
+    if(hdrIdx<0) throw new Error('Cabeçalho não encontrado. A planilha precisa ter as colunas NOME, DEPARTAMENTO e FUNÇÃO.');
+
+    const empregados=[];
+    const seenKeys=new Set();
+    for(let i=hdrIdx+1;i<rows.length;i++){
+      const r=rows[i];
+      const nome=String(r[colNome]||'').replace(/\s+/g,' ').trim();
+      if(!nome||nome.split(/\s+/).length<2) continue;
+      const key=_normVF(nome);
+      if(seenKeys.has(key)) continue;
+      seenKeys.add(key);
+      empregados.push({
+        mat:'',
+        nome:nome,
+        cargo:colFuncao>=0?String(r[colFuncao]||'').replace(/\s+/g,' ').trim():'',
+        dept:colDept>=0?String(r[colDept]||'').replace(/\s+/g,' ').trim():''
+      });
+    }
+    if(!empregados.length) throw new Error('Nenhum colaborador encontrado abaixo do cabeçalho.');
+
+    _mostrarResultadoVF(empregados,file.name);
+  }catch(err){
+    document.getElementById('modal-vf-body').innerHTML=
+      '<div style="text-align:center;padding:32px 20px">'
+     +'<div style="font-size:36px;margin-bottom:10px">⚠️</div>'
+     +'<div style="font-size:14px;font-weight:600;color:#DC2626">Erro ao processar a planilha</div>'
+     +'<div style="font-size:12px;color:#6B7280;margin-top:8px">'+err.message+'</div>'
+     +'<div style="font-size:11px;color:#9CA3AF;margin-top:6px">'
+     +'Estrutura esperada: colunas NOME, DEPARTAMENTO e FUNÇÃO</div>'
+     +'</div>';
+  }
 }
 
 async function _parsearFolhaPDF(file){
@@ -3026,6 +3099,11 @@ function _normVF(s){
     .replace(/\s+/g,' ');
 }
 
+// Normaliza departamento: "DEPARTAMENTO DE COMPRAS" == "COMPRAS"
+function _normDeptVF(s){
+  return _normVF(s).replace(/^DEPARTAMENTO( DE)?\s+/,'').replace(/^DEPTO\.?( DE)?\s+/,'');
+}
+
 function _mostrarResultadoVF(folha,fileName){
   const data=getMesData(currentComp);
   const lista=data.colab_lista||[];
@@ -3037,7 +3115,7 @@ function _mostrarResultadoVF(folha,fileName){
   const faltaApp  =folha.filter(function(e){return !listaMap.has(_normVF(e.nome));});
   const faltaFolha=lista.filter(function(e){return !folhaMap.has(_normVF(e.nome));});
 
-  // Divergencia de funcao: esta nos dois lados mas cargo (PDF) != funcao (app)
+  // Divergencia de funcao: esta nos dois lados mas cargo (folha) != funcao (app)
   const funcaoDiff=match.filter(function(e){
     if(!e.cargo) return false;
     const appEntry=listaMap.get(_normVF(e.nome));
@@ -3045,9 +3123,19 @@ function _mostrarResultadoVF(folha,fileName){
     return _normVF(e.cargo)!==_normVF(appEntry.funcao||'');
   });
 
+  // Divergencia de departamento (só quando a folha traz o dado — Excel)
+  const deptDiff=match.filter(function(e){
+    if(!e.dept) return false;
+    const appEntry=listaMap.get(_normVF(e.nome));
+    if(!appEntry) return false;
+    return _normDeptVF(e.dept)!==_normDeptVF(appEntry.dept||'');
+  });
+
   // Guarda listas para acoes do modal
   window._vfFaltantes=faltaApp;
   window._vfFuncaoDiff=funcaoDiff;
+  window._vfDeptDiff=deptDiff;
+  window._vfFaltaFolha=faltaFolha;
 
   let h='<div style="margin-bottom:16px">'
    +'<div style="font-size:11px;color:#6B7280;margin-bottom:8px">'
@@ -3057,9 +3145,10 @@ function _mostrarResultadoVF(folha,fileName){
    +(faltaApp.length?'<span class="vf-badge vf-badge-add">⚠ '+faltaApp.length+' a adicionar no app</span>':'')
    +(faltaFolha.length?'<span class="vf-badge vf-badge-rev">✕ '+faltaFolha.length+' a revisar</span>':'')
    +(funcaoDiff.length?'<span class="vf-badge" style="background:#EDE9FE;color:#6D28D9">⚧ '+funcaoDiff.length+' funções divergem</span>':'')
+   +(deptDiff.length?'<span class="vf-badge" style="background:#E0F2FE;color:#0369A1">🏷 '+deptDiff.length+' departamentos divergem</span>':'')
    +'</div></div>';
 
-  if(!faltaApp.length&&!faltaFolha.length&&!funcaoDiff.length){
+  if(!faltaApp.length&&!faltaFolha.length&&!funcaoDiff.length&&!deptDiff.length){
     h+='<div style="text-align:center;padding:24px;background:#F0FDF4;border-radius:10px;'
       +'color:#16A34A;font-size:14px;font-weight:700">'
       +'\u2705 Lista em total conformidade com a folha de pagamento!</div>';
@@ -3075,8 +3164,9 @@ function _mostrarResultadoVF(folha,fileName){
       +'<div class="vf-list" style="border-color:#FDE68A">'
       +faltaApp.map(function(e,i){
         return '<div class="vf-row" style="background:'+(i%2?'#FFFBEB':'#fff')+'">'
-          +'<span class="vf-mat">'+e.mat+'</span>'
+          +(e.mat?'<span class="vf-mat">'+e.mat+'</span>':'')
           +'<span class="vf-nome">'+e.nome+'</span>'
+          +(e.dept?'<span class="vf-dept">'+e.dept+'</span>':'')
           +'<button id="vfbtn-'+i+'" style="padding:2px 10px;background:#F59E0B;color:#fff;'
           +'border:none;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap" '
           +'onclick="adicionarColabVF('+i+')">+ Adicionar</button>'
@@ -3090,7 +3180,6 @@ function _mostrarResultadoVF(folha,fileName){
       +'<div class="vf-sec-title" style="color:#DC2626">'
       +'<span>✕ No app, AUSENTES da folha ('+faltaFolha.length+') \u2014 verifique desligamentos</span></div>'
       +'<div class="vf-list" style="border-color:#FECACA">'
-    window._vfFaltaFolha=faltaFolha;
       +faltaFolha.map(function(e,i){
         return '<div class="vf-row" style="background:'+(i%2?'#FFF5F5':'#fff')+'">'
           +'<span class="vf-nome">'+e.nome+'</span>'
@@ -3126,6 +3215,28 @@ function _mostrarResultadoVF(folha,fileName){
       +'</div></div>';
   }
 
+  // --- Secao: Departamento divergente (folha Excel) ---
+  if(deptDiff.length){
+    h+='<div style="margin-bottom:16px">'
+      +'<div class="vf-sec-title" style="color:#0369A1">'
+      +'<span>🏷 Departamento divergente ('+deptDiff.length+'): app ≠ folha</span></div>'
+      +'<div class="vf-list" style="border-color:#BAE6FD">'
+      +deptDiff.map(function(e,i){
+        const appEntry=listaMap.get(_normVF(e.nome));
+        const deptAtual=appEntry?(appEntry.dept||'(vazio)'):'?';
+        return '<div class="vf-row" style="background:'+(i%2?'#F0F9FF':'#fff')+';flex-wrap:wrap">'
+          +'<span class="vf-nome" style="width:100%;margin-bottom:2px">'+e.nome+'</span>'
+          +'<span style="font-size:10px;color:#9CA3AF;flex:1">'
+          +'App: <em style="color:#0369A1">'+deptAtual+'</em>'
+          +' → Folha: <em style="color:#16A34A">'+e.dept+'</em></span>'
+          +'<button id="vfbtn-dept-'+i+'" style="padding:2px 8px;background:#E0F2FE;color:#0369A1;'
+          +'border:1px solid #BAE6FD;border-radius:4px;font-size:11px;cursor:pointer;white-space:nowrap" '
+          +'onclick="atualizarDeptVF('+i+')">Atualizar</button>'
+          +'</div>';
+      }).join('')
+      +'</div></div>';
+  }
+
   // --- Painel debug: nomes extraidos da folha (caixa alta, para diagnóstico) ---
   h+='<details style="margin-top:14px;border-top:1px solid #F1F5F9;padding-top:10px">'
    +'<summary style="font-size:10px;color:#9CA3AF;cursor:pointer">'
@@ -3148,7 +3259,7 @@ function adicionarColabVF(idx){
   const data=getMesData(currentComp);
   if(!data.colab_lista) data.colab_lista=[];
   if(data.colab_lista.find(function(c){return _normVF(c.nome)===norm;})) return;
-  data.colab_lista.push({uid:uid(),nome:nome,dept:'',funcao:e.cargo||''});
+  data.colab_lista.push({uid:uid(),nome:nome,dept:e.dept||'',funcao:e.cargo||''});
   salvar();
   renderColabMgmt();
   // Marcar faltante como adicionado
@@ -3166,7 +3277,7 @@ function adicionarTodosColabVF(){
   faltantes.forEach(function(e){
     const norm=_normVF(e.nome);
     if(!data.colab_lista.find(function(c){return _normVF(c.nome)===norm;})){
-      data.colab_lista.push({uid:uid(),nome:e.nome,dept:'',funcao:e.cargo||''});
+      data.colab_lista.push({uid:uid(),nome:e.nome,dept:e.dept||'',funcao:e.cargo||''});
       added++;
     }
   });
@@ -3200,6 +3311,22 @@ function atualizarFuncaoVF(idx){
   window._vfFuncaoDiff[idx]=null;
   const btn=document.getElementById('vfbtn-func-'+idx);
   if(btn){btn.textContent='\u2713 Atualizada';btn.style.background='#16A34A';btn.disabled=true;}
+}
+
+// Atualiza departamento de colaborador existente com o dado da folha (Excel)
+function atualizarDeptVF(idx){
+  const e=(window._vfDeptDiff||[])[idx];if(!e)return;
+  const data=getMesData(currentComp);
+  if(!data.colab_lista)return;
+  const norm=_normVF(e.nome);
+  const c=data.colab_lista.find(function(x){return _normVF(x.nome)===norm;});
+  if(!c)return;
+  c.dept=e.dept;
+  salvar();
+  renderColabMgmt();
+  window._vfDeptDiff[idx]=null;
+  const btn=document.getElementById('vfbtn-dept-'+idx);
+  if(btn){btn.textContent='✓ Atualizado';btn.style.background='#16A34A';btn.style.color='#fff';btn.disabled=true;}
 }
 
 function fecharModalVF(){

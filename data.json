@@ -6558,7 +6558,7 @@
       "contratos_ativos": [
         {
           "uid": "cmsf1a4dfssgaz",
-          "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório\n",
+          "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório\n\n",
           "favorecido": " Pablo Siqueira Sociedade Individual de Advocacia ",
           "cnpj": " 18.464.526/0001-98 ",
           "nrProcesso": "117/2024",
@@ -23539,6 +23539,11 @@
         "t": 1786020782899,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1786021155899,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -25117,5 +25122,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1786020782902
+  "savedAt": 1786021155902
 }

@@ -7127,7 +7127,7 @@
         },
         {
           "uid": "cmsggp7y799u7k",
-          "nome": "LUISA FERREIRA ALBUQUERQUE",
+          "nome": "LUISA FERREIRA deALBUQUERQUE",
           "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
           "funcao": "ASSISTENTE ADMINISTRATIVO I"
         },
@@ -7428,6 +7428,12 @@
         {
           "uid": "2omw607",
           "nome": "VERONICA RODRIGUES DOS SANTOS COSTA",
+          "dept": "FINANCEIRO",
+          "funcao": "ASSISTENTE FINANCEIRO III"
+        },
+        {
+          "uid": "je4ohkz",
+          "nome": "LUCAS CARREIRA MATTOS",
           "dept": "FINANCEIRO",
           "funcao": "ASSISTENTE FINANCEIRO III"
         }
@@ -23248,6 +23254,21 @@
         "t": 1785982257425,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785982260865,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785982356629,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785982356832,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24826,5 +24847,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785982257428
+  "savedAt": 1785982356843
 }

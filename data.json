@@ -7146,7 +7146,7 @@
         {
           "uid": "cmsggp7y7c4oqe",
           "nome": "EDLENE PAIVA DA SILVA",
-          "dept": "DEPARASSISTENCIAL",
+          "dept": "DASSISTENCIAL",
           "funcao": "SUPERVISOR DE EDUCAÇÃO CONTINUADA I"
         },
         {
@@ -23516,27 +23516,7 @@
         "comp": "2026-07"
       },
       {
-        "t": 1785983521520,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785983521622,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785983521943,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785983522194,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785983522474,
+        "t": 1785983645346,
         "perfil": "Administrador",
         "comp": "2026-07"
       }
@@ -25117,5 +25097,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785983522489
+  "savedAt": 1785983645359
 }

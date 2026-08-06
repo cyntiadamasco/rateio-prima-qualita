@@ -7164,7 +7164,7 @@
         {
           "uid": "cmsggp7y7c4oqe",
           "nome": "EDLENE PAIVA DA SILVA",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "dept": "ASSISTENCIAL",
           "funcao": "SUPERVISOR DE EDUCAÇÃO CONTINUADA I"
         },
         {
@@ -23225,6 +23225,11 @@
         "t": 1785980733469,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785982021849,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24803,5 +24808,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785980733474
+  "savedAt": 1785982021854
 }

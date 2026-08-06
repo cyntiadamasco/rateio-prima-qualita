@@ -6947,7 +6947,7 @@
         },
         {
           "uid": "cmsggp7y70l8ak",
-          "nome": "RAPHAEL AREAS CAVALCANTE",
+          "nome": "RAPHAEL AREAS CAVALCANTE D",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
           "funcao": "SUPERVISOR DE REDES DE CUIDADOS I"
         },
@@ -7127,7 +7127,7 @@
         },
         {
           "uid": "cmsggp7y799u7k",
-          "nome": "LUISA FERREIRA deALBUQUERQUE",
+          "nome": "LUISA FERREIRA DE ALBUQUERQUE",
           "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
           "funcao": "ASSISTENTE ADMINISTRATIVO I"
         },
@@ -23269,6 +23269,46 @@
         "t": 1785982356832,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1785982357962,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785982357971,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785982359046,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785982359217,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785982359618,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785982362268,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785982495473,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1785982495783,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24847,5 +24887,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1785982356843
+  "savedAt": 1785982495790
 }

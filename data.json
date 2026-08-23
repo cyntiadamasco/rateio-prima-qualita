@@ -23679,6 +23679,11 @@
         "t": 1787450674099,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1787450704589,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -25340,7 +25345,8 @@
         "cordeiro": 0,
         "saq_esp": 0,
         "saq_pri": 0,
-        "cg_mt55xz0i": 0
+        "cg_mt55xz0i": 0,
+        "cg_mt55zykt": 0
       },
       "refColab": "",
       "contratos_ativos": [],
@@ -26091,7 +26097,8 @@
           "cordeiro": 0,
           "saq_esp": 0,
           "saq_pri": 0,
-          "cg_mt55xz0i": 0
+          "cg_mt55xz0i": 0,
+          "cg_mt55zykt": 0
         },
         "ind2": {
           "madalena": 0,
@@ -26104,7 +26111,8 @@
           "cordeiro": 0,
           "saq_esp": 0,
           "saq_pri": 0,
-          "cg_mt55xz0i": 0
+          "cg_mt55xz0i": 0,
+          "cg_mt55zykt": 0
         },
         "ind3": {
           "madalena": 0,
@@ -26117,7 +26125,8 @@
           "cordeiro": 0,
           "saq_esp": 0,
           "saq_pri": 0,
-          "cg_mt55xz0i": 0
+          "cg_mt55xz0i": 0,
+          "cg_mt55zykt": 0
         },
         "ind4": {
           "madalena": 0,
@@ -26130,7 +26139,8 @@
           "cordeiro": 0,
           "saq_esp": 0,
           "saq_pri": 0,
-          "cg_mt55xz0i": 0
+          "cg_mt55xz0i": 0,
+          "cg_mt55zykt": 0
         },
         "ind5": {
           "madalena": 0,
@@ -26143,7 +26153,8 @@
           "cordeiro": 0,
           "saq_esp": 0,
           "saq_pri": 0,
-          "cg_mt55xz0i": 0
+          "cg_mt55xz0i": 0,
+          "cg_mt55zykt": 0
         },
         "ind6": {
           "madalena": 0,
@@ -26156,7 +26167,8 @@
           "cordeiro": 0,
           "saq_esp": 0,
           "saq_pri": 0,
-          "cg_mt55xz0i": 0
+          "cg_mt55xz0i": 0,
+          "cg_mt55zykt": 0
         },
         "ind7": {
           "madalena": 0,
@@ -26169,7 +26181,8 @@
           "cordeiro": 0,
           "saq_esp": 0,
           "saq_pri": 0,
-          "cg_mt55xz0i": 0
+          "cg_mt55xz0i": 0,
+          "cg_mt55zykt": 0
         },
         "ind8": {
           "madalena": 0,
@@ -26182,7 +26195,8 @@
           "cordeiro": 0,
           "saq_esp": 0,
           "saq_pri": 0,
-          "cg_mt55xz0i": 0
+          "cg_mt55xz0i": 0,
+          "cg_mt55zykt": 0
         }
       },
       "despesasLocais": {
@@ -26196,7 +26210,8 @@
         "cordeiro": [],
         "saq_esp": [],
         "saq_pri": [],
-        "cg_mt55xz0i": []
+        "cg_mt55xz0i": [],
+        "cg_mt55zykt": []
       },
       "demoContabil": {
         "balancete": {
@@ -26263,8 +26278,15 @@
         }
       }
     },
-    "customContratos": []
+    "customContratos": [
+      {
+        "id": "cg_mt55zykt",
+        "nome": "Projeto Farmácia Judicial - Saquarema",
+        "sigla": "Saq. Judicial",
+        "cor": "#3B82F6"
+      }
+    ]
   },
   "currentComp": "2026-09",
-  "savedAt": 1787450674103
+  "savedAt": 1787450704592
 }

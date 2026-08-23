@@ -84,7 +84,8 @@
           "quissama": 63,
           "cordeiro": 104,
           "saq_esp": 91,
-          "saq_pri": 475
+          "saq_pri": 475,
+          "cg_mt55zykt": 0
         },
         "ind2": {
           "madalena": 38,
@@ -96,7 +97,8 @@
           "quissama": 27,
           "cordeiro": 30,
           "saq_esp": 31,
-          "saq_pri": 36
+          "saq_pri": 36,
+          "cg_mt55zykt": 0
         },
         "ind3": {
           "madalena": 182,
@@ -108,7 +110,8 @@
           "quissama": 149,
           "cordeiro": 122,
           "saq_esp": 144,
-          "saq_pri": 219
+          "saq_pri": 219,
+          "cg_mt55zykt": 0
         },
         "ind4": {
           "madalena": 680,
@@ -120,7 +123,8 @@
           "quissama": 548,
           "cordeiro": 526,
           "saq_esp": 620,
-          "saq_pri": 946
+          "saq_pri": 946,
+          "cg_mt55zykt": 0
         },
         "ind5": {
           "madalena": 41,
@@ -132,7 +136,8 @@
           "quissama": 34,
           "cordeiro": 32,
           "saq_esp": 16,
-          "saq_pri": 49
+          "saq_pri": 49,
+          "cg_mt55zykt": 0
         },
         "ind6": {
           "madalena": 79,
@@ -144,7 +149,8 @@
           "quissama": 59,
           "cordeiro": 73,
           "saq_esp": 64,
-          "saq_pri": 79
+          "saq_pri": 79,
+          "cg_mt55zykt": 0
         },
         "ind7": {
           "madalena": 122,
@@ -156,7 +162,8 @@
           "quissama": 63,
           "cordeiro": 104,
           "saq_esp": 91,
-          "saq_pri": 475
+          "saq_pri": 475,
+          "cg_mt55zykt": 0
         },
         "ind8": {
           "madalena": 3520,
@@ -168,7 +175,8 @@
           "quissama": 4086,
           "cordeiro": 3823,
           "saq_esp": 7905,
-          "saq_pri": 45261
+          "saq_pri": 45261,
+          "cg_mt55zykt": 0
         }
       },
       "despesas": [
@@ -768,7 +776,8 @@
         "quissama": 1507247.38,
         "cordeiro": 1149096.31,
         "saq_esp": 1918202.76,
-        "saq_pri": 6425248.28
+        "saq_pri": 6425248.28,
+        "cg_mt55zykt": 0
       },
       "contratos_ativos": [
         {
@@ -1750,7 +1759,8 @@
           }
         ],
         "saq_esp": [],
-        "saq_pri": []
+        "saq_pri": [],
+        "cg_mt55zykt": []
       },
       "demoContabil": {
         "balancete": {
@@ -2056,7 +2066,8 @@
           "quissama": 54,
           "cordeiro": 93,
           "saq_esp": 302,
-          "saq_pri": 539
+          "saq_pri": 539,
+          "cg_mt55zykt": 0
         },
         "ind2": {
           "madalena": 38,
@@ -2068,7 +2079,8 @@
           "quissama": 32,
           "cordeiro": 32,
           "saq_esp": 44,
-          "saq_pri": 37
+          "saq_pri": 37,
+          "cg_mt55zykt": 0
         },
         "ind3": {
           "madalena": 149,
@@ -2080,7 +2092,8 @@
           "quissama": 97,
           "cordeiro": 137,
           "saq_esp": 130,
-          "saq_pri": 189
+          "saq_pri": 189,
+          "cg_mt55zykt": 0
         },
         "ind4": {
           "madalena": 624,
@@ -2092,7 +2105,8 @@
           "quissama": 398,
           "cordeiro": 533,
           "saq_esp": 743,
-          "saq_pri": 793
+          "saq_pri": 793,
+          "cg_mt55zykt": 0
         },
         "ind5": {
           "madalena": 27,
@@ -2104,7 +2118,8 @@
           "quissama": 20,
           "cordeiro": 22,
           "saq_esp": 26,
-          "saq_pri": 44
+          "saq_pri": 44,
+          "cg_mt55zykt": 0
         },
         "ind6": {
           "madalena": 78,
@@ -2116,7 +2131,8 @@
           "quissama": 45,
           "cordeiro": 58,
           "saq_esp": 70,
-          "saq_pri": 64
+          "saq_pri": 64,
+          "cg_mt55zykt": 0
         },
         "ind7": {
           "madalena": 222,
@@ -2128,7 +2144,8 @@
           "quissama": 122,
           "cordeiro": 185,
           "saq_esp": 400,
-          "saq_pri": 650
+          "saq_pri": 650,
+          "cg_mt55zykt": 0
         },
         "ind8": {
           "madalena": 4266,
@@ -2140,7 +2157,8 @@
           "quissama": 4511,
           "cordeiro": 5020,
           "saq_esp": 48180,
-          "saq_pri": 46427
+          "saq_pri": 46427,
+          "cg_mt55zykt": 0
         }
       },
       "despesas": [
@@ -2599,7 +2617,8 @@
         "quissama": 1507247.38,
         "cordeiro": 1149096.31,
         "saq_esp": 5296285.19,
-        "saq_pri": 8892715.82
+        "saq_pri": 8892715.82,
+        "cg_mt55zykt": 0
       },
       "contratos_ativos": [
         {
@@ -3589,7 +3608,8 @@
           }
         ],
         "saq_esp": [],
-        "saq_pri": []
+        "saq_pri": [],
+        "cg_mt55zykt": []
       },
       "demoContabil": {
         "balancete": {
@@ -6552,7 +6572,8 @@
         "quissama": 0,
         "cordeiro": 0,
         "saq_esp": 0,
-        "saq_pri": 0
+        "saq_pri": 0,
+        "cg_mt55zykt": 0
       },
       "refColab": "MAIO/2026",
       "contratos_ativos": [
@@ -7449,7 +7470,8 @@
           "quissama": 54,
           "cordeiro": 92,
           "saq_esp": 311,
-          "saq_pri": 632
+          "saq_pri": 632,
+          "cg_mt55zykt": 0
         },
         "ind2": {
           "madalena": 29,
@@ -7461,7 +7483,8 @@
           "quissama": 27,
           "cordeiro": 28,
           "saq_esp": 39,
-          "saq_pri": 45
+          "saq_pri": 45,
+          "cg_mt55zykt": 0
         },
         "ind3": {
           "madalena": 137,
@@ -7473,7 +7496,8 @@
           "quissama": 104,
           "cordeiro": 131,
           "saq_esp": 138,
-          "saq_pri": 170
+          "saq_pri": 170,
+          "cg_mt55zykt": 0
         },
         "ind4": {
           "madalena": 728,
@@ -7485,7 +7509,8 @@
           "quissama": 512,
           "cordeiro": 611,
           "saq_esp": 877,
-          "saq_pri": 866
+          "saq_pri": 866,
+          "cg_mt55zykt": 0
         },
         "ind5": {
           "madalena": 27,
@@ -7497,7 +7522,8 @@
           "quissama": 20,
           "cordeiro": 28,
           "saq_esp": 19,
-          "saq_pri": 44
+          "saq_pri": 44,
+          "cg_mt55zykt": 0
         },
         "ind6": {
           "madalena": 58,
@@ -7509,7 +7535,8 @@
           "quissama": 36,
           "cordeiro": 56,
           "saq_esp": 69,
-          "saq_pri": 62
+          "saq_pri": 62,
+          "cg_mt55zykt": 0
         },
         "ind7": {
           "madalena": 191,
@@ -7521,7 +7548,8 @@
           "quissama": 101,
           "cordeiro": 164,
           "saq_esp": 421,
-          "saq_pri": 750
+          "saq_pri": 750,
+          "cg_mt55zykt": 0
         },
         "ind8": {
           "madalena": 4442,
@@ -7533,7 +7561,8 @@
           "quissama": 6543,
           "cordeiro": 4501,
           "saq_esp": 53696,
-          "saq_pri": 55519
+          "saq_pri": 55519,
+          "cg_mt55zykt": 0
         }
       },
       "despesasLocais": {
@@ -7546,7 +7575,8 @@
         "quissama": [],
         "cordeiro": [],
         "saq_esp": [],
-        "saq_pri": []
+        "saq_pri": [],
+        "cg_mt55zykt": []
       },
       "demoContabil": {
         "balancete": {
@@ -9439,7 +9469,8 @@
           "quissama": 55,
           "cordeiro": 95,
           "saq_esp": 271,
-          "saq_pri": 504
+          "saq_pri": 504,
+          "cg_mt55zykt": 0
         },
         "ind2": {
           "madalena": 37,
@@ -9451,7 +9482,8 @@
           "quissama": 34,
           "cordeiro": 31,
           "saq_esp": 44,
-          "saq_pri": 42
+          "saq_pri": 42,
+          "cg_mt55zykt": 0
         },
         "ind3": {
           "madalena": 174,
@@ -9463,7 +9495,8 @@
           "quissama": 98,
           "cordeiro": 136,
           "saq_esp": 164,
-          "saq_pri": 229
+          "saq_pri": 229,
+          "cg_mt55zykt": 0
         },
         "ind4": {
           "madalena": 703,
@@ -9475,7 +9508,8 @@
           "quissama": 555,
           "cordeiro": 534,
           "saq_esp": 735,
-          "saq_pri": 939
+          "saq_pri": 939,
+          "cg_mt55zykt": 0
         },
         "ind5": {
           "madalena": 20,
@@ -9487,7 +9521,8 @@
           "quissama": 19,
           "cordeiro": 18,
           "saq_esp": 17,
-          "saq_pri": 41
+          "saq_pri": 41,
+          "cg_mt55zykt": 0
         },
         "ind6": {
           "madalena": 68,
@@ -9499,7 +9534,8 @@
           "quissama": 40,
           "cordeiro": 51,
           "saq_esp": 60,
-          "saq_pri": 60
+          "saq_pri": 60,
+          "cg_mt55zykt": 0
         },
         "ind7": {
           "madalena": 217,
@@ -9511,7 +9547,8 @@
           "quissama": 122,
           "cordeiro": 179,
           "saq_esp": 351,
-          "saq_pri": 594
+          "saq_pri": 594,
+          "cg_mt55zykt": 0
         },
         "ind8": {
           "madalena": 7088,
@@ -9523,7 +9560,8 @@
           "quissama": 5110,
           "cordeiro": 5073,
           "saq_esp": 61412,
-          "saq_pri": 48951
+          "saq_pri": 48951,
+          "cg_mt55zykt": 0
         }
       },
       "despesas": [
@@ -10046,7 +10084,8 @@
         "quissama": 1507247.38,
         "cordeiro": 1149096.31,
         "saq_esp": 5296285.19,
-        "saq_pri": 8227178.87
+        "saq_pri": 8227178.87,
+        "cg_mt55zykt": 0
       },
       "contratos_ativos": [
         {
@@ -11024,7 +11063,8 @@
           }
         ],
         "saq_esp": [],
-        "saq_pri": []
+        "saq_pri": [],
+        "cg_mt55zykt": []
       },
       "demoContabil": {
         "balancete": {
@@ -13866,7 +13906,8 @@
           "quissama": 62,
           "cordeiro": 99,
           "saq_esp": 90,
-          "saq_pri": 473
+          "saq_pri": 473,
+          "cg_mt55zykt": 0
         },
         "ind2": {
           "madalena": 26,
@@ -13878,7 +13919,8 @@
           "quissama": 28,
           "cordeiro": 24,
           "saq_esp": 42,
-          "saq_pri": 40
+          "saq_pri": 40,
+          "cg_mt55zykt": 0
         },
         "ind3": {
           "madalena": 174,
@@ -13890,7 +13932,8 @@
           "quissama": 117,
           "cordeiro": 143,
           "saq_esp": 124,
-          "saq_pri": 167
+          "saq_pri": 167,
+          "cg_mt55zykt": 0
         },
         "ind4": {
           "madalena": 1079,
@@ -13902,7 +13945,8 @@
           "quissama": 409,
           "cordeiro": 544,
           "saq_esp": 700,
-          "saq_pri": 681
+          "saq_pri": 681,
+          "cg_mt55zykt": 0
         },
         "ind5": {
           "madalena": 48,
@@ -13914,7 +13958,8 @@
           "quissama": 29,
           "cordeiro": 35,
           "saq_esp": 20,
-          "saq_pri": 64
+          "saq_pri": 64,
+          "cg_mt55zykt": 0
         },
         "ind6": {
           "madalena": 68,
@@ -13926,7 +13971,8 @@
           "quissama": 41,
           "cordeiro": 49,
           "saq_esp": 56,
-          "saq_pri": 73
+          "saq_pri": 73,
+          "cg_mt55zykt": 0
         },
         "ind7": {
           "madalena": 216,
@@ -13938,7 +13984,8 @@
           "quissama": 130,
           "cordeiro": 193,
           "saq_esp": 168,
-          "saq_pri": 578
+          "saq_pri": 578,
+          "cg_mt55zykt": 0
         },
         "ind8": {
           "madalena": 4310,
@@ -13950,7 +13997,8 @@
           "quissama": 3811,
           "cordeiro": 3667,
           "saq_esp": 8490,
-          "saq_pri": 39260
+          "saq_pri": 39260,
+          "cg_mt55zykt": 0
         }
       },
       "despesas": [
@@ -14511,7 +14559,8 @@
         "quissama": 1507247.38,
         "cordeiro": 1149096.31,
         "saq_esp": 5296285.19,
-        "saq_pri": 8227178.87
+        "saq_pri": 8227178.87,
+        "cg_mt55zykt": 0
       },
       "contratos_ativos": [
         {
@@ -15501,7 +15550,8 @@
           }
         ],
         "saq_esp": [],
-        "saq_pri": []
+        "saq_pri": [],
+        "cg_mt55zykt": []
       },
       "demoContabil": {
         "balancete": {
@@ -15781,7 +15831,8 @@
           "quissama": 54,
           "cordeiro": 92,
           "saq_esp": 309,
-          "saq_pri": 625
+          "saq_pri": 625,
+          "cg_mt55zykt": 0
         },
         "ind2": {
           "madalena": 28,
@@ -15793,7 +15844,8 @@
           "quissama": 28,
           "cordeiro": 18,
           "saq_esp": 41,
-          "saq_pri": 43
+          "saq_pri": 43,
+          "cg_mt55zykt": 0
         },
         "ind3": {
           "madalena": 174,
@@ -15805,7 +15857,8 @@
           "quissama": 145,
           "cordeiro": 82,
           "saq_esp": 152,
-          "saq_pri": 202
+          "saq_pri": 202,
+          "cg_mt55zykt": 0
         },
         "ind4": {
           "madalena": 745,
@@ -15817,7 +15870,8 @@
           "quissama": 486,
           "cordeiro": 565,
           "saq_esp": 703,
-          "saq_pri": 800
+          "saq_pri": 800,
+          "cg_mt55zykt": 0
         },
         "ind5": {
           "madalena": 54,
@@ -15829,7 +15883,8 @@
           "quissama": 28,
           "cordeiro": 43,
           "saq_esp": 17,
-          "saq_pri": 47
+          "saq_pri": 47,
+          "cg_mt55zykt": 0
         },
         "ind6": {
           "madalena": 59,
@@ -15841,7 +15896,8 @@
           "quissama": 39,
           "cordeiro": 57,
           "saq_esp": 74,
-          "saq_pri": 61
+          "saq_pri": 61,
+          "cg_mt55zykt": 0
         },
         "ind7": {
           "madalena": 186,
@@ -15853,7 +15909,8 @@
           "quissama": 97,
           "cordeiro": 160,
           "saq_esp": 391,
-          "saq_pri": 689
+          "saq_pri": 689,
+          "cg_mt55zykt": 0
         },
         "ind8": {
           "madalena": 4728,
@@ -15865,7 +15922,8 @@
           "quissama": 6037,
           "cordeiro": 4403,
           "saq_esp": 53484,
-          "saq_pri": 53126
+          "saq_pri": 53126,
+          "cg_mt55zykt": 0
         }
       },
       "despesas": [
@@ -16355,7 +16413,8 @@
         "quissama": 1507247.38,
         "cordeiro": 1149096.31,
         "saq_esp": 5296285.19,
-        "saq_pri": 8892715.82
+        "saq_pri": 8892715.82,
+        "cg_mt55zykt": 0
       },
       "contratos_ativos": [
         {
@@ -17339,7 +17398,8 @@
           }
         ],
         "saq_esp": [],
-        "saq_pri": []
+        "saq_pri": [],
+        "cg_mt55zykt": []
       },
       "demoContabil": {
         "balancete": {
@@ -20619,7 +20679,8 @@
           "quissama": 63,
           "cordeiro": 101,
           "saq_esp": 90,
-          "saq_pri": 476
+          "saq_pri": 476,
+          "cg_mt55zykt": 0
         },
         "ind2": {
           "madalena": 16,
@@ -20631,7 +20692,8 @@
           "quissama": 12,
           "cordeiro": 12,
           "saq_esp": 21,
-          "saq_pri": 38
+          "saq_pri": 38,
+          "cg_mt55zykt": 0
         },
         "ind3": {
           "madalena": 174,
@@ -20643,7 +20705,8 @@
           "quissama": 117,
           "cordeiro": 136,
           "saq_esp": 123,
-          "saq_pri": 165
+          "saq_pri": 165,
+          "cg_mt55zykt": 0
         },
         "ind4": {
           "madalena": 629,
@@ -20655,7 +20718,8 @@
           "quissama": 527,
           "cordeiro": 836,
           "saq_esp": 597,
-          "saq_pri": 699
+          "saq_pri": 699,
+          "cg_mt55zykt": 0
         },
         "ind5": {
           "madalena": 25,
@@ -20667,7 +20731,8 @@
           "quissama": 30,
           "cordeiro": 30,
           "saq_esp": 18,
-          "saq_pri": 48
+          "saq_pri": 48,
+          "cg_mt55zykt": 0
         },
         "ind6": {
           "madalena": 83,
@@ -20679,7 +20744,8 @@
           "quissama": 53,
           "cordeiro": 67,
           "saq_esp": 63,
-          "saq_pri": 77
+          "saq_pri": 77,
+          "cg_mt55zykt": 0
         },
         "ind7": {
           "madalena": 157,
@@ -20691,7 +20757,8 @@
           "quissama": 75,
           "cordeiro": 132,
           "saq_esp": 124,
-          "saq_pri": 522
+          "saq_pri": 522,
+          "cg_mt55zykt": 0
         },
         "ind8": {
           "madalena": 4424,
@@ -20703,7 +20770,8 @@
           "quissama": 6596,
           "cordeiro": 4018,
           "saq_esp": 8733,
-          "saq_pri": 43521
+          "saq_pri": 43521,
+          "cg_mt55zykt": 0
         }
       },
       "despesas": [
@@ -21329,7 +21397,8 @@
         "quissama": 1507247.38,
         "cordeiro": 1149096.31,
         "saq_esp": 2091258.28,
-        "saq_pri": 7668646.47
+        "saq_pri": 7668646.47,
+        "cg_mt55zykt": 0
       },
       "contratos_ativos": [
         {
@@ -22319,7 +22388,8 @@
           }
         ],
         "saq_esp": [],
-        "saq_pri": []
+        "saq_pri": [],
+        "cg_mt55zykt": []
       },
       "demoContabil": {
         "balancete": {
@@ -23689,6 +23759,21 @@
         "t": 1787450715897,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1787450717709,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1787450720953,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1787450836171,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -24351,7 +24436,8 @@
         "quissama": 0,
         "cordeiro": 0,
         "saq_esp": 0,
-        "saq_pri": 0
+        "saq_pri": 0,
+        "cg_mt55zykt": 0
       },
       "refColab": "JUNHO/2026",
       "contratos_ativos": [],
@@ -25101,7 +25187,8 @@
           "quissama": 0,
           "cordeiro": 0,
           "saq_esp": 0,
-          "saq_pri": 0
+          "saq_pri": 0,
+          "cg_mt55zykt": 0
         },
         "ind2": {
           "madalena": 0,
@@ -25113,7 +25200,8 @@
           "quissama": 0,
           "cordeiro": 0,
           "saq_esp": 0,
-          "saq_pri": 0
+          "saq_pri": 0,
+          "cg_mt55zykt": 0
         },
         "ind3": {
           "madalena": 0,
@@ -25125,7 +25213,8 @@
           "quissama": 0,
           "cordeiro": 0,
           "saq_esp": 0,
-          "saq_pri": 0
+          "saq_pri": 0,
+          "cg_mt55zykt": 0
         },
         "ind4": {
           "madalena": 0,
@@ -25137,7 +25226,8 @@
           "quissama": 0,
           "cordeiro": 0,
           "saq_esp": 0,
-          "saq_pri": 0
+          "saq_pri": 0,
+          "cg_mt55zykt": 0
         },
         "ind5": {
           "madalena": 0,
@@ -25149,7 +25239,8 @@
           "quissama": 0,
           "cordeiro": 0,
           "saq_esp": 0,
-          "saq_pri": 0
+          "saq_pri": 0,
+          "cg_mt55zykt": 0
         },
         "ind6": {
           "madalena": 0,
@@ -25161,7 +25252,8 @@
           "quissama": 0,
           "cordeiro": 0,
           "saq_esp": 0,
-          "saq_pri": 0
+          "saq_pri": 0,
+          "cg_mt55zykt": 0
         },
         "ind7": {
           "madalena": 0,
@@ -25173,7 +25265,8 @@
           "quissama": 0,
           "cordeiro": 0,
           "saq_esp": 0,
-          "saq_pri": 0
+          "saq_pri": 0,
+          "cg_mt55zykt": 0
         },
         "ind8": {
           "madalena": 0,
@@ -25185,7 +25278,8 @@
           "quissama": 0,
           "cordeiro": 0,
           "saq_esp": 0,
-          "saq_pri": 0
+          "saq_pri": 0,
+          "cg_mt55zykt": 0
         }
       },
       "despesasLocais": {
@@ -25198,7 +25292,8 @@
         "quissama": [],
         "cordeiro": [],
         "saq_esp": [],
-        "saq_pri": []
+        "saq_pri": [],
+        "cg_mt55zykt": []
       },
       "demoContabil": {
         "balancete": {
@@ -25338,7 +25433,512 @@
           "obs": ""
         }
       ],
-      "despesas": [],
+      "despesas": [
+        {
+          "uid": "ervtvji",
+          "id": "1",
+          "cat": "Assessoria Jurídica",
+          "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório",
+          "fav": "Pablo Siqueira Sociedade Individual de Advocacia",
+          "cnpj": "18.464.526/0001-98",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "t815wxy",
+          "id": "2",
+          "cat": "Assessoria Jurídica",
+          "objeto": "Contencioso e consultivo na área de direito cível e de direito médico e da saúde",
+          "fav": "E Simões Sociedade Individual de Advocacia",
+          "cnpj": "40.101.757/0001-96",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "5rebal0",
+          "id": "3",
+          "cat": "Assessoria Jurídica",
+          "objeto": "Suporte ao desenvolvimento de Ouvidoria e apoio aos processos de sindicância",
+          "fav": "Gustavo Fróes Sociedade Individual de Advocacia",
+          "cnpj": "43.485.758/0001-70",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "4vycden",
+          "id": "4",
+          "cat": "Auditorias Contábil, Fiscal e Financeira",
+          "objeto": "Serviços de Auditoria Financeira e Contábil",
+          "fav": "IGF Auditores e Consultores Independentes Sociedade Simples",
+          "cnpj": "04.899.444/0001-61",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "1qydb2m",
+          "id": "5",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Folha de Pagamento Colaboradores CIGAC",
+          "fav": "Projeto Social Cresce Comunidade - Prima Qualitá",
+          "cnpj": "40.289.134/0001-99",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "1ezbywe",
+          "id": "6",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "INSS sobre Folha",
+          "fav": "Instituto Nacional do Seguro Social - INSS",
+          "cnpj": "40.289.134/0001-99",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "nxttjrt",
+          "id": "7",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Fundo de Garantia por Tempo de Serviços (FGTS)",
+          "fav": "Caixa Econômica Federal - FGTS",
+          "cnpj": "40.289.134/0001-99",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "d6gbau6",
+          "id": "8",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Imposto de Renda Pessoa Física - Folha",
+          "fav": "Receita Federal",
+          "cnpj": "40.289.134/0001-99",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "qzggspz",
+          "id": "9",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Vale Refeição/Alimentação Colaboradores CIGAC",
+          "fav": "Ticket Soluções HDFGT S/A",
+          "cnpj": "47.866.934/0001-74",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "hin1if0",
+          "id": "10",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Vale Transporte Colaboradores CIGAC",
+          "fav": "Riopar Participações S/A",
+          "cnpj": "16.727.386/0001-86",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "olz5nj8",
+          "id": "11",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Vale Transporte Colaboradores CIGAC",
+          "fav": "Riopar Participações S/A",
+          "cnpj": "16.727.386/0001-86",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "mwvzhlp",
+          "id": "12",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Vale Transporte Colaboradores CIGAC",
+          "fav": "CBD Bilhete Digital",
+          "cnpj": "48.707.842/0001-04",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "xrpchn9",
+          "id": "13",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Contribuição Institucional Destinada a Manutenção do CIEE",
+          "fav": "Centro de Integração Empresa Escola",
+          "cnpj": "33.661.745/0001-50",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "nznda9z",
+          "id": "14",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Coordenação de Revisão de Óbitos e Prontuários Institucional",
+          "fav": "Radiocom Diagnosticos LTDA",
+          "cnpj": "33.192.856/0001-65",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "wat48l3",
+          "id": "15",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Empréstimo Consignado CIGAC",
+          "fav": "Crédito Trabalhador",
+          "cnpj": "40.289.134/0001-99",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "yrqb0gi",
+          "id": "16",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Pensão Alimentícia - Colaborador Douglas Barcellos Silva",
+          "fav": "Michele Guilhermina Moraes Barcellos",
+          "cnpj": "115.607.797-48",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "hkokywq",
+          "id": "17",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Pensão Alimentícia - Colaborador Dioni de Oliveira Schuvartz",
+          "fav": "Sara Almeida Souza Schuvartz",
+          "cnpj": "054.299.487-99",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "vxcl9vf",
+          "id": "18",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Provisão de Verbas Rescisórias CIGAC",
+          "fav": "Projeto Social Cresce Comunidade",
+          "cnpj": "40.289.134/0001-99",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": "",
+          "pdfNome": "",
+          "dtPgto": ""
+        },
+        {
+          "uid": "lo96y0x",
+          "id": "19",
+          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
+          "objeto": "Servidor Nuvem Privada em Data Center",
+          "fav": "Cigam Software Corporativo S.A",
+          "cnpj": "93.578.813/0001-44",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "s2mfn3g",
+          "id": "20",
+          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
+          "objeto": "Sistema de Gestão RH /  HORAS",
+          "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
+          "cnpj": "24.783.564/0001-06",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "t5tfv2d",
+          "id": "21",
+          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
+          "objeto": "Sistema de Gestão ERP / MENSALIDADE",
+          "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
+          "cnpj": "24.783.564/0001-06",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "z8ctypu",
+          "id": "22",
+          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
+          "objeto": "Sistema de DP/RH",
+          "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
+          "cnpj": "24.783.564/0001-06",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "h3wvl6j",
+          "id": "23",
+          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
+          "objeto": "Sistema de Análise de Risco",
+          "fav": "KPMG Assessores LTDA",
+          "cnpj": "05.490.840/0019-22",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "lrwhb7h",
+          "id": "24",
+          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
+          "objeto": "Sistema de Gestão ERP / HORAS",
+          "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
+          "cnpj": "24.783.564/0001-06",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "l13jg75",
+          "id": "25",
+          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
+          "objeto": "Sistema Contábil/Fiscal/DP/MENSALIDADE",
+          "fav": "Alterdata Tecnologia em Informática LTDA",
+          "cnpj": "36.462.778/0001-60",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "c3mpwjo",
+          "id": "26",
+          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
+          "objeto": "Sistema Prestação de Contas",
+          "fav": "BR Gaap Corporation Tecnologia da Informação Ltda",
+          "cnpj": "16.106.178/0001-51",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": "",
+          "pdfNome": "",
+          "dtPgto": ""
+        },
+        {
+          "uid": "n78zcwp",
+          "id": "27",
+          "cat": "Melhoria Contínua",
+          "objeto": "Serviço de Treinamento de Melhoria Contínua",
+          "fav": "Six Treinamento Empresarial LTDA",
+          "cnpj": "19.196.342/0001-57",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "ygck2ag",
+          "id": "28",
+          "cat": "Locação de Mobiliário e Equipamentos de Informática (CIGAC)",
+          "objeto": "Locação de mobiliários e equipamentos para o CIGAC",
+          "fav": "A4PM Analytics For Public Management LTDA",
+          "cnpj": "23.034.181/0001-72",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "24ug9g2",
+          "id": "29",
+          "cat": "Locação de Imóvel CIGAC e Despesas",
+          "objeto": "Aluguel Imóvel Centro Integrado de Gestão e Assistência Compartilhada - CIGAC",
+          "fav": "Riza Securitizadora S. A",
+          "cnpj": "08.769.451/0001-08",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "6fi69jf",
+          "id": "30",
+          "cat": "Locação de Imóvel CIGAC e Despesas",
+          "objeto": "Condomínio e Taxas do Imóvel Centro Integrado de Gestão e Assistência Compartilhada - CIGAC",
+          "fav": "Condomínio do São Gonçalo Shopping Rio",
+          "cnpj": "06.068.650/0001-55",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "biajafq",
+          "id": "31",
+          "cat": "Locação de Veículo Apoio Administrativo",
+          "objeto": "Locação de veículos para atender a Central de logística",
+          "fav": "Promedical Serviços em Saude LTDA",
+          "cnpj": "35.788.642/0001-81",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": "",
+          "pdfNome": "",
+          "dtPgto": ""
+        },
+        {
+          "uid": "fbbspms",
+          "id": "32",
+          "cat": "Locação de Veículo Apoio Administrativo",
+          "objeto": "Locação de veículos para atender a CIGAC",
+          "fav": "Promedical Serviços em Saude LTD",
+          "cnpj": "35.788.642/0001-81",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "mkmfpgo",
+          "id": "33",
+          "cat": "Despesas de materiais de expediente e afins",
+          "objeto": "Fornecimento de Água Mineral",
+          "fav": "Rodolfo Lucas Duarte 08848690750",
+          "cnpj": "11.967.651/0001-71",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "ce0dn9d",
+          "id": "34",
+          "cat": "Medicina do Trabalho",
+          "objeto": "Serviços de SST",
+          "fav": "ICM Medicina Ocupacional LTDA",
+          "cnpj": "50.558.513/0001-90",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "3ngyj9p",
+          "id": "35",
+          "cat": "Seguro de Vida",
+          "objeto": "Seguro de Vida Colaboradores CIGAC",
+          "fav": "Unimed Seguradora S/A",
+          "cnpj": "10.414.185/0001-09",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        },
+        {
+          "uid": "9ad1pt9",
+          "id": "36",
+          "cat": "Plataforma Processo Seletivo",
+          "objeto": "Licença de Uso Mensal do Software Vagas For Business",
+          "fav": "Vagas Tecnologia de Software LTDA",
+          "cnpj": "03.689.427/0001-37",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "pdfUrl": null,
+          "pdfNome": null,
+          "dtPgto": ""
+        }
+      ],
       "orcamentos": {
         "madalena": 0,
         "cachoeiras": 0,
@@ -26293,5 +26893,5 @@
     ]
   },
   "currentComp": "2026-09",
-  "savedAt": 1787450715901
+  "savedAt": 1787450836174
 }

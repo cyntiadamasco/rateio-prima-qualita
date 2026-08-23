@@ -23669,6 +23669,11 @@
         "t": 1786045071910,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1787450611842,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -25244,8 +25249,1024 @@
           "pdfNome": ""
         }
       }
-    }
+    },
+    "2026-09": {
+      "colaboradores": [
+        {
+          "id": "madalena",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "cachoeiras",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "saq_hosp",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "upa_pac",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "upa_nc",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "arraial",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "quissama",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "cordeiro",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "saq_esp",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        },
+        {
+          "id": "saq_pri",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
+        }
+      ],
+      "despesas": [],
+      "orcamentos": {
+        "madalena": 0,
+        "cachoeiras": 0,
+        "saq_hosp": 0,
+        "upa_pac": 0,
+        "upa_nc": 0,
+        "arraial": 0,
+        "quissama": 0,
+        "cordeiro": 0,
+        "saq_esp": 0,
+        "saq_pri": 0,
+        "cg_mt55xz0i": 0
+      },
+      "refColab": "",
+      "contratos_ativos": [],
+      "contratos_obs": "",
+      "colab_lista": [
+        {
+          "uid": "chhwwg232",
+          "nome": "EMERSON RODRIGUES SARDINHA",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "AUXILIAR OPERACIONAL"
+        },
+        {
+          "uid": "c8bp9saot",
+          "nome": "FABIA FIALHO MOREIRA BRAZIL",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "ANALISTA ADMINISTRATIVO III"
+        },
+        {
+          "uid": "coc313hl1",
+          "nome": "FERNANDA FONSECA COUTINHO GROSS",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "ANALISTA ADMINISTRATIVO III"
+        },
+        {
+          "uid": "cykhvfu96",
+          "nome": "FLAVIO HENRIQUE DE SOUZA COSTA",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "AUXILIAR OPERACIONAL"
+        },
+        {
+          "uid": "cs7b5q0vu",
+          "nome": "GILSON GOUVEA",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "SUPERVISOR DE SEGURANÇA"
+        },
+        {
+          "uid": "cg9kv7o2f",
+          "nome": "JOCIMAR SILVA DO NASCIMENTO",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "AUXILIAR OPERACIONAL III"
+        },
+        {
+          "uid": "cmdwr21sb",
+          "nome": "JORGE MARCIO DE OLIVEIRA RIBEIRO",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "AUXILIAR ADMINISTRATIVO"
+        },
+        {
+          "uid": "cw9r0ckjx",
+          "nome": "LEONARDO BARCELOS MARTINS",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "AUXILIAR ADMINISTRATIVO"
+        },
+        {
+          "uid": "ckqxr8usg",
+          "nome": "LUCAS DA COSTA SILVA PEREIRA",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "AUXILIAR OPERACIONAL"
+        },
+        {
+          "uid": "cmj1yu1fg",
+          "nome": "LUIS AUGUSTO DA SILVA SANTANA",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "ANALISTA OPERACIONAL I"
+        },
+        {
+          "uid": "c63yw541j",
+          "nome": "MARINALVA PEREIRA MACHADO",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "COORDENADOR ADMINISTRATIVO I - RT"
+        },
+        {
+          "uid": "crafxy9mp",
+          "nome": "NELI DA CONCEICAO MARINS",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "AUXILIAR DE SERVIÇOS GERAIS III"
+        },
+        {
+          "uid": "ckjtxk5hz",
+          "nome": "RODRIGO PEÇANHA DOS SANTOS",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "AUXILIAR DE SERVIÇOS GERAIS III"
+        },
+        {
+          "uid": "c8yq9vvea",
+          "nome": "VERONICA PEREIRA DO NASCIMENTO ABREU",
+          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "funcao": "ASSISTENTE ADMINISTRATIVO II"
+        },
+        {
+          "uid": "c1gcxkxrw",
+          "nome": "CARLA DA COSTA LEITE",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "AUXILIAR ADMINISTRATIVO"
+        },
+        {
+          "uid": "cgcncqzlr",
+          "nome": "ALEXANDER DINIZ DOS SANTOS",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ANALISTA ADMINISTRATIVO III"
+        },
+        {
+          "uid": "c5b6gmnzy",
+          "nome": "ANA PAULA DAS GRAÇAS LIMA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
+        },
+        {
+          "uid": "cpn9p517j",
+          "nome": "CASSANDRA SOARES DE OLIVEIRA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "COORDENADOR DE REDE DE CUIDADOS III"
+        },
+        {
+          "uid": "coy10bwjk",
+          "nome": "DANIEL BARBOSA PROCOPIO",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "SUPERVISOR DE INFORMACAO EM SAUDE I"
+        },
+        {
+          "uid": "crrgqybar",
+          "nome": "DIONI DE OLIVEIRA SCHUVARTZ",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ANALISTA ASSISTENCIAL III"
+        },
+        {
+          "uid": "cave0l5ct",
+          "nome": "ESTER SOARES ALVES XIMENES",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "COORDENADOR DE REDE DE CUIDADOS I"
+        },
+        {
+          "uid": "ck7775g01",
+          "nome": "FABIO PINTO DA MATTA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "SUPERVISOR DE TI"
+        },
+        {
+          "uid": "cyzwwmvq1",
+          "nome": "FRANCIELE DE LIMA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
+        },
+        {
+          "uid": "cvgps16x2",
+          "nome": "GLAUCIA DE OLIVEIRA PINHEIRO CAPIBARIBE",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "COORDENADOR DE REDE DE CUIDADOS II"
+        },
+        {
+          "uid": "ckh3v3okz",
+          "nome": "GREICIANE SOUZA CARDOSO",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ASSISTENTE ADMINISTRATIVO II"
+        },
+        {
+          "uid": "c9zblqb0x",
+          "nome": "HENRIQUE CASTRO VALVIESSE",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ANALISTA DE CONTRATO III"
+        },
+        {
+          "uid": "cz28pw22o",
+          "nome": "JACI XAVIER DA FONSECA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ASSISTENTE DE TI II"
+        },
+        {
+          "uid": "c59d9584j",
+          "nome": "JOANE DE OLIVEIRA RÔLA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
+        },
+        {
+          "uid": "cljr3r3hw",
+          "nome": "JOAO LUCAS BRITO DE OLIVEIRA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
+        },
+        {
+          "uid": "ci3k7vljo",
+          "nome": "JOAO VICTOR SIQUEIRA CAMPOS",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "AUXILIAR ADMINISTRATIVO"
+        },
+        {
+          "uid": "cuclmk7w9",
+          "nome": "JOSE ROBERTO LOPES DA SILVA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ASSISTENTE ADMINISTRATIVO I"
+        },
+        {
+          "uid": "c8tk9ssmf",
+          "nome": "LEONARDO LIMA CARVALHO",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ANALISTA ADMINISTRATIVO III"
+        },
+        {
+          "uid": "civxbipw8",
+          "nome": "LEONARDO RODRIGUES FRIAS",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "GERENTE DE TI II"
+        },
+        {
+          "uid": "c971hqb4s",
+          "nome": "LINCON DA SILVA FULY",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ASSISTENTE DE TI II"
+        },
+        {
+          "uid": "cyt94par6",
+          "nome": "MARCELA ROCHA FERREIRA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
+        },
+        {
+          "uid": "cneb09ipc",
+          "nome": "MARIA EDUARDA MORAES XAVIER",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
+        },
+        {
+          "uid": "ckzyr0j7r",
+          "nome": "MARIANA LATTANZI CRISPINO",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
+        },
+        {
+          "uid": "cmms6lqds",
+          "nome": "MARINA CARVALHO PASSOS SOARES",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
+        },
+        {
+          "uid": "c24odzmpw",
+          "nome": "PALOMA SUZANO MEDEIROS",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ANALISTA ADMINISTRATIVO III"
+        },
+        {
+          "uid": "chqfqsdw8",
+          "nome": "RAFAELA DA SILVA LEMOS",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ANALISTA ASSISTENCIAL I"
+        },
+        {
+          "uid": "cvjkkcoer",
+          "nome": "RAFAELA OLIVEIRA FERREIRA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "GERENTE DE SAÚDE III"
+        },
+        {
+          "uid": "cs3iwjh0n",
+          "nome": "RAPHAEL AREAS CAVALCANTE",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "SUPERVISORA DE REDES DE CUIDADOS I"
+        },
+        {
+          "uid": "c2bbcmg6f",
+          "nome": "RICARDO DE ALMEIDA MANGABEIRA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "COORDENADOR DE REDE DE CUIDADOS II"
+        },
+        {
+          "uid": "cgcoknu54",
+          "nome": "ROGERIO DA COSTA AZEVEDO",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
+        },
+        {
+          "uid": "c5wzi7jee",
+          "nome": "SUELLEN PIRES DE FREITAS",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "AUXILIAR ADMINISTRATIVO"
+        },
+        {
+          "uid": "cjhy2mxx5",
+          "nome": "VALDECY MOTA RIBEIRO",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "ASSISTENTE OPERACIONAL I"
+        },
+        {
+          "uid": "cugvtvxpn",
+          "nome": "VANESSA VIEIRA DA SILVEIRA MENDONÇA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
+        },
+        {
+          "uid": "c5ieseimi",
+          "nome": "DIEGO DE FIGUEIREDO SANTOS",
+          "dept": "DEPARTAMENTO DE COMPLIANCE",
+          "funcao": "COORDENADOR DE COMPLIANCE"
+        },
+        {
+          "uid": "cujnnk3cj",
+          "nome": "ROGERIO DE CARVALHO OLIVEIRA",
+          "dept": "DEPARTAMENTO DE COMPLIANCE",
+          "funcao": "ANALISTA ADMINISTRATIVO III"
+        },
+        {
+          "uid": "clj36pgaf",
+          "nome": "ANDERSON DE SOUZA MOUTINHO",
+          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
+          "funcao": "ANALISTA DE COMPRAS I"
+        },
+        {
+          "uid": "ckr8a8nl8",
+          "nome": "ANNA VICTORIA DOS SANTOS DE OLIVEIRA",
+          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
+          "funcao": "JOVEM APRENDIZ"
+        },
+        {
+          "uid": "cqz1twt7v",
+          "nome": "DANIELA MOTA SANTOS",
+          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
+          "funcao": "JOVEM APRENDIZ"
+        },
+        {
+          "uid": "c77h7rnga",
+          "nome": "IVANETE DA SILVA MOTTA CARVALHO",
+          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
+          "funcao": "ANALISTA DE COMPRAS III"
+        },
+        {
+          "uid": "cy5xrbb13",
+          "nome": "NICOLE CANTINI FIGUEIRA LIMA",
+          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
+          "funcao": "ASSISTENTE DE COMPRAS"
+        },
+        {
+          "uid": "c5khrapqd",
+          "nome": "RAFAEL VIANA DA MOTTA",
+          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
+          "funcao": "ANALISTA DE COMPRAS I"
+        },
+        {
+          "uid": "c28b8bbua",
+          "nome": "SORAYA ARAUJO DAMASCO",
+          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
+          "funcao": "COORDENADOR DE COMPRAS"
+        },
+        {
+          "uid": "c4lihos47",
+          "nome": "THACIA DUARTE BRANCO",
+          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
+          "funcao": "ANALISTA ADMINISTRATIVO I"
+        },
+        {
+          "uid": "cpp22eipm",
+          "nome": "AYRA DE ARAUJO ROSA",
+          "dept": "DEPARTAMENTO DE COMUNICAÇÃO INSTITUCIONAL",
+          "funcao": "ANALISTA DE COMUNICAÇAO III"
+        },
+        {
+          "uid": "cu7m3zw6e",
+          "nome": "JEFFERSON IGOR MARTINS SILVA",
+          "dept": "DEPARTAMENTO DE COMUNICAÇÃO INSTITUCIONAL",
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
+        },
+        {
+          "uid": "c7t4ytctu",
+          "nome": "PAULA MARTINEZ MELLO",
+          "dept": "DEPARTAMENTO DE COMUNICAÇÃO INSTITUCIONAL",
+          "funcao": "GERENTE DE COMUNICAÇÃO"
+        },
+        {
+          "uid": "cdjuiyng8",
+          "nome": "PEARGENTINO CHIAFRINO NETO",
+          "dept": "DEPARTAMENTO DE COMUNICAÇÃO INSTITUCIONAL",
+          "funcao": "ANALISTA DE COMUNICAÇAO III"
+        },
+        {
+          "uid": "ckg9xuqj3",
+          "nome": "BRUNO DA SILVA MENDONCA",
+          "dept": "DEPARTAMENTO DE CONTABILIDADE",
+          "funcao": "COORDENADOR CONTÁBIL III"
+        },
+        {
+          "uid": "chxa92x6i",
+          "nome": "FRANCINE CORDEIRO MONTEIRO",
+          "dept": "DEPARTAMENTO DE CONTABILIDADE",
+          "funcao": "SUPERVISOR CONTÁBIL III"
+        },
+        {
+          "uid": "ctxyqh2md",
+          "nome": "THASSIA ARAUJO DO AMARAL",
+          "dept": "DEPARTAMENTO DE CONTABILIDADE",
+          "funcao": "ANALISTA CONTABIL III"
+        },
+        {
+          "uid": "cl0u0hlbr",
+          "nome": "GUILHERME MARTINS ALMEIDA SILVA",
+          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
+          "funcao": "SUPERVISOR ADMINISTRATIVO III"
+        },
+        {
+          "uid": "cs4wfwyd3",
+          "nome": "JEFFERSON DA SILVA AMORIM",
+          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
+          "funcao": "ANALISTA DE FARMÁCIA II"
+        },
+        {
+          "uid": "c6i6k4x7d",
+          "nome": "KARLA FERNANDA KLEINSORGEN",
+          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
+          "funcao": "ASSISTENTE ADMINISTRATIVO II"
+        },
+        {
+          "uid": "czmd0q9a2",
+          "nome": "SANDY KEYTMA MELO RAMALHO",
+          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
+          "funcao": "AUXILIAR ADMINISTRATIVO"
+        },
+        {
+          "uid": "cn3915ztf",
+          "nome": "TATIELE DA SILVA RIBEIRO",
+          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
+          "funcao": "SUPERVISOR DE FARMÁCIA"
+        },
+        {
+          "uid": "czgi8ymdl",
+          "nome": "IGOR MOTTA CARVALHO",
+          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
+          "funcao": "AUXILIAR ADMINISTRATIVO"
+        },
+        {
+          "uid": "csqwbof75",
+          "nome": "JONATHAS MARQUES RIBEIRO",
+          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
+          "funcao": "AUXILIAR ADMINISTRATIVO III"
+        },
+        {
+          "uid": "c1ge1znhm",
+          "nome": "LUISA FERREIRA ALBUQUERQUE",
+          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
+          "funcao": "ASSISTENTE ADMINISTRATIVO"
+        },
+        {
+          "uid": "cnu6djxgs",
+          "nome": "MARIA BIANCA NOBREGA MARINS",
+          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
+          "funcao": "JOVEM APRENDIZ"
+        },
+        {
+          "uid": "cn0igmxwa",
+          "nome": "VICTOR TEIXEIRA LESSA",
+          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
+          "funcao": "ASSISTENTE ADMINISTRATIVO"
+        },
+        {
+          "uid": "cmtj0x06j",
+          "nome": "ZILANDA RODRIGUES DOS SANTOS",
+          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
+          "funcao": "AUXILIAR ADMINISTRATIVO"
+        },
+        {
+          "uid": "cdl29lcvb",
+          "nome": "CRISTIANE SONCINI DE ARAUJO",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
+        },
+        {
+          "uid": "c2noxnm1o",
+          "nome": "EDLENE PAIVA DA SILVA",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "SUPERVISOR DE EDUCAÇÃO"
+        },
+        {
+          "uid": "c9jm5rvc7",
+          "nome": "GIANLUCAS CORREIA MENDES",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "TECNICO SEGURANÇA DO TRABALHO"
+        },
+        {
+          "uid": "c2kie4pw8",
+          "nome": "JANDARA TEIXEIRA DIAS ROCHA",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "ASSISTENTE DE RECURSOS HUMANOS I"
+        },
+        {
+          "uid": "cbas3cy3o",
+          "nome": "JOAO VITOR DA SILVA BORGES",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "JOVEM APRENDIZ"
+        },
+        {
+          "uid": "cpi0nvh1j",
+          "nome": "JULIO CESAR DE OLIVEIRA JUNIOR",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "ANALISTA DE REMUNERAÇAO"
+        },
+        {
+          "uid": "c6kl1vgx2",
+          "nome": "LORRAYNE DA SILVA FERNANDEZ DE OLIVEIRA",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "ANALISTA ADMINISTRATIVO I"
+        },
+        {
+          "uid": "cfua6vu26",
+          "nome": "MARIA DA CONCEIÇÃO BALDINI BENEVIDES BLAN",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "SUPERVISOR DE EDUCAÇÃO"
+        },
+        {
+          "uid": "c0j9yw0sn",
+          "nome": "ROSEMARY CRUZ CERQUEIRA",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "COORDENADOR DE EDUCACAO CONTINUADA I"
+        },
+        {
+          "uid": "c4ae0oxvi",
+          "nome": "SABRYNA MARQUES MOREIRA MENDES",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
+        },
+        {
+          "uid": "ca1fvbgnc",
+          "nome": "SERGIO LUIS MACHADO BRAZIL",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "COORDENADOR DE QUALIDADE"
+        },
+        {
+          "uid": "cih340a3e",
+          "nome": "THAINARA TAVARES MOREIRA DOS SANTOS",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "ASSISTENTE DE RECURSOS HUMANOS I"
+        },
+        {
+          "uid": "c8x4vt7tx",
+          "nome": "VICTORIA LINO DE SOUSA",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "ASSISTENTE DE RH I"
+        },
+        {
+          "uid": "ckc7bn6fg",
+          "nome": "WENDEL CORREA DE PAO",
+          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "funcao": "ASSISTENTE DE REMUNERAÇÃO"
+        },
+        {
+          "uid": "c6nv79owc",
+          "nome": "BERNARDO COSTA DE SA GOUVEA",
+          "dept": "DEPARTAMENTO FINANCEIRO",
+          "funcao": "ASSISTENTE FINANCEIRO III"
+        },
+        {
+          "uid": "cbfhugwfp",
+          "nome": "DIOGO DE OLIVEIRA CUNHA",
+          "dept": "DEPARTAMENTO FINANCEIRO",
+          "funcao": "ASSISTENTE ADMINISTRATIVO II"
+        },
+        {
+          "uid": "cdmlrbnd4",
+          "nome": "DOUGLAS BARCELLOS SILVA",
+          "dept": "DEPARTAMENTO FINANCEIRO",
+          "funcao": "ANALISTA ADMINISTRATIVO I"
+        },
+        {
+          "uid": "cxlvgecaw",
+          "nome": "LUCAS DA COSTA",
+          "dept": "DEPARTAMENTO FINANCEIRO",
+          "funcao": "ASSISTENTE ADMINISTRATIVO I"
+        },
+        {
+          "uid": "cgp11dqkn",
+          "nome": "LUDMILA DA COSTA CARVALHO",
+          "dept": "DEPARTAMENTO FINANCEIRO",
+          "funcao": "ASSISTENTE FINANCEIRO I"
+        },
+        {
+          "uid": "c4nchto7t",
+          "nome": "RAFAELA PINA RIBEIRO",
+          "dept": "DEPARTAMENTO FINANCEIRO",
+          "funcao": "ASSISTENTE ADMINISTRATIVO II"
+        },
+        {
+          "uid": "cym3r7v9y",
+          "nome": "RUI ANDERSON MORAES DOS SANTOS",
+          "dept": "DEPARTAMENTO FINANCEIRO",
+          "funcao": "COORDENADOR FINANCEIRO I"
+        },
+        {
+          "uid": "cdbtdw43l",
+          "nome": "SORAIA MUZI XAVIER",
+          "dept": "DEPARTAMENTO FINANCEIRO",
+          "funcao": "ASSISTENTE ADMINISTRATIVO II"
+        },
+        {
+          "uid": "cnwcbxf9g",
+          "nome": "YASMIM FAGGIAN OLIVEIRA",
+          "dept": "DEPARTAMENTO FINANCEIRO",
+          "funcao": "ASSISTENTE ADMINISTRATIVO II"
+        },
+        {
+          "uid": "co0j7t7zf",
+          "nome": "ROBSON LOUREIRO FERNANDES",
+          "dept": "DEPARTAMENTO JURÍDICO",
+          "funcao": "GERENTE JURÍDICO"
+        },
+        {
+          "uid": "co6pgxjfy",
+          "nome": "RODRIGO PAPAZIAN PINHO",
+          "dept": "DEPARTAMENTO JURÍDICO",
+          "funcao": "COORDENADOR JURÍDICO"
+        },
+        {
+          "uid": "ciiandixg",
+          "nome": "THIAGO FARIAS DIAS",
+          "dept": "DEPARTAMENTO JURÍDICO",
+          "funcao": "GERENTE JURÍDICO II"
+        },
+        {
+          "uid": "ct6zwmpv1",
+          "nome": "AMANDA DE OLIVEIRA ALMEIDA",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
+        },
+        {
+          "uid": "cifmi8x73",
+          "nome": "ANNA JULIA ANTUNES DE OLIVEIRA",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "JOVEM APRENDIZ"
+        },
+        {
+          "uid": "cvnfq6zpy",
+          "nome": "BIANCA BARCELOS MARTINS",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ASSISTENTE DE DEPARTAMENTO"
+        },
+        {
+          "uid": "ck81zj1mq",
+          "nome": "CLAUDIA ALJAN BRAGA DE MIRANDA",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
+        },
+        {
+          "uid": "cg60g64sm",
+          "nome": "CRISTIANE ROSA CHAVES",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ASSISTENTE ADMINISTRATIVO"
+        },
+        {
+          "uid": "cfrc3bmi8",
+          "nome": "ELENA VIANA MACEDO",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "GERENTE DE DEPARTAMENTO PESSOAL"
+        },
+        {
+          "uid": "c3w5zgziz",
+          "nome": "EMILIA PEREIRA DARIO RANGEL",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "SUPERVISOR DE DEPARTAMENTO PESSOAL III"
+        },
+        {
+          "uid": "crlij82mh",
+          "nome": "GIOVANA FERREIRA DA CONCEICAO RODRIGUES",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ASSISTENTE ADMINISTRATIVO II"
+        },
+        {
+          "uid": "clkikmm21",
+          "nome": "GRAZIELA SCARPONETI MARREIRO",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
+        },
+        {
+          "uid": "c7ja7u7h0",
+          "nome": "ITALO LUIZ RODRIGUES DA COSTA",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
+        },
+        {
+          "uid": "czck9ppme",
+          "nome": "JOAO VITOR DE FRANCA TEIXEIRA",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "AUXILIAR ADMINISTRATIVO"
+        },
+        {
+          "uid": "ca3v7k4hw",
+          "nome": "LUCIANA SOUZA DA SILVA",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ASSISTENTE ADMINISTRATIVO"
+        },
+        {
+          "uid": "cfoeomff3",
+          "nome": "MARIANA GONÇALVES FELIX",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ANALISTA DE DEPARTAMENTO"
+        },
+        {
+          "uid": "cuvtqqc2z",
+          "nome": "PHAMYLA DE SOUZA POSSAO ABDALLA REBEQUE",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
+        },
+        {
+          "uid": "ce6awl1l2",
+          "nome": "SAMUEL LUCAS ALVES DE MELO",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "JOVEM APRENDIZ"
+        },
+        {
+          "uid": "c3d9bwihc",
+          "nome": "SHIRLEY DE OLIVEIRA MATOS",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ASSISTENTE ADMINISTRATIVO"
+        },
+        {
+          "uid": "cglllac2m",
+          "nome": "SOLANGE SEIXAS MURRO",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
+        },
+        {
+          "uid": "c4z183vpx",
+          "nome": "THAYZA QUEIROZ DA SILVA",
+          "dept": "DEPARTAMENTO PESSOAL",
+          "funcao": "ASSISTENTE DE DEPARTAMENTO"
+        },
+        {
+          "uid": "cczllif9q",
+          "nome": "CAMILLO DE LELLIS CARNEIRO JUNQUEIRA",
+          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "funcao": "MÉDICO RT"
+        },
+        {
+          "uid": "c5d0nhbw4",
+          "nome": "CYNTIA ARAUJO DAMASCO",
+          "dept": "SUPERINTENDÊNCIA",
+          "funcao": "SUPERINTENDENTE EXECUTIVA"
+        },
+        {
+          "uid": "cttqck1lq",
+          "nome": "RALF RIBEIRO DOS SANTOS",
+          "dept": "SUPERINTENDÊNCIA",
+          "funcao": "SUPERINTENDENTE ASSISTENCIAL"
+        }
+      ],
+      "iqual": {
+        "ind1": {
+          "madalena": 0,
+          "cachoeiras": 0,
+          "saq_hosp": 0,
+          "upa_pac": 0,
+          "upa_nc": 0,
+          "arraial": 0,
+          "quissama": 0,
+          "cordeiro": 0,
+          "saq_esp": 0,
+          "saq_pri": 0,
+          "cg_mt55xz0i": 0
+        },
+        "ind2": {
+          "madalena": 0,
+          "cachoeiras": 0,
+          "saq_hosp": 0,
+          "upa_pac": 0,
+          "upa_nc": 0,
+          "arraial": 0,
+          "quissama": 0,
+          "cordeiro": 0,
+          "saq_esp": 0,
+          "saq_pri": 0,
+          "cg_mt55xz0i": 0
+        },
+        "ind3": {
+          "madalena": 0,
+          "cachoeiras": 0,
+          "saq_hosp": 0,
+          "upa_pac": 0,
+          "upa_nc": 0,
+          "arraial": 0,
+          "quissama": 0,
+          "cordeiro": 0,
+          "saq_esp": 0,
+          "saq_pri": 0,
+          "cg_mt55xz0i": 0
+        },
+        "ind4": {
+          "madalena": 0,
+          "cachoeiras": 0,
+          "saq_hosp": 0,
+          "upa_pac": 0,
+          "upa_nc": 0,
+          "arraial": 0,
+          "quissama": 0,
+          "cordeiro": 0,
+          "saq_esp": 0,
+          "saq_pri": 0,
+          "cg_mt55xz0i": 0
+        },
+        "ind5": {
+          "madalena": 0,
+          "cachoeiras": 0,
+          "saq_hosp": 0,
+          "upa_pac": 0,
+          "upa_nc": 0,
+          "arraial": 0,
+          "quissama": 0,
+          "cordeiro": 0,
+          "saq_esp": 0,
+          "saq_pri": 0,
+          "cg_mt55xz0i": 0
+        },
+        "ind6": {
+          "madalena": 0,
+          "cachoeiras": 0,
+          "saq_hosp": 0,
+          "upa_pac": 0,
+          "upa_nc": 0,
+          "arraial": 0,
+          "quissama": 0,
+          "cordeiro": 0,
+          "saq_esp": 0,
+          "saq_pri": 0,
+          "cg_mt55xz0i": 0
+        },
+        "ind7": {
+          "madalena": 0,
+          "cachoeiras": 0,
+          "saq_hosp": 0,
+          "upa_pac": 0,
+          "upa_nc": 0,
+          "arraial": 0,
+          "quissama": 0,
+          "cordeiro": 0,
+          "saq_esp": 0,
+          "saq_pri": 0,
+          "cg_mt55xz0i": 0
+        },
+        "ind8": {
+          "madalena": 0,
+          "cachoeiras": 0,
+          "saq_hosp": 0,
+          "upa_pac": 0,
+          "upa_nc": 0,
+          "arraial": 0,
+          "quissama": 0,
+          "cordeiro": 0,
+          "saq_esp": 0,
+          "saq_pri": 0,
+          "cg_mt55xz0i": 0
+        }
+      },
+      "despesasLocais": {
+        "madalena": [],
+        "cachoeiras": [],
+        "saq_hosp": [],
+        "upa_pac": [],
+        "upa_nc": [],
+        "arraial": [],
+        "quissama": [],
+        "cordeiro": [],
+        "saq_esp": [],
+        "saq_pri": [],
+        "cg_mt55xz0i": []
+      },
+      "demoContabil": {
+        "balancete": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "extrato": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "movimentacao": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "razao": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "bl_saldoInicial": 0,
+        "bl_transferencias": 0,
+        "bl_aplicacao": 0,
+        "bl_rendimento": 0,
+        "bl_despesasExec": 0,
+        "bl_iof": 0,
+        "bl_ir": 0,
+        "bl_resgateFinanceiro": 0,
+        "bl_saldoFinal": 0,
+        "ex_saldoFinal": 0,
+        "obs": "",
+        "extratoData": null
+      },
+      "iqual_pdfs": {
+        "ind1": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind2": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind3": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind4": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind5": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind6": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind7": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        },
+        "ind8": {
+          "pdfUrl": "",
+          "pdfNome": ""
+        }
+      }
+    },
+    "customContratos": [
+      {
+        "id": "cg_mt55xz0i",
+        "nome": "Projeto Farmácia Judicial - Saquarema",
+        "sigla": "Saquarema - Judicial",
+        "cor": "#3B82F6"
+      }
+    ]
   },
-  "currentComp": "2026-07",
-  "savedAt": 1786045071913
+  "currentComp": "2026-09",
+  "savedAt": 1787450611866
 }

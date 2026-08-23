@@ -23779,6 +23779,11 @@
         "t": 1787451810133,
         "perfil": "Administrador",
         "comp": "2026-10"
+      },
+      {
+        "t": 1787451834251,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -25958,7 +25963,7 @@
         "cg_mt55xz0i": 0,
         "cg_mt55zykt": 0
       },
-      "refColab": "",
+      "refColab": "JULHO/2026",
       "contratos_ativos": [],
       "contratos_obs": "",
       "colab_lista": [
@@ -26897,6 +26902,6 @@
       }
     ]
   },
-  "currentComp": "2026-09",
-  "savedAt": 1787451810138
+  "currentComp": "2026-08",
+  "savedAt": 1787451834255
 }

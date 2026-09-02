@@ -23854,6 +23854,11 @@
         "t": 1788319135805,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319162751,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24204,9 +24209,9 @@
           "objeto": "Empréstimo Consignado CIGAC",
           "fav": "Crédito Trabalhador",
           "cnpj": "40.289.134/0001-99",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "DARF",
+          "cnum": "CONSIGNADO",
+          "valor": 25817.17,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -26973,5 +26978,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788319135809
+  "savedAt": 1788319162755
 }

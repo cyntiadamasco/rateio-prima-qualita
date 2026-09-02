@@ -23874,6 +23874,11 @@
         "t": 1788319210753,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319237197,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24280,9 +24285,9 @@
           "objeto": "Servidor Nuvem Privada em Data Center",
           "fav": "Cigam Software Corporativo S.A",
           "cnpj": "93.578.813/0001-44",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "44526",
+          "valor": 9787.85,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -26993,5 +26998,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788319210756
+  "savedAt": 1788319237200
 }

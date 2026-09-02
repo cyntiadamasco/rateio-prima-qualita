@@ -23914,6 +23914,11 @@
         "t": 1788319414707,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319429291,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24446,9 +24451,9 @@
           "objeto": "Locação de mobiliários e equipamentos para o CIGAC",
           "fav": "A4PM Analytics For Public Management LTDA",
           "cnpj": "23.034.181/0001-72",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "555",
+          "valor": 118697,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -27033,5 +27038,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788319414710
+  "savedAt": 1788319429295
 }

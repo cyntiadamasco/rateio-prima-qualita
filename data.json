@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785813867848,
-        "perfil": "Administrador",
-        "comp": "2026-06"
-      },
-      {
         "t": 1785813870135,
         "perfil": "Administrador",
         "comp": "2026-06"
@@ -24099,6 +24094,11 @@
         "t": 1788320804725,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788320951191,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24253,10 +24253,11 @@
           "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório",
           "fav": "Pablo Siqueira Sociedade Individual de Advocacia",
           "cnpj": "18.464.526/0001-98",
-          "ctipo": "",
-          "cnum": "",
+          "ctipo": "NF",
+          "cnum": "20",
           "valor": 36000,
-          "dtPgto": ""
+          "dtPgto": "",
+          "compl": true
         },
         {
           "uid": "qmkrybx",
@@ -27230,5 +27231,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788320804730
+  "savedAt": 1788320951195
 }

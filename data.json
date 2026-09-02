@@ -23899,6 +23899,11 @@
         "t": 1788319354779,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319375421,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24389,9 +24394,9 @@
           "objeto": "Sistema Contábil/Fiscal/DP/MENSALIDADE",
           "fav": "Alterdata Tecnologia em Informática LTDA",
           "cnpj": "36.462.778/0001-60",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "727483",
+          "valor": 2810.44,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -27018,5 +27023,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788319354782
+  "savedAt": 1788319375425
 }

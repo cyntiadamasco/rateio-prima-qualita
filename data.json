@@ -22601,21 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785869532270,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785869592193,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785869603343,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
         "t": 1785869649090,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24099,6 +24084,21 @@
         "t": 1788321372032,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788321374387,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321376205,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321400664,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24756,9 +24756,9 @@
           "objeto": "Contencioso e consultivo na área de direito cível e de direito médico e da saúde",
           "fav": "E Simões Sociedade Individual de Advocacia",
           "cnpj": "40.101.757/0001-96",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "9",
+          "valor": 11000,
           "dtPgto": "",
           "compl": true
         },
@@ -24772,7 +24772,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 0,
-          "dtPgto": ""
+          "dtPgto": "",
+          "compl": true
         },
         {
           "uid": "8jay9lv",
@@ -24784,7 +24785,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 0,
-          "dtPgto": ""
+          "dtPgto": "",
+          "compl": true
         },
         {
           "uid": "4sfphnu",
@@ -27302,5 +27304,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788321372041
+  "savedAt": 1788321400668
 }

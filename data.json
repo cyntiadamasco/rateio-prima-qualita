@@ -23824,6 +23824,11 @@
         "t": 1788319023026,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319042667,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24090,9 +24095,9 @@
           "objeto": "Vale Refeição/Alimentação Colaboradores CIGAC",
           "fav": "Ticket Soluções HDFGT S/A",
           "cnpj": "47.866.934/0001-74",
-          "ctipo": "",
+          "ctipo": "BOLETO",
           "cnum": "",
-          "valor": 0,
+          "valor": 134220,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -26943,5 +26948,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788319023029
+  "savedAt": 1788319042670
 }

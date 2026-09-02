@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785870421766,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
         "t": 1785870431240,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24099,6 +24094,11 @@
         "t": 1788321701797,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788321725611,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24795,7 +24795,7 @@
           "objeto": "Vale Refeição/Alimentação Colaboradores CIGAC",
           "fav": "Ticket Soluções HDFGT S/A",
           "cnpj": "47.866.934/0001-74",
-          "ctipo": "",
+          "ctipo": "BOLETO",
           "cnum": "",
           "valor": 130950,
           "dtPgto": ""
@@ -24807,7 +24807,7 @@
           "objeto": "Vale Transporte Colaboradores CIGAC",
           "fav": "Riopar Participações S/A",
           "cnpj": "16.727.386/0001-86",
-          "ctipo": "",
+          "ctipo": "BOLETO",
           "cnum": "",
           "valor": 54255.2,
           "dtPgto": ""
@@ -24819,7 +24819,7 @@
           "objeto": "Vale Transporte Colaboradores CIGAC",
           "fav": "Riopar Participações S/A",
           "cnpj": "16.727.386/0001-86",
-          "ctipo": "",
+          "ctipo": "BOLETO",
           "cnum": "",
           "valor": 2090,
           "dtPgto": ""
@@ -24831,7 +24831,7 @@
           "objeto": "Vale Transporte Colaboradores CIGAC",
           "fav": "CBD Bilhete Digital",
           "cnpj": "48.707.842/0001-04",
-          "ctipo": "",
+          "ctipo": "BOLETO",
           "cnum": "",
           "valor": 533.4,
           "dtPgto": ""
@@ -27304,5 +27304,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788321701799
+  "savedAt": 1788321725615
 }

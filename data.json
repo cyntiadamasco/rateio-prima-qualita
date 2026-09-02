@@ -23939,6 +23939,11 @@
         "t": 1788319499161,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319511547,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24555,9 +24560,9 @@
           "objeto": "Serviços de SST",
           "fav": "ICM Medicina Ocupacional LTDA",
           "cnpj": "50.558.513/0001-90",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "569",
+          "valor": 1431.76,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -27058,5 +27063,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788319499165
+  "savedAt": 1788319511553
 }

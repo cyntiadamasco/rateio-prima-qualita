@@ -23864,6 +23864,16 @@
         "t": 1788319176991,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319187097,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788319210753,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24242,9 +24252,9 @@
           "objeto": "Pensão Alimentícia - Colaborador Dioni de Oliveira Schuvartz",
           "fav": "Sara Almeida Souza Schuvartz",
           "cnpj": "054.299.487-99",
-          "ctipo": "",
+          "ctipo": "PENSÃO",
           "cnum": "",
-          "valor": 0,
+          "valor": 930.64,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -24256,9 +24266,9 @@
           "objeto": "Provisão de Verbas Rescisórias CIGAC",
           "fav": "Projeto Social Cresce Comunidade",
           "cnpj": "40.289.134/0001-99",
-          "ctipo": "",
+          "ctipo": "PLANILHA",
           "cnum": "",
-          "valor": 0,
+          "valor": 207193.2,
           "pdfUrl": "",
           "pdfNome": "",
           "dtPgto": ""
@@ -26983,5 +26993,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788319176995
+  "savedAt": 1788319210756
 }

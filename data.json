@@ -23904,6 +23904,11 @@
         "t": 1788319375421,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319399849,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24408,9 +24413,9 @@
           "objeto": "Sistema Prestação de Contas",
           "fav": "BR Gaap Corporation Tecnologia da Informação Ltda",
           "cnpj": "16.106.178/0001-51",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "920",
+          "valor": 63000,
           "pdfUrl": "",
           "pdfNome": "",
           "dtPgto": ""
@@ -27023,5 +27028,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788319375425
+  "savedAt": 1788319399853
 }

@@ -23944,6 +23944,11 @@
         "t": 1788319511547,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319525947,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24574,9 +24579,9 @@
           "objeto": "Seguro de Vida Colaboradores CIGAC",
           "fav": "Unimed Seguradora S/A",
           "cnpj": "10.414.185/0001-09",
-          "ctipo": "",
+          "ctipo": "BOLETO",
           "cnum": "",
-          "valor": 0,
+          "valor": 2418.18,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -27063,5 +27068,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788319511553
+  "savedAt": 1788319525952
 }

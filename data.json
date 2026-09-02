@@ -23934,6 +23934,11 @@
         "t": 1788319481459,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319499161,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24536,9 +24541,9 @@
           "objeto": "Fornecimento de Água Mineral",
           "fav": "Rodolfo Lucas Duarte 08848690750",
           "cnpj": "11.967.651/0001-71",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "30071001",
+          "valor": 609.28,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -27053,5 +27058,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788319481463
+  "savedAt": 1788319499165
 }

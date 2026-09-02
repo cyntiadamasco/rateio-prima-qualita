@@ -23879,6 +23879,11 @@
         "t": 1788319237197,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319255453,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24313,9 +24318,9 @@
           "objeto": "Sistema de Gestão ERP / MENSALIDADE",
           "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
           "cnpj": "24.783.564/0001-06",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "2451",
+          "valor": 28573.12,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -26998,5 +27003,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788319237200
+  "savedAt": 1788319255456
 }

@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785813890763,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
         "t": 1785813898151,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24097,6 +24092,11 @@
       },
       {
         "t": 1788320959357,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788320998260,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -27231,5 +27231,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788320959360
+  "savedAt": 1788320998264
 }

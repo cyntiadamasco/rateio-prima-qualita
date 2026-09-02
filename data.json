@@ -23814,6 +23814,11 @@
         "t": 1788318960099,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788318998484,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24052,9 +24057,9 @@
           "objeto": "Fundo de Garantia por Tempo de Serviços (FGTS)",
           "fav": "Caixa Econômica Federal - FGTS",
           "cnpj": "40.289.134/0001-99",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "GUIA",
+          "cnum": "FGTS",
+          "valor": 52918.25,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -26933,5 +26938,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788318960103
+  "savedAt": 1788318998489
 }

@@ -23929,6 +23929,11 @@
         "t": 1788319466356,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319481459,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24517,9 +24522,9 @@
           "objeto": "Locação de veículos para atender a CIGAC",
           "fav": "Promedical Serviços em Saude LTD",
           "cnpj": "35.788.642/0001-81",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "368",
+          "valor": 38059.45,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -27048,5 +27053,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788319466359
+  "savedAt": 1788319481463
 }

@@ -23809,6 +23809,11 @@
         "t": 1788318927253,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788318960099,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24019,7 +24024,7 @@
           "objeto": "Folha de Pagamento Colaboradores CIGAC",
           "fav": "Projeto Social Cresce Comunidade - Prima Qualitá",
           "cnpj": "40.289.134/0001-99",
-          "ctipo": "",
+          "ctipo": "FOLHA",
           "cnum": "",
           "valor": 477038.78,
           "pdfUrl": null,
@@ -24033,9 +24038,9 @@
           "objeto": "INSS sobre Folha",
           "fav": "Instituto Nacional do Seguro Social - INSS",
           "cnpj": "40.289.134/0001-99",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "DARF",
+          "cnum": "INSS",
+          "valor": 52935.62,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -26928,5 +26933,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788318927257
+  "savedAt": 1788318960103
 }

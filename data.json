@@ -23894,6 +23894,11 @@
         "t": 1788319283007,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319354779,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24357,7 +24362,7 @@
           "fav": "KPMG Assessores LTDA",
           "cnpj": "05.490.840/0019-22",
           "ctipo": "NF",
-          "cnum": "2456",
+          "cnum": "682",
           "valor": 4876.04,
           "pdfUrl": null,
           "pdfNome": null,
@@ -24370,9 +24375,9 @@
           "objeto": "Sistema de Gestão ERP / HORAS",
           "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
           "cnpj": "24.783.564/0001-06",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "2456",
+          "valor": 17215.15,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -27013,5 +27018,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788319283011
+  "savedAt": 1788319354782
 }

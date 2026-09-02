@@ -23889,6 +23889,11 @@
         "t": 1788319269379,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319283007,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24351,9 +24356,9 @@
           "objeto": "Sistema de Análise de Risco",
           "fav": "KPMG Assessores LTDA",
           "cnpj": "05.490.840/0019-22",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "2456",
+          "valor": 4876.04,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -27008,5 +27013,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788319269387
+  "savedAt": 1788319283011
 }

@@ -1039,6 +1039,8 @@ body.readonly input[type="date"]{pointer-events:none!important;cursor:default!im
 body.readonly [onclick^="document.getElementById"]{display:none!important}
 /* Importar contratos mes anterior */
 body.readonly [onclick^="importarContrat"]{display:none!important}
+/* Alternar despesa complementar */
+body.readonly [onclick^="toggleCompl"]{display:none!important}
 /* ── PERFIS DE ACESSO ── */
 /* Externo (sem login): esconde Validação 3% e o Acompanhamento Anual – Teto 3% */
 body.externo [data-tab="validacao"]{display:none!important}
@@ -1155,7 +1157,7 @@ body:not(.perfil-logado) .logado-only{display:none!important}
       </div>
     </div>
     <span id="sync-status" style="display:flex;align-items:center;gap:4px"><span class="sync-dot" id="sync-dot"></span><span class="sync-lbl" id="sync-lbl"></span></span>
-    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-08-05b</span>
+    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-09-02a</span>
     <button class="btn btn-teal btn-sm edit-only" onclick="salvar()">💾 Salvar</button>
     <button id="btn-lock-edit" onclick="toggleEditMode()" title="Modo de edição">🔒 Editar</button>
   </div>
@@ -1416,6 +1418,14 @@ function getPctMap(comp){
   const map={};
   CONTRATOS.forEach((c,i)=>{ map[c.id]=pcts[i]; });
   return map;
+}
+
+/* Rateio do mês anterior — usado pelas despesas marcadas como "complementares"
+   (pagas nesta competência, mas rateadas pelo critério quantitativo do mês anterior).
+   Se o mês anterior não existir nos dados, usa o rateio atual (sem criar mês fantasma). */
+function getPctMapAnt(comp){
+  const p=prevComp(comp);
+  return state[p]?getPctMap(p):getPctMap(comp);
 }
 
 function totalDespesas(comp){
@@ -2125,8 +2135,10 @@ function setColab(idx, field, val){
 function renderDespesas(){
   const data=getMesData(currentComp);
   const pctMap=getPctMap(currentComp);
+  const pctAnt=getPctMapAnt(currentComp);
   const total=data.despesas.reduce((a,d)=>a+(d.valor||0),0);
-  const totalCGs=CONTRATOS.map(ct=>data.despesas.reduce((a,d)=>a+(d.valor||0)*pctMap[ct.id],0));
+  const totalCompl=data.despesas.filter(d=>d.compl).reduce((a,d)=>a+(d.valor||0),0);
+  const totalCGs=CONTRATOS.map(ct=>data.despesas.reduce((a,d)=>a+(d.valor||0)*((d.compl?pctAnt:pctMap)[ct.id]||0),0));
   const catOpts=CATEGORIAS.map(c=>`<option>${c}</option>`).join('');
   const tipoOpts=COMP_TIPOS.map(t=>`<option>${t}</option>`).join('');
 
@@ -2141,7 +2153,9 @@ function renderDespesas(){
     <div class="stat-card"><div class="stat-val">${R$(total)}</div><div class="stat-lbl">Total de Despesas Elegíveis</div></div>
     <div class="stat-card s-teal"><div class="stat-val">${data.despesas.filter(d=>d.valor>0).length}</div><div class="stat-lbl">Itens com Valor</div></div>
     <div class="stat-card s-warn"><div class="stat-val">${data.despesas.length}</div><div class="stat-lbl">Total de Itens Cadastrados</div></div>
+    ${totalCompl>0?`<div class="stat-card" style="border-left-color:#B45309"><div class="stat-val" style="color:#B45309">${R$(totalCompl)}</div><div class="stat-lbl">🔁 Complementar ${prevCompLabel(currentComp)}</div></div>`:''}
   </div>
+  ${data.despesas.some(d=>d.compl)?`<div class="alert no-print" style="margin-bottom:12px;background:#FFF7ED;border-left:4px solid #F59E0B;color:#92400E"><span>🔁</span><div>Os itens marcados com <strong>🔁</strong> são <strong>despesas complementares de ${prevCompLabel(currentComp)}</strong> — rateadas pelo critério quantitativo daquela competência, separadas das despesas normais de ${compLabel(currentComp)}. Use o botão 🔁 na coluna Ações para marcar/desmarcar.</div></div>`:''}
   <div class="card no-print" style="margin-bottom:14px;background:linear-gradient(135deg,#0F2C47 0%,#1B4F76 100%);color:#fff;border:none">
     <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
       <div>
@@ -2204,7 +2218,8 @@ function renderDespesas(){
 function buildDespesaRow(d, i, pctMap, catOpts, tipoOpts, n){
   if(!catOpts){catOpts=CATEGORIAS.map(c=>`<option${c===d.cat?' selected':''}>` +c+'</option>').join('');}
   if(!tipoOpts){tipoOpts=COMP_TIPOS.map(t=>`<option${t===d.ctipo?' selected':''}>` +t+'</option>').join('');}
-  const totalRateado=CONTRATOS.reduce((a,ct)=>a+(d.valor||0)*(pctMap[ct.id]||0),0);
+  const pmEf=d.compl?getPctMapAnt(currentComp):pctMap;
+  const totalRateado=CONTRATOS.reduce((a,ct)=>a+(d.valor||0)*(pmEf[ct.id]||0),0);
   const compStr=d.ctipo?(d.cnum?d.ctipo+' '+d.cnum:d.ctipo):'';
   const hasPdf1 = !!(d.pdfUrl);
   const hasPdf2 = !!(d.pdfUrl2);
@@ -2214,8 +2229,8 @@ function buildDespesaRow(d, i, pctMap, catOpts, tipoOpts, n){
   const btnBanco = hasPdf2
     ? `<button id="anexo-btn-${d.uid}-2" class="btn-pdf has-pdf" onclick="verAnexo('${d.uid}',2)" title="Comp. Bancário: ${esc(d.pdfNome2||'Comprovante')}">&#x1F3E6;</button>`
     : `<button id="anexo-btn-${d.uid}-2" class="btn-pdf" onclick="anexarPDF('${d.uid}',2)" title="Anexar Comprovante Bancário" style="color:#9CA3AF">&#x1F3E6;</button>`;
-  return `<tr id="desp-row-${d.uid}" class="${(d.valor||0)===0?'tr-zero':''}">
-    <td class="td-edit td-c"><input style="text-align:center;width:55px" value="${d.id}" onchange="updDesp('${d.uid}','id',this.value)"></td>
+  return `<tr id="desp-row-${d.uid}" class="${(d.valor||0)===0?'tr-zero':''}"${d.compl?' style="background:#FFF7ED"':''}>
+    <td class="td-edit td-c"><input style="text-align:center;width:55px" value="${d.id}" onchange="updDesp('${d.uid}','id',this.value)">${d.compl?'<div style="font-size:8px;color:#B45309;font-weight:700;white-space:nowrap;margin-top:2px">🔁 compl. mês ant.</div>':''}</td>
     <td class="td-edit"><select onchange="updDesp('${d.uid}','cat',this.value)">${CATEGORIAS.map(c=>`<option${c===d.cat?' selected':''}>${c}</option>`).join('')}</select></td>
     <td class="td-edit"><input value="${esc(d.objeto)}" onchange="updDesp('${d.uid}','objeto',this.value)" title="${esc(d.objeto)}"></td>
     <td class="td-edit"><input value="${esc(d.fav)}" onchange="updDesp('${d.uid}','fav',this.value)"></td>
@@ -2226,6 +2241,7 @@ function buildDespesaRow(d, i, pctMap, catOpts, tipoOpts, n){
     <td class="td-r text-muted">${R$(totalRateado)}</td>
     <td class="td-c no-print" style="white-space:nowrap">
       ${btnNF}${btnBanco}
+      <button class="btn btn-xs" onclick="toggleComplDesp('${d.uid}')" title="${d.compl?'Desmarcar: voltar a ratear pelos percentuais do mês atual':'Marcar como despesa complementar do mês anterior (rateio pelos percentuais do mês anterior)'}" style="padding:2px 5px;font-size:12px;${d.compl?'background:#F59E0B;color:#fff;border-color:#D97706':''}">🔁</button>
       <button class="btn btn-xs" onclick="moverDesp('${d.uid}',-1)" ${i===0?'disabled':''} title="Mover para cima" style="padding:2px 5px;font-size:12px">↑</button>
       <button class="btn btn-xs" onclick="moverDesp('${d.uid}',1)" ${i===n-1?'disabled':''} title="Mover para baixo" style="padding:2px 5px;font-size:12px">↓</button>
       <button class="btn btn-danger btn-xs" onclick="remDesp('${d.uid}')" title="Remover">✕</button>
@@ -2240,6 +2256,16 @@ function addDespesa(){
   const next=data.despesas.length+1;
   const d={uid:uid(),id:String(next),cat:CATEGORIAS[0],objeto:'',fav:'',cnpj:'',ctipo:'',cnum:'',valor:0,dtPgto:''};
   data.despesas.push(d);
+  renderDespesas();
+}
+
+/* Alterna o item entre despesa normal e complementar do mês anterior */
+function toggleComplDesp(duid){
+  const data=getMesData(currentComp);
+  const d=data.despesas.find(x=>x.uid===duid);
+  if(!d)return;
+  d.compl=!d.compl;
+  salvar();
   renderDespesas();
 }
 
@@ -2329,7 +2355,7 @@ function duplicarMesAnterior(){
   if(!prev||!prev.despesas||!prev.despesas.length){ alert('Mês anterior sem despesas.'); return; }
   if(!confirm(`Importar ${prev.despesas.length} despesas de ${compLabel(mesAnterior)} para ${compLabel(currentComp)}?\nIsso irá substituir as despesas do mês atual.`)) return;
   const data=getMesData(currentComp);
-  data.despesas=prev.despesas.map(d=>({...d,uid:uid(),valor:0,ctipo:'',cnum:'',dtPgto:''}));
+  data.despesas=prev.despesas.map(d=>({...d,uid:uid(),valor:0,ctipo:'',cnum:'',dtPgto:'',compl:false}));
   renderDespesas();
 }
 
@@ -2346,6 +2372,7 @@ function limparMesAtual(){
 function renderDemonstrativo(){
   const data=getMesData(currentComp);
   const pctMap=getPctMap(currentComp);
+  const pctAnt=getPctMapAnt(currentComp);
   const despesas=data.despesas;
 
   // Agrupar por categoria
@@ -2375,15 +2402,16 @@ function renderDemonstrativo(){
     itens.forEach((d,di)=>{
       const comp=d.ctipo?(d.cnum?d.ctipo+' '+d.cnum:d.ctipo):'';
       let cgCells='';
+      const pmD=d.compl?pctAnt:pctMap;
       CONTRATOS.forEach(ct=>{
-        const v=(d.valor||0)*(pctMap[ct.id]||0);
+        const v=(d.valor||0)*(pmD[ct.id]||0);
         cgTotals[ct.id]+=v;
         cgCells+=`<td class="td-r">${v>0?R$(v):'R$ -'}</td>`;
       });
       const isFirst=di===0;
       bodyRows+=`<tr class="${(d.valor||0)===0?'tr-zero':''}">
         <td class="td-c fw-bold">${d.id}</td>
-        <td style="font-size:11px;max-width:220px">${d.objeto}</td>
+        <td style="font-size:11px;max-width:220px">${d.compl?'<span title="Despesa complementar de '+prevCompLabel(currentComp)+' — rateio pelos percentuais daquela competência">🔁</span> ':''}${d.objeto}</td>
         <td style="font-size:11px">${d.fav}</td>
         <td class="td-mono">${d.cnpj}</td>
         <td style="font-size:11px">${comp}</td>
@@ -2427,6 +2455,7 @@ function renderDemonstrativo(){
     <div class="stat-card"><div class="stat-val">${R$(grandTotal)}</div><div class="stat-lbl">Total Geral Rateado</div></div>
     <div class="stat-card s-teal"><div class="stat-val">${despesas.filter(d=>d.valor>0).length}</div><div class="stat-lbl">Itens com Valor</div></div>
   </div>
+  ${despesas.some(d=>d.compl)?`<div class="alert" style="margin-bottom:12px;background:#FFF7ED;border-left:4px solid #F59E0B;color:#92400E"><span>🔁</span><div>Itens marcados com <strong>🔁</strong> são despesas complementares de <strong>${prevCompLabel(currentComp)}</strong>, rateadas pelos percentuais daquela competência. Os percentuais do cabeçalho referem-se apenas às despesas de ${compLabel(currentComp)}.</div></div>`:''}
 
   <!-- Cabeçalho impressão com logo -->
   <div class="demo-print-hdr print-logo-hdr">
@@ -2581,13 +2610,15 @@ function renderMemorias(){
   let sheetsHTML='';
   const toShow=filtro==='todos'?despesas:[despesas[parseInt(filtro)]];
 
+  const pctAntMem=getPctMapAnt(currentComp);
   toShow.filter(Boolean).forEach((d,di)=>{
+    const pmMem=d.compl?pctAntMem:pctMap;
     const rateioRows=CONTRATOS.map((ct,i)=>{
-      const v=(d.valor||0)*(pctMap[ct.id]||0);
+      const v=(d.valor||0)*(pmMem[ct.id]||0);
       return `<tr class="${v===0?'tr-zero':''}">
         <td>${ct.nome}</td>
         <td class="td-c fw-bold">${v>0?R$(v):'R$ -'}</td>
-        <td class="td-c"><span class="pct-pill">${fmtPct(pcts[i]*100)}</span></td>
+        <td class="td-c"><span class="pct-pill">${fmtPct((pmMem[ct.id]||0)*100)}</span></td>
       </tr>`;
     }).join('');
 
@@ -2616,6 +2647,7 @@ function renderMemorias(){
             Ref. Colaboradores: ${refColab}
           </div>
         </div>
+        ${d.compl?`<div style="background:#FFF7ED;border-left:4px solid #F59E0B;color:#92400E;padding:7px 12px;border-radius:6px;font-size:11px;font-weight:600;margin-bottom:10px">🔁 Despesa complementar de ${prevCompLabel(currentComp)} — rateio efetuado pelo critério quantitativo daquela competência.</div>`:''}
         <div style="text-align:center;font-weight:700;font-size:13px;color:var(--navy);margin-bottom:12px" class="no-print">
           PROJETO SOCIAL CRESCE COMUNIDADE – PRIMA QUALITÁ SAÚDE
         </div>
@@ -3492,6 +3524,12 @@ function renderRelatorio(){
 
   const desp=data.despesas||[];
   const totalDesp=desp.reduce((a,d)=>a+(d.valor||0),0);
+  // Despesas normais x complementares do mês anterior (rateio pelos % daquela competência)
+  const despAtual=desp.filter(d=>!d.compl);
+  const despCompl=desp.filter(d=>d.compl);
+  const totalDespAtual=despAtual.reduce((a,d)=>a+(d.valor||0),0);
+  const totalDespCompl=despCompl.reduce((a,d)=>a+(d.valor||0),0);
+  const complLabel=compLabel(prevComp(currentComp));
   const colabs=data.colaboradores||CONTRATOS.map(()=>({clt:0,efetivo:0,pj:0}));
   const totalCLT=colabs.reduce((a,c)=>a+(c.clt||0)+(c.efetivo||0),0);
   const totalPJ=colabs.reduce((a,c)=>a+(c.pj||0),0);
@@ -3517,12 +3555,15 @@ function renderRelatorio(){
     'Plataforma Processo Seletivo':'A contratação da plataforma de processo seletivo é essencial para otimizar e profissionalizar o recrutamento de novos colaboradores, permitindo uma gestão eficiente de candidaturas e ampliando o alcance das vagas publicadas, atraindo talentos qualificados alinhados com a missão da instituição.'
   };
 
-  /* Seções de despesas por categoria */
-  function buildCatSection(cat){
-    const itens=desp.filter(d=>d.cat===cat);
+  /* Seções de despesas por categoria (lista = grupo normal ou complementar) */
+  function buildCatSection(cat, lista, comColab, comDesc){
+    if(lista===undefined) lista=desp;
+    if(comColab===undefined) comColab=true;
+    if(comDesc===undefined) comDesc=true;
+    const itens=lista.filter(d=>d.cat===cat);
     if(!itens.length) return '';
     const catTot=itens.reduce((a,d)=>a+(d.valor||0),0);
-    const desc=CAT_DESC[cat]||'';
+    const desc=comDesc?(CAT_DESC[cat]||''):'';
     const itensHtml=itens.map((d,i)=>{
       let txt='<strong>'+(d.fav||'—')+'</strong>';
       if(d.cnpj) txt+=' <span style="font-size:10.5px;color:#6b7280">CNPJ: '+d.cnpj+'</span>';
@@ -3535,7 +3576,7 @@ function renderRelatorio(){
       +'<h3 class="rdg-cat-title">'+cat+'</h3>'
       +(desc?'<p class="rdg-p">'+desc+'</p>':'')
       +itensHtml
-      +(cat==='Folha de Pagamento CIGAC'&&colabLista.length
+      +(cat==='Folha de Pagamento CIGAC'&&comColab&&colabLista.length
         ?'<p class="rdg-p" style="margin-top:12px;font-style:italic">Segue a relação dos colaboradores vinculados ao CIGAC na competência '+mesRef+':</p>'
          +'<table class="rdg-table"><thead><tr>'
          +'<th style="width:36px;text-align:center">Nº</th><th>Nome do Colaborador</th><th>Departamento</th><th>Função</th>'
@@ -3551,7 +3592,18 @@ function renderRelatorio(){
       +'<div class="rdg-cat-total">Subtotal '+cat+': <strong>'+R$(catTot)+'</strong></div>'
       +'</div>';
   }
-  const catSectionsHtml=CATEGORIAS.map(buildCatSection).filter(Boolean).join('');
+  const catSectionsHtml=CATEGORIAS.map(c=>buildCatSection(c,despAtual,true,true)).filter(Boolean).join('');
+  // Bloco separado: despesas complementares do mês anterior
+  const catSectionsComplHtml=despCompl.length
+    ?'<div class="rdg-cat-block" style="margin-top:26px;border-top:3px solid #F59E0B;padding-top:14px">'
+      +'<h2 class="rdg-subsection-title" style="color:#B45309">🔁 Despesas Complementares – Competência '+complLabel+'</h2>'
+      +'<p class="rdg-p">Relação de despesas da competência <strong>'+complLabel+'</strong> cujo pagamento foi efetuado em <strong>'+compLabel(currentComp)+'</strong> (prestação complementar). '
+      +'O rateio destes itens foi efetuado pelo <strong>critério quantitativo de '+complLabel+'</strong>, preservando os percentuais vigentes na competência de origem, de forma segregada das despesas de '+compLabel(currentComp)+'.</p>'
+      +CATEGORIAS.map(c=>buildCatSection(c,despCompl,false,false)).filter(Boolean).join('')
+      +'<div class="rdg-cat-total" style="background:#FFF7ED;color:#B45309">Total das Despesas Complementares '+complLabel+': <strong>'+R$(totalDespCompl)+'</strong></div>'
+      +'<div class="rdg-cat-total">Total Geral ('+compLabel(currentComp)+' + Complementar '+complLabel+'): <strong>'+R$(totalDesp)+'</strong></div>'
+    +'</div>'
+    :'';
 
   /* Tabela critério quantitativo */
   const cqRows=CONTRATOS.map((ct,i)=>{
@@ -3591,7 +3643,8 @@ function renderRelatorio(){
   }).join('');
 
   /* Gráficos analíticos – seção 4 */
-  const cgTotals=CONTRATOS.map(ct=>desp.reduce((a,d)=>a+(d.valor||0)*(pctMap[ct.id]||0),0));
+  const pctAntRel=getPctMapAnt(currentComp);
+  const cgTotals=CONTRATOS.map(ct=>desp.reduce((a,d)=>a+(d.valor||0)*((d.compl?pctAntRel:pctMap)[ct.id]||0),0));
   const quantPcts=CONTRATOS.map(ct=>(pctMap[ct.id]||0)*100);
   const reprPcts=CONTRATOS.map(cg=>{
     const p8=INDICADORES_QUAL.map(ind=>{const q=(iqual[ind.id]||{})[cg.id]||0,t=totaisQ[ind.id];return t>0?q/t:0;});
@@ -3855,6 +3908,7 @@ function renderRelatorio(){
       <h1 class="rdg-section-title">3. Descrição das Despesas</h1>
       <div class="rdg-total-geral">Total Geral das Despesas CIGAC – ${mesRef}: ${R$(totalDesp)}</div>
       ${catSectionsHtml||'<p class="rdg-p" style="color:#9CA3AF;font-style:italic">Nenhuma despesa cadastrada para '+mesRef+'. Acesse a aba <strong>📋 Despesas</strong> para preenchimento.</p>'}
+      ${catSectionsComplHtml}
     </div>
 
     ${sec4Html}
@@ -3996,8 +4050,9 @@ function renderGraficos(){
 
   const data=getMesData(currentComp);
   const pctMap=getPctMap(currentComp);
+  const pctAntG=getPctMapAnt(currentComp);
   const totalMes=totalDespesas(currentComp);
-  const cgTotals=CONTRATOS.map(ct=>data.despesas.reduce((a,d)=>a+(d.valor||0)*(pctMap[ct.id]||0),0));
+  const cgTotals=CONTRATOS.map(ct=>data.despesas.reduce((a,d)=>a+(d.valor||0)*((d.compl?pctAntG:pctMap)[ct.id]||0),0));
   const allComps=Object.keys(state).filter(k=>/^\d{4}-\d{2}$/.test(k)).sort();
   const histTotals=allComps.map(c=>totalDespesas(c));
   const catTotals=CATEGORIAS.map(cat=>data.despesas.filter(d=>d.cat===cat).reduce((a,d)=>a+(d.valor||0),0)).filter(v=>v>0);
@@ -4248,9 +4303,10 @@ function renderAnalise(){
   const pctMap=getPctMap(currentComp);
   const pct=(pctMap[ct.id]||0)*100;
 
-  // Expenses allocated to this CG
+  // Expenses allocated to this CG (complementares usam o rateio do mês anterior)
+  const pctAntAn=getPctMapAnt(currentComp);
   const despAloc=data.despesas.map(d=>({
-    ...d, alocado:(d.valor||0)*(pctMap[ct.id]||0)
+    ...d, alocado:(d.valor||0)*((d.compl?pctAntAn:pctMap)[ct.id]||0)
   })).filter(d=>d.alocado>0);
   const totalAloc=despAloc.reduce((a,d)=>a+d.alocado,0);
   const despLocais=(data.despesasLocais||{})[ct.id]||[];
@@ -4260,8 +4316,9 @@ function renderAnalise(){
   // Historical per CG
   const histVals=allComps.map(comp=>{
     const pm=getPctMap(comp);
+    const pmA=getPctMapAnt(comp);
     const md=getMesData(comp);
-    const cigac=md.despesas.reduce((a,d)=>a+(d.valor||0)*(pm[ct.id]||0),0);
+    const cigac=md.despesas.reduce((a,d)=>a+(d.valor||0)*((d.compl?pmA:pm)[ct.id]||0),0);
     const local=((md.despesasLocais||{})[ct.id]||[]).reduce((a,d)=>a+(d.valor||0),0);
     return cigac+local;
   });
@@ -4271,8 +4328,9 @@ function renderAnalise(){
   let _acum3=0;
   const anoRows=mesesAno.map(comp=>{
     const _pm=getPctMap(comp);
+    const _pmA=getPctMapAnt(comp);
     const _md=getMesData(comp);
-    const _cigac=_md.despesas.reduce((a,d)=>a+(d.valor||0)*(_pm[ct.id]||0),0);
+    const _cigac=_md.despesas.reduce((a,d)=>a+(d.valor||0)*((d.compl?_pmA:_pm)[ct.id]||0),0);
     const _local=((_md.despesasLocais||{})[ct.id]||[]).reduce((a,d)=>a+(d.valor||0),0);
     const alocado=_cigac+_local;
     const orc=(_md.orcamentos||{})[ct.id]||0;
@@ -4593,8 +4651,9 @@ function renderValidacao(){
   // CG selecionado para gestão de despesas locais
   const cgSelDL=(document.getElementById('dl-cg-sel')&&document.getElementById('dl-cg-sel').value)||CONTRATOS[0].id;
 
+  const pctAntVal=getPctMapAnt(currentComp);
   CONTRATOS.forEach((ct,i)=>{
-    const alocado=data.despesas.reduce((a,d)=>a+(d.valor||0)*(pctMap[ct.id]||0),0);
+    const alocado=data.despesas.reduce((a,d)=>a+(d.valor||0)*((d.compl?pctAntVal:pctMap)[ct.id]||0),0);
     const localList=(data.despesasLocais||{})[ct.id]||[];
     const totalLocal=localList.reduce((a,d)=>a+(d.valor||0),0);
     const totalDesp=alocado+totalLocal;

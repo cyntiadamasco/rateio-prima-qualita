@@ -22601,16 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785869941338,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785869992327,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
         "t": 1785870012626,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24099,6 +24089,16 @@
         "t": 1788321481709,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788321484633,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321680693,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24791,22 +24791,22 @@
         {
           "uid": "4sfphnu",
           "id": "41",
-          "cat": "Assessoria Jurídica",
-          "objeto": "",
-          "fav": "",
-          "cnpj": "",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Vale Refeição/Alimentação Colaboradores CIGAC",
+          "fav": "Ticket Soluções HDFGT S/A",
+          "cnpj": "47.866.934/0001-74",
           "ctipo": "",
           "cnum": "",
-          "valor": 0,
+          "valor": 130950,
           "dtPgto": ""
         },
         {
           "uid": "1d9nbzy",
           "id": "42",
-          "cat": "Assessoria Jurídica",
-          "objeto": "",
-          "fav": "",
-          "cnpj": "",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Vale Transporte Colaboradores CIGAC",
+          "fav": "Riopar Participações S/A",
+          "cnpj": "16.727.386/0001-86",
           "ctipo": "",
           "cnum": "",
           "valor": 0,
@@ -24815,10 +24815,10 @@
         {
           "uid": "251gwev",
           "id": "43",
-          "cat": "Assessoria Jurídica",
-          "objeto": "",
-          "fav": "",
-          "cnpj": "",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Vale Transporte Colaboradores CIGAC",
+          "fav": "Riopar Participações S/A",
+          "cnpj": "16.727.386/0001-86",
           "ctipo": "",
           "cnum": "",
           "valor": 0,
@@ -24827,10 +24827,10 @@
         {
           "uid": "ln4k31k",
           "id": "44",
-          "cat": "Assessoria Jurídica",
-          "objeto": "",
-          "fav": "",
-          "cnpj": "",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Vale Transporte Colaboradores CIGAC",
+          "fav": "CBD Bilhete Digital",
+          "cnpj": "48.707.842/0001-04",
           "ctipo": "",
           "cnum": "",
           "valor": 0,
@@ -27304,5 +27304,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788321481712
+  "savedAt": 1788321680698
 }

@@ -23974,6 +23974,26 @@
         "t": 1788320707486,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788320710197,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788320711913,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788320713661,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788320715301,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24556,8 +24576,20 @@
           "dtPgto": ""
         },
         {
-          "uid": "mebt9gs",
+          "uid": "r50te8b",
           "id": "33",
+          "cat": "Assessoria Jurídica",
+          "objeto": "",
+          "fav": "",
+          "cnpj": "",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "dtPgto": ""
+        },
+        {
+          "uid": "mebt9gs",
+          "id": "34",
           "cat": "Locação de Veículo Apoio Administrativo",
           "objeto": "Locação de veículos para atender a CIGAC",
           "fav": "Promedical Serviços em Saude LTD",
@@ -24571,7 +24603,7 @@
         },
         {
           "uid": "na1n2mn",
-          "id": "34",
+          "id": "35",
           "cat": "Despesas de materiais de expediente e afins",
           "objeto": "Fornecimento de Água Mineral",
           "fav": "Rodolfo Lucas Duarte 08848690750",
@@ -24585,7 +24617,7 @@
         },
         {
           "uid": "2qpw48l",
-          "id": "35",
+          "id": "36",
           "cat": "Medicina do Trabalho",
           "objeto": "Serviços de SST",
           "fav": "ICM Medicina Ocupacional LTDA",
@@ -24599,7 +24631,7 @@
         },
         {
           "uid": "vspfh2p",
-          "id": "36",
+          "id": "37",
           "cat": "Seguro de Vida",
           "objeto": "Seguro de Vida Colaboradores CIGAC",
           "fav": "Unimed Seguradora S/A",
@@ -24609,18 +24641,6 @@
           "valor": 2418.18,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
-        },
-        {
-          "uid": "r50te8b",
-          "id": "37",
-          "cat": "Assessoria Jurídica",
-          "objeto": "",
-          "fav": "",
-          "cnpj": "",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
           "dtPgto": ""
         },
         {
@@ -27105,5 +27125,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788320707491
+  "savedAt": 1788320715302
 }

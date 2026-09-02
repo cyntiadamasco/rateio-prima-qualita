@@ -23924,6 +23924,11 @@
         "t": 1788319454511,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319466356,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24484,9 +24489,9 @@
           "objeto": "Condomínio e Taxas do Imóvel Centro Integrado de Gestão e Assistência Compartilhada - CIGAC",
           "fav": "Condomínio do São Gonçalo Shopping Rio",
           "cnpj": "06.068.650/0001-55",
-          "ctipo": "",
+          "ctipo": "BOLETO",
           "cnum": "",
-          "valor": 0,
+          "valor": 51648.6,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -27043,5 +27048,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788319454514
+  "savedAt": 1788319466359
 }

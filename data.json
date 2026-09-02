@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785869649090,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
         "t": 1785869662016,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24099,6 +24094,11 @@
         "t": 1788321400664,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788321413622,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24769,9 +24769,9 @@
           "objeto": "Suporte ao desenvolvimento de Ouvidoria e apoio aos processos de sindicância",
           "fav": "Gustavo Fróes Sociedade Individual de Advocacia",
           "cnpj": "43.485.758/0001-70",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "202609",
+          "valor": 7000,
           "dtPgto": "",
           "compl": true
         },
@@ -27304,5 +27304,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788321400668
+  "savedAt": 1788321413625
 }

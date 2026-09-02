@@ -23909,6 +23909,11 @@
         "t": 1788319399849,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319414707,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24427,9 +24432,9 @@
           "objeto": "Serviço de Treinamento de Melhoria Contínua",
           "fav": "Six Treinamento Empresarial LTDA",
           "cnpj": "19.196.342/0001-57",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "9",
+          "valor": 26084.8,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -27028,5 +27033,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788319399853
+  "savedAt": 1788319414710
 }

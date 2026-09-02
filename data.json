@@ -22601,91 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785813937292,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785813945597,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785813951716,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785813954903,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785813966531,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785813968706,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785813973059,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785813989195,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785813992176,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785813995964,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785813999049,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785814008714,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785814011381,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785814019255,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785814027711,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785814030708,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785814034155,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
         "t": 1785814037586,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24099,6 +24014,91 @@
         "t": 1788321141741,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788321143195,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321144309,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321145393,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321147109,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321148943,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321152015,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321152921,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321154327,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321155443,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321156807,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321158410,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321159586,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321161293,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321163307,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321164273,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321168263,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321169267,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24317,21 +24317,8 @@
           "dtPgto": ""
         },
         {
-          "uid": "r50te8b",
-          "id": "7",
-          "cat": "Assessoria Jurídica",
-          "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório",
-          "fav": "Pablo Siqueira Sociedade Individual de Advocacia",
-          "cnpj": "18.464.526/0001-98",
-          "ctipo": "NF",
-          "cnum": "20",
-          "valor": 36000,
-          "dtPgto": "",
-          "compl": true
-        },
-        {
           "uid": "wgmbxwo",
-          "id": "8",
+          "id": "7",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "INSS sobre Folha",
           "fav": "Instituto Nacional do Seguro Social - INSS",
@@ -24345,7 +24332,7 @@
         },
         {
           "uid": "h8jp696",
-          "id": "9",
+          "id": "8",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Fundo de Garantia por Tempo de Serviços (FGTS)",
           "fav": "Caixa Econômica Federal - FGTS",
@@ -24359,7 +24346,7 @@
         },
         {
           "uid": "vtlipxy",
-          "id": "10",
+          "id": "9",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Imposto de Renda Pessoa Física - Folha",
           "fav": "Receita Federal",
@@ -24373,7 +24360,7 @@
         },
         {
           "uid": "x15mpon",
-          "id": "11",
+          "id": "10",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Vale Refeição/Alimentação Colaboradores CIGAC",
           "fav": "Ticket Soluções HDFGT S/A",
@@ -24387,7 +24374,7 @@
         },
         {
           "uid": "k5vtu7y",
-          "id": "12",
+          "id": "11",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Vale Transporte Colaboradores CIGAC",
           "fav": "Riopar Participações S/A",
@@ -24401,7 +24388,7 @@
         },
         {
           "uid": "2666nsn",
-          "id": "13",
+          "id": "12",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Vale Transporte Colaboradores CIGAC",
           "fav": "Riopar Participações S/A",
@@ -24415,7 +24402,7 @@
         },
         {
           "uid": "is2adnr",
-          "id": "14",
+          "id": "13",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Vale Transporte Colaboradores CIGAC",
           "fav": "CBD Bilhete Digital",
@@ -24429,7 +24416,7 @@
         },
         {
           "uid": "xgv7mwv",
-          "id": "15",
+          "id": "14",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Contribuição Institucional Destinada a Manutenção do CIEE",
           "fav": "Centro de Integração Empresa Escola",
@@ -24443,7 +24430,7 @@
         },
         {
           "uid": "rab6nde",
-          "id": "16",
+          "id": "15",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Coordenação de Revisão de Óbitos e Prontuários Institucional",
           "fav": "Radiocom Diagnosticos LTDA",
@@ -24457,7 +24444,7 @@
         },
         {
           "uid": "3plh8cg",
-          "id": "17",
+          "id": "16",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Empréstimo Consignado CIGAC",
           "fav": "Crédito Trabalhador",
@@ -24471,7 +24458,7 @@
         },
         {
           "uid": "7fy2fo5",
-          "id": "18",
+          "id": "17",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Pensão Alimentícia - Colaborador Douglas Barcellos Silva",
           "fav": "Michele Guilhermina Moraes Barcellos",
@@ -24485,7 +24472,7 @@
         },
         {
           "uid": "up90yw2",
-          "id": "19",
+          "id": "18",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Pensão Alimentícia - Colaborador Dioni de Oliveira Schuvartz",
           "fav": "Sara Almeida Souza Schuvartz",
@@ -24499,7 +24486,7 @@
         },
         {
           "uid": "27irwyw",
-          "id": "20",
+          "id": "19",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Provisão de Verbas Rescisórias CIGAC",
           "fav": "Projeto Social Cresce Comunidade",
@@ -24513,7 +24500,7 @@
         },
         {
           "uid": "4iuymoj",
-          "id": "21",
+          "id": "20",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Servidor Nuvem Privada em Data Center",
           "fav": "Cigam Software Corporativo S.A",
@@ -24527,7 +24514,7 @@
         },
         {
           "uid": "fh32aes",
-          "id": "22",
+          "id": "21",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema de Gestão RH /  HORAS",
           "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
@@ -24541,7 +24528,7 @@
         },
         {
           "uid": "gengfol",
-          "id": "23",
+          "id": "22",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema de Gestão ERP / MENSALIDADE",
           "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
@@ -24555,7 +24542,7 @@
         },
         {
           "uid": "45sjgey",
-          "id": "24",
+          "id": "23",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema de DP/RH",
           "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
@@ -24566,6 +24553,19 @@
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
+        },
+        {
+          "uid": "r50te8b",
+          "id": "24",
+          "cat": "Assessoria Jurídica",
+          "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório",
+          "fav": "Pablo Siqueira Sociedade Individual de Advocacia",
+          "cnpj": "18.464.526/0001-98",
+          "ctipo": "NF",
+          "cnum": "20",
+          "valor": 36000,
+          "dtPgto": "",
+          "compl": true
         },
         {
           "uid": "c1p1fjl",
@@ -27231,5 +27231,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788321141745
+  "savedAt": 1788321169271
 }

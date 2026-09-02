@@ -23819,6 +23819,11 @@
         "t": 1788318998484,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319023026,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24071,9 +24076,9 @@
           "objeto": "Imposto de Renda Pessoa Física - Folha",
           "fav": "Receita Federal",
           "cnpj": "40.289.134/0001-99",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "DARF",
+          "cnum": "IRRF",
+          "valor": 66060.23,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -26938,5 +26943,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788318998489
+  "savedAt": 1788319023029
 }

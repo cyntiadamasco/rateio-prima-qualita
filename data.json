@@ -23849,6 +23849,11 @@
         "t": 1788319107299,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319135805,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24185,9 +24190,9 @@
           "objeto": "Coordenação de Revisão de Óbitos e Prontuários Institucional",
           "fav": "Radiocom Diagnosticos LTDA",
           "cnpj": "33.192.856/0001-65",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "287",
+          "valor": 20500,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -26968,5 +26973,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788319107304
+  "savedAt": 1788319135809
 }

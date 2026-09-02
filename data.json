@@ -23919,6 +23919,11 @@
         "t": 1788319429291,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319454511,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24465,9 +24470,9 @@
           "objeto": "Aluguel Imóvel Centro Integrado de Gestão e Assistência Compartilhada - CIGAC",
           "fav": "Riza Securitizadora S. A",
           "cnpj": "08.769.451/0001-08",
-          "ctipo": "",
+          "ctipo": "BOLETO",
           "cnum": "",
-          "valor": 0,
+          "valor": 16178.43,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -27038,5 +27043,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788319429295
+  "savedAt": 1788319454514
 }

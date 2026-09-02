@@ -23994,6 +23994,46 @@
         "t": 1788320715301,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788320718498,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788320719729,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788320721793,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788320728547,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788320729957,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788320731081,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788320732754,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788320735220,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24464,8 +24504,20 @@
           "dtPgto": ""
         },
         {
-          "uid": "pyl104f",
+          "uid": "r50te8b",
           "id": "25",
+          "cat": "Assessoria Jurídica",
+          "objeto": "",
+          "fav": "",
+          "cnpj": "",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "dtPgto": ""
+        },
+        {
+          "uid": "pyl104f",
+          "id": "26",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema de Gestão ERP / HORAS",
           "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
@@ -24479,7 +24531,7 @@
         },
         {
           "uid": "y0ot2jy",
-          "id": "26",
+          "id": "27",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema Contábil/Fiscal/DP/MENSALIDADE",
           "fav": "Alterdata Tecnologia em Informática LTDA",
@@ -24493,7 +24545,7 @@
         },
         {
           "uid": "p7tajs7",
-          "id": "27",
+          "id": "28",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema Prestação de Contas",
           "fav": "BR Gaap Corporation Tecnologia da Informação Ltda",
@@ -24507,7 +24559,7 @@
         },
         {
           "uid": "ardh146",
-          "id": "28",
+          "id": "29",
           "cat": "Melhoria Contínua",
           "objeto": "Serviço de Treinamento de Melhoria Contínua",
           "fav": "Six Treinamento Empresarial LTDA",
@@ -24521,7 +24573,7 @@
         },
         {
           "uid": "7d3r1wt",
-          "id": "29",
+          "id": "30",
           "cat": "Locação de Mobiliário e Equipamentos de Informática (CIGAC)",
           "objeto": "Locação de mobiliários e equipamentos para o CIGAC",
           "fav": "A4PM Analytics For Public Management LTDA",
@@ -24535,7 +24587,7 @@
         },
         {
           "uid": "zqox3n1",
-          "id": "30",
+          "id": "31",
           "cat": "Locação de Imóvel CIGAC e Despesas",
           "objeto": "Aluguel Imóvel Centro Integrado de Gestão e Assistência Compartilhada - CIGAC",
           "fav": "Riza Securitizadora S. A",
@@ -24549,7 +24601,7 @@
         },
         {
           "uid": "35p1irj",
-          "id": "31",
+          "id": "32",
           "cat": "Locação de Imóvel CIGAC e Despesas",
           "objeto": "Condomínio e Taxas do Imóvel Centro Integrado de Gestão e Assistência Compartilhada - CIGAC",
           "fav": "Condomínio do São Gonçalo Shopping Rio",
@@ -24563,7 +24615,7 @@
         },
         {
           "uid": "dmt1p11",
-          "id": "32",
+          "id": "33",
           "cat": "Locação de Veículo Apoio Administrativo",
           "objeto": "Locação de veículos para atender a Central de logística",
           "fav": "Promedical Serviços em Saude LTDA",
@@ -24573,18 +24625,6 @@
           "valor": 0,
           "pdfUrl": "",
           "pdfNome": "",
-          "dtPgto": ""
-        },
-        {
-          "uid": "r50te8b",
-          "id": "33",
-          "cat": "Assessoria Jurídica",
-          "objeto": "",
-          "fav": "",
-          "cnpj": "",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
           "dtPgto": ""
         },
         {
@@ -27125,5 +27165,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788320715302
+  "savedAt": 1788320735223
 }

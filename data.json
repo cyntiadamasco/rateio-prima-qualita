@@ -23844,6 +23844,11 @@
         "t": 1788319092149,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319107299,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24166,9 +24171,9 @@
           "objeto": "Contribuição Institucional Destinada a Manutenção do CIEE",
           "fav": "Centro de Integração Empresa Escola",
           "cnpj": "33.661.745/0001-50",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "41105",
+          "valor": 501.56,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -26963,5 +26968,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788319092153
+  "savedAt": 1788319107304
 }

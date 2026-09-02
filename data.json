@@ -23859,6 +23859,11 @@
         "t": 1788319162751,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319176991,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24223,9 +24228,9 @@
           "objeto": "Pensão Alimentícia - Colaborador Douglas Barcellos Silva",
           "fav": "Michele Guilhermina Moraes Barcellos",
           "cnpj": "115.607.797-48",
-          "ctipo": "",
+          "ctipo": "PENSÃO",
           "cnum": "",
-          "valor": 0,
+          "valor": 459.36,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -26978,5 +26983,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788319162755
+  "savedAt": 1788319176995
 }

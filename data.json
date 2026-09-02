@@ -23949,6 +23949,11 @@
         "t": 1788319525947,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319542133,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24593,9 +24598,9 @@
           "objeto": "Licença de Uso Mensal do Software Vagas For Business",
           "fav": "Vagas Tecnologia de Software LTDA",
           "cnpj": "03.689.427/0001-37",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "315801",
+          "valor": 2581.49,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -27068,5 +27073,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788319525952
+  "savedAt": 1788319542137
 }

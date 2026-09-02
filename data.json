@@ -23804,6 +23804,11 @@
         "t": 1788318908395,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788318927253,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24016,7 +24021,7 @@
           "cnpj": "40.289.134/0001-99",
           "ctipo": "",
           "cnum": "",
-          "valor": 0,
+          "valor": 477038.78,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -26923,5 +26928,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788318908400
+  "savedAt": 1788318927257
 }

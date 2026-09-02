@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785814227189,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1785869532270,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24099,6 +24094,11 @@
         "t": 1788321188820,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788321372032,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24261,22 +24261,8 @@
           "dtPgto": ""
         },
         {
-          "uid": "2zso2nl",
-          "id": "3",
-          "cat": "Assessoria Jurídica",
-          "objeto": "Compliance jurídico",
-          "fav": "Gauche Advogados Associados",
-          "cnpj": "48.916.964/0001-00",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
-          "pdfUrl": "",
-          "pdfNome": "",
-          "dtPgto": ""
-        },
-        {
           "uid": "7q2wdbv",
-          "id": "4",
+          "id": "3",
           "cat": "Assessoria Jurídica",
           "objeto": "Suporte ao desenvolvimento de Ouvidoria e apoio aos processos de sindicância",
           "fav": "Gustavo Fróes Sociedade Individual de Advocacia",
@@ -24290,7 +24276,7 @@
         },
         {
           "uid": "nkrdeqb",
-          "id": "5",
+          "id": "4",
           "cat": "Auditorias Contábil, Fiscal e Financeira",
           "objeto": "Serviços de Auditoria Financeira e Contábil",
           "fav": "IGF Auditores e Consultores Independentes Sociedade Simples",
@@ -24304,7 +24290,7 @@
         },
         {
           "uid": "sjzn0kz",
-          "id": "6",
+          "id": "5",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Folha de Pagamento Colaboradores CIGAC",
           "fav": "Projeto Social Cresce Comunidade - Prima Qualitá",
@@ -24318,7 +24304,7 @@
         },
         {
           "uid": "wgmbxwo",
-          "id": "7",
+          "id": "6",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "INSS sobre Folha",
           "fav": "Instituto Nacional do Seguro Social - INSS",
@@ -24332,7 +24318,7 @@
         },
         {
           "uid": "h8jp696",
-          "id": "8",
+          "id": "7",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Fundo de Garantia por Tempo de Serviços (FGTS)",
           "fav": "Caixa Econômica Federal - FGTS",
@@ -24346,7 +24332,7 @@
         },
         {
           "uid": "vtlipxy",
-          "id": "9",
+          "id": "8",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Imposto de Renda Pessoa Física - Folha",
           "fav": "Receita Federal",
@@ -24360,7 +24346,7 @@
         },
         {
           "uid": "x15mpon",
-          "id": "10",
+          "id": "9",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Vale Refeição/Alimentação Colaboradores CIGAC",
           "fav": "Ticket Soluções HDFGT S/A",
@@ -24374,7 +24360,7 @@
         },
         {
           "uid": "k5vtu7y",
-          "id": "11",
+          "id": "10",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Vale Transporte Colaboradores CIGAC",
           "fav": "Riopar Participações S/A",
@@ -24388,7 +24374,7 @@
         },
         {
           "uid": "2666nsn",
-          "id": "12",
+          "id": "11",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Vale Transporte Colaboradores CIGAC",
           "fav": "Riopar Participações S/A",
@@ -24402,7 +24388,7 @@
         },
         {
           "uid": "is2adnr",
-          "id": "13",
+          "id": "12",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Vale Transporte Colaboradores CIGAC",
           "fav": "CBD Bilhete Digital",
@@ -24416,7 +24402,7 @@
         },
         {
           "uid": "xgv7mwv",
-          "id": "14",
+          "id": "13",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Contribuição Institucional Destinada a Manutenção do CIEE",
           "fav": "Centro de Integração Empresa Escola",
@@ -24430,7 +24416,7 @@
         },
         {
           "uid": "rab6nde",
-          "id": "15",
+          "id": "14",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Coordenação de Revisão de Óbitos e Prontuários Institucional",
           "fav": "Radiocom Diagnosticos LTDA",
@@ -24444,7 +24430,7 @@
         },
         {
           "uid": "3plh8cg",
-          "id": "16",
+          "id": "15",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Empréstimo Consignado CIGAC",
           "fav": "Crédito Trabalhador",
@@ -24458,7 +24444,7 @@
         },
         {
           "uid": "7fy2fo5",
-          "id": "17",
+          "id": "16",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Pensão Alimentícia - Colaborador Douglas Barcellos Silva",
           "fav": "Michele Guilhermina Moraes Barcellos",
@@ -24472,7 +24458,7 @@
         },
         {
           "uid": "up90yw2",
-          "id": "18",
+          "id": "17",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Pensão Alimentícia - Colaborador Dioni de Oliveira Schuvartz",
           "fav": "Sara Almeida Souza Schuvartz",
@@ -24486,7 +24472,7 @@
         },
         {
           "uid": "27irwyw",
-          "id": "19",
+          "id": "18",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Provisão de Verbas Rescisórias CIGAC",
           "fav": "Projeto Social Cresce Comunidade",
@@ -24500,7 +24486,7 @@
         },
         {
           "uid": "4iuymoj",
-          "id": "20",
+          "id": "19",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Servidor Nuvem Privada em Data Center",
           "fav": "Cigam Software Corporativo S.A",
@@ -24514,7 +24500,7 @@
         },
         {
           "uid": "fh32aes",
-          "id": "21",
+          "id": "20",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema de Gestão RH /  HORAS",
           "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
@@ -24528,7 +24514,7 @@
         },
         {
           "uid": "gengfol",
-          "id": "22",
+          "id": "21",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema de Gestão ERP / MENSALIDADE",
           "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
@@ -24542,7 +24528,7 @@
         },
         {
           "uid": "45sjgey",
-          "id": "23",
+          "id": "22",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema de DP/RH",
           "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
@@ -24556,7 +24542,7 @@
         },
         {
           "uid": "c1p1fjl",
-          "id": "24",
+          "id": "23",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema de Análise de Risco",
           "fav": "KPMG Assessores LTDA",
@@ -24570,7 +24556,7 @@
         },
         {
           "uid": "pyl104f",
-          "id": "25",
+          "id": "24",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema de Gestão ERP / HORAS",
           "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
@@ -24584,7 +24570,7 @@
         },
         {
           "uid": "y0ot2jy",
-          "id": "26",
+          "id": "25",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema Contábil/Fiscal/DP/MENSALIDADE",
           "fav": "Alterdata Tecnologia em Informática LTDA",
@@ -24598,7 +24584,7 @@
         },
         {
           "uid": "p7tajs7",
-          "id": "27",
+          "id": "26",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema Prestação de Contas",
           "fav": "BR Gaap Corporation Tecnologia da Informação Ltda",
@@ -24612,7 +24598,7 @@
         },
         {
           "uid": "ardh146",
-          "id": "28",
+          "id": "27",
           "cat": "Melhoria Contínua",
           "objeto": "Serviço de Treinamento de Melhoria Contínua",
           "fav": "Six Treinamento Empresarial LTDA",
@@ -24626,7 +24612,7 @@
         },
         {
           "uid": "7d3r1wt",
-          "id": "29",
+          "id": "28",
           "cat": "Locação de Mobiliário e Equipamentos de Informática (CIGAC)",
           "objeto": "Locação de mobiliários e equipamentos para o CIGAC",
           "fav": "A4PM Analytics For Public Management LTDA",
@@ -24640,7 +24626,7 @@
         },
         {
           "uid": "zqox3n1",
-          "id": "30",
+          "id": "29",
           "cat": "Locação de Imóvel CIGAC e Despesas",
           "objeto": "Aluguel Imóvel Centro Integrado de Gestão e Assistência Compartilhada - CIGAC",
           "fav": "Riza Securitizadora S. A",
@@ -24654,7 +24640,7 @@
         },
         {
           "uid": "35p1irj",
-          "id": "31",
+          "id": "30",
           "cat": "Locação de Imóvel CIGAC e Despesas",
           "objeto": "Condomínio e Taxas do Imóvel Centro Integrado de Gestão e Assistência Compartilhada - CIGAC",
           "fav": "Condomínio do São Gonçalo Shopping Rio",
@@ -24668,7 +24654,7 @@
         },
         {
           "uid": "dmt1p11",
-          "id": "32",
+          "id": "31",
           "cat": "Locação de Veículo Apoio Administrativo",
           "objeto": "Locação de veículos para atender a Central de logística",
           "fav": "Promedical Serviços em Saude LTDA",
@@ -24682,7 +24668,7 @@
         },
         {
           "uid": "mebt9gs",
-          "id": "33",
+          "id": "32",
           "cat": "Locação de Veículo Apoio Administrativo",
           "objeto": "Locação de veículos para atender a CIGAC",
           "fav": "Promedical Serviços em Saude LTD",
@@ -24696,7 +24682,7 @@
         },
         {
           "uid": "na1n2mn",
-          "id": "34",
+          "id": "33",
           "cat": "Despesas de materiais de expediente e afins",
           "objeto": "Fornecimento de Água Mineral",
           "fav": "Rodolfo Lucas Duarte 08848690750",
@@ -24710,7 +24696,7 @@
         },
         {
           "uid": "2qpw48l",
-          "id": "35",
+          "id": "34",
           "cat": "Medicina do Trabalho",
           "objeto": "Serviços de SST",
           "fav": "ICM Medicina Ocupacional LTDA",
@@ -24724,7 +24710,7 @@
         },
         {
           "uid": "vspfh2p",
-          "id": "36",
+          "id": "35",
           "cat": "Seguro de Vida",
           "objeto": "Seguro de Vida Colaboradores CIGAC",
           "fav": "Unimed Seguradora S/A",
@@ -24738,7 +24724,7 @@
         },
         {
           "uid": "gdgsv5b",
-          "id": "37",
+          "id": "36",
           "cat": "Plataforma Processo Seletivo",
           "objeto": "Licença de Uso Mensal do Software Vagas For Business",
           "fav": "Vagas Tecnologia de Software LTDA",
@@ -24752,7 +24738,7 @@
         },
         {
           "uid": "r50te8b",
-          "id": "38",
+          "id": "37",
           "cat": "Assessoria Jurídica",
           "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório",
           "fav": "Pablo Siqueira Sociedade Individual de Advocacia",
@@ -24762,6 +24748,91 @@
           "valor": 36000,
           "dtPgto": "",
           "compl": true
+        },
+        {
+          "uid": "0gkid7x",
+          "id": "38",
+          "cat": "Assessoria Jurídica",
+          "objeto": "Contencioso e consultivo na área de direito cível e de direito médico e da saúde",
+          "fav": "E Simões Sociedade Individual de Advocacia",
+          "cnpj": "40.101.757/0001-96",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "dtPgto": "",
+          "compl": true
+        },
+        {
+          "uid": "0jdjqnw",
+          "id": "39",
+          "cat": "Assessoria Jurídica",
+          "objeto": "Suporte ao desenvolvimento de Ouvidoria e apoio aos processos de sindicância",
+          "fav": "Gustavo Fróes Sociedade Individual de Advocacia",
+          "cnpj": "43.485.758/0001-70",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "dtPgto": ""
+        },
+        {
+          "uid": "8jay9lv",
+          "id": "40",
+          "cat": "Auditorias Contábil, Fiscal e Financeira",
+          "objeto": "Serviços de Auditoria Financeira e Contábil",
+          "fav": "IGF Auditores e Consultores Independentes Sociedade Simples",
+          "cnpj": "04.899.444/0001-61",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "dtPgto": ""
+        },
+        {
+          "uid": "4sfphnu",
+          "id": "41",
+          "cat": "Assessoria Jurídica",
+          "objeto": "",
+          "fav": "",
+          "cnpj": "",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "dtPgto": ""
+        },
+        {
+          "uid": "1d9nbzy",
+          "id": "42",
+          "cat": "Assessoria Jurídica",
+          "objeto": "",
+          "fav": "",
+          "cnpj": "",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "dtPgto": ""
+        },
+        {
+          "uid": "251gwev",
+          "id": "43",
+          "cat": "Assessoria Jurídica",
+          "objeto": "",
+          "fav": "",
+          "cnpj": "",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "dtPgto": ""
+        },
+        {
+          "uid": "ln4k31k",
+          "id": "44",
+          "cat": "Assessoria Jurídica",
+          "objeto": "",
+          "fav": "",
+          "cnpj": "",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "dtPgto": ""
         }
       ],
       "orcamentos": {
@@ -27231,5 +27302,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788321188822
+  "savedAt": 1788321372041
 }

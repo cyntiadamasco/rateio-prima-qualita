@@ -22601,41 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785176690562,
-        "perfil": "Administrador",
-        "comp": "2026-06"
-      },
-      {
-        "t": 1785176694610,
-        "perfil": "Administrador",
-        "comp": "2026-06"
-      },
-      {
-        "t": 1785176703980,
-        "perfil": "Administrador",
-        "comp": "2026-06"
-      },
-      {
-        "t": 1785176734072,
-        "perfil": "Administrador",
-        "comp": "2026-06"
-      },
-      {
-        "t": 1785813851399,
-        "perfil": "Administrador",
-        "comp": "2026-06"
-      },
-      {
-        "t": 1785813854567,
-        "perfil": "Administrador",
-        "comp": "2026-06"
-      },
-      {
-        "t": 1785813861957,
-        "perfil": "Administrador",
-        "comp": "2026-06"
-      },
-      {
         "t": 1785813867848,
         "perfil": "Administrador",
         "comp": "2026-06"
@@ -24099,6 +24064,41 @@
         "t": 1788320765002,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788320767544,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788320768305,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788320769503,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788320770304,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788320771407,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788320774777,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788320804725,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24247,8 +24247,20 @@
           "dtPgto": ""
         },
         {
-          "uid": "qmkrybx",
+          "uid": "r50te8b",
           "id": "2",
+          "cat": "Assessoria Jurídica",
+          "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório",
+          "fav": "Pablo Siqueira Sociedade Individual de Advocacia",
+          "cnpj": "18.464.526/0001-98",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 36000,
+          "dtPgto": ""
+        },
+        {
+          "uid": "qmkrybx",
+          "id": "3",
           "cat": "Assessoria Jurídica",
           "objeto": "Contencioso e consultivo na área de direito cível e de direito médico e da saúde",
           "fav": "E Simões Sociedade Individual de Advocacia",
@@ -24262,7 +24274,7 @@
         },
         {
           "uid": "2zso2nl",
-          "id": "3",
+          "id": "4",
           "cat": "Assessoria Jurídica",
           "objeto": "Compliance jurídico",
           "fav": "Gauche Advogados Associados",
@@ -24276,7 +24288,7 @@
         },
         {
           "uid": "7q2wdbv",
-          "id": "4",
+          "id": "5",
           "cat": "Assessoria Jurídica",
           "objeto": "Suporte ao desenvolvimento de Ouvidoria e apoio aos processos de sindicância",
           "fav": "Gustavo Fróes Sociedade Individual de Advocacia",
@@ -24290,7 +24302,7 @@
         },
         {
           "uid": "nkrdeqb",
-          "id": "5",
+          "id": "6",
           "cat": "Auditorias Contábil, Fiscal e Financeira",
           "objeto": "Serviços de Auditoria Financeira e Contábil",
           "fav": "IGF Auditores e Consultores Independentes Sociedade Simples",
@@ -24304,7 +24316,7 @@
         },
         {
           "uid": "sjzn0kz",
-          "id": "6",
+          "id": "7",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Folha de Pagamento Colaboradores CIGAC",
           "fav": "Projeto Social Cresce Comunidade - Prima Qualitá",
@@ -24318,7 +24330,7 @@
         },
         {
           "uid": "wgmbxwo",
-          "id": "7",
+          "id": "8",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "INSS sobre Folha",
           "fav": "Instituto Nacional do Seguro Social - INSS",
@@ -24328,18 +24340,6 @@
           "valor": 52935.62,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
-        },
-        {
-          "uid": "r50te8b",
-          "id": "8",
-          "cat": "Assessoria Jurídica",
-          "objeto": "",
-          "fav": "",
-          "cnpj": "",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
           "dtPgto": ""
         },
         {
@@ -27230,5 +27230,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788320765005
+  "savedAt": 1788320804730
 }

@@ -23784,6 +23784,11 @@
         "t": 1787451834251,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788318861617,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -23847,72 +23852,72 @@
       "colaboradores": [
         {
           "id": "madalena",
-          "clt": 0,
-          "efetivo": 0,
-          "pj": 0,
+          "clt": 121,
+          "efetivo": 25,
+          "pj": 33,
           "obs": ""
         },
         {
           "id": "cachoeiras",
-          "clt": 0,
+          "clt": 374,
           "efetivo": 0,
-          "pj": 0,
+          "pj": 128,
           "obs": ""
         },
         {
           "id": "saq_hosp",
-          "clt": 0,
-          "efetivo": 0,
-          "pj": 0,
+          "clt": 1408,
+          "efetivo": 20,
+          "pj": 631,
           "obs": ""
         },
         {
           "id": "upa_pac",
-          "clt": 0,
+          "clt": 79,
           "efetivo": 0,
-          "pj": 0,
+          "pj": 36,
           "obs": ""
         },
         {
           "id": "upa_nc",
-          "clt": 0,
+          "clt": 80,
           "efetivo": 0,
-          "pj": 0,
+          "pj": 36,
           "obs": ""
         },
         {
           "id": "arraial",
-          "clt": 0,
-          "efetivo": 0,
-          "pj": 0,
+          "clt": 926,
+          "efetivo": 89,
+          "pj": 350,
           "obs": ""
         },
         {
           "id": "quissama",
-          "clt": 0,
+          "clt": 54,
           "efetivo": 0,
-          "pj": 0,
+          "pj": 5,
           "obs": ""
         },
         {
           "id": "cordeiro",
-          "clt": 0,
+          "clt": 92,
           "efetivo": 0,
-          "pj": 0,
+          "pj": 62,
           "obs": ""
         },
         {
           "id": "saq_esp",
-          "clt": 0,
-          "efetivo": 0,
-          "pj": 0,
+          "clt": 311,
+          "efetivo": 68,
+          "pj": 116,
           "obs": ""
         },
         {
           "id": "saq_pri",
-          "clt": 0,
-          "efetivo": 0,
-          "pj": 0,
+          "clt": 632,
+          "efetivo": 41,
+          "pj": 7,
           "obs": ""
         }
       ],
@@ -23924,9 +23929,9 @@
           "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório",
           "fav": "Pablo Siqueira Sociedade Individual de Advocacia",
           "cnpj": "18.464.526/0001-98",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "21",
+          "valor": 36000,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -26903,5 +26908,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1787451834255
+  "savedAt": 1788318861625
 }

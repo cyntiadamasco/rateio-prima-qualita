@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785813870135,
-        "perfil": "Administrador",
-        "comp": "2026-06"
-      },
-      {
         "t": 1785813890763,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24099,6 +24094,11 @@
         "t": 1788320951191,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788320959357,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24233,8 +24233,21 @@
       ],
       "despesas": [
         {
-          "uid": "3i76dr2",
+          "uid": "r50te8b",
           "id": "1",
+          "cat": "Assessoria Jurídica",
+          "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório",
+          "fav": "Pablo Siqueira Sociedade Individual de Advocacia",
+          "cnpj": "18.464.526/0001-98",
+          "ctipo": "NF",
+          "cnum": "20",
+          "valor": 36000,
+          "dtPgto": "",
+          "compl": true
+        },
+        {
+          "uid": "3i76dr2",
+          "id": "2",
           "cat": "Assessoria Jurídica",
           "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório",
           "fav": "Pablo Siqueira Sociedade Individual de Advocacia",
@@ -24245,19 +24258,6 @@
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
-        },
-        {
-          "uid": "r50te8b",
-          "id": "2",
-          "cat": "Assessoria Jurídica",
-          "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório",
-          "fav": "Pablo Siqueira Sociedade Individual de Advocacia",
-          "cnpj": "18.464.526/0001-98",
-          "ctipo": "NF",
-          "cnum": "20",
-          "valor": 36000,
-          "dtPgto": "",
-          "compl": true
         },
         {
           "uid": "qmkrybx",
@@ -27231,5 +27231,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788320951195
+  "savedAt": 1788320959360
 }

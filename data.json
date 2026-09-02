@@ -23884,6 +23884,11 @@
         "t": 1788319255453,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788319269379,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24332,9 +24337,9 @@
           "objeto": "Sistema de DP/RH",
           "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
           "cnpj": "24.783.564/0001-06",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "2450",
+          "valor": 17080,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -27003,5 +27008,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788319255456
+  "savedAt": 1788319269387
 }

@@ -22601,76 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785814037586,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785814040625,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785814043381,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785814046913,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785814055462,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785814058573,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785814061459,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785814064719,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785814071923,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785814083126,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785814092604,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785814158011,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785814176829,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1785814185363,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1785814227189,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24099,6 +24029,76 @@
         "t": 1788321169267,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788321170131,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321171313,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321172237,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321173723,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321178032,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321179210,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321179999,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321180790,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321181654,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321182516,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321183925,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321186863,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321187747,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788321188820,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24555,21 +24555,8 @@
           "dtPgto": ""
         },
         {
-          "uid": "r50te8b",
-          "id": "24",
-          "cat": "Assessoria Jurídica",
-          "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório",
-          "fav": "Pablo Siqueira Sociedade Individual de Advocacia",
-          "cnpj": "18.464.526/0001-98",
-          "ctipo": "NF",
-          "cnum": "20",
-          "valor": 36000,
-          "dtPgto": "",
-          "compl": true
-        },
-        {
           "uid": "c1p1fjl",
-          "id": "25",
+          "id": "24",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema de Análise de Risco",
           "fav": "KPMG Assessores LTDA",
@@ -24583,7 +24570,7 @@
         },
         {
           "uid": "pyl104f",
-          "id": "26",
+          "id": "25",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema de Gestão ERP / HORAS",
           "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
@@ -24597,7 +24584,7 @@
         },
         {
           "uid": "y0ot2jy",
-          "id": "27",
+          "id": "26",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema Contábil/Fiscal/DP/MENSALIDADE",
           "fav": "Alterdata Tecnologia em Informática LTDA",
@@ -24611,7 +24598,7 @@
         },
         {
           "uid": "p7tajs7",
-          "id": "28",
+          "id": "27",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema Prestação de Contas",
           "fav": "BR Gaap Corporation Tecnologia da Informação Ltda",
@@ -24625,7 +24612,7 @@
         },
         {
           "uid": "ardh146",
-          "id": "29",
+          "id": "28",
           "cat": "Melhoria Contínua",
           "objeto": "Serviço de Treinamento de Melhoria Contínua",
           "fav": "Six Treinamento Empresarial LTDA",
@@ -24639,7 +24626,7 @@
         },
         {
           "uid": "7d3r1wt",
-          "id": "30",
+          "id": "29",
           "cat": "Locação de Mobiliário e Equipamentos de Informática (CIGAC)",
           "objeto": "Locação de mobiliários e equipamentos para o CIGAC",
           "fav": "A4PM Analytics For Public Management LTDA",
@@ -24653,7 +24640,7 @@
         },
         {
           "uid": "zqox3n1",
-          "id": "31",
+          "id": "30",
           "cat": "Locação de Imóvel CIGAC e Despesas",
           "objeto": "Aluguel Imóvel Centro Integrado de Gestão e Assistência Compartilhada - CIGAC",
           "fav": "Riza Securitizadora S. A",
@@ -24667,7 +24654,7 @@
         },
         {
           "uid": "35p1irj",
-          "id": "32",
+          "id": "31",
           "cat": "Locação de Imóvel CIGAC e Despesas",
           "objeto": "Condomínio e Taxas do Imóvel Centro Integrado de Gestão e Assistência Compartilhada - CIGAC",
           "fav": "Condomínio do São Gonçalo Shopping Rio",
@@ -24681,7 +24668,7 @@
         },
         {
           "uid": "dmt1p11",
-          "id": "33",
+          "id": "32",
           "cat": "Locação de Veículo Apoio Administrativo",
           "objeto": "Locação de veículos para atender a Central de logística",
           "fav": "Promedical Serviços em Saude LTDA",
@@ -24695,7 +24682,7 @@
         },
         {
           "uid": "mebt9gs",
-          "id": "34",
+          "id": "33",
           "cat": "Locação de Veículo Apoio Administrativo",
           "objeto": "Locação de veículos para atender a CIGAC",
           "fav": "Promedical Serviços em Saude LTD",
@@ -24709,7 +24696,7 @@
         },
         {
           "uid": "na1n2mn",
-          "id": "35",
+          "id": "34",
           "cat": "Despesas de materiais de expediente e afins",
           "objeto": "Fornecimento de Água Mineral",
           "fav": "Rodolfo Lucas Duarte 08848690750",
@@ -24723,7 +24710,7 @@
         },
         {
           "uid": "2qpw48l",
-          "id": "36",
+          "id": "35",
           "cat": "Medicina do Trabalho",
           "objeto": "Serviços de SST",
           "fav": "ICM Medicina Ocupacional LTDA",
@@ -24737,7 +24724,7 @@
         },
         {
           "uid": "vspfh2p",
-          "id": "37",
+          "id": "36",
           "cat": "Seguro de Vida",
           "objeto": "Seguro de Vida Colaboradores CIGAC",
           "fav": "Unimed Seguradora S/A",
@@ -24751,7 +24738,7 @@
         },
         {
           "uid": "gdgsv5b",
-          "id": "38",
+          "id": "37",
           "cat": "Plataforma Processo Seletivo",
           "objeto": "Licença de Uso Mensal do Software Vagas For Business",
           "fav": "Vagas Tecnologia de Software LTDA",
@@ -24762,6 +24749,19 @@
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
+        },
+        {
+          "uid": "r50te8b",
+          "id": "38",
+          "cat": "Assessoria Jurídica",
+          "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório",
+          "fav": "Pablo Siqueira Sociedade Individual de Advocacia",
+          "cnpj": "18.464.526/0001-98",
+          "ctipo": "NF",
+          "cnum": "20",
+          "valor": 36000,
+          "dtPgto": "",
+          "compl": true
         }
       ],
       "orcamentos": {
@@ -27231,5 +27231,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788321169271
+  "savedAt": 1788321188822
 }

@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785957544492,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
         "t": 1785957544748,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24097,6 +24092,11 @@
       },
       {
         "t": 1788493103455,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493177510,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -27548,5 +27548,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788493103458
+  "savedAt": 1788493177513
 }

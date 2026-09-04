@@ -22601,61 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785936673420,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785936755490,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785936876817,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785936951529,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785936962029,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785936978400,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785936984344,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785937039580,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785937070754,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785955040645,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785955043424,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
         "t": 1785955269687,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24099,6 +24044,61 @@
         "t": 1788492229684,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788492244497,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492245329,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492246893,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492247832,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492248626,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492249342,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492250036,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492250727,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492297876,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492331008,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492501975,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24889,7 +24889,8 @@
           "ctipo": "NF",
           "cnum": "43523",
           "valor": 9787.85,
-          "dtPgto": ""
+          "dtPgto": "",
+          "compl": true
         },
         {
           "uid": "2002ze7",
@@ -24901,7 +24902,8 @@
           "ctipo": "NF",
           "cnum": "2444",
           "valor": 2332.09,
-          "dtPgto": ""
+          "dtPgto": "",
+          "compl": true
         },
         {
           "uid": "hfaopn4",
@@ -24913,7 +24915,8 @@
           "ctipo": "NF",
           "cnum": "2430",
           "valor": 28573.12,
-          "dtPgto": ""
+          "dtPgto": "",
+          "compl": true
         },
         {
           "uid": "pxwq11s",
@@ -24925,7 +24928,8 @@
           "ctipo": "NF",
           "cnum": "2429",
           "valor": 17080,
-          "dtPgto": ""
+          "dtPgto": "",
+          "compl": true
         },
         {
           "uid": "v12cdhb",
@@ -24937,7 +24941,8 @@
           "ctipo": "NF637",
           "cnum": "",
           "valor": 4876.04,
-          "dtPgto": ""
+          "dtPgto": "",
+          "compl": true
         },
         {
           "uid": "l513w1d",
@@ -24949,7 +24954,8 @@
           "ctipo": "NF",
           "cnum": "2443",
           "valor": 5147.58,
-          "dtPgto": ""
+          "dtPgto": "",
+          "compl": true
         },
         {
           "uid": "bnpfye0",
@@ -24961,7 +24967,8 @@
           "ctipo": "BOLETO",
           "cnum": "",
           "valor": 2810.44,
-          "dtPgto": ""
+          "dtPgto": "",
+          "compl": true
         },
         {
           "uid": "2gla20w",
@@ -24973,53 +24980,54 @@
           "ctipo": "NF",
           "cnum": "837",
           "valor": 63000,
-          "dtPgto": ""
+          "dtPgto": "",
+          "compl": true
         },
         {
           "uid": "wogu26z",
           "id": "56",
-          "cat": "Assessoria Jurídica",
-          "objeto": "",
-          "fav": "",
-          "cnpj": "",
+          "cat": "Melhoria Contínua",
+          "objeto": "Serviço de Treinamento de Melhoria Contínua",
+          "fav": " Six Treinamento Empresarial LTDA ",
+          "cnpj": " 19.196.342/0001-57 ",
           "ctipo": "",
           "cnum": "",
-          "valor": 0,
+          "valor": 26084.8,
           "dtPgto": ""
         },
         {
           "uid": "3ohkslz",
           "id": "57",
-          "cat": "Assessoria Jurídica",
-          "objeto": "",
-          "fav": "",
-          "cnpj": "",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "cat": "Locação de Mobiliário e Equipamentos de Informática (CIGAC)",
+          "objeto": "Locação de mobiliários e equipamentos para o CIGAC",
+          "fav": " A4PM Analytics For Public Management LTDA ",
+          "cnpj": " 23.034.181/0001-72 ",
+          "ctipo": "NF",
+          "cnum": "481",
+          "valor": 118697,
           "dtPgto": ""
         },
         {
           "uid": "yhvb15k",
           "id": "58",
-          "cat": "Assessoria Jurídica",
-          "objeto": "",
-          "fav": "",
-          "cnpj": "",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "cat": "Locação de Veículo Apoio Administrativo",
+          "objeto": "Locação de veículos para atender a Central de logística",
+          "fav": " Promedical Serviços em Saude LTDA ",
+          "cnpj": " 35.788.642/0001-81 ",
+          "ctipo": "NF",
+          "cnum": "358",
+          "valor": 38006.88,
           "dtPgto": ""
         },
         {
           "uid": "588dc8r",
           "id": "59",
-          "cat": "Assessoria Jurídica",
-          "objeto": "",
-          "fav": "",
-          "cnpj": "",
-          "ctipo": "",
-          "cnum": "",
+          "cat": "Locação de Veículo Apoio Administrativo",
+          "objeto": "Locação de veículos para atender a CIGAC",
+          "fav": " Promedical Serviços em Saude LTDA ",
+          "cnpj": " 35.788.642/0001-81 ",
+          "ctipo": "NF",
+          "cnum": "52",
           "valor": 0,
           "dtPgto": ""
         },
@@ -27575,5 +27583,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788492229688
+  "savedAt": 1788492501979
 }

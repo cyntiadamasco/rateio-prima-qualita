@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788320748761,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788320750002,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24097,6 +24092,11 @@
       },
       {
         "t": 1788527724199,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788527772291,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -26027,8 +26027,8 @@
           "arraial": 277,
           "quissama": 97,
           "cordeiro": 100,
-          "saq_esp": 0,
-          "saq_pri": 0,
+          "saq_esp": 144,
+          "saq_pri": 150,
           "cg_mt55zykt": 0
         },
         "ind4": {
@@ -26154,8 +26154,8 @@
           "pdfNome": "INDICADOR 3 - FINANCEIRO - JULHO.pdf"
         },
         "ind4": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "local:iqual_202608_ind4",
+          "pdfNome": "INDICADOR 4 - CONTABILIDADE JULHO 26.pdf"
         },
         "ind5": {
           "pdfUrl": "",
@@ -27703,5 +27703,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788527724202
+  "savedAt": 1788527772293
 }

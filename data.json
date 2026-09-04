@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788321145393,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788321147109,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24097,6 +24092,11 @@
       },
       {
         "t": 1788531171561,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788531187193,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -25873,12 +25873,6 @@
           "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
         },
         {
-          "uid": "c58awh1q8",
-          "nome": "THAYZA QUEIROZ DA SILVA",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ASSISTENTE DE DEPARTAMENTO"
-        },
-        {
           "uid": "c01bmm2vj",
           "nome": "CAMILLO DE LELLIS CARNEIRO JUNQUEIRA",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
@@ -27609,5 +27603,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788531171563
+  "savedAt": 1788531187195
 }

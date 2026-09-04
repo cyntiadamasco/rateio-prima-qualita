@@ -22601,16 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785982582653,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785982584245,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
         "t": 1785982592610,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24099,6 +24089,16 @@
         "t": 1788493617072,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788493627512,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493627681,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -25244,7 +25244,7 @@
           "objeto": "Sistema Prestação de Contas\n",
           "favorecido": " BR Gaap Corporation Tecnologia da Informação Ltda ",
           "cnpj": " 16.106.178/0001-51 ",
-          "nrProcesso": "153/2023",
+          "nrProcesso": "153/2025",
           "nrContrato": "002/2025"
         },
         {
@@ -27703,5 +27703,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788493617073
+  "savedAt": 1788493627682
 }

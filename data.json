@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788321148943,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788321152015,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24097,6 +24092,11 @@
       },
       {
         "t": 1788531233771,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788531275314,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -25883,6 +25883,12 @@
           "nome": "RALF RIBEIRO DOS SANTOS",
           "dept": "SUPERINTENDÊNCIA",
           "funcao": "SUPERINTENDENTE ASSISTENCIAL"
+        },
+        {
+          "uid": "cmtn1ccaawugj2",
+          "nome": "",
+          "dept": "",
+          "funcao": ""
         }
       ],
       "iqual": {
@@ -27597,5 +27603,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788531233773
+  "savedAt": 1788531275317
 }

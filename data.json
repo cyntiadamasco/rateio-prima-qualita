@@ -9356,7 +9356,13 @@
         }
       },
       "relQuant": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/relquant_2026-08.pdf",
-      "relQuantNome": "1. CRITÉRIO QUANTITATIVO - COMPLETO - JUNHO.2026.pdf"
+      "relQuantNome": "1. CRITÉRIO QUANTITATIVO - COMPLETO - JUNHO.2026.pdf",
+      "clicksign": {
+        "document_key": "21ac3d8a-f698-4f34-8bb1-45c36e3f8231",
+        "document_url": "https://app.clicksign.com/documents/21ac3d8a-f698-4f34-8bb1-45c36e3f8231",
+        "sign_url": "https://app.clicksign.com/sign/b032532a-cae9-4873-a1c0-e16cd4a222f9",
+        "sent_at": "2026-09-04T15:44:38.072Z"
+      }
     },
     "2026-04": {
       "colaboradores": [
@@ -20310,9 +20316,14 @@
         "t": 1788536495832,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788536678072,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788536495834
+  "savedAt": 1788536678075
 }

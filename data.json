@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788320771407,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788320774777,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24097,6 +24092,11 @@
       },
       {
         "t": 1788528105378,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788528224073,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -26084,16 +26084,16 @@
           "cg_mt55zykt": 0
         },
         "ind8": {
-          "madalena": 0,
-          "cachoeiras": 0,
-          "saq_hosp": 0,
-          "upa_pac": 0,
-          "upa_nc": 0,
-          "arraial": 0,
-          "quissama": 0,
-          "cordeiro": 0,
-          "saq_esp": 0,
-          "saq_pri": 0,
+          "madalena": 4409,
+          "cachoeiras": 11997,
+          "saq_hosp": 34753,
+          "upa_pac": 11797,
+          "upa_nc": 13049,
+          "arraial": 52464,
+          "quissama": 6131,
+          "cordeiro": 4635,
+          "saq_esp": 51898,
+          "saq_pri": 58024,
           "cg_mt55zykt": 0
         }
       },
@@ -27703,5 +27703,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788528105380
+  "savedAt": 1788528224075
 }

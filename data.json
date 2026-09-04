@@ -22601,26 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785870480382,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785870483163,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785870487259,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785870493170,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
         "t": 1785870504519,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24099,6 +24079,26 @@
         "t": 1788491697115,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788491703038,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788491705095,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788491707239,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788491916332,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24811,7 +24811,8 @@
           "ctipo": "BOLETO",
           "cnum": "",
           "valor": 54255.2,
-          "dtPgto": ""
+          "dtPgto": "",
+          "compl": true
         },
         {
           "uid": "251gwev",
@@ -24823,7 +24824,8 @@
           "ctipo": "BOLETO",
           "cnum": "",
           "valor": 2090,
-          "dtPgto": ""
+          "dtPgto": "",
+          "compl": true
         },
         {
           "uid": "ln4k31k",
@@ -24835,6 +24837,103 @@
           "ctipo": "BOLETO",
           "cnum": "",
           "valor": 533.4,
+          "dtPgto": "",
+          "compl": true
+        },
+        {
+          "uid": "lzeecx3",
+          "id": "45",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Contribuição Institucional Destinada a Manutenção do CIEE",
+          "fav": "Centro de Integração Empresa Escola",
+          "cnpj": "33.661.745/0001-50",
+          "ctipo": "NF",
+          "cnum": "34015",
+          "valor": 501.56,
+          "dtPgto": ""
+        },
+        {
+          "uid": "81sx1dg",
+          "id": "46",
+          "cat": "Folha de Pagamento CIGAC",
+          "objeto": "Coordenação de Revisão de Óbitos e Prontuários Institucional",
+          "fav": "Radiocom Diagnosticos LTDA",
+          "cnpj": "33.192.856/0001-65",
+          "ctipo": "NF",
+          "cnum": "255",
+          "valor": 0,
+          "dtPgto": ""
+        },
+        {
+          "uid": "cjbcmas",
+          "id": "47",
+          "cat": "Assessoria Jurídica",
+          "objeto": "Provisão de Verbas Rescisórias CIGAC",
+          "fav": "Projeto Social Cresce Comunidade",
+          "cnpj": "40.289.134/0001-99",
+          "ctipo": "PLANILHA",
+          "cnum": "",
+          "valor": 0,
+          "dtPgto": ""
+        },
+        {
+          "uid": "zw90ely",
+          "id": "48",
+          "cat": "Assessoria Jurídica",
+          "objeto": "",
+          "fav": "",
+          "cnpj": "",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "dtPgto": ""
+        },
+        {
+          "uid": "2002ze7",
+          "id": "49",
+          "cat": "Assessoria Jurídica",
+          "objeto": "",
+          "fav": "",
+          "cnpj": "",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "dtPgto": ""
+        },
+        {
+          "uid": "hfaopn4",
+          "id": "50",
+          "cat": "Assessoria Jurídica",
+          "objeto": "",
+          "fav": "",
+          "cnpj": "",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "dtPgto": ""
+        },
+        {
+          "uid": "pxwq11s",
+          "id": "51",
+          "cat": "Assessoria Jurídica",
+          "objeto": "",
+          "fav": "",
+          "cnpj": "",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
+          "dtPgto": ""
+        },
+        {
+          "uid": "v12cdhb",
+          "id": "52",
+          "cat": "Assessoria Jurídica",
+          "objeto": "",
+          "fav": "",
+          "cnpj": "",
+          "ctipo": "",
+          "cnum": "",
+          "valor": 0,
           "dtPgto": ""
         }
       ],
@@ -27305,5 +27404,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788491697119
+  "savedAt": 1788491916337
 }

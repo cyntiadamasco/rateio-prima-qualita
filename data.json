@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785870431240,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
         "t": 1785870480382,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24099,6 +24094,11 @@
         "t": 1788321725611,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788491697115,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24798,7 +24798,8 @@
           "ctipo": "BOLETO",
           "cnum": "",
           "valor": 130950,
-          "dtPgto": ""
+          "dtPgto": "",
+          "compl": true
         },
         {
           "uid": "1d9nbzy",
@@ -27304,5 +27305,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788321725615
+  "savedAt": 1788491697119
 }

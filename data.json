@@ -22601,231 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785983363159,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785983363491,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785983364176,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785983367964,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785983368236,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785983368530,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785983368807,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785983645346,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785984536871,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786020692725,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786020695249,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786020782899,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786021155899,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786021862786,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786025644063,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786026709950,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786026729588,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786037384597,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786037496543,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786037688814,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786037811868,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786037890789,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786037974089,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786038073633,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786038152378,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786038200950,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786038271968,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786038706494,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786038777460,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786039072303,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786039254080,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786039314177,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786039412795,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786043170994,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786043216536,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786043408948,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786043513852,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1786045071910,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1787450611842,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
-        "t": 1787450674099,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
-        "t": 1787450704589,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
-        "t": 1787450715897,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
-        "t": 1787450717709,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
-        "t": 1787450720953,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
-        "t": 1787450836171,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1787451810133,
         "perfil": "Administrador",
         "comp": "2026-10"
@@ -24099,6 +23874,231 @@
         "t": 1788493687617,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788493687973,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493692639,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493692871,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493693055,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493693532,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493693786,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493693824,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493694085,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493694245,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493694333,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493694548,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493694712,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493694892,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493695196,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493695468,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493695931,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493695933,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493696097,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493696265,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493697742,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493697955,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493698099,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493698335,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493698542,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493698672,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493701852,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493702535,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493702537,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493702539,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493702541,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493702544,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493702546,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493702549,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493702551,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493702908,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493702910,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493702912,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493702914,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493703249,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493703600,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493703603,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493703952,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493703954,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493704659,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493705033,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -25256,7 +25256,7 @@
           "nrContrato": "001/2026"
         }
       ],
-      "contratos_obs": "1. As cópias dos processos de contratação/contratos referentes aos itens 1 a 17, foram enviados na prestação de contas do mês de outubro/24;\t\t\t\t\n2. A cópia do processo de contratação/contrato referente aos itens de 17 e 18, foram enviados na prestação de contas do mês de janeiro/26.\t\n3. A cópia do processo de contratação/contrato referente ao item de 1, foram enviados na prestação de contas do mês de janeiro/26.\n",
+      "contratos_obs": "1. As cópias dos processos de contratação/contratos referentes aos itens 1 a 17, foram enviados na prestação de contas do mês de outubro/24;\t\t\t\t\n2. A cópia do processo de contratação/contrato referente aos itens de 17 e 18, foram enviados na prestação de contas do mês de janeiro/26.\t\n3. A cópia do processo de contratação/contrato referente ao item de 19, está sendo enviado nestaestação de contas do mês de janeiro/26.\n",
       "colab_lista": [
         {
           "uid": "cxnd98og6",
@@ -27703,5 +27703,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788493687618
+  "savedAt": 1788493705034
 }

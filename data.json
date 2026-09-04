@@ -9169,7 +9169,7 @@
           "uid": "cmtn1ci4gq1mpi",
           "nome": "VERONICA RODRIGUES DOS SANTOS COSTA",
           "dept": "DEPARTAMENTO FINANCEIRO",
-          "funcao": ""
+          "funcao": "ASSISTENTE FINANCEIRO"
         }
       ],
       "iqual": {
@@ -20291,9 +20291,14 @@
         "t": 1788536367562,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788536372304,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788536367569
+  "savedAt": 1788536372311
 }

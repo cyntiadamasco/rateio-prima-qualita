@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788320959357,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788320998260,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24099,6 +24094,11 @@
         "t": 1788530164435,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788530688310,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -25313,12 +25313,6 @@
           "nome": "VERONICA PEREIRA DO NASCIMENTO ABREU",
           "dept": "DEPARTAMENTO ADMINISTRATIVO",
           "funcao": "ASSISTENTE ADMINISTRATIVO II"
-        },
-        {
-          "uid": "c1mgnjocr",
-          "nome": "CARLA DA COSTA LEITE",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "AUXILIAR ADMINISTRATIVO"
         },
         {
           "uid": "cvgmub2ft",
@@ -27675,5 +27669,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788530164438
+  "savedAt": 1788530688312
 }

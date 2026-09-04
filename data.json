@@ -9138,7 +9138,7 @@
         {
           "uid": "cmtn1cfte28an5",
           "nome": "BERNARDO CORDEIRO AUGUSTO",
-          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS ASSISTENTE ADMINISTRATIVO",
+          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
           "funcao": ""
         },
         {
@@ -20197,9 +20197,14 @@
         "t": 1788536257457,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788536261415,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788536257465
+  "savedAt": 1788536261416
 }

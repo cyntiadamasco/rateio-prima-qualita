@@ -22601,16 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785955269687,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785955535886,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
         "t": 1785956294963,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24099,6 +24089,16 @@
         "t": 1788492501975,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788492508381,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492619225,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -25028,41 +25028,41 @@
           "cnpj": " 35.788.642/0001-81 ",
           "ctipo": "NF",
           "cnum": "52",
-          "valor": 0,
+          "valor": 14341.41,
           "dtPgto": ""
         },
         {
           "uid": "yp02swl",
           "id": "60",
-          "cat": "Assessoria Jurídica",
-          "objeto": "",
-          "fav": "",
-          "cnpj": "",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "cat": "Despesas de materiais de expediente e afins",
+          "objeto": "Fornecimento de Água Mineral",
+          "fav": " Rodolfo Lucas Duarte 08848690750 ",
+          "cnpj": " 11.967.651/0001-71 ",
+          "ctipo": "NF",
+          "cnum": "80710001",
+          "valor": 637.84,
           "dtPgto": ""
         },
         {
           "uid": "s2kr6qg",
           "id": "61",
-          "cat": "Assessoria Jurídica",
-          "objeto": "",
-          "fav": "",
-          "cnpj": "",
-          "ctipo": "",
-          "cnum": "",
+          "cat": "Medicina do Trabalho",
+          "objeto": "Serviços de SST ",
+          "fav": " ICM Medicina Ocupacional LTDA ",
+          "cnpj": " 50.558.513/0001-90 ",
+          "ctipo": "NF",
+          "cnum": "449",
           "valor": 0,
           "dtPgto": ""
         },
         {
           "uid": "b1ztx37",
           "id": "62",
-          "cat": "Assessoria Jurídica",
-          "objeto": "",
-          "fav": "",
-          "cnpj": "",
-          "ctipo": "",
+          "cat": "Seguro de Vida",
+          "objeto": "Seguro de Vida Colaboradores CIGAC",
+          "fav": " Unimed Seguradora S/A ",
+          "cnpj": " 10.414.185/0001-09 ",
+          "ctipo": "BOLETO",
           "cnum": "",
           "valor": 0,
           "dtPgto": ""
@@ -25070,12 +25070,12 @@
         {
           "uid": "isswqok",
           "id": "63",
-          "cat": "Assessoria Jurídica",
-          "objeto": "",
-          "fav": "",
-          "cnpj": "",
-          "ctipo": "",
-          "cnum": "",
+          "cat": "Plataforma Processo Seletivo",
+          "objeto": "Licença de Uso Mensal do Software Vagas For Business",
+          "fav": " Vagas Tecnologia de Software LTDA ",
+          "cnpj": " 03.689.427/0001-37 ",
+          "ctipo": "NF",
+          "cnum": "315051",
           "valor": 0,
           "dtPgto": ""
         },
@@ -27583,5 +27583,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788492501979
+  "savedAt": 1788492619229
 }

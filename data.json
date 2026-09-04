@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785957545092,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
         "t": 1785957566737,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24099,6 +24094,11 @@
         "t": 1788493359756,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788493369646,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -25110,14 +25110,6 @@
           "cnpj": " 18.464.526/0001-98 ",
           "nrProcesso": "117/2024",
           "nrContrato": "001/2024"
-        },
-        {
-          "uid": "cmtmerogcsdmom",
-          "objeto": "Compliance jurídico\n",
-          "favorecido": " Gauche Advogados Associados ",
-          "cnpj": " 48.916.964/0001-00 ",
-          "nrProcesso": "117/2024",
-          "nrContrato": "002/2024"
         },
         {
           "uid": "cmtmerogcvu4q0",
@@ -27703,5 +27695,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788493359760
+  "savedAt": 1788493369648
 }

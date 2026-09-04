@@ -22601,16 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785957544070,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785957544422,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
         "t": 1785957544425,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24099,6 +24089,16 @@
         "t": 1788492799352,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788492841712,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492872570,
+        "perfil": "Administrador",
+        "comp": "2026-05"
       }
     ],
     "tokenCripto": {
@@ -27545,15 +27545,8 @@
         }
       }
     },
-    "customContratos": [
-      {
-        "id": "cg_mt55zykt",
-        "nome": "Projeto Farmácia Judicial - Saquarema",
-        "sigla": "Saq. Judicial",
-        "cor": "#3B82F6"
-      }
-    ]
+    "customContratos": []
   },
-  "currentComp": "2026-08",
-  "savedAt": 1788492799360
+  "currentComp": "2026-05",
+  "savedAt": 1788492872575
 }

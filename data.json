@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788321144309,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788321145393,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24099,6 +24094,11 @@
         "t": 1788531095680,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788531171561,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -25535,12 +25535,6 @@
           "nome": "SORAYA ARAUJO DAMASCO",
           "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
           "funcao": "COORDENADOR DE COMPRAS"
-        },
-        {
-          "uid": "c5mewiaxb",
-          "nome": "THACIA DUARTE BRANCO",
-          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
-          "funcao": "ANALISTA ADMINISTRATIVO I"
         },
         {
           "uid": "ch8vy0mqe",
@@ -27615,5 +27609,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788531095682
+  "savedAt": 1788531171563
 }

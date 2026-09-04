@@ -22601,36 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788321481709,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788321484633,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788321680693,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788321689990,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788321695649,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788321701797,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788321725611,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24097,6 +24067,36 @@
       },
       {
         "t": 1788533460553,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788534782781,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788534782939,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788534783128,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788534783291,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788534783423,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788534783555,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -25892,7 +25892,7 @@
         },
         {
           "uid": "cmtn1cfte28an5",
-          "nome": "",
+          "nome": "Bernar",
           "dept": "",
           "funcao": ""
         },
@@ -27645,5 +27645,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788533460556
+  "savedAt": 1788534783561
 }

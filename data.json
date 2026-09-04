@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788320741711,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788320743061,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24097,6 +24092,11 @@
       },
       {
         "t": 1788527479638,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788527685477,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -26146,8 +26146,8 @@
           "pdfNome": "INDICADOR 1 - DEPARTAMENTO PESSOAL-RH - JULHO.pdf"
         },
         "ind2": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "local:iqual_202608_ind2",
+          "pdfNome": "INDICADOR 2 - COMUNICAÇÃO INSTITUCIONAL - JULHO.2026.pdf"
         },
         "ind3": {
           "pdfUrl": "",
@@ -27703,5 +27703,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788527479645
+  "savedAt": 1788527685480
 }

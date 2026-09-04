@@ -22601,16 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788320769503,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788320770304,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788320771407,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24097,6 +24087,16 @@
       },
       {
         "t": 1788528024057,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788528098781,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788528105378,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -26058,16 +26058,16 @@
           "cg_mt55zykt": 0
         },
         "ind6": {
-          "madalena": 0,
-          "cachoeiras": 0,
-          "saq_hosp": 0,
-          "upa_pac": 0,
-          "upa_nc": 0,
-          "arraial": 0,
-          "quissama": 0,
-          "cordeiro": 0,
-          "saq_esp": 0,
-          "saq_pri": 0,
+          "madalena": 63,
+          "cachoeiras": 91,
+          "saq_hosp": 104,
+          "upa_pac": 46,
+          "upa_nc": 44,
+          "arraial": 107,
+          "quissama": 43,
+          "cordeiro": 57,
+          "saq_esp": 67,
+          "saq_pri": 64,
           "cg_mt55zykt": 0
         },
         "ind7": {
@@ -26170,8 +26170,8 @@
           "pdfNome": ""
         },
         "ind8": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202608_ind8.pdf",
+          "pdfNome": "INDICADOR 8 - DEPARTAMENTO ASSISTENCIAL JULHO 2026.pdf"
         }
       },
       "relQuant": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/relquant_2026-08.pdf",
@@ -27703,5 +27703,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788528024059
+  "savedAt": 1788528105380
 }

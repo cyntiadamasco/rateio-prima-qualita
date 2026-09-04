@@ -22601,16 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788492649336,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788492650086,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788492675461,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24097,6 +24087,16 @@
       },
       {
         "t": 1788535420692,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788535427413,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788535533950,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -25925,6 +25925,12 @@
           "nome": "",
           "dept": "",
           "funcao": ""
+        },
+        {
+          "uid": "cmtn3vm9q68d6k",
+          "nome": "",
+          "dept": "",
+          "funcao": ""
         }
       ],
       "iqual": {
@@ -26111,7 +26117,13 @@
         }
       },
       "relQuant": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/relquant_2026-08.pdf",
-      "relQuantNome": "1. CRITÉRIO QUANTITATIVO - COMPLETO - JUNHO.2026.pdf"
+      "relQuantNome": "1. CRITÉRIO QUANTITATIVO - COMPLETO - JUNHO.2026.pdf",
+      "clicksign": {
+        "document_key": "bd2a9765-5ab2-4a57-90fe-075a24603321",
+        "document_url": "https://app.clicksign.com/documents/bd2a9765-5ab2-4a57-90fe-075a24603321",
+        "sign_url": "https://app.clicksign.com/sign/b93990ea-f522-4882-b9a9-3529c9471516",
+        "sent_at": "2026-09-04T15:23:47.413Z"
+      }
     },
     "2026-09": {
       "colaboradores": [
@@ -27639,5 +27651,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788535420695
+  "savedAt": 1788535533953
 }

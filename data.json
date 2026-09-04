@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788320951191,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788320959357,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24097,6 +24092,11 @@
       },
       {
         "t": 1788528494424,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788530164435,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -25965,16 +25965,16 @@
       ],
       "iqual": {
         "ind1": {
-          "madalena": 0,
-          "cachoeiras": 0,
-          "saq_hosp": 0,
-          "upa_pac": 0,
-          "upa_nc": 0,
-          "arraial": 0,
-          "quissama": 0,
-          "cordeiro": 0,
-          "saq_esp": 0,
-          "saq_pri": 0,
+          "madalena": 122,
+          "cachoeiras": 381,
+          "saq_hosp": 1408,
+          "upa_pac": 77,
+          "upa_nc": 82,
+          "arraial": 343,
+          "quissama": 56,
+          "cordeiro": 93,
+          "saq_esp": 315,
+          "saq_pri": 636,
           "cg_mt55zykt": 0
         },
         "ind2": {
@@ -26043,16 +26043,16 @@
           "cg_mt55zykt": 0
         },
         "ind7": {
-          "madalena": 0,
-          "cachoeiras": 0,
-          "saq_hosp": 0,
-          "upa_pac": 0,
-          "upa_nc": 0,
-          "arraial": 0,
-          "quissama": 0,
-          "cordeiro": 0,
-          "saq_esp": 0,
-          "saq_pri": 0,
+          "madalena": 186,
+          "cachoeiras": 531,
+          "saq_hosp": 1614,
+          "upa_pac": 149,
+          "upa_nc": 165,
+          "arraial": 541,
+          "quissama": 99,
+          "cordeiro": 161,
+          "saq_esp": 413,
+          "saq_pri": 780,
           "cg_mt55zykt": 0
         },
         "ind8": {
@@ -27675,5 +27675,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788528494426
+  "savedAt": 1788530164438
 }

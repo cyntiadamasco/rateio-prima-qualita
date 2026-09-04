@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788320731081,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788320732754,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24099,6 +24094,11 @@
         "t": 1788494456668,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788495026317,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24244,7 +24244,7 @@
           "valor": 36000,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-08-24"
         },
         {
           "uid": "qmkrybx",
@@ -24258,7 +24258,7 @@
           "valor": 11000,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-08-17"
         },
         {
           "uid": "7q2wdbv",
@@ -24272,7 +24272,7 @@
           "valor": 7000,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-08-17"
         },
         {
           "uid": "nkrdeqb",
@@ -24286,7 +24286,7 @@
           "valor": 3167,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-08-17"
         },
         {
           "uid": "sjzn0kz",
@@ -24300,7 +24300,7 @@
           "valor": 477038.78,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-08-06"
         },
         {
           "uid": "wgmbxwo",
@@ -24314,7 +24314,7 @@
           "valor": 52935.62,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-08-19"
         },
         {
           "uid": "h8jp696",
@@ -24328,7 +24328,7 @@
           "valor": 52918.25,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-08-19"
         },
         {
           "uid": "vtlipxy",
@@ -24342,7 +24342,7 @@
           "valor": 66060.23,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-08-19"
         },
         {
           "uid": "x15mpon",
@@ -24356,7 +24356,7 @@
           "valor": 134220,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-08-21"
         },
         {
           "uid": "k5vtu7y",
@@ -24370,7 +24370,7 @@
           "valor": 3650.3,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-08-21"
         },
         {
           "uid": "2666nsn",
@@ -24384,7 +24384,7 @@
           "valor": 51100.8,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-08-21"
         },
         {
           "uid": "is2adnr",
@@ -24398,7 +24398,7 @@
           "valor": 822,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-08-21"
         },
         {
           "uid": "xgv7mwv",
@@ -24412,7 +24412,7 @@
           "valor": 501.56,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-08-26"
         },
         {
           "uid": "rab6nde",
@@ -24426,7 +24426,7 @@
           "valor": 20500,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-08-26"
         },
         {
           "uid": "3plh8cg",
@@ -24440,7 +24440,7 @@
           "valor": 25817.17,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-08-20"
         },
         {
           "uid": "7fy2fo5",
@@ -24454,7 +24454,7 @@
           "valor": 459.36,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-08-07"
         },
         {
           "uid": "up90yw2",
@@ -24798,7 +24798,7 @@
           "ctipo": "BOLETO",
           "cnum": "",
           "valor": 130950,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -27703,5 +27703,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788494456670
+  "savedAt": 1788495026321
 }

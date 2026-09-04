@@ -9163,7 +9163,7 @@
           "uid": "cmtn1chcaa4jg5",
           "nome": "SANDRO DOS SANTOS RONQUETTI",
           "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": ""
+          "funcao": "COORDENADOR ADMINISTRATIVO"
         },
         {
           "uid": "cmtn1ci4gq1mpi",
@@ -20276,9 +20276,14 @@
         "t": 1788536348755,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788536354614,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788536348763
+  "savedAt": 1788536354622
 }

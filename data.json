@@ -22601,26 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785982356629,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785982356832,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785982357962,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785982357971,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
         "t": 1785982359046,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24099,6 +24079,26 @@
         "t": 1788493536063,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788493566999,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493581902,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493595655,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493595807,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -25249,11 +25249,11 @@
         },
         {
           "uid": "cmtmev06a5fa9j",
-          "objeto": "",
+          "objeto": "Fornecimento de Água Mineral",
           "favorecido": "Abobrinha do Gás Ltda",
-          "cnpj": "",
+          "cnpj": "26.282.379/0001-6",
           "nrProcesso": "",
-          "nrContrato": ""
+          "nrContrato": "00"
         }
       ],
       "contratos_obs": "1. As cópias dos processos de contratação/contratos referentes aos itens 1 a 17, foram enviados na prestação de contas do mês de outubro/24;\t\t\t\t\n2. A cópia do processo de contratação/contrato referente aos itens de 17 e 18, foram enviados na prestação de contas do mês de janeiro/26.\t\t\t\t\n",
@@ -27703,5 +27703,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788493536064
+  "savedAt": 1788493595809
 }

@@ -22601,31 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785982666212,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785982669299,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785982713171,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785982714912,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785982871641,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
         "t": 1785982911457,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24099,6 +24074,31 @@
         "t": 1788493645162,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788493645805,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493647756,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493648600,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493649874,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493651925,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -25256,7 +25256,7 @@
           "nrContrato": "001/2026"
         }
       ],
-      "contratos_obs": "1. As cópias dos processos de contratação/contratos referentes aos itens 1 a 17, foram enviados na prestação de contas do mês de outubro/24;\t\t\t\t\n2. A cópia do processo de contratação/contrato referente aos itens de 17 e 18, foram enviados na prestação de contas do mês de janeiro/26.\t3\t\t\t\n",
+      "contratos_obs": "1. As cópias dos processos de contratação/contratos referentes aos itens 1 a 17, foram enviados na prestação de contas do mês de outubro/24;\t\t\t\t\n2. A cópia do processo de contratação/contrato referente aos itens de 17 e 18, foram enviados na prestação de contas do mês de janeiro/26.\t\n3\t\t\t\n",
       "colab_lista": [
         {
           "uid": "cxnd98og6",
@@ -27703,5 +27703,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788493645168
+  "savedAt": 1788493651926
 }

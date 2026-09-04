@@ -22601,16 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788320750002,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788320751383,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788320754957,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24097,6 +24087,16 @@
       },
       {
         "t": 1788527772291,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788527776709,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788527807045,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -26032,16 +26032,16 @@
           "cg_mt55zykt": 0
         },
         "ind4": {
-          "madalena": 0,
-          "cachoeiras": 0,
-          "saq_hosp": 0,
-          "upa_pac": 0,
-          "upa_nc": 0,
-          "arraial": 0,
-          "quissama": 0,
-          "cordeiro": 0,
-          "saq_esp": 0,
-          "saq_pri": 0,
+          "madalena": 850,
+          "cachoeiras": 1674,
+          "saq_hosp": 2085,
+          "upa_pac": 672,
+          "upa_nc": 596,
+          "arraial": 1543,
+          "quissama": 467,
+          "cordeiro": 549,
+          "saq_esp": 861,
+          "saq_pri": 898,
           "cg_mt55zykt": 0
         },
         "ind5": {
@@ -26158,8 +26158,8 @@
           "pdfNome": "INDICADOR 4 - CONTABILIDADE JULHO 26.pdf"
         },
         "ind5": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "local:iqual_202608_ind5",
+          "pdfNome": "INDICADOR 5 - LOGISTICA E SUPRIMENTOS - JULHO 2026.pdf"
         },
         "ind6": {
           "pdfUrl": "",
@@ -27703,5 +27703,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788527772293
+  "savedAt": 1788527807048
 }

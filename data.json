@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788321136023,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788321137268,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24097,6 +24092,11 @@
       },
       {
         "t": 1788531001328,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788531017142,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -25637,12 +25637,6 @@
           "nome": "LUISA FERREIRA ALBUQUERQUE",
           "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
           "funcao": "ASSISTENTE ADMINISTRATIVO"
-        },
-        {
-          "uid": "chvoqfdpt",
-          "nome": "MARIA BIANCA NOBREGA MARINS",
-          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
-          "funcao": "JOVEM APRENDIZ"
         },
         {
           "uid": "c0enb8g0k",
@@ -27639,5 +27633,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788531001331
+  "savedAt": 1788531017144
 }

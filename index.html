@@ -1161,7 +1161,7 @@ body:not(.perfil-logado) .logado-only{display:none!important}
       </div>
     </div>
     <span id="sync-status" style="display:flex;align-items:center;gap:4px"><span class="sync-dot" id="sync-dot"></span><span class="sync-lbl" id="sync-lbl"></span></span>
-    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-09-04a</span>
+    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-09-04b</span>
     <button class="btn btn-teal btn-sm edit-only" onclick="salvar()">💾 Salvar</button>
     <button id="btn-lock-edit" onclick="toggleEditMode()" title="Modo de edição">🔒 Editar</button>
   </div>
@@ -5419,38 +5419,82 @@ async function githubCarregar(){
     if(r.status===404){setSyncStatus('ok','Sem dados remotos ainda');return false;}
     if(!r.ok){setSyncStatus('err','Erro ao carregar');return false;}
     const raw=await r.json();
-    // GitHub é a fonte da verdade: sempre sobrescreve o estado local
+    // Proteção contra perda de dados: se ESTA máquina salvou depois da última
+    // versão do GitHub (ex.: o envio anterior falhou), mantém os dados locais
+    // e reenvia ao GitHub, em vez de descartá-los.
+    const localSavedAt=parseInt(localStorage.getItem('pq_saved_at')||'0');
+    const remoteSavedAt=raw.savedAt||0;
+    if(ghToken()&&remoteSavedAt>0&&localSavedAt>remoteSavedAt){
+      rebuildContratos();
+      setSyncStatus('loading','Reenviando alterações locais...');
+      githubSalvar();
+      return true;
+    }
+    // Caso normal: GitHub é a fonte da verdade e sobrescreve o estado local
     if(raw.state) state=raw.state;
     if(raw.currentComp) currentComp=raw.currentComp;
+    if(remoteSavedAt>0) localStorage.setItem('pq_saved_at',String(remoteSavedAt));
     rebuildContratos();
     const t=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
     setSyncStatus('ok','Atualizado '+t);
     return true;
   }catch(e){setSyncStatus('err','Sem conexao');return false;}
 }
+/* Fila de salvamento: nunca roda dois envios ao GitHub ao mesmo tempo.
+   Envios simultâneos usavam "sha" vencido e eram rejeitados em silêncio,
+   podendo perder o último salvamento. Aqui os pedidos são enfileirados:
+   se chegar um novo enquanto outro roda, ele é executado logo em seguida. */
+let _ghSalvando=false,_ghPendente=false,_ghUltimoAviso=0;
 async function githubSalvar(){
+  if(_ghSalvando){_ghPendente=true;return;}
+  _ghSalvando=true;
+  try{ await _githubSalvarExec(); }
+  finally{
+    _ghSalvando=false;
+    if(_ghPendente){_ghPendente=false;githubSalvar();}
+  }
+}
+async function _githubSalvarExec(){
   const token=ghToken();if(!token)return;
   setSyncStatus('loading','Salvando...');
   try{
-    const rG=await fetch('https://api.github.com/repos/'+GH_REPO+'/contents/'+GH_FILE,
-      {headers:{'Authorization':'token '+token,'Accept':'application/vnd.github.v3+json'}});
-    const sha=rG.ok?(await rG.json()).sha:(localStorage.getItem('pq_gh_sha')||undefined);
-    const savedAt=parseInt(localStorage.getItem('pq_saved_at')||'0');
-    const content=btoa(unescape(encodeURIComponent(JSON.stringify({state,currentComp,savedAt},null,2))));
-    const body={message:'Rateio: '+currentComp,content};
-    if(sha) body.sha=sha;
-    const rP=await fetch('https://api.github.com/repos/'+GH_REPO+'/contents/'+GH_FILE,{
-      method:'PUT',
-      headers:{'Authorization':'token '+token,'Content-Type':'application/json','Accept':'application/vnd.github.v3+json'},
-      body:JSON.stringify(body)
-    });
-    if(rP.ok){
-      const jj=await rP.json();
-      localStorage.setItem('pq_gh_sha',jj.content.sha);
-      const t=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
-      setSyncStatus('ok','Sincronizado '+t);
-    } else { setSyncStatus('err','Erro ao salvar'); }
-  }catch(e){setSyncStatus('err','Sem conexao');}
+    // Até 3 tentativas: em conflito de sha (arquivo mudou), rebusca e reenvia
+    for(let tent=0;tent<3;tent++){
+      const rG=await fetch('https://api.github.com/repos/'+GH_REPO+'/contents/'+GH_FILE,
+        {headers:{'Authorization':'token '+token,'Accept':'application/vnd.github.v3+json'}});
+      const sha=rG.ok?(await rG.json()).sha:(localStorage.getItem('pq_gh_sha')||undefined);
+      const savedAt=parseInt(localStorage.getItem('pq_saved_at')||'0');
+      const content=btoa(unescape(encodeURIComponent(JSON.stringify({state,currentComp,savedAt},null,2))));
+      const body={message:'Rateio: '+currentComp,content};
+      if(sha) body.sha=sha;
+      const rP=await fetch('https://api.github.com/repos/'+GH_REPO+'/contents/'+GH_FILE,{
+        method:'PUT',
+        headers:{'Authorization':'token '+token,'Content-Type':'application/json','Accept':'application/vnd.github.v3+json'},
+        body:JSON.stringify(body)
+      });
+      if(rP.ok){
+        const jj=await rP.json();
+        localStorage.setItem('pq_gh_sha',jj.content.sha);
+        const t=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+        setSyncStatus('ok','Sincronizado '+t);
+        return;
+      }
+      // 409/422 = conflito de versão: repete o loop buscando o sha atualizado
+      if(rP.status!==409&&rP.status!==422) break;
+    }
+    setSyncStatus('err','Erro ao salvar');
+    _avisarFalhaSync();
+  }catch(e){
+    setSyncStatus('err','Sem conexao');
+    _avisarFalhaSync();
+  }
+}
+/* Aviso visível (no máx. 1 por minuto) quando o envio ao GitHub falha de vez */
+function _avisarFalhaSync(){
+  const agora=Date.now();
+  if(agora-_ghUltimoAviso<60000) return;
+  _ghUltimoAviso=agora;
+  alert('⚠ ATENÇÃO: as alterações NÃO foram enviadas ao GitHub.\n\nOs dados continuam nesta janela. Verifique sua internet e clique em 💾 Salvar novamente antes de fechar a página.');
 }
 function abrirConfigSync(){
   document.getElementById('sync-token-input').value=ghToken();
@@ -6217,14 +6261,14 @@ function init(){
   // Sempre carrega do GitHub (público, sem token)
   githubCarregar().then(ok=>{if(ok){popularCompetencias();popularUI();renderCriterio();}});
 
-  // Load sample data if state is empty
+  // Load sample data if state is empty (apenas em memória — não grava, para não
+  // marcar esta máquina como "mais recente" que o GitHub antes do primeiro load)
   if(!Object.keys(state).length){
     const d=getMesData('2026-05');
     d.colaboradores=COLAB_EXEMPLO.map(c=>({...c}));
     d.despesas=DESPESAS_EXEMPLO.map(d=>({...d,uid:uid()}));
     d.refColab='MARÇO/2026';
     currentComp='2026-05';
-    salvar();
   }
 
   popularCompetencias();

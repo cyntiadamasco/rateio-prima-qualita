@@ -9151,7 +9151,7 @@
           "uid": "cmtn1cgl45vfso",
           "nome": "IGOR SILVA MARINHO",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": ""
+          "funcao": "ASSISTENTE DE TI"
         },
         {
           "uid": "cmtn1cgv6krrq1",
@@ -20246,9 +20246,14 @@
         "t": 1788536311999,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788536320072,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788536312006
+  "savedAt": 1788536320078
 }

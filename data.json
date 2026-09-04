@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788321051331,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788321131669,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24097,6 +24092,11 @@
       },
       {
         "t": 1788530729966,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788530916425,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -25691,12 +25691,6 @@
           "nome": "JANDARA TEIXEIRA DIAS ROCHA",
           "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
           "funcao": "ASSISTENTE DE RECURSOS HUMANOS I"
-        },
-        {
-          "uid": "cx6zn3boz",
-          "nome": "JOAO VITOR DA SILVA BORGES",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "JOVEM APRENDIZ"
         },
         {
           "uid": "cgsgt291f",
@@ -27663,5 +27657,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788530729968
+  "savedAt": 1788530916428
 }

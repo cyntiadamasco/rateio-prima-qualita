@@ -22601,26 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788320764144,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788320765002,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788320767544,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788320768305,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788320769503,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24097,6 +24077,26 @@
       },
       {
         "t": 1788527858054,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788527860131,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788527860700,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788528020349,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788528024057,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -25993,16 +25993,16 @@
       ],
       "iqual": {
         "ind1": {
-          "madalena": 122,
-          "cachoeiras": 381,
-          "saq_hosp": 1408,
-          "upa_pac": 77,
-          "upa_nc": 82,
-          "arraial": 343,
-          "quissama": 56,
-          "cordeiro": 93,
-          "saq_esp": 315,
-          "saq_pri": 636,
+          "madalena": 0,
+          "cachoeiras": 0,
+          "saq_hosp": 0,
+          "upa_pac": 0,
+          "upa_nc": 0,
+          "arraial": 0,
+          "quissama": 0,
+          "cordeiro": 0,
+          "saq_esp": 0,
+          "saq_pri": 0,
           "cg_mt55zykt": 0
         },
         "ind2": {
@@ -26142,8 +26142,8 @@
       },
       "iqual_pdfs": {
         "ind1": {
-          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202608_ind1.pdf",
-          "pdfNome": "INDICADOR 1 - DEPARTAMENTO PESSOAL-RH - JULHO.pdf"
+          "pdfUrl": "",
+          "pdfNome": ""
         },
         "ind2": {
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202608_ind2.pdf",
@@ -26162,8 +26162,8 @@
           "pdfNome": "INDICADOR 5 - LOGISTICA E SUPRIMENTOS - JULHO 2026.pdf"
         },
         "ind6": {
-          "pdfUrl": "local:iqual_202608_ind6",
-          "pdfNome": "INDICADOR 6 - COMPRAS E CONTRATOS - JUL.26.pdf"
+          "pdfUrl": "",
+          "pdfNome": ""
         },
         "ind7": {
           "pdfUrl": "",
@@ -27703,5 +27703,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788527858056
+  "savedAt": 1788528024059
 }

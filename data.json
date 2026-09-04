@@ -9161,7 +9161,7 @@
         },
         {
           "uid": "cmtn1chcaa4jg5",
-          "nome": "",
+          "nome": "SANDRO DOS SANTOS RONQUETTI",
           "dept": "",
           "funcao": ""
         },
@@ -20266,9 +20266,14 @@
         "t": 1788536336639,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788536343945,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788536336641
+  "savedAt": 1788536343952
 }

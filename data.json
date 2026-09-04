@@ -22601,16 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788320754957,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788320758863,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788320760340,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24097,6 +24087,16 @@
       },
       {
         "t": 1788527807045,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788527808946,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788527817313,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -26045,16 +26045,16 @@
           "cg_mt55zykt": 0
         },
         "ind5": {
-          "madalena": 0,
-          "cachoeiras": 0,
-          "saq_hosp": 0,
-          "upa_pac": 0,
-          "upa_nc": 0,
-          "arraial": 0,
-          "quissama": 0,
-          "cordeiro": 0,
-          "saq_esp": 0,
-          "saq_pri": 0,
+          "madalena": 45,
+          "cachoeiras": 67,
+          "saq_hosp": 89,
+          "upa_pac": 24,
+          "upa_nc": 28,
+          "arraial": 85,
+          "quissama": 29,
+          "cordeiro": 23,
+          "saq_esp": 24,
+          "saq_pri": 42,
           "cg_mt55zykt": 0
         },
         "ind6": {
@@ -26158,7 +26158,7 @@
           "pdfNome": "INDICADOR 4 - CONTABILIDADE JULHO 26.pdf"
         },
         "ind5": {
-          "pdfUrl": "local:iqual_202608_ind5",
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202608_ind5.pdf",
           "pdfNome": "INDICADOR 5 - LOGISTICA E SUPRIMENTOS - JULHO 2026.pdf"
         },
         "ind6": {
@@ -27703,5 +27703,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788527807048
+  "savedAt": 1788527817315
 }

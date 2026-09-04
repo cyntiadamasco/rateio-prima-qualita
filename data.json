@@ -9149,7 +9149,7 @@
         },
         {
           "uid": "cmtn1cgl45vfso",
-          "nome": "",
+          "nome": "GIULIA DOS SANTOS SILVA",
           "dept": "",
           "funcao": ""
         },
@@ -20212,9 +20212,14 @@
         "t": 1788536264703,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788536270414,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788536264711
+  "savedAt": 1788536270416
 }

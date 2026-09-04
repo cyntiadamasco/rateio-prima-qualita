@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785957544748,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
         "t": 1785957544972,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24097,6 +24092,11 @@
       },
       {
         "t": 1788493177510,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788493341918,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -26020,7 +26020,9 @@
           "pdfUrl": "",
           "pdfNome": ""
         }
-      }
+      },
+      "relQuant": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/relquant_2026-08.pdf",
+      "relQuantNome": "1. CRITÉRIO QUANTITATIVO - COMPLETO - JUNHO.2026.pdf"
     },
     "2026-09": {
       "colaboradores": [
@@ -27548,5 +27550,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788493177513
+  "savedAt": 1788493341921
 }

@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788321141741,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788321143195,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24097,6 +24092,11 @@
       },
       {
         "t": 1788531026766,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788531039023,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -25861,12 +25861,6 @@
           "funcao": "AUXILIAR ADMINISTRATIVO"
         },
         {
-          "uid": "ce26rhtqf",
-          "nome": "MARIANA GONÇALVES FELIX",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ANALISTA DE DEPARTAMENTO"
-        },
-        {
           "uid": "cyimb3xvd",
           "nome": "PHAMYLA DE SOUZA POSSAO ABDALLA REBEQUE",
           "dept": "DEPARTAMENTO PESSOAL",
@@ -27627,5 +27621,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788531026769
+  "savedAt": 1788531039026
 }

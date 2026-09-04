@@ -22601,31 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788320743061,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788320744002,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788320744989,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788320745959,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788320747892,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788320748761,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24097,6 +24072,31 @@
       },
       {
         "t": 1788527685477,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788527687345,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788527690616,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788527716372,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788527717949,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788527724199,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -26006,27 +26006,27 @@
           "cg_mt55zykt": 0
         },
         "ind2": {
-          "madalena": 0,
-          "cachoeiras": 0,
-          "saq_hosp": 0,
-          "upa_pac": 0,
-          "upa_nc": 0,
-          "arraial": 0,
-          "quissama": 0,
-          "cordeiro": 0,
-          "saq_esp": 0,
-          "saq_pri": 0,
+          "madalena": 33,
+          "cachoeiras": 24,
+          "saq_hosp": 30,
+          "upa_pac": 27,
+          "upa_nc": 24,
+          "arraial": 31,
+          "quissama": 23,
+          "cordeiro": 23,
+          "saq_esp": 39,
+          "saq_pri": 51,
           "cg_mt55zykt": 0
         },
         "ind3": {
-          "madalena": 0,
-          "cachoeiras": 0,
-          "saq_hosp": 0,
-          "upa_pac": 0,
-          "upa_nc": 0,
-          "arraial": 0,
-          "quissama": 0,
-          "cordeiro": 0,
+          "madalena": 150,
+          "cachoeiras": 284,
+          "saq_hosp": 434,
+          "upa_pac": 120,
+          "upa_nc": 101,
+          "arraial": 277,
+          "quissama": 97,
+          "cordeiro": 100,
           "saq_esp": 0,
           "saq_pri": 0,
           "cg_mt55zykt": 0
@@ -26146,12 +26146,12 @@
           "pdfNome": "INDICADOR 1 - DEPARTAMENTO PESSOAL-RH - JULHO.pdf"
         },
         "ind2": {
-          "pdfUrl": "local:iqual_202608_ind2",
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202608_ind2.pdf",
           "pdfNome": "INDICADOR 2 - COMUNICAÇÃO INSTITUCIONAL - JULHO.2026.pdf"
         },
         "ind3": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202608_ind3.pdf",
+          "pdfNome": "INDICADOR 3 - FINANCEIRO - JULHO.pdf"
         },
         "ind4": {
           "pdfUrl": "",
@@ -27703,5 +27703,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788527685480
+  "savedAt": 1788527724202
 }

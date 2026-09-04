@@ -22601,61 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785956300837,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785956357494,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785956372208,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785956457548,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785956553485,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785956637534,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785957024895,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785957127271,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785957543324,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785957543620,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785957544067,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
         "t": 1785957544070,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24099,6 +24044,61 @@
         "t": 1788492633595,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788492640363,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492645108,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492645981,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492646616,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492647274,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492647893,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492648550,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492649336,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492650086,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492675461,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492799352,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24884,7 +24884,7 @@
           "id": "48",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Servidor Nuvem Privada em Data Center",
-          "fav": " Cigam Software Corporativo S.A   Produtiva Consultoria em Sistema de Gestão LTDA   Produtiva Consultoria em Sistema de Gestão LTDA   Produtiva Consultoria em Sistema de Gestão LTDA   KPMG Assessores LTDA   Produtiva Consultoria em Sistema de Gestão LTDA   Alterdata Tecnologia em Informática LTDA   BR Gaap Corporation Tecnologia da Informação Ltda ",
+          "fav": " Cigam Software Corporativo S.A ",
           "cnpj": " 93.578.813/0001-44 ",
           "ctipo": "NF",
           "cnum": "43523",
@@ -24993,7 +24993,8 @@
           "ctipo": "",
           "cnum": "",
           "valor": 26084.8,
-          "dtPgto": ""
+          "dtPgto": "",
+          "compl": true
         },
         {
           "uid": "3ohkslz",
@@ -25005,7 +25006,8 @@
           "ctipo": "NF",
           "cnum": "481",
           "valor": 118697,
-          "dtPgto": ""
+          "dtPgto": "",
+          "compl": true
         },
         {
           "uid": "yhvb15k",
@@ -25017,7 +25019,8 @@
           "ctipo": "NF",
           "cnum": "358",
           "valor": 38006.88,
-          "dtPgto": ""
+          "dtPgto": "",
+          "compl": true
         },
         {
           "uid": "588dc8r",
@@ -25029,7 +25032,8 @@
           "ctipo": "NF",
           "cnum": "52",
           "valor": 14341.41,
-          "dtPgto": ""
+          "dtPgto": "",
+          "compl": true
         },
         {
           "uid": "yp02swl",
@@ -25041,7 +25045,8 @@
           "ctipo": "NF",
           "cnum": "80710001",
           "valor": 637.84,
-          "dtPgto": ""
+          "dtPgto": "",
+          "compl": true
         },
         {
           "uid": "s2kr6qg",
@@ -25053,7 +25058,8 @@
           "ctipo": "NF",
           "cnum": "449",
           "valor": 1384.98,
-          "dtPgto": ""
+          "dtPgto": "",
+          "compl": true
         },
         {
           "uid": "b1ztx37",
@@ -25065,7 +25071,8 @@
           "ctipo": "BOLETO",
           "cnum": "",
           "valor": 2457.5,
-          "dtPgto": ""
+          "dtPgto": "",
+          "compl": true
         },
         {
           "uid": "isswqok",
@@ -25076,44 +25083,9 @@
           "cnpj": " 03.689.427/0001-37 ",
           "ctipo": "NF",
           "cnum": "315051",
-          "valor": 0,
-          "dtPgto": ""
-        },
-        {
-          "uid": "e0pqb15",
-          "id": "64",
-          "cat": "Assessoria Jurídica",
-          "objeto": "",
-          "fav": "",
-          "cnpj": "",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
-          "dtPgto": ""
-        },
-        {
-          "uid": "7buhwnj",
-          "id": "65",
-          "cat": "Assessoria Jurídica",
-          "objeto": "",
-          "fav": "",
-          "cnpj": "",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
-          "dtPgto": ""
-        },
-        {
-          "uid": "262z4wg",
-          "id": "66",
-          "cat": "Assessoria Jurídica",
-          "objeto": "",
-          "fav": "",
-          "cnpj": "",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
-          "dtPgto": ""
+          "valor": 2581.49,
+          "dtPgto": "",
+          "compl": true
         }
       ],
       "orcamentos": {
@@ -27583,5 +27555,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788492633601
+  "savedAt": 1788492799360
 }

@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788320735220,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788320736840,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24099,6 +24094,11 @@
         "t": 1788495334349,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788495411618,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24692,7 +24692,7 @@
           "valor": 609.28,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-08-17"
         },
         {
           "uid": "2qpw48l",
@@ -24706,7 +24706,7 @@
           "valor": 1431.76,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-08-18"
         },
         {
           "uid": "vspfh2p",
@@ -24720,7 +24720,7 @@
           "valor": 2418.18,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-08-07"
         },
         {
           "uid": "gdgsv5b",
@@ -24734,7 +24734,7 @@
           "valor": 2581.49,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": ""
+          "dtPgto": "2026-08-17"
         },
         {
           "uid": "r50te8b",
@@ -27703,5 +27703,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788495334357
+  "savedAt": 1788495411624
 }

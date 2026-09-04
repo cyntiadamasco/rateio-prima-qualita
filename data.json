@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788321143195,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788321144309,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24099,6 +24094,11 @@
         "t": 1788531039023,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788531095680,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -25493,12 +25493,6 @@
           "nome": "DIEGO DE FIGUEIREDO SANTOS",
           "dept": "DEPARTAMENTO DE COMPLIANCE",
           "funcao": "COORDENADOR DE COMPLIANCE"
-        },
-        {
-          "uid": "c8y45ub5q",
-          "nome": "ROGERIO DE CARVALHO OLIVEIRA",
-          "dept": "DEPARTAMENTO DE COMPLIANCE",
-          "funcao": "ANALISTA ADMINISTRATIVO III"
         },
         {
           "uid": "cy96ywsgv",
@@ -27621,5 +27615,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788531039026
+  "savedAt": 1788531095682
 }

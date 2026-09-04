@@ -9170,12 +9170,6 @@
           "nome": "",
           "dept": "",
           "funcao": ""
-        },
-        {
-          "uid": "cmtn3vm9q68d6k",
-          "nome": "",
-          "dept": "",
-          "funcao": ""
         }
       ],
       "iqual": {
@@ -20242,9 +20236,14 @@
         "t": 1788536301833,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788536306533,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788536301840
+  "savedAt": 1788536306534
 }

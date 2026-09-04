@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788320804725,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788320951191,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24099,6 +24094,11 @@
         "t": 1788528405631,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788528494424,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24499,22 +24499,8 @@
           "dtPgto": "2026-08-13"
         },
         {
-          "uid": "fh32aes",
-          "id": "20",
-          "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
-          "objeto": "Sistema de Gestão RH /  HORAS",
-          "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
-          "cnpj": "24.783.564/0001-06",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
-          "pdfUrl": null,
-          "pdfNome": null,
-          "dtPgto": ""
-        },
-        {
           "uid": "gengfol",
-          "id": "21",
+          "id": "20",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema de Gestão ERP / MENSALIDADE",
           "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
@@ -24528,7 +24514,7 @@
         },
         {
           "uid": "45sjgey",
-          "id": "22",
+          "id": "21",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema de DP/RH",
           "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
@@ -24542,7 +24528,7 @@
         },
         {
           "uid": "c1p1fjl",
-          "id": "23",
+          "id": "22",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema de Análise de Risco",
           "fav": "KPMG Assessores LTDA",
@@ -24556,7 +24542,7 @@
         },
         {
           "uid": "pyl104f",
-          "id": "24",
+          "id": "23",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema de Gestão ERP / HORAS",
           "fav": "Produtiva Consultoria em Sistema de Gestão LTDA",
@@ -24570,7 +24556,7 @@
         },
         {
           "uid": "y0ot2jy",
-          "id": "25",
+          "id": "24",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema Contábil/Fiscal/DP/MENSALIDADE",
           "fav": "Alterdata Tecnologia em Informática LTDA",
@@ -24584,7 +24570,7 @@
         },
         {
           "uid": "p7tajs7",
-          "id": "26",
+          "id": "25",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema Prestação de Contas",
           "fav": "BR Gaap Corporation Tecnologia da Informação Ltda",
@@ -24598,7 +24584,7 @@
         },
         {
           "uid": "ardh146",
-          "id": "27",
+          "id": "26",
           "cat": "Melhoria Contínua",
           "objeto": "Serviço de Treinamento de Melhoria Contínua",
           "fav": "Six Treinamento Empresarial LTDA",
@@ -24612,7 +24598,7 @@
         },
         {
           "uid": "7d3r1wt",
-          "id": "28",
+          "id": "27",
           "cat": "Locação de Mobiliário e Equipamentos de Informática (CIGAC)",
           "objeto": "Locação de mobiliários e equipamentos para o CIGAC",
           "fav": "A4PM Analytics For Public Management LTDA",
@@ -24626,7 +24612,7 @@
         },
         {
           "uid": "zqox3n1",
-          "id": "29",
+          "id": "28",
           "cat": "Locação de Imóvel CIGAC e Despesas",
           "objeto": "Aluguel Imóvel Centro Integrado de Gestão e Assistência Compartilhada - CIGAC",
           "fav": "Riza Securitizadora S. A",
@@ -24640,7 +24626,7 @@
         },
         {
           "uid": "35p1irj",
-          "id": "30",
+          "id": "29",
           "cat": "Locação de Imóvel CIGAC e Despesas",
           "objeto": "Condomínio e Taxas do Imóvel Centro Integrado de Gestão e Assistência Compartilhada - CIGAC",
           "fav": "Condomínio do São Gonçalo Shopping Rio",
@@ -24653,22 +24639,8 @@
           "dtPgto": "2026-08-10"
         },
         {
-          "uid": "dmt1p11",
-          "id": "31",
-          "cat": "Locação de Veículo Apoio Administrativo",
-          "objeto": "Locação de veículos para atender a Central de logística",
-          "fav": "Promedical Serviços em Saude LTDA",
-          "cnpj": "35.788.642/0001-81",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
-          "pdfUrl": "",
-          "pdfNome": "",
-          "dtPgto": ""
-        },
-        {
           "uid": "mebt9gs",
-          "id": "32",
+          "id": "30",
           "cat": "Locação de Veículo Apoio Administrativo",
           "objeto": "Locação de veículos para atender a CIGAC",
           "fav": "Promedical Serviços em Saude LTD",
@@ -24682,7 +24654,7 @@
         },
         {
           "uid": "na1n2mn",
-          "id": "33",
+          "id": "31",
           "cat": "Despesas de materiais de expediente e afins",
           "objeto": "Fornecimento de Água Mineral",
           "fav": "Rodolfo Lucas Duarte 08848690750",
@@ -24696,7 +24668,7 @@
         },
         {
           "uid": "2qpw48l",
-          "id": "34",
+          "id": "32",
           "cat": "Medicina do Trabalho",
           "objeto": "Serviços de SST",
           "fav": "ICM Medicina Ocupacional LTDA",
@@ -24710,7 +24682,7 @@
         },
         {
           "uid": "vspfh2p",
-          "id": "35",
+          "id": "33",
           "cat": "Seguro de Vida",
           "objeto": "Seguro de Vida Colaboradores CIGAC",
           "fav": "Unimed Seguradora S/A",
@@ -24724,7 +24696,7 @@
         },
         {
           "uid": "gdgsv5b",
-          "id": "36",
+          "id": "34",
           "cat": "Plataforma Processo Seletivo",
           "objeto": "Licença de Uso Mensal do Software Vagas For Business",
           "fav": "Vagas Tecnologia de Software LTDA",
@@ -24738,7 +24710,7 @@
         },
         {
           "uid": "r50te8b",
-          "id": "37",
+          "id": "35",
           "cat": "Assessoria Jurídica",
           "objeto": "Gestão do departamento jurídico e atuação em caráter consultivo nas áreas de direito trabalhista, direito administrativo, direito tributário, direito civil e direito regulatório",
           "fav": "Pablo Siqueira Sociedade Individual de Advocacia",
@@ -24751,7 +24723,7 @@
         },
         {
           "uid": "0gkid7x",
-          "id": "38",
+          "id": "36",
           "cat": "Assessoria Jurídica",
           "objeto": "Contencioso e consultivo na área de direito cível e de direito médico e da saúde",
           "fav": "E Simões Sociedade Individual de Advocacia",
@@ -24764,7 +24736,7 @@
         },
         {
           "uid": "0jdjqnw",
-          "id": "39",
+          "id": "37",
           "cat": "Assessoria Jurídica",
           "objeto": "Suporte ao desenvolvimento de Ouvidoria e apoio aos processos de sindicância",
           "fav": "Gustavo Fróes Sociedade Individual de Advocacia",
@@ -24777,7 +24749,7 @@
         },
         {
           "uid": "8jay9lv",
-          "id": "40",
+          "id": "38",
           "cat": "Auditorias Contábil, Fiscal e Financeira",
           "objeto": "Serviços de Auditoria Financeira e Contábil",
           "fav": "IGF Auditores e Consultores Independentes Sociedade Simples",
@@ -24790,7 +24762,7 @@
         },
         {
           "uid": "4sfphnu",
-          "id": "41",
+          "id": "39",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Vale Refeição/Alimentação Colaboradores CIGAC",
           "fav": "Ticket Soluções HDFGT S/A",
@@ -24803,7 +24775,7 @@
         },
         {
           "uid": "1d9nbzy",
-          "id": "42",
+          "id": "40",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Vale Transporte Colaboradores CIGAC",
           "fav": "Riopar Participações S/A",
@@ -24816,7 +24788,7 @@
         },
         {
           "uid": "251gwev",
-          "id": "43",
+          "id": "41",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Vale Transporte Colaboradores CIGAC",
           "fav": "Riopar Participações S/A",
@@ -24829,7 +24801,7 @@
         },
         {
           "uid": "ln4k31k",
-          "id": "44",
+          "id": "42",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Vale Transporte Colaboradores CIGAC",
           "fav": "CBD Bilhete Digital",
@@ -24842,7 +24814,7 @@
         },
         {
           "uid": "lzeecx3",
-          "id": "45",
+          "id": "43",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Contribuição Institucional Destinada a Manutenção do CIEE",
           "fav": "Centro de Integração Empresa Escola",
@@ -24855,7 +24827,7 @@
         },
         {
           "uid": "81sx1dg",
-          "id": "46",
+          "id": "44",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Coordenação de Revisão de Óbitos e Prontuários Institucional",
           "fav": "Radiocom Diagnosticos LTDA",
@@ -24868,7 +24840,7 @@
         },
         {
           "uid": "cjbcmas",
-          "id": "47",
+          "id": "45",
           "cat": "Folha de Pagamento CIGAC",
           "objeto": "Provisão de Verbas Rescisórias CIGAC",
           "fav": "Projeto Social Cresce Comunidade",
@@ -24881,7 +24853,7 @@
         },
         {
           "uid": "zw90ely",
-          "id": "48",
+          "id": "46",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Servidor Nuvem Privada em Data Center",
           "fav": " Cigam Software Corporativo S.A ",
@@ -24894,7 +24866,7 @@
         },
         {
           "uid": "2002ze7",
-          "id": "49",
+          "id": "47",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema de Gestão RH /  HORAS",
           "fav": " Produtiva Consultoria em Sistema de Gestão LTDA ",
@@ -24907,7 +24879,7 @@
         },
         {
           "uid": "hfaopn4",
-          "id": "50",
+          "id": "48",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema de Gestão ERP / MENSALIDADE",
           "fav": " Produtiva Consultoria em Sistema de Gestão LTDA ",
@@ -24920,7 +24892,7 @@
         },
         {
           "uid": "pxwq11s",
-          "id": "51",
+          "id": "49",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema de DP/RH",
           "fav": " Produtiva Consultoria em Sistema de Gestão LTDA ",
@@ -24933,7 +24905,7 @@
         },
         {
           "uid": "v12cdhb",
-          "id": "52",
+          "id": "50",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema de Análise de Risco",
           "fav": " KPMG Assessores LTDA ",
@@ -24946,7 +24918,7 @@
         },
         {
           "uid": "l513w1d",
-          "id": "53",
+          "id": "51",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema de Gestão ERP / HORAS",
           "fav": " Produtiva Consultoria em Sistema de Gestão LTDA ",
@@ -24959,7 +24931,7 @@
         },
         {
           "uid": "bnpfye0",
-          "id": "54",
+          "id": "52",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema Contábil/Fiscal/DP/MENSALIDADE",
           "fav": " Alterdata Tecnologia em Informática LTDA ",
@@ -24972,7 +24944,7 @@
         },
         {
           "uid": "2gla20w",
-          "id": "55",
+          "id": "53",
           "cat": "Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco",
           "objeto": "Sistema Prestação de Contas",
           "fav": " BR Gaap Corporation Tecnologia da Informação Ltda ",
@@ -24985,7 +24957,7 @@
         },
         {
           "uid": "wogu26z",
-          "id": "56",
+          "id": "54",
           "cat": "Melhoria Contínua",
           "objeto": "Serviço de Treinamento de Melhoria Contínua",
           "fav": " Six Treinamento Empresarial LTDA ",
@@ -24998,7 +24970,7 @@
         },
         {
           "uid": "3ohkslz",
-          "id": "57",
+          "id": "55",
           "cat": "Locação de Mobiliário e Equipamentos de Informática (CIGAC)",
           "objeto": "Locação de mobiliários e equipamentos para o CIGAC",
           "fav": " A4PM Analytics For Public Management LTDA ",
@@ -25011,7 +24983,7 @@
         },
         {
           "uid": "yhvb15k",
-          "id": "58",
+          "id": "56",
           "cat": "Locação de Veículo Apoio Administrativo",
           "objeto": "Locação de veículos para atender a Central de logística",
           "fav": " Promedical Serviços em Saude LTDA ",
@@ -25024,7 +24996,7 @@
         },
         {
           "uid": "588dc8r",
-          "id": "59",
+          "id": "57",
           "cat": "Locação de Veículo Apoio Administrativo",
           "objeto": "Locação de veículos para atender a CIGAC",
           "fav": " Promedical Serviços em Saude LTDA ",
@@ -25037,7 +25009,7 @@
         },
         {
           "uid": "yp02swl",
-          "id": "60",
+          "id": "58",
           "cat": "Despesas de materiais de expediente e afins",
           "objeto": "Fornecimento de Água Mineral",
           "fav": " Rodolfo Lucas Duarte 08848690750 ",
@@ -25050,7 +25022,7 @@
         },
         {
           "uid": "s2kr6qg",
-          "id": "61",
+          "id": "59",
           "cat": "Medicina do Trabalho",
           "objeto": "Serviços de SST ",
           "fav": " ICM Medicina Ocupacional LTDA ",
@@ -25063,7 +25035,7 @@
         },
         {
           "uid": "b1ztx37",
-          "id": "62",
+          "id": "60",
           "cat": "Seguro de Vida",
           "objeto": "Seguro de Vida Colaboradores CIGAC",
           "fav": " Unimed Seguradora S/A ",
@@ -25076,7 +25048,7 @@
         },
         {
           "uid": "isswqok",
-          "id": "63",
+          "id": "61",
           "cat": "Plataforma Processo Seletivo",
           "objeto": "Licença de Uso Mensal do Software Vagas For Business",
           "fav": " Vagas Tecnologia de Software LTDA ",
@@ -27703,5 +27675,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788528405633
+  "savedAt": 1788528494426
 }

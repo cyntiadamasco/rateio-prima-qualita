@@ -9157,7 +9157,7 @@
           "uid": "cmtn1cgv6krrq1",
           "nome": "LUCAS CARREIRA MATTOS",
           "dept": "DEPARTAMENTO FINANCEIRO",
-          "funcao": ""
+          "funcao": "ASSISTENTE FINANCEIRO"
         },
         {
           "uid": "cmtn1chcaa4jg5",
@@ -20261,9 +20261,14 @@
         "t": 1788536331816,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788536336639,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788536331821
+  "savedAt": 1788536336641
 }

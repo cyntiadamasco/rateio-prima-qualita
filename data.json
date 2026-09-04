@@ -9167,7 +9167,7 @@
         },
         {
           "uid": "cmtn1ci4gq1mpi",
-          "nome": "",
+          "nome": "VERONICA RODRIGUES DOS SANTOS COSTA",
           "dept": "",
           "funcao": ""
         }
@@ -20281,9 +20281,14 @@
         "t": 1788536354614,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788536360021,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788536354622
+  "savedAt": 1788536360023
 }

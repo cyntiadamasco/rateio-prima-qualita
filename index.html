@@ -542,6 +542,10 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   @page{@bottom-center{content:"Pág. " counter(page);font-family:Arial,sans-serif;font-size:9pt;color:#6b7280}}
   .rdg-capa{page-break-after:always}
   /* rdg-section sem avoid: seções principais usam page-break-before:always */
+  /* Sem margem inferior na impressão: evita página em branco quando a seção
+     anterior termina exatamente no fim da página (a margem "vazava" para uma
+     página nova antes do page-break-before da seção seguinte) */
+  .rdg-section{margin-bottom:0}
   .rdg-sign{page-break-inside:avoid}
   .rdg-final-block{page-break-before:always;page-break-inside:avoid}
   .rdg-organo{page-break-inside:avoid;break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -1157,7 +1161,7 @@ body:not(.perfil-logado) .logado-only{display:none!important}
       </div>
     </div>
     <span id="sync-status" style="display:flex;align-items:center;gap:4px"><span class="sync-dot" id="sync-dot"></span><span class="sync-lbl" id="sync-lbl"></span></span>
-    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-09-02b</span>
+    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-09-04a</span>
     <button class="btn btn-teal btn-sm edit-only" onclick="salvar()">💾 Salvar</button>
     <button id="btn-lock-edit" onclick="toggleEditMode()" title="Modo de edição">🔒 Editar</button>
   </div>
@@ -3595,7 +3599,7 @@ function renderRelatorio(){
   const catSectionsHtml=CATEGORIAS.map(c=>buildCatSection(c,despAtual,true,true)).filter(Boolean).join('');
   // Bloco separado: despesas complementares do mês anterior
   const catSectionsComplHtml=despCompl.length
-    ?'<div class="rdg-cat-block" style="margin-top:26px;border-top:3px solid #F59E0B;padding-top:14px">'
+    ?'<div style="margin:26px 0 14px;border-top:3px solid #F59E0B;padding-top:14px">'
       +'<h2 class="rdg-subsection-title" style="color:#B45309">🔁 Despesas Complementares – Competência '+complLabel+'</h2>'
       +'<p class="rdg-p">Relação de despesas da competência <strong>'+complLabel+'</strong> cujo pagamento foi efetuado em <strong>'+compLabel(currentComp)+'</strong> (prestação complementar). '
       +'O rateio destes itens foi efetuado pelo <strong>critério quantitativo de '+complLabel+'</strong>, preservando os percentuais vigentes na competência de origem, de forma segregada das despesas de '+compLabel(currentComp)+'.</p>'

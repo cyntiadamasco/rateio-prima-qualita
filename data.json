@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788321137268,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788321141741,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24099,6 +24094,11 @@
         "t": 1788531017142,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788531026766,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -25419,12 +25419,6 @@
         {
           "uid": "ca9ttqme5",
           "nome": "MARCELA ROCHA FERREIRA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
-        },
-        {
-          "uid": "c4a8a8a5t",
-          "nome": "MARIA EDUARDA MORAES XAVIER",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
           "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
         },
@@ -27633,5 +27627,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788531017144
+  "savedAt": 1788531026769
 }

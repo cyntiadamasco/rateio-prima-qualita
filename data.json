@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788320998260,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788321051331,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24099,6 +24094,11 @@
         "t": 1788530688310,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788530729966,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -25343,12 +25343,6 @@
           "nome": "DIONI DE OLIVEIRA SCHUVARTZ",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
           "funcao": "ANALISTA ASSISTENCIAL III"
-        },
-        {
-          "uid": "cry2bgzmy",
-          "nome": "ESTER SOARES ALVES XIMENES",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "COORDENADOR DE REDE DE CUIDADOS I"
         },
         {
           "uid": "cuxakx3b8",
@@ -27669,5 +27663,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788530688312
+  "savedAt": 1788530729968
 }

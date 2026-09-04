@@ -22601,31 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785870706470,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785870711674,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785870731055,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785870739491,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785936669779,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
         "t": 1785936673420,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24099,6 +24074,31 @@
         "t": 1788492200642,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788492206477,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492212806,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492218034,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492224796,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492229684,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24924,7 +24924,7 @@
           "cnpj": " 24.783.564/0001-06 ",
           "ctipo": "NF",
           "cnum": "2429",
-          "valor": 0,
+          "valor": 17080,
           "dtPgto": ""
         },
         {
@@ -24936,7 +24936,7 @@
           "cnpj": " 05.490.840/0019-22 ",
           "ctipo": "NF637",
           "cnum": "",
-          "valor": 0,
+          "valor": 4876.04,
           "dtPgto": ""
         },
         {
@@ -24948,7 +24948,7 @@
           "cnpj": " 24.783.564/0001-06 ",
           "ctipo": "NF",
           "cnum": "2443",
-          "valor": 0,
+          "valor": 5147.58,
           "dtPgto": ""
         },
         {
@@ -24960,7 +24960,7 @@
           "cnpj": " 36.462.778/0001-60 ",
           "ctipo": "BOLETO",
           "cnum": "",
-          "valor": 0,
+          "valor": 2810.44,
           "dtPgto": ""
         },
         {
@@ -24972,7 +24972,7 @@
           "cnpj": " 16.106.178/0001-51 ",
           "ctipo": "NF",
           "cnum": "837",
-          "valor": 0,
+          "valor": 63000,
           "dtPgto": ""
         },
         {
@@ -27575,5 +27575,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788492200645
+  "savedAt": 1788492229688
 }

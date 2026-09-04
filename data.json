@@ -22601,46 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788321152015,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788321152921,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788321154327,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788321155443,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788321156807,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788321158410,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788321159586,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788321161293,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788321163307,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24097,6 +24057,46 @@
       },
       {
         "t": 1788531275314,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788531279890,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788531280494,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788531280888,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788531281250,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788531281866,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788531282880,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788531288425,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788531288824,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -25886,6 +25886,42 @@
         },
         {
           "uid": "cmtn1ccaawugj2",
+          "nome": "an",
+          "dept": "",
+          "funcao": ""
+        },
+        {
+          "uid": "cmtn1cfte28an5",
+          "nome": "",
+          "dept": "",
+          "funcao": ""
+        },
+        {
+          "uid": "cmtn1cga60ejvj",
+          "nome": "",
+          "dept": "",
+          "funcao": ""
+        },
+        {
+          "uid": "cmtn1cgl45vfso",
+          "nome": "",
+          "dept": "",
+          "funcao": ""
+        },
+        {
+          "uid": "cmtn1cgv6krrq1",
+          "nome": "",
+          "dept": "",
+          "funcao": ""
+        },
+        {
+          "uid": "cmtn1chcaa4jg5",
+          "nome": "",
+          "dept": "",
+          "funcao": ""
+        },
+        {
+          "uid": "cmtn1ci4gq1mpi",
           "nome": "",
           "dept": "",
           "funcao": ""
@@ -27603,5 +27639,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788531275317
+  "savedAt": 1788531288825
 }

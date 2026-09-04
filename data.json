@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785870504519,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
         "t": 1785870509041,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24099,6 +24094,11 @@
         "t": 1788491916332,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788491924294,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24861,7 +24861,7 @@
           "cnpj": "33.192.856/0001-65",
           "ctipo": "NF",
           "cnum": "255",
-          "valor": 0,
+          "valor": 20500,
           "dtPgto": ""
         },
         {
@@ -27404,5 +27404,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788491916337
+  "savedAt": 1788491924297
 }

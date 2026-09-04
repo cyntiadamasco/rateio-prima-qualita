@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788320761855,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788320764144,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24097,6 +24092,11 @@
       },
       {
         "t": 1788527845860,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788527858054,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -26162,8 +26162,8 @@
           "pdfNome": "INDICADOR 5 - LOGISTICA E SUPRIMENTOS - JULHO 2026.pdf"
         },
         "ind6": {
-          "pdfUrl": "",
-          "pdfNome": ""
+          "pdfUrl": "local:iqual_202608_ind6",
+          "pdfNome": "INDICADOR 6 - COMPRAS E CONTRATOS - JUL.26.pdf"
         },
         "ind7": {
           "pdfUrl": "",
@@ -27703,5 +27703,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788527845862
+  "savedAt": 1788527858056
 }

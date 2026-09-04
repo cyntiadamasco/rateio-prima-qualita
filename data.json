@@ -22601,16 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785870687864,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
-        "t": 1785870693931,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
         "t": 1785870706470,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24099,6 +24089,16 @@
         "t": 1788492184823,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788492191223,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788492200642,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24900,7 +24900,7 @@
           "cnpj": " 24.783.564/0001-06 ",
           "ctipo": "NF",
           "cnum": "2444",
-          "valor": 0,
+          "valor": 2332.09,
           "dtPgto": ""
         },
         {
@@ -24912,7 +24912,7 @@
           "cnpj": " 24.783.564/0001-06 ",
           "ctipo": "NF",
           "cnum": "2430",
-          "valor": 0,
+          "valor": 28573.12,
           "dtPgto": ""
         },
         {
@@ -27575,5 +27575,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788492184833
+  "savedAt": 1788492200645
 }

@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1785870509041,
-        "perfil": "Administrador",
-        "comp": "2026-07"
-      },
-      {
         "t": 1785870547747,
         "perfil": "Administrador",
         "comp": "2026-07"
@@ -24099,6 +24094,11 @@
         "t": 1788491924294,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788491932770,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24873,7 +24873,7 @@
           "cnpj": "40.289.134/0001-99",
           "ctipo": "PLANILHA",
           "cnum": "",
-          "valor": 0,
+          "valor": 204483.07,
           "dtPgto": ""
         },
         {
@@ -27404,5 +27404,5 @@
     ]
   },
   "currentComp": "2026-08",
-  "savedAt": 1788491924297
+  "savedAt": 1788491932774
 }

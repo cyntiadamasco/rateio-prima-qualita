@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788321147109,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788321148943,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24097,6 +24092,11 @@
       },
       {
         "t": 1788531187193,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788531233771,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -25617,12 +25617,6 @@
         {
           "uid": "cfn50rsbs",
           "nome": "LUISA FERREIRA ALBUQUERQUE",
-          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
-          "funcao": "ASSISTENTE ADMINISTRATIVO"
-        },
-        {
-          "uid": "c0enb8g0k",
-          "nome": "VICTOR TEIXEIRA LESSA",
           "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
           "funcao": "ASSISTENTE ADMINISTRATIVO"
         },
@@ -27603,5 +27597,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788531187195
+  "savedAt": 1788531233773
 }

@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788321131669,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788321133509,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24099,6 +24094,11 @@
         "t": 1788530916425,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788530937122,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -25397,12 +25397,6 @@
           "nome": "JOAO VICTOR SIQUEIRA CAMPOS",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
           "funcao": "AUXILIAR ADMINISTRATIVO"
-        },
-        {
-          "uid": "cco36jo5l",
-          "nome": "JOSE ROBERTO LOPES DA SILVA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ASSISTENTE ADMINISTRATIVO I"
         },
         {
           "uid": "c0ev3qft4",
@@ -27657,5 +27651,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788530916428
+  "savedAt": 1788530937125
 }

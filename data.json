@@ -22601,11 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788320774777,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788320804725,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24099,6 +24094,11 @@
         "t": 1788528224073,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1788528405631,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24746,7 +24746,7 @@
           "ctipo": "NF",
           "cnum": "20",
           "valor": 36000,
-          "dtPgto": "",
+          "dtPgto": "2026-08-21",
           "compl": true
         },
         {
@@ -24759,7 +24759,7 @@
           "ctipo": "NF",
           "cnum": "9",
           "valor": 11000,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -24772,7 +24772,7 @@
           "ctipo": "NF",
           "cnum": "202609",
           "valor": 7000,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -24785,7 +24785,7 @@
           "ctipo": "NF",
           "cnum": "1116",
           "valor": 3167,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -24811,7 +24811,7 @@
           "ctipo": "BOLETO",
           "cnum": "",
           "valor": 54255.2,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -24824,7 +24824,7 @@
           "ctipo": "BOLETO",
           "cnum": "",
           "valor": 2090,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -24837,7 +24837,7 @@
           "ctipo": "BOLETO",
           "cnum": "",
           "valor": 533.4,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -24850,7 +24850,7 @@
           "ctipo": "NF",
           "cnum": "34015",
           "valor": 501.56,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -24863,7 +24863,7 @@
           "ctipo": "NF",
           "cnum": "255",
           "valor": 20500,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -24876,7 +24876,7 @@
           "ctipo": "PLANILHA",
           "cnum": "",
           "valor": 204483.07,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -24889,7 +24889,7 @@
           "ctipo": "NF",
           "cnum": "43523",
           "valor": 9787.85,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -24902,7 +24902,7 @@
           "ctipo": "NF",
           "cnum": "2444",
           "valor": 2332.09,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -24915,7 +24915,7 @@
           "ctipo": "NF",
           "cnum": "2430",
           "valor": 28573.12,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -24928,7 +24928,7 @@
           "ctipo": "NF",
           "cnum": "2429",
           "valor": 17080,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -24941,7 +24941,7 @@
           "ctipo": "NF637",
           "cnum": "",
           "valor": 4876.04,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -24954,7 +24954,7 @@
           "ctipo": "NF",
           "cnum": "2443",
           "valor": 5147.58,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -24967,7 +24967,7 @@
           "ctipo": "BOLETO",
           "cnum": "",
           "valor": 2810.44,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -24980,7 +24980,7 @@
           "ctipo": "NF",
           "cnum": "837",
           "valor": 63000,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -24993,7 +24993,7 @@
           "ctipo": "NF",
           "cnum": "08",
           "valor": 26084.8,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -25006,7 +25006,7 @@
           "ctipo": "NF",
           "cnum": "481",
           "valor": 118697,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -25019,7 +25019,7 @@
           "ctipo": "NF",
           "cnum": "358",
           "valor": 38006.88,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -25032,7 +25032,7 @@
           "ctipo": "NF",
           "cnum": "52",
           "valor": 14341.41,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -25045,7 +25045,7 @@
           "ctipo": "NF",
           "cnum": "80710001",
           "valor": 637.84,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -25058,7 +25058,7 @@
           "ctipo": "NF",
           "cnum": "449",
           "valor": 1384.98,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -25071,7 +25071,7 @@
           "ctipo": "BOLETO",
           "cnum": "",
           "valor": 2457.5,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         },
         {
@@ -25084,7 +25084,7 @@
           "ctipo": "NF",
           "cnum": "315051",
           "valor": 2581.49,
-          "dtPgto": "",
+          "dtPgto": "2026-08-06",
           "compl": true
         }
       ],
@@ -27703,5 +27703,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788528224075
+  "savedAt": 1788528405633
 }

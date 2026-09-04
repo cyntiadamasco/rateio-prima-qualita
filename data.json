@@ -22601,16 +22601,6 @@
     },
     "auditLog": [
       {
-        "t": 1788321133509,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788321134871,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
         "t": 1788321136023,
         "perfil": "Administrador",
         "comp": "2026-08"
@@ -24097,6 +24087,16 @@
       },
       {
         "t": 1788530937122,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788530944443,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1788531001328,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -25609,12 +25609,6 @@
           "funcao": "ANALISTA DE FARMÁCIA II"
         },
         {
-          "uid": "c5z3pfc76",
-          "nome": "KARLA FERNANDA KLEINSORGEN",
-          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
-          "funcao": "ASSISTENTE ADMINISTRATIVO II"
-        },
-        {
           "uid": "c80e9snnc",
           "nome": "SANDY KEYTMA MELO RAMALHO",
           "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
@@ -25877,12 +25871,6 @@
           "nome": "JOAO VITOR DE FRANCA TEIXEIRA",
           "dept": "DEPARTAMENTO PESSOAL",
           "funcao": "AUXILIAR ADMINISTRATIVO"
-        },
-        {
-          "uid": "cxiy0bprc",
-          "nome": "LUCIANA SOUZA DA SILVA",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ASSISTENTE ADMINISTRATIVO"
         },
         {
           "uid": "ce26rhtqf",
@@ -27651,5 +27639,5 @@
     "customContratos": []
   },
   "currentComp": "2026-08",
-  "savedAt": 1788530937125
+  "savedAt": 1788531001331
 }

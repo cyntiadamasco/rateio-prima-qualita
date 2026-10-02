@@ -18720,6 +18720,13 @@
           "efetivo": 42,
           "pj": 9,
           "obs": ""
+        },
+        {
+          "id": "cg_muq7yah2",
+          "clt": 19,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": ""
         }
       ],
       "despesas": [
@@ -20341,6 +20348,11 @@
         "t": 1790900557958,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790900576728,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -20360,5 +20372,5 @@
     ]
   },
   "currentComp": "2026-09",
-  "savedAt": 1790900557962
+  "savedAt": 1790900576732
 }

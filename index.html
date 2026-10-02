@@ -2589,7 +2589,7 @@ function renderDespesas(){
     <div class="stat-card"><div class="stat-val">${R$(total)}</div><div class="stat-lbl">Total de Despesas Elegíveis</div></div>
     <div class="stat-card s-teal"><div class="stat-val">${data.despesas.filter(d=>d.valor>0).length}</div><div class="stat-lbl">Itens com Valor</div></div>
     <div class="stat-card s-warn"><div class="stat-val">${data.despesas.length}</div><div class="stat-lbl">Total de Itens Cadastrados</div></div>
-    ${totalCompl>0?`<div class="stat-card" style="border-left-color:#B45309"><div class="stat-val" style="color:#B45309">${R$(totalCompl)}</div><div class="stat-lbl">🔁 Complementar ${prevCompLabel(currentComp)}</div></div>`:''}
+    ${totalCompl>0?`<div class="stat-card" style="border-left-color:#B45309"><div class="stat-val" style="color:#B45309">${R$(totalCompl)}</div><div class="stat-lbl">🔁 Complementar (competência ${rotuloCompetencia(prevComp(currentComp))})</div></div>`:''}
   </div>
   ${data.despesas.some(d=>d.compl)?`<div class="alert no-print" style="margin-bottom:12px;background:#FFF7ED;border-left:4px solid #F59E0B;color:#92400E"><span>🔁</span><div>Os itens marcados com <strong>🔁</strong> são <strong>despesas complementares da ${rotuloPrestacaoAnterior(currentComp)}</strong> — ${regraRateioCompl(currentComp)}, separadas das despesas normais de ${compLabel(currentComp)}. Use o botão 🔁 na coluna Ações para marcar/desmarcar.</div></div>`:''}
   <div class="card no-print" style="margin-bottom:14px;background:linear-gradient(135deg,#0F2C47 0%,#1B4F76 100%);color:#fff;border:none">
@@ -3140,7 +3140,7 @@ function renderMemorias(){
           </div>
         </div>
         ${d.compl?`<div style="background:#FFF7ED;border-left:4px solid #F59E0B;color:#92400E;padding:7px 12px;border-radius:6px;font-size:11px;font-weight:600;margin-bottom:10px">🔁 Despesa complementar da ${rotuloPrestacaoAnterior(currentComp)} — ${regraRateioCompl(currentComp)}.</div>`:''}
-        ${d.compl&&usaRateioAtualNoAnt(currentComp)?`<div style="background:#FEF2F2;border-left:4px solid #DC2626;color:#991B1B;padding:7px 12px;border-radius:6px;font-size:11px;font-weight:600;margin-bottom:10px">⚠ Rateado pelos percentuais do mês atual: ${prevCompLabel(currentComp)} não tem critério quantitativo preenchido.</div>`:''}
+        ${d.compl&&usaRateioAtualNoAnt(currentComp)?`<div style="background:#FEF2F2;border-left:4px solid #DC2626;color:#991B1B;padding:7px 12px;border-radius:6px;font-size:11px;font-weight:600;margin-bottom:10px">⚠ Rateado pelos percentuais da competência atual: a prestação anterior (competência ${rotuloCompetencia(prevComp(currentComp))}) não tem critério quantitativo preenchido.</div>`:''}
         <div style="text-align:center;font-weight:700;font-size:13px;color:var(--navy);margin-bottom:12px" class="no-print">
           PROJETO SOCIAL CRESCE COMUNIDADE – PRIMA QUALITÁ SAÚDE
         </div>
@@ -4233,7 +4233,7 @@ function renderRelatorio(){
       </div>
       <div style="margin-left:auto;text-align:right">
         <div style="font-size:10px;opacity:.7;font-weight:600;letter-spacing:.05em">RELATÓRIO RDG – CIGAC</div>
-        <div style="font-size:12px;font-weight:700;opacity:.9;margin-top:1px">Total: ${R$(totalDesp)}</div>
+        <div style="font-size:12px;font-weight:700;opacity:.9;margin-top:1px">Total${despCompl.length?' ('+rotTotal+')':''}: ${R$(totalDesp)}</div>
       </div>
     </div>
   </div>
@@ -4243,7 +4243,7 @@ function renderRelatorio(){
     ${csData ? `<a href="${csData.sign_url||csData.document_url}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#059669;color:#fff;border:none;padding:8px 16px;border-radius:7px;font-size:11px;font-weight:600;text-decoration:none">✍ Assinar no ClickSign →</a><button id="cs-dl-btn" onclick="baixarAssinadoClickSign()" style="display:inline-flex;align-items:center;gap:5px;background:#1D4ED8;color:#fff;border:none;padding:8px 14px;border-radius:7px;font-size:11px;font-weight:600;cursor:pointer">⬇ Baixar Assinado</button><button onclick="resetClickSign()" style="background:none;border:none;color:#9CA3AF;font-size:10px;cursor:pointer;padding:4px 8px;text-decoration:underline" title="Remover vínculo e reenviar">↺ redefinir</button>` : `<button id="cs-btn" class="btn btn-sm" style="background:#16A34A;color:#fff;border:none;padding:8px 16px;border-radius:7px;font-size:11px;font-weight:600" onclick="enviarClickSign()">📤 Enviar para Assinatura</button>`}
     <button class="btn btn-outline" id="rdg-edit-btn" onclick="toggleRdgEdit()">✏️ Editar</button>
     <span class="text-muted" style="font-size:12px">Competência: <strong>${mesRef}</strong> &nbsp;|&nbsp; Pagamento: <strong>${mesPagto}</strong></span>
-    <span class="text-muted" style="font-size:12px">Total despesas: <strong>${R$(totalDesp)}</strong></span>
+    <span class="text-muted" style="font-size:12px">Total despesas${despCompl.length?' ('+rotTotal+')':''}: <strong>${R$(totalDesp)}</strong></span>
   </div>
   <div class="rdg-container">
     <table class="rdg-doc"><thead><tr><td>
@@ -4944,7 +4944,7 @@ function renderAnalise(){
     <td style="font-size:11px">${d.compl?'<span title="Despesa complementar da '+rotuloPrestacaoAnterior(currentComp)+' — '+regraRateioCompl(currentComp)+'">🔁</span> ':''}${esc(d.objeto)}</td>
     <td style="font-size:11px">${esc(d.fav)}</td>
     <td class="td-r">${R$(d.valor)}</td>
-    <td class="td-c"><span class="pct-pill"${d.compl?' style="background:#F59E0B;color:#fff" title="Percentual de '+prevCompLabel(currentComp)+'"':''}>${fmtPct(pctItem)}</span></td>
+    <td class="td-c"><span class="pct-pill"${d.compl?' style="background:#F59E0B;color:#fff" title="Percentual da prestação anterior (competência '+rotuloCompetencia(prevComp(currentComp))+')"':''}>${fmtPct(pctItem)}</span></td>
     <td class="td-r fw-bold">${R$(d.alocado)}</td>
   </tr>`;}).join('');
   if(despAloc.some(d=>d.compl)){

@@ -19563,7 +19563,7 @@
           "uid": "cpn9p517j",
           "nome": "CASSANDRA SOARES DE OLIVEIRA",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "COORDENADOR DE REDE DE CUIDADOS III"
+          "funcao": "COORDENADOR ASSISTENCIAL"
         },
         {
           "uid": "coy10bwjk",
@@ -19803,7 +19803,7 @@
           "uid": "cpp22eipm",
           "nome": "AYRA DE ARAUJO ROSA",
           "dept": "DEPARTAMENTO DE COMUNICAÇÃO INSTITUCIONAL",
-          "funcao": "ANALISTA DE COMUNICAÇAO III"
+          "funcao": "ANALISTA DE COMUNICACAO II"
         },
         {
           "uid": "cu7m3zw6e",
@@ -20079,13 +20079,13 @@
           "uid": "cvnfq6zpy",
           "nome": "BIANCA BARCELOS MARTINS",
           "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ASSISTENTE DE DEPARTAMENTO"
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
         },
         {
           "uid": "ck81zj1mq",
           "nome": "CLAUDIA ALJAN BRAGA DE MIRANDA",
           "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
+          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL III"
         },
         {
           "uid": "cg60g64sm",
@@ -21355,6 +21355,26 @@
       },
       {
         "t": 1790971410484,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971411111,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971411704,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971412258,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971413531,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -22933,5 +22953,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971410485
+  "savedAt": 1790971413533
 }

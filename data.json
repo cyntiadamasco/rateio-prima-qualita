@@ -19866,12 +19866,6 @@
           "funcao": "ASSISTENTE FINANCEIRO III"
         },
         {
-          "uid": "cbfhugwfp",
-          "nome": "DIOGO DE OLIVEIRA CUNHA",
-          "dept": "DEPARTAMENTO FINANCEIRO",
-          "funcao": "ASSISTENTE ADMINISTRATIVO II"
-        },
-        {
           "uid": "cdmlrbnd4",
           "nome": "DOUGLAS BARCELLOS SILVA",
           "dept": "CONTABILIDADE",
@@ -20391,11 +20385,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1788536306533,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
       {
         "t": 1788536311999,
         "perfil": "Administrador",
@@ -21888,6 +21877,11 @@
       },
       {
         "t": 1790971644870,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971648638,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23466,5 +23460,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971644877
+  "savedAt": 1790971648643
 }

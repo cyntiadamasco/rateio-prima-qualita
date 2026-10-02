@@ -19752,12 +19752,6 @@
           "funcao": "SUPERVISOR DE SUPRIMENTOS III"
         },
         {
-          "uid": "c6i6k4x7d",
-          "nome": "KARLA FERNANDA KLEINSORGEN",
-          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
-          "funcao": "ASSISTENTE ADMINISTRATIVO II"
-        },
-        {
           "uid": "czmd0q9a2",
           "nome": "SANDY KEYTMA MELO RAMALHO",
           "dept": "SUPRIMENTOS",
@@ -20421,11 +20415,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1788536276420,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
       {
         "t": 1788536284968,
         "perfil": "Administrador",
@@ -21918,6 +21907,11 @@
       },
       {
         "t": 1790971631676,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971635054,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23496,5 +23490,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971631679
+  "savedAt": 1790971635059
 }

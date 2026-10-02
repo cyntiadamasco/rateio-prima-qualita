@@ -19910,7 +19910,7 @@
         {
           "uid": "cdl29lcvb",
           "nome": "CRISTIANE SONCINI DE ARAUJO",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "dept": "EDUCAÇÃO EM SAÚDE",
           "funcao": "ASSISTENTE ADMINISTRATIVO III"
         },
         {
@@ -20084,7 +20084,7 @@
         {
           "uid": "ck81zj1mq",
           "nome": "CLAUDIA ALJAN BRAGA DE MIRANDA",
-          "dept": "DEPARTAMENTO PESSOAL",
+          "dept": "GESTAO DE PESSOAS - DP",
           "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL III"
         },
         {
@@ -20180,7 +20180,7 @@
         {
           "uid": "c5d0nhbw4",
           "nome": "CYNTIA ARAUJO DAMASCO",
-          "dept": "SUPERINTENDÊNCIA",
+          "dept": "SUPERINTENDENCIA EXECUTIVA",
           "funcao": "SUPERINTENDENTE EXECUTIVA"
         },
         {
@@ -21635,6 +21635,21 @@
       },
       {
         "t": 1790971483247,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971483857,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971484956,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971485547,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23213,5 +23228,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971483249
+  "savedAt": 1790971485549
 }

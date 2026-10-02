@@ -1553,6 +1553,11 @@ const _sessaoInicioMs=Date.now();
 function _mesesEditadosParaMesclar(remoteSavedAt){
   return _mesesEditadosLista().filter(k=>{ const ms=_mesesEditados[k]; return ms>=_sessaoInicioMs||ms>(remoteSavedAt||0); });
 }
+/* Avisa (uma vez) quando edições locais de meses ficaram de fora da mesclagem e foram substituídas pelo remoto */
+function _avisarMesesSubstituidos(incluidos){
+  const exc=_mesesEditadosLista().filter(k=>!incluidos.includes(k));
+  if(exc.length) toast('Alterações locais de '+exc.map(compLabel).join(', ')+' foram substituídas pela versão mais recente do GitHub.',6000);
+}
 /* Remove os meses cuja última edição é anterior ou igual ao instante do PUT confirmado */
 function _limparMesesEditados(ateMs){
   Object.keys(_mesesEditados).forEach(k=>{ if(!(_mesesEditados[k]>ateMs)) delete _mesesEditados[k]; });
@@ -5661,15 +5666,16 @@ async function githubCarregar(){
   // remoto nunca tiver sido aplicado. Só nesse caso o remoto é MESCLADO; depois
   // de uma carga completa, o estado local (inclusive chaves gerais) é íntegro e
   // uma recarga não pode desfazer edições locais.
-  const parcial=!_remotoPronto||!_remotoCarregado;
   // Repositório público: leitura sem token via URL raw
   setSyncStatus('loading','Carregando...');
   try{
     const url='https://raw.githubusercontent.com/'+GH_REPO+'/main/'+GH_FILE+'?t='+Date.now();
     const r=await fetch(url);
-    if(r.status===404){ _remotoCarregado=true; if(!_dirty) setSyncStatus('ok','Sem dados remotos ainda'); return false; }
+    // 404 do raw não prova remoto vazio (CDN/cache): quem confirma é a API autenticada
+    if(r.status===404){ if(!_dirty) setSyncStatus('ok','Sem dados remotos ainda'); return false; }
     if(!r.ok){ setSyncStatus(_dirty?'pending':'err',_dirty?'Alterações pendentes':'Erro ao carregar'); return false; }
     const raw=await r.json();
+    const parcial=!_remotoPronto||!_remotoCarregado;
     // Proteção contra perda de dados: se ESTA máquina salvou depois da última
     // versão do GitHub (ex.: o envio anterior falhou), mantém os MESES editados
     // aqui sobre a base remota (chaves gerais vêm do remoto) e reenvia ao GitHub.
@@ -5678,6 +5684,7 @@ async function githubCarregar(){
       if(parcial){
         // Sem registro (versão antiga do app): todos os meses em cache
         const meses=_mesesEditadosLista().length?_mesesEditadosParaMesclar(remoteSavedAt):Object.keys(state).filter(k=>/^\d{4}-\d{2}$/.test(k));
+        _avisarMesesSubstituidos(meses);
         state=_mesclarEstadoLocal(raw.state,state,meses);
         rebuildContratos();
       }
@@ -5693,6 +5700,7 @@ async function githubCarregar(){
         // _dirty só cai quando o PUT confirmar.
         const meses=_mesesEditadosParaMesclar(remoteSavedAt);
         if(!meses.includes(currentComp)) meses.push(currentComp);
+        _avisarMesesSubstituidos(meses);
         state=_mesclarEstadoLocal(raw.state,state,meses);
         rebuildContratos();
         setSyncStatus('pending','Alterações pendentes');
@@ -5736,10 +5744,13 @@ async function _carregarRemotoViaAPI(token){
         {headers:{'Authorization':'token '+token,'Accept':'application/vnd.github.raw'}});
       if(_remotoCarregado) return true;
       if(r.status===404){ _remotoCarregado=true; return true; }
+      if(r.status===401||r.status===403){ setSyncStatus('err','Token do GitHub inválido ou sem permissão'); return 'auth'; }
       if(!r.ok) return false;
       const raw=await r.json();
       if(_remotoCarregado) return true;
-      state=_mesclarEstadoLocal((raw&&raw.state)||{},state,_mesesEditadosParaMesclar(raw&&raw.savedAt));
+      const mesesMesclar=_mesesEditadosParaMesclar(raw&&raw.savedAt);
+      _avisarMesesSubstituidos(mesesMesclar);
+      state=_mesclarEstadoLocal((raw&&raw.state)||{},state,mesesMesclar);
       rebuildContratos();
       _remotoCarregado=true;
       popularCompetencias();
@@ -5788,6 +5799,7 @@ async function _githubSalvarExec(){
   // se nem assim vier, NADA é enviado e _dirty continua true.
   if(!_remotoCarregado){
     const ok=await _carregarRemotoViaAPI(token);
+    if(ok==='auth') return;   // token inválido: status já sinalizado, sem alerta
     if(!ok){ setSyncStatus('pending','Aguardando dados remotos...'); _avisarRemotoIndisponivel(); return; }
   }
   try{
@@ -5847,7 +5859,8 @@ function salvarToken(){
   const anterior=ghToken();
   localStorage.setItem('pq_gh_token',t);
   // Token trocado: os pacotes criptografados distribuem o token antigo — descarta e avisa
-  if(anterior&&anterior!==t&&state.tokenCripto&&Object.keys(state.tokenCripto).length){
+  // (só com o remoto carregado: senão a mesclagem posterior desfaria o reset)
+  if(_remotoCarregado&&anterior&&anterior!==t&&state.tokenCripto&&Object.keys(state.tokenCripto).length){
     state.tokenCripto={};
     salvar();
     alert('⚠ O token foi trocado.\nRefaça as senhas em Opções → Perfis de Acesso para redistribuir o novo token aos departamentos.\n(Os logins continuam funcionando; só o salvamento automático em máquinas novas precisa disso.)');
@@ -7803,6 +7816,7 @@ function renderManual(){
 function uploadManualRDG(input){
   const file=input.files[0];
   if(!file) return;
+  if(!_exigirRemotoCarregado()){ input.value=''; return; }
   const uid='manual_rdg';
   const btn=input.previousElementSibling;
   if(btn){btn.disabled=true;btn.textContent='⏳ Enviando...';}
@@ -7837,6 +7851,7 @@ function verManualRDG(){
 }
 
 function removerManualRDG(){
+  if(!_exigirRemotoCarregado()) return;
   if(!confirm('Remover o PDF do Manual RDG?\n\nEsta ação não pode ser desfeita.')) return;
   const uid='manual_rdg';
   const cached=_pdfBlobCache.get(uid);

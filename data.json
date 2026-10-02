@@ -19845,7 +19845,7 @@
           "uid": "cl0u0hlbr",
           "nome": "GUILHERME MARTINS ALMEIDA SILVA",
           "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
-          "funcao": "SUPERVISOR ADMINISTRATIVO III"
+          "funcao": "COORDENADOR DE SUPRIMENTOS III"
         },
         {
           "uid": "cs4wfwyd3",
@@ -19875,7 +19875,7 @@
           "uid": "czgi8ymdl",
           "nome": "IGOR MOTTA CARVALHO",
           "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
-          "funcao": "AUXILIAR ADMINISTRATIVO"
+          "funcao": "AUXILIAR ADMINISTRATIVO III"
         },
         {
           "uid": "csqwbof75",
@@ -19929,7 +19929,7 @@
           "uid": "c2kie4pw8",
           "nome": "JANDARA TEIXEIRA DIAS ROCHA",
           "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "ASSISTENTE DE RECURSOS HUMANOS I"
+          "funcao": "ASSISTENTE DE RH I"
         },
         {
           "uid": "cbas3cy3o",
@@ -21425,6 +21425,21 @@
       },
       {
         "t": 1790971420648,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971422180,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971422766,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971423285,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23003,5 +23018,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971420649
+  "savedAt": 1790971423287
 }

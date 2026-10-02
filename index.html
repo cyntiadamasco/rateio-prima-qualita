@@ -1693,6 +1693,7 @@ function exportarJSON(){
 }
 
 function importarJSON(input){
+  if(!_exigirRemotoCarregado()){ input.value=''; return; }
   const file=input.files[0]; if(!file) return;
   const reader=new FileReader();
   reader.onload=e=>{
@@ -1771,6 +1772,7 @@ function novaCompetencia(){
 }
 
 function excluirMesAtual(){
+  if(!_exigirRemotoCarregado()) return;
   const label=compLabel(currentComp);
   if(!confirm('Excluir "'+label+'" e todos os seus dados?\n\nEsta ação não pode ser desfeita.')) return;
   delete state[currentComp];
@@ -2580,6 +2582,7 @@ function duplicarMesAnterior(){
 }
 
 function limparMesAtual(){
+  if(!_exigirRemotoCarregado()) return;
   if(!confirm(`Limpar TODOS os dados de ${compLabel(currentComp)}?`)) return;
   delete state[currentComp];
   getMesData(currentComp);
@@ -5596,7 +5599,7 @@ function imprimirIDsheet(duid,did){
   const content=el.outerHTML;
   const w=window.open('','_blank');
   w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8">
-  <title>Memória de Cálculo ID ${did||''}</title>
+  <title>Memória de Cálculo ID ${esc(did||'')}</title>
   <style>
     @page{size:A4 portrait;margin:12mm 15mm}
     body{font-family:'Segoe UI',Arial,sans-serif;font-size:11px;margin:16px 20px;color:#1F2937}
@@ -5754,6 +5757,15 @@ function _avisarRemotoIndisponivel(){
   if(agora-_remotoUltimoAviso<60000) return;
   _remotoUltimoAviso=agora;
   alert('⚠ Não foi possível carregar os dados do GitHub.\n\nSuas alterações ficam só neste navegador até a conexão voltar; nada foi sobrescrito.');
+}
+/* Chaves gerais (CGs, perfis/senhas, excluir/limpar/importar meses) só podem ser
+   alteradas com o remoto já aplicado: antes disso a mesclagem com o remoto
+   descartaria a alteração. Sem token não há remoto a esperar. */
+function _exigirRemotoCarregado(){
+  if(!ghToken()||_remotoCarregado) return true;
+  if(_remotoPronto) _carregarRemotoViaAPI(ghToken());   // carga inicial falhou: tenta pela API em segundo plano
+  alert('Aguarde o carregamento dos dados remotos.');
+  return false;
 }
 /* Fila de salvamento: nunca roda dois envios ao GitHub ao mesmo tempo.
    Envios simultâneos usavam "sha" vencido e eram rejeitados em silêncio,
@@ -5931,6 +5943,7 @@ function renderModalCGs(){
 function desativarCGBase(id){
   const ct=CONTRATOS_BASE.find(c=>c.id===id);
   if(!ct) return;
+  if(!_exigirRemotoCarregado()) return;
   const sel=document.getElementById('cg-desde-'+id);
   const desde=(sel&&sel.value)||currentComp;
   if(!confirm('Desativar "'+ct.sigla+'" a partir de '+compLabel(desde)+'?\n\nO CG sai do rateio dessa competência em diante. As competências anteriores continuam iguais.\nVocê pode reativar depois.')) return;
@@ -5947,6 +5960,7 @@ function desativarCGBase(id){
 function reativarCGBase(id){
   const ct=CONTRATOS_BASE.find(c=>c.id===id);
   if(!ct) return;
+  if(!_exigirRemotoCarregado()) return;
   if(!confirm('Reativar "'+ct.sigla+'"?\n\nO CG voltará a aparecer em todos os cálculos e relatórios.')) return;
   state.desativadosBase=(state.desativadosBase||[]).filter(e=>entryId(e)!==id);
   rebuildContratos();
@@ -5963,6 +5977,7 @@ function adicionarCG(){
 
   if(!nome||!sigla){ alert('Preencha o nome e a sigla do CG.'); return; }
   if(/[<>"'&]/.test(nome+sigla)){ alert('Nome/sigla não podem conter < > " \' &'); return; }
+  if(!_exigirRemotoCarregado()) return;
 
   // Generate unique id
   const id='cg_'+Date.now().toString(36);
@@ -5985,6 +6000,7 @@ function adicionarCG(){
 }
 
 function removerCG(id){
+  if(!_exigirRemotoCarregado()) return;
   if(!confirm('Remover este CG? Os dados de alocação deste CG nos meses existentes serão perdidos ao salvar.')) return;
   state.customContratos=(state.customContratos||[]).filter(c=>c.id!==id);
   rebuildContratos();
@@ -6438,7 +6454,7 @@ async function confirmarSenhaEdicao(){
           localStorage.setItem('pq_gh_token',tk);
           setSyncStatus('ok','Sincronização configurada');
         }
-      } else if(ghToken()&&!pacotes[perfilId]){
+      } else if(ghToken()&&!pacotes[perfilId]&&_remotoCarregado){
         // Auto-cura: máquina tem token e este perfil ainda não tem pacote → cria e envia
         if(!state.tokenCripto) state.tokenCripto={};
         state.tokenCripto[perfilId]=await criptografarToken(val,ghToken());
@@ -6467,6 +6483,7 @@ function abrirAlterarSenha(){
 }
 
 function salvarNovaSenha(){
+  if(!_exigirRemotoCarregado()) return;
   const atual=document.getElementById('chpwd-atual').value;
   const nova=document.getElementById('chpwd-nova').value;
   const conf=document.getElementById('chpwd-conf').value;
@@ -6524,6 +6541,7 @@ function abrirPerfis(){
 function fecharPerfis(){document.getElementById('modal-perfis').style.display='none';}
 
 async function salvarPerfis(){
+  if(!_exigirRemotoCarregado()) return;
   const errEl=document.getElementById('modal-perfis-err');
   if(!state.perfilSenhas) state.perfilSenhas={};
   const senhas=state.perfilSenhas;
@@ -6618,8 +6636,9 @@ function init(){
   githubCarregar().then(ok=>{if(ok){popularCompetencias();popularUI();renderAbaAtiva();}});
 
   // Load sample data if state is empty (apenas em memória — não grava, para não
-  // marcar esta máquina como "mais recente" que o GitHub antes do primeiro load)
-  if(!Object.keys(state).length){
+  // marcar esta máquina como "mais recente" que o GitHub antes do primeiro load).
+  // Com token configurado os dados vêm do GitHub: não semeia exemplo.
+  if(!Object.keys(state).length&&!ghToken()){
     const d=getMesData('2026-05');
     d.colaboradores=COLAB_EXEMPLO.map(c=>({...c}));
     d.despesas=DESPESAS_EXEMPLO.map(d=>({...d,uid:uid()}));

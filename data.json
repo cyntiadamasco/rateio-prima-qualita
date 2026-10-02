@@ -18789,9 +18789,9 @@
           "objeto": "Serviços de Auditoria Financeira e Contábil",
           "fav": "IGF Auditores e Consultores Independentes Sociedade Simples",
           "cnpj": "04.899.444/0001-61",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "1130",
+          "valor": 3333,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -20428,6 +20428,11 @@
         "t": 1790900704492,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790900716951,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -20447,5 +20452,5 @@
     ]
   },
   "currentComp": "2026-09",
-  "savedAt": 1790900704496
+  "savedAt": 1790900716955
 }

@@ -19982,13 +19982,13 @@
         {
           "uid": "c8x4vt7tx",
           "nome": "VICTORIA LINO DE SOUSA",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "dept": "GESTAO DE PESSOAS - R&S",
           "funcao": "ASSISTENTE DE RH I"
         },
         {
           "uid": "ckc7bn6fg",
           "nome": "WENDEL CORREA DE PAO",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "dept": "GESTÃO DE PESSOAS - REMUNERAÇÃO",
           "funcao": "ASSISTENTE DE REMUNERACAO III"
         },
         {
@@ -20042,7 +20042,7 @@
         {
           "uid": "cnwcbxf9g",
           "nome": "YASMIM FAGGIAN OLIVEIRA",
-          "dept": "DEPARTAMENTO FINANCEIRO",
+          "dept": "CONTROLADORIA/TESOURARIA",
           "funcao": "ANALISTA FINANCEIRO I"
         },
         {
@@ -21937,6 +21937,21 @@
         "t": 1790971533734,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971535070,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971535601,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971536073,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23513,5 +23528,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971533736
+  "savedAt": 1790971536076
 }

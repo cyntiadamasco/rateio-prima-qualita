@@ -19476,12 +19476,6 @@
           "funcao": "ANALISTA ADMINISTRATIVO III"
         },
         {
-          "uid": "cykhvfu96",
-          "nome": "FLAVIO HENRIQUE DE SOUZA COSTA",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "AUXILIAR OPERACIONAL"
-        },
-        {
           "uid": "cs7b5q0vu",
           "nome": "GILSON GOUVEA",
           "dept": "OPERACIONAL",
@@ -21972,6 +21966,11 @@
         "t": 1790971541070,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971582772,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23548,5 +23547,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971541074
+  "savedAt": 1790971582776
 }

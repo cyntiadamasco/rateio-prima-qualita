@@ -19932,12 +19932,6 @@
           "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL III"
         },
         {
-          "uid": "cifmi8x73",
-          "nome": "ANNA JULIA ANTUNES DE OLIVEIRA",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "JOVEM APRENDIZ"
-        },
-        {
           "uid": "cvnfq6zpy",
           "nome": "BIANCA BARCELOS MARTINS",
           "dept": "GESTAO DE PESSOAS - DP",
@@ -20385,11 +20379,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1788536311999,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
       {
         "t": 1788536320072,
         "perfil": "Administrador",
@@ -21882,6 +21871,11 @@
       },
       {
         "t": 1790971648638,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971652064,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23460,5 +23454,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971648643
+  "savedAt": 1790971652067
 }

@@ -19533,7 +19533,7 @@
           "uid": "ckjtxk5hz",
           "nome": "RODRIGO PEÇANHA DOS SANTOS",
           "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "AUXILIAR DE SERVIÇOS GERAIS III"
+          "funcao": "ASSISTENTE SERVICOS GERAIS"
         },
         {
           "uid": "c8yq9vvea",
@@ -20031,7 +20031,7 @@
           "uid": "cym3r7v9y",
           "nome": "RUI ANDERSON MORAES DOS SANTOS",
           "dept": "DEPARTAMENTO FINANCEIRO",
-          "funcao": "COORDENADOR FINANCEIRO I"
+          "funcao": "GERENTE DE FINANCAS E CONTROLADORIA III"
         },
         {
           "uid": "cdbtdw43l",
@@ -20055,7 +20055,7 @@
           "uid": "co6pgxjfy",
           "nome": "RODRIGO PAPAZIAN PINHO",
           "dept": "DEPARTAMENTO JURÍDICO",
-          "funcao": "COORDENADOR JURÍDICO"
+          "funcao": "COORDENADOR JURIDICO III"
         },
         {
           "uid": "ciiandixg",
@@ -20151,7 +20151,7 @@
           "uid": "ce6awl1l2",
           "nome": "SAMUEL LUCAS ALVES DE MELO",
           "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "JOVEM APRENDIZ"
+          "funcao": "ASSISTENTE ADMINISTRATIVO I"
         },
         {
           "uid": "c3d9bwihc",
@@ -21530,6 +21530,26 @@
       },
       {
         "t": 1790971437457,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971438612,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971439092,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971439638,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971440728,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23108,5 +23128,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971437459
+  "savedAt": 1790971440729
 }

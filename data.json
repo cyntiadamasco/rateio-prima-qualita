@@ -18973,7 +18973,7 @@
           "cnpj": "054.299.487-99",
           "ctipo": "PENSÃO",
           "cnum": "",
-          "valor": 0,
+          "valor": 930.64,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -20493,6 +20493,11 @@
         "t": 1790901245677,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790901253249,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -20512,5 +20517,5 @@
     ]
   },
   "currentComp": "2026-09",
-  "savedAt": 1790901245682
+  "savedAt": 1790901253252
 }

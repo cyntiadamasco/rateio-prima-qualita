@@ -780,6 +780,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 .rdg-p{margin:0 0 10px;text-align:justify;font-size:12px}
 .rdg-cat-block{margin:14px 0;padding-top:12px;border-top:1px solid #E5E7EB}
 .rdg-cat-title{font-size:12px;font-weight:700;color:#374151;margin:0 0 6px;text-decoration:underline}
+h4.rdg-cat-title{font-size:11px}
 .rdg-item{display:flex;gap:6px;margin:5px 0;font-size:11.5px;align-items:baseline}
 .rdg-item-n{color:#6b7280;min-width:18px;font-weight:700;font-family:Arial,sans-serif;flex-shrink:0}
 .rdg-val{color:#1B3A5C;font-weight:700}
@@ -792,7 +793,6 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 .rdg-tfoot td{background:#E8F0FF;font-size:11px;padding:5px 8px;border:1px solid #D1D5DB;font-family:Arial,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .rdg-ol{padding-left:20px;margin:6px 0 10px}
 .rdg-ol li{margin:5px 0;font-size:11.5px}
-.rdg-anexos{margin-top:18px;padding:14px;background:#F3F4F6;border-radius:4px;border-left:3px solid #1B3A5C;font-family:Arial,sans-serif;font-size:12px}
 .rdg-sign{max-width:900px;margin:20px auto;padding:0 16px;font-size:12px;text-align:center;font-family:Arial,sans-serif}
 .rdg-chart-card{background:#F9FAFB;border-radius:8px;border:1px solid #E5E7EB;border-top:3px solid #1B3A5C;padding:14px;margin-bottom:12px;page-break-inside:avoid;break-inside:avoid}
 .rdg-chart-title{font-size:11px;font-weight:700;color:#0F2C47;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid #E5E7EB}
@@ -1637,8 +1637,10 @@ function justificativaDespesa(d,comp){
   const cgs=ativos.map(c=>'<span class="rdg-just-cg">'+esc(c.sigla)+' '+fmtPct((pm[c.id]||0)*100)+' (<b>'+R$(aloc[c.id]||0)+'</b>)</span>').join('; ');
   const compMapa=(d.compl&&!usaRateioAtualNoAnt(comp))?prevComp(comp):comp;
   const refColab=(state[compMapa]&&state[compMapa].refColab)||'';
-  const critTxt='Critério quantitativo da competência '+esc(compLabel(compMapa))+' (colaboradores por contrato ÷ total geral'+(refColab?'; referência de colaboradores: '+esc(refColab):'')+'; Res. SES/RJ nº 1.557/2017)'
-    +(d.compl?(usaRateioAtualNoAnt(comp)?', despesa complementar de '+esc(prevCompLabel(comp))+' rateada pelos percentuais da competência atual por ausência de critério na anterior':', despesa complementar de '+esc(prevCompLabel(comp))+' rateada pelos percentuais daquela competência'):'');
+  const critTxt='Percentuais da competência '+esc(rotuloCompetencia(compMapa))+' (pagamento '+esc(rotuloPagamento(compMapa))+(refColab?'; referência de colaboradores: '+esc(refColab):'')+'; Res. SES/RJ nº 1.557/2017)'
+    +(d.compl?(usaRateioAtualNoAnt(comp)
+      ?', despesa complementar rateada pelos percentuais da competência atual por ausência de critério quantitativo na prestação anterior'
+      :', despesa complementar da competência '+esc(rotuloCompetencia(prevComp(comp)))+' (prestação paga em '+esc(rotuloPagamento(prevComp(comp)))+'), paga em '+esc(rotuloPagamento(comp))+' e rateada pelos percentuais daquela prestação'):'');
   h+='<p class="rdg-just-p"><strong>Rateio aplicado.</strong> '+critTxt+': '+cgs+'.</p>';
   if(ind){
     const iq=(data.iqual||{})[ind.id]||{}; const tem=ativos.some(c=>(iq[c.id]||0)>0);
@@ -1647,7 +1649,6 @@ function justificativaDespesa(d,comp){
   }
   h+='<p class="rdg-just-p"><strong>Enquadramento.</strong> '+(CAT_INFO[d.cat]?(grupo?'Grupo "'+esc(grupo.nome)+'" (Manual RDG 2ª ed., seção 6.1). ':'')+'Enquadra-se nas sete condições cumulativas da seção 6.1 do Manual: '+CONDICOES_61.map(esc).join('; ')+'. Base normativa: '+esc(f.base)+'.':'Base normativa: '+esc(f.base)+'.')
     +(f.zonaAtencao&&f.controles.length?' <em>Zona de atenção (seção 6.3): controles obrigatórios — '+f.controles.map(esc).join('; ')+'.</em>':'')+'</p>';
-    +(f.zonaAtencao&&f.controles.length?' <em>Zona de atenção (seção 6.3): controles obrigatórios — '+f.controles.map(esc).join('; ')+'.</em>':'')+'</p>';
   h+='<p class="rdg-just-p"><strong>Comprovação.</strong> Anexo '+esc(f.anexo)+(f.anexo==='IV'?' (processo de contratação e contrato vigente)':f.anexo==='V'?' (demonstrativos contábeis e financeiros)':' (demonstrativo de despesas compartilhadas)')+'; Anexo V (razão contábil e extrato)'+((d.pdfUrl||d.pdfUrl2)?'; nota fiscal/recibo e comprovante bancário anexados a este item':'')+'.</p>';
   return h+'</div>';
 }
@@ -1655,15 +1656,32 @@ function justificativaDespesa(d,comp){
 function evidenciasTCE(comp){
   const data=getMesData(comp), desp=data.despesas||[], ativos=contratosAtivos(comp), pm=getPctMap(comp);
   const cats=[...new Set(desp.map(d=>d.cat))];
+  const soma=l=>l.reduce((a,d)=>a+(d.valor||0),0);
   const transporte=desp.filter(d=>d.cat==='Locação de Veículo Apoio Administrativo').length;
   const qualif=desp.filter(d=>d.cat==='Melhoria Contínua').length;
+  const colab=data.colab_lista||[];
+  const nDept=new Set(colab.map(c=>String(c.dept||'').trim()||'Departamento não informado')).size;
+  const folha=desp.filter(d=>d.cat==='Folha de Pagamento CIGAC');
+  const semFicha=cats.filter(c=>!CAT_INFO[c]);
+  const imov=desp.filter(d=>d.cat==='Locação de Imóvel CIGAC e Despesas');
+  const comInd=desp.filter(d=>CAT_INFO[d.cat]&&CAT_INFO[d.cat].indicador).length;
   return {
-    dirigentes:'A folha rateada ("Folha de Pagamento CIGAC") relaciona nominalmente os colaboradores do CIGAC por departamento (seção 4); nenhum dirigente estatutário integra a relação.',
-    corpo_proprio:'Todas as categorias de despesa do mês pertencem aos grupos elegíveis da seção 6.1 do Manual; as equipes custeadas atuam exclusivamente nas atividades compartilhadas vinculadas aos contratos (seção 5.5).',
-    sede:'A única locação de imóvel rateada refere-se ao CIGAC ('+MANUAL_META.cigacEndereco+'); nenhuma despesa da sede estatutária ('+MANUAL_META.sedeEstatutaria+') consta desta competência.',
-    marketing:'Nenhuma despesa classificada como marketing ou publicidade institucional nesta competência'+(cats.includes('Comunicação Institucional')?'; as ações de comunicação lançadas são vinculadas ao objeto (6.3.1).':'.'),
-    privadas:'Participam do rateio os '+ativos.length+' contratos/serviços ativos na competência, com percentuais que somam '+fmtPct(ativos.reduce((a,c)=>a+(pm[c.id]||0),0)*100)+'; nenhuma estrutura beneficiada fica fora da base de cálculo (7.2).',
-    nexo:'Cada uma das '+desp.length+' despesas traz justificativa individual com objeto, necessidade, rateio entre os '+ativos.length+' contratos, indicador do departamento (Anexo II), enquadramento e comprovação (seção 3)'+(transporte||qualif?'; despesas de transporte ('+transporte+') e qualificação ('+qualif+') registram os controles da seção 6.3.':'.')
+    dirigentes:'A relação nominal da seção 4 ('+colab.length+' colaboradores em '+nDept+' departamentos) é a base da categoria "Folha de Pagamento CIGAC"'
+      +(folha.length?' ('+R$(soma(folha))+' nesta competência)':' (sem lançamento nesta competência)')
+      +'. Declaração da entidade: nenhum dirigente estatutário integra essa relação.',
+    corpo_proprio:(semFicha.length
+      ?semFicha.length+' categoria(s) sem ficha de enquadramento, com justificativa própria (seção 3).'
+      :'As '+cats.length+' categorias lançadas têm ficha de enquadramento em grupo elegível da seção 6.1 do Manual.')
+      +' Declaração da entidade: as equipes custeadas atuam exclusivamente nas atividades compartilhadas vinculadas aos contratos (seção 5.5).',
+    sede:(imov.length
+      ?'A locação de imóvel rateada nesta competência ('+imov.length+' lançamento(s), '+R$(soma(imov))+') refere-se ao CIGAC ('+MANUAL_META.cigacEndereco+').'
+      :'Não há locação de imóvel nesta competência.')
+      +' Declaração da entidade: nenhuma despesa da sede estatutária ('+MANUAL_META.sedeEstatutaria+') integra o rateio.',
+    marketing:'Nenhuma das '+cats.length+' categorias lançadas é de marketing ou publicidade institucional (categorias do sistema conferidas contra a seção 6.2).',
+    privadas:'Participam do rateio os '+ativos.length+' contratos/serviços ativos na competência, com percentuais que somam '+fmtPct(ativos.reduce((a,c)=>a+(pm[c.id]||0),0)*100)+'.'
+      +' Declaração da entidade: todas as pactuações que utilizam o CIGAC integram a base de cálculo (seção 7.2).',
+    nexo:'Cada uma das '+desp.length+' despesas traz justificativa individual com objeto, necessidade, rateio entre os '+ativos.length+' contratos, enquadramento e comprovação (seção 3); '+comInd+' delas indicam o indicador do departamento responsável (Anexo II).'
+      +(transporte||qualif?' As despesas de transporte ('+transporte+') e qualificação ('+qualif+') indicam, na justificativa, os controles obrigatórios da seção 6.3, cuja execução é comprovada nos Anexos III e IV.':'')
   };
 }
 let _justUid=null;
@@ -1691,6 +1709,15 @@ function prevComp(comp){
   return yi+'-'+(mi<10?'0'+mi:String(mi));
 }
 function prevCompLabel(comp){ return compLabel(prevComp(comp)); }
+/* Convenção do relatório: competência = período de apuração (mês anterior à chave);
+   pagamento = mês da chave (ex.: chave "2026-09" → competência AGOSTO/2026, pagamento SETEMBRO/2026) */
+const MESES_EXTENSO_UP=['JANEIRO','FEVEREIRO','MARÇO','ABRIL','MAIO','JUNHO','JULHO','AGOSTO','SETEMBRO','OUTUBRO','NOVEMBRO','DEZEMBRO'];
+function rotuloPagamento(key){
+  if(!key) return '';
+  const [y,m]=String(key).split('-').map(Number);
+  return (MESES_EXTENSO_UP[m-1]||'')+'/'+y;
+}
+function rotuloCompetencia(key){ return key?rotuloPagamento(prevComp(key)):''; }
 
 /* =====================================================================
    PERSISTÊNCIA
@@ -3943,12 +3970,9 @@ function importarColabListaAnt(){
 function renderRelatorio(){
   const data=getMesData(currentComp);
   const pctMap=getPctMap(currentComp);
-  const [y,m]=currentComp.split('-').map(Number);
   const MF=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
-  const MU=['JANEIRO','FEVEREIRO','MARÇO','ABRIL','MAIO','JUNHO','JULHO','AGOSTO','SETEMBRO','OUTUBRO','NOVEMBRO','DEZEMBRO'];
-  const mesPagto=MU[m-1]+'/'+y;
-  const pm=m===1?12:m-1,py=m===1?y-1:y;
-  const mesRef=MU[pm-1]+'/'+py;
+  const mesPagto=rotuloPagamento(currentComp);
+  const mesRef=rotuloCompetencia(currentComp);
   const hoje=new Date();
   const dataAssin=hoje.getDate().toString().padStart(2,'0')+' de '+MF[hoje.getMonth()]+' de '+hoje.getFullYear();
 
@@ -3959,7 +3983,8 @@ function renderRelatorio(){
   const despCompl=desp.filter(d=>d.compl);
   const totalDespAtual=despAtual.reduce((a,d)=>a+(d.valor||0),0);
   const totalDespCompl=despCompl.reduce((a,d)=>a+(d.valor||0),0);
-  const complLabel=compLabel(prevComp(currentComp));
+  const complLabel=rotuloCompetencia(prevComp(currentComp));
+  const complPagto=rotuloPagamento(prevComp(currentComp));
   const colabs=CONTRATOS.map(ct=>colabDe(data,ct.id));
   const totalCLT=colabs.reduce((a,c)=>a+(c.clt||0)+(c.efetivo||0),0);
   const totalPJ=colabs.reduce((a,c)=>a+(c.pj||0),0);
@@ -3970,7 +3995,8 @@ function renderRelatorio(){
   if(_colabSortAZ) colabLista.sort((a,b)=>(a.nome||'').localeCompare(b.nome||'','pt-BR'));
 
   /* Seção 3 – cada item com a justificativa individual do Manual 2ª ed. (item 10.3) */
-  function buildCatSection(cat, lista){
+  function buildCatSection(cat, lista, catTag){
+    catTag=catTag||'h3';
     const itens=lista.filter(d=>d.cat===cat);
     if(!itens.length) return '';
     const catTot=itens.reduce((a,d)=>a+(d.valor||0),0);
@@ -3983,7 +4009,7 @@ function renderRelatorio(){
         +'</div>';
     }).join('');
     return '<div class="rdg-cat-block">'
-      +'<h3 class="rdg-cat-title">'+esc(cat)+'</h3>'
+      +'<'+catTag+' class="rdg-cat-title">'+esc(cat)+'</'+catTag+'>'
       +itensHtml
       +'<div class="rdg-cat-total">Subtotal '+esc(cat)+': <strong>'+R$(catTot)+'</strong></div>'
       +'</div>';
@@ -3991,7 +4017,7 @@ function renderRelatorio(){
   /* Agrupa as categorias pelos grupos de despesas permitidas da seção 6.1 do Manual.
      prefixo '3.' com h2 (despesas do mês) ou '3.N.' com h3 (dentro das complementares) */
   function buildGruposHtml(lista,prefixo,tag){
-    let n=0; const usadas=new Set();
+    let n=0; const usadas=new Set(); const catTag=tag==='h2'?'h3':'h4';
     const tot=cs=>lista.filter(d=>cs.includes(d.cat)).reduce((a,d)=>a+(d.valor||0),0);
     let html=Object.keys(GRUPOS_MANUAL).map(g=>{
       const cats=CATEGORIAS.filter(c=>CAT_INFO[c]&&CAT_INFO[c].grupo===g&&lista.some(d=>d.cat===c));
@@ -4000,14 +4026,14 @@ function renderRelatorio(){
       const G=GRUPOS_MANUAL[g];
       return '<'+tag+' class="rdg-subsection-title">'+prefixo+n+' Grupo – '+esc(G.nome)+'</'+tag+'>'
         +'<p class="rdg-p"><strong>Abrangência (Manual, seção 6.1):</strong> '+esc(G.exemplos)+' <strong>Base normativa:</strong> '+esc(G.base)+'. <strong>Total do grupo:</strong> '+R$(tot(cats))+'.</p>'
-        +cats.map(c=>buildCatSection(c,lista)).join('');
+        +cats.map(c=>buildCatSection(c,lista,catTag)).join('');
     }).join('');
     const outras=[...new Set(lista.map(d=>d.cat))].filter(c=>!usadas.has(c));
     if(outras.length){
       n++;
       html+='<'+tag+' class="rdg-subsection-title">'+prefixo+n+' Outras despesas (sem ficha de enquadramento)</'+tag+'>'
         +'<p class="rdg-p">Categorias sem ficha de enquadramento no Manual RDG; a justificativa própria de cada item deve demonstrar o enquadramento na seção 6.1.</p>'
-        +outras.map(c=>buildCatSection(c,lista)).join('');
+        +outras.map(c=>buildCatSection(c,lista,catTag)).join('');
     }
     return {html,n};
   }
@@ -4017,12 +4043,12 @@ function renderRelatorio(){
   const nCompl=gruposAtual.n+1;
   const catSectionsComplHtml=despCompl.length
     ?'<div style="margin:26px 0 14px;border-top:3px solid #F59E0B;padding-top:14px">'
-      +'<h2 class="rdg-subsection-title" style="color:#B45309">3.'+nCompl+' Despesas Complementares – Competência '+esc(complLabel)+'</h2>'
-      +'<p class="rdg-p">Relação de despesas da competência <strong>'+esc(complLabel)+'</strong> cujo pagamento foi efetuado em <strong>'+esc(compLabel(currentComp))+'</strong> (prestação complementar). '
-      +'O rateio destes itens foi efetuado pelo <strong>critério quantitativo de '+esc(complLabel)+'</strong>, preservando os percentuais vigentes na competência de origem, de forma segregada das despesas de '+esc(compLabel(currentComp))+'.</p>'
+      +'<h2 class="rdg-subsection-title" style="color:#B45309">3.'+nCompl+' Despesas Complementares – Competência '+esc(complLabel)+' (prestação paga em '+esc(complPagto)+')</h2>'
+      +'<p class="rdg-p">Relação de despesas da competência <strong>'+esc(complLabel)+'</strong> (prestação paga em '+esc(complPagto)+') cujo pagamento foi efetuado em <strong>'+esc(mesPagto)+'</strong> (prestação complementar). '
+      +'O rateio destes itens foi efetuado pelos <strong>percentuais da competência '+esc(complLabel)+'</strong>, preservando os percentuais vigentes na prestação de origem, de forma segregada das despesas da competência '+esc(mesRef)+'.</p>'
       +buildGruposHtml(despCompl,'3.'+nCompl+'.','h3').html
-      +'<div class="rdg-cat-total" style="background:#FFF7ED;color:#B45309">Total das Despesas Complementares '+esc(complLabel)+': <strong>'+R$(totalDespCompl)+'</strong></div>'
-      +'<div class="rdg-cat-total">Total Geral ('+esc(compLabel(currentComp))+' + Complementar '+esc(complLabel)+'): <strong>'+R$(totalDesp)+'</strong></div>'
+      +'<div class="rdg-cat-total" style="background:#FFF7ED;color:#B45309">Total das Despesas Complementares – Competência '+esc(complLabel)+': <strong>'+R$(totalDespCompl)+'</strong></div>'
+      +'<div class="rdg-cat-total">Total Geral (competência '+esc(mesRef)+' + complementar '+esc(complLabel)+'): <strong>'+R$(totalDesp)+'</strong></div>'
     +'</div>'
     :'';
 
@@ -4062,12 +4088,12 @@ function renderRelatorio(){
 
   /* Seção 7 – Anexos I a VI (Manual, item 10.2) e onde constam no app */
   const ANEXOS_RDG=[
-    ['Anexo I — Critério Quantitativo','Cálculo do percentual de rateio de cada contrato, com base no nº de colaboradores (competência do mês anterior). É o alicerce de todo o processo.','Aba “Critério Quantitativo”; seção 2.1 deste relatório'],
-    ['Anexo II — Indicadores Qualitativos','Os 8 indicadores que comprovam a efetiva prestação de serviço de cada departamento a cada contrato. Vinculação e transparência (não altera o percentual).','Aba “Indicadores Qualitativos”; seções 2.2 e 2.3 deste relatório'],
-    ['Anexo III — Demonstrativo de Despesas Compartilhadas','Aplicação do percentual sobre cada despesa elegível: objeto, fornecedor, CNPJ, NF/guia, valor total e valores por contrato. Todos os municípios veem a planilha completa.','Aba “Demonstrativo”; comprovantes de cada item na aba “Despesas”; seção 3 deste relatório'],
-    ['Anexo IV — Processos de Contratação e Contratos Vigentes','Amparo contratual de cada despesa rateada (pesquisa de preços, documentação do fornecedor e instrumento assinado). Vedado ratear despesa sem processo instruído.','Aba “Contratos”'],
-    ['Anexo V — Demonstrativos Contábeis e Financeiros','Balancete consolidado, extrato/conciliação bancária, movimentações contábeis e razão por conta. Permite verificar, de forma independente, cada pagamento.','Aba “Dem. Contábeis”'],
-    ['Anexo VI — Manual RDG','O Manual, fundamento metodológico e normativo do modelo, entregue integralmente a cada ente contratante.','Aba “Manual RDG” (PDF da 2ª edição)']
+    ['Anexo I — Critério Quantitativo','Cálculo do percentual de rateio de cada contrato, com base no nº de colaboradores (competência do mês anterior). É o alicerce de todo o processo.','Anexo gerado na aba “Critério Quantitativo” do sistema RDG e publicado no portal de transparência; seção 2.1 deste relatório'],
+    ['Anexo II — Indicadores Qualitativos','Os 8 indicadores que comprovam a efetiva prestação de serviço de cada departamento a cada contrato. Vinculação e transparência (não altera o percentual).','Anexo gerado na aba “Indicadores Qualitativos” do sistema RDG e publicado no portal de transparência; seções 2.2 e 2.3 deste relatório'],
+    ['Anexo III — Demonstrativo de Despesas Compartilhadas','Aplicação do percentual sobre cada despesa elegível: objeto, fornecedor, CNPJ, NF/guia, valor total e valores por contrato. Todos os municípios veem a planilha completa.','Anexo gerado na aba “Demonstrativo” do sistema RDG e publicado no portal de transparência; comprovantes de cada item na aba “Despesas”; seção 3 deste relatório'],
+    ['Anexo IV — Processos de Contratação e Contratos Vigentes','Amparo contratual de cada despesa rateada (pesquisa de preços, documentação do fornecedor e instrumento assinado). Vedado ratear despesa sem processo instruído.','Anexo gerado na aba “Contratos” do sistema RDG e publicado no portal de transparência'],
+    ['Anexo V — Demonstrativos Contábeis e Financeiros','Balancete consolidado, extrato/conciliação bancária, movimentações contábeis e razão por conta. Permite verificar, de forma independente, cada pagamento.','Anexo gerado na aba “Dem. Contábeis” do sistema RDG e publicado no portal de transparência'],
+    ['Anexo VI — Manual RDG','O Manual, fundamento metodológico e normativo do modelo, entregue integralmente a cada ente contratante.','Anexo gerado na aba “Manual RDG” (PDF da 2ª edição) do sistema RDG e publicado no portal de transparência']
   ];
   const anexosRows=ANEXOS_RDG.map(a=>'<tr><td style="font-weight:700">'+esc(a[0])+'</td><td>'+esc(a[1])+'</td><td>'+esc(a[2])+'</td></tr>').join('');
 
@@ -4141,8 +4167,7 @@ function renderRelatorio(){
         +'<div class="rdg-chart-card" style="margin:16px 0"><div class="rdg-chart-title">Representatividade Qualitativa por Contrato de Gestão – '+mesRef+'</div><canvas id="rdg-ch-repr" style="max-height:220px"></canvas></div>'
         +'<div class="rdg-subsec-newpage">'
         +'<h2 class="rdg-subsection-title" style="margin-top:0">5.3 Análise Comparativa: Critério Quantitativo × Representatividade Qualitativa</h2>'
-        +'<p class="rdg-p">O Manual de Rateio de Despesas de Gestão (RDG) da Prima Qualitá estabelece um <strong>critério duplo</strong> para a distribuição das despesas compartilhadas do CIGAC: <strong>(i) Critério Quantitativo</strong> – proporção de colaboradores de cada Contrato de Gestão em relação ao total do CIGAC; e <strong>(ii) Critério Qualitativo</strong> – representatividade do uso efetivo dos serviços de gestão compartilhada, mensurada pelos 8 indicadores de desempenho setorial.</p>'
-        +'<p class="rdg-p">A combinação dos dois critérios assegura que o rateio reflita tanto a capacidade administrativa instalada quanto a demanda real pelos serviços do CIGAC, promovendo equilíbrio, transparência e isonomia entre os parceiros, em conformidade com os princípios de racionalização de recursos previstos no Manual. Discrepâncias significativas entre os dois critérios sinalizam contratos onde o peso quantitativo não reflete a demanda qualitativa real, justificando revisões periódicas dos parâmetros de rateio.</p>'
+        +'<p class="rdg-p">Conforme o capítulo 9 do Manual (2ª edição), os indicadores qualitativos não definem nem alteram o percentual de rateio: sua função é demonstrar, com números rastreáveis, que cada departamento do CIGAC efetivamente prestou serviço a cada contrato no mês (nexo de causalidade). O comparativo abaixo é informativo e evidencia a aderência entre a base quantitativa e a demanda efetiva de cada contrato pelos serviços compartilhados.</p>'
         +'<div class="rdg-chart-card" style="margin:16px 0"><div class="rdg-chart-title">Comparativo: % Critério Quantitativo vs % Representatividade Qualitativa – '+mesRef+'</div><canvas id="rdg-ch-compare" style="max-height:220px"></canvas></div>'
         +'<div class="rdg-analise-box"><div class="rdg-analise-hdr"><span>Contrato de Gestão</span><span style="text-align:center">% Quant.</span><span style="text-align:center">% Repres.</span><span style="text-align:center">Delta</span><span style="text-align:center">Alinhamento</span></div>'
         +rdgAnalyseRows+'</div>'

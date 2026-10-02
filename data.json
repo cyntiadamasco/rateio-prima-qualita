@@ -19524,18 +19524,6 @@
           "funcao": "ASSISTENTE SERVICOS GERAIS"
         },
         {
-          "uid": "cgcncqzlr",
-          "nome": "ALEXANDER DINIZ DOS SANTOS",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ANALISTA ADMINISTRATIVO III"
-        },
-        {
-          "uid": "c5b6gmnzy",
-          "nome": "ANA PAULA DAS GRAÇAS LIMA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ASSISTENTE ADMINISTRATIVO III"
-        },
-        {
           "uid": "cpn9p517j",
           "nome": "CASSANDRA SOARES DE OLIVEIRA",
           "dept": "SUPERINTENDENCIA ASSISTENCIAL",
@@ -21968,6 +21956,16 @@
         "t": 1790971590241,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971592673,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971594752,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23544,5 +23542,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971590245
+  "savedAt": 1790971594754
 }

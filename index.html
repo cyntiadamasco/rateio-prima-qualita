@@ -1435,21 +1435,40 @@ function getPctMap(comp){ return calcPcts(comp); }
 
 /* Rateio do mês anterior — usado pelas despesas marcadas como "complementares"
    (pagas nesta competência, mas rateadas pelo critério quantitativo do mês anterior).
-   Se o mês anterior não existir nos dados, usa o rateio atual (sem criar mês fantasma). */
+   Se o mês anterior não existe ou está sem quantitativo para os contratos ativos
+   em comp, usa o rateio atual (sem criar mês). Só devolve contratos ativos em comp. */
 function getPctMapAnt(comp){
   const p=prevComp(comp);
-  return state[p]?getPctMap(p):getPctMap(comp);
+  if(state[p]){
+    const mAnt=getPctMap(p), ativos=contratosAtivos(comp);
+    const soma=ativos.reduce((a,c)=>a+(mAnt[c.id]||0),0);
+    if(soma>0){ const m={}; ativos.forEach(c=>{m[c.id]=(mAnt[c.id]||0)/soma;}); return m; }
+  }
+  return getPctMap(comp);
+}
+function usaRateioAtualNoAnt(comp){
+  const p=prevComp(comp);
+  if(!state[p]) return true;
+  const mAnt=getPctMap(p);
+  return !contratosAtivos(comp).some(c=>(mAnt[c.id]||0)>0);
 }
 
 function totalDespesas(comp){
   return getMesData(comp).despesas.reduce((a,d)=>a+(d.valor||0),0);
 }
 
-function alocarDespesa(valor,pctMap){
-  const r={};
-  Object.keys(pctMap).forEach(id=>{ r[id]=valor*(pctMap[id]||0); });
+/* Divide um valor pelos percentuais, arredondando a 2 casas e entregando o
+   resíduo ao contrato de maior percentual, para a soma fechar exatamente. */
+function ratearValor(valor,pctMap){
+  const ids=Object.keys(pctMap||{}); const r={}; let soma=0,maxId=null,maxPct=-1;
+  ids.forEach(id=>{ const p=pctMap[id]||0; const v=Math.round((valor||0)*p*100)/100; r[id]=v; soma=Math.round((soma+v)*100)/100; if(p>maxPct){maxPct=p;maxId=id;} });
+  const totalPct=ids.reduce((a,id)=>a+(pctMap[id]||0),0);
+  if(maxId!==null&&Math.abs(totalPct-1)<1e-6){ const diff=Math.round(((valor||0)-soma)*100)/100; if(diff!==0) r[maxId]=Math.round((r[maxId]+diff)*100)/100; }
   return r;
 }
+function alocarDespesa(valor,pctMap){ return ratearValor(valor,pctMap); }
+function alocacoesDespesa(d,comp){ return ratearValor(d.valor||0, d.compl?getPctMapAnt(comp):getPctMap(comp)); }
+function totalAlocado(d,comp){ return Math.round(Object.values(alocacoesDespesa(d,comp)).reduce((a,b)=>a+b,0)*100)/100; }
 
 function compLabel(comp){ return fmtComp(comp)||comp; }
 /* Retorna a competência do mês anterior (ex: "2026-05" → "2026-04") */
@@ -4987,7 +5006,8 @@ function renderValidacao(){
 
 function importarDespLocaisAnt(){
   const prev=prevComp(currentComp);
-  const prevData=getMesData(prev);
+  const prevData=state[prev];
+  if(!prevData){ alert('Não há dados em '+compLabel(prev)+'. Nada foi importado.'); return; }
   const curData=getMesData(currentComp);
   const prevDL=prevData.despesasLocais||{};
   const hasDL=Object.values(prevDL).some(arr=>arr&&arr.length>0);
@@ -5011,7 +5031,8 @@ function importarDespLocaisAnt(){
 
 function importarOrcamentosAnt(){
   const prev=prevComp(currentComp);
-  const prevData=getMesData(prev);
+  const prevData=state[prev];
+  if(!prevData){ alert('Não há dados em '+compLabel(prev)+'. Nada foi importado.'); return; }
   const curData=getMesData(currentComp);
   const prevOrc=prevData.orcamentos||{};
   const hasValues=Object.values(prevOrc).some(v=>v>0);

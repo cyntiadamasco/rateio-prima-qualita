@@ -21041,6 +21041,11 @@
         "t": 1790945641162,
         "perfil": "Administrador",
         "comp": "2026-11"
+      },
+      {
+        "t": 1790945671140,
+        "perfil": "Administrador",
+        "comp": "2026-11"
       }
     ],
     "tokenCripto": {
@@ -22072,8 +22077,14 @@
           "pdfNome": ""
         }
       }
-    }
+    },
+    "desativadosBase": [
+      {
+        "id": "upa_pac",
+        "desde": "2026-11"
+      }
+    ]
   },
   "currentComp": "2026-11",
-  "savedAt": 1790945641165
+  "savedAt": 1790945671142
 }

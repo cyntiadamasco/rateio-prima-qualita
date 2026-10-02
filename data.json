@@ -19730,13 +19730,13 @@
         {
           "uid": "cjhy2mxx5",
           "nome": "VALDECY MOTA RIBEIRO",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "OPERACIONAL",
           "funcao": "ASSISTENTE OPERACIONAL I"
         },
         {
           "uid": "cugvtvxpn",
           "nome": "VANESSA VIEIRA DA SILVEIRA MENDONÇA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "REDE DE CUIDADOS",
           "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
         },
         {
@@ -19976,7 +19976,7 @@
         {
           "uid": "cih340a3e",
           "nome": "THAINARA TAVARES MOREIRA DOS SANTOS",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "dept": "GESTAO DE PESSOAS - R&S",
           "funcao": "ASSISTENTE DE RH III"
         },
         {
@@ -21952,6 +21952,21 @@
         "t": 1790971536073,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971537026,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971537660,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971539038,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23528,5 +23543,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971536076
+  "savedAt": 1790971539040
 }

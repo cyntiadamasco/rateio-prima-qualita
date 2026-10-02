@@ -19629,13 +19629,13 @@
           "uid": "cljr3r3hw",
           "nome": "JOAO LUCAS BRITO DE OLIVEIRA",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ASSISTENTE ADMINISTRATIVO III"
+          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
         },
         {
           "uid": "ci3k7vljo",
           "nome": "JOAO VICTOR SIQUEIRA CAMPOS",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "AUXILIAR ADMINISTRATIVO"
+          "funcao": "ASSISTENTE ADMINISTRATIVO II"
         },
         {
           "uid": "cuclmk7w9",
@@ -19851,7 +19851,7 @@
           "uid": "cs4wfwyd3",
           "nome": "JEFFERSON DA SILVA AMORIM",
           "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
-          "funcao": "ANALISTA DE FARMÁCIA II"
+          "funcao": "SUPERVISOR DE SUPRIMENTOS III"
         },
         {
           "uid": "c6i6k4x7d",
@@ -21442,6 +21442,21 @@
         "t": 1790971423285,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971424304,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971424944,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971426140,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23018,5 +23033,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971423287
+  "savedAt": 1790971426142
 }

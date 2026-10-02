@@ -21056,6 +21056,11 @@
         "t": 1790945704006,
         "perfil": "Administrador",
         "comp": "2026-11"
+      },
+      {
+        "t": 1790945725421,
+        "perfil": "Administrador",
+        "comp": "2026-11"
       }
     ],
     "tokenCripto": {
@@ -21163,7 +21168,7 @@
           "cnpj": "18.464.526/0001-98",
           "ctipo": "",
           "cnum": "",
-          "valor": 0,
+          "valor": 1234.56,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": "",
@@ -22632,5 +22637,5 @@
     "desativadosBase": []
   },
   "currentComp": "2026-11",
-  "savedAt": 1790945704008
+  "savedAt": 1790945725423
 }

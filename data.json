@@ -18889,7 +18889,7 @@
           "cnpj": "16.727.386/0001-86",
           "ctipo": "BOLETO",
           "cnum": "",
-          "valor": 0,
+          "valor": 47073,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -20463,6 +20463,11 @@
         "t": 1790900869227,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790900875893,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -20482,5 +20487,5 @@
     ]
   },
   "currentComp": "2026-09",
-  "savedAt": 1790900869231
+  "savedAt": 1790900875896
 }

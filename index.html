@@ -467,8 +467,8 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 .dcf-confer-ok{background:#F0FDF4;color:#16A34A;border:1px solid #BBF7D0;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700}
 .dcf-confer-err{background:#FEF2F2;color:#DC2626;border:1px solid #FECACA;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700}
 @media(max-width:640px){.dcf-bl-grid{grid-template-columns:1fr}}
-/* grid de graficos no relatorio RDG (empilha em mobile) */
-.rdg-chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:16px 0}
+/* grid de graficos no relatorio RDG: uma coluna (gráficos em tamanho fixo de 720 px, escalados proporcionalmente) */
+.rdg-chart-grid{display:grid;grid-template-columns:1fr;gap:20px;margin:16px 0}
 @media(max-width:640px){.rdg-chart-grid{grid-template-columns:1fr;gap:14px}}
 
 /* ── PRINT LOGO HEADER ────────────────────────────────────────── */
@@ -707,6 +707,62 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   .rdg-iqual-wrap table{width:100%!important;min-width:0!important;table-layout:fixed;font-size:7px!important}
   .rdg-iqual-wrap th:first-child,.rdg-iqual-wrap td:first-child{width:24%!important}
   .rdg-iqual-wrap th,.rdg-iqual-wrap td{padding:2px 3px!important;white-space:normal!important;word-break:break-word!important;font-size:7px!important;overflow:hidden}
+  /* ── RELATÓRIO RDG EM PADRÃO ABNT (NBR 14724 / 6024 / 6022) ──────────────
+     Margens e número de página: @page em RDG_PAGE_CSS (injetado enquanto a aba Relatório está aberta).
+     Regras com .rdg-doc / !important para vencer o bloco @media (max-width:768px),
+     que também casa na impressão (área útil do A4 < 768 px). */
+  .rdg-container{max-width:none!important;padding:0!important;font-family:Arial,Helvetica,sans-serif!important;color:#000;font-size:12pt!important;line-height:1.5}
+  /* Capa ABNT (a capa estilizada da tela não é impressa) */
+  .rdg-container .rdg-capa-abnt{display:flex!important;flex-direction:column;justify-content:space-between;align-items:center;text-align:center;height:24.4cm;font-family:Arial,sans-serif;color:#000;font-size:12pt;line-height:1.5;page-break-after:always;break-after:page}
+  .rdg-capa-abnt-inst{font-weight:700;text-transform:uppercase}
+  .rdg-capa-abnt-logo{height:2.2cm!important;width:auto;margin-top:12pt}
+  .rdg-capa-abnt-title{font-weight:700;text-transform:uppercase;font-size:14pt;line-height:1.5;max-width:14cm}
+  .rdg-capa-abnt-sub{margin-top:12pt}
+  /* Cabeçalho institucional repetido (thead) compacto: ≤ 14 mm, 9 pt */
+  .rdg-doc .rdg-page-hdr{padding:0 0 1.5mm!important;margin-bottom:5mm!important;gap:8px!important;border-bottom:.75pt solid #000!important}
+  .rdg-doc .rdg-page-hdr img{height:9mm!important;width:auto!important}
+  .rdg-doc .rdg-page-hdr-title{font-size:9pt!important;color:#000!important;letter-spacing:0!important}
+  .rdg-doc .rdg-page-hdr-sub,.rdg-doc .rdg-page-hdr-right{font-size:8pt!important;color:#000!important;line-height:1.25}
+  .rdg-doc .rdg-page-hdr-right strong{font-size:9pt!important}
+  .rdg-doc .rdg-section{padding:0!important;border:0!important;margin:0!important;background:none!important}
+  /* Títulos (NBR 6024): primária em caixa alta e negrito; secundária negrito; terciária negrito itálico; quaternária normal */
+  .rdg-doc h1.rdg-section-title{font-family:Arial,sans-serif;font-size:12pt!important;font-weight:700!important;text-transform:uppercase;letter-spacing:0!important;color:#000!important;border:0!important;padding:0!important;margin:0 0 12pt!important;text-align:left;line-height:1.5}
+  .rdg-doc h2.rdg-subsection-title{font-family:Arial,sans-serif;font-size:12pt!important;font-weight:700!important;font-style:normal;color:#000!important;margin:12pt 0 6pt!important;text-align:left;line-height:1.5}
+  .rdg-doc .rdg-subsec-newpage>h2.rdg-subsection-title{margin-top:0!important}
+  .rdg-doc h3.rdg-cat-title{font-family:Arial,sans-serif;font-size:12pt!important;font-weight:700!important;font-style:italic!important;text-decoration:none!important;color:#000!important;margin:10pt 0 4pt!important;padding-top:0!important;line-height:1.5}
+  .rdg-doc h4.rdg-cat-title{font-family:Arial,sans-serif;font-size:12pt!important;font-weight:400!important;font-style:normal!important;text-decoration:none!important;color:#000!important;margin:8pt 0 4pt!important;padding-top:0!important;line-height:1.5}
+  .rdg-doc .rdg-cat-block{border-top:0!important;padding-top:0!important;margin:6pt 0!important}
+  /* Texto corrido: Arial 12 pt, entrelinha 1,5, justificado, recuo de 1,25 cm */
+  .rdg-doc .rdg-p{font-family:Arial,sans-serif;font-size:12pt!important;line-height:1.5!important;text-align:justify!important;text-indent:1.25cm;hyphens:auto;-webkit-hyphens:auto;margin:0 0 6pt!important;color:#000}
+  /* Justificativas por item, composição da folha e notas: 10 pt, entrelinha simples, justificadas, sem recuo */
+  .rdg-doc .rdg-p.rdg-missao-un{font-size:10pt!important;line-height:1.15!important;text-indent:0;margin:2pt 0 8pt!important}
+  .rdg-doc .rdg-just,.rdg-doc .rdg-comp-folha{font-family:Arial,sans-serif;font-size:10pt!important;line-height:1.15!important;text-align:justify;hyphens:auto;-webkit-hyphens:auto;color:#000;background:none!important}
+  .rdg-doc .rdg-just-p{font-size:10pt!important;line-height:1.15!important;text-align:justify!important;text-indent:0;hyphens:auto;-webkit-hyphens:auto;margin:0 0 3pt!important}
+  .rdg-doc .rdg-just-cg{font-size:10pt!important;white-space:normal}
+  .rdg-doc .rdg-item{font-family:Arial,sans-serif;font-size:10pt!important;line-height:1.15;text-align:justify;margin:6pt 0 2pt!important}
+  .rdg-doc .rdg-cat-total,.rdg-doc .rdg-total-geral{font-family:Arial,sans-serif;font-size:10pt!important;color:#000!important;background:none!important;border-left:0!important;border-radius:0!important;padding:3pt 0!important}
+  .rdg-doc .rdg-sign{font-size:12pt}
+  /* Tabelas (NBR 14724 / IBGE): largura total, colunas fixas, sem bordas verticais;
+     linhas superior, inferior e sob o cabeçalho; cabeçalho em negrito sem fundo */
+  .rdg-doc .rdg-table{display:table!important;overflow:visible!important;width:100%!important;min-width:0!important;table-layout:fixed!important;border-collapse:collapse!important;border-top:1.2pt solid #000!important;border-bottom:1.2pt solid #000!important;margin:0 0 2pt!important;font-family:Arial,sans-serif}
+  .rdg-doc .rdg-table thead{display:table-header-group}
+  .rdg-doc .rdg-table tfoot{display:table-row-group}
+  .rdg-doc .rdg-table th.rdg-col-cod{width:16mm!important}
+  .rdg-doc .rdg-table tr{break-inside:avoid;page-break-inside:avoid}
+  .rdg-doc .rdg-table th{background:none!important;color:#000!important;font-weight:700!important;font-size:10pt!important;line-height:1.15!important;letter-spacing:0!important;white-space:normal!important;padding:3pt 4pt!important;border:0!important;border-bottom:.75pt solid #000!important;vertical-align:bottom}
+  .rdg-doc .rdg-table td{background:none!important;color:#000;font-size:10pt!important;line-height:1.15!important;padding:2pt 4pt!important;border:0!important;vertical-align:top}
+  .rdg-doc .rdg-table tbody tr:nth-child(even){background:none!important}
+  .rdg-doc .rdg-table tfoot td{border-top:.75pt solid #000!important;font-weight:700}
+  .rdg-doc .rdg-iqual-wrap .rdg-table th,.rdg-doc .rdg-iqual-wrap .rdg-table td{font-size:7.5pt!important;padding:1.5pt 2pt!important;overflow-wrap:anywhere}
+  .rdg-doc .rdg-iqual-wrap .rdg-table th span{font-size:6.5pt!important}
+  .rdg-doc .rdg-iqual-wrap .rdg-table th:not(:first-child){width:auto!important}
+  /* Legendas: título acima ("Tabela N –"/"Figura N –") e fonte abaixo, 10 pt */
+  .rdg-doc .rdg-tab-caption,.rdg-doc .rdg-fig-caption{font-family:Arial,sans-serif;font-size:10pt!important;font-weight:400!important;color:#000!important;line-height:1.15;text-align:left;margin:10pt 0 3pt!important;padding:0!important;border:0!important;break-after:avoid;page-break-after:avoid}
+  .rdg-doc .rdg-tab-fonte,.rdg-doc .rdg-fig-fonte{font-family:Arial,sans-serif;font-size:10pt!important;color:#000!important;line-height:1.15;text-align:left;margin:3pt 0 10pt!important}
+  /* Gráficos: largura do texto, altura pela proporção fixa do canvas */
+  .rdg-doc .rdg-chart-grid{display:block!important;margin:0!important}
+  .rdg-doc .rdg-chart-card{background:none!important;border:0!important;border-radius:0!important;padding:0!important;margin:0 0 6pt!important;break-inside:avoid;page-break-inside:avoid}
+  .rdg-doc .rdg-chart-card canvas{width:100%!important;max-width:16cm!important;height:auto!important;display:block;margin:0 auto}
   /* DASHBOARD */
   .dash-print-hdr{display:flex!important;align-items:center;gap:12px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #1B3A5C}
   .dash-toolbar{display:none!important}
@@ -801,6 +857,16 @@ h4.rdg-cat-title{font-size:11px}
 .rdg-sign{max-width:900px;margin:20px auto;padding:0 16px;font-size:12px;text-align:center;font-family:Arial,sans-serif}
 .rdg-chart-card{background:#F9FAFB;border-radius:8px;border:1px solid #E5E7EB;border-top:3px solid #1B3A5C;padding:14px;margin-bottom:12px;page-break-inside:avoid;break-inside:avoid}
 .rdg-chart-title{font-size:11px;font-weight:700;color:#0F2C47;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid #E5E7EB}
+/* Gráficos em tamanho fixo (responsive:false): escala proporcional, sem distorção */
+.rdg-chart-card canvas{width:100%!important;max-width:720px!important;height:auto!important;display:block;margin:0 auto}
+/* Legendas ABNT: "Tabela N –"/"Figura N –" acima e "Fonte:" abaixo */
+.rdg-tab-caption{font-size:11px;font-weight:700;color:#0F2C47;margin:14px 0 4px;font-family:Arial,sans-serif}
+.rdg-tab-caption+.rdg-table{margin-top:0}
+.rdg-tab-fonte,.rdg-fig-fonte{font-size:10px;color:#6b7280;margin:-4px 0 12px;font-family:Arial,sans-serif}
+.rdg-chart-card .rdg-fig-fonte{margin:6px 0 0}
+.rdg-table{table-layout:fixed}
+.rdg-colab-table td{overflow-wrap:anywhere}
+.rdg-capa-abnt{display:none}
 .rdg-analise-box{border:1px solid #E5E7EB;border-radius:8px;overflow:hidden;margin-top:16px}
 .rdg-analise-hdr{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;padding:7px 12px;background:#1B3A5C;color:#fff;font-size:10px;font-weight:700;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .rdg-analise-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;align-items:center;padding:7px 12px;border-bottom:1px solid #F3F4F6;font-size:11px}
@@ -2470,7 +2536,19 @@ function printHeader(cls,titulo,direitaHTML){
       <div style="margin-left:auto;text-align:right">${direitaHTML}</div>
     </div>`;
 }
+/* @page do Relatório RDG em padrão ABNT (NBR 14724): A4, margens 3 cm (sup.) 2 cm (dir.) 2 cm (inf.) 3 cm (esq.),
+   número da página no canto superior direito, capa sem número. Ativo só enquanto a aba Relatório está aberta,
+   para não alterar a impressão das demais abas. */
+const RDG_PAGE_CSS='@media print{@page{size:A4 portrait;margin:3cm 2cm 2cm 3cm;'
+  +'@top-right{content:counter(page);font-family:Arial,sans-serif;font-size:10pt;color:#000;vertical-align:bottom;padding-bottom:1cm}'
+  +'@bottom-center{content:none}}@page:first{@top-right{content:none}}}';
+function rdgPageStyle(on){
+  let st=document.getElementById('rdg-page-style');
+  if(on&&!st){ st=document.createElement('style'); st.id='rdg-page-style'; st.textContent=RDG_PAGE_CSS; document.head.appendChild(st); }
+  else if(!on&&st) st.remove();
+}
 function renderTab(id){
+  rdgPageStyle(id==='relatorio');
   switch(id){
     case 'criterio':     renderCriterio();     break;
     case 'qualitativo':  renderQualitativo();   break;
@@ -4395,6 +4473,7 @@ function importarColabListaAnt(){
    TAB: RELATÓRIO RDG
 ===================================================================== */
 function renderRelatorio(){
+  _rdgTabN=0; _rdgFigN=0;
   const data=getMesData(currentComp);
   const pctMap=getPctMap(currentComp);
   const MF=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
@@ -4424,6 +4503,11 @@ function renderRelatorio(){
   const colabLista=(data.colab_lista||[]).slice();
   if(_colabSortAZ) colabLista.sort((a,b)=>(a.nome||'').localeCompare(b.nome||'','pt-BR'));
 
+  /* Legendas ABNT: título acima ("Tabela N –"/"Figura N –") e fonte abaixo; N preenchido na ordem do documento */
+  const tabCap=t=>'<div class="rdg-tab-caption">Tabela <span class="rdg-tab-n"></span> – '+t+'</div>';
+  const tabFonte=t=>'<div class="rdg-tab-fonte">Fonte: '+t+'</div>';
+  const figCap=t=>'<div class="rdg-chart-title rdg-fig-caption">Figura <span class="rdg-fig-n"></span> – '+t+'</div>';
+  const figFonte=t=>'<div class="rdg-fig-fonte">Fonte: '+t+'</div>';
   /* Seção 3 – cada item com a justificativa individual do Manual 2ª ed. (item 10.3) */
   let compFolhaFeita=false; // composição da folha (Regimento) uma única vez no relatório
   function buildCatSection(cat, lista, catTag){
@@ -4504,22 +4588,25 @@ function renderRelatorio(){
   const depts=[...new Set(colabLista.map(c=>_normVF(String(c.dept||'').trim()||'Departamento não informado')))];
   const nEixosInf=eixosOrd.filter(Boolean).length;
   const nSemEixo=eixoMap['']?Object.values(eixoMap['']).reduce((a,g)=>a+g.list.length,0):0;
-  const tabColab=l=>'<table class="rdg-table"><thead><tr>'
-      +'<th style="width:36px;text-align:center">Nº</th><th style="text-align:left">Nome do Colaborador</th><th style="text-align:left">Função</th>'
+  const fonteColab='Sistema DP/RH (folha de pagamento), competência de referência '+esc(data.refColab||mesRef)+'.';
+  const tabColab=(l,tit)=>tabCap(tit)+'<table class="rdg-table rdg-colab-table">'
+      +'<colgroup><col style="width:8%"><col style="width:52%"><col style="width:40%"></colgroup><thead><tr>'
+      +'<th style="text-align:center">Nº</th><th style="text-align:left">Nome do Colaborador</th><th style="text-align:left">Função</th>'
       +'</tr></thead><tbody>'
       +l.map((c,i)=>'<tr>'
         +'<td style="text-align:center;font-size:10px;padding:3px 4px">'+(i+1)+'</td>'
         +'<td style="font-size:10px;padding:3px 6px">'+esc(c.nome)+'</td>'
         +'<td style="font-size:10px;padding:3px 6px">'+esc(c.funcao)+'</td>'
         +'</tr>').join('')
-      +'</tbody></table>';
+      +'</tbody></table>'+tabFonte(fonteColab);
   const colabDeptHtml=eixosOrd.map((ex,ie)=>{
     const m=eixoMap[ex], ds=Object.keys(m).sort((a,b)=>m[a].label.localeCompare(m[b].label,'pt-BR'));
     const tot=ds.reduce((a,d)=>a+m[d].list.length,0);
     return '<h2 class="rdg-subsection-title">4.'+(ie+1)+' '+esc(eixoNome(ex))+' ('+plColab(tot)+')</h2>'
       +ds.map(dp=>{
         const u=unidadeRegimentoDe(m[dp].label);
-        return '<h3 class="rdg-cat-title">'+esc(m[dp].label)+(u?', '+esc(u.artigo)+' do Regimento':'')+' ('+m[dp].list.length+')</h3>'+tabColab(m[dp].list)
+        return '<h3 class="rdg-cat-title">'+esc(m[dp].label)+(u?', '+esc(u.artigo)+' do Regimento':'')+' ('+m[dp].list.length+')</h3>'
+          +tabColab(m[dp].list,'Colaboradores – '+esc(m[dp].label)+(u?' ('+esc(u.artigo)+' do Regimento)':'')+' – '+mesRef)
           +(u?'<p class="rdg-p rdg-missao-un" style="font-style:italic;font-size:10px;margin:2px 0 10px">'+esc(u.nome)+' — missão ('+esc(u.artigo)+' do Regimento Interno): '+esc(u.missao)+'</p>':'');
       }).join('')
       +'<div class="rdg-cat-total">Total – '+esc(eixoNome(ex))+': '+plColab(tot)+' em '+ds.length+' departamento'+(ds.length===1?'':'s')+'</div>';
@@ -4608,22 +4695,23 @@ function renderRelatorio(){
       +'<span class="rdg-analise-status" style="color:'+col+'">'+txt+'</span>'
       +'</div>';
   }).join(''):'';
+  const fonteFig='Sistema RDG, '+(despCompl.length?rotTotal:'competência '+mesRef)+'.';
   const sec5Html='<div class="rdg-section" style="page-break-before:always">'
-    +'<h1 class="rdg-section-title">5. Análise dos Indicadores</h1>'
+    +'<h1 class="rdg-section-title">5 Análise dos Indicadores</h1>'
     +'<h2 class="rdg-subsection-title">5.1 Distribuição Financeira das Despesas – '+rotTotal+'</h2>'
     +'<p class="rdg-p">Os gráficos a seguir apresentam a distribuição das despesas do CIGAC rateadas entre os Contratos de Gestão e por categoria de despesa, evidenciando a proporcionalidade dos encargos assumidos por cada parceiro na competência de referência.</p>'
     +'<div class="rdg-chart-grid">'
-    +'<div class="rdg-chart-card"><div class="rdg-chart-title">Distribuição por Contrato de Gestão</div><canvas id="rdg-ch-donut" style="max-height:220px"></canvas></div>'
-    +'<div class="rdg-chart-card"><div class="rdg-chart-title">Distribuição por Categoria de Despesa</div><canvas id="rdg-ch-cat" style="max-height:220px"></canvas></div>'
+    +'<div class="rdg-chart-card">'+figCap('Distribuição das despesas por Contrato de Gestão – '+rotTotal)+'<canvas id="rdg-ch-donut" width="720" height="320"></canvas>'+figFonte(fonteFig)+'</div>'
+    +'<div class="rdg-chart-card">'+figCap('Distribuição das despesas por categoria – '+rotTotal)+'<canvas id="rdg-ch-cat" width="720" height="340"></canvas>'+figFonte(fonteFig)+'</div>'
     +'</div>'
     +(hasQualData
       ?'<h2 class="rdg-subsection-title" style="margin-top:24px">5.2 Indicadores Qualitativos – Representatividade por CG</h2>'
         +'<p class="rdg-p">A representatividade qualitativa de cada Contrato de Gestão é apurada pela média dos indicadores com produção no mês (mesmo cálculo do Anexo II), refletindo a demanda efetiva de cada parceiro pelos serviços compartilhados do CIGAC.</p>'
-        +'<div class="rdg-chart-card" style="margin:16px 0"><div class="rdg-chart-title">Representatividade Qualitativa por Contrato de Gestão – '+mesRef+'</div><canvas id="rdg-ch-repr" style="max-height:220px"></canvas></div>'
+        +'<div class="rdg-chart-card" style="margin:16px 0">'+figCap('Representatividade Qualitativa por Contrato de Gestão – '+mesRef)+'<canvas id="rdg-ch-repr" width="720" height="300"></canvas>'+figFonte('Sistema RDG – Anexo II (Indicadores Qualitativos), competência '+mesRef+'.')+'</div>'
         +'<div class="rdg-subsec-newpage">'
         +'<h2 class="rdg-subsection-title" style="margin-top:0">5.3 Análise Comparativa: Critério Quantitativo × Representatividade Qualitativa</h2>'
         +'<p class="rdg-p">Conforme o capítulo 9 do Manual (2ª edição), os indicadores qualitativos não definem nem alteram o percentual de rateio: sua função é demonstrar, com números rastreáveis, que cada departamento do CIGAC efetivamente prestou serviço a cada contrato no mês (nexo de causalidade). O comparativo abaixo é informativo e evidencia a aderência entre a base quantitativa e a demanda efetiva de cada contrato pelos serviços compartilhados.</p>'
-        +'<div class="rdg-chart-card" style="margin:16px 0"><div class="rdg-chart-title">Comparativo: % Critério Quantitativo vs % Representatividade Qualitativa – '+mesRef+'</div><canvas id="rdg-ch-compare" style="max-height:220px"></canvas></div>'
+        +'<div class="rdg-chart-card" style="margin:16px 0">'+figCap('Comparativo: % Critério Quantitativo vs % Representatividade Qualitativa – '+mesRef)+'<canvas id="rdg-ch-compare" width="720" height="320"></canvas>'+figFonte('Sistema RDG – Anexos I e II, competência '+mesRef+'.')+'</div>'
         +'<div class="rdg-analise-box"><div class="rdg-analise-hdr"><span>Contrato de Gestão</span><span style="text-align:center">% Quant.</span><span style="text-align:center">% Repres.</span><span style="text-align:center">Delta</span><span style="text-align:center">Alinhamento</span></div>'
         +rdgAnalyseRows+'</div>'
         +'</div>'
@@ -4654,7 +4742,23 @@ function renderRelatorio(){
     <span class="text-muted" style="font-size:12px">Competência: <strong>${mesRef}</strong> &nbsp;|&nbsp; Pagamento: <strong>${mesPagto}</strong></span>
     <span class="text-muted" style="font-size:12px">Total despesas${despCompl.length?' ('+rotTotal+')':''}: <strong>${R$(totalDesp)}</strong></span>
   </div>
-  <div class="rdg-container">
+  <div class="rdg-container" lang="pt-BR">
+    <!-- CAPA ABNT (NBR 14724) – somente na impressão -->
+    <div class="rdg-capa-abnt">
+      <div>
+        <div class="rdg-capa-abnt-inst">Prima Qualitá Saúde</div>
+        <div class="rdg-capa-abnt-inst">CIGAC – Centro Integrado de Gestão e Assistência Compartilhada</div>
+        <img src="" data-logo="1" class="rdg-capa-abnt-logo" alt="">
+      </div>
+      <div>
+        <div class="rdg-capa-abnt-title">Relatório Mensal de Despesas Compartilhadas – Rateio de Despesas de Gestão (RDG)</div>
+        <div class="rdg-capa-abnt-sub">Competência: ${mesRef} – Pagamento: ${mesPagto}</div>
+      </div>
+      <div>
+        <div>São Gonçalo/RJ</div>
+        <div>${hoje.getFullYear()}</div>
+      </div>
+    </div>
     <table class="rdg-doc"><thead><tr><td>
     <div class="rdg-page-hdr">
       <img src="" data-logo="1" style="height:40px;width:auto">
@@ -4670,7 +4774,7 @@ function renderRelatorio(){
     </td></tr></thead><tbody><tr><td>
 
     <!-- CAPA -->
-    <div class="rdg-capa" style="display:flex;flex-direction:column;padding-left:0;padding-right:0;padding-bottom:0;text-align:center;overflow:hidden">
+    <div class="rdg-capa no-print" style="display:flex;flex-direction:column;padding-left:0;padding-right:0;padding-bottom:0;text-align:center;overflow:hidden">
 
       <!-- ▌ HERO: Fundo navy com título do relatório -->
       <div style="background:#1B3A5C;padding:52px 48px 48px;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;-webkit-print-color-adjust:exact;print-color-adjust:exact">
@@ -4712,7 +4816,7 @@ function renderRelatorio(){
 
     <!-- 1. APRESENTAÇÃO -->
     <div class="rdg-section">
-      <h1 class="rdg-section-title">1. Apresentação</h1>
+      <h1 class="rdg-section-title">1 Apresentação</h1>
       <h2 class="rdg-subsection-title">1.1 O CIGAC – Centro Integrado de Gestão e Assistência Compartilhada</h2>
       <p class="rdg-p">O Centro Integrado de Gestão e Assistência Compartilhada (CIGAC) é a unidade corporativa responsável por centralizar, integrar e padronizar os serviços administrativos, financeiros e assistenciais que dão suporte aos contratos de gestão, convênios, termos de parceria e demais serviços de caráter público e/ou privado executados pelo Projeto Social Cresce Comunidade — Prima Qualitá, cujas atividades comportam os atos de gestão unificados. Sua atuação como estrutura compartilhada permite mais eficiência, padronização de processos, redução de custos e apoio qualificado às unidades assistenciais. Os custos decorrentes de sua operação são rateados entre os contratos geridos pela Organização Social, conforme metodologia previamente estabelecida e critérios de proporcionalidade, assegurando transparência e equilíbrio financeiro (Manual RDG, seção 3.1).</p>
       <p class="rdg-p"><strong>Missão.</strong> Promover a integração eficiente dos serviços administrativos, financeiros e assistenciais de forma compartilhada, contribuindo para a qualidade do cuidado, a padronização dos processos e a sustentabilidade dos contratos de gestão. <strong>Visão.</strong> Ser reconhecido como referência em gestão compartilhada corporativa, fortalecendo a excelência operacional e assistencial nos serviços de saúde sob gestão da Prima Qualitá.</p>
@@ -4790,6 +4894,7 @@ function renderRelatorio(){
       <p class="rdg-p">A organização e as atribuições de cada unidade estão descritas no <strong>${esc(REGIMENTO_META.titulo)}</strong> (${esc(REGIMENTO_META.edicao)}), documento ${esc(REGIMENTO_META.status)}. Nos termos do seu art. 12, o CIGAC compõe-se de uma estrutura central de comando (Superintendência Executiva), quatro eixos operacionais (Assistencial, Administrativo, Financeiro e de Pessoas) e dois departamentos transversais (Jurídico e Compliance), que atuam sobre todos os eixos; o organograma do CIGAC integra o Regimento como Anexo A (art. 12, parágrafo único). O Regimento orienta-se pelo Manual RDG e pela legislação aplicável (${esc(REGIMENTO_META.base)}) e, em matéria de rateio, elegibilidade de despesas e prestação de contas, prevalece o Manual RDG (art. 2º, parágrafo único).</p>
       <h2 class="rdg-subsection-title">1.3 Sede Estatutária × CIGAC</h2>
       <p class="rdg-p">Para atender de forma inequívoca ao entendimento dos órgãos de controle, a Prima Qualitá segrega, com clareza, duas estruturas físicas de naturezas distintas — apenas a segunda integra o rateio (Manual RDG, seção 3.4):</p>
+      ${tabCap('Sede estatutária × CIGAC: estruturas físicas e custeio')}
       <table class="rdg-table">
         <thead><tr><th style="text-align:left;width:26%">Estrutura</th><th style="text-align:left;width:38%">Endereço</th><th style="text-align:left">Custeada por contrato de gestão?</th></tr></thead>
         <tbody>
@@ -4797,6 +4902,7 @@ function renderRelatorio(){
           <tr><td><strong>Centro Integrado de Gestão e Assistência Compartilhada (CIGAC)</strong></td><td>${esc(MANUAL_META.cigacEndereco)}</td><td><strong>SIM.</strong> Aluguel e reflexos rateados, por abrigar a operação diretamente vinculada aos Planos de Trabalho.</td></tr>
         </tbody>
       </table>
+      ${tabFonte('Manual RDG, seção 3.4.')}
       <p class="rdg-p">No CIGAC funcionam as operações das equipes de Rede de Cuidados, Inteligência Assistencial, Ouvidoria (SAU), Comunicação, Tecnologia da Informação, Administrativa, Compras, Financeiro, Gestão de Pessoas, Monitoramento, Contabilidade, Suprimentos, Prestação de Contas, Jurídico e Compliance, atividades que existem exclusivamente em razão da execução dos contratos de gestão, convênios, termos de parceria e demais serviços de caráter público e/ou privado e que beneficiam, simultaneamente, todas as unidades geridas. Por essa razão, a locação e seus reflexos são despesas de suporte técnico direto à administração das unidades gerenciadas, passíveis de rateio, e não se confundem com o aluguel da sede estatutária, este sim vedado.</p>
       <h2 class="rdg-subsection-title">1.4 Este Relatório</h2>
       <p class="rdg-p">Este documento é o Relatório Mensal de Despesas Compartilhadas previsto no item 10.3 do Manual de Rateio de Despesas de Gestão (RDG), ${esc(MANUAL_META.edicao)}, ${esc(MANUAL_META.aprovacao)}. O Relatório Mensal amarra e contextualiza os Anexos I a VI em uma peça coesa: apresenta a contextualização institucional do CIGAC, a metodologia do mês (critérios quantitativo e qualitativo) e uma justificativa individual e fundamentada para cada despesa compartilhada — objeto, necessidade institucional e benefício a todos os contratos; lista nominalmente os colaboradores do CIGAC por departamento, consolida o quadro de indicadores do Anexo II e remete aos comprovantes de cada lançamento. É assinado digitalmente pela Superintendente Executiva, atestando a veracidade e a conformidade das informações.</p>
@@ -4807,12 +4913,13 @@ function renderRelatorio(){
 
     <!-- 2. METODOLOGIA -->
     <div class="rdg-section" style="page-break-before:always">
-      <h1 class="rdg-section-title">2. Metodologia</h1>
+      <h1 class="rdg-section-title">2 Metodologia</h1>
       <p class="rdg-p">A metodologia do rateio combina dois instrumentos com funções distintas: o <strong>critério quantitativo</strong>, que define o percentual de cada contrato (Manual RDG, capítulo 8), e os <strong>indicadores qualitativos</strong>, que não alteram o percentual e demonstram o nexo de causalidade entre os serviços do CIGAC e cada contrato (capítulo 9).</p>
       <h2 class="rdg-subsection-title">2.1 Critério Quantitativo</h2>
       <p class="rdg-p">O principal critério de rateio é quantitativo e proporcional: o percentual de cada contrato corresponde à razão entre o número de colaboradores a ele vinculados e o total de colaboradores da instituição, tomando por base a competência do mês anterior. Esse critério, validado ao longo da vigência da ${esc(MANUAL_META.resSES)} e acompanhado pelo TCE-RJ, observa proporcionalidade, razoabilidade, rastreabilidade, clareza e desdobramento analítico.</p>
       <p class="rdg-p"><strong>Fórmula:</strong> % de rateio do contrato = (CLT + Estatutários cedidos + PJs vinculados ao contrato) ÷ total geral de colaboradores da instituição — apurado com base na competência do mês anterior. Entende-se por colaborador qualquer mão de obra que preste serviço nas unidades objeto de cada contrato ou no CIGAC, com vínculo por CLT, PJ ou Estatutário; o percentual apurado é aplicado integralmente sobre cada despesa elegível do mês.</p>
       <p class="rdg-p">Distribuição por contrato na competência <strong>${mesRef}</strong>${data.refColab?' (referência dos colaboradores: '+esc(data.refColab)+')':''}${totalColab>0?'':' — critério quantitativo não preenchido nesta competência (percentuais zerados)'}:</p>
+      ${tabCap('Critério quantitativo: colaboradores e percentual de rateio por Contrato de Gestão – '+mesRef)}
       <table class="rdg-table">
         <thead>
           <tr>
@@ -4834,31 +4941,34 @@ function renderRelatorio(){
           </tr>
         </tfoot>
       </table>
+      ${tabFonte('Sistema RDG – Anexo I (Critério Quantitativo), competência '+mesRef+(data.refColab?'; colaboradores da competência '+esc(data.refColab):'')+'.')}
       <p class="rdg-p"><strong>Limite contratual.</strong> O percentual efetivamente permitido para o rateio varia entre contratos e entes públicos, conforme cláusula contratual e a ${esc(MANUAL_META.resSES)} (limite de 3% do valor mensal do contrato para o rateio da sede), observadas as características de cada unidade — localização, porte e complexidade (Manual RDG, capítulo 8).</p>
       <h2 class="rdg-subsection-title">2.2 Indicadores Qualitativos (Nexo de Causalidade)</h2>
       <p class="rdg-p">Os indicadores qualitativos não definem nem alteram o percentual de rateio: sua função é demonstrar, com números fidedignos e rastreáveis, que cada departamento do CIGAC efetivamente prestou serviço a cada contrato no mês de referência, para configurar o nexo causal. É essa vinculação qualitativa que diferencia o rateio de uma taxa de administração vedada. São oito indicadores, cada um representando a produção mensurável de um departamento, que consolidam o Quadro de Indicadores Qualitativos do Anexo II (Manual RDG, capítulo 9):</p>
+      ${tabCap('Indicadores qualitativos por departamento (nexo de causalidade)')}
       <table class="rdg-table">
-        <thead><tr><th style="width:44px;text-align:center">Código</th><th style="text-align:left">Departamento</th><th style="text-align:left">Unidade de vinculação (produção)</th><th style="text-align:left">Fonte</th></tr></thead>
+        <thead><tr><th class="rdg-col-cod" style="width:44px;text-align:center">Código</th><th style="text-align:left">Departamento</th><th style="text-align:left">Unidade de vinculação (produção)</th><th style="text-align:left">Fonte</th></tr></thead>
         <tbody>${indQuadroRows}</tbody>
       </table>
+      ${tabFonte('Manual RDG, capítulo 9.')}
       <div${hasQualData?' class="rdg-subsec-newpage"':''}>
       <h2 class="rdg-subsection-title" style="margin-top:0">2.3 Detalhamento dos Indicadores Qualitativos – ${mesRef}</h2>
       ${hasQualData
-        ?`<div class="rdg-iqual-wrap" style="overflow-x:auto"><table class="rdg-table" style="min-width:860px">
+        ?`${tabCap('Indicadores qualitativos e representatividade por Contrato de Gestão – '+mesRef)}<div class="rdg-iqual-wrap" style="overflow-x:auto"><table class="rdg-table" style="min-width:860px">
           <thead><tr>
             <th style="text-align:left;min-width:200px;padding:6px 8px">Contrato de Gestão</th>
             ${iqualTh}
             <th style="font-size:9px;text-align:center;width:90px;background:#1B3A5C;color:#fff;padding:4px 6px">Representatividade</th>
           </tr></thead>
           <tbody>${iqualRows}</tbody>
-        </table></div>`
+        </table></div>${tabFonte('Sistema RDG – Anexo II (Indicadores Qualitativos), competência '+mesRef+'.')}`
         :`<p class="rdg-p" style="color:#9CA3AF;font-style:italic">Dados de indicadores qualitativos não cadastrados para ${mesRef}. Acesse a aba <strong>📈 Indicadores Qualitativos</strong> para preenchimento.</p>`}
       </div>
     </div>
 
     <!-- 3. JUSTIFICATIVA INDIVIDUAL DAS DESPESAS -->
     <div class="rdg-section" style="page-break-before:always">
-      <h1 class="rdg-section-title">3. Justificativa Individual das Despesas</h1>
+      <h1 class="rdg-section-title">3 Justificativa Individual das Despesas</h1>
       <p class="rdg-p">Em cumprimento ao item 10.3 do Manual RDG, cada despesa compartilhada é apresentada com justificativa individual e fundamentada, em seis blocos: objeto e fornecedor; necessidade institucional e benefício aos contratos; rateio aplicado; nexo de causalidade (indicador do departamento responsável, Anexo II); enquadramento (grupo da seção 6.1, condições cumulativas e base normativa); e comprovação. As despesas estão organizadas pelos grupos de despesas permitidas da seção 6.1 do Manual.</p>
       <div class="rdg-total-geral">Total Geral das Despesas CIGAC – ${rotTotal}: ${R$(totalDesp)}</div>
       ${catSectionsHtml||'<p class="rdg-p" style="color:#9CA3AF;font-style:italic">Nenhuma despesa cadastrada para '+mesRef+'. Acesse a aba <strong>📋 Despesas</strong> para preenchimento.</p>'}
@@ -4867,7 +4977,7 @@ function renderRelatorio(){
 
     <!-- 4. COLABORADORES DO CIGAC -->
     <div class="rdg-section" style="page-break-before:always">
-      <h1 class="rdg-section-title">4. Colaboradores do CIGAC</h1>
+      <h1 class="rdg-section-title">4 Colaboradores do CIGAC</h1>
       ${colabLista.length
         ?'<p class="rdg-p">Relação nominal dos <strong>'+colabLista.length+'</strong> colaboradores do CIGAC na competência <strong>'+mesRef+'</strong>, agrupados em '+nEixosInf+' grupo'+(nEixosInf===1?'':'s')+' da estrutura (art. 12 do Regimento: Superintendência Executiva, eixos e departamentos transversais) e, dentro de cada grupo, por departamento ('+depts.length+' departamento'+(depts.length===1?'':'s')+'), segundo a estrutura do CIGAC por eixos (seção 3.2 do Manual RDG) e a nomenclatura da folha de pagamento, conforme o item 10.3 do Manual RDG. O custo desta equipe integra a categoria “Folha de Pagamento CIGAC” (seção 3).</p>'
         :'<p class="rdg-p" style="color:#9CA3AF;font-style:italic">Relação nominal de colaboradores não cadastrada para '+mesRef+'. Utilize o painel de colaboradores no topo desta aba para importá-la.</p>'}
@@ -4879,22 +4989,26 @@ function renderRelatorio(){
 
     <!-- 6. CONFORMIDADE COM O ACÓRDÃO TCE-RJ -->
     <div class="rdg-section" style="page-break-before:always">
-      <h1 class="rdg-section-title">6. Conformidade com o Acórdão TCE-RJ nº 3.905/2024</h1>
+      <h1 class="rdg-section-title">6 Conformidade com o Acórdão TCE-RJ nº 3.905/2024</h1>
       <p class="rdg-p">O capítulo 13 do Manual RDG relaciona cada determinação/vedação do ${esc(MANUAL_META.acordao)} à medida concreta adotada pela Prima Qualitá. O quadro a seguir reproduz essa matriz e acrescenta, para cada linha, a evidência correspondente nesta competência.</p>
+      ${tabCap('Matriz de conformidade com o '+esc(MANUAL_META.acordao))}
       <table class="rdg-table rdg-matriz">
         <thead><tr><th style="text-align:left;width:24%">Determinação do TCE-RJ</th><th style="text-align:left;width:36%">Medida adotada (Manual 2ª ed.)</th><th style="text-align:left">Evidência nesta competência</th></tr></thead>
         <tbody>${matrizRows}</tbody>
       </table>
+      ${tabFonte('Manual RDG, capítulo 13; evidências do Sistema RDG, competência '+mesRef+'.')}
     </div>
 
     <!-- 7. DOCUMENTOS E ANEXOS -->
     <div class="rdg-section" style="page-break-before:always">
-      <h1 class="rdg-section-title">7. Documentos e Anexos</h1>
+      <h1 class="rdg-section-title">7 Documentos e Anexos</h1>
       <p class="rdg-p">O Relatório Mensal é acompanhado de seis anexos (I a VI), entregues a cada ente contratante e à respectiva comissão de avaliação e fiscalização (Manual RDG, item 10.2):</p>
+      ${tabCap('Anexos do Relatório Mensal de Despesas Compartilhadas')}
       <table class="rdg-table">
         <thead><tr><th style="text-align:left;width:26%">Anexo</th><th style="text-align:left">Conteúdo e função</th><th style="text-align:left;width:26%">Onde consta</th></tr></thead>
         <tbody>${anexosRows}</tbody>
       </table>
+      ${tabFonte('Manual RDG, item 10.2.')}
       <p class="rdg-p">Além dos anexos, integram a prestação de contas a Memória de Cálculo (aba “Memórias de Cálculo”), o Demonstrativo de Despesas do Rateio, o Razão Contábil e os demais documentos comprobatórios — notas fiscais, notas de débito, comprovantes de pagamento, balancete e extratos bancários mensais, processos de contratação e a documentação do total de colaboradores que embasou o percentual de cada contrato (Manual RDG, capítulo 11).</p>
       <p class="rdg-p">Toda a documentação é entregue em meio eletrônico, assinada pela autoridade competente do CIGAC, e arquivada pela instituição pelo prazo mínimo de <strong>cinco anos</strong>, à disposição dos órgãos de controle (seção 11.4). Por não perderem a qualidade de recursos públicos, os valores rateados sujeitam-se à Lei de Acesso à Informação (Lei nº 12.527/2011): os relatórios mensais do CIGAC, incluindo todos os anexos, são publicados no portal institucional da Prima Qualitá e acessíveis a qualquer cidadão, órgão de controle ou ente contratante, em <strong>primaqualitasaude.org/prestacao-de-contas-contratos-vigentes</strong> (seção 12.1).</p>
     </div>
@@ -4902,7 +5016,7 @@ function renderRelatorio(){
     <div class="rdg-final-block">
     <!-- 8. DISPOSIÇÕES FINAIS -->
     <div class="rdg-section">
-      <h1 class="rdg-section-title">8. Disposições Finais</h1>
+      <h1 class="rdg-section-title">8 Disposições Finais</h1>
       <p class="rdg-p">Este Relatório Mensal de Despesas Compartilhadas apresenta, para a competência ${mesRef}, a contextualização institucional do CIGAC, a metodologia de rateio (critério quantitativo e indicadores qualitativos), a justificativa individual e fundamentada de cada despesa compartilhada, a relação nominal dos colaboradores do CIGAC e a matriz de conformidade com o ${esc(MANUAL_META.acordao)}, nos termos do Manual de Rateio de Despesas de Gestão, ${esc(MANUAL_META.edicao)}.</p>
       <p class="rdg-p">As despesas relacionadas decorrem de serviços compartilhados que atendem simultaneamente a todos os contratos de gestão geridos pela Prima Qualitá, foram rateadas pelo critério quantitativo e estão amparadas pela documentação comprobatória dos Anexos I a VI.</p>
       <p class="rdg-p">Ao subscrever este relatório, a Superintendente Executiva atesta a veracidade e a conformidade das informações apresentadas (Manual RDG, item 10.3). Permanecemos à disposição para quaisquer esclarecimentos adicionais que se façam necessários.</p>
@@ -4920,52 +5034,60 @@ function renderRelatorio(){
     </td></tr></tbody></table>
 
   </div>`;
+  // Numeração sequencial de tabelas e figuras na ordem em que aparecem no documento
+  const pRel=document.getElementById('panel-relatorio');
+  pRel.querySelectorAll('.rdg-tab-n').forEach(el=>{el.textContent=String(++_rdgTabN);});
+  pRel.querySelectorAll('.rdg-fig-n').forEach(el=>{el.textContent=String(++_rdgFigN);});
   initRdgCharts(cgTotals,quantPcts,reprPcts,hasQualData,desp);
   renderColabMgmt();
 }
 
-/* Na impressão, os gráficos do relatório são redimensionados ao layout de papel (registrado uma vez) */
-let _rdgBeforePrint=false;
+/* Numeração sequencial das tabelas e figuras do relatório (ABNT), na ordem do documento */
+let _rdgTabN=0,_rdgFigN=0;
 function initRdgCharts(cgTotals,quantPcts,reprPcts,hasQualData,desp){
-  if(!_rdgBeforePrint){ _rdgBeforePrint=true; window.addEventListener('beforeprint',()=>Object.values(rdgCharts).forEach(c=>{try{c.resize()}catch(e){}})); }
   Object.values(rdgCharts).forEach(c=>{try{c.destroy()}catch(e){}});
   rdgCharts={};
   if(!document.getElementById('rdg-ch-donut')) return;
   const cgColors=CONTRATOS.map(ct=>ct.cor);
+  /* Tamanho fixo (não responsivo): o canvas tem proporção constante e é escalado pelo CSS
+     (width:100%;height:auto), sem distorção na tela nem na impressão */
+  const FONTE={size:12};
+  const BASE={responsive:false,maintainAspectRatio:false,devicePixelRatio:2,animation:false};
+  const fixo=(el,w,h)=>{el.width=w;el.height=h;return el;};
 
   /* Gráfico 1 – Doughnut: distribuição por CG */
   const el1=document.getElementById('rdg-ch-donut');
-  if(el1) rdgCharts.donut=new Chart(el1.getContext('2d'),{
+  if(el1) rdgCharts.donut=new Chart(fixo(el1,720,320).getContext('2d'),{
     type:'doughnut',
     data:{
       labels:CONTRATOS.map(ct=>ct.sigla),
       datasets:[{data:cgTotals,backgroundColor:cgColors,borderWidth:2,borderColor:'#fff'}]
     },
     options:{
-      animation:false,
-      responsive:true,maintainAspectRatio:true,
+      ...BASE,
       plugins:{
-        legend:{position:'right',labels:{font:{size:10},boxWidth:12,padding:8}},
+        legend:{position:'right',labels:{font:FONTE,boxWidth:14,padding:10}},
         tooltip:{callbacks:{label:ctx=>ctx.label+': '+R$(ctx.raw)}}
       }
     }
   });
 
-  /* Gráfico 2 – Barras horizontais: distribuição por categoria */
+  /* Gráfico 2 – Barras horizontais: distribuição por categoria (rótulo truncado a 28 caracteres; nome completo no tooltip) */
   const catTots=CATEGORIAS.map(cat=>desp.filter(d=>d.cat===cat).reduce((a,d)=>a+(d.valor||0),0));
-  const catNms=CATEGORIAS.filter((_,i)=>catTots[i]>0).map(c=>c.length>32?c.substring(0,30)+'…':c);
+  const catFull=CATEGORIAS.filter((_,i)=>catTots[i]>0);
+  const catNms=catFull.map(c=>c.length>28?c.substring(0,27)+'…':c);
   const catVals=catTots.filter(v=>v>0);
   const el2=document.getElementById('rdg-ch-cat');
-  if(el2&&catNms.length) rdgCharts.cat=new Chart(el2.getContext('2d'),{
+  if(el2&&catNms.length) rdgCharts.cat=new Chart(fixo(el2,720,340).getContext('2d'),{
     type:'bar',
     data:{labels:catNms,datasets:[{label:'R$',data:catVals,backgroundColor:'#0073BA',borderRadius:3}]},
     options:{
-      animation:false,
-      indexAxis:'y',responsive:true,maintainAspectRatio:true,
-      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>R$(ctx.raw)}}},
+      ...BASE,
+      indexAxis:'y',
+      plugins:{legend:{display:false},tooltip:{callbacks:{title:items=>items.length?catFull[items[0].dataIndex]:'',label:ctx=>R$(ctx.raw)}}},
       scales:{
-        x:{ticks:{callback:v=>R$(v),font:{size:9}},grid:{color:'#F3F4F6'}},
-        y:{ticks:{font:{size:9}}}
+        x:{ticks:{callback:v=>R$(v),font:FONTE},grid:{color:'#F3F4F6'}},
+        y:{ticks:{font:FONTE}}
       }
     }
   });
@@ -4974,26 +5096,25 @@ function initRdgCharts(cgTotals,quantPcts,reprPcts,hasQualData,desp){
 
   /* Gráfico 3 – Barras: representatividade qualitativa por CG */
   const el3=document.getElementById('rdg-ch-repr');
-  if(el3) rdgCharts.repr=new Chart(el3.getContext('2d'),{
+  if(el3) rdgCharts.repr=new Chart(fixo(el3,720,300).getContext('2d'),{
     type:'bar',
     data:{
       labels:CONTRATOS.map(ct=>ct.sigla),
       datasets:[{label:'% Representatividade',data:reprPcts,backgroundColor:cgColors,borderRadius:4}]
     },
     options:{
-      animation:false,
-      responsive:true,maintainAspectRatio:true,
+      ...BASE,
       plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>fmtPct(ctx.raw)}}},
       scales:{
-        y:{ticks:{callback:v=>fmtPct(v),font:{size:9}},grid:{color:'#F3F4F6'},max:100},
-        x:{ticks:{font:{size:10}}}
+        y:{ticks:{callback:v=>fmtPct(v),font:FONTE},grid:{color:'#F3F4F6'},max:100},
+        x:{ticks:{font:FONTE}}
       }
     }
   });
 
   /* Gráfico 4 – Barras agrupadas: quantitativo vs qualitativo */
   const el4=document.getElementById('rdg-ch-compare');
-  if(el4) rdgCharts.compare=new Chart(el4.getContext('2d'),{
+  if(el4) rdgCharts.compare=new Chart(fixo(el4,720,320).getContext('2d'),{
     type:'bar',
     data:{
       labels:CONTRATOS.map(ct=>ct.sigla),
@@ -5003,15 +5124,14 @@ function initRdgCharts(cgTotals,quantPcts,reprPcts,hasQualData,desp){
       ]
     },
     options:{
-      animation:false,
-      responsive:true,maintainAspectRatio:true,
+      ...BASE,
       plugins:{
-        legend:{position:'top',labels:{font:{size:10},boxWidth:12,padding:8}},
+        legend:{position:'top',labels:{font:FONTE,boxWidth:14,padding:10}},
         tooltip:{callbacks:{label:ctx=>ctx.dataset.label+': '+fmtPct(ctx.raw)}}
       },
       scales:{
-        y:{ticks:{callback:v=>fmtPct(v),font:{size:9}},grid:{color:'#F3F4F6'},max:100},
-        x:{ticks:{font:{size:10}}}
+        y:{ticks:{callback:v=>fmtPct(v),font:FONTE},grid:{color:'#F3F4F6'},max:100},
+        x:{ticks:{font:FONTE}}
       }
     }
   });
@@ -6303,9 +6423,10 @@ function imprimirDCF(){
 function imprimirRelatorio(){
   const prev=document.title;
   document.title='Relatório RDG – '+compLabel(currentComp);
+  rdgPageStyle(true);
   const st=document.createElement('style');
   st.id='relatorio-portrait-style';
-  st.textContent='@media print{@page{size:A4 portrait;margin:12mm 12mm 16mm 12mm}}';
+  st.textContent='@media print{@page{size:A4 portrait;margin:3cm 2cm 2cm 3cm}}';
   document.head.appendChild(st);
   const cleanup=function(){
     document.title=prev;

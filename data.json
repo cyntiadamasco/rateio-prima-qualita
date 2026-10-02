@@ -19503,7 +19503,7 @@
           "uid": "cw9r0ckjx",
           "nome": "LEONARDO BARCELOS MARTINS",
           "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "AUXILIAR ADMINISTRATIVO"
+          "funcao": "ASSISTENTE ADMINISTRATIVO I"
         },
         {
           "uid": "ckqxr8usg",
@@ -19527,7 +19527,7 @@
           "uid": "crafxy9mp",
           "nome": "NELI DA CONCEICAO MARINS",
           "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "AUXILIAR DE SERVIÇOS GERAIS III"
+          "funcao": "ASSISTENTE SERVICOS GERAIS"
         },
         {
           "uid": "ckjtxk5hz",
@@ -19941,7 +19941,7 @@
           "uid": "cpi0nvh1j",
           "nome": "JULIO CESAR DE OLIVEIRA JUNIOR",
           "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "ANALISTA DE REMUNERAÇAO"
+          "funcao": "COORDENADOR DE REMUNERACAO / RH I"
         },
         {
           "uid": "c6kl1vgx2",
@@ -20013,7 +20013,7 @@
           "uid": "cxlvgecaw",
           "nome": "LUCAS DA COSTA",
           "dept": "DEPARTAMENTO FINANCEIRO",
-          "funcao": "ASSISTENTE ADMINISTRATIVO I"
+          "funcao": "ANALISTA FINANCEIRO I"
         },
         {
           "uid": "cgp11dqkn",
@@ -21470,6 +21470,26 @@
       },
       {
         "t": 1790971428837,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971429344,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971429800,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971430328,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971431522,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23048,5 +23068,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971428840
+  "savedAt": 1790971431526
 }

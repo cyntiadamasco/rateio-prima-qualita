@@ -19695,7 +19695,7 @@
           "uid": "chqfqsdw8",
           "nome": "RAFAELA DA SILVA LEMOS",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ANALISTA ASSISTENCIAL I"
+          "funcao": "SUPERVISOR DE INFORMACAO EM SAUDE I"
         },
         {
           "uid": "cvjkkcoer",
@@ -19779,13 +19779,13 @@
           "uid": "cy5xrbb13",
           "nome": "NICOLE CANTINI FIGUEIRA LIMA",
           "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
-          "funcao": "ASSISTENTE DE COMPRAS"
+          "funcao": "ANALISTA DE COMPRAS III"
         },
         {
           "uid": "c5khrapqd",
           "nome": "RAFAEL VIANA DA MOTTA",
           "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
-          "funcao": "ANALISTA DE COMPRAS I"
+          "funcao": "ANALISTA DE COMPRAS III"
         },
         {
           "uid": "c28b8bbua",
@@ -19815,7 +19815,7 @@
           "uid": "c7t4ytctu",
           "nome": "PAULA MARTINEZ MELLO",
           "dept": "DEPARTAMENTO DE COMUNICAÇÃO INSTITUCIONAL",
-          "funcao": "GERENTE DE COMUNICAÇÃO"
+          "funcao": "GERENTE DE COMUNICACAO III"
         },
         {
           "uid": "cdjuiyng8",
@@ -20145,7 +20145,7 @@
           "uid": "cuvtqqc2z",
           "nome": "PHAMYLA DE SOUZA POSSAO ABDALLA REBEQUE",
           "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
+          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL III"
         },
         {
           "uid": "ce6awl1l2",
@@ -21490,6 +21490,31 @@
       },
       {
         "t": 1790971431522,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971432010,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971433379,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971433884,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971434372,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971434836,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23068,5 +23093,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971431526
+  "savedAt": 1790971434838
 }

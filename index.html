@@ -573,6 +573,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   .rdg-item{break-after:avoid;page-break-after:avoid}
   .rdg-just{break-inside:auto}
   .rdg-matriz td{font-size:9.5px;vertical-align:top}
+  .rdg-matriz tr{break-inside:avoid;page-break-inside:avoid}
   /* Critério Quantitativo – paisagem, página única */
   #panel-criterio .alert{display:none!important}
   #panel-criterio .no-print{display:none!important}
@@ -1613,6 +1614,20 @@ function infoRateioComplementar(comp){
   const removidos=contratosAtivos(p).filter(c=>!ativos.some(a=>a.id===c.id)).map(c=>c.sigla);
   return {fallback:false,redistribuido:soma<0.999999,removidos};
 }
+/* Rótulos curtos para alertas/legendas das abas, alinhados ao relatório */
+function rotuloPrestacaoAnterior(comp){
+  const p=prevComp(comp);
+  return 'prestação anterior (competência '+rotuloCompetencia(p)+', paga em '+rotuloPagamento(p)+')';
+}
+function regraRateioCompl(comp){
+  const i=infoRateioComplementar(comp);
+  if(i.fallback) return 'rateio pelos percentuais da competência atual, por ausência de critério quantitativo na prestação anterior';
+  return 'rateio pelos percentuais daquela prestação'+(i.redistribuido?', redistribuídos entre os contratos ativos'+(i.removidos.length?' (desativado(s): '+i.removidos.map(esc).join(', ')+')':''):'');
+}
+/* Linha "Apuração" dos cabeçalhos de impressão dos anexos (competência = mês anterior à chave) */
+function apuracaoHdr(comp){
+  return '<div class="print-apuracao" style="font-size:11px;color:#1B3A5C">Apuração: <strong>'+rotuloCompetencia(comp)+'</strong></div>';
+}
 
 function totalDespesas(comp){
   return getMesData(comp).despesas.reduce((a,d)=>a+(d.valor||0),0);
@@ -1701,7 +1716,7 @@ function evidenciasTCE(comp){
       :'mas o critério quantitativo não foi preenchido nesta competência (percentuais zerados).')
       +' Declaração da entidade: todas as pactuações que utilizam o CIGAC integram a base de cálculo (seção 7.2).',
     nexo:'Cada uma das '+desp.length+' despesas traz justificativa individual com objeto, necessidade, rateio entre os '+ativos.length+' contratos, enquadramento e comprovação (seção 3); '+comInd+' delas indicam o indicador do departamento responsável (Anexo II).'
-      +(transporte||qualif?' As despesas de transporte ('+transporte+') e qualificação ('+qualif+') indicam, na justificativa, os controles obrigatórios da seção 6.3, cuja execução é comprovada nos Anexos III e IV.':'')
+      +(transporte||qualif?' As despesas de transporte ('+transporte+') e qualificação ('+qualif+') indicam, na justificativa, os controles obrigatórios da seção 6.3. Declaração da entidade: os registros desses controles (diário de bordo, justificativas prévias, certificados) integram a documentação comprobatória da prestação de contas (Manual, cap. 11).':'')
   };
 }
 let _justUid=null;
@@ -2463,7 +2478,7 @@ function renderCriterio(){
     </div>
   </div>
   <div class="card">
-    ${printHeader('crit-print-hdr','Rateio de Despesas de Gestão',`<div style="font-size:11px;font-weight:700;color:#1B3A5C">Critério Quantitativo de Rateio</div><div style="font-size:11px;color:#1B3A5C">Competência: <strong>${compLabel(currentComp)}</strong></div><div style="font-size:11px;color:#555;margin-top:2px">Ref. Colaboradores: ${getMesData(currentComp).refColab||'–'}</div>`)}
+    ${printHeader('crit-print-hdr','Rateio de Despesas de Gestão',`<div style="font-size:11px;font-weight:700;color:#1B3A5C">Critério Quantitativo de Rateio</div><div style="font-size:11px;color:#1B3A5C">Competência: <strong>${compLabel(currentComp)}</strong></div>${apuracaoHdr(currentComp)}<div style="font-size:11px;color:#555;margin-top:2px">Ref. Colaboradores: ${getMesData(currentComp).refColab||'–'}</div>`)}
     <div class="tbl-wrap">
       <table>
         <thead>
@@ -2571,7 +2586,7 @@ function renderDespesas(){
     <div class="stat-card s-warn"><div class="stat-val">${data.despesas.length}</div><div class="stat-lbl">Total de Itens Cadastrados</div></div>
     ${totalCompl>0?`<div class="stat-card" style="border-left-color:#B45309"><div class="stat-val" style="color:#B45309">${R$(totalCompl)}</div><div class="stat-lbl">🔁 Complementar ${prevCompLabel(currentComp)}</div></div>`:''}
   </div>
-  ${data.despesas.some(d=>d.compl)?`<div class="alert no-print" style="margin-bottom:12px;background:#FFF7ED;border-left:4px solid #F59E0B;color:#92400E"><span>🔁</span><div>Os itens marcados com <strong>🔁</strong> são <strong>despesas complementares de ${prevCompLabel(currentComp)}</strong> — rateadas pelo critério quantitativo daquela competência, separadas das despesas normais de ${compLabel(currentComp)}. Use o botão 🔁 na coluna Ações para marcar/desmarcar.</div></div>`:''}
+  ${data.despesas.some(d=>d.compl)?`<div class="alert no-print" style="margin-bottom:12px;background:#FFF7ED;border-left:4px solid #F59E0B;color:#92400E"><span>🔁</span><div>Os itens marcados com <strong>🔁</strong> são <strong>despesas complementares da ${rotuloPrestacaoAnterior(currentComp)}</strong> — ${regraRateioCompl(currentComp)}, separadas das despesas normais de ${compLabel(currentComp)}. Use o botão 🔁 na coluna Ações para marcar/desmarcar.</div></div>`:''}
   <div class="card no-print" style="margin-bottom:14px;background:linear-gradient(135deg,#0F2C47 0%,#1B4F76 100%);color:#fff;border:none">
     <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
       <div>
@@ -2592,7 +2607,7 @@ function renderDespesas(){
     <span id="desp-filtro-info" style="font-size:11px;color:var(--gray)"></span>
   </div>
   <div class="card">
-    ${printHeader('desp-print-hdr','Despesas Elegíveis – CIGAC',`<div style="font-size:11px;font-weight:700;color:#1B3A5C">Despesas Elegíveis</div><div style="font-size:11px;color:#1B3A5C">Competência: <strong>${compLabel(currentComp)}</strong></div>`)}
+    ${printHeader('desp-print-hdr','Despesas Elegíveis – CIGAC',`<div style="font-size:11px;font-weight:700;color:#1B3A5C">Despesas Elegíveis</div><div style="font-size:11px;color:#1B3A5C">Competência: <strong>${compLabel(currentComp)}</strong></div>${apuracaoHdr(currentComp)}`)}
     <div class="tbl-wrap">
       <table>
         <thead>
@@ -2878,7 +2893,7 @@ function renderDemonstrativo(){
       const isFirst=di===0;
       bodyRows+=`<tr class="${(d.valor||0)===0?'tr-zero':''}">
         <td class="td-c fw-bold">${esc(d.id)}</td>
-        <td style="font-size:11px;max-width:220px">${d.compl?'<span title="Despesa complementar de '+prevCompLabel(currentComp)+' — rateio pelos percentuais daquela competência">🔁</span> ':''}${esc(d.objeto)}</td>
+        <td style="font-size:11px;max-width:220px">${d.compl?'<span title="Despesa complementar da '+rotuloPrestacaoAnterior(currentComp)+' — '+regraRateioCompl(currentComp)+'">🔁</span> ':''}${esc(d.objeto)}</td>
         <td style="font-size:11px">${esc(d.fav)}</td>
         <td class="td-mono">${esc(d.cnpj)}</td>
         <td style="font-size:11px">${esc(comp)}</td>
@@ -2922,7 +2937,7 @@ function renderDemonstrativo(){
     <div class="stat-card"><div class="stat-val">${R$(grandTotal)}</div><div class="stat-lbl">Total Geral Rateado</div></div>
     <div class="stat-card s-teal"><div class="stat-val">${despesas.filter(d=>d.valor>0).length}</div><div class="stat-lbl">Itens com Valor</div></div>
   </div>
-  ${despesas.some(d=>d.compl)?`<div class="alert" style="margin-bottom:12px;background:#FFF7ED;border-left:4px solid #F59E0B;color:#92400E"><span>🔁</span><div>Itens marcados com <strong>🔁</strong> são despesas complementares de <strong>${prevCompLabel(currentComp)}</strong>, rateadas pelos percentuais daquela competência. Os percentuais do cabeçalho referem-se apenas às despesas de ${compLabel(currentComp)}.</div></div>`:''}
+  ${despesas.some(d=>d.compl)?`<div class="alert" style="margin-bottom:12px;background:#FFF7ED;border-left:4px solid #F59E0B;color:#92400E"><span>🔁</span><div>Itens marcados com <strong>🔁</strong> são despesas complementares da <strong>${rotuloPrestacaoAnterior(currentComp)}</strong> — ${regraRateioCompl(currentComp)}. Os percentuais do cabeçalho referem-se apenas às despesas de ${compLabel(currentComp)}.</div></div>`:''}
 
   <!-- Cabeçalho impressão com logo -->
   <div class="demo-print-hdr print-logo-hdr">
@@ -2934,6 +2949,7 @@ function renderDemonstrativo(){
     <div style="margin-left:auto;text-align:right">
       <div style="font-size:11px;font-weight:700;color:#1B3A5C">Demonstrativo de Rateio</div>
       <div style="font-size:11px;color:#1B3A5C">Competência: <strong>${compLabel(currentComp)}</strong></div>
+      ${apuracaoHdr(currentComp)}
     </div>
   </div>
 
@@ -3114,10 +3130,11 @@ function renderMemorias(){
           <div class="logo-right">
             <strong>Memória de Cálculo – ID ${esc(d.id)}</strong>
             Competência: ${compLabel(currentComp)}<br>
+            Apuração: ${rotuloCompetencia(currentComp)}<br>
             Ref. Colaboradores: ${refColab}
           </div>
         </div>
-        ${d.compl?`<div style="background:#FFF7ED;border-left:4px solid #F59E0B;color:#92400E;padding:7px 12px;border-radius:6px;font-size:11px;font-weight:600;margin-bottom:10px">🔁 Despesa complementar de ${prevCompLabel(currentComp)} — rateio efetuado pelo critério quantitativo daquela competência.</div>`:''}
+        ${d.compl?`<div style="background:#FFF7ED;border-left:4px solid #F59E0B;color:#92400E;padding:7px 12px;border-radius:6px;font-size:11px;font-weight:600;margin-bottom:10px">🔁 Despesa complementar da ${rotuloPrestacaoAnterior(currentComp)} — ${regraRateioCompl(currentComp)}.</div>`:''}
         ${d.compl&&usaRateioAtualNoAnt(currentComp)?`<div style="background:#FEF2F2;border-left:4px solid #DC2626;color:#991B1B;padding:7px 12px;border-radius:6px;font-size:11px;font-weight:600;margin-bottom:10px">⚠ Rateado pelos percentuais do mês atual: ${prevCompLabel(currentComp)} não tem critério quantitativo preenchido.</div>`:''}
         <div style="text-align:center;font-weight:700;font-size:13px;color:var(--navy);margin-bottom:12px" class="no-print">
           PROJETO SOCIAL CRESCE COMUNIDADE – PRIMA QUALITÁ SAÚDE
@@ -4493,7 +4510,10 @@ function renderRelatorio(){
   renderColabMgmt();
 }
 
+/* Na impressão, os gráficos do relatório são redimensionados ao layout de papel (registrado uma vez) */
+let _rdgBeforePrint=false;
 function initRdgCharts(cgTotals,quantPcts,reprPcts,hasQualData,desp){
+  if(!_rdgBeforePrint){ _rdgBeforePrint=true; window.addEventListener('beforeprint',()=>Object.values(rdgCharts).forEach(c=>{try{c.resize()}catch(e){}})); }
   Object.values(rdgCharts).forEach(c=>{try{c.destroy()}catch(e){}});
   rdgCharts={};
   if(!document.getElementById('rdg-ch-donut')) return;
@@ -4508,6 +4528,7 @@ function initRdgCharts(cgTotals,quantPcts,reprPcts,hasQualData,desp){
       datasets:[{data:cgTotals,backgroundColor:cgColors,borderWidth:2,borderColor:'#fff'}]
     },
     options:{
+      animation:false,
       responsive:true,maintainAspectRatio:true,
       plugins:{
         legend:{position:'right',labels:{font:{size:10},boxWidth:12,padding:8}},
@@ -4525,6 +4546,7 @@ function initRdgCharts(cgTotals,quantPcts,reprPcts,hasQualData,desp){
     type:'bar',
     data:{labels:catNms,datasets:[{label:'R$',data:catVals,backgroundColor:'#0073BA',borderRadius:3}]},
     options:{
+      animation:false,
       indexAxis:'y',responsive:true,maintainAspectRatio:true,
       plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>R$(ctx.raw)}}},
       scales:{
@@ -4545,6 +4567,7 @@ function initRdgCharts(cgTotals,quantPcts,reprPcts,hasQualData,desp){
       datasets:[{label:'% Representatividade',data:reprPcts,backgroundColor:cgColors,borderRadius:4}]
     },
     options:{
+      animation:false,
       responsive:true,maintainAspectRatio:true,
       plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>fmtPct(ctx.raw)}}},
       scales:{
@@ -4566,6 +4589,7 @@ function initRdgCharts(cgTotals,quantPcts,reprPcts,hasQualData,desp){
       ]
     },
     options:{
+      animation:false,
       responsive:true,maintainAspectRatio:true,
       plugins:{
         legend:{position:'top',labels:{font:{size:10},boxWidth:12,padding:8}},
@@ -4622,7 +4646,8 @@ function renderGraficos(){
     </div>
     <div class="dash-print-hdr-right">
       <strong>Dashboard Analítico</strong>
-      Competência: ${compLabel(currentComp)}
+      Competência: ${compLabel(currentComp)}<br>
+      Apuração: ${rotuloCompetencia(currentComp)}
     </div>
   </div>
 
@@ -4912,14 +4937,14 @@ function renderAnalise(){
     const pctItem=((d.compl?pctAntAn:pctMap)[ct.id]||0)*100;
     return `<tr${d.compl?' style="background:#FFF7ED"':''}>
     <td class="td-c fw-bold">${esc(d.id)}</td>
-    <td style="font-size:11px">${d.compl?'<span title="Despesa complementar de '+prevCompLabel(currentComp)+' — rateio pelos percentuais daquela competência">🔁</span> ':''}${esc(d.objeto)}</td>
+    <td style="font-size:11px">${d.compl?'<span title="Despesa complementar da '+rotuloPrestacaoAnterior(currentComp)+' — '+regraRateioCompl(currentComp)+'">🔁</span> ':''}${esc(d.objeto)}</td>
     <td style="font-size:11px">${esc(d.fav)}</td>
     <td class="td-r">${R$(d.valor)}</td>
     <td class="td-c"><span class="pct-pill"${d.compl?' style="background:#F59E0B;color:#fff" title="Percentual de '+prevCompLabel(currentComp)+'"':''}>${fmtPct(pctItem)}</span></td>
     <td class="td-r fw-bold">${R$(d.alocado)}</td>
   </tr>`;}).join('');
   if(despAloc.some(d=>d.compl)){
-    rows+=`<tr><td colspan="6" style="font-size:10px;color:#92400E;background:#FFF7ED;padding:6px 10px">🔁 Itens complementares de <strong>${prevCompLabel(currentComp)}</strong> — percentual do rateio referente àquela competência (${fmtPct((pctAntAn[ct.id]||0)*100)} para este CG), segregado das despesas de ${compLabel(currentComp)} (${fmtPct(pct)}).</td></tr>`;
+    rows+=`<tr><td colspan="6" style="font-size:10px;color:#92400E;background:#FFF7ED;padding:6px 10px">🔁 Itens complementares da <strong>${rotuloPrestacaoAnterior(currentComp)}</strong> — ${regraRateioCompl(currentComp)} (${fmtPct((pctAntAn[ct.id]||0)*100)} para este CG), segregado das despesas de ${compLabel(currentComp)} (${fmtPct(pct)}).</td></tr>`;
   }
 
   if(!rows) rows=`<tr><td colspan="6" style="text-align:center;color:var(--gray);padding:20px">Nenhuma despesa alocada para este CG no mês selecionado.</td></tr>`;

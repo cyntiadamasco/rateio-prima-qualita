@@ -19866,12 +19866,6 @@
           "funcao": "ANALISTA FINANCEIRO I"
         },
         {
-          "uid": "cgp11dqkn",
-          "nome": "LUDMILA DA COSTA CARVALHO",
-          "dept": "DEPARTAMENTO FINANCEIRO",
-          "funcao": "ASSISTENTE FINANCEIRO I"
-        },
-        {
           "uid": "c4nchto7t",
           "nome": "RAFAELA PINA RIBEIRO",
           "dept": "CONTROLADORIA/TESOURARIA",
@@ -20361,11 +20355,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1788536336639,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
       {
         "t": 1788536343945,
         "perfil": "Administrador",
@@ -21858,6 +21847,11 @@
       },
       {
         "t": 1790971715356,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971718096,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23436,5 +23430,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971715360
+  "savedAt": 1790971718098
 }

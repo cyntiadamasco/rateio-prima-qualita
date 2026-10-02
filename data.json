@@ -19704,12 +19704,6 @@
           "funcao": "COORDENADOR DE COMPRAS III"
         },
         {
-          "uid": "c4lihos47",
-          "nome": "THACIA DUARTE BRANCO",
-          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
-          "funcao": "ANALISTA ADMINISTRATIVO I"
-        },
-        {
           "uid": "cpp22eipm",
           "nome": "AYRA DE ARAUJO ROSA",
           "dept": "ASSESSORIA DE COMUNICAÇÃO",
@@ -19732,12 +19726,6 @@
           "nome": "PEARGENTINO CHIAFRINO NETO",
           "dept": "ASSESSORIA DE COMUNICAÇÃO",
           "funcao": "ANALISTA DE COMUNICAÇAO III"
-        },
-        {
-          "uid": "ckg9xuqj3",
-          "nome": "BRUNO DA SILVA MENDONCA",
-          "dept": "DEPARTAMENTO DE CONTABILIDADE",
-          "funcao": "COORDENADOR CONTÁBIL III"
         },
         {
           "uid": "chxa92x6i",
@@ -20433,16 +20421,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1788536264703,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788536270414,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
       {
         "t": 1788536276420,
         "perfil": "Administrador",
@@ -21930,6 +21908,16 @@
       },
       {
         "t": 1790971628004,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971629892,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971631676,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23508,5 +23496,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971628008
+  "savedAt": 1790971631679
 }

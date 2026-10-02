@@ -19850,7 +19850,7 @@
         {
           "uid": "cs4wfwyd3",
           "nome": "JEFFERSON DA SILVA AMORIM",
-          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
+          "dept": "SUPRIMENTOS",
           "funcao": "SUPERVISOR DE SUPRIMENTOS III"
         },
         {
@@ -19928,7 +19928,7 @@
         {
           "uid": "c2kie4pw8",
           "nome": "JANDARA TEIXEIRA DIAS ROCHA",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "dept": "GESTAO DE PESSOAS - DP",
           "funcao": "ASSISTENTE DE RH I"
         },
         {
@@ -21742,6 +21742,16 @@
         "t": 1790971501574,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971502630,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971503248,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23318,5 +23328,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971501576
+  "savedAt": 1790971503249
 }

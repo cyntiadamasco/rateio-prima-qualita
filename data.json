@@ -19824,12 +19824,6 @@
           "funcao": "ANALISTA ADMINISTRATIVO I"
         },
         {
-          "uid": "cfua6vu26",
-          "nome": "MARIA DA CONCEIÇÃO BALDINI BENEVIDES BLAN",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "SUPERVISOR DE EDUCAÇÃO"
-        },
-        {
           "uid": "c0j9yw0sn",
           "nome": "ROSEMARY CRUZ CERQUEIRA",
           "dept": "GESTAO DE PESSOAS - T&D",
@@ -20397,11 +20391,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1788536301833,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
       {
         "t": 1788536306533,
         "perfil": "Administrador",
@@ -21894,6 +21883,11 @@
       },
       {
         "t": 1790971642958,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971644870,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23472,5 +23466,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971642960
+  "savedAt": 1790971644877
 }

@@ -20066,7 +20066,7 @@
         {
           "uid": "ct6zwmpv1",
           "nome": "AMANDA DE OLIVEIRA ALMEIDA",
-          "dept": "DEPARTAMENTO PESSOAL",
+          "dept": "GESTAO DE PESSOAS - DP",
           "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL III"
         },
         {
@@ -21605,6 +21605,11 @@
       },
       {
         "t": 1790971449734,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971470260,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23183,5 +23188,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971449736
+  "savedAt": 1790971470263
 }

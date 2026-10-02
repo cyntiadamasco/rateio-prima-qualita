@@ -2386,6 +2386,18 @@ function updDespVal(duid, val){
   updDesp(duid,'valor',val);
 }
 
+/* Converte texto em número aceitando "1.234,56", "1234,56", "1234.56" e "1.234".
+   Regra: com vírgula → ponto é milhar; sem vírgula e um único ponto seguido de
+   1-2 dígitos no fim → ponto decimal; caso contrário pontos são milhar. */
+function parseValorBR(txt){
+  let s=String(txt==null?'':txt).trim().replace(/^R\$\s*/i,'').replace(/\s/g,'');
+  if(s==='') return NaN;
+  if(s.includes(',')) s=s.replace(/\./g,'').replace(',','.');
+  else if(!/^-?\d+\.\d{1,2}$/.test(s)) s=s.replace(/\./g,'');
+  const v=parseFloat(s);
+  return isNaN(v)?NaN:v;
+}
+
 function editarValor(duid){
   const data=getMesData(currentComp);
   const d=data.despesas.find(x=>x.uid===duid);
@@ -2393,8 +2405,12 @@ function editarValor(duid){
   const atual=(d.valor||0).toFixed(2).replace('.',',');
   const resp=prompt('Valor da despesa (R$):', atual);
   if(resp===null) return;
-  const val=parseFloat(resp.trim().replace(/\./g,'').replace(',','.'));
+  const val=parseValorBR(resp);
   if(isNaN(val)||val<0){alert('Valor inválido. Use o formato: 1234,56');return;}
+  const ant=d.valor||0;
+  if(ant>0&&val>0&&(val/ant>10||ant/val>10)){
+    if(!confirm('O novo valor ('+R$(val)+') é mais de 10 vezes diferente do atual ('+R$(ant)+').\n\nConfirmar?')) return;
+  }
   d.valor=val;
   salvar();
   renderDespesas();

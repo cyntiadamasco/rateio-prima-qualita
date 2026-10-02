@@ -19071,7 +19071,7 @@
           "cnpj": "24.783.564/0001-06",
           "ctipo": "NF",
           "cnum": "2501",
-          "valor": 0,
+          "valor": 28625.65,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -20528,6 +20528,11 @@
         "t": 1790901339139,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790901344581,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -20547,5 +20552,5 @@
     ]
   },
   "currentComp": "2026-09",
-  "savedAt": 1790901339143
+  "savedAt": 1790901344585
 }

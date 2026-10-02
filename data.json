@@ -19562,7 +19562,7 @@
         {
           "uid": "cpn9p517j",
           "nome": "CASSANDRA SOARES DE OLIVEIRA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "SUPERINTENDENCIA ASSISTENCIAL",
           "funcao": "COORDENADOR ASSISTENCIAL"
         },
         {
@@ -20078,7 +20078,7 @@
         {
           "uid": "cvnfq6zpy",
           "nome": "BIANCA BARCELOS MARTINS",
-          "dept": "DEPARTAMENTO PESSOAL",
+          "dept": "GESTAO DE PESSOAS - DP",
           "funcao": "ASSISTENTE ADMINISTRATIVO III"
         },
         {
@@ -20174,7 +20174,7 @@
         {
           "uid": "cczllif9q",
           "nome": "CAMILLO DE LELLIS CARNEIRO JUNQUEIRA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "SUPERINTENDENCIA ASSISTENCIAL",
           "funcao": "MÉDICO RT"
         },
         {
@@ -21620,6 +21620,21 @@
       },
       {
         "t": 1790971480444,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971480932,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971481596,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971483247,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23198,5 +23213,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971480446
+  "savedAt": 1790971483249
 }

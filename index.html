@@ -1288,6 +1288,124 @@ const CATEGORIAS = [
   'Plataforma Processo Seletivo',
 ];
 
+/* =====================================================================
+   MANUAL DE RATEIO DE DESPESAS DE GESTÃO – 2ª EDIÇÃO (referências)
+===================================================================== */
+INDICADORES_QUAL.forEach((ind,i)=>{ ind.codigo='I'+(i+1); });
+Object.assign(INDICADORES_QUAL[0],{nome:'Gestão de Pessoas (Depto. Pessoal/RH)',unidade:'Nº de colaboradores CLT processados; geração de folha',fonte:'Sistema DP/RH'});
+Object.assign(INDICADORES_QUAL[1],{nome:'Comunicação Institucional',unidade:'Nº de materiais de apoio produzidos',fonte:'Relatório de Comunicação'});
+Object.assign(INDICADORES_QUAL[2],{nome:'Administrativo/Financeiro',unidade:'Nº de notas fiscais classificadas; fluxo de caixa',fonte:'Relatório de Entradas / ERP'});
+Object.assign(INDICADORES_QUAL[3],{nome:'Contabilidade / Prestação de Contas',unidade:'Nº de lançamentos contábeis validados',fonte:'Relatório de Entradas / ERP'});
+Object.assign(INDICADORES_QUAL[4],{nome:'Logística e Suprimentos',unidade:'Nº de NF de materiais e medicamentos validadas',fonte:'Relatório de Entradas / ERP'});
+Object.assign(INDICADORES_QUAL[5],{nome:'Compras e Gestão de Contratos',unidade:'Nº de contratos vigentes; processos de compras',fonte:'Relatório de Contratos'});
+Object.assign(INDICADORES_QUAL[6],{nome:'Assessoria Jurídica',unidade:'Nº de contratos validados; ofícios; colaboradores por contrato',fonte:'Relatório Jurídico'});
+Object.assign(INDICADORES_QUAL[7],{nome:'Departamento Assistencial',unidade:'Nº de pacientes atendidos no mês',fonte:'Relatório de BI'});
+
+const MANUAL_META={
+  edicao:'2ª Edição — revisada e ampliada (2026)', primeiraEdicao:'Maio/2024',
+  aprovacao:'aprovada por unanimidade pelo Conselho de Administração em reunião extraordinária de 24/08/2026',
+  acordao:'Acórdão TCE-RJ nº 3.905/2024 (Plenário)', cartilha:'Cartilha de Rateio de Custos Indiretos do TCE-SP',
+  resSES:'Resolução SES/RJ nº 1.557/2017', resSS:'Resolução SS nº 138/2025 (SES-SP)', sumula:'Súmula nº 41 do TCE-SP',
+  sedeEstatutaria:'Travessa do Ouvidor, 21 — Centro, Rio de Janeiro/RJ', cigacEndereco:'Av. São Gonçalo, nº 100 – Sala 101 – Nível L1 – Boa Vista — São Gonçalo/RJ'
+};
+
+const GRUPOS_MANUAL={
+  tecnicos:{nome:'Serviços técnicos de gestão',exemplos:'Assessoria jurídica; compliance, financeiro, contabilidade e prestação de contas; auditorias contábeis; controladoria.',base:'Manual RDG 2ª ed., seção 6.1; art. 7º, §1º, Res. SS nº 138/2025 (por analogia)'},
+  pessoas:{nome:'Pessoas e folha',exemplos:'Processamento de folha e departamento pessoal centralizados; recrutamento, seleção, treinamento e desenvolvimento; segurança e medicina do trabalho.',base:'Manual RDG 2ª ed., seções 5.5 e 6.1; Acórdão TCE-RJ nº 3.905/2024 (equipe do CIGAC ≠ corpo próprio)'},
+  sistemas:{nome:'Sistemas',exemplos:'Licenciamento e manutenção de ERP, BI, sistema de RH, análise de risco e prestação de contas.',base:'Manual RDG 2ª ed., seção 6.1; art. 7º, IX, Res. SS nº 138/2025 (vinculação ao contrato)'},
+  suprimentos:{nome:'Suprimentos e logística',exemplos:'Operação de compras, logística e distribuição; validação de notas fiscais e controle de estoque.',base:'Manual RDG 2ª ed., seção 6.1'},
+  comunicacao:{nome:'Comunicação institucional',exemplos:'Materiais e campanhas voltados ao funcionamento das unidades e às exigências dos entes públicos.',base:'Manual RDG 2ª ed., seções 6.1 e 6.3.1; art. 7º, III, Res. SS nº 138/2025'},
+  assistencia_ti:{nome:'Assistência e Tecnologia da Informação',exemplos:'Suporte às unidades assistenciais, metas, indicadores, qualidade, monitoramento de dados/BI, sistemas.',base:'Manual RDG 2ª ed., seção 6.1'},
+  transporte:{nome:'Transporte e deslocamentos vinculados',exemplos:'Deslocamentos administrativos e assistenciais a serviço dos contratos de gestão.',base:'Manual RDG 2ª ed., seções 6.1 e 6.3.2; art. 7º, VI, Res. SS nº 138/2025'},
+  infraestrutura:{nome:'Infraestrutura operacional compartilhada',exemplos:'Locação e reflexos do CIGAC, por suporte técnico direto à administração das unidades gerenciadas.',base:'Manual RDG 2ª ed., seções 3.4 e 6.1; Acórdão TCE-RJ nº 3.905/2024 (sede estatutária não custeada)'}
+};
+
+const CONDICOES_61=[
+  'prevista e autorizada no contrato de gestão / plano de trabalho, com composição estimada',
+  'vinculada e pertinente ao objeto do ajuste (nexo de causalidade demonstrado)',
+  'necessária — indispensável ao cabal cumprimento do objeto',
+  'compatível com preços de mercado (economicidade / razoabilidade)',
+  'proporcional, com participação de todos os contratos beneficiados (memória de cálculo)',
+  'rastreável e comprovada documentalmente na prestação de contas',
+  'amparada em contratação formalizada (processo de contratação/aquisição instruído)'
+];
+
+const CONTROLES_TRANSPORTE=[
+  'Registro do deslocamento (diário de bordo / controle de viagem) com data, origem/destino, motivo e contrato(s) beneficiado(s)',
+  'Comprovação documental (contratos de locação, notas de combustível, faturas) conciliável com os extratos bancários',
+  'Vedação absoluta ao uso para fins particulares, institucionais da entidade ou de estruturas privadas'
+];
+const CONTROLES_QUALIFICACAO=[
+  'Justificativa prévia formal identificando colaborador, departamento do CIGAC, evento/curso e contratos beneficiados',
+  'Nexo temático entre o conteúdo e as atividades desempenhadas em favor dos contratos',
+  'Valores compatíveis com parâmetros de mercado e com o regulamento interno',
+  'Comprovação: certificado de participação, relatório de aproveitamento e registro da multiplicação interna (Treinamento e Desenvolvimento)',
+  'Vedação a dirigentes estatutários e a pessoal não vinculado à execução dos contratos'
+];
+
+const CAT_INFO={
+  'Assessoria Jurídica':{grupo:'tecnicos',indicador:'ind7',anexo:'IV',zonaAtencao:false,controles:[],
+    base:'Manual RDG 2ª ed., seções 5.5 e 6.1 (serviços técnicos de gestão); art. 7º, §1º, Res. SS nº 138/2025',
+    necessidade:'Suporte jurídico consultivo e contencioso compartilhado: elaboração e validação de contratos e termos aditivos, atendimento a ofícios e diligências de órgãos de controle, apoio às prestações de contas e repasses, admissões e desligamentos e gestão do risco regulatório de todos os contratos de gestão. A contratação centralizada evita a duplicidade de assessorias em cada unidade, condição do art. 7º, §1º, da Res. SS nº 138/2025.'},
+  'Auditorias Contábil, Fiscal e Financeira':{grupo:'tecnicos',indicador:'ind4',anexo:'IV',zonaAtencao:false,controles:[],
+    base:'Manual RDG 2ª ed., seções 5.6 e 6.1; Cartilha TCE-SP (comprovação e rastreabilidade)',
+    necessidade:'Auditoria independente das demonstrações contábeis, fiscais e financeiras que suportam as prestações de contas de todos os contratos de gestão, assegurando a conformidade regulatória e a integridade das informações entregues às comissões de avaliação e fiscalização e aos tribunais de contas.'},
+  'Folha de Pagamento CIGAC':{grupo:'pessoas',indicador:'ind1',anexo:'III',zonaAtencao:false,controles:[],
+    base:'Manual RDG 2ª ed., seções 5.5, 6.1 e 6.2; Acórdão TCE-RJ nº 3.905/2024 (vedação ao corpo próprio e à remuneração de dirigentes)',
+    necessidade:'Remuneração e encargos das equipes do CIGAC que executam, de forma compartilhada, as atividades administrativas, financeiras, de pessoas, de suprimentos e assistenciais vinculadas aos contratos de gestão. Não integram esta folha os dirigentes estatutários nem o corpo próprio da entidade (seção 5.5 do Manual); a relação nominal por departamento consta deste relatório.'},
+  'Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco':{grupo:'sistemas',indicador:'ind3',anexo:'IV',zonaAtencao:false,controles:[],
+    base:'Manual RDG 2ª ed., seção 6.1 (sistemas); art. 7º, IX, Res. SS nº 138/2025',
+    necessidade:'Licenciamento e manutenção dos sistemas integrados de contabilidade, gestão (ERP), inteligência de negócios (BI), recursos humanos, departamento pessoal e análise de risco utilizados no gerenciamento e na prestação de contas de todos os contratos, permitindo o controle centralizado dos lançamentos, da folha e dos indicadores de cada unidade.'},
+  'Melhoria Contínua':{grupo:'pessoas',indicador:'ind1',anexo:'IV',zonaAtencao:true,controles:CONTROLES_QUALIFICACAO,
+    base:'Manual RDG 2ª ed., seções 6.1 (treinamento e desenvolvimento) e 6.3.3; art. 7º, IV e XVII, Res. SS nº 138/2025; Comunicado SDG nº 021/2023 (TCE-SP)',
+    necessidade:'Qualificação técnica e desenvolvimento das equipes do CIGAC que atuam diretamente na execução dos contratos de gestão (prestação de contas, contabilidade do terceiro setor, compras, auditoria, compliance, sistemas, faturamento SUS e protocolos assistenciais), com multiplicação interna do conteúdo às unidades. Vinculada aos contratos e sujeita aos controles da seção 6.3.3 do Manual.'},
+  'Locação de Mobiliário e Equipamentos de Informática (CIGAC)':{grupo:'infraestrutura',indicador:'ind3',anexo:'IV',zonaAtencao:false,controles:[],
+    base:'Manual RDG 2ª ed., seção 6.1 (infraestrutura operacional compartilhada); art. 7º, IX, Res. SS nº 138/2025',
+    necessidade:'Mobiliário e equipamentos de informática locados para as equipes do CIGAC, infraestrutura operacional compartilhada que dá suporte técnico direto à administração de todas as unidades gerenciadas. A locação, em vez da aquisição, evita imobilização e despesas de depreciação, vedadas ao rateio.'},
+  'Locação de Imóvel CIGAC e Despesas':{grupo:'infraestrutura',indicador:'ind3',anexo:'IV',zonaAtencao:false,controles:[],
+    base:'Manual RDG 2ª ed., seções 3.4 e 6.1; Acórdão TCE-RJ nº 3.905/2024 (sede estatutária não custeada); art. 7º, XIII, Res. SS nº 138/2025',
+    necessidade:'Locação e reflexos (condomínio, taxas e utilidades) do imóvel onde funciona o CIGAC — Centro Integrado de Gestão e Assistência Compartilhada, na Av. São Gonçalo, nº 100, Sala 101, São Gonçalo/RJ, que abriga exclusivamente as operações vinculadas aos Planos de Trabalho. Não se confunde com a sede estatutária da entidade (Travessa do Ouvidor, 21, Rio de Janeiro), mantida com recursos institucionais e não rateada.'},
+  'Locação de Veículo Apoio Administrativo':{grupo:'transporte',indicador:'ind5',anexo:'IV',zonaAtencao:true,controles:CONTROLES_TRANSPORTE,
+    base:'Manual RDG 2ª ed., seções 6.1 e 6.3.2; art. 7º, VI, Res. SS nº 138/2025',
+    necessidade:'Apoio logístico de transporte às rotinas compartilhadas dos contratos: envio e protocolo de documentos e prestações de contas junto às secretarias e comissões de avaliação, trânsito entre o CIGAC, o almoxarifado central e as unidades, atos de representação perante órgãos públicos, supervisão assistencial e suporte de suprimentos. Despesa vinculada à execução dos contratos e sujeita aos controles da seção 6.3.2 do Manual.'},
+  'Despesas de materiais de expediente e afins':{grupo:'suprimentos',indicador:'ind5',anexo:'III',zonaAtencao:false,controles:[],
+    base:'Manual RDG 2ª ed., seção 6.1 (suprimentos e logística)',
+    necessidade:'Materiais de expediente e insumos de consumo necessários ao funcionamento administrativo do CIGAC (água potável, materiais de escritório e afins), utilizados pelas equipes que prestam serviço a todos os contratos de gestão.'},
+  'Medicina do Trabalho':{grupo:'pessoas',indicador:'ind1',anexo:'IV',zonaAtencao:false,controles:[],
+    base:'Manual RDG 2ª ed., seção 6.1 (segurança e medicina do trabalho)',
+    necessidade:'Serviços de saúde ocupacional, segurança e medicina do trabalho (SESMT) obrigatórios para os colaboradores do CIGAC, exigidos pela legislação trabalhista e indispensáveis à manutenção das equipes compartilhadas que atendem aos contratos de gestão.'},
+  'Seguro de Vida':{grupo:'pessoas',indicador:'ind1',anexo:'IV',zonaAtencao:false,controles:[],
+    base:'Manual RDG 2ª ed., seção 6.1 (pessoas e folha)',
+    necessidade:'Seguro de vida em grupo dos colaboradores do CIGAC, benefício previsto na política de pessoal e nas convenções aplicáveis, que integra o custo da equipe compartilhada vinculada aos contratos de gestão.'},
+  'Plataforma Processo Seletivo':{grupo:'pessoas',indicador:'ind1',anexo:'IV',zonaAtencao:false,controles:[],
+    base:'Manual RDG 2ª ed., seção 6.1 (recrutamento e seleção); ADI nº 1.923/DF (processo seletivo impessoal)',
+    necessidade:'Plataforma de recrutamento e seleção utilizada nos processos seletivos de pessoal de todas as unidades e do CIGAC, assegurando publicidade, impessoalidade e rastreabilidade das contratações, conforme o regulamento próprio de seleção exigido pela ADI nº 1.923/DF.'}
+};
+
+const VEDACOES_62=[
+  {vedada:'Remuneração de dirigentes da entidade',origem:'Vedação central do TCE-RJ. A Diretoria Estatutária não é remunerada por contrato de gestão.'},
+  {vedada:'Corpo próprio de pessoal da entidade',origem:'Vedação central do TCE-RJ. Somente as equipes do CIGAC vinculadas aos contratos são rateadas.'},
+  {vedada:'Aluguel da sede (estatutária) da entidade',origem:'TCE-RJ e art. 7º, XIII, Res. SS 138/2025.'},
+  {vedada:'Marketing e publicidade institucional da entidade',origem:'TCE-RJ e art. 7º, III, Res. SS 138/2025. Ressalvadas a publicidade legalmente obrigatória e a comunicação vinculada ao objeto (6.3.1).'},
+  {vedada:'Veículos não vinculados ao contrato (locação, manutenção, combustível, estacionamento)',origem:'Art. 7º, VI, Res. SS 138/2025. Rateável só quando vinculado, com os controles da seção 6.3.2.'},
+  {vedada:'Manutenção da estrutura física da entidade gerenciadora; construção civil',origem:'Art. 7º, I e VIII, Res. SS 138/2025.'},
+  {vedada:'Depreciação e amortização de bens',origem:'Art. 7º, XII, Res. SS 138/2025.'},
+  {vedada:'Viagens, diárias, brindes, confraternizações e eventos não vinculados',origem:'Art. 7º, IV, X e XI, Res. SS 138/2025; Comunicado SDG 021/2023 (TCE-SP). Ressalvada a qualificação vinculada (6.3.3).'},
+  {vedada:'Juros e multas; condenações judiciais',origem:'Art. 7º, XIV e XV, Res. SS 138/2025.'},
+  {vedada:'Consultoria para prospecção de negócios; cursos/bolsas de funcionários da entidade',origem:'Art. 7º, VII e XVII, Res. SS 138/2025. Ressalvada a qualificação do CIGAC vinculada aos contratos.'},
+  {vedada:'Mobiliário, equipamentos e softwares não relacionados ao contrato',origem:'Art. 7º, IX, Res. SS 138/2025.'},
+  {vedada:'Custeio de estrutura privada / atividades privadas paralelas',origem:'TCE-RJ. Pactuações privadas que utilizem o CIGAC são incorporadas ao rateio (7.2).'}
+];
+
+const MATRIZ_TCE=[
+  {chave:'dirigentes',determinacao:'Vedado custear remuneração de dirigentes',medida:'A Diretoria Estatutária (Diretor Presidente, Financeiro e Técnico Administrativo) não é remunerada por contrato de gestão, ainda que atue nos Planos de Trabalho.'},
+  {chave:'corpo_proprio',determinacao:'Vedado custear corpo próprio de pessoal da entidade',medida:'Somente as equipes do CIGAC vinculadas à execução dos contratos e serviços são rateadas; não há corpo próprio custeado por recursos públicos.'},
+  {chave:'sede',determinacao:'Vedado custear aluguel de sede administrativa da entidade',medida:'A sede estatutária (Travessa do Ouvidor, 21) não é custeada por contrato de gestão. Rateia-se apenas o CIGAC, de suporte técnico direto.'},
+  {chave:'marketing',determinacao:'Vedado custear marketing em benefício de clínica privada',medida:'Marketing/publicidade da entidade não integra o rateio; admitem-se apenas a publicidade legalmente obrigatória e a comunicação vinculada ao objeto (6.3.1).'},
+  {chave:'privadas',determinacao:'Vedado custear integralmente despesas administrativas exercendo atividades privadas paralelas',medida:'As pactuações, inclusive privadas, que utilizem o CIGAC são obrigatoriamente incorporadas ao rateio para custeio proporcional (7.2).'},
+  {chave:'nexo',determinacao:'Despesas com relação direta com o objeto, nexo de causalidade, proporcionalidade, necessidade e rastreabilidade',medida:'Requisitos incorporados como condições cumulativas (6.1) e comprovados nos Anexos I a VI e no Relatório Mensal; comunicação e transporte com controles específicos (6.3).'}
+];
+
 const COMP_TIPOS = ['NF','Guia','Boleto','Planilha','Pensão','Folha de Pagamento','Outro'];
 
 const MESES_PT = ['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
@@ -1920,7 +2038,7 @@ function renderQualitativo(){
   // Cabeçalho – linha 1 (indicadores, colspan=2 cada)
   const thInds = INDICADORES_QUAL.map(ind=>`
     <th colspan="2" class="th-azul" style="text-align:center;font-size:10px;padding:5px 6px;white-space:nowrap;min-width:130px">
-      <div style="font-weight:700">${ind.nome}</div>
+      <div style="font-weight:700">${ind.codigo} – ${ind.nome}</div>
       <div style="font-weight:400;font-size:9px;opacity:.85">${ind.dept}</div>
     </th>`).join('');
 
@@ -1978,7 +2096,7 @@ function renderQualitativo(){
       return '<div style="border:1px solid var(--border-soft);border-radius:8px;padding:12px;background:'+(hasPdf?'#F0FFF4':'#FAFBFC')+'">'
         +'<div style="display:flex;align-items:flex-start;gap:8px">'
         +'<div style="flex:1;min-width:0">'
-        +'<div style="font-size:12px;font-weight:700;color:var(--navy)">'+ind.nome+'</div>'
+        +'<div style="font-size:12px;font-weight:700;color:var(--navy)">'+ind.codigo+' – '+ind.nome+'</div>'
         +'<div style="font-size:10px;color:var(--gray);margin-top:2px">'+ind.dept+'</div>'
         +(hasPdf?'<div style="font-size:10px;color:#16A34A;margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:200px">✓ '+(pdf.pdfNome||'PDF')+'</div>':'')+'</div>'
         +'<div class="no-print" style="display:flex;gap:4px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end">'
@@ -3863,8 +3981,8 @@ function renderRelatorio(){
   });
   const hasQualData=INDICADORES_QUAL.some(ind=>totaisQ[ind.id]>0);
   const iqualTh=INDICADORES_QUAL.map(ind=>
-    '<th style="font-size:9px;text-align:center;padding:4px 2px;background:#1B3A5C;color:#fff;width:68px">'+ind.nome
-    +'<br><span style="font-weight:400;font-size:8px;opacity:.85">'+ind.dept+'</span></th>'
+    '<th style="font-size:9px;text-align:center;padding:4px 2px;background:#1B3A5C;color:#fff;width:68px">'+ind.codigo
+    +'<br><span style="font-weight:400;font-size:8px;opacity:.85">'+ind.nome+'</span></th>'
   ).join('');
   const iqualRows=CONTRATOS.map(ct=>{
     const cells=INDICADORES_QUAL.map(ind=>{

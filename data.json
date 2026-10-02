@@ -19724,7 +19724,7 @@
         {
           "uid": "c5wzi7jee",
           "nome": "SUELLEN PIRES DE FREITAS",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "INTELIGENCIA ASSISTENCIAL",
           "funcao": "AUX ADMINISTRATIVO"
         },
         {
@@ -19868,7 +19868,7 @@
         {
           "uid": "cn3915ztf",
           "nome": "TATIELE DA SILVA RIBEIRO",
-          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
+          "dept": "SUPRIMENTOS",
           "funcao": "SUPERVISOR DE SUPRIMENTOS III"
         },
         {
@@ -20036,7 +20036,7 @@
         {
           "uid": "cdbtdw43l",
           "nome": "SORAIA MUZI XAVIER",
-          "dept": "DEPARTAMENTO FINANCEIRO",
+          "dept": "CONTROLADORIA/TESOURARIA",
           "funcao": "ASSISTENTE FINANCEIRO III"
         },
         {
@@ -21922,6 +21922,21 @@
         "t": 1790971531474,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971532573,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971533036,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971533734,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23498,5 +23513,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971531476
+  "savedAt": 1790971533736
 }

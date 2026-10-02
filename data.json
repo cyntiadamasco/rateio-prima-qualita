@@ -20167,7 +20167,7 @@
           "quissama": 25,
           "cordeiro": 25,
           "saq_esp": 51,
-          "saq_pri": 0,
+          "saq_pri": 63,
           "cg_mt55xz0i": 0,
           "cg_mt55zykt": 0,
           "cg_muq7yah2": 0
@@ -20348,11 +20348,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1790901402955,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
       {
         "t": 1790901409556,
         "perfil": "Administrador",
@@ -21845,6 +21840,11 @@
       },
       {
         "t": 1790977355965,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790977360190,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23423,5 +23423,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790977355969
+  "savedAt": 1790977360193
 }

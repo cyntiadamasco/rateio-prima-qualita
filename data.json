@@ -19460,7 +19460,7 @@
         {
           "uid": "chhwwg232",
           "nome": "EMERSON RODRIGUES SARDINHA",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "dept": "OPERACIONAL",
           "funcao": "ASSISTENTE OPERACIONAL II"
         },
         {
@@ -19586,7 +19586,7 @@
         {
           "uid": "ck7775g01",
           "nome": "FABIO PINTO DA MATTA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "TECNOLOGIA DA INFORMAÇÃO",
           "funcao": "SUPERVISOR DE TI III"
         },
         {
@@ -20096,13 +20096,13 @@
         {
           "uid": "cfrc3bmi8",
           "nome": "ELENA VIANA MACEDO",
-          "dept": "DEPARTAMENTO PESSOAL",
+          "dept": "GESTAO DE PESSOAS",
           "funcao": "GERENTE DE GESTAO DE PESSOAS III"
         },
         {
           "uid": "c3w5zgziz",
           "nome": "EMILIA PEREIRA DARIO RANGEL",
-          "dept": "DEPARTAMENTO PESSOAL",
+          "dept": "GESTAO DE PESSOAS - DP",
           "funcao": "SUPERVISOR DE DEPARTAMENTO PESSOAL III"
         },
         {
@@ -21670,6 +21670,26 @@
       },
       {
         "t": 1790971488312,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971488833,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971489826,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971490442,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971491859,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23248,5 +23268,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971488314
+  "savedAt": 1790971491862
 }

@@ -21121,6 +21121,11 @@
         "t": 1790949530300,
         "perfil": "Administrador",
         "comp": "2026-10"
+      },
+      {
+        "t": 1790949536236,
+        "perfil": "Administrador",
+        "comp": "2026-10"
       }
     ],
     "tokenCripto": {
@@ -21150,14 +21155,14 @@
         },
         {
           "id": "cachoeiras",
-          "clt": 0,
+          "clt": 376,
           "efetivo": 0,
-          "pj": 0,
+          "pj": 125,
           "obs": ""
         },
         {
           "id": "saq_hosp",
-          "clt": 0,
+          "clt": 14,
           "efetivo": 0,
           "pj": 0,
           "obs": ""
@@ -22156,5 +22161,5 @@
     }
   },
   "currentComp": "2026-10",
-  "savedAt": 1790949530302
+  "savedAt": 1790949536238
 }

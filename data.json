@@ -19484,7 +19484,7 @@
         {
           "uid": "cs7b5q0vu",
           "nome": "GILSON GOUVEA",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "dept": "OPERACIONAL",
           "funcao": "SUPERVISOR OPERACIONAL I"
         },
         {
@@ -19592,7 +19592,7 @@
         {
           "uid": "cyzwwmvq1",
           "nome": "FRANCIELE DE LIMA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "REDE DE CUIDADOS",
           "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
         },
         {
@@ -19922,7 +19922,7 @@
         {
           "uid": "c9jm5rvc7",
           "nome": "GIANLUCAS CORREIA MENDES",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "dept": "GESTÃO DE PESSOAS - SST",
           "funcao": "TECNICO SEGURANCA DO TRABALHO I"
         },
         {
@@ -20108,7 +20108,7 @@
         {
           "uid": "crlij82mh",
           "nome": "GIOVANA FERREIRA DA CONCEICAO RODRIGUES",
-          "dept": "DEPARTAMENTO PESSOAL",
+          "dept": "GESTAO DE PESSOAS - DP",
           "funcao": "ANALISTA DEPARTAMENTO PESSOAL I"
         },
         {
@@ -21692,6 +21692,26 @@
         "t": 1790971491859,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971492324,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971492941,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971493480,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971494084,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23268,5 +23288,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971491862
+  "savedAt": 1790971494085
 }

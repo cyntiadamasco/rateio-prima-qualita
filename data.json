@@ -19701,7 +19701,7 @@
           "uid": "cvjkkcoer",
           "nome": "RAFAELA OLIVEIRA FERREIRA",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "GERENTE DE SAÚDE III"
+          "funcao": "GERENTE ASSISTENCIAL III"
         },
         {
           "uid": "cs3iwjh0n",
@@ -20025,7 +20025,7 @@
           "uid": "c4nchto7t",
           "nome": "RAFAELA PINA RIBEIRO",
           "dept": "DEPARTAMENTO FINANCEIRO",
-          "funcao": "ASSISTENTE ADMINISTRATIVO II"
+          "funcao": "ASSISTENTE FINANCEIRO III"
         },
         {
           "uid": "cym3r7v9y",
@@ -20049,7 +20049,7 @@
           "uid": "co0j7t7zf",
           "nome": "ROBSON LOUREIRO FERNANDES",
           "dept": "DEPARTAMENTO JURÍDICO",
-          "funcao": "GERENTE JURÍDICO"
+          "funcao": "GERENTE JURIDICO II"
         },
         {
           "uid": "co6pgxjfy",
@@ -21515,6 +21515,21 @@
       },
       {
         "t": 1790971434836,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971435395,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971436746,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971437457,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23093,5 +23108,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971434838
+  "savedAt": 1790971437459
 }

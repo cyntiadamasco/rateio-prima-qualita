@@ -482,6 +482,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 /* ── PRINT ────────────────────────────────────────────────────── */
 @media print{
   body{background:#fff;font-size:10px}
+  #desp-body tr{display:table-row!important}
   .no-print,.app-header,.comp-bar,.tabs-bar,.panel:not(.active){display:none!important}
   .panel.active{display:block!important;padding:8px}
   .btn,.card-acts,.stats-grid,.card-hdr .card-acts{display:none!important}
@@ -1389,7 +1390,7 @@ function getMesData(comp){
   }
   // Ensure all CGs have orcamento entry
   if(!state[comp].orcamentos) state[comp].orcamentos={};
-  CONTRATOS.forEach(c=>{ if(state[comp].orcamentos[c.id]===undefined) state[comp].orcamentos[c.id]=0; });
+  contratosAtivos(comp).forEach(c=>{ if(state[comp].orcamentos[c.id]===undefined) state[comp].orcamentos[c.id]=0; });
   // Ensure contratos ativos list exists
   if(!state[comp].contratos_ativos) state[comp].contratos_ativos=[];
   if(state[comp].contratos_obs===undefined) state[comp].contratos_obs='';
@@ -1505,7 +1506,7 @@ function prevCompLabel(comp){ return compLabel(prevComp(comp)); }
 ===================================================================== */
 function _liberarEspacoLS(){
   // Limpeza total: remove TODAS as chaves pq_* exceto token e senha
-  const preservar=new Set([EDIT_PWD_KEY,'pq_gh_token']);
+  const preservar=new Set([EDIT_PWD_KEY,'pq_gh_token','pq_pdfs_apagar']);
   const remover=[];
   for(let i=0;i<localStorage.length;i++){
     const k=localStorage.key(i);
@@ -1547,7 +1548,12 @@ function toast(msg,ms){
 }
 function fecharModaisAbertos(){
   let fechou=false;
-  document.querySelectorAll('.modal-overlay').forEach(m=>{ if(m.style.display&&m.style.display!=='none'){ m.style.display='none'; fechou=true; } });
+  document.querySelectorAll('.modal-overlay,#modal-perfis,#modal-hist,#modal-edit-pwd,#modal-change-pwd,#modal-vf').forEach(m=>{
+    if(m.style.display&&m.style.display!=='none'){
+      if(m.id==='modal-pdf') fecharModalPDF(); else m.style.display='none';
+      fechou=true;
+    }
+  });
   const dd=document.getElementById('dd-opcoes'); if(dd&&dd.classList.contains('open')){ dd.classList.remove('open'); fechou=true; }
   return fechou;
 }
@@ -1556,7 +1562,7 @@ window.addEventListener('beforeunload',function(e){
 });
 document.addEventListener('keydown',function(e){
   if(e.key==='Escape'){ if(fecharModaisAbertos()) e.preventDefault(); return; }
-  if((e.ctrlKey||e.metaKey)&&!e.altKey&&String(e.key).toLowerCase()==='s'){ e.preventDefault(); salvar(); }
+  if((e.ctrlKey||e.metaKey)&&!e.altKey&&String(e.key).toLowerCase()==='s'){ e.preventDefault(); if(_dirty||_autoTimer) salvar(); }
 });
 
 function salvar(){
@@ -1735,7 +1741,6 @@ function excluirMesAtual(){
   const label=compLabel(currentComp);
   if(!confirm('Excluir "'+label+'" e todos os seus dados?\n\nEsta ação não pode ser desfeita.')) return;
   delete state[currentComp];
-  salvar();
   // Ir para o mês com dados mais recente; se nenhum, criar mês atual
   const restantes=Object.keys(state).filter(k=>/^\d{4}-\d{2}$/.test(k)).sort();
   if(restantes.length){
@@ -1746,8 +1751,8 @@ function excluirMesAtual(){
     currentComp=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
     rebuildContratos();
     getMesData(currentComp);
-    salvar();
   }
+  salvar();
   popularCompetencias();
   popularUI();
   renderAbaAtiva();
@@ -2264,14 +2269,16 @@ function setColab(id, field, val){
 function renderDespesas(){
   const data=getMesData(currentComp);
   const pctMap=getPctMap(currentComp);
-  const pctAnt=getPctMapAnt(currentComp);
   const total=data.despesas.reduce((a,d)=>a+(d.valor||0),0);
   const somaRateado=data.despesas.reduce((a,d)=>a+totalAlocado(d,currentComp),0);
   const diverge=Math.abs(somaRateado-total)>0.011;
   const totalCompl=data.despesas.filter(d=>d.compl).reduce((a,d)=>a+(d.valor||0),0);
-  const totalCGs=CONTRATOS.map(ct=>data.despesas.reduce((a,d)=>a+(d.valor||0)*((d.compl?pctAnt:pctMap)[ct.id]||0),0));
   const catOpts=CATEGORIAS.map(c=>`<option>${c}</option>`).join('');
   const tipoOpts=COMP_TIPOS.map(t=>`<option>${t}</option>`).join('');
+
+  // Filtro em uso antes de redesenhar (a tela é reconstruída inteira)
+  const _fb=document.getElementById('desp-busca'),_fc=document.getElementById('desp-cat');
+  const filtroBusca=_fb?_fb.value:'',filtroCat=_fc?_fc.value:'';
 
   let rows='';
   const n=data.despesas.length;
@@ -2340,6 +2347,11 @@ function renderDespesas(){
       <span id="desp-print-total">${R$(total)}</span>
     </div>
   </div>`;
+  if(filtroBusca||filtroCat){
+    const b=document.getElementById('desp-busca'),c=document.getElementById('desp-cat');
+    if(b) b.value=filtroBusca; if(c) c.value=filtroCat;
+    aplicarFiltroDesp();
+  }
 }
 
 function buildDespesaRow(d, i, pctMap, catOpts, tipoOpts, n){
@@ -2433,7 +2445,7 @@ function moverDesp(duid, dir){
 function updDesp(duid, field, val){
   const data=getMesData(currentComp);
   const d=data.despesas.find(x=>x.uid===duid);
-  if(!d) return;
+  if(!d){ console.warn('[updDesp] item não encontrado:',duid); toast('Item não encontrado; recarregue a aba Despesas.'); return; }
   if(field==='comp'){
     // parse "NF 123" → ctipo='NF', cnum='123'
     const parts=val.trim().split(/\s+/);
@@ -2447,6 +2459,14 @@ function updDesp(duid, field, val){
   // Update total cells
   marcarAlterado();
   updateDespTotals();
+  // Mantém o filtro coerente com o item editado (texto de busca e categoria da linha)
+  const tr=document.getElementById('desp-row-'+duid);
+  if(tr){
+    const compStr=d.ctipo?(d.cnum?d.ctipo+' '+d.cnum:d.ctipo):'';
+    tr.setAttribute('data-busca',((d.id||'')+' '+(d.objeto||'')+' '+(d.fav||'')+' '+(d.cnpj||'')+' '+compStr).toLowerCase());
+    tr.setAttribute('data-cat',d.cat||'');
+    aplicarFiltroDesp();
+  }
 }
 
 function updDespVal(duid, val){
@@ -2505,7 +2525,11 @@ function updateDespTotals(){
   const e1=document.getElementById('desp-total-valor');
   const e2=document.getElementById('desp-total-rateado');
   if(e1) e1.textContent=R$(total);
-  if(e2){ e2.textContent=R$(somaRateado); e2.classList.toggle('td-diverge',Math.abs(somaRateado-total)>0.011); }
+  if(e2){
+    const diverge=Math.abs(somaRateado-total)>0.011;
+    e2.textContent=R$(somaRateado); e2.classList.toggle('td-diverge',diverge);
+    e2.title=diverge?'A soma das alocações difere do total: confira o critério quantitativo':'';
+  }
 }
 
 function duplicarMesAnterior(){
@@ -2536,7 +2560,6 @@ function limparMesAtual(){
 function renderDemonstrativo(){
   const data=getMesData(currentComp);
   const pctMap=getPctMap(currentComp);
-  const pctAnt=getPctMapAnt(currentComp);
   const despesas=data.despesas;
 
   // Agrupar por categoria
@@ -4228,9 +4251,11 @@ function renderGraficos(){
 
   const data=getMesData(currentComp);
   const pctMap=getPctMap(currentComp);
-  const pctAntG=getPctMapAnt(currentComp);
   const totalMes=getMesData(currentComp).despesas.reduce((a,d)=>a+totalAlocado(d,currentComp),0);
-  const cgTotals=CONTRATOS.map(ct=>data.despesas.reduce((a,d)=>a+(d.valor||0)*((d.compl?pctAntG:pctMap)[ct.id]||0),0));
+  // Total por CG = soma das alocações reais de cada despesa (mesma função do Demonstrativo)
+  const _somaCG={};
+  data.despesas.forEach(d=>{ const al=alocacoesDespesa(d,currentComp); Object.keys(al).forEach(id=>{ _somaCG[id]=(_somaCG[id]||0)+al[id]; }); });
+  const cgTotals=CONTRATOS.map(ct=>Math.round((_somaCG[ct.id]||0)*100)/100);
   const allComps=Object.keys(state).filter(k=>/^\d{4}-\d{2}$/.test(k)).sort();
   const histTotals=allComps.map(c=>totalDespesas(c));
   const catTotals=CATEGORIAS.map(cat=>data.despesas.filter(d=>d.cat===cat).reduce((a,d)=>a+(d.valor||0),0)).filter(v=>v>0);
@@ -4247,13 +4272,8 @@ function renderGraficos(){
     totaisQ[ind.id]=CONTRATOS.reduce((s,cg)=>s+((iqual[ind.id]||{})[cg.id]||0),0);
   });
   const hasQualData=INDICADORES_QUAL.some(ind=>totaisQ[ind.id]>0);
-  const reprPcts=CONTRATOS.map(cg=>{
-    const p8=INDICADORES_QUAL.map(ind=>{
-      const qtd=(iqual[ind.id]||{})[cg.id]||0;
-      return totaisQ[ind.id]>0?qtd/totaisQ[ind.id]:0;
-    });
-    return p8.reduce((a,b)=>a+b,0)/INDICADORES_QUAL.length*100;
-  });
+  // Representatividade = mesma função da aba Qualitativo (média dos indicadores com dados)
+  const reprPcts=CONTRATOS.map(cg=>representatividadeCG(data,cg.id,totaisQ).valor*100);
 
   document.getElementById('panel-graficos').innerHTML=`
   <div class="dash-print-hdr">
@@ -5322,10 +5342,7 @@ function imprimirDashboard(){
   const totaisQ={};
   INDICADORES_QUAL.forEach(ind=>{totaisQ[ind.id]=CONTRATOS.reduce((s,cg)=>s+((iqual[ind.id]||{})[cg.id]||0),0);});
   const hasQualData=INDICADORES_QUAL.some(ind=>totaisQ[ind.id]>0);
-  const reprPcts=CONTRATOS.map(cg=>{
-    const p8=INDICADORES_QUAL.map(ind=>{const qtd=(iqual[ind.id]||{})[cg.id]||0;return totaisQ[ind.id]>0?qtd/totaisQ[ind.id]:0;});
-    return p8.reduce((a,b)=>a+b,0)/INDICADORES_QUAL.length*100;
-  });
+  const reprPcts=CONTRATOS.map(cg=>representatividadeCG(data,cg.id,totaisQ).valor*100);
 
   /* ── Capturar gráficos como PNG ── */
   const ci={};

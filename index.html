@@ -1520,6 +1520,11 @@ function _liberarEspacoLS(){
 const AUTOSAVE_MS=1500;
 let _ghSalvando=false,_ghPendente=false,_ghUltimoAviso=0;
 let _dirty=false,_autoTimer=null;
+/* _remotoPronto: vira true quando githubCarregar() terminou (com ou sem sucesso).
+   Antes disso o estado em memória é PARCIAL (só os meses do cache local, sem
+   perfilSenhas/tokenCripto/customContratos...), então NUNCA pode ir ao GitHub.
+   _salvarAposCarregar: um salvar() pedido antes disso é adiado para o fim do carregamento. */
+let _remotoPronto=false,_salvarAposCarregar=false;
 function marcarAlterado(){
   _dirty=true;
   setSyncStatus('pending','Alterações pendentes');
@@ -1571,7 +1576,10 @@ function salvar(){
     _liberarEspacoLS();
     try{ _gravarLS(); gravou=true; }catch(e2){ console.warn('[salvar] localStorage cheio, usando apenas GitHub.',e2.message); }
   }
-  if(ghToken()){ githubSalvar(); }
+  if(ghToken()){
+    if(!_remotoPronto){ _salvarAposCarregar=true; setSyncStatus('pending','Aguardando dados remotos...'); return; }
+    githubSalvar();
+  }
   else if(gravou){ _dirty=false; setSyncStatus('ok','Salvo localmente'); _mostrarSalvo(); }
   else { setSyncStatus('err','Falha ao salvar localmente'); }
 }
@@ -5574,6 +5582,15 @@ function setSyncStatus(status,label){
   dot.className='sync-dot'+(status?' '+status:'');
   lbl.textContent=label||'';
 }
+/* Mescla: base = estado remoto (todas as chaves gerais: perfilSenhas, tokenCripto,
+   customContratos, desativadosBase, auditLog, manualRDG e todos os meses) e, por
+   cima, apenas as competências listadas em 'meses' que existam no estado local.
+   Não altera currentComp. */
+function _mesclarEstadoLocal(remoto,local,meses){
+  const out=Object.assign({},remoto||{});
+  (meses||[]).forEach(m=>{ if(local&&local[m]) out[m]=local[m]; });
+  return out;
+}
 async function githubCarregar(){
   // Repositório público: leitura sem token via URL raw
   setSyncStatus('loading','Carregando...');
@@ -5581,29 +5598,46 @@ async function githubCarregar(){
     const url='https://raw.githubusercontent.com/'+GH_REPO+'/main/'+GH_FILE+'?t='+Date.now();
     const r=await fetch(url);
     if(r.status===404){ if(!_dirty) setSyncStatus('ok','Sem dados remotos ainda'); return false; }
-    if(!r.ok){setSyncStatus('err','Erro ao carregar');return false;}
+    if(!r.ok){ setSyncStatus(_dirty?'pending':'err',_dirty?'Alterações pendentes':'Erro ao carregar'); return false; }
     const raw=await r.json();
     // Proteção contra perda de dados: se ESTA máquina salvou depois da última
-    // versão do GitHub (ex.: o envio anterior falhou), mantém os dados locais
-    // e reenvia ao GitHub, em vez de descartá-los.
+    // versão do GitHub (ex.: o envio anterior falhou), mantém os MESES locais
+    // sobre a base remota (chaves gerais vêm do remoto) e reenvia ao GitHub.
     const localSavedAt=parseInt(localStorage.getItem('pq_saved_at')||'0');
     const remoteSavedAt=raw.savedAt||0;
     if(ghToken()&&remoteSavedAt>0&&localSavedAt>remoteSavedAt){
+      const mesesLocais=Object.keys(state).filter(k=>/^\d{4}-\d{2}$/.test(k));
+      state=_mesclarEstadoLocal(raw.state,state,mesesLocais);
       rebuildContratos();
       setSyncStatus('loading','Reenviando alterações locais...');
+      _remotoPronto=true;
       githubSalvar();
       return true;
     }
+    if(_dirty){
+      // Editou antes de o remoto chegar: a edição só pode ter tocado currentComp.
+      // Mantém essa competência local sobre o remoto e envia o estado MESCLADO
+      // (nunca o parcial) — _dirty só cai quando o PUT confirmar.
+      state=_mesclarEstadoLocal(raw.state,state,[currentComp]);
+      rebuildContratos();
+      setSyncStatus('pending','Alterações pendentes');
+      _remotoPronto=true; _salvarAposCarregar=false;
+      salvar();
+      return true;
+    }
     // Caso normal: GitHub é a fonte da verdade e sobrescreve o estado local
-    if(_dirty){ setSyncStatus('pending','Dados locais mais recentes (não substituídos)'); return true; }
     if(raw.state) state=raw.state;
     if(raw.currentComp) currentComp=raw.currentComp;
     if(remoteSavedAt>0) localStorage.setItem('pq_saved_at',String(remoteSavedAt));
     rebuildContratos();
     const t=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
-    if(!_dirty) setSyncStatus('ok','Atualizado '+t);
+    setSyncStatus('ok','Atualizado '+t);
     return true;
-  }catch(e){setSyncStatus('err','Sem conexao');return false;}
+  }catch(e){ setSyncStatus(_dirty?'pending':'err',_dirty?'Alterações pendentes':'Sem conexao'); return false; }
+  finally{
+    _remotoPronto=true;
+    if(_salvarAposCarregar){ _salvarAposCarregar=false; salvar(); }
+  }
 }
 /* Fila de salvamento: nunca roda dois envios ao GitHub ao mesmo tempo.
    Envios simultâneos usavam "sha" vencido e eram rejeitados em silêncio,

@@ -19596,12 +19596,6 @@
           "funcao": "ASSISTENTE ADMINISTRATIVO II"
         },
         {
-          "uid": "cuclmk7w9",
-          "nome": "JOSE ROBERTO LOPES DA SILVA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ASSISTENTE ADMINISTRATIVO I"
-        },
-        {
           "uid": "c8tk9ssmf",
           "nome": "LEONARDO LIMA CARVALHO",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
@@ -21965,6 +21959,11 @@
         "t": 1790971597864,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971599976,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23541,5 +23540,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971597867
+  "savedAt": 1790971599978
 }

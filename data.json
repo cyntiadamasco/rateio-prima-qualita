@@ -19755,7 +19755,7 @@
           "uid": "clj36pgaf",
           "nome": "ANDERSON DE SOUZA MOUTINHO",
           "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
-          "funcao": "ANALISTA DE COMPRAS I"
+          "funcao": "ANALISTA DE COMPRAS III"
         },
         {
           "uid": "ckr8a8nl8",
@@ -20067,7 +20067,7 @@
           "uid": "ct6zwmpv1",
           "nome": "AMANDA DE OLIVEIRA ALMEIDA",
           "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
+          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL III"
         },
         {
           "uid": "cifmi8x73",
@@ -21345,6 +21345,16 @@
       },
       {
         "t": 1790971365131,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971409514,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971410484,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -22923,5 +22933,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971365149
+  "savedAt": 1790971410485
 }

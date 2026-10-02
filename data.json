@@ -19905,7 +19905,7 @@
           "uid": "cmtj0x06j",
           "nome": "ZILANDA RODRIGUES DOS SANTOS",
           "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
-          "funcao": "AUXILIAR ADMINISTRATIVO"
+          "funcao": "ANALISTA DE COMPRAS I"
         },
         {
           "uid": "cdl29lcvb",
@@ -21602,6 +21602,11 @@
         "t": 1790971448258,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971449734,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23178,5 +23183,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971448259
+  "savedAt": 1790971449736
 }

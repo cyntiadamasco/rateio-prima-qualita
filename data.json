@@ -18990,7 +18990,7 @@
           "valor": 190248.22,
           "pdfUrl": "",
           "pdfNome": "",
-          "dtPgto": ""
+          "dtPgto": "2026-09-29"
         },
         {
           "uid": "lo96y0x",
@@ -20623,6 +20623,11 @@
         "t": 1790902259985,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790903108927,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -20642,5 +20647,5 @@
     ]
   },
   "currentComp": "2026-09",
-  "savedAt": 1790902259989
+  "savedAt": 1790903108932
 }

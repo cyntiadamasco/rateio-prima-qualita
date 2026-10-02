@@ -21151,6 +21151,11 @@
         "t": 1790949559723,
         "perfil": "Administrador",
         "comp": "2026-10"
+      },
+      {
+        "t": 1790949564843,
+        "perfil": "Administrador",
+        "comp": "2026-10"
       }
     ],
     "tokenCripto": {
@@ -21217,7 +21222,7 @@
           "id": "quissama",
           "clt": 56,
           "efetivo": 0,
-          "pj": 0,
+          "pj": 5,
           "obs": ""
         },
         {
@@ -22186,5 +22191,5 @@
     }
   },
   "currentComp": "2026-10",
-  "savedAt": 1790949559726
+  "savedAt": 1790949564845
 }

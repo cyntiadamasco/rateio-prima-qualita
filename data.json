@@ -18803,9 +18803,9 @@
           "objeto": "Folha de Pagamento Colaboradores CIGAC",
           "fav": "Projeto Social Cresce Comunidade - Prima Qualitá",
           "cnpj": "40.289.134/0001-99",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "FOLHA",
+          "cnum": "PGTO",
+          "valor": 431612.9,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -20433,6 +20433,11 @@
         "t": 1790900716951,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790900782449,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -20452,5 +20457,5 @@
     ]
   },
   "currentComp": "2026-09",
-  "savedAt": 1790900716955
+  "savedAt": 1790900782454
 }

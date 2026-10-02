@@ -19514,7 +19514,7 @@
         {
           "uid": "cmj1yu1fg",
           "nome": "LUIS AUGUSTO DA SILVA SANTANA",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "dept": "OPERACIONAL",
           "funcao": "ANALISTA OPERACIONAL I"
         },
         {
@@ -19664,7 +19664,7 @@
         {
           "uid": "cyt94par6",
           "nome": "MARCELA ROCHA FERREIRA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "REDE DE CUIDADOS",
           "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
         },
         {
@@ -19676,13 +19676,13 @@
         {
           "uid": "ckzyr0j7r",
           "nome": "MARIANA LATTANZI CRISPINO",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "REDE DE CUIDADOS",
           "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
         },
         {
           "uid": "cmms6lqds",
           "nome": "MARINA CARVALHO PASSOS SOARES",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "INTELIGENCIA ASSISTENCIAL",
           "funcao": "ASSISTENTE ADMINISTRATIVO III"
         },
         {
@@ -21807,6 +21807,26 @@
         "t": 1790971513506,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971514050,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971515124,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971515680,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971516816,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23383,5 +23403,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971513508
+  "savedAt": 1790971516818
 }

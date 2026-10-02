@@ -18873,9 +18873,9 @@
           "objeto": "Vale Transporte Colaboradores CIGAC",
           "fav": "Riopar Participações S/A",
           "cnpj": "16.727.386/0001-86",
-          "ctipo": "",
+          "ctipo": "BOLETO",
           "cnum": "",
-          "valor": 0,
+          "valor": 2251.7,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -18887,7 +18887,7 @@
           "objeto": "Vale Transporte Colaboradores CIGAC",
           "fav": "Riopar Participações S/A",
           "cnpj": "16.727.386/0001-86",
-          "ctipo": "",
+          "ctipo": "BOLETO",
           "cnum": "",
           "valor": 0,
           "pdfUrl": null,
@@ -20458,6 +20458,11 @@
         "t": 1790900846746,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790900869227,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -20477,5 +20482,5 @@
     ]
   },
   "currentComp": "2026-09",
-  "savedAt": 1790900846750
+  "savedAt": 1790900869231
 }

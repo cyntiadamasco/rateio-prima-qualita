@@ -19502,7 +19502,7 @@
         {
           "uid": "cw9r0ckjx",
           "nome": "LEONARDO BARCELOS MARTINS",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "dept": "INTELIGENCIA ASSISTENCIAL",
           "funcao": "ASSISTENTE ADMINISTRATIVO I"
         },
         {
@@ -19940,13 +19940,13 @@
         {
           "uid": "cpi0nvh1j",
           "nome": "JULIO CESAR DE OLIVEIRA JUNIOR",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "dept": "GESTÃO DE PESSOAS - REMUNERAÇÃO",
           "funcao": "COORDENADOR DE REMUNERACAO / RH I"
         },
         {
           "uid": "c6kl1vgx2",
           "nome": "LORRAYNE DA SILVA FERNANDEZ DE OLIVEIRA",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "dept": "SUPERINTENDENCIA EXECUTIVA",
           "funcao": "ANALISTA ADMINISTRATIVO I"
         },
         {
@@ -20012,7 +20012,7 @@
         {
           "uid": "cxlvgecaw",
           "nome": "LUCAS DA COSTA",
-          "dept": "DEPARTAMENTO FINANCEIRO",
+          "dept": "CONTROLADORIA/TESOURARIA",
           "funcao": "ANALISTA FINANCEIRO I"
         },
         {
@@ -21787,6 +21787,26 @@
         "t": 1790971509529,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971511276,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971511784,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971513008,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971513506,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23363,5 +23383,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971509531
+  "savedAt": 1790971513508
 }

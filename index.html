@@ -1663,7 +1663,10 @@ function popularCompetencias(){
   const sel=document.getElementById('sel-comp');
   sel.innerHTML='';
   const meses=[];
-  for(let y=2024;y<=2027;y++)
+  const anosDados=Object.keys(state).filter(k=>/^\d{4}-\d{2}$/.test(k)).map(k=>parseInt(k.slice(0,4)));
+  const anoAtual=new Date().getFullYear();
+  const yMin=Math.min(2024,anoAtual,...anosDados), yMax=Math.max(anoAtual+1,...anosDados);
+  for(let y=yMin;y<=yMax;y++)
     for(let m=1;m<=12;m++)
       meses.push(`${y}-${String(m).padStart(2,'0')}`);
 
@@ -1690,16 +1693,16 @@ function popularCompetencias(){
 
 function novaCompetencia(){
   const v=prompt('Digite a competência (ex: 2026-07):');
-  if(!v||!/^\d{4}-\d{2}$/.test(v)) return;
-  currentComp=v;
+  if(v===null) return;
+  const s=(v||'').trim();
+  if(!/^\d{4}-(0[1-9]|1[0-2])$/.test(s)||parseInt(s.slice(0,4))<2020||parseInt(s.slice(0,4))>2099){ alert('Competência inválida. Use o formato AAAA-MM com mês de 01 a 12.'); return; }
+  currentComp=s;
   rebuildContratos();
-  getMesData(v); // initialize
+  getMesData(s);
   marcarAlterado();
   popularCompetencias();
   popularUI();
-  renderTab('criterio');
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelectorAll('.tab-btn')[0].classList.add('active');
+  renderAbaAtiva();
 }
 
 function excluirMesAtual(){
@@ -1721,10 +1724,7 @@ function excluirMesAtual(){
   }
   popularCompetencias();
   popularUI();
-  renderTab('criterio');
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  const btn=document.querySelector('[data-tab="criterio"]');
-  if(btn) btn.classList.add('active');
+  renderAbaAtiva();
 }
 
 function mudarComp(comp){
@@ -2259,6 +2259,7 @@ function renderDespesas(){
       </div>
       <div style="margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
         <button class="btn btn-sm" style="background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.28);font-size:11px;padding:6px 14px;border-radius:7px" onclick="duplicarMesAnterior()">📋 Importar do Mês Anterior</button>
+        <button class="btn btn-sm edit-only" style="background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.28);font-size:11px;padding:6px 14px;border-radius:7px" onclick="renumerarIDs()">🔢 Renumerar IDs</button>
         <button class="btn btn-sm" style="background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.28);font-size:11px;padding:6px 14px;border-radius:7px" onclick="imprimirDespesas()">🖨 Imprimir</button>
         <button class="btn btn-sm" style="background:rgba(255,255,255,.25);color:#fff;border:1px solid rgba(255,255,255,.4);font-size:11px;padding:6px 14px;border-radius:7px" onclick="addDespesa()">＋ Adicionar Item</button>
       </div>
@@ -2380,7 +2381,14 @@ function remDesp(duid){
   const cached2=_pdfBlobCache.get(duid+'_b');
   if(cached2){URL.revokeObjectURL(cached2.url);_pdfBlobCache.delete(duid+'_b');}
   data.despesas=data.despesas.filter(d=>d.uid!==duid);
+  renderDespesas();
+}
+
+function renumerarIDs(){
+  const data=getMesData(currentComp);
+  if(!confirm('Renumerar os IDs de 1 a '+data.despesas.length+' na ordem atual?\n\nIDs manuais (ex.: 11.1) serão substituídos.')) return;
   data.despesas.forEach((d,i)=>{d.id=String(i+1);});
+  marcarAlterado();
   renderDespesas();
 }
 
@@ -2391,7 +2399,6 @@ function moverDesp(duid, dir){
   const newIdx=idx+dir;
   if(newIdx<0||newIdx>=data.despesas.length) return;
   [data.despesas[idx],data.despesas[newIdx]]=[data.despesas[newIdx],data.despesas[idx]];
-  data.despesas.forEach((d,i)=>{d.id=String(i+1);});
   salvar();
   renderDespesas();
 }
@@ -2478,7 +2485,7 @@ function limparMesAtual(){
   delete state[currentComp];
   getMesData(currentComp);
   marcarAlterado();
-  renderTab('criterio');
+  renderAbaAtiva();
 }
 
 /* =====================================================================

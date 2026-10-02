@@ -357,6 +357,7 @@ td.td-edit input{border:none;background:transparent;padding:2px 4px;box-shadow:n
 td.td-edit{background:rgba(0,115,186,.03)}
 td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-radius:var(--r-sm);box-shadow:0 0 0 2px rgba(0,115,186,.1)}
 
+#toast{position:fixed;left:50%;bottom:70px;transform:translateX(-50%);background:#1B3A5C;color:#fff;padding:10px 18px;border-radius:10px;font-size:12px;font-weight:600;box-shadow:0 8px 28px rgba(15,44,71,.35);z-index:1000;display:none;max-width:90vw;text-align:center}
 /* ── SAVE INDICATOR ───────────────────────────────────────────── */
 #save-ind{
   position:fixed;
@@ -1218,6 +1219,7 @@ body:not(.perfil-logado) .logado-only{display:none!important}
 <div id="print-area"></div>
 
 <div id="save-ind">✓ Dados salvos</div>
+<div id="toast" role="status" aria-live="polite"></div>
 <input type="file" id="import-file" accept=".json" style="display:none" onchange="importarJSON(this)">
 
 <script>
@@ -1493,10 +1495,24 @@ function _mostrarSalvo(){
   el.style.display='block';
   setTimeout(()=>el.style.display='none',2200);
 }
+let _toastTimer=null;
+function toast(msg,ms){
+  const el=document.getElementById('toast'); if(!el) return;
+  el.textContent=msg; el.style.display='block';
+  if(_toastTimer) clearTimeout(_toastTimer);
+  _toastTimer=setTimeout(()=>{el.style.display='none';},ms||2600);
+}
+function fecharModaisAbertos(){
+  let fechou=false;
+  document.querySelectorAll('.modal-overlay').forEach(m=>{ if(m.style.display&&m.style.display!=='none'){ m.style.display='none'; fechou=true; } });
+  const dd=document.getElementById('dd-opcoes'); if(dd&&dd.classList.contains('open')){ dd.classList.remove('open'); fechou=true; }
+  return fechou;
+}
 window.addEventListener('beforeunload',function(e){
   if(_dirty||_ghSalvando){ e.preventDefault(); e.returnValue='Há alterações ainda não salvas.'; return e.returnValue; }
 });
 document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){ if(fecharModaisAbertos()) e.preventDefault(); return; }
   if((e.ctrlKey||e.metaKey)&&!e.altKey&&String(e.key).toLowerCase()==='s'){ e.preventDefault(); salvar(); }
 });
 
@@ -1718,7 +1734,7 @@ function popularUI(){
 ===================================================================== */
 function abrirTab(id, btn){
   // Validação 3% é restrita a usuários logados
-  if(id==='validacao'&&!perfilAtual()) return;
+  if(id==='validacao'&&!perfilAtual()){ toast('Faça login (🔒 Entrar) para acessar a Validação 3%.'); return; }
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('panel-'+id).classList.add('active');
@@ -7524,7 +7540,7 @@ function removerManualRDG(){
 
 </script>
 
-<div id="modal-sync class="modal-overlay" style="display:none" onclick="if(event.target===this)fecharModal()">
+<div id="modal-sync" class="modal-overlay" style="display:none" onclick="if(event.target===this)fecharModal()">
   <div class="modal-box">
     <div class="modal-title">&#9729; Sincronização via GitHub</div>
     <div class="modal-sub">Cole aqui seu <strong>Personal Access Token</strong> do GitHub com permissão <code>repo</code>.<br>Os dados ficam salvos como <code>data.json</code> no repositório e carregados automaticamente em qualquer máquina com o token configurado.<br><br><a href="https://github.com/settings/tokens/new?scopes=repo&description=Rateio+Prima+Qualita" target="_blank" style="color:var(--azul);font-weight:600">&#10140; Gerar token no GitHub (abre nova aba)</a></div>

@@ -1364,7 +1364,7 @@ const CAT_INFO={
     necessidade:'Auditorias contábeis, fiscais e financeiras das demonstrações que suportam as prestações de contas de todos os contratos de gestão, assegurando a conformidade regulatória e a integridade das informações entregues às comissões de avaliação e fiscalização e aos tribunais de contas.'},
   'Folha de Pagamento CIGAC':{grupo:'pessoas',indicador:'ind1',anexo:'III',zonaAtencao:false,controles:[],
     base:'Manual RDG 2ª ed., seções 5.5, 6.1 e 6.2; Acórdão TCE-RJ nº 3.905/2024 (vedação ao corpo próprio e à remuneração de dirigentes)',
-    necessidade:'Remuneração e encargos das equipes do CIGAC que executam, de forma compartilhada, as atividades administrativas, financeiras, de pessoas, de suprimentos e assistenciais vinculadas aos contratos de gestão. Não integram esta folha os dirigentes estatutários nem o corpo próprio da entidade (seção 5.5 do Manual); a relação nominal por departamento consta deste relatório.'},
+    necessidade:'Remuneração e encargos das equipes do CIGAC que executam, de forma compartilhada, as atividades administrativas, financeiras, de pessoas, de suprimentos e assistenciais vinculadas aos contratos de gestão. Não integram esta folha os dirigentes estatutários nem o corpo próprio da entidade (seção 5.5 do Manual); a relação nominal por departamento consta deste relatório. As atribuições de cada departamento constam do Regimento Interno do CIGAC e da composição da folha apresentada a seguir.'},
   'Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco':{grupo:'sistemas',indicador:'ind3',anexo:'IV',zonaAtencao:false,controles:[],
     base:'Manual RDG 2ª ed., seção 6.1 (sistemas); art. 7º, IX, Res. SS nº 138/2025',
     necessidade:'Licenciamento e manutenção dos sistemas integrados de contabilidade, gestão (ERP), inteligência de negócios (BI), recursos humanos, departamento pessoal e análise de risco utilizados no gerenciamento e na prestação de contas de todos os contratos, permitindo o controle centralizado dos lançamentos, da folha e dos indicadores de cada unidade.'},
@@ -1444,6 +1444,251 @@ function eixoIdDe(texto){
 /* Eixo de um colaborador: campo eixo gravado, senão inferido do departamento (meses antigos não têm eixo) */
 function eixoDoColab(c){ return eixoIdDe(c&&c.eixo)||eixoIdDe(c&&c.dept)||''; }
 function eixoNome(id){ const e=EIXOS_CIGAC.find(x=>x.id===id); return e?e.nome:'Eixo não informado'; }
+/* Regimento Interno do CIGAC (Setembro/2026) — MINUTA EM VALIDAÇÃO, ainda não aprovada pela
+   Diretoria Estatutária. Subordina-se ao Manual RDG (art. 2º, parágrafo único). */
+const REGIMENTO_META={titulo:'Regimento Interno do CIGAC',edicao:'Setembro de 2026',status:'em validação (minuta submetida à aprovação da Diretoria Estatutária)',base:'art. 2º: Estatuto Social, Manual RDG 2ª ed., Lei nº 9.637/1998, ADI nº 1.923/DF, Res. SES/RJ nº 1.557/2017, Acórdão TCE-RJ nº 3.905/2024, Cartilha TCE-SP'};
+/* Unidades do Regimento (Título III) com a missão do cargo de gestão (Título IV) ou a 1ª frase do
+   artigo, 3 a 5 competências condensadas dos incisos, indicador qualitativo (id de INDICADORES_QUAL),
+   cargos de gestão (Título IV) e os nomes de departamento da folha (normalizados com _normVF) que caem
+   na unidade. Ordem: Superintendência Executiva, eixos (art. 12) e transversais. */
+const ESTRUTURA_CIGAC=[
+  {id:'sup_executiva',eixo:'superintendencia',nome:'Superintendência Executiva',artigo:'arts. 13 e 14',
+    missao:'Comandar o CIGAC, integrar os eixos e responder pelo Relatório Mensal de Despesas Compartilhadas e pela conformidade com o Manual RDG.',
+    competencias:['coordenar e supervisionar os eixos e os departamentos transversais, assegurando sua atuação integrada',
+      'representar o CIGAC perante a Diretoria Estatutária, os entes contratantes, as CAF e os órgãos de controle',
+      'zelar pela aplicação obrigatória do Manual RDG, inclusive vedações e condições de elegibilidade das despesas',
+      'assinar o Relatório Mensal de Despesas Compartilhadas, atestando a veracidade das informações',
+      'garantir a transparência ativa dos relatórios e anexos no portal institucional'],
+    indicador:null,cargos:['Superintendente Executivo(a)'],folha:['SUPERINTENDENCIA EXECUTIVA']},
+  {id:'sup_assistencial',eixo:'assistencial',nome:'Superintendência Assistencial',artigo:'art. 15',
+    missao:'Definir e supervisionar as diretrizes assistenciais corporativas e o desempenho assistencial dos contratos.',
+    competencias:['definir diretrizes, políticas e metas assistenciais alinhadas ao SUS e aos Planos de Trabalho',
+      'liderar e supervisionar a Gerência Assistencial, as Gerências de Contrato e as coordenações',
+      'monitorar os indicadores assistenciais e de desempenho, determinando as medidas de melhoria',
+      'promover a padronização de protocolos clínicos e assistenciais entre as unidades',
+      'apoiar a implantação de novos serviços e unidades assistenciais'],
+    indicador:null,cargos:['Superintendente Assistencial'],folha:['SUPERINTENDENCIA ASSISTENCIAL']},
+  {id:'ger_assistencial',eixo:'assistencial',nome:'Gerência Assistencial',artigo:'art. 16',
+    missao:'Acompanhar a operação assistencial das unidades, implantar protocolos e apoiar as equipes in loco.',
+    competencias:['desdobrar as diretrizes da Superintendência Assistencial em planos operacionais mensuráveis',
+      'assegurar o cumprimento das normas sanitárias, da ANS, dos conselhos de classe e da acreditação',
+      'acompanhar, inclusive in loco, a operação assistencial das unidades sob gestão',
+      'acompanhar as metas contratuais e propor a correção de desvios',
+      'analisar e aprovar os relatórios assistenciais que subsidiam a prestação de contas'],
+    indicador:null,cargos:['Gerente Assistencial'],folha:[]},
+  {id:'rt_medica',eixo:'assistencial',nome:'Responsabilidade Técnica Médica',artigo:'art. 17',
+    missao:'Responder tecnicamente pelos serviços médicos e zelar pela conformidade ética e técnica da assistência.',
+    competencias:['assegurar o cumprimento das normas legais, éticas e técnicas da assistência médica',
+      'atuar de forma consultiva e corresponsável com a Gerência Assistencial',
+      'participar, com a Gerência Assistencial, das decisões que envolvam riscos clínicos ou regulatórios (art. 16, IX)'],
+    indicador:null,cargos:['Responsável Técnico Médico'],folha:[]},
+  {id:'coord_assistencial',eixo:'assistencial',nome:'Coordenação Assistencial',artigo:'art. 18',
+    missao:'Coordenar e apoiar as equipes assistenciais, padronizando práticas, monitorando indicadores e promovendo a melhoria contínua do cuidado.',
+    competencias:['alinhar as equipes à cultura, aos valores e às diretrizes institucionais',
+      'apoiar ações de educação permanente, ensino, pesquisa e desenvolvimento profissional',
+      'analisar criticamente os indicadores assistenciais e propor estratégias de melhoria',
+      'fomentar grupos técnicos para padronizar fluxos, protocolos e práticas assistenciais',
+      'fomentar a prevenção de riscos psicossociais e o bem-estar dos colaboradores'],
+    indicador:null,cargos:['Coordenação Assistencial'],folha:[]},
+  {id:'rede_cuidados',eixo:'assistencial',nome:'Coordenação de Rede de Cuidados',artigo:'arts. 19 a 21',
+    missao:'Coordenar linhas de cuidado, fluxos assistenciais e educação permanente entre as unidades.',
+    competencias:['participar do planejamento do fluxo assistencial entre os serviços da Rede de Atenção à Saúde',
+      'fortalecer, com os supervisores locais, os protocolos e fluxos de referência e contrarreferência',
+      'apoiar a implementação de linhas de cuidado',
+      'acompanhar os indicadores de desempenho e de qualidade da rede',
+      'avaliar a efetividade dos fluxos e encaminhamentos, identificando gargalos'],
+    indicador:null,cargos:['Coordenador(a) de Rede de Cuidado'],folha:['REDE DE CUIDADOS']},
+  {id:'epsi',eixo:'assistencial',nome:'Educação Permanente em Saúde Institucional',artigo:'arts. 22 a 25',
+    missao:'Planejar e avaliar as ações de educação permanente e qualificação das equipes, integrando ensino, serviço e gestão.',
+    competencias:['identificar, com a Rede de Cuidados, as necessidades de formação e qualificação profissional',
+      'desenvolver ações educacionais com a Gestão de Pessoas, as Gerências de Contrato e a Gerência Assistencial',
+      'elaborar programas, projetos e ações educacionais alinhados às necessidades dos serviços',
+      'avaliar a efetividade e a abrangência das ações educacionais nos contratos'],
+    indicador:null,cargos:['Educação Permanente em Saúde'],folha:['EDUCACAO EM SAUDE']},
+  {id:'inteligencia',eixo:'assistencial',nome:'Coordenação de Inteligência Assistencial',artigo:'arts. 26 e 27',
+    missao:'Monitorar dados e indicadores, apurar o indicador I8 e subsidiar decisões e prestação de contas.',
+    competencias:['responder pela prestação de contas assistencial e pela gestão estratégica dos dados assistenciais',
+      'produzir análises epidemiológicas e preditivas e monitorar os indicadores',
+      'dar suporte à tomada de decisão clínica e gerencial',
+      'articular-se com a Rede de Cuidados e desenvolver a cultura de dados'],
+    indicador:'ind8',cargos:['Coordenador(a) de Inteligência Assistencial'],folha:['INTELIGENCIA ASSISTENCIAL']},
+  {id:'ouvidoria',eixo:'assistencial',nome:'Ouvidoria',artigo:'arts. 28 e 29',
+    missao:'Gerir as manifestações dos usuários e transformá-las em melhoria assistencial.',
+    competencias:['gerir os canais institucionais de comunicação e relacionamento com o usuário',
+      'receber, registrar, classificar e tratar reclamações, denúncias, solicitações, sugestões e elogios',
+      'encaminhar as manifestações às áreas responsáveis e acompanhar os prazos de resposta',
+      'produzir indicadores de prazos, resolutividade e satisfação dos usuários'],
+    indicador:null,cargos:['Ouvidor(a) — SAU'],folha:['OUVIDORIA']},
+  {id:'coord_administrativa',eixo:'administrativo',nome:'Coordenação Administrativa',artigo:'art. 31',
+    missao:'Coordenar a infraestrutura, o apoio operacional e a logística de transporte vinculada do CIGAC.',
+    competencias:['coordenar as rotinas administrativas e de infraestrutura, com facilities, apoio operacional e gestão documental',
+      'gerir os contratos de manutenção e serviços do imóvel do CIGAC',
+      'controlar os deslocamentos vinculados aos contratos, com registro obrigatório em diário de bordo',
+      'apoiar a logística documental entre o CIGAC, as filiais e as unidades de saúde',
+      'zelar pela vedação ao uso de veículos e recursos rateados para fins particulares ou institucionais'],
+    indicador:null,cargos:['Coordenador(a) Administrativo(a)'],folha:['ADMINISTRATIVO','OPERACIONAL','DEPARTAMENTO ADMINISTRATIVO']},
+  {id:'compras',eixo:'administrativo',nome:'Compras e Contratos',artigo:'art. 32',
+    missao:'Conduzir compras impessoais e economicamente vantajosas e manter o cadastro de contratos (indicador I6).',
+    competencias:['conduzir compras e contratações pelo regulamento próprio, com regras objetivas e impessoais',
+      'realizar pesquisa e cotação de preços, assegurando economicidade',
+      'instruir integralmente os processos de contratação, condição para o rateio da despesa',
+      'manter o cadastro de contratos vigentes e aditivos, que subsidia o Anexo IV',
+      'apurar mensalmente o indicador I6 (contratos vigentes e processos de compras)'],
+    indicador:'ind6',cargos:['Coordenador(a) de Compras e Contratos'],folha:['COMPRAS E CONTRATOS','DEPARTAMENTO DE COMPRAS E CONTRATOS']},
+  {id:'suprimentos',eixo:'administrativo',nome:'Gerência de Suprimentos',artigo:'art. 33',
+    missao:'Garantir o abastecimento das unidades, a validação de notas fiscais e o controle de estoques (indicador I5).',
+    competencias:['planejar as aquisições com base no plano anual de compras, no consumo e nas demandas das unidades',
+      'controlar os estoques em sistema informatizado, com lotes, validades e inventários periódicos',
+      'conferir as notas fiscais com o pedido e o recebimento físico antes da liquidação',
+      'apurar os indicadores da área, incluindo o indicador I5, quando aplicável',
+      'exercer, pelo núcleo de Farmácia, a coordenação farmacêutica e a rastreabilidade dos medicamentos'],
+    indicador:'ind5',cargos:['Gerente de Suprimentos','Farmacêutico(a) Responsável — núcleo Farmácia','Supervisor(a) Administrativo(a)'],folha:['SUPRIMENTOS','DEPARTAMENTO DE LOGISTICA E SUPRIMENTOS']},
+  {id:'ti',eixo:'administrativo',nome:'Gerência de Tecnologia da Informação',artigo:'art. 34',
+    missao:'Prover sistemas, infraestrutura e suporte às unidades, com segurança da informação e LGPD.',
+    competencias:['gerir a infraestrutura de TI, os sistemas e o suporte técnico às unidades',
+      'administrar o licenciamento e a manutenção de ERP, BI e sistema de RH usados nos contratos',
+      'zelar pela segurança da informação e pela conformidade com a LGPD',
+      'assegurar a continuidade e a disponibilidade dos serviços de tecnologia',
+      'prover suporte tecnológico à transparência ativa no portal institucional'],
+    indicador:null,cargos:['Gerente de Tecnologia da Informação'],folha:['TECNOLOGIA DA INFORMACAO']},
+  {id:'comunicacao',eixo:'administrativo',nome:'Assessoria de Comunicação',artigo:'art. 35',
+    missao:'Executar exclusivamente a comunicação vinculada aos contratos e documentá-la mensalmente (indicador I2).',
+    competencias:['divulgar metas, indicadores e resultados das parcerias, em atenção à publicidade e à transparência',
+      'executar campanhas de saúde das unidades: educativas, assistenciais e de prevenção',
+      'providenciar a publicidade legalmente obrigatória, como editais, convocações e avisos públicos',
+      'documentar cada ação de comunicação rateada por contrato, apurando o indicador I2'],
+    indicador:'ind2',cargos:['Assessor(a) de Comunicação'],folha:['ASSESSORIA DE COMUNICACAO','DEPARTAMENTO DE COMUNICACAO INSTITUCIONAL']},
+  {id:'desenv_institucional',eixo:'administrativo',nome:'Superintendência de Desenvolvimento Institucional',artigo:'art. 36',
+    missao:'Planejar novas pactuações e implantar novos contratos, com incorporação imediata ao rateio.',
+    competencias:['planejar a implantação de novos contratos, com incorporação ao rateio desde o início das atividades',
+      'conduzir estudos de viabilidade técnica e econômica de novas pactuações',
+      'promover relações institucionais e cooperação técnica com entes públicos e organizações congêneres',
+      'disseminar boas práticas de gestão entre as unidades e os contratos'],
+    indicador:null,cargos:['Superintendente de Desenvolvimento Institucional'],folha:['SUPERINTENDENCIA DE DESENVOLVIMENTO INSTITUCIONAL']},
+  {id:'financas',eixo:'financeiro',nome:'Gerência de Finanças e Controladoria',artigo:'art. 38',
+    missao:'Responder pela gestão financeira dos contratos e dos recursos compartilhados, pela autorização dos pagamentos, pelo rateio e pelos custos.',
+    competencias:['gerir os recursos de cada contrato com contas segregadas, conciliações bancárias e fluxo de caixa',
+      'autorizar a programação de pagamentos e as remessas bancárias, conforme saldo, rubrica e alçadas',
+      'apurar mensalmente o percentual de rateio pelo critério quantitativo e a Memória de Cálculo',
+      'observar os limites contratuais de rateio, inclusive o de 3% da Res. SES/RJ nº 1.557/2017',
+      'responder pelo indicador I3 (notas fiscais classificadas e fluxo de caixa)'],
+    indicador:'ind3',cargos:['Gerente de Finanças e Controladoria'],folha:['CONTROLADORIA/TESOURARIA','FINANCEIRO','DEPARTAMENTO FINANCEIRO']},
+  {id:'contabilidade',eixo:'financeiro',nome:'Coordenação de Contabilidade',artigo:'art. 39',
+    missao:'Responder pela escrituração, pelas retenções e tributos, pelos balancetes e pelo Anexo V (indicador I4), orientando tecnicamente o eixo.',
+    competencias:['registrar os eventos financeiros e patrimoniais de cada contrato, conforme a ITG 2002 (R1)',
+      'conferir as retenções tributárias e previdenciárias incidentes sobre as notas fiscais',
+      'apurar os tributos e emitir as guias de recolhimento para o Núcleo de Tesouraria',
+      'elaborar os balancetes por contrato e o Anexo V, apurando o indicador I4',
+      'conciliar as contas contábeis com os extratos bancários e os registros do ERP'],
+    indicador:'ind4',cargos:['Coordenador(a) de Contabilidade','Analista Contábil'],folha:['CONTABILIDADE','DEPARTAMENTO DE CONTABILIDADE']},
+  {id:'prestacao_contas',eixo:'financeiro',nome:'Coordenação de Prestação de Contas',artigo:'art. 40',
+    missao:'Garantir a prestação de contas completa e tempestiva de cada contrato e as respostas a ofícios nos prazos.',
+    competencias:['acompanhar a execução de cada contrato: Plano de Trabalho, desembolso, rubricas e aditivos',
+      'verificar se as despesas se mantêm dentro das rubricas e dos saldos pactuados',
+      'reunir e conferir a documentação da prestação de contas antes do envio',
+      'consolidar o Relatório Mensal de Despesas Compartilhadas e os Anexos I a VI',
+      'responder, nos prazos, aos ofícios dos entes contratantes e das CAF'],
+    indicador:null,cargos:['Coordenador(a) de Prestação de Contas','Analista de Prestação de Contas','Assistente Administrativo – Prestação de Contas','Auxiliar Administrativo – Prestação de Contas'],folha:['PRESTACAO DE CONTAS','DEPARTAMENTO DE PRESTACAO DE CONTAS']},
+  {id:'nucleo_fiscal',eixo:'financeiro',nome:'Núcleo de Análise de Documentos Fiscais e Conformidade de Pagamentos',artigo:'arts. 41 a 43',
+    missao:'Aprovar os pagamentos no Portal, respondendo pela sua conformidade; revisar as pré-análises; tratar erros e casos complexos até a solução.',
+    competencias:['receber pelos canais oficiais as notas fiscais, medições e certidões dos fiscais de contrato',
+      'conferir cada documento quanto a contrato vigente, objeto, valor, medição e atesto do fiscal',
+      'verificar o saldo contratual e a rubrica de apropriação da despesa',
+      'aprovar no Portal os apontamentos conformes, que geram o lançamento no ERP',
+      'fornecer à Gerência os dados para apuração do indicador I3'],
+    indicador:null,cargos:['Analista Financeiro – Análise de Documentos Fiscais','Assistente Administrativo – Análise de Documentos Fiscais'],folha:[]},
+  {id:'tesouraria',eixo:'financeiro',nome:'Núcleo de Tesouraria',artigo:'art. 44',
+    missao:'Executar remessas, liquidação, conciliação, acompanhamento de repasses e fluxo de caixa dos contratos de sua carteira.',
+    competencias:['programar os pagamentos aprovados e as guias, submetendo a programação à autorização da Gerência',
+      'gerar e transmitir as remessas bancárias e processar os arquivos de retorno',
+      'realizar a conciliação bancária diária das contas sob sua responsabilidade',
+      'identificar os repasses dos entes contratantes e reportar divergências, atrasos e glosas',
+      'controlar o fluxo de caixa diário por contrato'],
+    indicador:null,cargos:['Assistente Financeiro – Tesouraria'],folha:[]},
+  {id:'registro_financeiro',eixo:'financeiro',nome:'Núcleo de Registro Financeiro',artigo:'art. 45',
+    missao:'Registrar as informações financeiras no sistema de prestação de contas e conferir a integridade das pastas de pagamento.',
+    competencias:['lançar no sistema de prestação de contas os pagamentos, extratos e matrizes, nos prazos de cada contrato',
+      'conferir cada pagamento com o documento que o originou',
+      'verificar a integridade da pasta de cada pagamento antes do fechamento da competência',
+      'conferir a importação dos arquivos no sistema e tratar os erros apontados'],
+    indicador:null,cargos:['Assistente Administrativo – Registro Financeiro'],folha:[]},
+  {id:'gestao_pessoas',eixo:'pessoas',nome:'Gerência de Gestão de Pessoas',artigo:'art. 51',
+    missao:'Responder pela gestão centralizada de pessoas dos contratos e pela base de colaboradores que fundamenta o rateio.',
+    competencias:['processar de forma centralizada a folha e as rotinas de DP dos contratos, apurando o indicador I1',
+      'fornecer mensalmente a base de colaboradores por contrato que fundamenta o percentual de rateio (Anexo I)',
+      'controlar o quadro de pessoal de cada contrato conforme o Plano de Trabalho e o dimensionamento pactuado',
+      'conduzir com o Jurídico as relações trabalhistas e sindicais',
+      'gerir os programas legais de aprendizagem, cota de pessoas com deficiência e estágio'],
+    indicador:'ind1',cargos:['Gerente de Gestão de Pessoas'],folha:['GESTAO DE PESSOAS']},
+  {id:'dp',eixo:'pessoas',nome:'Departamento Pessoal',artigo:'art. 52',
+    missao:'Processar a folha e as rotinas de DP dos contratos (indicador I1), com admissões, ponto, férias, benefícios e rescisões conformes ao eSocial.',
+    competencias:['admitir após processo seletivo, exame admissional e check-list, com registro tempestivo no eSocial',
+      'administrar o controle eletrônico de jornada e tratar as ocorrências antes do fechamento da folha',
+      'processar a folha, os encargos e as obrigações acessórias (eSocial, FGTS Digital e DCTFWeb)',
+      'programar e conceder as férias no período concessivo, nos prazos da CLT',
+      'processar os desligamentos e pagar as verbas rescisórias no prazo legal'],
+    indicador:'ind1',cargos:['Coordenador(a) de Departamento Pessoal'],folha:['GESTAO DE PESSOAS - DP','DEPARTAMENTO PESSOAL']},
+  {id:'rs',eixo:'pessoas',nome:'Recrutamento e Seleção',artigo:'art. 53',
+    missao:'Conduzir processos seletivos objetivos e impessoais, com editais publicados, cadastro de reserva e cumprimento das cotas legais.',
+    competencias:['iniciar processo seletivo somente com Requisição de Pessoal aprovada e vaga prevista',
+      'publicar os editais com requisitos, etapas, critérios objetivos de avaliação e de desempate',
+      'conduzir triagem, prova, entrevista e análise de títulos, registrando notas e classificação',
+      'verificar a habilitação legal e o registro no conselho de classe antes da contratação',
+      'assegurar reserva de vagas e acessibilidade às pessoas com deficiência'],
+    indicador:null,cargos:['Coordenador(a) de Recrutamento e Seleção'],folha:['GESTAO DE PESSOAS - R&S','RECURSOS HUMANOS']},
+  {id:'remuneracao',eixo:'pessoas',nome:'Remuneração, Cargos e Salários',artigo:'art. 54',
+    missao:'Administrar a remuneração, o Plano de Cargos, Carreiras e Salários e as movimentações de pessoal, com equidade salarial.',
+    competencias:['manter o Plano de Cargos, Carreiras e Salários compatível com a lei, os pisos e o orçamento de cada contrato',
+      'analisar e formalizar promoções, enquadramentos, transferências e alterações de jornada',
+      'realizar pesquisas salariais periódicas no mercado de saúde das regiões de atuação',
+      'zelar pela igualdade salarial entre mulheres e homens (Lei nº 14.611/2023)',
+      'estudar o impacto financeiro de dissídios e reajustes para subsidiar repactuações'],
+    indicador:null,cargos:['Coordenador(a) de Remuneração, Cargos e Salários'],folha:['GESTAO DE PESSOAS - REMUNERACAO']},
+  {id:'sesmt',eixo:'pessoas',nome:'Segurança e Saúde no Trabalho (SESMT)',artigo:'art. 55',
+    missao:'Executar as ações de segurança e medicina do trabalho das equipes dos contratos, mantendo o PGR, o PCMSO e as CIPAs.',
+    competencias:['manter o SESMT dimensionado pela NR-4 e apoiar as CIPAs (NR-5)',
+      'supervisionar o PGR de cada unidade, incluindo os riscos psicossociais (NR-1)',
+      'coordenar o PCMSO, os exames ocupacionais e a entrega de EPIs',
+      'assegurar o cumprimento da NR-32 nos serviços de saúde',
+      'registrar os acidentes de trabalho, emitir a CAT e transmitir os eventos de SST ao eSocial'],
+    indicador:null,cargos:['Coordenador(a) de SESMT'],folha:['GESTAO DE PESSOAS - SST']},
+  {id:'td',eixo:'pessoas',nome:'Treinamento e Desenvolvimento',artigo:'art. 56',
+    missao:'Promover qualificação vinculada aos contratos, com controles e multiplicação interna do conhecimento.',
+    competencias:['levantar anualmente as necessidades de treinamento e elaborar o plano anual de capacitação',
+      'atender às demandas das unidades mediante solicitação formal, com nexo com o objeto contratual',
+      'conduzir a integração institucional dos novos colaboradores do CIGAC',
+      'coordenar a avaliação de desempenho por competências e os planos de desenvolvimento individual',
+      'registrar presença, carga horária e avaliação de cada ação, com o contrato beneficiado'],
+    indicador:null,cargos:['Coordenador(a) de Treinamento e Desenvolvimento'],folha:['GESTAO DE PESSOAS - T&D']},
+  {id:'juridico',eixo:'juridico',nome:'Jurídico',artigo:'art. 60',
+    missao:'Prover segurança jurídica transversal aos eixos e responder pelo indicador I7.',
+    competencias:['prover segurança jurídica, suporte consultivo e alinhamento normativo a todos os eixos',
+      'assessorar os processos de contratos e compras',
+      'assessorar as prestações de contas, os repasses, as admissões e os desligamentos',
+      'validar contratos e elaborar e responder ofícios, apurando o indicador I7',
+      'representar a instituição em diligências e audiências relacionadas aos contratos de gestão'],
+    indicador:'ind7',cargos:['Assessor(a) Jurídico(a)'],folha:['JURIDICO','DEPARTAMENTO JURIDICO']},
+  {id:'compliance',eixo:'compliance',nome:'Compliance',artigo:'art. 61',
+    missao:'Gerir o programa de integridade, auditar contratos e fornecedores e monitorar a conformidade com o Manual RDG.',
+    competencias:['gerir o programa de integridade e a mitigação de riscos institucionais',
+      'manter o controle interno e a conformidade regulatória em todos os eixos',
+      'auditar contratos e fornecedores',
+      'verificar a conformidade dos pagamentos realizados com recursos compartilhados',
+      'manter canal de denúncias com sigilo, anonimato e vedação de retaliação'],
+    indicador:null,cargos:['Coordenador(a) de Compliance'],folha:['COMPLIANCE','DEPARTAMENTO DE COMPLIANCE']}
+];
+/* Unidade do Regimento de um departamento da folha: nome exato (normalizado) ou, senão, o maior
+   prefixo cadastrado (ex.: 'GESTAO DE PESSOAS - DP/R&S' → Departamento Pessoal); sem correspondência → null */
+function unidadeRegimentoDe(dept){
+  const t=_normVF(String(dept||''));
+  if(!t) return null;
+  const exata=ESTRUTURA_CIGAC.find(u=>u.folha.includes(t));
+  if(exata) return exata;
+  let melhor=null,tam=0;
+  ESTRUTURA_CIGAC.forEach(u=>u.folha.forEach(f=>{ if(f.length>tam&&t.startsWith(f)){ melhor=u; tam=f.length; } }));
+  return melhor;
+}
+function unidadesPorEixo(eixoId){ return ESTRUTURA_CIGAC.filter(u=>u.eixo===eixoId); }
 
 const COMP_TIPOS = ['NF','Guia','Boleto','Planilha','Pensão','Folha de Pagamento','Outro'];
 
@@ -1732,7 +1977,8 @@ function evidenciasTCE(comp){
     corpo_proprio:(semFicha.length
       ?semFicha.length+' categoria(s) sem ficha de enquadramento, com justificativa própria (seção 3).'
       :'As '+cats.length+' categorias lançadas têm ficha de enquadramento em grupo elegível da seção 6.1 do Manual.')
-      +' Declaração da entidade: as equipes custeadas atuam exclusivamente nas atividades compartilhadas vinculadas aos contratos (seção 5.5).',
+      +' Declaração da entidade: as equipes custeadas atuam exclusivamente nas atividades compartilhadas vinculadas aos contratos (seção 5.5).'
+      +' A equipe do CIGAC não se confunde com corpo próprio (art. 4º, § 2º, do Regimento Interno); as atribuições de cada departamento constam da composição da folha (seção 3).',
     sede:(imov.length
       ?'A locação de imóvel rateada nesta competência ('+imov.length+' lançamento(s), '+R$(soma(imov))+') refere-se ao CIGAC ('+MANUAL_META.cigacEndereco+').'
       :'Não há locação de imóvel nesta competência.')
@@ -1745,6 +1991,69 @@ function evidenciasTCE(comp){
     nexo:'Cada uma das '+desp.length+' despesas traz justificativa individual com objeto, necessidade, rateio entre os '+ativos.length+' contratos, enquadramento e comprovação (seção 3); '+comInd+' delas indicam o indicador do departamento responsável (Anexo II).'
       +(transporte||qualif?' As despesas de transporte ('+transporte+') e qualificação ('+qualif+') indicam, na justificativa, os controles obrigatórios da seção 6.3. Declaração da entidade: os registros desses controles (diário de bordo, justificativas prévias, certificados) integram a documentação comprobatória da prestação de contas (Manual, cap. 11).':'')
   };
+}
+/* Composição da folha por eixo e unidade do Regimento Interno do CIGAC (seção 3, item da categoria
+   "Folha de Pagamento CIGAC"): contagem por função, missão, competências, indicador e nexo de cada unidade */
+function composicaoFolhaHTML(comp){
+  const data=getMesData(comp), cl=data.colab_lista||[];
+  const pl=n=>n+' colaborador'+(n===1?'':'es');
+  let h='<div class="rdg-comp-folha" style="font-size:10px;line-height:1.5;margin:6px 0 10px 18px;padding:6px 9px;border-left:3px solid #00A87B;background:#F8FAFC">'
+    +'<p class="rdg-just-p"><strong>Composição da folha por eixo e departamento (Regimento Interno do CIGAC)</strong></p>';
+  if(!cl.length) return h+'<p class="rdg-just-p" style="font-style:italic">Relação nominal não cadastrada para a competência.</p></div>';
+  h+='<p class="rdg-just-p">Distribuição dos colaboradores da relação nominal (seção 4) pelas unidades do '+esc(REGIMENTO_META.titulo)+', edição de '+esc(REGIMENTO_META.edicao)+', '+esc(REGIMENTO_META.status)+', com a missão e as principais competências de cada unidade.</p>';
+  const ativos=contratosAtivos(comp), iqual=data.iqual||{};
+  // Funções com contagem: agrupa pela grafia normalizada e exibe a primeira grafia encontrada
+  const funcoes=l=>{
+    const m=new Map();
+    l.forEach(c=>{
+      const rot=String(c.funcao||'').trim(), k=_normVF(rot);
+      const f=m.get(k); if(f) f.n++; else m.set(k,{rot:rot||'Função não informada',n:1});
+    });
+    return [...m.values()].map(f=>esc(f.rot)+' '+f.n).join('; ');
+  };
+  const indTxt=u=>{
+    const ind=u.indicador?INDICADORES_QUAL.find(i=>i.id===u.indicador):null;
+    if(!ind) return '';
+    const iq=iqual[ind.id]||{}, tem=ativos.some(c=>(iq[c.id]||0)>0);
+    return ' Indicador apurado: '+esc(ind.codigo)+' – '+esc(ind.unidade)+' ('
+      +(tem?'produção no mês por contrato: '+ativos.map(c=>esc(c.sigla)+' '+(iq[c.id]||0)).join('; '):'produção registrada no Anexo II')+').';
+  };
+  const NEXO=' Nexo: atividades prestadas simultaneamente a todos os contratos de gestão, rateadas pelo critério quantitativo (Anexo I).';
+  // eixo do colaborador → unidade regimental (ou departamento da folha sem correspondência)
+  const porEixo={};
+  cl.forEach(c=>{
+    const ex=eixoDoColab(c), u=unidadeRegimentoDe(c.dept), lab=String(c.dept||'').trim()||'Departamento não informado';
+    const k=u?'u:'+u.id:'d:'+_normVF(lab), m=porEixo[ex]=porEixo[ex]||{};
+    (m[k]=m[k]||{u,label:lab,list:[]}).list.push(c);
+  });
+  const ordemU=u=>ESTRUTURA_CIGAC.indexOf(u);
+  const usadas=new Set(); let semCorresp=0;
+  EIXOS_CIGAC.map(e=>e.id).concat(['']).filter(ex=>porEixo[ex]).forEach(ex=>{
+    const m=porEixo[ex];
+    const ks=Object.keys(m).sort((a,b)=>{
+      const ua=m[a].u, ub=m[b].u;
+      if(ua&&ub) return ordemU(ua)-ordemU(ub);
+      if(ua||ub) return ua?-1:1;
+      return m[a].label.localeCompare(m[b].label,'pt-BR');
+    });
+    const tot=ks.reduce((a,k)=>a+m[k].list.length,0);
+    h+='<h4 class="rdg-comp-eixo" style="font-size:10.5px;font-weight:700;color:#1B3A5C;margin:8px 0 2px">'+esc(eixoNome(ex))+' — '+pl(tot)+'</h4>';
+    ks.forEach(k=>{
+      const g=m[k], u=g.u, n=g.list.length;
+      if(u){
+        usadas.add(u.id);
+        h+='<p class="rdg-just-p rdg-comp-un" data-n="'+n+'"><strong>'+esc(u.nome)+'</strong> ('+esc(u.artigo)+' do Regimento) — '+pl(n)+': '+funcoes(g.list)+'. '
+          +'Missão: '+esc(u.missao)+' Competências: '+u.competencias.map(esc).join('; ')+'.'+indTxt(u)+NEXO+'</p>';
+      } else {
+        semCorresp+=n;
+        h+='<p class="rdg-just-p rdg-comp-un" data-n="'+n+'"><strong>Departamento sem correspondência no Regimento: '+esc(g.label)+'</strong> — '+pl(n)+': '+funcoes(g.list)+'.</p>';
+      }
+    });
+  });
+  const nE=EIXOS_CIGAC.filter(e=>porEixo[e.id]).length, nD=usadas.size;
+  h+='<p class="rdg-just-p" style="font-weight:700;margin-top:6px">Total: '+pl(cl.length)+' em '+nE+' eixo'+(nE===1?'':'s')+' e '+nD+' departamento'+(nD===1?' regimental':'s regimentais')
+    +(semCorresp?' ('+pl(semCorresp)+' em departamento'+(semCorresp===1?'':'s')+' sem correspondência no Regimento)':'')+'.</p>';
+  return h+'</div>';
 }
 let _justUid=null;
 /* Só quem pode editar a aba Despesas abre/salva a justificativa própria */
@@ -1958,6 +2267,7 @@ function carregar(){
     if(c) currentComp=c;
     rebuildContratos();
     if(!state.manualRDG) state.manualRDG={pdfUrl:'',pdfNome:''};
+    if(!state.regimentoCIGAC) state.regimentoCIGAC={pdfUrl:'',pdfNome:''};
   }catch(e){ state={}; }
 }
 
@@ -4108,6 +4418,7 @@ function renderRelatorio(){
   if(_colabSortAZ) colabLista.sort((a,b)=>(a.nome||'').localeCompare(b.nome||'','pt-BR'));
 
   /* Seção 3 – cada item com a justificativa individual do Manual 2ª ed. (item 10.3) */
+  let compFolhaFeita=false; // composição da folha (Regimento) uma única vez no relatório
   function buildCatSection(cat, lista, catTag){
     catTag=catTag||'h3';
     const itens=lista.filter(d=>d.cat===cat);
@@ -4121,9 +4432,11 @@ function renderRelatorio(){
         +justificativaDespesa(d,currentComp)
         +'</div>';
     }).join('');
+    const compFolha=(cat==='Folha de Pagamento CIGAC'&&!compFolhaFeita)?(compFolhaFeita=true,composicaoFolhaHTML(currentComp)):'';
     return '<div class="rdg-cat-block">'
       +'<'+catTag+' class="rdg-cat-title">'+esc(cat)+'</'+catTag+'>'
       +itensHtml
+      +compFolha
       +'<div class="rdg-cat-total">Subtotal '+esc(cat)+': <strong>'+R$(catTot)+'</strong></div>'
       +'</div>';
   }
@@ -4197,7 +4510,11 @@ function renderRelatorio(){
     const m=eixoMap[ex], ds=Object.keys(m).sort((a,b)=>m[a].label.localeCompare(m[b].label,'pt-BR'));
     const tot=ds.reduce((a,d)=>a+m[d].list.length,0);
     return '<h2 class="rdg-subsection-title">4.'+(ie+1)+' '+esc(eixoNome(ex))+' ('+plColab(tot)+')</h2>'
-      +ds.map(dp=>'<h3 class="rdg-cat-title">'+esc(m[dp].label)+' ('+m[dp].list.length+')</h3>'+tabColab(m[dp].list)).join('')
+      +ds.map(dp=>{
+        const u=unidadeRegimentoDe(m[dp].label);
+        return '<h3 class="rdg-cat-title">'+esc(m[dp].label)+(u?', '+esc(u.artigo)+' do Regimento':'')+' ('+m[dp].list.length+')</h3>'+tabColab(m[dp].list)
+          +(u?'<p class="rdg-p rdg-missao-un" style="font-style:italic;font-size:10px;margin:2px 0 10px">'+esc(u.nome)+' — missão ('+esc(u.artigo)+' do Regimento Interno): '+esc(u.missao)+'</p>':'');
+      }).join('')
       +'<div class="rdg-cat-total">Total – '+esc(eixoNome(ex))+': '+plColab(tot)+' em '+ds.length+' departamento'+(ds.length===1?'':'s')+'</div>';
   }).join('')
   +(colabLista.length?'<div class="rdg-total-geral" style="margin-top:12px">Total geral: '+plColab(colabLista.length)+' em '+depts.length+' departamento'+(depts.length===1?'':'s')+' e '+nEixosInf+' eixo'+(nEixosInf===1?'':'s')+(nSemEixo?' ('+plColab(nSemEixo)+' sem eixo informado)':'')+'</div>':'');
@@ -4227,7 +4544,11 @@ function renderRelatorio(){
     ['Anexo V — Demonstrativos Contábeis e Financeiros','Balancete consolidado, extrato/conciliação bancária, movimentações contábeis e razão por conta. Permite verificar, de forma independente, cada pagamento.','Anexo gerado na aba “Dem. Contábeis” do sistema RDG e publicado no portal de transparência'],
     ['Anexo VI — Manual RDG','O Manual, fundamento metodológico e normativo do modelo, entregue integralmente a cada ente contratante.','Anexo gerado na aba “Manual RDG” (PDF da 2ª edição) do sistema RDG e publicado no portal de transparência']
   ];
-  const anexosRows=ANEXOS_RDG.map(a=>'<tr><td style="font-weight:700">'+esc(a[0])+'</td><td>'+esc(a[1])+'</td><td>'+esc(a[2])+'</td></tr>').join('');
+  const regPdf=state.regimentoCIGAC||{};
+  const anexosRows=ANEXOS_RDG.map(a=>'<tr><td style="font-weight:700">'+esc(a[0])+'</td><td>'+esc(a[1])+'</td><td>'+esc(a[2])+'</td></tr>').join('')
+    +'<tr><td style="font-weight:700">'+esc(REGIMENTO_META.titulo)+' — documento normativo complementar (art. 2º: subordina-se ao Manual RDG)</td>'
+    +'<td>Organização do CIGAC, atribuições dos departamentos e descrição dos cargos de gestão; edição de '+esc(REGIMENTO_META.edicao)+', '+esc(REGIMENTO_META.status)+'. Em conflito com o Manual RDG em matéria de rateio, prevalece o Manual (art. 2º, parágrafo único).</td>'
+    +'<td>'+(regPdf.pdfUrl?'PDF anexado na aba “Manual RDG” do sistema RDG: '+esc(regPdf.pdfNome||'arquivo do Regimento'):'PDF não anexado (aba “Manual RDG” do sistema RDG)')+'</td></tr>';
 
   /* Tabela critério quantitativo */
   const cqRows=CONTRATOS.map((ct,i)=>{
@@ -4459,6 +4780,7 @@ function renderRelatorio(){
           </div>
         </div>
       </div>
+      <p class="rdg-p">A organização e as atribuições de cada unidade estão descritas no <strong>${esc(REGIMENTO_META.titulo)}</strong> (${esc(REGIMENTO_META.edicao)}), documento ${esc(REGIMENTO_META.status)}. Nos termos do seu art. 12, o CIGAC compõe-se de uma estrutura central de comando (Superintendência Executiva), quatro eixos operacionais (Assistencial, Administrativo, Financeiro e de Pessoas) e dois departamentos transversais (Jurídico e Compliance), que atuam sobre todos os eixos; o organograma do CIGAC integra o Regimento como Anexo A (art. 12, parágrafo único). O Regimento orienta-se pelo Manual RDG e pela legislação aplicável (${esc(REGIMENTO_META.base)}) e, em matéria de rateio, prevalece o Manual RDG (art. 2º, parágrafo único).</p>
       <h2 class="rdg-subsection-title">1.3 Sede Estatutária × CIGAC</h2>
       <p class="rdg-p">Para atender de forma inequívoca ao entendimento dos órgãos de controle, a Prima Qualitá segrega, com clareza, duas estruturas físicas de naturezas distintas — apenas a segunda integra o rateio (Manual RDG, seção 3.4):</p>
       <table class="rdg-table">
@@ -6059,7 +6381,7 @@ function setSyncStatus(status,label){
   lbl.textContent=label||'';
 }
 /* Mescla: base = estado remoto (todas as chaves gerais: perfilSenhas, tokenCripto,
-   customContratos, desativadosBase, auditLog, manualRDG e todos os meses) e, por
+   customContratos, desativadosBase, auditLog, manualRDG, regimentoCIGAC e todos os meses) e, por
    cima, apenas as competências listadas em 'meses' que existam no estado local.
    Não altera currentComp. */
 function _mesclarEstadoLocal(remoto,local,meses){
@@ -7963,6 +8285,46 @@ function renderManual(){
   const mFim=a=>a.map((x,i)=>esc(x)+(i<a.length-1?';':'.'));
   const mSim=t=>`<strong style="color:#16A34A">${t}</strong>`, mNao=t=>`<strong style="color:#DC2626">${t}</strong>`;
 
+  /* ── Regimento Interno do CIGAC: PDF (documento complementar) e estrutura gerada de ESTRUTURA_CIGAC ── */
+  const rg=state.regimentoCIGAC||{};
+  const hasReg=!!(rg.pdfUrl);
+  const regCard=`
+    <div class="card" id="manual-regimento-pdf" style="margin-bottom:14px">
+      <div class="card-hdr">
+        <div class="card-title">📎 Regimento Interno do CIGAC — Arquivo PDF (documento complementar)</div>
+        <div class="card-acts" style="font-size:11px;color:var(--gray)">${esc(REGIMENTO_META.edicao)} • em validação</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;padding:4px 0;flex-wrap:wrap">
+        <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,#0F766E,#14B8A6);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">🏛</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:13px;font-weight:700;color:var(--navy)">${esc(REGIMENTO_META.titulo)}</div>
+          <div style="font-size:11px;color:var(--gray);margin-top:2px">Documento normativo complementar, ${esc(REGIMENTO_META.status)}; em matéria de rateio prevalece o Manual RDG (art. 2º).</div>
+          <div style="font-size:11px;color:var(--gray);margin-top:2px">
+            ${hasReg
+              ? `<span style="color:#16A34A;font-weight:600">✓ Anexado: ${esc(rg.pdfNome)}</span>`
+              : 'Nenhum arquivo anexado — faça o upload do PDF do Regimento'}
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          ${hasReg ? `<button class="btn btn-sm" style="background:#EFF6FF;color:#1D4ED8;border:1px solid #BFDBFE" onclick="verRegimentoCIGAC()">📄 Ver PDF</button>` : ''}
+          ${hasToken
+            ? `<button class="btn btn-sm ${hasReg?'btn-outline':'btn-teal'}" onclick="document.getElementById('regimento-up').click()">
+                ${hasReg ? '↻ Substituir' : '📎 Anexar Regimento'}
+               </button>`
+            : `<span style="font-size:10px;color:var(--gray)">🔒 Token GitHub necessário</span>`}
+          ${hasReg ? `<button class="btn btn-xs" style="background:#FEE2E2;color:#DC2626;border:1px solid #FECACA" onclick="removerRegimentoCIGAC()" title="Remover PDF">✕</button>` : ''}
+          <input type="file" id="regimento-up" accept=".pdf" style="display:none" onchange="uploadRegimentoCIGAC(this)">
+        </div>
+      </div>
+    </div>`;
+  const estruturaCard='<div class="card" id="manual-regimento-estrutura" style="margin-bottom:14px"><div class="card-hdr" style="gap:10px"><div class="card-title">🏛 Estrutura do CIGAC pelo Regimento</div><span class="badge badge-azul" style="flex-shrink:0">Regimento · arts. 12 a 61</span></div>'
+    +mP('Unidades do <strong>'+esc(REGIMENTO_META.titulo)+'</strong> ('+esc(REGIMENTO_META.edicao)+'), documento '+esc(REGIMENTO_META.status)+': uma estrutura central de comando, quatro eixos operacionais e dois departamentos transversais (art. 12). Cargos de gestão conforme o Título IV. No Relatório RDG, a folha do CIGAC é apresentada por essas unidades (composição da folha, seção 3).')
+    +mTbl(['Eixo','Unidade','Artigo','Indicador','Cargos de gestão'],ESTRUTURA_CIGAC.map(u=>{
+      const ind=u.indicador?INDICADORES_QUAL.find(i=>i.id===u.indicador):null;
+      return [esc(eixoNome(u.eixo)),'<strong>'+esc(u.nome)+'</strong>',esc(u.artigo),ind?'<strong>'+esc(ind.codigo)+'</strong> – '+esc(ind.nome):'—',u.cargos.map(esc).join('; ')];
+    }))
+    +'</div>';
+
   const infoCards=[
     mCard(1,'Ficha técnica · Cap. 1','Identificação da edição',
       mTbl(['Item','Identificação do documento'],[
@@ -8263,6 +8625,8 @@ function renderManual(){
   </div>
 
   ${pdfCard}
+  ${regCard}
+  ${estruturaCard}
   ${infoCards}`;
 }
 
@@ -8311,6 +8675,58 @@ function removerManualRDG(){
   if(cached){URL.revokeObjectURL(cached.url);_pdfBlobCache.delete(uid);}
   githubDeletePDF(uid).catch(()=>{});
   state.manualRDG={pdfUrl:'',pdfNome:''};
+  salvar();
+  renderManual();
+}
+
+/* PDF do Regimento Interno do CIGAC (chave geral state.regimentoCIGAC, como state.manualRDG) */
+function uploadRegimentoCIGAC(input){
+  const file=input.files[0];
+  if(!file) return;
+  if(!ghToken()){ alert('Configure o token GitHub para anexar o Regimento.'); input.value=''; return; }
+  if(!_exigirRemotoCarregado()){ input.value=''; return; }
+  const uid='regimento_cigac';
+  const btn=input.previousElementSibling;
+  if(btn){btn.disabled=true;btn.textContent='⏳ Enviando...';}
+  githubUploadPDF(uid,file)
+    .then(url=>{
+      if(!url) throw new Error('URL vazia após upload');
+      if(!state.regimentoCIGAC) state.regimentoCIGAC={};
+      state.regimentoCIGAC.pdfUrl=url;
+      state.regimentoCIGAC.pdfNome=file.name;
+      const blobUrl=URL.createObjectURL(file);
+      _pdfBlobCache.set(uid,{url:blobUrl,nome:file.name});
+      salvar();
+      renderManual();
+    })
+    .catch(err=>{
+      alert('Erro ao enviar Regimento: '+err.message);
+      if(btn){btn.disabled=false;btn.textContent='📎 Anexar Regimento';}
+    });
+  input.value='';
+}
+
+function verRegimentoCIGAC(){
+  const rg=state.regimentoCIGAC||{};
+  if(!rg.pdfUrl) return;
+  const uid='regimento_cigac';
+  const cached=_pdfBlobCache.get(uid);
+  document.getElementById('modal-pdf-frame').src=cached?cached.url:rg.pdfUrl;
+  document.getElementById('modal-pdf-nome').textContent=rg.pdfNome||'Regimento Interno do CIGAC';
+  document.getElementById('modal-pdf-uid').value=uid;
+  document.getElementById('modal-pdf-url').value=rg.pdfUrl;
+  document.getElementById('modal-pdf-link').href=rg.pdfUrl;
+  document.getElementById('modal-pdf').style.display='flex';
+}
+
+function removerRegimentoCIGAC(){
+  if(!_exigirRemotoCarregado()) return;
+  if(!confirm('Remover o PDF do Regimento Interno do CIGAC?\n\nEsta ação não pode ser desfeita.')) return;
+  const uid='regimento_cigac';
+  const cached=_pdfBlobCache.get(uid);
+  if(cached){URL.revokeObjectURL(cached.url);_pdfBlobCache.delete(uid);}
+  githubDeletePDF(uid).catch(()=>{});
+  state.regimentoCIGAC={pdfUrl:'',pdfNome:''};
   salvar();
   renderManual();
 }

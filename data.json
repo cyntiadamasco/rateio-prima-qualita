@@ -19155,7 +19155,7 @@
           "cnpj": "06.068.650/0001-55",
           "ctipo": "",
           "cnum": "",
-          "valor": 0,
+          "valor": 50821.12,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -20558,6 +20558,11 @@
         "t": 1790901389589,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790901397333,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -20577,5 +20582,5 @@
     ]
   },
   "currentComp": "2026-09",
-  "savedAt": 1790901389592
+  "savedAt": 1790901397337
 }

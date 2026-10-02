@@ -21156,6 +21156,11 @@
         "t": 1790949564843,
         "perfil": "Administrador",
         "comp": "2026-10"
+      },
+      {
+        "t": 1790949566706,
+        "perfil": "Administrador",
+        "comp": "2026-10"
       }
     ],
     "tokenCripto": {
@@ -21227,7 +21232,7 @@
         },
         {
           "id": "cordeiro",
-          "clt": 0,
+          "clt": 90,
           "efetivo": 0,
           "pj": 0,
           "obs": ""
@@ -22191,5 +22196,5 @@
     }
   },
   "currentComp": "2026-10",
-  "savedAt": 1790949564845
+  "savedAt": 1790949566709
 }

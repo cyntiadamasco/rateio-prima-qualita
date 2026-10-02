@@ -20148,6 +20148,12 @@
           "nome": "RALF RIBEIRO DOS SANTOS",
           "dept": "SUPERINTENDÊNCIA",
           "funcao": "SUPERINTENDENTE ASSISTENCIAL"
+        },
+        {
+          "uid": "cmuq9y7ilmka6g",
+          "nome": "",
+          "dept": "",
+          "funcao": ""
         }
       ],
       "iqual": {
@@ -20986,6 +20992,11 @@
         "t": 1790903370083,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790903913357,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -21005,5 +21016,5 @@
     ]
   },
   "currentComp": "2026-09",
-  "savedAt": 1790903370087
+  "savedAt": 1790903913362
 }

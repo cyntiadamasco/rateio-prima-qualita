@@ -19280,7 +19280,7 @@
         },
         {
           "uid": "cmuq9l915nh60z",
-          "objeto": "Suporte ao desenvolvimento de Ouvidoria e apoio aos processos de sindicância\n",
+          "objeto": "Suporte ao desenvolvimento de Ouvidoria e apoio aos processos de sindicância.\n",
           "favorecido": " Gustavo Fróes Sociedade Individual de Advocacia ",
           "cnpj": " 43.485.758/0001-70 ",
           "nrProcesso": "117/2024",
@@ -21016,6 +21016,11 @@
         "t": 1790945477117,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790945510068,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -21035,5 +21040,5 @@
     ]
   },
   "currentComp": "2026-09",
-  "savedAt": 1790945477121
+  "savedAt": 1790945510071
 }

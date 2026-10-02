@@ -343,6 +343,7 @@ tr.tr-zero td{color:#CBD5E1}
 .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
 .chart-box{position:relative;height:280px}
 .dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:5px;flex-shrink:0}
+.td-diverge{color:#DC2626!important;font-weight:700}
 .pct-pill{display:inline-block;background:var(--azul-lt);color:var(--azul);padding:2px 8px;border-radius:20px;font-weight:700;font-size:11px;font-family:'DM Mono',monospace}
 .progress-wrap{background:#E2E8F0;border-radius:4px;height:6px;overflow:hidden}
 .progress-bar{height:100%;border-radius:4px;transition:width .4s cubic-bezier(.4,0,.2,1)}
@@ -1807,6 +1808,14 @@ function imprimirQualitativo(){
   setTimeout(()=>window.print(),300);
 }
 
+/* Representatividade = média dos % do CG nos indicadores QUE TÊM DADOS */
+function representatividadeCG(data,cgId,totais){
+  const com=INDICADORES_QUAL.filter(ind=>(totais[ind.id]||0)>0);
+  if(!com.length) return {valor:0,nInd:0};
+  const s=com.reduce((a,ind)=>a+(((data.iqual[ind.id]||{})[cgId]||0)/totais[ind.id]),0);
+  return {valor:s/com.length,nInd:com.length};
+}
+
 function renderQualitativo(){
   const data = getMesData(currentComp);
 
@@ -1831,21 +1840,21 @@ function renderQualitativo(){
 
   // Linhas de dados
   let rows = '';
+  let somaRepr = 0;
   CONTRATOS.forEach(cg=>{
     let cells = '';
-    const pcts8 = [];
     INDICADORES_QUAL.forEach(ind=>{
       const qtd   = data.iqual[ind.id][cg.id]||0;
       const total = totais[ind.id];
       const pct   = total>0 ? qtd/total : 0;
-      pcts8.push(pct);
       // Cada departamento edita apenas o próprio indicador
       cells += canEditInd(ind.id)
         ? `<td class="td-edit td-c" style="padding:3px 2px"><input type="number" min="0" style="text-align:center;width:54px;font-size:11px" value="${qtd}" oninput="setIqual('${ind.id}','${cg.id}',this.value)"></td>`
         : `<td class="td-c" style="padding:3px 2px;font-size:11px">${qtd}</td>`;
       cells += `<td class="td-c" id="iq-pct-${ind.id}-${cg.id}" style="padding:3px 6px;font-size:10px">${fmtPct(pct*100)}</td>`;
     });
-    const repres = pcts8.reduce((a,b)=>a+b,0)/INDICADORES_QUAL.length;
+    const repres = representatividadeCG(data,cg.id,totais).valor;
+    somaRepr += repres;
     rows += `<tr>
       <td style="font-size:11px;padding:5px 8px;min-width:240px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:300px"><span class="dot" style="background:${cg.cor}"></span>${cg.nome}</td>
       ${cells}
@@ -1918,7 +1927,7 @@ function renderQualitativo(){
     <div class="alert alert-info no-print" style="margin:8px 16px 0">
       <span>ℹ</span>
       <div>Informe a <strong>quantidade (QTD)</strong> de cada indicador por CG. Os percentuais e a Representatividade são calculados automaticamente.<br>
-      <em>Representatividade = média dos percentuais dos 8 indicadores para cada CG.</em></div>
+      <em>Representatividade = média dos percentuais dos indicadores com dados para cada CG.</em></div>
     </div>
     <div class="tbl-wrap" style="overflow:hidden"><div style="overflow-x:auto">
       <table style="min-width:1500px;border-collapse:collapse">
@@ -1935,7 +1944,7 @@ function renderQualitativo(){
           <tr class="tr-total">
             <td style="font-size:11px;font-weight:700;padding:6px 10px">TOTAL</td>
             ${totalCells}
-            <td class="td-c fw-bold"><span class="pct-pill" style="background:var(--azul);color:#fff;font-size:10px">100,00%</span></td>
+            <td class="td-c fw-bold${Math.abs(somaRepr*100-100)>0.01&&somaRepr>0?' td-diverge':''}"><span class="pct-pill" id="iq-repr-total" style="background:${Math.abs(somaRepr*100-100)>0.01&&somaRepr>0?'#DC2626':'var(--azul)'};color:#fff;font-size:10px">${fmtPct(somaRepr*100)}</span></td>
           </tr>
         </tfoot>
       </table>
@@ -2044,14 +2053,18 @@ function setIqual(indId, cgId, val){
 
   // Atualizar Representatividade de TODOS os CGs
   CONTRATOS.forEach(cg=>{
-    const pcts = INDICADORES_QUAL.map(ind=>{
-      const q = data.iqual[ind.id][cg.id]||0;
-      return tot[ind.id]>0 ? q/tot[ind.id] : 0;
-    });
-    const repres = pcts.reduce((a,b)=>a+b,0)/INDICADORES_QUAL.length;
+    const repres = representatividadeCG(data,cg.id,tot).valor;
     const el = document.getElementById('iq-repr-'+cg.id);
     if(el) el.innerHTML = `<span class="pct-pill" style="background:var(--azul);color:#fff;font-size:10px">${fmtPct(repres*100)}</span>`;
   });
+  const rt=document.getElementById('iq-repr-total');
+  if(rt){
+    const somaR=CONTRATOS.reduce((a,c)=>a+representatividadeCG(data,c.id,tot).valor,0);
+    rt.textContent=fmtPct(somaR*100);
+    const bad=Math.abs(somaR*100-100)>0.01&&somaR>0;
+    rt.style.background=bad?'#DC2626':'var(--azul)';
+    if(rt.parentElement) rt.parentElement.classList.toggle('td-diverge',bad);
+  }
   marcarAlterado();
 }
 
@@ -2217,6 +2230,8 @@ function renderDespesas(){
   const pctMap=getPctMap(currentComp);
   const pctAnt=getPctMapAnt(currentComp);
   const total=data.despesas.reduce((a,d)=>a+(d.valor||0),0);
+  const somaRateado=data.despesas.reduce((a,d)=>a+totalAlocado(d,currentComp),0);
+  const diverge=Math.abs(somaRateado-total)>0.011;
   const totalCompl=data.despesas.filter(d=>d.compl).reduce((a,d)=>a+(d.valor||0),0);
   const totalCGs=CONTRATOS.map(ct=>data.despesas.reduce((a,d)=>a+(d.valor||0)*((d.compl?pctAnt:pctMap)[ct.id]||0),0));
   const catOpts=CATEGORIAS.map(c=>`<option>${c}</option>`).join('');
@@ -2282,7 +2297,7 @@ function renderDespesas(){
           <tr class="tr-total">
             <td colspan="7" class="fw-bold">VALOR TOTAL</td>
             <td class="td-r" id="desp-total-valor">${R$(total)}</td>
-            <td class="td-r" id="desp-total-rateado">${R$(total)}</td>
+            <td class="td-r${diverge?' td-diverge':''}" id="desp-total-rateado" title="${diverge?'A soma das alocações difere do total: confira o critério quantitativo':''}">${R$(somaRateado)}</td>
             <td class="no-print"></td>
           </tr>
         </tfoot>
@@ -2298,8 +2313,7 @@ function renderDespesas(){
 function buildDespesaRow(d, i, pctMap, catOpts, tipoOpts, n){
   if(!catOpts){catOpts=CATEGORIAS.map(c=>`<option${c===d.cat?' selected':''}>` +c+'</option>').join('');}
   if(!tipoOpts){tipoOpts=COMP_TIPOS.map(t=>`<option${t===d.ctipo?' selected':''}>` +t+'</option>').join('');}
-  const pmEf=d.compl?getPctMapAnt(currentComp):pctMap;
-  const totalRateado=CONTRATOS.reduce((a,ct)=>a+(d.valor||0)*(pmEf[ct.id]||0),0);
+  const totalRateado=totalAlocado(d,currentComp);
   const compStr=d.ctipo?(d.cnum?d.ctipo+' '+d.cnum:d.ctipo):'';
   const hasPdf1 = !!(d.pdfUrl);
   const hasPdf2 = !!(d.pdfUrl2);
@@ -2438,10 +2452,11 @@ function editarValor(duid){
 function updateDespTotals(){
   const data=getMesData(currentComp);
   const total=data.despesas.reduce((a,d)=>a+(d.valor||0),0);
+  const somaRateado=data.despesas.reduce((a,d)=>a+totalAlocado(d,currentComp),0);
   const e1=document.getElementById('desp-total-valor');
   const e2=document.getElementById('desp-total-rateado');
   if(e1) e1.textContent=R$(total);
-  if(e2) e2.textContent=R$(total);
+  if(e2){ e2.textContent=R$(somaRateado); e2.classList.toggle('td-diverge',Math.abs(somaRateado-total)>0.011); }
 }
 
 function duplicarMesAnterior(){
@@ -2502,9 +2517,9 @@ function renderDemonstrativo(){
     itens.forEach((d,di)=>{
       const comp=d.ctipo?(d.cnum?d.ctipo+' '+d.cnum:d.ctipo):'';
       let cgCells='';
-      const pmD=d.compl?pctAnt:pctMap;
+      const alocD=alocacoesDespesa(d,currentComp);
       CONTRATOS.forEach(ct=>{
-        const v=(d.valor||0)*(pmD[ct.id]||0);
+        const v=alocD[ct.id]||0;
         cgTotals[ct.id]+=v;
         cgCells+=`<td class="td-r">${v>0?R$(v):'R$ -'}</td>`;
       });
@@ -2620,7 +2635,7 @@ function renderDemonstrativo(){
         <thead><tr><th colspan="7">Categoria</th><th class="th-r">Total</th></tr></thead>
         <tbody>${resumoRows}</tbody>
         <tfoot>
-          <tr class="tr-total"><td colspan="7" class="fw-bold">VALOR TOTAL</td><td class="td-r fw-bold">${R$(grandTotal)}</td></tr>
+          <tr class="tr-total"><td colspan="7" class="fw-bold">VALOR TOTAL</td><td class="td-r fw-bold${Math.abs(Object.values(cgTotals).reduce((a,b)=>a+b,0)-grandTotal)>0.011?' td-diverge':''}">${R$(grandTotal)}</td></tr>
         </tfoot>
       </table>
     </div>
@@ -2713,8 +2728,11 @@ function renderMemorias(){
   const pctAntMem=getPctMapAnt(currentComp);
   toShow.filter(Boolean).forEach((d,di)=>{
     const pmMem=d.compl?pctAntMem:pctMap;
+    const alocM=alocacoesDespesa(d,currentComp);
+    const somaM=Math.round(Object.values(alocM).reduce((a,b)=>a+b,0)*100)/100;
+    const pctSomaM=CONTRATOS.reduce((a,ct)=>a+(pmMem[ct.id]||0),0)*100;
     const rateioRows=CONTRATOS.map((ct,i)=>{
-      const v=(d.valor||0)*(pmMem[ct.id]||0);
+      const v=alocM[ct.id]||0;
       return `<tr class="${v===0?'tr-zero':''}">
         <td>${ct.nome}</td>
         <td class="td-c fw-bold">${v>0?R$(v):'R$ -'}</td>
@@ -2748,6 +2766,7 @@ function renderMemorias(){
           </div>
         </div>
         ${d.compl?`<div style="background:#FFF7ED;border-left:4px solid #F59E0B;color:#92400E;padding:7px 12px;border-radius:6px;font-size:11px;font-weight:600;margin-bottom:10px">🔁 Despesa complementar de ${prevCompLabel(currentComp)} — rateio efetuado pelo critério quantitativo daquela competência.</div>`:''}
+        ${d.compl&&usaRateioAtualNoAnt(currentComp)?`<div style="background:#FEF2F2;border-left:4px solid #DC2626;color:#991B1B;padding:7px 12px;border-radius:6px;font-size:11px;font-weight:600;margin-bottom:10px">⚠ Rateado pelos percentuais do mês atual: ${prevCompLabel(currentComp)} não tem critério quantitativo preenchido.</div>`:''}
         <div style="text-align:center;font-weight:700;font-size:13px;color:var(--navy);margin-bottom:12px" class="no-print">
           PROJETO SOCIAL CRESCE COMUNIDADE – PRIMA QUALITÁ SAÚDE
         </div>
@@ -2779,8 +2798,8 @@ function renderMemorias(){
               <tfoot>
                 <tr class="tr-total">
                   <td class="fw-bold">TOTAL</td>
-                  <td class="td-c fw-bold">${R$(d.valor)}</td>
-                  <td class="td-c fw-bold">100,00%</td>
+                  <td class="td-c fw-bold${Math.abs(somaM-(d.valor||0))>0.011?' td-diverge':''}">${R$(somaM)}</td>
+                  <td class="td-c fw-bold${Math.abs(pctSomaM-100)>0.01?' td-diverge':''}">${fmtPct(pctSomaM)}</td>
                 </tr>
               </tfoot>
             </table>
@@ -4151,7 +4170,7 @@ function renderGraficos(){
   const data=getMesData(currentComp);
   const pctMap=getPctMap(currentComp);
   const pctAntG=getPctMapAnt(currentComp);
-  const totalMes=totalDespesas(currentComp);
+  const totalMes=getMesData(currentComp).despesas.reduce((a,d)=>a+totalAlocado(d,currentComp),0);
   const cgTotals=CONTRATOS.map(ct=>data.despesas.reduce((a,d)=>a+(d.valor||0)*((d.compl?pctAntG:pctMap)[ct.id]||0),0));
   const allComps=Object.keys(state).filter(k=>/^\d{4}-\d{2}$/.test(k)).sort();
   const histTotals=allComps.map(c=>totalDespesas(c));
@@ -5230,7 +5249,7 @@ function imprimirDashboard(){
   const comp=compLabel(currentComp);
   const data=getMesData(currentComp);
   const pctMap=getPctMap(currentComp);
-  const totalMes=totalDespesas(currentComp);
+  const totalMes=getMesData(currentComp).despesas.reduce((a,d)=>a+totalAlocado(d,currentComp),0);
   const allComps=Object.keys(state).filter(k=>/^\d{4}-\d{2}$/.test(k)).sort();
   const quantPcts=CONTRATOS.map(ct=>(pctMap[ct.id]||0)*100);
   const maxQIdx=CONTRATOS.reduce((a,c,i)=>quantPcts[i]>quantPcts[a]?i:a,0);

@@ -19802,7 +19802,7 @@
         {
           "uid": "cpp22eipm",
           "nome": "AYRA DE ARAUJO ROSA",
-          "dept": "DEPARTAMENTO DE COMUNICAÇÃO INSTITUCIONAL",
+          "dept": "ASSESSORIA DE COMUNICAÇÃO",
           "funcao": "ANALISTA DE COMUNICACAO II"
         },
         {
@@ -19994,7 +19994,7 @@
         {
           "uid": "c6nv79owc",
           "nome": "BERNARDO COSTA DE SA GOUVEA",
-          "dept": "DEPARTAMENTO FINANCEIRO",
+          "dept": "JURIDICO",
           "funcao": "ASSISTENTE FINANCEIRO III"
         },
         {
@@ -21612,6 +21612,16 @@
         "t": 1790971470260,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971479922,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971480444,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23188,5 +23198,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971470263
+  "savedAt": 1790971480446
 }

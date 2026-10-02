@@ -19415,7 +19415,7 @@
           "nrContrato": "001/2026"
         }
       ],
-      "contratos_obs": "1. As cópias dos processos de contratação/contratos referentes aos itens 1 a 17, foram enviados na prestação de contas do mês de outubro/24;\t\t\t\t\n2. A cópia do processo de contratação/contrato referente aos itens de 17 e 18, foram enviados na prestação de contas do mês de janeiro/26.\t\n3. A cópia do processo de contratação/contrato referente ao item de 19, foi enviado na prestação de contas do mês de agost.\n",
+      "contratos_obs": "1. As cópias dos processos de contratação/contratos referentes aos itens 1 a 17, foram enviados na prestação de contas do mês de outubro/24;\t\t\t\t\n2. A cópia do processo de contratação/contrato referente aos itens de 17 e 18, foram enviados na prestação de contas do mês de janeiro/26.\t\n3. A cópia do processo de contratação/contrato referente ao item de 19, foi enviado na prestação de contas do mês de agosto/26.\n",
       "colab_lista": [
         {
           "uid": "chhwwg232",
@@ -20961,6 +20961,26 @@
         "t": 1790903364628,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790903365015,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790903366256,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790903366614,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790903366807,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -20980,5 +21000,5 @@
     ]
   },
   "currentComp": "2026-09",
-  "savedAt": 1790903364630
+  "savedAt": 1790903366811
 }

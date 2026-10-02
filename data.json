@@ -20188,6 +20188,132 @@
           "nome": "RALF RIBEIRO DOS SANTOS",
           "dept": "SUPERINTENDÊNCIA",
           "funcao": "SUPERINTENDENTE ASSISTENCIAL"
+        },
+        {
+          "uid": "ypuaccu",
+          "nome": "ANDREA DOS SANTOS CARDOZO",
+          "dept": "GESTAO DE PESSOAS - R&S",
+          "funcao": "SUPERVISOR DE RH I"
+        },
+        {
+          "uid": "tkznkkw",
+          "nome": "BERNARDO CORDEIRO AUGUSTO",
+          "dept": "SUPRIMENTOS",
+          "funcao": "ASSISTENTE ADMINISTRATIVO I"
+        },
+        {
+          "uid": "49yl8gf",
+          "nome": "CARLOS EDUARDO LIMA DE AZEREDO",
+          "dept": "CONTROLADORIA/TESOURARIA",
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
+        },
+        {
+          "uid": "2eiwuwg",
+          "nome": "CAROLINE DO NASCIMENTO BARBOSA",
+          "dept": "ADMINISTRATIVO",
+          "funcao": "AUXILIAR ADMINISTRATIVO"
+        },
+        {
+          "uid": "dmboopu",
+          "nome": "CRISTIANE ROSA CHAVES DOS SANTOS",
+          "dept": "GESTAO DE PESSOAS - DP",
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
+        },
+        {
+          "uid": "5hlsy3f",
+          "nome": "GISELLE LINO SANTOS GOMES",
+          "dept": "GESTAO DE PESSOAS - DP",
+          "funcao": "ASSISTENTE DE DEPARTAMENTO PESSOAL III"
+        },
+        {
+          "uid": "3gfgniy",
+          "nome": "GIULIA DOS SANTOS SILVA",
+          "dept": "GESTAO DE PESSOAS - R&S",
+          "funcao": "JOVEM APRENDIZ"
+        },
+        {
+          "uid": "fpb0zz6",
+          "nome": "GLAUCIA POMPONET DE OLIVEIRA",
+          "dept": "CONTROLADORIA/TESOURARIA",
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
+        },
+        {
+          "uid": "h90r659",
+          "nome": "GRAZIELE DE SOUZA SILVA",
+          "dept": "CONTROLADORIA/TESOURARIA",
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
+        },
+        {
+          "uid": "o39zr1y",
+          "nome": "IGOR SILVA MARINHO",
+          "dept": "TECNOLOGIA DA INFORMAÇÃO",
+          "funcao": "ASSISTENTE DE TI II"
+        },
+        {
+          "uid": "7wsp4we",
+          "nome": "ITALO LUIZ RODRIGUES DA COSTA JUSTINO",
+          "dept": "GESTAO DE PESSOAS - DP",
+          "funcao": "SUPERVISOR DE DEPARTAMENTO PESSOAL III"
+        },
+        {
+          "uid": "q5ywj9e",
+          "nome": "JEFFERSON DE CARVALHO E SILVA",
+          "dept": "GESTAO DE PESSOAS - DP",
+          "funcao": "ASSISTENTE DE DEPARTAMENTO PESSOAL III"
+        },
+        {
+          "uid": "qsbls5k",
+          "nome": "JULIANA SILVA TEIXEIRA",
+          "dept": "PRESTACAO DE CONTAS",
+          "funcao": "COORDENADOR DE PRESTACAO DE CONTAS"
+        },
+        {
+          "uid": "6n2d4i0",
+          "nome": "LARA CARVALHO ALVES BATISTA",
+          "dept": "CONTROLADORIA/TESOURARIA",
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
+        },
+        {
+          "uid": "gp3if2n",
+          "nome": "LUANA FREIRE FERREIRA ALVES",
+          "dept": "REDE DE CUIDADOS",
+          "funcao": "AUXILIAR ADMINISTRATIVO"
+        },
+        {
+          "uid": "wo5z570",
+          "nome": "LUDMILA DA COSTA CARVALHO CRUZ",
+          "dept": "CONTABILIDADE",
+          "funcao": "ANALISTA CONTABIL I"
+        },
+        {
+          "uid": "ml5c09s",
+          "nome": "LUISA FERREIRA DE ALBUQUERQUE",
+          "dept": "PRESTACAO DE CONTAS",
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
+        },
+        {
+          "uid": "6kdlptn",
+          "nome": "MARCELO PIRES SANTANA",
+          "dept": "ASSESSORIA DE COMUNICAÇÃO",
+          "funcao": "ASSISTENTE DE DESIGNER III"
+        },
+        {
+          "uid": "gcjetyu",
+          "nome": "RAPHAEL AREAS CAVALCANTE DA SILVA",
+          "dept": "REDE DE CUIDADOS",
+          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
+        },
+        {
+          "uid": "bi360uz",
+          "nome": "SANDRO DOS SANTOS RONQUETTI",
+          "dept": "ADMINISTRATIVO",
+          "funcao": "COORDENADOR ADMINISTRATIVO III"
+        },
+        {
+          "uid": "67hfay7",
+          "nome": "VERONICA RODRIGUES DOS SANTOS COSTA",
+          "dept": "CONTROLADORIA/TESOURARIA",
+          "funcao": "ASSISTENTE FINANCEIRO III"
         }
       ],
       "iqual": {
@@ -21214,6 +21340,11 @@
       },
       {
         "t": 1790961118623,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971365131,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -22792,5 +22923,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790961118656
+  "savedAt": 1790971365149
 }

@@ -639,6 +639,10 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   #panel-manual [style*="repeat(auto-fit,minmax(130px"]{grid-template-columns:repeat(4,1fr)!important}
   #panel-manual *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
   #panel-manual .mnl-pgbrk{page-break-before:always;break-before:page}
+  #panel-manual .tbl-wrap{overflow:visible!important;box-shadow:none!important}
+  #panel-manual table{font-size:9pt!important}
+  #panel-manual thead th{padding:4px 6px!important;font-size:8.5pt!important}
+  #panel-manual tbody td{padding:3px 6px!important}
   #panel-validacao .tbl-wrap{overflow:visible!important}
   #panel-validacao .card{margin-bottom:8px!important;padding:6px 8px!important;box-shadow:none!important}
   #panel-validacao table{font-size:8pt!important;width:100%!important;border-collapse:collapse!important}
@@ -7813,233 +7817,280 @@ function renderManual(){
       ${!hasToken ? `<div class="alert" style="margin-top:10px">⚙ Configure o token GitHub em <strong>Opções → Config Sincronização GitHub</strong> para habilitar o upload.</div>` : ''}
     </div>`;
 
-  const infoCards=`
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:16px">
+  /* ── Manual RDG 2ª edição: resumo estruturado na ordem do manual (spec §4) ──
+     Textos transcritos/resumidos do Manual RDG 2ª ed.; tabelas geradas das constantes
+     GRUPOS_MANUAL, CONDICOES_61, VEDACOES_62, CONTROLES_*, INDICADORES_QUAL e MATRIZ_TCE. */
+  const mCap=s=>{s=String(s||'');return s.charAt(0).toUpperCase()+s.slice(1);};
+  const mP=t=>`<p style="font-size:12px;color:#334155;line-height:1.7;margin-bottom:8px">${t}</p>`;
+  const mH=t=>`<div style="font-size:11px;font-weight:800;color:#0073BA;text-transform:uppercase;letter-spacing:.05em;margin:14px 0 6px">${t}</div>`;
+  const mUL=a=>`<ul style="font-size:11.5px;color:#475569;line-height:1.7;padding-left:18px;margin-bottom:10px">${a.map(x=>`<li style="margin-bottom:3px">${x}</li>`).join('')}</ul>`;
+  const mOL=a=>`<ol style="font-size:11.5px;color:#334155;line-height:1.7;padding-left:20px;margin:0">${a.map(x=>`<li style="margin-bottom:2px">${x}</li>`).join('')}</ol>`;
+  const mTbl=(hd,rows,ultimaDestaque)=>`<div class="tbl-wrap" style="margin:6px 0 12px"><table style="font-size:11px"><thead><tr>${hd.map(x=>`<th class="th-azul" style="white-space:normal">${x}</th>`).join('')}</tr></thead><tbody>${rows.map((r,i)=>`<tr>${r.map(c=>`<td style="vertical-align:top;white-space:normal;${ultimaDestaque&&i===rows.length-1?'font-weight:700;color:var(--navy)':''}">${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+  const mCores={azul:['#EFF6FF','#0073BA','#1E3A8A'],verde:['#E4F7F0','#00A87B','#065F46'],verm:['#FEF2F2','#DC2626','#991B1B'],amar:['#FFFBEB','#D97706','#92400E']};
+  const mBox=(titulo,corpo,cor)=>{const c=mCores[cor||'azul'];return `<div style="background:${c[0]};border-left:4px solid ${c[1]};border-radius:6px;padding:9px 12px;margin:8px 0 12px;font-size:11.5px;color:#334155;line-height:1.65">${titulo?`<div style="font-size:11px;font-weight:800;color:${c[2]};margin-bottom:4px">${titulo}</div>`:''}${corpo}</div>`;};
+  const mCard=(n,ref,titulo,corpo)=>`<div class="card" id="manual-sec-${n}" style="margin-bottom:14px"><div class="card-hdr" style="gap:10px"><div class="card-title">${titulo}</div>${ref?`<span class="badge badge-azul" style="flex-shrink:0">${ref}</span>`:''}</div>${corpo}</div>`;
+  const mFim=a=>a.map((x,i)=>esc(x)+(i<a.length-1?';':'.'));
+  const mSim=t=>`<strong style="color:#16A34A">${t}</strong>`, mNao=t=>`<strong style="color:#DC2626">${t}</strong>`;
 
-      <div class="card" style="margin:0;border-left:4px solid #0073BA">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-          <div style="width:36px;height:36px;border-radius:8px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;font-size:18px">🏛</div>
-          <div style="font-size:13px;font-weight:700;color:var(--navy)">Fundamentos do CIGAC</div>
-        </div>
-        <p style="font-size:12px;color:#334155;line-height:1.7;margin-bottom:8px">
-          O <strong>CIGAC – Centro Integrado de Gestão e Assistência Compartilhada</strong> é a unidade corporativa
-          responsável por centralizar, integrar e padronizar os serviços administrativos, financeiros e assistenciais
-          que dão suporte aos contratos de gestão executados pelo Projeto Social Cresce Comunidade – Prima Qualitá.
-        </p>
-        <p style="font-size:12px;color:#334155;line-height:1.7;margin-bottom:10px">
-          Sua atuação como estrutura compartilhada permite mais eficiência, padronização de processos,
-          redução de custos e apoio qualificado às unidades assistenciais, reunindo equipes multiprofissionais
-          que operam de forma integrada, garantindo governança, compliance e melhoria contínua dos resultados.
-        </p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
-          <div style="background:#EFF6FF;border-radius:5px;padding:7px 10px">
-            <div style="font-size:10px;font-weight:800;color:#1D4ED8;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px">Missão</div>
-            <div style="font-size:11px;color:#334155;line-height:1.5">Promover a integração eficiente dos serviços administrativos, financeiros e assistenciais de forma compartilhada, contribuindo para a qualidade do cuidado e a sustentabilidade dos contratos de gestão.</div>
-          </div>
-          <div style="background:#E4F7F0;border-radius:5px;padding:7px 10px">
-            <div style="font-size:10px;font-weight:800;color:#065F46;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px">Visão</div>
-            <div style="font-size:11px;color:#334155;line-height:1.5">Ser reconhecido como referência em gestão compartilhada corporativa, fortalecendo a excelência operacional e assistencial nos serviços de saúde sob gestão da Prima Qualitá.</div>
-          </div>
-        </div>
-        <div style="font-size:10px;font-weight:800;color:#0073BA;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px">Objetivos Estratégicos</div>
-        <ul style="font-size:11px;color:#475569;line-height:1.75;padding-left:16px;margin-bottom:10px">
-          <li><strong>Padronizar e integrar processos</strong> administrativos, financeiros e assistenciais</li>
-          <li><strong>Apoiar tecnicamente</strong> as unidades de saúde e suas equipes</li>
-          <li><strong>Assegurar eficiência operacional</strong>, com racionalização de custos e otimização dos recursos</li>
-          <li><strong>Promover governança corporativa</strong>, garantindo conformidade com normas e exigências dos contratos</li>
-          <li><strong>Fomentar qualidade assistencial</strong>, com monitoramento de indicadores e educação permanente</li>
-          <li><strong>Oferecer serviços compartilhados</strong>, reduzindo duplicidade de esforços e garantindo escala</li>
-        </ul>
-        <div class="mnl-pgbrk" style="font-size:10px;font-weight:800;color:#0073BA;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Estrutura por Eixos</div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:5px;margin-bottom:8px">
-          <div style="background:#EFF6FF;border-radius:5px;padding:6px 8px;border-left:3px solid #1D4ED8;font-size:10.5px">
-            <div style="font-weight:700;color:#1D4ED8;margin-bottom:2px">⚙️ Administrativo</div>
-            Administrativo (Coord. Adm., Compras/Contratos, Logística/Suprimentos, Comunicação) e TI (Infra, Sistemas, Suporte)
-          </div>
-          <div style="background:#F0FDF4;border-radius:5px;padding:6px 8px;border-left:3px solid #16A34A;font-size:10.5px">
-            <div style="font-weight:700;color:#16A34A;margin-bottom:2px">💰 Financeiro</div>
-            Ger. Finanças, Contab. e Custos (Coord. Contabilidade, Prestação de Contas, Controladoria/Rateio)
-          </div>
-          <div style="background:#FFF7ED;border-radius:5px;padding:6px 8px;border-left:3px solid #D97706;font-size:10.5px">
-            <div style="font-weight:700;color:#D97706;margin-bottom:2px">👥 Pessoas</div>
-            Ger. de Gestão de Pessoas (Remuneração, SESMT, Treinamento e Desenv., Supervisão de DP)
-          </div>
-          <div style="background:#F5F3FF;border-radius:5px;padding:6px 8px;border-left:3px solid #7C3AED;font-size:10.5px">
-            <div style="font-weight:700;color:#7C3AED;margin-bottom:2px">🏥 Assistencial</div>
-            Sup. Assistencial → Ger. Assistencial (Resp. Técnica, Coord. Cuidado, Inteligência Assist., Gerências de Contrato) + Ouvidoria (SAU)
-          </div>
-        </div>
-        <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px">
-          <div style="background:#FEF2F2;border-radius:5px;padding:5px 8px;font-size:10.5px;border-left:3px solid #DC2626;flex:1;min-width:120px">
-            <span style="font-weight:700;color:#DC2626">⚖️ Jurídico</span> — atuação transversal em todos os eixos
-          </div>
-          <div style="background:#FFF1F2;border-radius:5px;padding:5px 8px;font-size:10.5px;border-left:3px solid #BE185D;flex:1;min-width:120px">
-            <span style="font-weight:700;color:#BE185D">🔒 Compliance</span> — controle interno e conformidade regulatória
-          </div>
-        </div>
-        <div style="padding:8px 12px;background:#E4F7F0;border-radius:6px;font-size:11px;color:#065F46;font-weight:600">
-          Os custos decorrentes da operação do CIGAC são rateados entre os contratos geridos pela OS,
-          conforme metodologia previamente estabelecida e critérios de proporcionalidade,
-          assegurando transparência e equilíbrio financeiro.
-        </div>
-      </div>
+  const infoCards=[
+    mCard(1,'Ficha técnica · Cap. 1','Identificação da edição',
+      mTbl(['Item','Identificação do documento'],[
+        ['Título','Manual de Rateio de Despesas de Gestão (RDG)'],
+        ['Entidade','Projeto Social Cresce Comunidade — Prima Qualitá'],
+        ['Estrutura de referência','CIGAC — Centro Integrado de Gestão e Assistência Compartilhada'],
+        ['Edição',esc(MANUAL_META.edicao)],
+        ['1ª Edição',esc(MANUAL_META.primeiraEdicao)],
+        ['Aprovação',esc(mCap(MANUAL_META.aprovacao))],
+        ['Natureza','Documento técnico-jurídico de aplicação obrigatória'],
+        ['Conformidade','Em conformidade com o '+esc(MANUAL_META.acordao)+' e a '+esc(MANUAL_META.cartilha)]
+      ])+
+      mH('Equipe técnica responsável pela elaboração e revisão')+
+      mTbl(['Profissional','Função'],[
+        ['Cyntia Araujo Damasco','Superintendente Executiva'],
+        ['Diego Figueiredo Santos','Coordenador de Compliance'],
+        ['Pablo Siqueira dos Santos Souza','Assessor Jurídico'],
+        ['Rui Anderson Moraes dos Santos','Gerente de Finanças e Controladoria']
+      ])+
+      mH('1. Apresentação')+
+      mP('O Projeto Social Cresce Comunidade — Prima Qualitá é uma associação sem fins lucrativos que atua como gestora de unidades públicas, na condição de instituição qualificada como Organização Social (OS) e como Organização da Sociedade Civil (OSC) e, historicamente, também na gestão de serviços privados. A revisão constante de seus atos de gestão, em busca de melhorias contínuas de processos e fluxos operacionais, motivou a revisão do Manual de Rateio de Despesas de Gestão, culminando na publicação da sua 2ª edição.')+
+      mP('A centralização das ações gerenciais e administrativas proporciona celeridade, economicidade e ganho de escala em todas as contratações; as despesas administrativas são unificadas e rateadas entre todos os contratos e serviços geridos de forma centralizada. A partir desta 2ª edição, essa estrutura centralizada passa a ser formalmente identificada como <strong>CIGAC — Centro Integrado de Gestão e Assistência Compartilhada</strong>. A revisão e ampliação do Manual têm o objetivo de proporcionar ainda mais transparência, rastreabilidade e economicidade aos recursos públicos sob gestão. <em>— Marcelo Mendes de Vasconcellos, Diretor Presidente.</em>')+
+      mBox('Aprovação pelo Conselho de Administração — Reunião Extraordinária de 24/08/2026',
+        'Colocada em votação, a 2ª edição do Manual foi <strong>aprovada por unanimidade</strong>, deliberando o Conselho: (a) sua entrada em vigor imediata, em substituição à 1ª edição (maio/2024); (b) o encaminhamento do Manual aos entes contratantes, integrando as prestações de contas mensais; (c) a publicação no portal de transparência da entidade; e (d) a revisão periódica do documento sempre que sobrevier alteração normativa ou jurisprudencial relevante.','verde')),
 
-      <div class="card" style="margin:0;border-left:4px solid #00A87B">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-          <div style="width:36px;height:36px;border-radius:8px;background:#E4F7F0;display:flex;align-items:center;justify-content:center;font-size:18px">💡</div>
-          <div style="font-size:13px;font-weight:700;color:var(--navy)">Economicidade das Despesas Compartilhadas</div>
-        </div>
-        <p style="font-size:12px;color:#334155;line-height:1.7;margin-bottom:10px">
-          A gestão centralizada e compartilhada gera <strong>ganho em escala</strong> que se traduz em economia
-          real para os contratos. Estudos demonstram que a implementação de gestão centralizada proporciona
-          <strong>redução de até 80%</strong> no número de sistemas financeiros.
-        </p>
-        <p style="font-size:12px;color:#334155;line-height:1.7;margin-bottom:10px">
-          A economicidade se manifesta:
-        </p>
-        <ul style="font-size:11px;color:#475569;line-height:1.8;padding-left:18px;margin-bottom:10px">
-          <li>Padronização de contratações, processos e boas práticas em todos os contratos</li>
-          <li>Poder de negociação ampliado com fornecedores por volume consolidado</li>
-          <li>Diluição dos custos fixos (pessoal especializado, sistemas, infraestrutura)</li>
-          <li>Eliminação de redundâncias administrativas entre unidades</li>
-          <li>Disseminação de boas práticas e correção de desvios de forma unificada</li>
-        </ul>
-        <div style="padding:8px 12px;background:#E4F7F0;border-radius:6px;font-size:11px;color:#065F46;font-weight:600">
-          ✓ O Rateio de Despesas de Gestão NÃO configura "Taxa de Administração" (vedada), pois representa a apuração e divisão proporcional de custos reais e comprovados.
-        </div>
-      </div>
+    mCard(2,'Cap. 2','O que muda nesta 2ª edição',
+      mP('Esta edição foi motivada pela evolução do entendimento dos órgãos de controle sobre o rateio de despesas administrativas no Terceiro Setor, com destaque para o <strong>'+esc(MANUAL_META.acordao)+'</strong> e para a <strong>'+esc(MANUAL_META.cartilha)+'</strong>. A Prima Qualitá revisou integralmente sua metodologia para incorporar, de forma expressa, as vedações e os requisitos consolidados por essas cortes.')+
+      mH('Principais alterações')+
+      mUL([
+        '<strong>Criação e formalização do CIGAC</strong> — Centro Integrado de Gestão e Assistência Compartilhada, com missão, estrutura por eixos e critérios de elegibilidade próprios.',
+        '<strong>Não custeio da remuneração de dirigente estatutário</strong> — a Diretoria Estatutária não é remunerada com recursos dos contratos de gestão, ainda que atue diretamente na execução dos Planos de Trabalho.',
+        '<strong>Não custeio do aluguel da sede estatutária</strong> — a sede estatutária da instituição (Travessa do Ouvidor, 21 — Centro/RJ) não é custeada com recursos dos contratos de gestão.',
+        '<strong>Segregação da estrutura operacional compartilhada</strong> — as despesas com locação e reflexos do imóvel onde funciona o CIGAC são rateadas por estarem diretamente vinculadas à execução dos Planos de Trabalho.',
+        '<strong>Enquadramento das atividades privadas paralelas e regra de incorporação de todas as pactuações</strong> — afastamento do custeio, com recursos públicos, de quaisquer despesas das estruturas que exerçam atividades privadas com fins lucrativos. Qualquer pactuação, pública ou privada, que venha a se utilizar da estrutura do CIGAC será obrigatoriamente incorporada ao rateio, passando a compor a base de cálculo e a memória de cálculo desde a competência de início de suas atividades, de modo que nenhum contrato, serviço ou unidade se beneficie da estrutura compartilhada sem contribuir proporcionalmente para o seu custeio.',
+        '<strong>Vedação expressa a despesas de marketing/publicidade</strong> — despesas de marketing e publicidade institucional da entidade não integram o rateio. Permanecem legítimas a publicidade legalmente obrigatória e as ações de comunicação estritamente vinculadas ao objeto dos contratos de gestão, como a divulgação de resultados da parceria e as campanhas de saúde das unidades (Seção 6.3).',
+        '<strong>Disciplina de despesas com veículos e combustível</strong> — gastos com locação, manutenção, combustível e estacionamento de veículos somente são rateáveis quando comprovadamente vinculados à execução dos contratos de gestão, nas hipóteses, com os exemplos e com os controles descritos na Seção 6.3.',
+        '<strong>Fluxo padronizado de prestação de contas do CIGAC</strong> — Relatório Mensal e Anexos I a VI, com transparência ativa no portal institucional (Passo a Passo CIGAC).'
+      ])+
+      mBox('Em uma frase','Esta edição consolida o rateio como <strong>ressarcimento de custos reais, identificados, proporcionais e comprovados</strong> dos serviços compartilhados, e afasta, de forma inequívoca, qualquer despesa própria da entidade que exista independentemente de sua qualificação como Organização Social.','azul')),
 
-    </div>`;
+    mCard(3,'Cap. 3','O CIGAC — Centro Integrado de Gestão e Assistência Compartilhada',
+      mH('3.1 Conceito e apresentação')+
+      mP('O CIGAC é a unidade corporativa responsável por centralizar, integrar e padronizar os serviços administrativos, financeiros e assistenciais que dão suporte aos contratos de gestão, convênios, termos de parceria e demais serviços de caráter público e/ou privado executados pelo Projeto Social Cresce Comunidade — Prima Qualitá, cujas atividades comportam os atos de gestão unificados.')+
+      mP('Sua atuação como estrutura compartilhada permite mais eficiência, padronização de processos, redução de custos e apoio qualificado às unidades assistenciais. O CIGAC reúne equipes multiprofissionais que operam de forma integrada, garantindo governança, compliance e melhoria contínua dos resultados. Os custos decorrentes de sua operação são rateados entre os contratos geridos pela Organização Social, conforme metodologia previamente estabelecida e critérios de proporcionalidade, assegurando transparência e equilíbrio financeiro.')+
+      `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px">`+
+        mBox('Missão','Promover a integração eficiente dos serviços administrativos, financeiros e assistenciais de forma compartilhada, contribuindo para a qualidade do cuidado, a padronização dos processos e a sustentabilidade dos contratos de gestão.','azul')+
+        mBox('Visão','Ser reconhecido como referência em gestão compartilhada corporativa, fortalecendo a excelência operacional e assistencial nos serviços de saúde sob gestão da Prima Qualitá.','verde')+
+      `</div>`+
+      mH('Objetivos estratégicos')+
+      mUL(['Padronizar e integrar processos administrativos, financeiros e assistenciais;','Apoiar tecnicamente as unidades de saúde e suas equipes;','Assegurar eficiência operacional, com racionalização de custos e otimização dos recursos;','Promover governança corporativa, garantindo conformidade com as normas e exigências dos contratos;','Fomentar a qualidade assistencial, com monitoramento de indicadores e educação permanente;','Oferecer serviços compartilhados, reduzindo duplicidade de esforços e garantindo escala.'])+
+      mH('3.2 Estrutura do CIGAC por eixos')+
+      mP('A estrutura organiza-se em uma Superintendência Executiva e quatro eixos operacionais, apoiados por dois departamentos transversais (Jurídico e Compliance), que atuam sobre todos os eixos.')+
+      mTbl(['Eixo / Estrutura','Composição e atribuições principais'],[
+        ['<strong>Superintendência Executiva</strong>','Estrutura central de comando; coordenação geral das operações administrativas, financeiras, de pessoas e assistenciais do CIGAC.'],
+        ['<strong>Eixo Assistencial</strong>','Superintendência Assistencial; Gerência Assistencial; Responsabilidade Técnica Médica; Coordenações de Rede de Cuidado; Inteligência Assistencial; Gerências de Contrato; Ouvidoria (SAU).'],
+        ['<strong>Eixo Administrativo</strong>','Coordenação Administrativa; Compras e Contratos; Gerência de Suprimentos (Farmácia; Supervisão Administrativa); Gerência de TI (Infraestrutura, Sistemas, Suporte às unidades); Assessoria de Comunicação; Superintendência de Desenvolvimento Institucional.'],
+        ['<strong>Eixo Financeiro</strong>','Gerência de Finanças, Contabilidade e Custos: Contabilidade; Prestação de Contas; Controladoria; Rateio corporativo; Custos.'],
+        ['<strong>Eixo de Pessoas</strong>','Gerência de Gestão de Pessoas (Remuneração e RH; SESMT; Treinamento e Desenvolvimento; Departamento Pessoal).'],
+        ['<strong>Jurídico (transversal)</strong>','Segurança jurídica, suporte consultivo e alinhamento normativo em todos os eixos: contratos e compras; prestações de contas e repasses; admissões/desligamentos; risco regulatório e responsabilidade técnica.'],
+        ['<strong>Compliance (transversal)</strong>','Integridade, mitigação de riscos, controle interno e conformidade regulatória: auditoria de contratos e fornecedores; conformidade em pagamentos; compliance trabalhista; segurança do paciente.']
+      ])+
+      mH('3.3 Organograma')+
+      mP('Por se tratar de uma estrutura compartilhada, cujos serviços beneficiam simultaneamente todos os contratos de gestão administrados pela Organização Social, os custos operacionais do CIGAC não são atribuíveis a uma única unidade. Dessa forma, tais despesas são objeto de rateio entre os contratos geridos, conforme a metodologia e os critérios de proporcionalidade definidos no Manual, assegurando transparência, razoabilidade e equilíbrio econômico-financeiro na alocação dos custos. O organograma do CIGAC consta da seção 3.3 do Manual (PDF).')),
 
-  const baseLegal=`
-    <div class="card" style="margin-bottom:14px">
-      <div class="card-hdr">
-        <div class="card-title">⚖️ Fundamentação Legal e Jurisprudencial</div>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-bottom:16px">
+    mCard(4,'Seção 3.4','Sede estatutária × CIGAC',
+      mP('Para atender de forma inequívoca ao entendimento dos órgãos de controle, a Prima Qualitá segrega, com clareza, duas estruturas físicas de naturezas distintas — apenas a segunda integra o rateio:')+
+      mTbl(['Estrutura','Endereço','Custeada por contrato de gestão?'],[
+        ['<strong>Sede estatutária</strong>',esc(MANUAL_META.sedeEstatutaria),mNao('NÃO.')+' Despesa própria da entidade, mantida com recursos institucionais.'],
+        ['<strong>Centro Integrado de Gestão e Assistência Compartilhada (CIGAC)</strong>',esc(MANUAL_META.cigacEndereco),mSim('SIM.')+' Aluguel e reflexos rateados, por abrigar a operação diretamente vinculada aos Planos de Trabalho.']
+      ])+
+      mP('No CIGAC funcionam as operações das equipes de Rede de Cuidados, Inteligência Assistencial, Ouvidoria (SAU), Comunicação, Tecnologia da Informação, Administrativa, Compras, Financeiro, Gestão de Pessoas, Monitoramento, Contabilidade, Suprimentos, Prestação de Contas, Jurídico e Compliance — atividades que existem exclusivamente em razão da execução dos contratos de gestão, convênios, termos de parceria e demais serviços de caráter público e/ou privado e que beneficiam, simultaneamente, todas as unidades geridas. Por essa razão, a locação e seus reflexos são despesas de suporte técnico direto à administração das unidades gerenciadas, passíveis de rateio, e não se confundem com o aluguel da sede estatutária, este sim vedado.')),
 
-        <div style="border:1px solid #BFDBFE;border-radius:8px;padding:12px 14px;background:#EFF6FF">
-          <div style="font-size:11px;font-weight:800;color:#1E40AF;letter-spacing:.04em;margin-bottom:5px">📜 Lei nº 9.637/1998</div>
-          <div style="font-size:11px;color:#1D4ED8;font-weight:600;margin-bottom:4px">Lei das Organizações Sociais</div>
-          <div style="font-size:11px;color:#334155;line-height:1.6">
-            Dispõe sobre a qualificação de entidades como organizações sociais, a criação do Programa Nacional de Publicização e o
-            fomento e execução de atividades relativas ao ensino, à pesquisa científica, ao desenvolvimento tecnológico, à proteção
-            e preservação do meio ambiente, à cultura e à saúde.
-          </div>
-          <div style="margin-top:6px;font-size:10px;color:#3B82F6">Art. 5º – natureza de parceria (interesse mútuo)</div>
-        </div>
+    mCard(5,'Cap. 4','A vantajosidade do custo compartilhado',
+      mP('A opção pela gestão centralizada e compartilhada não é apenas uma escolha administrativa: é uma estratégia de economicidade e de qualidade cujos ganhos são mensuráveis. O compartilhamento permite utilizar uma estrutura única para administrar diversos contratos, eliminando, por exemplo, a duplicidade de setores financeiros, contábeis, de compras e de recursos humanos em cada unidade.')+
+      mH('4.1 Evidência científica recente — Estudo CEJAM (2025)')+
+      mP('O estudo “Eficácia do Rateio de Despesas Administrativas em Unidades de Saúde Gerenciadas por Organizações Sociais de Saúde” (Pollini M. et al., Rev. Tec. Cient. CEJAM. 2025;4:e202540031) avaliou o impacto da centralização do setor financeiro e do rateio proporcional das despesas em quatro unidades de saúde pública — dois Ambulatórios Médicos de Especialidades (AME), uma unidade da Rede de Reabilitação Lucy Montoro e um Hospital Regional Estadual de 109 leitos. Comparou os custos do centro de custo “Controladoria” no 1º semestre de 2022 (setor financeiro local em cada unidade) com os do 1º semestre de 2024 (após a centralização na sede da OSS), com dados do sistema de custos auditado anualmente, ajustados pelo IPCA.')+
+      mTbl(['Unidade de saúde','Redução dos custos administrativos'],[
+        ['Hospital Regional Estadual (109 leitos)','−79,80%'],
+        ['AME (≈20 mil atendimentos/mês)','−45,54%'],
+        ['AME (≈7 mil atendimentos/mês)','−37,36%'],
+        ['Unidade Rede Lucy Montoro (reabilitação)','−8,64%'],
+        ['Redução média (absoluta) das quatro unidades','−55,50%']
+      ],true)+
+      mH('O que os números significam')+
+      mUL(['Redução média de aproximadamente 55% nos custos administrativos após a centralização e o rateio proporcional.',
+        'Realocação para atividades finalísticas de saúde de cerca de R$ 3,04 milhões ao longo de cinco anos de contrato — R$ 3,50 milhões quando corrigidos pelo IPCA — recursos que passam a financiar diretamente o cuidado ao paciente do SUS.',
+        'Robustez estatística: teste t de Student com p &lt; 0,001; d de Cohen de −1,40 (efeito grande); e teste de Mann-Whitney U com p = 0,000005 — confirmando que a diferença de custos entre os períodos é estatisticamente significativa.'])+
+      mP('As conclusões do estudo corroboram a estratégia adotada pela Prima Qualitá: a centralização administrativa e o rateio proporcional são abordagens robustas e economicamente viáveis, que eliminam redundâncias, padronizam serviços e direcionam mais recursos públicos para as áreas que impactam diretamente a qualidade do atendimento.')+
+      mH('4.2 Vantagens para o poder público contratante')+
+      mUL(['<strong>Economicidade e ganho de escala</strong> — contratações unificadas de RH, prestadores e fornecedores reduzem o custo unitário e diluem despesas administrativas entre todos os contratos.',
+        '<strong>Padronização e qualidade</strong> — protocolos, manuais e boas práticas aplicados de forma uniforme em todas as unidades, com replicação dos sucessos e correção rápida de desvios.',
+        '<strong>Transparência e rastreabilidade</strong> — cada valor rateado corresponde a um custo real, identificado e comprovado, disponível para consulta de qualquer ente contratante e órgão de controle.',
+        '<strong>Foco no cuidado</strong> — a economia gerada é redirecionada às atividades finalísticas, o atendimento ao paciente do SUS.'])),
 
-        <div style="border:1px solid #BBF7D0;border-radius:8px;padding:12px 14px;background:#F0FDF4">
-          <div style="font-size:11px;font-weight:800;color:#166534;letter-spacing:.04em;margin-bottom:5px">⚖️ ADI nº 1.923/DF – STF</div>
-          <div style="font-size:11px;color:#16A34A;font-weight:600;margin-bottom:4px">Constitucionalidade das OS e Contratos de Gestão</div>
-          <div style="font-size:11px;color:#334155;line-height:1.6">
-            O STF reconheceu a constitucionalidade do modelo de OS e da celebração de Contratos de Gestão, definindo sua natureza
-            como de <em>parceria</em> e não como contrato administrativo com contraposição de interesses, dispensando licitação por
-            ausência do intuito lucrativo.
-          </div>
-          <div style="margin-top:6px;font-size:10px;color:#16A34A">Ementa: eficiência, flexibilidade, controle pelo TCU</div>
-        </div>
+    mCard(6,'Cap. 5','Fundamentação jurídica',
+      mP('A metodologia do Manual está ancorada na Lei nº 9.637/1998, na interpretação conferida pelo Supremo Tribunal Federal no julgamento da ADI nº 1.923/DF e nos entendimentos consolidados pelas cortes de contas, em especial o Tribunal de Contas da União (TCU), o Tribunal de Contas do Estado do Rio de Janeiro (TCE-RJ) e o Tribunal de Contas do Estado de São Paulo (TCE-SP).')+
+      mH('5.1 A parceria e a autonomia de gestão (ADI nº 1.923/DF)')+
+      mP('O contrato de gestão tem por característica essencial a presença do interesse mútuo — a parceria — entre a Organização Social e a Administração Pública contratante. Ao julgar a ADI nº 1.923/DF, o STF reconheceu que as Organizações Sociais colaboram com o Poder Público na realização de um interesse comum e que a atuação privada pode ser mais eficiente, dada a agilidade e a flexibilidade do regime de direito privado. Reconheceu, ainda, que os empregados das OS são empregados privados e que suas contratações, embora não sujeitas ao dever de licitar, devem observar o núcleo essencial dos princípios da Administração Pública (art. 37, caput, da Constituição Federal), mediante regulamento próprio com regras objetivas e impessoais.')+
+      mH('5.2 Taxa de administração (vedada) × rateio de custos indiretos (permitido)')+
+      mP('A distinção é a pedra angular de todo o modelo. O que se veda é a taxa de administração; o que se pratica — e é admitido pelas cortes de contas — é o rateio de custos indiretos efetivamente incorridos.')+
+      mBox('Súmula nº 41 do TCE-SP','“Nos repasses de recursos a entidades do terceiro setor não se admite taxa de administração, de gerência ou de característica similar.” (Resolução nº 10/2016). No mesmo sentido, a Resolução SS nº 138/2025 da Secretaria da Saúde do Estado de São Paulo veda a retenção ou cobrança de valores a título de taxa de administração ou assemelhados.','verm')+
+      mTbl(['Critério','Taxa de administração (VEDADA)','Rateio de custos indiretos (PERMITIDO)'],[
+        ['<strong>Natureza</strong>','Remuneração por gerenciamento ou pagamento de gastos gerais não identificados','Ressarcimento de despesas indiretas identificadas e efetivamente realizadas, indispensáveis ao objeto'],
+        ['<strong>Valor</strong>','Fixo (percentual ou montante)','Variável, proporcional às despesas efetivadas, por critérios objetivos e prévios'],
+        ['<strong>Previsão no ajuste</strong>','Não há previsão OU consta rubrica genérica','Autorização expressa e composição estimada no Plano de Trabalho'],
+        ['<strong>Comprovação</strong>','Despesa não rastreável / sem prestação de contas','Despesas rastreáveis e comprovadas documentalmente']
+      ])+
+      mBox('Princípio inafastável','Os montantes repassados para o pagamento de custos indiretos por meio de rateio <strong>não perdem a qualidade de recursos públicos</strong>. Continuam sujeitos aos princípios da Administração Pública (legalidade, impessoalidade, moralidade, publicidade e eficiência) e à prestação de contas. Se se transformassem em recurso privado, estaríamos diante de taxa de administração.','amar')+
+      mH('5.3 O marco no Estado do Rio de Janeiro (Resolução SES/RJ nº 1.557/2017)')+
+      mP('No Estado do Rio de Janeiro, o reembolso de despesas administrativas compartilhadas por rateio é admitido às Organizações Sociais, condicionado à demonstração de rastreabilidade, clareza, desdobramento analítico da composição e proporcionalidade. A Resolução SES/RJ nº 1.557/2017 limita as despesas classificadas como rateio da sede a 3% do valor mensal do contrato de gestão e estabelece, como parâmetro de proporcionalidade, a razão entre o número de colaboradores vinculados a cada contrato e a totalidade dos colaboradores da Organização Social — critério adotado pelo Manual (Capítulo 8).')+
+      mH('5.4 O Acórdão TCE-RJ nº 3.905/2024 e as determinações aos municípios')+
+      mP('O TCE-RJ, no Acórdão nº 3.905/2024 (Plenário), amparado também na jurisprudência do TCU (Acórdãos 214/2007-Plenário, 1684/2007-2ª Câmara, 3372/2012-Plenário e 10354/2017-2ª Câmara), firmou entendimento que orienta diretamente esta revisão. A Corte comunicou determinações aos municípios contratantes, entre eles Cachoeiras de Macacu, Santa Maria Madalena, São Gonçalo, Saquarema e Arraial do Cabo, nos seguintes termos essenciais:')+
+      mUL(['<strong>Vedação central:</strong> é vedado o custeio, com recursos públicos oriundos de contratos de gestão, de despesas próprias da entidade do Terceiro Setor que existam independentemente de sua qualificação como Organização Social, tais como remuneração de dirigentes, corpo próprio de pessoal e aluguel de sede administrativa.',
+        '<strong>Relação direta com o objeto:</strong> são aceitáveis somente as despesas administrativas detalhadas e diretamente relacionadas à execução do plano de trabalho, mediante comprovação do nexo de causalidade e avaliação de proporcionalidade e necessidade, garantida a rastreabilidade.',
+        '<strong>Atividades privadas paralelas:</strong> é irregular custear integralmente as despesas administrativas com recursos públicos de contratos de gestão enquanto a entidade exerce atividades privadas paralelas.',
+        '<strong>Marketing/publicidade:</strong> é irregular custear despesas de marketing em benefício de clínica privada de saúde.'])+
+      mBox('Resposta da Prima Qualitá','A 2ª edição foi construída justamente para atender a cada uma dessas determinações. O Capítulo 6 detalha as despesas permitidas e vedadas, e o Capítulo 13 apresenta a matriz de conformidade que relaciona cada determinação do TCE-RJ à medida adotada pela instituição.','verde')+
+      mH('5.5 Corpo próprio × equipe de gestão compartilhada — nexo de causalidade')+
+      mP('Ao tratar do corpo próprio, as cortes de contas referem-se apenas aos profissionais que existem independentemente da qualificação da entidade como Organização Social; a equipe que atua no CIGAC não se confunde com “corpo próprio”. O corpo próprio vedado é composto pela equipe que atua em caráter exclusivo para os serviços privados, lotada nas unidades próprias ou na sede da instituição, sem exercer atividades vinculadas aos contratos de gestão, convênios, termos de parceria ou demais instrumentos públicos ou privados que demandem o compartilhamento das atividades administrativas.')+
+      mP('A equipe do CIGAC — agrupada em serviços técnicos de gestão, pessoas e folha, sistemas, suprimentos e logística, comunicação institucional, transportes e deslocamentos vinculados, e infraestrutura operacional — atua em estrita vinculação às atividades de gestão compartilhada desses instrumentos. O critério que diferencia o corpo próprio da equipe elegível ao rateio (em conjunto com sistemas, equipamentos e demais serviços da estrutura administrativa) é a presença do <strong>nexo de causalidade</strong> de atuação em atividades administrativas vinculadas e comuns aos objetos dos instrumentos jurídicos.')+
+      mH('5.6 A Cartilha de Rateio de Custos Indiretos do TCE-SP')+
+      mP('A Cartilha do TCE-SP organiza a política de rateio em três fases — Planejamento, Execução e Prestação de Contas — e enuncia os requisitos de aceitabilidade que o Manual adota integralmente: normatização e previsão no ajuste; proporcionalidade dos critérios; vinculação, necessidade e razoabilidade das despesas; publicidade e transparência; e comprovação e rastreabilidade. A Cartilha reafirma que o rateio é sempre formado por custos indiretos (mas nem todo custo indireto é rateado: o custo individualizável deve onerar diretamente a unidade específica) e que a economia — a demonstração de que o compartilhamento é menos oneroso que a execução direta — é requisito da razoabilidade.')),
 
-        <div style="border:1px solid #FDE68A;border-radius:8px;padding:12px 14px;background:#FFFBEB">
-          <div style="font-size:11px;font-weight:800;color:#92400E;letter-spacing:.04em;margin-bottom:5px">📋 Resolução SES/RJ nº 1.557/2017</div>
-          <div style="font-size:11px;color:#D97706;font-weight:600;margin-bottom:4px">Parâmetro regulatório por analogia</div>
-          <div style="font-size:11px;color:#334155;line-height:1.6">
-            Estabelece o limite de <strong>3% do valor mensal</strong> do contrato de gestão para despesas de rateio da sede.
-            Define os critérios obrigatórios: <em>Rastreabilidade, Clareza, Desdobramento analítico de sua composição
-            e Proporcionalidade.</em>
-          </div>
-          <div style="margin-top:6px;font-size:10px;color:#D97706">Art. 1º e 2º – limite e critérios do rateio</div>
-        </div>
+    mCard(7,'Seção 6.1','Despesas elegíveis ao rateio (permitidas)',
+      mP('O Capítulo 6 consolida o que pode e o que não pode integrar o rateio, harmonizando as determinações do TCE-RJ (Acórdão nº 3.905/2024) e os parâmetros da Cartilha do TCE-SP e da Resolução SS nº 138/2025 (SP), adotados por analogia como boas práticas. São elegíveis as despesas de custos indiretos dos serviços compartilhados do CIGAC que sejam vinculadas ao objeto, necessárias, proporcionais, econômicas, rastreáveis e transparentes, tais como:')+
+      mTbl(['Grupo','Exemplos de despesas elegíveis'],Object.values(GRUPOS_MANUAL).map(g=>['<strong>'+esc(g.nome)+'</strong>',esc(g.exemplos)]))+
+      mBox('Condições cumulativas para qualquer despesa entrar no rateio',mOL(mFim(CONDICOES_61.map(mCap))),'azul')),
 
-        <div style="border:1px solid #E9D5FF;border-radius:8px;padding:12px 14px;background:#FAF5FF">
-          <div style="font-size:11px;font-weight:800;color:#6B21A8;letter-spacing:.04em;margin-bottom:5px">🏛 TCU e Tribunais de Contas Estaduais</div>
-          <div style="font-size:11px;color:#7C3AED;font-weight:600;margin-bottom:4px">Jurisprudência consolidada</div>
-          <div style="font-size:11px;color:#334155;line-height:1.6">
-            Diversas cortes de contas no Brasil já se manifestaram validando a execução de despesas administrativas gerenciais
-            compartilhadas por Organizações Sociais, desde que observadas rastreabilidade, proporcionalidade e transparência
-            na sua demonstração.
-          </div>
-          <div style="margin-top:6px;font-size:10px;color:#7C3AED">Acórdãos TCU, TCE-RJ e demais cortes de contas</div>
-        </div>
+    mCard(8,'Seção 6.2','Despesas vedadas',
+      mP('Não integram o rateio, em nenhuma hipótese, as despesas próprias da entidade que existam independentemente de sua qualificação como Organização Social, nem as despesas sem vínculo com o objeto. Consolidam-se as vedações do TCE-RJ e o rol da Resolução SS nº 138/2025 (SP), adotado como referência de boas práticas:')+
+      mTbl(['Despesa vedada','Origem / observação'],VEDACOES_62.map(v=>['<strong>'+esc(v.vedada)+'</strong>',esc(v.origem)]))+
+      mBox('Serviços jurídicos, contábeis, financeiros e administrativos','Por analogia ao art. 7º, §1º, da Resolução SS nº 138/2025, tais serviços são passíveis de ressarcimento por rateio desde que a unidade gerenciada não disponha de profissionais ou contratos próprios para a mesma finalidade, o que evita duplicidade e sobreposição de custos.','amar')),
 
-        <div style="border:1px solid #FED7AA;border-radius:8px;padding:12px 14px;background:#FFF7ED">
-          <div style="font-size:11px;font-weight:800;color:#9A3412;letter-spacing:.04em;margin-bottom:5px">📋 Resolução SS nº 138, de 29/07/2025 – SP</div>
-          <div style="font-size:11px;color:#EA580C;font-weight:600;margin-bottom:4px">Parâmetro Legislativo Moderno — Analogia Contemporânea</div>
-          <div style="font-size:11px;color:#334155;line-height:1.6">
-            Editada pelo Estado de São Paulo, traz novo marco apto a regulamentar o rateio de despesas
-            administrativas de Organizações Sociais. O <strong>§ 2° do art. 1°</strong> permite expressamente o
-            compartilhamento de bens, estruturas e serviços operacionais e administrativos centralizados,
-            com o compartilhamento das despesas decorrentes, desde que demonstradas como estritamente
-            necessárias para o alcance do objetivo da parceria, proporcionais ao volume e à complexidade
-            dos serviços gerenciados, e apresentadas de forma transparente nos planos de trabalho.
-          </div>
-          <div style="margin-top:8px;padding:6px 10px;background:#FEF3C7;border-radius:4px;font-size:10.5px;color:#92400E">
-            <strong>Art. 7°, § 2°:</strong> Despesas com aluguel e seus reflexos, destinadas à estrutura física
-            para atividades de suporte técnico direto à administração das unidades gerenciadas,
-            poderão ser reembolsadas — confirmando a legalidade do aluguel do CIGAC.
-          </div>
-          <div style="margin-top:6px;font-size:10px;color:#EA580C">Art. 1°, § 2° – compartilhamento permitido • Art. 7°, § 2° – aluguel de estrutura de suporte reembolsável</div>
-        </div>
+    mCard(9,'Seção 6.3','Zona de atenção — comunicação, transporte e qualificação vinculados ao contrato de gestão',
+      mP('Três grupos de despesas são objeto de questionamentos recorrentes dos órgãos de controle, inclusive do TCE-RJ, e por isso recebem tratamento específico: as ações de comunicação; as despesas com veículos, combustível e deslocamentos; e as diárias e despesas de qualificação de colaboradores do CIGAC. A regra permanece a da Seção 6.2: quando desvinculadas do objeto, são vedadas. Quando comprovadamente presente o nexo de causalidade que as vincule à execução do contrato de gestão, porém, são despesas legítimas e necessárias, pois constituem suporte operacional essencial da Organização Social às parcerias — e é essa vinculação que a seção disciplina, exemplifica e sujeita a controles.')+
+      mH('6.3.1 Comunicação vinculada ao contrato (permitida) × publicidade institucional (vedada)')+
+      mP('O que se veda é a promoção da marca ou dos interesses privados da entidade. Não se confunde com isso a comunicação exigida ou demandada pela própria execução dos contratos, que é elegível ao rateio (ou ao custeio direto da unidade, quando individualizável). São exemplos de ações de comunicação vinculadas ao objeto:')+
+      mUL(['<strong>Divulgação de resultados da parceria</strong> — boletins, relatórios e materiais que dão publicidade às metas, aos indicadores e aos resultados alcançados no contrato de gestão, em atenção aos princípios da publicidade e da transparência (Lei nº 12.527/2011);',
+        '<strong>Campanhas de saúde das unidades</strong> — campanhas educativas, assistenciais e de prevenção (vacinação, arboviroses, saúde da mulher, entre outras) realizadas nas unidades sob gestão, especialmente quando determinadas ou aprovadas pelas secretarias de saúde;',
+        '<strong>Comunicação operacional interna das unidades</strong> — divulgação de protocolos, escalas, instruções normativas dos entes públicos, informes de RH e políticas de acesso à informação destinados aos colaboradores dos contratos;',
+        '<strong>Produção de conteúdo</strong> — elaboração de peças gráficas, campanhas de conscientização e monitoramento dos canais digitais;',
+        '<strong>Participação de equipes do contrato em congressos, seminários e premiações</strong> — quando a participação for da equipe vinculada ao contrato de gestão e o evento se harmonizar estritamente com o objeto do ajuste (por exemplo, apresentação de resultados assistenciais da unidade ou premiação de qualidade recebida pela unidade), nos termos do Comunicado SDG nº 021/2023 do TCE-SP;',
+        '<strong>Publicidade legalmente obrigatória</strong> — publicações exigidas por lei ou pelo contrato, como editais de processos seletivos de pessoal e de compras, convocações e avisos públicos.'])+
+      mBox('Permanece vedado','Publicidade e marketing da marca da entidade; propaganda institucional desvinculada dos contratos; ações de comunicação em benefício de estruturas privadas; e patrocínios ou brindes de qualquer natureza. Cada ação de comunicação rateada deve ser documentada no relatório mensal do setor (Indicador I2) com a identificação do contrato beneficiado.','verm')+
+      mH('6.3.2 Transporte, veículos e combustível vinculados ao contrato')+
+      mP('O apoio logístico de transporte é um suporte relevante da Organização Social às parcerias: a operação compartilhada exige circulação constante de pessoas, documentos e insumos entre o CIGAC, as sedes regionais, as unidades de saúde e os órgãos públicos. São exemplos de deslocamentos vinculados à execução dos contratos de gestão, elegíveis ao rateio quando beneficiarem múltiplos contratos (ou ao custeio direto da unidade, quando individualizáveis):')+
+      mUL(['<strong>Rotinas administrativas dos contratos</strong> — envio e protocolo de documentos e prestações de contas junto às secretarias de saúde, comissões de avaliação e fiscalização (CAF), prefeituras e demais órgãos dos entes contratantes;',
+        '<strong>Trânsito entre as estruturas da operação</strong> — deslocamentos entre o CIGAC, o Almoxarifado Central, as sedes regionais (filiais) e as unidades de saúde, para as rotinas administrativas, contábeis e de suprimentos dos contratos;',
+        '<strong>Atos oficiais e representação perante órgãos públicos</strong> — reuniões com as CAFs e secretarias, comparecimento a cartórios, audiências, diligências a tribunais, conselhos de saúde, órgãos de controle e audiências relacionadas aos contratos;',
+        '<strong>Supervisão e monitoramento assistencial</strong> — deslocamento das equipes assistenciais e técnicas do CIGAC (qualidade, coordenação assistencial, monitoramento de dados, TI) às unidades, para supervisão, implantação de protocolos, auditorias internas e apoio in loco;',
+        '<strong>Suporte emergencial de suprimentos</strong> — entregas urgentes de insumos, materiais e medicamentos entre o Almoxarifado Central/Centro de Distribuição e as unidades, para garantir a continuidade assistencial, especialmente em urgência e emergência;',
+        '<strong>Logística ordinária de abastecimento</strong> — a operação regular de distribuição de suprimentos do Centro de Logística e Distribuição às unidades sob gestão.'])+
+      mBox('Controles obrigatórios para despesas de transporte rateadas',mOL(mFim(CONTROLES_TRANSPORTE)),'amar')+
+      mH('6.3.3 Diárias, viagens e qualificação de colaboradores do CIGAC')+
+      mP('A vedação da Seção 6.2 (art. 7º, IV e XVII, da Resolução SS nº 138/2025, e Comunicado SDG nº 021/2023 do TCE-SP) alcança as viagens, diárias, treinamentos, cursos e bolsas desvinculados do objeto ou destinados à estrutura própria da entidade. Não alcança, porém, a qualificação técnica das equipes do CIGAC que atuam diretamente na execução dos contratos de gestão. Assim, os colaboradores do CIGAC poderão receber diárias, passagens, hospedagem e inscrições para participar de cursos de qualificação, congressos, seminários e demais eventos técnico-científicos, desde que conste sempre, de forma expressa, a vinculação com os contratos de gestão e que o conhecimento adquirido seja aplicado nos próprios contratos. São exemplos:')+
+      mUL(['<strong>Cursos de qualificação e atualização técnica</strong> — prestação de contas, contabilidade do terceiro setor, compras e contratações, auditoria e controles internos, compliance, sistemas ERP/BI, faturamento SUS e protocolos assistenciais, cujo conteúdo é aplicado diretamente nas rotinas dos contratos de gestão;',
+        '<strong>Congressos e seminários de gestão em saúde</strong> — eventos técnico-científicos que atualizam as equipes do CIGAC quanto a boas práticas, indicadores e inovações aplicáveis às unidades sob gestão;',
+        '<strong>Capacitações exigidas ou recomendadas por normas</strong> — treinamentos decorrentes de normas sanitárias (RDC/ANVISA), de segurança do paciente, de proteção de dados (LGPD) e demais regulamentos incidentes sobre a execução dos contratos;',
+        '<strong>Multiplicação interna do conhecimento</strong> — em articulação com o núcleo de Treinamento e Desenvolvimento, o conteúdo absorvido é replicado às equipes das unidades, ampliando o benefício da qualificação a todos os contratos de gestão.'])+
+      mBox('Controles obrigatórios para diárias e despesas de qualificação rateadas',mOL(mFim(CONTROLES_QUALIFICACAO)),'amar')),
 
-      </div>
+    mCard(10,'Cap. 7','Objetivo, aplicação e abrangência',
+      mH('7.1 Objetivo')+
+      mP('Descrever a metodologia para a divisão equitativa das despesas de gestão rateadas — aquelas executadas de forma compartilhada pelo CIGAC em favor de todos os contratos e serviços geridos pela instituição —, assegurando transparência, rastreabilidade, proporcionalidade e economicidade.')+
+      mH('7.2 Aplicação')+
+      mP('O Manual é de aplicação obrigatória em todas as unidades de saúde sob gerenciamento da Prima Qualitá por meio de contratos de gestão e demais instrumentos jurídicos vigentes cujos serviços demandem a execução de despesas compartilhadas no nível central.')+
+      mBox('Regra de incorporação de novas pactuações','Toda nova pactuação, pública ou privada, que venha a se utilizar da estrutura do CIGAC será obrigatoriamente incorporada ao rateio, passando a compor a base de cálculo (número de colaboradores) e a memória de cálculo desde a competência de início de suas atividades. A incorporação será demonstrada na prestação de contas do mês de ingresso, com a atualização dos percentuais de todos os participantes. Simetricamente, o encerramento de um contrato ou serviço retira-o da base no mês subsequente ao término de suas atividades. Nenhum contrato, serviço ou unidade se beneficia da estrutura compartilhada sem contribuir proporcionalmente para o seu custeio (Cartilha TCE-SP; art. 4º, §3º, Res. SS 138/2025).','azul')+
+      mH('7.3 Abrangência e exclusões')+
+      mP('O Manual trata apenas das despesas de gestão rateadas. Excluem-se as despesas executadas diretamente nos escritórios de apoio regionais (filiais), de caráter exclusivo e vinculadas diretamente a cada contrato. Os colaboradores lotados na ponta não representam duplicidade ou sobreposição em relação ao nível central: prestam serviços complementares, estrategicamente posicionados para dar mais eficiência, celeridade e economicidade. Despesas individualizáveis a uma unidade específica não são rateadas — oneram diretamente a respectiva unidade.')),
 
-      <div class="mnl-pgbrk" style="background:#0F2C47;border-radius:8px;padding:14px 16px;color:#fff">
-        <div style="font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;opacity:.7;margin-bottom:8px">Os 4 Critérios Obrigatórios do Rateio (Res. SES/RJ 1.557/2017)</div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px">
-          <div style="background:rgba(255,255,255,.08);border-radius:6px;padding:10px 12px">
-            <div style="font-size:13px;font-weight:700;margin-bottom:3px">🔍 Rastreabilidade</div>
-            <div style="font-size:11px;opacity:.8;line-height:1.5">Comprovação documental que permita conciliação bancária entre as contas destinatárias dos recursos.</div>
-          </div>
-          <div style="background:rgba(255,255,255,.08);border-radius:6px;padding:10px 12px">
-            <div style="font-size:13px;font-weight:700;margin-bottom:3px">📋 Clareza</div>
-            <div style="font-size:11px;opacity:.8;line-height:1.5">Identificação clara do objeto da despesa, favorecido, data e valor, sem dubiedades ou generalizações.</div>
-          </div>
-          <div style="background:rgba(255,255,255,.08);border-radius:6px;padding:10px 12px">
-            <div style="font-size:13px;font-weight:700;margin-bottom:3px">📊 Desdobramento Analítico</div>
-            <div style="font-size:11px;opacity:.8;line-height:1.5">Demonstração detalhada da composição das despesas com planilhas, registros contábeis e comprovantes.</div>
-          </div>
-          <div style="background:rgba(255,255,255,.08);border-radius:6px;padding:10px 12px">
-            <div style="font-size:13px;font-weight:700;margin-bottom:3px">⚖️ Proporcionalidade</div>
-            <div style="font-size:11px;opacity:.8;line-height:1.5">Rateio proporcional ao número de colaboradores vinculados a cada contrato em relação ao total da OS.</div>
-          </div>
-        </div>
-      </div>
-    </div>`;
+    mCard(11,'Cap. 8','Metodologia — Critério Quantitativo',
+      mP('O principal critério de rateio é quantitativo e proporcional: o percentual de cada contrato corresponde à razão entre o número de colaboradores a ele vinculados e o total de colaboradores da instituição, tomando por base a competência do mês anterior. Esse critério, validado ao longo da vigência da Resolução SES/RJ nº 1.557/2017 e acompanhado pelo TCE-RJ, observa proporcionalidade, razoabilidade, rastreabilidade, clareza e desdobramento analítico.')+
+      mH('Por que o número de colaboradores?')+
+      mP('Os recursos humanos são a variável mais relevante da prestação de serviços de saúde e representam, em média, entre 50% e 65% do custeio operacional de uma unidade. A quantidade de profissionais é fixada conforme o porte e a complexidade do serviço (observadas as RDC da ANVISA), o que torna a métrica proporcionalmente simétrica aos custos e de fácil obtenção e auditoria a partir do Sistema de DP/RH.')+
+      mBox('Fórmula','<strong>% de rateio do contrato = (CLT + Estatutários cedidos + PJs vinculados ao contrato) ÷ total geral de colaboradores da instituição</strong> — apurado com base na competência do mês anterior.','azul')+
+      mH('Exemplo ilustrativo (competência dez/2025 — unidade hospitalar de Saquarema)')+
+      mTbl(['Componente','Quantidade'],[
+        ['Colaboradores CLT','1.500'],
+        ['Estatutários (efetivos) cedidos','52'],
+        ['PJs (prestadores finalísticos)','718'],
+        ['Total do contrato','2.270'],
+        ['Total geral da instituição','5.506'],
+        ['Percentual de rateio aplicado','41,23%']
+      ],true)+
+      mP('Entende-se por <strong>colaborador</strong> qualquer mão de obra que preste serviço nas unidades objeto de cada contrato ou no CIGAC, com vínculo por CLT, PJ ou Estatutário. O percentual apurado é aplicado integralmente sobre cada despesa elegível do mês.')+
+      mH('Limite contratual')+
+      mP('O percentual efetivamente permitido para o rateio varia entre contratos e entes públicos, conforme cláusula contratual e a Resolução SES/RJ nº 1.557/2017 (limite de 3% do valor mensal do contrato para o rateio da sede), observadas as características de cada unidade — localização, porte e complexidade.')),
 
-  const metodologia=`
-    <div class="card" style="margin-bottom:14px">
-      <div class="card-hdr">
-        <div class="card-title">📐 Metodologia de Rateio Aplicada pela Prima Qualitá</div>
-      </div>
-      <div class="grid-2">
-        <div>
-          <div style="font-size:11px;font-weight:700;color:var(--azul);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px">Critério Quantitativo</div>
-          <p style="font-size:12px;color:#334155;line-height:1.7">
-            A proporção de <strong>colaboradores vinculados a cada Contrato de Gestão</strong> em relação ao total de
-            colaboradores da OS é utilizada como parâmetro de distribuição das despesas. Esse critério é obtido
-            mensalmente via Sistema de DP/RH, garantindo fidedignidade e atualização.
-          </p>
-          <div style="margin-top:8px;padding:8px 12px;background:#EFF6FF;border-radius:6px;font-size:11px;color:#1D4ED8">
-            Base: Resolução SES/RJ nº 1.557/2017, art. 2º, §2º — <em>"razão entre o número de colaboradores vinculados a cada contrato e a totalidade dos colaboradores da OS"</em>
-          </div>
-        </div>
-        <div>
-          <div style="font-size:11px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px">Critério Qualitativo</div>
-          <p style="font-size:12px;color:#334155;line-height:1.7">
-            Indicadores de <strong>complexidade e volume de produção</strong> de cada unidade/contrato são utilizados
-            como fator de ponderação complementar, permitindo ajustes que reflitam a real demanda por serviços
-            administrativos centrais.
-          </p>
-          <div style="margin-top:8px;padding:8px 12px;background:#E4F7F0;border-radius:6px;font-size:11px;color:#065F46">
-            Inclui: indicadores de produção assistencial, número de leitos, atendimentos, complexidade clínica e
-            demais métricas dos contratos de gestão vigentes.
-          </div>
-        </div>
-      </div>
-      <div style="margin-top:14px;padding:10px 14px;background:#F8FAFC;border:1px solid var(--border);border-radius:6px;font-size:11px;color:#64748B">
-        <strong>Limite máximo por contrato:</strong> As despesas de rateio são limitadas a <strong>3% do valor mensal</strong> de cada Contrato de Gestão, conforme Resolução SES/RJ nº 1.557/2017 (aplicada por analogia). Adicionalmente, a <strong>Resolução SS nº 138, de 29/07/2025</strong>, editada pelo Estado de São Paulo, confirma expressamente a legalidade do compartilhamento de despesas de estruturas administrativas centralizadas de suporte à gestão, configurando parâmetro legislativo moderno e contemporâneo aplicável por analogia.
-      </div>
-    </div>`;
+    mCard(12,'Cap. 9','Metodologia — Indicadores Qualitativos (nexo de causalidade)',
+      mP('Os indicadores qualitativos <strong>não definem nem alteram o percentual de rateio</strong>: sua função é complementar e essencial — demonstrar, com números fidedignos e rastreáveis, que cada departamento do CIGAC efetivamente prestou serviço a cada contrato no mês de referência, para configurar o nexo causal. É essa vinculação qualitativa que diferencia o rateio de uma taxa de administração vedada. São oito indicadores, cada um representando a produção mensurável de um departamento:')+
+      mTbl(['#','Departamento','Unidade de vinculação (produção)','Fonte'],INDICADORES_QUAL.map(i=>['<strong>'+esc(i.codigo)+'</strong>',esc(i.nome),esc(i.unidade),esc(i.fonte)]))+
+      mP('Cada indicador é mensurado no mês de apuração e acompanha os documentos comprobatórios que integram a prestação de contas, consolidando o Quadro de Indicadores Qualitativos do Anexo II (Capítulo 10).')),
+
+    mCard(13,'Cap. 10','Execução e prestação de contas — o fluxo CIGAC',
+      mP('A execução e a prestação de contas do rateio seguem o fluxo mensal padronizado do CIGAC, detalhado no “Passo a Passo CIGAC”. O conjunto é composto por um Relatório Mensal e seis anexos (I a VI), entregues a cada ente contratante e à respectiva comissão de avaliação e fiscalização.')+
+      mH('10.1 Ponto de partida — despesas compartilhadas do CIGAC')+
+      mP('O ciclo parte das contratações únicas do CIGAC que atendem simultaneamente a todos os contratos de gestão: assessoria jurídica; contabilidade e prestação de contas; RH e folha de pagamento; auditorias contábeis; sistemas (ERP/BI/RH); comunicação institucional; e infraestrutura administrativa e logística.')+
+      mH('10.2 Anexos I a VI')+
+      mTbl(['Etapa','Anexo','Conteúdo e função'],[
+        ['1','<strong>Anexo I — Critério Quantitativo</strong>','Cálculo do percentual de rateio de cada contrato, com base no nº de colaboradores (competência do mês anterior). É o alicerce de todo o processo.'],
+        ['2','<strong>Anexo II — Indicadores Qualitativos</strong>','Os 8 indicadores que comprovam a efetiva prestação de serviço de cada departamento a cada contrato. Vinculação e transparência (não altera o percentual).'],
+        ['3','<strong>Anexo III — Demonstrativo de Despesas Compartilhadas</strong>','Aplicação do percentual sobre cada despesa elegível; objeto, fornecedor, CNPJ, NF/guia, valor total e valores por contrato. Todos os municípios veem a planilha completa.'],
+        ['4','<strong>Anexo IV — Processos de Contratação e Contratos Vigentes</strong>','Amparo contratual de cada despesa rateada (pesquisa de preços, documentação do fornecedor e instrumento assinado). Vedado ratear despesa sem processo instruído.'],
+        ['5','<strong>Anexo V — Demonstrativos Contábeis e Financeiros</strong>','Balancete consolidado, extrato/conciliação bancária, movimentações contábeis e razão por conta. Permite verificar, de forma independente, cada pagamento.'],
+        ['6','<strong>Anexo VI — Manual RDG</strong>','O Manual, fundamento metodológico e normativo do modelo, entregue integralmente a cada ente contratante.']
+      ])+
+      mH('10.3 Relatório Mensal de Despesas Compartilhadas')+
+      mP('O Relatório Mensal amarra e contextualiza todos os anexos em uma peça coesa: apresenta a contextualização institucional do CIGAC, a metodologia do mês (critérios quantitativo e qualitativo) e uma justificativa individual e fundamentada para cada despesa compartilhada — objeto, necessidade institucional e benefício a todos os contratos. Lista nominalmente os colaboradores do CIGAC por departamento, consolida o quadro de indicadores do Anexo II e remete aos comprovantes de cada lançamento. É assinado digitalmente pela Superintendente Executiva, atestando a veracidade e a conformidade das informações.')+
+      mBox('Referência do ciclo (competência jan/2026)','Total rateado no mês: R$ 1.568.616,18, distribuído entre 10 contratos de gestão, com cada lançamento acompanhado do respectivo comprovante fiscal e conciliável com os extratos bancários das contas vinculadas. As despesas compartilhadas estavam amparadas por 27 contratos vigentes.','azul')),
+
+    mCard(14,'Caps. 11 e 12','Documentos comprobatórios e transparência',
+      mP('A rastreabilidade exige que toda a documentação probante acompanhe a prestação de contas do ajuste. Além dos anexos do Capítulo 10, integram o processo:')+
+      mUL(['<strong>11.1 Memória de Cálculo (demonstrativo de receitas do rateio)</strong> — demonstra, no mínimo, as unidades/projetos participantes, o critério utilizado, o percentual de rateio e o valor e a data (mês/ano) do ressarcimento. Na Prima Qualitá, o critério é o número de colaboradores de cada contrato em relação ao total da instituição (Capítulo 8).',
+        '<strong>11.2 Demonstrativo de Despesas do Rateio</strong> — relação de todas as despesas rateadas contendo, no mínimo: finalidade da despesa; credor; CPF/CNPJ; função/cargo (quando cabível); folha de pagamento ou documento hábil; nota fiscal; valor total pago; data de pagamento; e banco, agência e conta de débito da sede.',
+        '<strong>11.3 Razão Contábil</strong> — razão contábil e movimentação de despesas entre todas as contas destinatárias dos recursos do contrato de gestão, condição indispensável para a rastreabilidade da despesa e para a verificação de que o pagamento ocorreu com tais recursos.',
+        '<strong>11.4 Demais documentos</strong> — notas de débito, notas fiscais e comprovantes de pagamento; balancete consolidado mensal e extratos bancários mensais; para aquisições e contratações, a pesquisa/cotação de preços, contratos e termos aditivos digitalizados e relatório de atividade validado pelo departamento demandante; e a documentação comprobatória do total de colaboradores que embasou o percentual de rateio de cada contrato.'])+
+      mP('Toda a documentação é entregue em meio eletrônico, assinada pela autoridade competente do CIGAC, e arquivada pela instituição pelo prazo mínimo de cinco anos, à disposição dos órgãos de controle.')+
+      mH('12. Transparência e acesso público')+
+      mP('Por não perderem a qualidade de recursos públicos, os valores rateados sujeitam-se à Lei de Acesso à Informação (Lei nº 12.527/2011) e aos princípios da publicidade e da transparência, observados em todas as fases — planejamento, execução e prestação de contas.')+
+      mH('12.1 Publicidade ativa no portal institucional')+
+      mP('Os relatórios mensais do CIGAC, incluindo todos os anexos, são publicados no portal institucional da Prima Qualitá e acessíveis a qualquer cidadão, órgão de controle ou ente contratante, em <strong>primaqualitasaude.org/prestacao-de-contas-contratos-vigentes</strong>.')+
+      mBox('Como acessar os arquivos do CIGAC no portal',mOL(['Acesse o portal e localize o card “CIGAC — Centro Integrado de Gestão e Assistência Compartilhada”;','Clique no botão “Acessar Relatórios”;','Selecione o mês de referência para visualizar os relatórios e anexos completos.']),'azul')+
+      mH('12.2 Transparência mútua entre os contratantes')+
+      mP('Como princípio de governança, todos os municípios têm acesso à planilha completa do Anexo III, com os percentuais e valores de todos os demais contratos visíveis. Isso garante transparência mútua e permite que qualquer ente contratante verifique se o rateio foi aplicado de forma proporcional e consistente. Os mesmos demonstrativos são utilizados nas auditorias externas de TCE, TCM, MP, SMS, SES e TCU, garantindo unicidade e consistência das informações.')),
+
+    mCard(15,'Cap. 13','Matriz de conformidade com o Acórdão TCE-RJ nº 3.905/2024',
+      mP('Relação de cada determinação/vedação do TCE-RJ com a medida concreta adotada na 2ª edição do Manual.')+
+      mTbl(['Determinação / vedação do TCE-RJ','Medida adotada pela Prima Qualitá'],MATRIZ_TCE.map(m=>['<strong>'+esc(m.determinacao)+'</strong>',esc(m.medida)]))),
+
+    mCard(16,'Cap. 14','Glossário',
+      mTbl(['Termo','Definição'],[
+        ['<strong>CIGAC</strong>','Centro Integrado de Gestão e Assistência Compartilhada — estrutura corporativa que concentra os serviços compartilhados da Prima Qualitá.'],
+        ['<strong>Custos indiretos (despesas administrativas)</strong>','Gastos necessários à execução do objeto, mas sem ligação direta com o produto final da parceria.'],
+        ['<strong>Rateio de custos indiretos</strong>','Compartilhamento proporcional de custos indiretos entre dois ou mais contratos/unidades, por critérios objetivos e prévios.'],
+        ['<strong>Taxa de administração</strong>','Remuneração fixa por gerenciamento ou gastos gerais não identificados — vedada no Terceiro Setor (Súmula 41 TCE-SP).'],
+        ['<strong>Memória de cálculo</strong>','Demonstrativo das receitas do rateio: unidades, critério, percentual, valor e data do ressarcimento.'],
+        ['<strong>Contrato de gestão</strong>','Instrumento de parceria entre a Administração Pública e a OS, de natureza colaborativa (ADI 1.923/DF).'],
+        ['<strong>CAF</strong>','Comissão de Avaliação e Fiscalização do contrato de gestão, instituída pelo ente público contratante.'],
+        ['<strong>RDG</strong>','Rateio de Despesas de Gestão.']
+      ])),
+
+    mCard(17,'Cap. 15','Referências',
+      mH('Normas e jurisprudência')+
+      mUL(['BRASIL. Lei nº 9.637, de 15 de maio de 1998. Organizações Sociais.',
+        'BRASIL. Lei nº 13.019, de 31 de julho de 2014 (com redação da Lei nº 13.204/2015). Regime de parcerias com o Terceiro Setor.',
+        'BRASIL. Lei nº 12.527, de 18 de novembro de 2011. Lei de Acesso à Informação.',
+        'BRASIL. Supremo Tribunal Federal. ADI nº 1.923/DF. Acórdão de 16/04/2015.',
+        'BRASIL. Tribunal de Contas da União. Acórdãos 214/2007-Plenário; 1684/2007-2ª Câmara; 3372/2012-Plenário; 10354/2017-2ª Câmara.',
+        'RIO DE JANEIRO (Estado). Tribunal de Contas do Estado do Rio de Janeiro. Acórdão nº 3.905/2024 — Plenário.',
+        'RIO DE JANEIRO (Estado). Secretaria de Estado de Saúde. Resolução SES/RJ nº 1.557, de 14 de agosto de 2017.',
+        'SÃO PAULO (Estado). Tribunal de Contas do Estado de São Paulo. Cartilha — Rateio de Custos Indiretos no âmbito das parcerias com o Terceiro Setor.',
+        'SÃO PAULO (Estado). Tribunal de Contas do Estado de São Paulo. Súmula nº 41 (Resolução nº 10/2016); Comunicados SDG nº 021/2023 e nº 025/2023.',
+        'SÃO PAULO (Estado). Secretaria da Saúde. Resolução SS nº 138, de 29 de julho de 2025.'])+
+      mH('Estudos e literatura técnica')+
+      mUL(['POLLINI, M.; CARVALHO, A. G.; ROMANO, J. F.; SANTANA, F. J. M. Eficácia do Rateio de Despesas Administrativas em Unidades de Saúde Gerenciadas por Organizações Sociais de Saúde. Rev. Tec. Cient. CEJAM, 2025;4:e202540031.',
+        'TRIBUNAL DE CONTAS DO ESTADO DE SÃO PAULO. Repasses Públicos ao Terceiro Setor — Manual Básico. 2022.',
+        'MÂNICA, F. B. Objeto e natureza das parcerias sociais. In: Parcerias com o Terceiro Setor: as inovações da Lei nº 13.019/14. Belo Horizonte: Fórum.',
+        'OLIVEIRA, G. J. de. Taxa de administração prevista em contratos de gestão firmados com organizações sociais. Revista de Direito do Terceiro Setor — RDTS.']))
+  ].join('\n');
 
   const logoSrc=(document.querySelector('.logo-wrap img')||{}).src||'';
 
@@ -8064,9 +8115,10 @@ function renderManual(){
         <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
           <span style="background:rgba(255,255,255,.15);padding:3px 10px;border-radius:12px;font-size:10px;font-weight:700">Lei 9.637/1998</span>
           <span style="background:rgba(255,255,255,.15);padding:3px 10px;border-radius:12px;font-size:10px;font-weight:700">ADI 1.923/DF – STF</span>
+          <span style="background:rgba(255,255,255,.15);padding:3px 10px;border-radius:12px;font-size:10px;font-weight:700">Acórdão TCE-RJ 3.905/2024</span>
           <span style="background:rgba(255,255,255,.15);padding:3px 10px;border-radius:12px;font-size:10px;font-weight:700">Res. SES/RJ 1.557/2017</span>
           <span style="background:rgba(234,88,12,.45);padding:3px 10px;border-radius:12px;font-size:10px;font-weight:700">Res. SS nº 138/2025-SP</span>
-          <span style="background:rgba(0,168,123,.35);padding:3px 10px;border-radius:12px;font-size:10px;font-weight:700">Versão: 1ª Ed. – Maio 2024</span>
+          <span style="background:rgba(0,168,123,.35);padding:3px 10px;border-radius:12px;font-size:10px;font-weight:700">${esc(MANUAL_META.edicao)}</span>
         </div>
       </div>
       <div style="margin-left:auto;text-align:right">
@@ -8080,9 +8132,7 @@ function renderManual(){
   </div>
 
   ${pdfCard}
-  ${infoCards}
-  ${baseLegal}
-  ${metodologia}`;
+  ${infoCards}`;
 }
 
 function uploadManualRDG(input){

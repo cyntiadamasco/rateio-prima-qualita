@@ -20248,7 +20248,7 @@
           "cg_muq7yah2": 0
         },
         "ind8": {
-          "madalena": 4516,
+          "madalena": 451,
           "cachoeiras": 0,
           "saq_hosp": 0,
           "upa_pac": 0,
@@ -20348,16 +20348,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1788536415288,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788536495832,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
       {
         "t": 1788536678072,
         "perfil": "Administrador",
@@ -21845,6 +21835,16 @@
       },
       {
         "t": 1790977040046,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790977041729,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790977043262,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23423,5 +23423,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790977040054
+  "savedAt": 1790977043266
 }

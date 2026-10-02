@@ -19694,13 +19694,13 @@
         {
           "uid": "chqfqsdw8",
           "nome": "RAFAELA DA SILVA LEMOS",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "INTELIGENCIA ASSISTENCIAL",
           "funcao": "SUPERVISOR DE INFORMACAO EM SAUDE I"
         },
         {
           "uid": "cvjkkcoer",
           "nome": "RAFAELA OLIVEIRA FERREIRA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "SUPERINTENDENCIA ASSISTENCIAL",
           "funcao": "GERENTE ASSISTENCIAL III"
         },
         {
@@ -20024,7 +20024,7 @@
         {
           "uid": "c4nchto7t",
           "nome": "RAFAELA PINA RIBEIRO",
-          "dept": "DEPARTAMENTO FINANCEIRO",
+          "dept": "CONTROLADORIA/TESOURARIA",
           "funcao": "ASSISTENTE FINANCEIRO III"
         },
         {
@@ -20144,7 +20144,7 @@
         {
           "uid": "cuvtqqc2z",
           "nome": "PHAMYLA DE SOUZA POSSAO ABDALLA REBEQUE",
-          "dept": "DEPARTAMENTO PESSOAL",
+          "dept": "GESTAO DE PESSOAS - DP",
           "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL III"
         },
         {
@@ -20186,7 +20186,7 @@
         {
           "uid": "cttqck1lq",
           "nome": "RALF RIBEIRO DOS SANTOS",
-          "dept": "SUPERINTENDÊNCIA",
+          "dept": "SUPERINTENDENCIA ASSISTENCIAL",
           "funcao": "SUPERINTENDENTE ASSISTENCIAL"
         },
         {
@@ -21842,6 +21842,31 @@
         "t": 1790971519752,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971521370,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971521850,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971522330,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971522802,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971523308,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23418,5 +23443,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971519754
+  "savedAt": 1790971523310
 }

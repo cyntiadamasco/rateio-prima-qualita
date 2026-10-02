@@ -19490,13 +19490,13 @@
         {
           "uid": "cg9kv7o2f",
           "nome": "JOCIMAR SILVA DO NASCIMENTO",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "dept": "OPERACIONAL",
           "funcao": "ASSISTENTE OPERACIONAL II"
         },
         {
           "uid": "cmdwr21sb",
           "nome": "JORGE MARCIO DE OLIVEIRA RIBEIRO",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "dept": "INTELIGENCIA ASSISTENCIAL",
           "funcao": "AUX ADMINISTRATIVO"
         },
         {
@@ -20126,7 +20126,7 @@
         {
           "uid": "czck9ppme",
           "nome": "JOAO VITOR DE FRANCA TEIXEIRA",
-          "dept": "DEPARTAMENTO PESSOAL",
+          "dept": "GESTAO DE PESSOAS - R&S",
           "funcao": "AUX ADMINISTRATIVO"
         },
         {
@@ -21772,6 +21772,21 @@
         "t": 1790971507816,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971508352,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971508962,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971509529,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23348,5 +23363,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971507818
+  "savedAt": 1790971509531
 }

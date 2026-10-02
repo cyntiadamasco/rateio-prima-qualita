@@ -797,7 +797,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 .rdg-colab-acts{display:flex;gap:6px}
 
 .sync-dot{width:8px;height:8px;border-radius:50%;background:#6B7280;display:inline-block;margin-right:4px;transition:background .3s}
-.sync-dot.ok{background:#00A87B}.sync-dot.err{background:#DC2626}.sync-dot.loading{background:#F59E0B;animation:blink .8s infinite}
+.sync-dot.pending{background:#F59E0B}.sync-dot.ok{background:#00A87B}.sync-dot.err{background:#DC2626}.sync-dot.loading{background:#F59E0B;animation:blink .8s infinite}
 .sync-lbl{font-size:11px;color:rgba(255,255,255,.7)}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:999;display:flex;align-items:center;justify-content:center}
@@ -829,7 +829,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   .hdr-div{display:none}
   .hdr-subtitle{display:none}
   .hdr-right{gap:6px}
-  .sync-dot,.sync-lbl{display:none}
+  .sync-lbl{display:none}
 
   /* ── Tabs bar ────────────────────────────── */
   .tabs-bar{top:52px;padding:0 4px}
@@ -1475,6 +1475,31 @@ function _liberarEspacoLS(){
   return remover.length;
 }
 
+/* Salvamento automático: qualquer mutação chama marcarAlterado(); o envio
+   acontece AUTOSAVE_MS depois da última alteração. _dirty só volta a false
+   quando o GitHub confirma (ou quando não há token: localStorage é o destino). */
+const AUTOSAVE_MS=1500;
+let _ghSalvando=false,_ghPendente=false,_ghUltimoAviso=0;
+let _dirty=false,_autoTimer=null;
+function marcarAlterado(){
+  _dirty=true;
+  setSyncStatus('pending','Alterações pendentes');
+  if(_autoTimer) clearTimeout(_autoTimer);
+  _autoTimer=setTimeout(()=>{_autoTimer=null;salvar();},AUTOSAVE_MS);
+}
+function _mostrarSalvo(){
+  const el=document.getElementById('save-ind');
+  if(!el) return;
+  el.style.display='block';
+  setTimeout(()=>el.style.display='none',2200);
+}
+window.addEventListener('beforeunload',function(e){
+  if(_dirty||_ghSalvando){ e.preventDefault(); e.returnValue='Há alterações ainda não salvas.'; return e.returnValue; }
+});
+document.addEventListener('keydown',function(e){
+  if((e.ctrlKey||e.metaKey)&&!e.altKey&&String(e.key).toLowerCase()==='s'){ e.preventDefault(); salvar(); }
+});
+
 function salvar(){
   // Registro de auditoria: quem alterou, quando e em qual competência
   try{
@@ -1484,23 +1509,16 @@ function salvar(){
     if(state.auditLog.length>300) state.auditLog=state.auditLog.slice(-300);
   }catch(e){}
 
-  // GitHub é o armazenamento principal quando o token está configurado
-  if(ghToken()) githubSalvar();
-
-  // localStorage é secundário e best-effort — falha silenciosa se estiver cheio
+  if(_autoTimer){clearTimeout(_autoTimer);_autoTimer=null;}
+  _dirty=true;
   try{
     _gravarLS();
   }catch(e){
     _liberarEspacoLS();
-    try{ _gravarLS(); }catch(e2){
-      // localStorage cheio mesmo após limpeza — ok, dados estão no GitHub
-      console.warn('[salvar] localStorage cheio, usando apenas GitHub.',e2.message);
-    }
+    try{ _gravarLS(); }catch(e2){ console.warn('[salvar] localStorage cheio, usando apenas GitHub.',e2.message); }
   }
-
-  const el=document.getElementById('save-ind');
-  el.style.display='block';
-  setTimeout(()=>el.style.display='none',2200);
+  if(ghToken()){ githubSalvar(); }
+  else { _dirty=false; setSyncStatus('ok','Salvo localmente'); _mostrarSalvo(); }
 }
 
 function _gravarLS(){
@@ -1638,6 +1656,7 @@ function novaCompetencia(){
   currentComp=v;
   rebuildContratos();
   getMesData(v); // initialize
+  marcarAlterado();
   popularCompetencias();
   popularUI();
   renderTab('criterio');
@@ -1681,6 +1700,7 @@ function mudarComp(comp){
 
 function setRefColab(v){
   getMesData(currentComp).refColab=v;
+  marcarAlterado();
 }
 
 function popularUI(){
@@ -1995,6 +2015,7 @@ function setIqual(indId, cgId, val){
     const el = document.getElementById('iq-repr-'+cg.id);
     if(el) el.innerHTML = `<span class="pct-pill" style="background:var(--azul);color:#fff;font-size:10px">${fmtPct(repres*100)}</span>`;
   });
+  marcarAlterado();
 }
 
 /* =====================================================================
@@ -2147,6 +2168,7 @@ function setColab(id, field, val){
     const e=document.getElementById(eid);
     if(e) e.textContent=[colabs.reduce((a,x)=>a+(x.clt||0),0),colabs.reduce((a,x)=>a+(x.efetivo||0),0),colabs.reduce((a,x)=>a+(x.pj||0),0),totalGeral][i];
   });
+  marcarAlterado();
   popularUI();
 }
 
@@ -2277,6 +2299,7 @@ function addDespesa(){
   const next=data.despesas.length+1;
   const d={uid:uid(),id:String(next),cat:CATEGORIAS[0],objeto:'',fav:'',cnpj:'',ctipo:'',cnum:'',valor:0,dtPgto:''};
   data.despesas.push(d);
+  marcarAlterado();
   renderDespesas();
 }
 
@@ -2337,6 +2360,7 @@ function updDesp(duid, field, val){
     d[field]=val;
   }
   // Update total cells
+  marcarAlterado();
   updateDespTotals();
 }
 
@@ -2377,6 +2401,7 @@ function duplicarMesAnterior(){
   if(!confirm(`Importar ${prev.despesas.length} despesas de ${compLabel(mesAnterior)} para ${compLabel(currentComp)}?\nIsso irá substituir as despesas do mês atual.`)) return;
   const data=getMesData(currentComp);
   data.despesas=prev.despesas.map(d=>({...d,uid:uid(),valor:0,ctipo:'',cnum:'',dtPgto:'',compl:false}));
+  marcarAlterado();
   renderDespesas();
 }
 
@@ -2384,6 +2409,7 @@ function limparMesAtual(){
   if(!confirm(`Limpar TODOS os dados de ${compLabel(currentComp)}?`)) return;
   delete state[currentComp];
   getMesData(currentComp);
+  marcarAlterado();
   renderTab('criterio');
 }
 
@@ -2869,13 +2895,13 @@ function remContrato(uid){
 function setContrato(uid,field,val){
   const data=getMesData(currentComp);
   const r=data.contratos_ativos.find(x=>x.uid===uid);
-  if(r){r[field]=val;salvar();}
+  if(r){r[field]=val;marcarAlterado();}
 }
 
 function setContratosObs(val){
   const data=getMesData(currentComp);
   data.contratos_obs=val;
-  salvar();
+  marcarAlterado();
 }
 function uploadPdfContrato(uid,inp){
   const file=inp.files[0];
@@ -3475,7 +3501,7 @@ function sortColabAZ(){
 function setColabLista(uid,field,val){
   const data=getMesData(currentComp);
   const c=(data.colab_lista||[]).find(x=>x.uid===uid);
-  if(c){c[field]=val;salvar();}
+  if(c){c[field]=val;marcarAlterado();}
 }
 
 function remColabLista(uid){
@@ -4965,6 +4991,7 @@ function importarOrcamentosAnt(){
 function setOrc(cgId, val){
   getMesData(currentComp).orcamentos[cgId]=parseFloat(val)||0;
   // Re-render só a linha de status (full re-render é mais simples aqui)
+  marcarAlterado();
   renderValidacao();
 }
 
@@ -5448,6 +5475,7 @@ async function githubCarregar(){
       return true;
     }
     // Caso normal: GitHub é a fonte da verdade e sobrescreve o estado local
+    if(_dirty){ setSyncStatus('pending','Dados locais mais recentes (não substituídos)'); return true; }
     if(raw.state) state=raw.state;
     if(raw.currentComp) currentComp=raw.currentComp;
     if(remoteSavedAt>0) localStorage.setItem('pq_saved_at',String(remoteSavedAt));
@@ -5461,7 +5489,6 @@ async function githubCarregar(){
    Envios simultâneos usavam "sha" vencido e eram rejeitados em silêncio,
    podendo perder o último salvamento. Aqui os pedidos são enfileirados:
    se chegar um novo enquanto outro roda, ele é executado logo em seguida. */
-let _ghSalvando=false,_ghPendente=false,_ghUltimoAviso=0;
 async function githubSalvar(){
   if(_ghSalvando){_ghPendente=true;return;}
   _ghSalvando=true;
@@ -5494,6 +5521,7 @@ async function _githubSalvarExec(){
         localStorage.setItem('pq_gh_sha',jj.content.sha);
         const t=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
         setSyncStatus('ok','Sincronizado '+t);
+        _dirty=false; _mostrarSalvo();
         return;
       }
       // 409/422 = conflito de versão: repete o loop buscando o sha atualizado
@@ -7056,7 +7084,7 @@ function saveDCFField(field,value){
   const s=String(value).replace(/R\$\s*/g,'').trim();
   const n=s.includes(',')?parseFloat(s.replace(/\./g,'').replace(',','.')):parseFloat(s);
   data.demoContabil[field]=n||0;
-  salvar();
+  marcarAlterado();
   renderDCF();
 }
 function saveDCFObs(value){

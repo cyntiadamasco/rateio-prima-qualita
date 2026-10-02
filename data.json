@@ -8316,7 +8316,8 @@
         "cordeiro": 0,
         "saq_esp": 0,
         "saq_pri": 0,
-        "cg_mt55zykt": 0
+        "cg_mt55zykt": 0,
+        "cg_muq7yah2": 0
       },
       "refColab": "JUNHO/2026",
       "contratos_ativos": [
@@ -9184,7 +9185,8 @@
           "cordeiro": 93,
           "saq_esp": 315,
           "saq_pri": 636,
-          "cg_mt55zykt": 0
+          "cg_mt55zykt": 0,
+          "cg_muq7yah2": 0
         },
         "ind2": {
           "madalena": 33,
@@ -9197,7 +9199,8 @@
           "cordeiro": 23,
           "saq_esp": 39,
           "saq_pri": 51,
-          "cg_mt55zykt": 0
+          "cg_mt55zykt": 0,
+          "cg_muq7yah2": 0
         },
         "ind3": {
           "madalena": 150,
@@ -9210,7 +9213,8 @@
           "cordeiro": 100,
           "saq_esp": 144,
           "saq_pri": 150,
-          "cg_mt55zykt": 0
+          "cg_mt55zykt": 0,
+          "cg_muq7yah2": 0
         },
         "ind4": {
           "madalena": 850,
@@ -9223,7 +9227,8 @@
           "cordeiro": 549,
           "saq_esp": 861,
           "saq_pri": 898,
-          "cg_mt55zykt": 0
+          "cg_mt55zykt": 0,
+          "cg_muq7yah2": 0
         },
         "ind5": {
           "madalena": 45,
@@ -9236,7 +9241,8 @@
           "cordeiro": 23,
           "saq_esp": 24,
           "saq_pri": 42,
-          "cg_mt55zykt": 0
+          "cg_mt55zykt": 0,
+          "cg_muq7yah2": 0
         },
         "ind6": {
           "madalena": 63,
@@ -9249,7 +9255,8 @@
           "cordeiro": 57,
           "saq_esp": 67,
           "saq_pri": 64,
-          "cg_mt55zykt": 0
+          "cg_mt55zykt": 0,
+          "cg_muq7yah2": 0
         },
         "ind7": {
           "madalena": 186,
@@ -9262,7 +9269,8 @@
           "cordeiro": 161,
           "saq_esp": 413,
           "saq_pri": 780,
-          "cg_mt55zykt": 0
+          "cg_mt55zykt": 0,
+          "cg_muq7yah2": 0
         },
         "ind8": {
           "madalena": 4409,
@@ -9275,7 +9283,8 @@
           "cordeiro": 4635,
           "saq_esp": 51898,
           "saq_pri": 58024,
-          "cg_mt55zykt": 0
+          "cg_mt55zykt": 0,
+          "cg_muq7yah2": 0
         }
       },
       "despesasLocais": {
@@ -9289,7 +9298,8 @@
         "cordeiro": [],
         "saq_esp": [],
         "saq_pri": [],
-        "cg_mt55zykt": []
+        "cg_mt55zykt": [],
+        "cg_muq7yah2": []
       },
       "demoContabil": {
         "balancete": {

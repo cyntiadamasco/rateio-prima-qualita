@@ -18761,9 +18761,9 @@
           "objeto": "Contencioso e consultivo na área de direito cível e de direito médico e da saúde",
           "fav": "E Simões Sociedade Individual de Advocacia",
           "cnpj": "40.101.757/0001-96",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "14",
+          "valor": 1000,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -20413,6 +20413,11 @@
         "t": 1790900670315,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790900687981,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -20432,5 +20437,5 @@
     ]
   },
   "currentComp": "2026-09",
-  "savedAt": 1790900670320
+  "savedAt": 1790900687985
 }

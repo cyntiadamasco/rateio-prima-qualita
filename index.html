@@ -546,9 +546,9 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   .rdg-table th{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#1B3A5C!important;color:#fff!important}
   .rdg-tfoot td{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#E8F0FF!important}
   .rdg-total-geral{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#EEF4FF!important}
-  /* @page garante margem superior em TODAS as páginas (inclusive continuações)
-     cobrindo o cabeçalho fixo (~14mm) + folga de 4mm */
-  @page{margin-top:30mm;margin-right:15mm;margin-bottom:16mm;margin-left:15mm}
+  /* @page: margem superior pequena; o cabeçalho do RDG é um thead (tabela .rdg-doc)
+     repetido pelo navegador em cada página, ocupando espaço real */
+  @page{margin-top:12mm;margin-right:15mm;margin-bottom:16mm;margin-left:15mm}
   @page{@bottom-center{content:"Pág. " counter(page);font-family:Arial,sans-serif;font-size:9pt;color:#6b7280}}
   .rdg-capa{page-break-after:always}
   /* rdg-section sem avoid: seções principais usam page-break-before:always */
@@ -673,14 +673,16 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   #panel-demonstrativo .card:not(.resumo-card) .card-hdr{display:none!important}
   #panel-demonstrativo .stats-grid{display:none!important}
   /* RDG: cabeçalho fixo em todas as páginas */
-  .rdg-page-hdr{display:flex!important;align-items:center;gap:12px;position:fixed;top:0;left:0;right:0;background:#fff;padding:6px 15mm;border-bottom:2px solid #1B3A5C;z-index:9999;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .rdg-page-hdr{display:flex!important;align-items:center;gap:12px;margin-bottom:8px;background:#fff;padding:4px 0 6px;border-bottom:2px solid #1B3A5C;z-index:9999;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .rdg-page-hdr img{height:38px;width:auto;flex-shrink:0}
   .rdg-page-hdr-left{margin-left:10px}
   .rdg-page-hdr-title{font-size:11px;font-weight:800;color:#1B3A5C;line-height:1.3;letter-spacing:.4px;text-transform:uppercase}
   .rdg-page-hdr-sub{font-size:10px;color:#1B3A5C;margin-top:1px}
   .rdg-page-hdr-right{margin-left:auto;text-align:right;font-size:10px;color:#1B3A5C}
   .rdg-page-hdr-right strong{font-size:11px;display:block;margin-bottom:1px}
-  .rdg-capa{padding-top:65px!important}
+  .rdg-capa{padding-top:0!important}
+  .rdg-doc>thead{display:table-header-group!important}
+  .rdg-doc>tbody>tr>td{page-break-inside:auto;break-inside:auto}
   .rdg-capa [style*="background:#1B3A5C"]{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
   .rdg-section{padding-top:0!important}
   .rdg-subsec-newpage{page-break-before:always;padding-top:0}
@@ -796,6 +798,9 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 .rdg-analise-delta{text-align:center;font-weight:700;font-size:10px}
 .rdg-analise-status{text-align:center;font-weight:600;font-size:10px}
 .rdg-page-hdr{display:none}
+.rdg-doc{width:100%;border-collapse:collapse;border-spacing:0}
+.rdg-doc>thead>tr>td,.rdg-doc>tbody>tr>td{padding:0;vertical-align:top;border:0}
+.rdg-doc>thead{display:none}
 .rdg-sign-line{width:280px;height:1.5px;background:#111;margin:36px auto 8px}
 .rdg-sign p{margin:4px 0}
 /* ── Colaboradores CIGAC management ─────────────── */
@@ -3866,6 +3871,7 @@ function renderRelatorio(){
     <span class="text-muted" style="font-size:12px">Total despesas: <strong>${R$(totalDesp)}</strong></span>
   </div>
   <div class="rdg-container">
+    <table class="rdg-doc"><thead><tr><td>
     <div class="rdg-page-hdr">
       <img src="" data-logo="1" style="height:40px;width:auto">
       <div class="rdg-page-hdr-left">
@@ -3877,6 +3883,7 @@ function renderRelatorio(){
         Ref.: ${mesRef} &nbsp;|&nbsp; Pgto.: ${mesPagto}
       </div>
     </div>
+    </td></tr></thead><tbody><tr><td>
 
     <!-- CAPA -->
     <div class="rdg-capa" style="display:flex;flex-direction:column;padding-left:0;padding-right:0;padding-bottom:0;text-align:center;overflow:hidden">
@@ -4045,7 +4052,7 @@ function renderRelatorio(){
         <li><strong>Assessoria Jurídica</strong> – Indicador: Número de contratos validados, ofícios enviados e colaboradores por contrato. Fonte: Relatório da Assessoria Jurídica no mês.</li>
         <li><strong>Departamento Assistencial</strong> – Indicador: Número de pacientes atendidos. Fonte: Relatório do BI no mês.</li>
       </ol>
-      <div class="rdg-subsec-newpage">
+      <div${hasQualData?' class="rdg-subsec-newpage"':''}>
       <h2 class="rdg-subsection-title" style="margin-top:0">2.3 Detalhamento dos Indicadores Qualitativos – ${mesRef}</h2>
       ${hasQualData
         ?`<div class="rdg-iqual-wrap" style="overflow-x:auto"><table class="rdg-table" style="min-width:860px">
@@ -4106,6 +4113,7 @@ function renderRelatorio(){
       <p style="color:#6b7280;font-size:11px;margin-top:6px">Prima Qualitá Saúde – CNPJ: 40.289.134/0001-99</p>
     </div>
     </div>
+    </td></tr></tbody></table>
 
   </div>`;
   initRdgCharts(cgTotals,quantPcts,reprPcts,hasQualData,desp);
@@ -5484,7 +5492,7 @@ function imprimirRelatorio(){
   document.title='Relatório RDG – '+compLabel(currentComp);
   const st=document.createElement('style');
   st.id='relatorio-portrait-style';
-  st.textContent='@media print{@page{size:A4 portrait;margin:30mm 12mm 16mm 12mm}}';
+  st.textContent='@media print{@page{size:A4 portrait;margin:12mm 12mm 16mm 12mm}}';
   document.head.appendChild(st);
   const cleanup=function(){
     document.title=prev;

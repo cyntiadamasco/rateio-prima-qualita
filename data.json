@@ -19568,13 +19568,13 @@
         {
           "uid": "coy10bwjk",
           "nome": "DANIEL BARBOSA PROCOPIO",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "INTELIGENCIA ASSISTENCIAL",
           "funcao": "SUPERVISOR DE INFORMACAO EM SAUDE I"
         },
         {
           "uid": "crrgqybar",
           "nome": "DIONI DE OLIVEIRA SCHUVARTZ",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "INTELIGENCIA ASSISTENCIAL",
           "funcao": "ANALISTA ASSISTENCIAL III"
         },
         {
@@ -19916,7 +19916,7 @@
         {
           "uid": "c2noxnm1o",
           "nome": "EDLENE PAIVA DA SILVA",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "dept": "EDUCAÇÃO EM SAÚDE",
           "funcao": "SUPERVISOR DE EDUCACAO CONTINUADA I"
         },
         {
@@ -20006,7 +20006,7 @@
         {
           "uid": "cdmlrbnd4",
           "nome": "DOUGLAS BARCELLOS SILVA",
-          "dept": "DEPARTAMENTO FINANCEIRO",
+          "dept": "CONTABILIDADE",
           "funcao": "ANALISTA ADMINISTRATIVO I"
         },
         {
@@ -21652,6 +21652,26 @@
         "t": 1790971485547,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971486934,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971487408,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971487857,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971488312,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23228,5 +23248,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971485549
+  "savedAt": 1790971488314
 }

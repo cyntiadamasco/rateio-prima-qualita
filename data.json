@@ -19532,7 +19532,7 @@
         {
           "uid": "ckjtxk5hz",
           "nome": "RODRIGO PEÇANHA DOS SANTOS",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "dept": "OPERACIONAL",
           "funcao": "ASSISTENTE SERVICOS GERAIS"
         },
         {
@@ -19718,7 +19718,7 @@
         {
           "uid": "cgcoknu54",
           "nome": "ROGERIO DA COSTA AZEVEDO",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "REDE DE CUIDADOS",
           "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
         },
         {
@@ -19958,7 +19958,7 @@
         {
           "uid": "c0j9yw0sn",
           "nome": "ROSEMARY CRUZ CERQUEIRA",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "dept": "GESTAO DE PESSOAS - T&D",
           "funcao": "COORDENADOR DE EDUCACAO CONTINUADA I"
         },
         {
@@ -21867,6 +21867,21 @@
         "t": 1790971523308,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971524782,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971525248,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971525712,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23443,5 +23458,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971523310
+  "savedAt": 1790971525713
 }

@@ -4454,7 +4454,7 @@ function renderAnalise(){
     const alocado=_cigac+_local;
     const orc=(_md.orcamentos||{})[ct.id]||0;
     const teto=orc*0.03;
-    const delta=alocado-teto;
+    const delta=orc>0?alocado-teto:0;
     _acum3+=delta;
     return {comp,alocado,orc,teto,delta,acum:_acum3};
   });

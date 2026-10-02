@@ -19863,7 +19863,7 @@
           "uid": "czmd0q9a2",
           "nome": "SANDY KEYTMA MELO RAMALHO",
           "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
-          "funcao": "AUXILIAR ADMINISTRATIVO"
+          "funcao": "ASSISTENTE ADMINISTRATIVO III"
         },
         {
           "uid": "cn3915ztf",
@@ -20157,13 +20157,13 @@
           "uid": "c3d9bwihc",
           "nome": "SHIRLEY DE OLIVEIRA MATOS",
           "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ASSISTENTE ADMINISTRATIVO"
+          "funcao": "ASSISTENTE ADMINISTRATIVO I"
         },
         {
           "uid": "cglllac2m",
           "nome": "SOLANGE SEIXAS MURRO",
           "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
+          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL III"
         },
         {
           "uid": "c4z183vpx",
@@ -21550,6 +21550,21 @@
       },
       {
         "t": 1790971440728,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971441232,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971442329,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971442836,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23128,5 +23143,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971440729
+  "savedAt": 1790971442837
 }

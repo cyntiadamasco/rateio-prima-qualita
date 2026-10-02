@@ -19782,12 +19782,6 @@
           "funcao": "ASSISTENTE ADMINISTRATIVO"
         },
         {
-          "uid": "cn0igmxwa",
-          "nome": "VICTOR TEIXEIRA LESSA",
-          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
-          "funcao": "ASSISTENTE ADMINISTRATIVO"
-        },
-        {
           "uid": "cmtj0x06j",
           "nome": "ZILANDA RODRIGUES DOS SANTOS",
           "dept": "COMPRAS E CONTRATOS",
@@ -19816,12 +19810,6 @@
           "nome": "JANDARA TEIXEIRA DIAS ROCHA",
           "dept": "GESTAO DE PESSOAS - DP",
           "funcao": "ASSISTENTE DE RH I"
-        },
-        {
-          "uid": "cbas3cy3o",
-          "nome": "JOAO VITOR DA SILVA BORGES",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "JOVEM APRENDIZ"
         },
         {
           "uid": "cpi0nvh1j",
@@ -20409,16 +20397,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1788536286267,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788536293618,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
       {
         "t": 1788536301833,
         "perfil": "Administrador",
@@ -21906,6 +21884,16 @@
       },
       {
         "t": 1790971638592,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971640510,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971642958,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23484,5 +23472,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971638595
+  "savedAt": 1790971642960
 }

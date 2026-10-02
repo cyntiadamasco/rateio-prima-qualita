@@ -3517,7 +3517,7 @@ async function _parsearFolhaXLSX(file){
       '<div style="text-align:center;padding:48px 20px;color:#6B7280">'
      +'<div style="font-size:44px;margin-bottom:12px">📊</div>'
      +'<div style="font-size:14px;font-weight:600">Extraindo colaboradores da planilha...</div>'
-     +'<div style="font-size:11px;margin-top:6px;color:#9CA3AF">Processando '+file.name+'</div></div>';
+     +'<div style="font-size:11px;margin-top:6px;color:#9CA3AF">Processando '+esc(file.name)+'</div></div>';
 
     const buf=await file.arrayBuffer();
     const wb=XLSX.read(buf,{type:'array'});
@@ -3566,7 +3566,7 @@ async function _parsearFolhaXLSX(file){
       '<div style="text-align:center;padding:32px 20px">'
      +'<div style="font-size:36px;margin-bottom:10px">⚠️</div>'
      +'<div style="font-size:14px;font-weight:600;color:#DC2626">Erro ao processar a planilha</div>'
-     +'<div style="font-size:12px;color:#6B7280;margin-top:8px">'+err.message+'</div>'
+     +'<div style="font-size:12px;color:#6B7280;margin-top:8px">'+esc(err.message)+'</div>'
      +'<div style="font-size:11px;color:#9CA3AF;margin-top:6px">'
      +'Estrutura esperada: colunas NOME, DEPARTAMENTO e FUNÇÃO</div>'
      +'</div>';
@@ -3579,7 +3579,7 @@ async function _parsearFolhaPDF(file){
       '<div style="text-align:center;padding:48px 20px;color:#6B7280">'
      +'<div style="font-size:44px;margin-bottom:12px">📄</div>'
      +'<div style="font-size:14px;font-weight:600">Extraindo colaboradores da folha...</div>'
-     +'<div style="font-size:11px;margin-top:6px;color:#9CA3AF">Processando '+file.name+'</div></div>';
+     +'<div style="font-size:11px;margin-top:6px;color:#9CA3AF">Processando '+esc(file.name)+'</div></div>';
 
     const buf=await file.arrayBuffer();
     const pdf=await pdfjsLib.getDocument({data:buf}).promise;
@@ -3647,7 +3647,7 @@ async function _parsearFolhaPDF(file){
       '<div style="text-align:center;padding:32px 20px">'
      +'<div style="font-size:36px;margin-bottom:10px">⚠️</div>'
      +'<div style="font-size:14px;font-weight:600;color:#DC2626">Erro ao processar o PDF</div>'
-     +'<div style="font-size:12px;color:#6B7280;margin-top:8px">'+err.message+'</div>'
+     +'<div style="font-size:12px;color:#6B7280;margin-top:8px">'+esc(err.message)+'</div>'
      +'<div style="font-size:11px;color:#9CA3AF;margin-top:6px">'
      +'Certifique-se de que o PDF contém texto pesquisável (não é imagem escaneada)</div>'
      +'</div>';
@@ -3677,19 +3677,21 @@ function _mostrarResultadoVF(folha,fileName){
   const faltaApp  =folha.filter(function(e){return !listaMap.has(_normVF(e.nome));});
   const faltaFolha=lista.filter(function(e){return !folhaMap.has(_normVF(e.nome));});
 
-  // Divergencia de funcao: esta nos dois lados mas cargo (folha) != funcao (app)
-  const funcaoDiff=match.filter(function(e){
-    if(!e.cargo) return false;
-    const appEntry=listaMap.get(_normVF(e.nome));
-    if(!appEntry) return false;
-    return _normVF(e.cargo)!==_normVF(appEntry.funcao||'');
-  });
-
   // Divergencia de departamento e/ou eixo (só quando a folha traz o dado — Excel)
   const deptDiff=match.filter(function(e){
     const appEntry=listaMap.get(_normVF(e.nome));
     if(!appEntry) return false;
     return !!_mudancasVF(e,appEntry).length;
+  });
+
+  const deptDiffSet=new Set(deptDiff.map(function(e){return _normVF(e.nome);}));
+  // Divergencia de funcao: esta nos dois lados mas cargo (folha) != funcao (app)
+  const funcaoDiff=match.filter(function(e){
+    if(!e.cargo) return false;
+    if(deptDiffSet.has(_normVF(e.nome))) return false; // já listado em dept/eixo (mostra a função também)
+    const appEntry=listaMap.get(_normVF(e.nome));
+    if(!appEntry) return false;
+    return _normVF(e.cargo)!==_normVF(appEntry.funcao||'');
   });
 
   // Guarda listas para acoes do modal
@@ -4020,7 +4022,7 @@ function sortColabAZ(){
 function setColabLista(uid,field,val){
   const data=getMesData(currentComp);
   const c=(data.colab_lista||[]).find(x=>x.uid===uid);
-  if(c){c[field]=val;marcarAlterado();}
+  if(c){if(field==='eixo'&&!val) delete c.eixo; else c[field]=val;marcarAlterado();}
 }
 
 function remColabLista(uid){
@@ -4070,7 +4072,8 @@ function importarColabListaAnt(){
   const data=getMesData(currentComp);
   data.colab_lista=prevData.colab_lista.map(c=>({
     uid:'c'+Date.now().toString(36)+Math.random().toString(36).slice(2,7),
-    nome:c.nome||'',dept:c.dept||'',funcao:c.funcao||''
+    nome:c.nome||'',dept:c.dept||'',funcao:c.funcao||'',
+    ...(c.eixo?{eixo:c.eixo}:{})
   }));
   salvar();
   renderRelatorio();

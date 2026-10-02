@@ -18945,7 +18945,7 @@
           "cnpj": "40.289.134/0001-99",
           "ctipo": "GFD",
           "cnum": "- GUIA DO FGTS",
-          "valor": 0,
+          "valor": 25688.37,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -20483,6 +20483,11 @@
         "t": 1790901231062,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790901238558,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -20502,5 +20507,5 @@
     ]
   },
   "currentComp": "2026-09",
-  "savedAt": 1790901231067
+  "savedAt": 1790901238562
 }

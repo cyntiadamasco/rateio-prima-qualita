@@ -19596,12 +19596,6 @@
           "funcao": "ASSISTENTE ADMINISTRATIVO II"
         },
         {
-          "uid": "c8tk9ssmf",
-          "nome": "LEONARDO LIMA CARVALHO",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ANALISTA ADMINISTRATIVO III"
-        },
-        {
           "uid": "civxbipw8",
           "nome": "LEONARDO RODRIGUES FRIAS",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
@@ -21964,6 +21958,11 @@
         "t": 1790971599976,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971602073,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23540,5 +23539,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971599978
+  "savedAt": 1790971602076
 }

@@ -569,6 +569,10 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   .rdg-p{orphans:3;widows:3}
   /* Blocos de despesa fluem entre páginas; só o título não fica isolado (break-after:avoid acima) */
   .rdg-cat-block{break-inside:auto;page-break-inside:auto}
+  /* Cabeçalho do item nunca fica separado do início da justificativa; a justificativa flui entre páginas */
+  .rdg-item{break-after:avoid;page-break-after:avoid}
+  .rdg-just{break-inside:auto}
+  .rdg-matriz td{font-size:9.5px;vertical-align:top}
   /* Critério Quantitativo – paisagem, página única */
   #panel-criterio .alert{display:none!important}
   #panel-criterio .no-print{display:none!important}
@@ -820,6 +824,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:999;display:flex;align-items:center;justify-content:center}
 .modal-box{background:#fff;border-radius:12px;padding:28px;width:480px;max-width:92vw;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.rdg-matriz td{font-size:10.5px;vertical-align:top}.rdg-item-block{margin:0 0 4px}
 .rdg-just{font-size:10px;line-height:1.5;margin:4px 0 10px 18px}.rdg-just-p{margin:2px 0}.rdg-just-cg{white-space:nowrap;font-size:9.5px}
 .modal-title{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px}
 .modal-sub{font-size:12px;color:var(--gray);margin-bottom:18px;line-height:1.6}
@@ -1645,6 +1650,21 @@ function justificativaDespesa(d,comp){
     +(f.zonaAtencao&&f.controles.length?' <em>Zona de atenção (seção 6.3): controles obrigatórios — '+f.controles.map(esc).join('; ')+'.</em>':'')+'</p>';
   h+='<p class="rdg-just-p"><strong>Comprovação.</strong> Anexo '+esc(f.anexo)+(f.anexo==='IV'?' (processo de contratação e contrato vigente)':f.anexo==='V'?' (demonstrativos contábeis e financeiros)':' (demonstrativo de despesas compartilhadas)')+'; Anexo V (razão contábil e extrato)'+((d.pdfUrl||d.pdfUrl2)?'; nota fiscal/recibo e comprovante bancário anexados a este item':'')+'.</p>';
   return h+'</div>';
+}
+/* Evidências da competência para a matriz de conformidade com o Acórdão TCE-RJ nº 3.905/2024 (Manual, cap. 13) */
+function evidenciasTCE(comp){
+  const data=getMesData(comp), desp=data.despesas||[], ativos=contratosAtivos(comp), pm=getPctMap(comp);
+  const cats=[...new Set(desp.map(d=>d.cat))];
+  const transporte=desp.filter(d=>d.cat==='Locação de Veículo Apoio Administrativo').length;
+  const qualif=desp.filter(d=>d.cat==='Melhoria Contínua').length;
+  return {
+    dirigentes:'A folha rateada ("Folha de Pagamento CIGAC") relaciona nominalmente os colaboradores do CIGAC por departamento (seção 4); nenhum dirigente estatutário integra a relação.',
+    corpo_proprio:'Todas as categorias de despesa do mês pertencem aos grupos elegíveis da seção 6.1 do Manual; as equipes custeadas atuam exclusivamente nas atividades compartilhadas vinculadas aos contratos (seção 5.5).',
+    sede:'A única locação de imóvel rateada refere-se ao CIGAC ('+MANUAL_META.cigacEndereco+'); nenhuma despesa da sede estatutária ('+MANUAL_META.sedeEstatutaria+') consta desta competência.',
+    marketing:'Nenhuma despesa classificada como marketing ou publicidade institucional nesta competência'+(cats.includes('Comunicação Institucional')?'; as ações de comunicação lançadas são vinculadas ao objeto (6.3.1).':'.'),
+    privadas:'Participam do rateio os '+ativos.length+' contratos/serviços ativos na competência, com percentuais que somam '+fmtPct(ativos.reduce((a,c)=>a+(pm[c.id]||0),0)*100)+'; nenhuma estrutura beneficiada fica fora da base de cálculo (7.2).',
+    nexo:'Cada uma das '+desp.length+' despesas traz justificativa individual com objeto, necessidade, rateio entre os '+ativos.length+' contratos, indicador do departamento (Anexo II), enquadramento e comprovação (seção 3)'+(transporte||qualif?'; despesas de transporte ('+transporte+') e qualificação ('+qualif+') registram os controles da seção 6.3.':'.')
+  };
 }
 let _justUid=null;
 function abrirJustificativa(uid){
@@ -3949,71 +3969,107 @@ function renderRelatorio(){
   const colabLista=(data.colab_lista||[]).slice();
   if(_colabSortAZ) colabLista.sort((a,b)=>(a.nome||'').localeCompare(b.nome||'','pt-BR'));
 
-  /* Descrições de categorias */
-  const CAT_DESC={
-    'Assessoria Jurídica':'A Assessoria Jurídica é responsável por fornecer suporte legal abrangente, incluindo a elaboração e acompanhamento dos contratos de gestão, relações com órgãos de controle e suporte ao setor de Recursos Humanos. Este departamento garante que todas as operações da Prima Qualitá estejam em conformidade com as leis e regulamentos aplicáveis, minimizando riscos legais e promovendo a transparência nas relações contratuais.',
-    'Auditorias Contábil, Fiscal e Financeira':'As auditorias contábil, fiscal e financeira são indispensáveis para assegurar a conformidade regulatória, a transparência e a integridade das operações financeiras da Prima Qualitá. Fundamentadas no Artigo 13, Inciso III, do Estatuto da Instituição, que possibilita a realização de auditorias periódicas para garantir a idoneidade e a precisão das demonstrações financeiras. As auditorias também atendem às normas contábeis e fiscais aplicáveis a associações civis, conforme regulamentações estabelecidas pela Receita Federal e demais órgãos competentes.',
-    'Folha de Pagamento CIGAC':'A folha de pagamento abrange todos os pagamentos e encargos relacionados aos colaboradores vinculados aos contratos de gestão da Prima Qualitá, centralizados no CIGAC. Esta rubrica é essencial para garantir que a equipe administrativa e diretiva possa executar suas funções de suporte às unidades geridas pela organização. Os componentes incluem salários, encargos sociais (INSS, FGTS), benefícios (vale-transporte, vale-alimentação), impostos relacionados, provisões e demais obrigações trabalhistas.',
-    'Sistema Contábil/Gestão/BI/RH e DP/Análise de Risco':'O uso de sistemas de gestão integrados, incluindo contabilidade, business intelligence (BI), recursos humanos (RH), departamento pessoal (DP) e análise de risco, é crucial para a eficiência operacional da Prima Qualitá. Esses sistemas permitem o monitoramento e análise de dados financeiros e operacionais em tempo real, a gestão de riscos e a integração de processos administrativos para melhorar a produtividade.',
-    'Melhoria Contínua':'A Melhoria Contínua envolve a implementação de iniciativas e projetos que visam aprimorar os processos e serviços oferecidos pela Prima Qualitá, incluindo identificação de áreas de melhoria, desenvolvimento de projetos de inovação, treinamento e capacitação de colaboradores e monitoramento dos resultados das iniciativas.',
-    'Locação de Mobiliário e Equipamentos de Informática (CIGAC)':'A locação de mobiliário e equipamentos de informática é fundamental para fornecer um ambiente de trabalho adequado e bem equipado para os colaboradores do CIGAC, incluindo móveis ergonômicos, equipamentos de informática modernos e manutenção e atualização regular dos equipamentos para garantir a continuidade das operações.',
-    'Locação de Imóvel CIGAC e Despesas':'A locação do imóvel do CIGAC, juntamente com as despesas associadas (energia, água, telefonia, etc.), são essenciais para o funcionamento eficiente da Prima Qualitá. As despesas incluem o aluguel, condomínio, taxas e utilidades do Centro Integrado de Gestão e Assistência Compartilhada.',
-    'Locação de Veículo Apoio Administrativo':'A locação de veículos é essencial para garantir a mobilidade e eficiência das operações administrativas e logísticas da Prima Qualitá. Os veículos são utilizados para transporte de documentos e materiais, apoio logístico às unidades, deslocamento de colaboradores para reuniões e visitas técnicas, e suporte a emergências administrativas.',
-    'Despesas de materiais de expediente e afins':'As despesas de materiais de expediente e afins referem-se à aquisição de materiais e insumos necessários para o funcionamento administrativo do CIGAC, incluindo água potável, materiais de escritório e demais insumos para as atividades diárias.',
-    'Medicina do Trabalho':'As despesas com medicina do trabalho referem-se à prestação dos serviços de Saúde Ocupacional com atenção nos serviços de segurança e medicina do trabalho, referente aos colaboradores do CIGAC.',
-    'Seguro de Vida':'A despesa com seguro de vida para os colaboradores do CIGAC representa um benefício essencial, oferecendo proteção financeira e apoio em situações adversas, tanto para os funcionários quanto para suas famílias, demonstrando o compromisso da instituição com o bem-estar de sua equipe.',
-    'Plataforma Processo Seletivo':'A contratação da plataforma de processo seletivo é essencial para otimizar e profissionalizar o recrutamento de novos colaboradores, permitindo uma gestão eficiente de candidaturas e ampliando o alcance das vagas publicadas, atraindo talentos qualificados alinhados com a missão da instituição.'
-  };
-
-  /* Seções de despesas por categoria (lista = grupo normal ou complementar) */
-  function buildCatSection(cat, lista, comColab, comDesc){
-    if(lista===undefined) lista=desp;
-    if(comColab===undefined) comColab=true;
-    if(comDesc===undefined) comDesc=true;
+  /* Seção 3 – cada item com a justificativa individual do Manual 2ª ed. (item 10.3) */
+  function buildCatSection(cat, lista){
     const itens=lista.filter(d=>d.cat===cat);
     if(!itens.length) return '';
     const catTot=itens.reduce((a,d)=>a+(d.valor||0),0);
-    const desc=comDesc?(CAT_DESC[cat]||''):'';
     const itensHtml=itens.map((d,i)=>{
       let txt='<strong>'+esc(d.fav||'—')+'</strong>';
-      if(d.cnpj) txt+=' <span style="font-size:10.5px;color:#6b7280">CNPJ: '+esc(d.cnpj)+'</span>';
-      if(d.ctipo&&d.cnum) txt+=' | '+esc(d.ctipo)+' nº '+esc(d.cnum);
       if(d.objeto) txt+=': '+esc(d.objeto);
       txt+=' &ndash; <span class="rdg-val">'+R$(d.valor||0)+'</span>';
-      return '<div class="rdg-item"><span class="rdg-item-n">'+(i+1)+'.</span><div>'+txt+'</div></div>';
+      return '<div class="rdg-item-block"><div class="rdg-item"><span class="rdg-item-n">'+(i+1)+'.</span><div>'+txt+'</div></div>'
+        +justificativaDespesa(d,currentComp)
+        +'</div>';
     }).join('');
     return '<div class="rdg-cat-block">'
-      +'<h3 class="rdg-cat-title">'+cat+'</h3>'
-      +(desc?'<p class="rdg-p">'+desc+'</p>':'')
+      +'<h3 class="rdg-cat-title">'+esc(cat)+'</h3>'
       +itensHtml
-      +(cat==='Folha de Pagamento CIGAC'&&comColab&&colabLista.length
-        ?'<p class="rdg-p" style="margin-top:12px;font-style:italic">Segue a relação dos colaboradores vinculados ao CIGAC na competência '+mesRef+':</p>'
-         +'<table class="rdg-table"><thead><tr>'
-         +'<th style="width:36px;text-align:center">Nº</th><th>Nome do Colaborador</th><th>Departamento</th><th>Função</th>'
-         +'</tr></thead><tbody>'
-         +colabLista.map((c,i)=>'<tr>'
-            +'<td style="text-align:center;font-size:10px;padding:3px 4px">'+(i+1)+'</td>'
-            +'<td style="font-size:10px;padding:3px 6px">'+esc(c.nome)+'</td>'
-            +'<td style="font-size:10px;padding:3px 6px">'+esc(c.dept)+'</td>'
-            +'<td style="font-size:10px;padding:3px 6px">'+esc(c.funcao)+'</td>'
-            +'</tr>').join('')
-         +'</tbody></table>'
-        :'')
-      +'<div class="rdg-cat-total">Subtotal '+cat+': <strong>'+R$(catTot)+'</strong></div>'
+      +'<div class="rdg-cat-total">Subtotal '+esc(cat)+': <strong>'+R$(catTot)+'</strong></div>'
       +'</div>';
   }
-  const catSectionsHtml=CATEGORIAS.map(c=>buildCatSection(c,despAtual,true,true)).filter(Boolean).join('');
-  // Bloco separado: despesas complementares do mês anterior
+  /* Agrupa as categorias pelos grupos de despesas permitidas da seção 6.1 do Manual.
+     prefixo '3.' com h2 (despesas do mês) ou '3.N.' com h3 (dentro das complementares) */
+  function buildGruposHtml(lista,prefixo,tag){
+    let n=0; const usadas=new Set();
+    const tot=cs=>lista.filter(d=>cs.includes(d.cat)).reduce((a,d)=>a+(d.valor||0),0);
+    let html=Object.keys(GRUPOS_MANUAL).map(g=>{
+      const cats=CATEGORIAS.filter(c=>CAT_INFO[c]&&CAT_INFO[c].grupo===g&&lista.some(d=>d.cat===c));
+      if(!cats.length) return '';
+      cats.forEach(c=>usadas.add(c)); n++;
+      const G=GRUPOS_MANUAL[g];
+      return '<'+tag+' class="rdg-subsection-title">'+prefixo+n+' Grupo – '+esc(G.nome)+'</'+tag+'>'
+        +'<p class="rdg-p"><strong>Abrangência (Manual, seção 6.1):</strong> '+esc(G.exemplos)+' <strong>Base normativa:</strong> '+esc(G.base)+'. <strong>Total do grupo:</strong> '+R$(tot(cats))+'.</p>'
+        +cats.map(c=>buildCatSection(c,lista)).join('');
+    }).join('');
+    const outras=[...new Set(lista.map(d=>d.cat))].filter(c=>!usadas.has(c));
+    if(outras.length){
+      n++;
+      html+='<'+tag+' class="rdg-subsection-title">'+prefixo+n+' Outras despesas (sem ficha de enquadramento)</'+tag+'>'
+        +'<p class="rdg-p">Categorias sem ficha de enquadramento no Manual RDG; a justificativa própria de cada item deve demonstrar o enquadramento na seção 6.1.</p>'
+        +outras.map(c=>buildCatSection(c,lista)).join('');
+    }
+    return {html,n};
+  }
+  const gruposAtual=buildGruposHtml(despAtual,'3.','h2');
+  const catSectionsHtml=gruposAtual.html;
+  // Subseção separada: despesas complementares do mês anterior (mesmo formato)
+  const nCompl=gruposAtual.n+1;
   const catSectionsComplHtml=despCompl.length
     ?'<div style="margin:26px 0 14px;border-top:3px solid #F59E0B;padding-top:14px">'
-      +'<h2 class="rdg-subsection-title" style="color:#B45309">🔁 Despesas Complementares – Competência '+complLabel+'</h2>'
-      +'<p class="rdg-p">Relação de despesas da competência <strong>'+complLabel+'</strong> cujo pagamento foi efetuado em <strong>'+compLabel(currentComp)+'</strong> (prestação complementar). '
-      +'O rateio destes itens foi efetuado pelo <strong>critério quantitativo de '+complLabel+'</strong>, preservando os percentuais vigentes na competência de origem, de forma segregada das despesas de '+compLabel(currentComp)+'.</p>'
-      +CATEGORIAS.map(c=>buildCatSection(c,despCompl,false,false)).filter(Boolean).join('')
-      +'<div class="rdg-cat-total" style="background:#FFF7ED;color:#B45309">Total das Despesas Complementares '+complLabel+': <strong>'+R$(totalDespCompl)+'</strong></div>'
-      +'<div class="rdg-cat-total">Total Geral ('+compLabel(currentComp)+' + Complementar '+complLabel+'): <strong>'+R$(totalDesp)+'</strong></div>'
+      +'<h2 class="rdg-subsection-title" style="color:#B45309">3.'+nCompl+' Despesas Complementares – Competência '+esc(complLabel)+'</h2>'
+      +'<p class="rdg-p">Relação de despesas da competência <strong>'+esc(complLabel)+'</strong> cujo pagamento foi efetuado em <strong>'+esc(compLabel(currentComp))+'</strong> (prestação complementar). '
+      +'O rateio destes itens foi efetuado pelo <strong>critério quantitativo de '+esc(complLabel)+'</strong>, preservando os percentuais vigentes na competência de origem, de forma segregada das despesas de '+esc(compLabel(currentComp))+'.</p>'
+      +buildGruposHtml(despCompl,'3.'+nCompl+'.','h3').html
+      +'<div class="rdg-cat-total" style="background:#FFF7ED;color:#B45309">Total das Despesas Complementares '+esc(complLabel)+': <strong>'+R$(totalDespCompl)+'</strong></div>'
+      +'<div class="rdg-cat-total">Total Geral ('+esc(compLabel(currentComp))+' + Complementar '+esc(complLabel)+'): <strong>'+R$(totalDesp)+'</strong></div>'
     +'</div>'
     :'';
+
+  /* Seção 4 – colaboradores do CIGAC agrupados por departamento (ordem alfabética) */
+  const deptMap={};
+  colabLista.forEach(c=>{ const k=String(c.dept||'').trim()||'Departamento não informado'; (deptMap[k]=deptMap[k]||[]).push(c); });
+  const depts=Object.keys(deptMap).sort((a,b)=>a.localeCompare(b,'pt-BR'));
+  const colabDeptHtml=depts.map(dp=>{
+    const l=deptMap[dp];
+    return '<h3 class="rdg-cat-title">'+esc(dp)+' — '+l.length+' colaborador'+(l.length===1?'':'es')+'</h3>'
+      +'<table class="rdg-table"><thead><tr>'
+      +'<th style="width:36px;text-align:center">Nº</th><th style="text-align:left">Nome do Colaborador</th><th style="text-align:left">Função</th>'
+      +'</tr></thead><tbody>'
+      +l.map((c,i)=>'<tr>'
+        +'<td style="text-align:center;font-size:10px;padding:3px 4px">'+(i+1)+'</td>'
+        +'<td style="font-size:10px;padding:3px 6px">'+esc(c.nome)+'</td>'
+        +'<td style="font-size:10px;padding:3px 6px">'+esc(c.funcao)+'</td>'
+        +'</tr>').join('')
+      +'</tbody></table>';
+  }).join('');
+
+  /* Seção 2.2 – quadro dos indicadores qualitativos (Manual, cap. 9) */
+  const indQuadroRows=INDICADORES_QUAL.map(ind=>'<tr>'
+    +'<td style="text-align:center;font-weight:700">'+esc(ind.codigo)+'</td>'
+    +'<td>'+esc(ind.nome)+'</td>'
+    +'<td>'+esc(ind.unidade)+'</td>'
+    +'<td>'+esc(ind.fonte)+'</td>'
+    +'</tr>').join('');
+
+  /* Seção 6 – matriz de conformidade com o Acórdão TCE-RJ nº 3.905/2024 (Manual, cap. 13) */
+  const evTCE=evidenciasTCE(currentComp);
+  const matrizRows=MATRIZ_TCE.map(r=>'<tr>'
+    +'<td><strong>'+esc(r.determinacao)+'</strong></td>'
+    +'<td>'+esc(r.medida)+'</td>'
+    +'<td>'+esc(evTCE[r.chave]||'—')+'</td>'
+    +'</tr>').join('');
+
+  /* Seção 7 – Anexos I a VI (Manual, item 10.2) e onde constam no app */
+  const ANEXOS_RDG=[
+    ['Anexo I — Critério Quantitativo','Cálculo do percentual de rateio de cada contrato, com base no nº de colaboradores (competência do mês anterior). É o alicerce de todo o processo.','Aba “Critério Quantitativo”; seção 2.1 deste relatório'],
+    ['Anexo II — Indicadores Qualitativos','Os 8 indicadores que comprovam a efetiva prestação de serviço de cada departamento a cada contrato. Vinculação e transparência (não altera o percentual).','Aba “Indicadores Qualitativos”; seções 2.2 e 2.3 deste relatório'],
+    ['Anexo III — Demonstrativo de Despesas Compartilhadas','Aplicação do percentual sobre cada despesa elegível: objeto, fornecedor, CNPJ, NF/guia, valor total e valores por contrato. Todos os municípios veem a planilha completa.','Aba “Demonstrativo”; comprovantes de cada item na aba “Despesas”; seção 3 deste relatório'],
+    ['Anexo IV — Processos de Contratação e Contratos Vigentes','Amparo contratual de cada despesa rateada (pesquisa de preços, documentação do fornecedor e instrumento assinado). Vedado ratear despesa sem processo instruído.','Aba “Contratos”'],
+    ['Anexo V — Demonstrativos Contábeis e Financeiros','Balancete consolidado, extrato/conciliação bancária, movimentações contábeis e razão por conta. Permite verificar, de forma independente, cada pagamento.','Aba “Dem. Contábeis”'],
+    ['Anexo VI — Manual RDG','O Manual, fundamento metodológico e normativo do modelo, entregue integralmente a cada ente contratante.','Aba “Manual RDG” (PDF da 2ª edição)']
+  ];
+  const anexosRows=ANEXOS_RDG.map(a=>'<tr><td style="font-weight:700">'+esc(a[0])+'</td><td>'+esc(a[1])+'</td><td>'+esc(a[2])+'</td></tr>').join('');
 
   /* Tabela critério quantitativo */
   const cqRows=CONTRATOS.map((ct,i)=>{
@@ -4071,27 +4127,27 @@ function renderRelatorio(){
       +'<span class="rdg-analise-status" style="color:'+col+'">'+txt+'</span>'
       +'</div>';
   }).join(''):'';
-  const sec4Html='<div class="rdg-section" style="page-break-before:always">'
-    +'<h1 class="rdg-section-title">4. Análise dos Indicadores</h1>'
-    +'<h2 class="rdg-subsection-title">4.1 Distribuição Financeira das Despesas – '+mesRef+'</h2>'
+  const sec5Html='<div class="rdg-section" style="page-break-before:always">'
+    +'<h1 class="rdg-section-title">5. Análise dos Indicadores</h1>'
+    +'<h2 class="rdg-subsection-title">5.1 Distribuição Financeira das Despesas – '+mesRef+'</h2>'
     +'<p class="rdg-p">Os gráficos a seguir apresentam a distribuição das despesas do CIGAC rateadas entre os Contratos de Gestão e por categoria de despesa, evidenciando a proporcionalidade dos encargos assumidos por cada parceiro na competência de referência.</p>'
     +'<div class="rdg-chart-grid">'
     +'<div class="rdg-chart-card"><div class="rdg-chart-title">Distribuição por Contrato de Gestão</div><canvas id="rdg-ch-donut" style="max-height:220px"></canvas></div>'
     +'<div class="rdg-chart-card"><div class="rdg-chart-title">Distribuição por Categoria de Despesa</div><canvas id="rdg-ch-cat" style="max-height:220px"></canvas></div>'
     +'</div>'
     +(hasQualData
-      ?'<h2 class="rdg-subsection-title" style="margin-top:24px">4.2 Indicadores Qualitativos – Representatividade por CG</h2>'
+      ?'<h2 class="rdg-subsection-title" style="margin-top:24px">5.2 Indicadores Qualitativos – Representatividade por CG</h2>'
         +'<p class="rdg-p">A representatividade qualitativa de cada Contrato de Gestão é apurada pela média dos 8 indicadores qualitativos, refletindo a demanda efetiva de cada parceiro pelos serviços compartilhados do CIGAC.</p>'
         +'<div class="rdg-chart-card" style="margin:16px 0"><div class="rdg-chart-title">Representatividade Qualitativa por Contrato de Gestão – '+mesRef+'</div><canvas id="rdg-ch-repr" style="max-height:220px"></canvas></div>'
         +'<div class="rdg-subsec-newpage">'
-        +'<h2 class="rdg-subsection-title" style="margin-top:0">4.3 Análise Comparativa: Critério Quantitativo × Representatividade Qualitativa</h2>'
+        +'<h2 class="rdg-subsection-title" style="margin-top:0">5.3 Análise Comparativa: Critério Quantitativo × Representatividade Qualitativa</h2>'
         +'<p class="rdg-p">O Manual de Rateio de Despesas de Gestão (RDG) da Prima Qualitá estabelece um <strong>critério duplo</strong> para a distribuição das despesas compartilhadas do CIGAC: <strong>(i) Critério Quantitativo</strong> – proporção de colaboradores de cada Contrato de Gestão em relação ao total do CIGAC; e <strong>(ii) Critério Qualitativo</strong> – representatividade do uso efetivo dos serviços de gestão compartilhada, mensurada pelos 8 indicadores de desempenho setorial.</p>'
         +'<p class="rdg-p">A combinação dos dois critérios assegura que o rateio reflita tanto a capacidade administrativa instalada quanto a demanda real pelos serviços do CIGAC, promovendo equilíbrio, transparência e isonomia entre os parceiros, em conformidade com os princípios de racionalização de recursos previstos no Manual. Discrepâncias significativas entre os dois critérios sinalizam contratos onde o peso quantitativo não reflete a demanda qualitativa real, justificando revisões periódicas dos parâmetros de rateio.</p>'
         +'<div class="rdg-chart-card" style="margin:16px 0"><div class="rdg-chart-title">Comparativo: % Critério Quantitativo vs % Representatividade Qualitativa – '+mesRef+'</div><canvas id="rdg-ch-compare" style="max-height:220px"></canvas></div>'
         +'<div class="rdg-analise-box"><div class="rdg-analise-hdr"><span>Contrato de Gestão</span><span style="text-align:center">% Quant.</span><span style="text-align:center">% Repres.</span><span style="text-align:center">Delta</span><span style="text-align:center">Alinhamento</span></div>'
         +rdgAnalyseRows+'</div>'
         +'</div>'
-      :'<h2 class="rdg-subsection-title">4.2 Indicadores Qualitativos</h2>'
+      :'<h2 class="rdg-subsection-title">5.2 Indicadores Qualitativos</h2>'
         +'<p class="rdg-p" style="color:#9CA3AF;font-style:italic">Dados de indicadores qualitativos não cadastrados para '+mesRef+'. Acesse a aba <strong>📈 Indicadores Qualitativos</strong> para preenchimento.</p>')
     +'</div>';
   /* Render */
@@ -4174,22 +4230,14 @@ function renderRelatorio(){
 
     </div>
 
-    <!-- 1. INTRODUÇÃO -->
+    <!-- 1. APRESENTAÇÃO -->
     <div class="rdg-section">
-      <h1 class="rdg-section-title">1. Introdução</h1>
-      <h2 class="rdg-subsection-title">1.1 Contextualização</h2>
-      <p class="rdg-p">A Prima Qualitá Saúde é uma organização sem fins lucrativos que atua como gestora de unidades públicas e privadas de saúde, qualificando-se como Organização Social (OS) e Organização da Sociedade Civil (OSC). Com um compromisso firme com a ética, transparência e excelência na gestão, a Prima Qualitá se destaca pela sua capacidade de oferecer serviços de saúde de alta qualidade alinhados às diretrizes do Sistema Único de Saúde (SUS).</p>
-      <h2 class="rdg-subsection-title">1.2 Objetivo do Relatório</h2>
-      <p class="rdg-p">Este relatório de prestação de contas tem como objetivo apresentar detalhadamente as despesas compartilhadas entre os diversos contratos de gestão administrados pela Prima Qualitá Saúde. As despesas objeto deste relatório são aquelas incorridas pelo CIGAC – Centro Integrado de Gestão e Assistência Compartilhada, estrutura administrativa centralizada da Prima Qualitá Saúde responsável pelo suporte técnico, operacional e institucional aos contratos de gestão em execução. Nosso intuito é assegurar a máxima transparência, rastreabilidade e economicidade na aplicação dos recursos públicos, conforme estabelecido no Manual de Rateio de Despesas de Gestão.</p>
-      <p class="rdg-p"><strong>Identificação do Centro de Custos: CIGAC</strong><br>Todas as despesas apresentadas neste relatório são de titularidade do CIGAC – Centro Integrado de Gestão e Assistência Compartilhada, unidade administrativa da Prima Qualitá Saúde que concentra as funções de gestão, governança, suporte jurídico, financeiro, contábil e operacional compartilhados entre os contratos de gestão.</p>
-      <h2 class="rdg-subsection-title">1.3 Importância da Transparência e Conformidade</h2>
-      <p class="rdg-p">A transparência na gestão dos recursos é um dos pilares fundamentais da Prima Qualitá Saúde. Este relatório foi elaborado de acordo com as melhores práticas de governança corporativa e as exigências legais aplicáveis, visando proporcionar uma visão clara e detalhada das despesas de gestão, atendendo às expectativas de todas as partes interessadas, incluindo órgãos de controle, parceiros públicos e a sociedade em geral.</p>
-      <h2 class="rdg-subsection-title">1.4 Estrutura do Relatório</h2>
-      <p class="rdg-p">O relatório está estruturado para fornecer uma visão abrangente e detalhada das despesas compartilhadas, incluindo uma descrição minuciosa de cada item de despesa, os critérios utilizados para o rateio e os indicadores qualitativos que vinculam a atividade da gestão administrativa. A seguir, apresentamos a metodologia empregada, detalhamos cada despesa e fornecemos documentos comprobatórios que sustentam as informações apresentadas.</p>
-      <h2 class="rdg-subsection-title">1.5 Compromisso com a Excelência</h2>
-      <p class="rdg-p">Nosso compromisso com a excelência na gestão de recursos públicos é refletido em cada aspecto deste relatório. Desde a coleta e análise de dados até a apresentação final, cada etapa foi conduzida com rigor e atenção aos detalhes. Com este relatório, a Prima Qualitá Saúde reafirma seu compromisso com a transparência e a boa governança.</p>
-      <h2 class="rdg-subsection-title">1.6 Estrutura Organizacional do CIGAC</h2>
-      <p class="rdg-p">O CIGAC está estruturado em quatro eixos de atuação (Administrativo, Financeiro, Pessoas e Assistencial) e dois departamentos transversais (Jurídico e Compliance), sob coordenação da Superintendência Executiva:</p>
+      <h1 class="rdg-section-title">1. Apresentação</h1>
+      <h2 class="rdg-subsection-title">1.1 O CIGAC – Centro Integrado de Gestão e Assistência Compartilhada</h2>
+      <p class="rdg-p">O Centro Integrado de Gestão e Assistência Compartilhada (CIGAC) é a unidade corporativa responsável por centralizar, integrar e padronizar os serviços administrativos, financeiros e assistenciais que dão suporte aos contratos de gestão, convênios, termos de parceria e demais serviços de caráter público e/ou privado executados pelo Projeto Social Cresce Comunidade — Prima Qualitá, cujas atividades comportam os atos de gestão unificados. Sua atuação como estrutura compartilhada permite mais eficiência, padronização de processos, redução de custos e apoio qualificado às unidades assistenciais. Os custos decorrentes de sua operação são rateados entre os contratos geridos pela Organização Social, conforme metodologia previamente estabelecida e critérios de proporcionalidade, assegurando transparência e equilíbrio financeiro (Manual RDG, seção 3.1).</p>
+      <p class="rdg-p"><strong>Missão.</strong> Promover a integração eficiente dos serviços administrativos, financeiros e assistenciais de forma compartilhada, contribuindo para a qualidade do cuidado, a padronização dos processos e a sustentabilidade dos contratos de gestão. <strong>Visão.</strong> Ser reconhecido como referência em gestão compartilhada corporativa, fortalecendo a excelência operacional e assistencial nos serviços de saúde sob gestão da Prima Qualitá.</p>
+      <h2 class="rdg-subsection-title">1.2 Estrutura Organizacional do CIGAC</h2>
+      <p class="rdg-p">O CIGAC organiza-se em uma Superintendência Executiva e quatro eixos operacionais (Administrativo, Financeiro, de Pessoas e Assistencial), apoiados por dois departamentos transversais (Jurídico e Compliance), que atuam sobre todos os eixos (Manual RDG, seção 3.2). Por se tratar de estrutura compartilhada, cujos serviços beneficiam simultaneamente todos os contratos de gestão administrados pela Organização Social, os custos operacionais do CIGAC não são atribuíveis a uma única unidade e são objeto de rateio entre os contratos geridos (seção 3.3):</p>
       <div class="rdg-organo" style="margin:12px 0;font-size:11px">
         <!-- Organograma CIGAC -->
         <div style="text-align:center;margin-bottom:12px">
@@ -4259,14 +4307,31 @@ function renderRelatorio(){
           </div>
         </div>
       </div>
+      <h2 class="rdg-subsection-title">1.3 Sede Estatutária × CIGAC</h2>
+      <p class="rdg-p">Para atender de forma inequívoca ao entendimento dos órgãos de controle, a Prima Qualitá segrega, com clareza, duas estruturas físicas de naturezas distintas — apenas a segunda integra o rateio (Manual RDG, seção 3.4):</p>
+      <table class="rdg-table">
+        <thead><tr><th style="text-align:left;width:26%">Estrutura</th><th style="text-align:left;width:38%">Endereço</th><th style="text-align:left">Custeada por contrato de gestão?</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Sede estatutária</strong></td><td>${esc(MANUAL_META.sedeEstatutaria)}</td><td><strong>NÃO.</strong> Despesa própria da entidade, mantida com recursos institucionais.</td></tr>
+          <tr><td><strong>Centro Integrado de Gestão e Assistência Compartilhada (CIGAC)</strong></td><td>${esc(MANUAL_META.cigacEndereco)}</td><td><strong>SIM.</strong> Aluguel e reflexos rateados, por abrigar a operação diretamente vinculada aos Planos de Trabalho.</td></tr>
+        </tbody>
+      </table>
+      <p class="rdg-p">No CIGAC funcionam as operações das equipes de Rede de Cuidados, Inteligência Assistencial, Ouvidoria (SAU), Comunicação, Tecnologia da Informação, Administrativa, Compras, Financeiro, Gestão de Pessoas, Monitoramento, Contabilidade, Suprimentos, Prestação de Contas, Jurídico e Compliance, atividades que existem exclusivamente em razão da execução dos contratos de gestão, convênios, termos de parceria e demais serviços de caráter público e/ou privado e que beneficiam, simultaneamente, todas as unidades geridas. Por essa razão, a locação e seus reflexos são despesas de suporte técnico direto à administração das unidades gerenciadas, passíveis de rateio, e não se confundem com o aluguel da sede estatutária, este sim vedado.</p>
+      <h2 class="rdg-subsection-title">1.4 Este Relatório</h2>
+      <p class="rdg-p">Este documento é o Relatório Mensal de Despesas Compartilhadas previsto no item 10.3 do Manual de Rateio de Despesas de Gestão (RDG), ${esc(MANUAL_META.edicao)}, ${esc(MANUAL_META.aprovacao)}. O Relatório Mensal amarra e contextualiza os Anexos I a VI em uma peça coesa: apresenta a contextualização institucional do CIGAC, a metodologia do mês (critérios quantitativo e qualitativo) e uma justificativa individual e fundamentada para cada despesa compartilhada — objeto, necessidade institucional e benefício a todos os contratos; lista nominalmente os colaboradores do CIGAC por departamento, consolida o quadro de indicadores do Anexo II e remete aos comprovantes de cada lançamento. É assinado digitalmente pela Superintendente Executiva, atestando a veracidade e a conformidade das informações.</p>
+      <p class="rdg-p">O relatório está organizado em oito seções: apresentação; metodologia; justificativa individual das despesas; colaboradores do CIGAC; análise dos indicadores; conformidade com o ${esc(MANUAL_META.acordao)}; documentos e anexos; e disposições finais.</p>
+      <h2 class="rdg-subsection-title">1.5 Identificação do Centro de Custos</h2>
+      <p class="rdg-p"><strong>Centro de custos: CIGAC.</strong> Todas as despesas apresentadas neste relatório são de titularidade do CIGAC – Centro Integrado de Gestão e Assistência Compartilhada, unidade administrativa da Prima Qualitá Saúde que concentra as funções de gestão, governança, suporte jurídico, financeiro, contábil e operacional compartilhados entre os contratos de gestão. Competência de referência: <strong>${mesRef}</strong>; mês de pagamento: <strong>${mesPagto}</strong>; total das despesas compartilhadas: <strong>${R$(totalDesp)}</strong>, rateado entre os <strong>${CONTRATOS.length}</strong> contratos/serviços ativos.</p>
     </div>
 
     <!-- 2. METODOLOGIA -->
     <div class="rdg-section" style="page-break-before:always">
       <h1 class="rdg-section-title">2. Metodologia</h1>
-      <p class="rdg-p">A metodologia utilizada para o rateio das despesas de gestão é baseada em critérios quantitativos rigorosos, garantindo a proporcionalidade e a razoabilidade na distribuição dos custos entre os contratos. Indicadores qualitativos são utilizados para avaliar e vincular a atividade da gestão do CIGAC entre os diferentes contratos.</p>
-      <h2 class="rdg-subsection-title">2.1 Critérios Quantitativos</h2>
-      <p class="rdg-p">Os critérios quantitativos são baseados no número de colaboradores vinculados a cada contrato de gestão, alinhado com a Resolução SES/RJ nº 1557/2017. A seguir, a distribuição por contrato na competência <strong>${mesRef}</strong>:</p>
+      <p class="rdg-p">A metodologia do rateio combina dois instrumentos com funções distintas: o <strong>critério quantitativo</strong>, que define o percentual de cada contrato (Manual RDG, capítulo 8), e os <strong>indicadores qualitativos</strong>, que não alteram o percentual e demonstram o nexo de causalidade entre os serviços do CIGAC e cada contrato (capítulo 9).</p>
+      <h2 class="rdg-subsection-title">2.1 Critério Quantitativo</h2>
+      <p class="rdg-p">O principal critério de rateio é quantitativo e proporcional: o percentual de cada contrato corresponde à razão entre o número de colaboradores a ele vinculados e o total de colaboradores da instituição, tomando por base a competência do mês anterior. Esse critério, validado ao longo da vigência da ${esc(MANUAL_META.resSES)} e acompanhado pelo TCE-RJ, observa proporcionalidade, razoabilidade, rastreabilidade, clareza e desdobramento analítico.</p>
+      <p class="rdg-p"><strong>Fórmula:</strong> % de rateio do contrato = (CLT + Estatutários cedidos + PJs vinculados ao contrato) ÷ total geral de colaboradores da instituição — apurado com base na competência do mês anterior. Entende-se por colaborador qualquer mão de obra que preste serviço nas unidades objeto de cada contrato ou no CIGAC, com vínculo por CLT, PJ ou Estatutário; o percentual apurado é aplicado integralmente sobre cada despesa elegível do mês.</p>
+      <p class="rdg-p">Distribuição por contrato na competência <strong>${mesRef}</strong>${data.refColab?' (referência dos colaboradores: '+esc(data.refColab)+')':''}:</p>
       <table class="rdg-table">
         <thead>
           <tr>
@@ -4288,18 +4353,13 @@ function renderRelatorio(){
           </tr>
         </tfoot>
       </table>
-      <h2 class="rdg-subsection-title">2.2 Indicadores Qualitativos</h2>
-      <p class="rdg-p">Os indicadores qualitativos não são critérios de rateio, mas ferramentas de avaliação e vinculação da atividade do CIGAC com os contratos de gestão:</p>
-      <ol class="rdg-ol">
-        <li><strong>Gerência de Gestão de Pessoas</strong> – Indicador: Número de empregados CLT. Fonte: Relatório do Sistema de RH/DP.</li>
-        <li><strong>Comunicação Institucional</strong> – Indicador: Número de materiais de apoio produzidos. Fonte: Relatório demonstrativo do setor de comunicação.</li>
-        <li><strong>Departamento Administrativo-Financeiro</strong> – Indicador: Número de notas fiscais classificadas. Fonte: Relatório de Documentos de Entradas no mês.</li>
-        <li><strong>Departamento de Contabilidade e Prestação de Contas</strong> – Indicador: Número de lançamentos contábeis. Fonte: Relatório de Documentos de Entradas no mês.</li>
-        <li><strong>Departamento de Logística e Suprimentos</strong> – Indicador: Número de notas fiscais validadas. Fonte: Relatório de Documentos na categoria Materiais e Medicamentos.</li>
-        <li><strong>Departamento de Compras e Gestão de Contratos</strong> – Indicador: Número de contratos vigentes e processos de seleção. Fonte: Relatório de Contratos Vigentes no mês.</li>
-        <li><strong>Assessoria Jurídica</strong> – Indicador: Número de contratos validados, ofícios enviados e colaboradores por contrato. Fonte: Relatório da Assessoria Jurídica no mês.</li>
-        <li><strong>Departamento Assistencial</strong> – Indicador: Número de pacientes atendidos. Fonte: Relatório do BI no mês.</li>
-      </ol>
+      <p class="rdg-p"><strong>Limite contratual.</strong> O percentual efetivamente permitido para o rateio varia entre contratos e entes públicos, conforme cláusula contratual e a ${esc(MANUAL_META.resSES)} (limite de 3% do valor mensal do contrato para o rateio da sede), observadas as características de cada unidade — localização, porte e complexidade (Manual RDG, capítulo 8).</p>
+      <h2 class="rdg-subsection-title">2.2 Indicadores Qualitativos (Nexo de Causalidade)</h2>
+      <p class="rdg-p">Os indicadores qualitativos não definem nem alteram o percentual de rateio: sua função é demonstrar, com números fidedignos e rastreáveis, que cada departamento do CIGAC efetivamente prestou serviço a cada contrato no mês de referência, para configurar o nexo causal. É essa vinculação qualitativa que diferencia o rateio de uma taxa de administração vedada. São oito indicadores, cada um representando a produção mensurável de um departamento, que consolidam o Quadro de Indicadores Qualitativos do Anexo II (Manual RDG, capítulo 9):</p>
+      <table class="rdg-table">
+        <thead><tr><th style="width:44px;text-align:center">Código</th><th style="text-align:left">Departamento</th><th style="text-align:left">Unidade de vinculação (produção)</th><th style="text-align:left">Fonte</th></tr></thead>
+        <tbody>${indQuadroRows}</tbody>
+      </table>
       <div${hasQualData?' class="rdg-subsec-newpage"':''}>
       <h2 class="rdg-subsection-title" style="margin-top:0">2.3 Detalhamento dos Indicadores Qualitativos – ${mesRef}</h2>
       ${hasQualData
@@ -4315,41 +4375,56 @@ function renderRelatorio(){
       </div>
     </div>
 
-    <!-- 3. DESCRIÇÃO DAS DESPESAS -->
+    <!-- 3. JUSTIFICATIVA INDIVIDUAL DAS DESPESAS -->
     <div class="rdg-section" style="page-break-before:always">
-      <h1 class="rdg-section-title">3. Descrição das Despesas</h1>
+      <h1 class="rdg-section-title">3. Justificativa Individual das Despesas</h1>
+      <p class="rdg-p">Em cumprimento ao item 10.3 do Manual RDG, cada despesa compartilhada é apresentada com justificativa individual e fundamentada, em seis blocos: objeto e fornecedor; necessidade institucional e benefício aos contratos; rateio aplicado; nexo de causalidade (indicador do departamento responsável, Anexo II); enquadramento (grupo da seção 6.1, condições cumulativas e base normativa); e comprovação. As despesas estão organizadas pelos grupos de despesas permitidas da seção 6.1 do Manual.</p>
       <div class="rdg-total-geral">Total Geral das Despesas CIGAC – ${mesRef}: ${R$(totalDesp)}</div>
       ${catSectionsHtml||'<p class="rdg-p" style="color:#9CA3AF;font-style:italic">Nenhuma despesa cadastrada para '+mesRef+'. Acesse a aba <strong>📋 Despesas</strong> para preenchimento.</p>'}
       ${catSectionsComplHtml}
     </div>
 
-    ${sec4Html}
-
-    <!-- 5. RELATÓRIOS ADICIONAIS -->
+    <!-- 4. COLABORADORES DO CIGAC -->
     <div class="rdg-section" style="page-break-before:always">
-      <h1 class="rdg-section-title">5. Relatórios Adicionais</h1>
-      <h2 class="rdg-subsection-title">5.1 Documentos Comprobatórios</h2>
-      <p class="rdg-p">As documentações de comprovação da execução de cada item descrito neste relatório estão devidamente anexadas. Isso inclui notas fiscais, recibos, relatórios de ponto eletrônico, folhas de pagamento, relatórios de auditoria, documentos de suporte jurídico, e quaisquer outros registros necessários para assegurar a transparência e a conformidade das despesas apresentadas.</p>
+      <h1 class="rdg-section-title">4. Colaboradores do CIGAC</h1>
+      ${colabLista.length
+        ?'<p class="rdg-p">Relação nominal dos <strong>'+colabLista.length+'</strong> colaboradores do CIGAC na competência <strong>'+mesRef+'</strong>, agrupados por departamento ('+depts.length+' departamento'+(depts.length===1?'':'s')+'), conforme o item 10.3 do Manual RDG. O custo desta equipe integra a categoria “Folha de Pagamento CIGAC” (seção 3).</p>'
+        :'<p class="rdg-p" style="color:#9CA3AF;font-style:italic">Relação nominal de colaboradores não cadastrada para '+mesRef+'. Utilize o painel de colaboradores no topo desta aba para importá-la.</p>'}
+      <p class="rdg-p"><strong>Nota.</strong> Os dirigentes estatutários não integram a folha rateada: a Diretoria Estatutária (Diretor Presidente, Financeiro e Técnico Administrativo) não é remunerada por contrato de gestão, ainda que atue nos Planos de Trabalho. Somente as equipes do CIGAC vinculadas à execução dos contratos e serviços são rateadas, conforme o capítulo 13 do Manual RDG e o ${esc(MANUAL_META.acordao)}.</p>
+      ${colabDeptHtml}
+    </div>
+
+    ${sec5Html}
+
+    <!-- 6. CONFORMIDADE COM O ACÓRDÃO TCE-RJ -->
+    <div class="rdg-section" style="page-break-before:always">
+      <h1 class="rdg-section-title">6. Conformidade com o Acórdão TCE-RJ nº 3.905/2024</h1>
+      <p class="rdg-p">O capítulo 13 do Manual RDG relaciona cada determinação/vedação do ${esc(MANUAL_META.acordao)} à medida concreta adotada pela Prima Qualitá. O quadro a seguir reproduz essa matriz e acrescenta, para cada linha, a evidência correspondente nesta competência.</p>
+      <table class="rdg-table rdg-matriz">
+        <thead><tr><th style="text-align:left;width:24%">Determinação do TCE-RJ</th><th style="text-align:left;width:36%">Medida adotada (Manual 2ª ed.)</th><th style="text-align:left">Evidência nesta competência</th></tr></thead>
+        <tbody>${matrizRows}</tbody>
+      </table>
+    </div>
+
+    <!-- 7. DOCUMENTOS E ANEXOS -->
+    <div class="rdg-section" style="page-break-before:always">
+      <h1 class="rdg-section-title">7. Documentos e Anexos</h1>
+      <p class="rdg-p">O Relatório Mensal é acompanhado de seis anexos (I a VI), entregues a cada ente contratante e à respectiva comissão de avaliação e fiscalização (Manual RDG, item 10.2):</p>
+      <table class="rdg-table">
+        <thead><tr><th style="text-align:left;width:26%">Anexo</th><th style="text-align:left">Conteúdo e função</th><th style="text-align:left;width:26%">Onde consta</th></tr></thead>
+        <tbody>${anexosRows}</tbody>
+      </table>
+      <p class="rdg-p">Além dos anexos, integram a prestação de contas a Memória de Cálculo (aba “Memórias de Cálculo”), o Demonstrativo de Despesas do Rateio, o Razão Contábil e os demais documentos comprobatórios — notas fiscais, notas de débito, comprovantes de pagamento, balancete e extratos bancários mensais, processos de contratação e a documentação do total de colaboradores que embasou o percentual de cada contrato (Manual RDG, capítulo 11).</p>
+      <p class="rdg-p">Toda a documentação é entregue em meio eletrônico, assinada pela autoridade competente do CIGAC, e arquivada pela instituição pelo prazo mínimo de <strong>cinco anos</strong>, à disposição dos órgãos de controle (seção 11.4). Por não perderem a qualidade de recursos públicos, os valores rateados sujeitam-se à Lei de Acesso à Informação (Lei nº 12.527/2011): os relatórios mensais do CIGAC, incluindo todos os anexos, são publicados no portal institucional da Prima Qualitá e acessíveis a qualquer cidadão, órgão de controle ou ente contratante, em <strong>primaqualitasaude.org/prestacao-de-contas-contratos-vigentes</strong> (seção 12.1).</p>
     </div>
 
     <div class="rdg-final-block">
-    <!-- 6. DISPOSIÇÕES FINAIS -->
+    <!-- 8. DISPOSIÇÕES FINAIS -->
     <div class="rdg-section">
-      <h1 class="rdg-section-title">6. Disposições Finais</h1>
-      <p class="rdg-p">Este relatório de prestação de contas mensal foi elaborado com o objetivo de proporcionar uma visão detalhada, transparente e abrangente das despesas compartilhadas entre os diversos contratos de gestão administrados pela Prima Qualitá. Através da descrição minuciosa de cada item de despesa e da apresentação dos critérios quantitativos e qualitativos utilizados, buscamos assegurar a máxima clareza e conformidade com as exigências legais e regulatórias.</p>
-      <p class="rdg-p">As despesas descritas, incluindo os serviços de assessoria jurídica, auditorias, folha de pagamento, sistemas de gestão, melhoria contínua, locação de imóvel e equipamentos, são fundamentais para a manutenção da eficiência e eficácia das operações da Prima Qualitá e o suporte a todas as unidades de saúde geridas.</p>
-      <p class="rdg-p">A inclusão de documentação comprobatória anexada a este relatório reforça nosso compromisso com a transparência e a prestação de contas rigorosa. Ao concluir este relatório mensal, reafirmamos o compromisso da Prima Qualitá com a excelência na gestão dos recursos públicos. Estamos à disposição para quaisquer esclarecimentos adicionais que se façam necessários.</p>
-      <div class="rdg-anexos">
-        <strong>Lista de Anexos:</strong>
-        <ol class="rdg-ol" style="margin-top:8px">
-          <li>Anexo I – CRITÉRIOS QUANTITATIVOS</li>
-          <li>Anexo II – INDICADORES QUALITATIVOS</li>
-          <li>Anexo III – CONSOLIDADO E COMPROVAÇÃO DAS DESPESAS</li>
-          <li>Anexo IV – PROCESSOS DE CONTRATAÇÃO/AQUISIÇÃO E CONTRATOS</li>
-          <li>Anexo V – DEMONSTRATIVOS CONTÁBEIS E FINANCEIROS</li>
-          <li>Anexo VI – MANUAL DO RATEIO DE DESPESAS DE GESTÃO (RDG)</li>
-        </ol>
-      </div>
+      <h1 class="rdg-section-title">8. Disposições Finais</h1>
+      <p class="rdg-p">Este Relatório Mensal de Despesas Compartilhadas apresenta, para a competência ${mesRef}, a contextualização institucional do CIGAC, a metodologia de rateio (critério quantitativo e indicadores qualitativos), a justificativa individual e fundamentada de cada despesa compartilhada, a relação nominal dos colaboradores do CIGAC e a matriz de conformidade com o ${esc(MANUAL_META.acordao)}, nos termos do Manual de Rateio de Despesas de Gestão, ${esc(MANUAL_META.edicao)}.</p>
+      <p class="rdg-p">As despesas relacionadas decorrem de serviços compartilhados que atendem simultaneamente a todos os contratos de gestão geridos pela Prima Qualitá, foram rateadas pelo critério quantitativo e estão amparadas pela documentação comprobatória dos Anexos I a VI.</p>
+      <p class="rdg-p">Ao subscrever este relatório, a Superintendente Executiva atesta a veracidade e a conformidade das informações apresentadas (Manual RDG, item 10.3). Permanecemos à disposição para quaisquer esclarecimentos adicionais que se façam necessários.</p>
     </div>
 
     <!-- ASSINATURA -->

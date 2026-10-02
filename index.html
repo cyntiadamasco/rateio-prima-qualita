@@ -483,6 +483,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 @media print{
   body{background:#fff;font-size:10px}
   .rdg-just-p{orphans:2;widows:2}
+  h4.rdg-comp-eixo{break-after:avoid;page-break-after:avoid}
   #desp-body tr{display:table-row!important}
   .no-print,.app-header,.comp-bar,.tabs-bar,.panel:not(.active){display:none!important}
   .panel.active{display:block!important;padding:8px}
@@ -1459,7 +1460,7 @@ const ESTRUTURA_CIGAC=[
       'zelar pela aplicação obrigatória do Manual RDG, inclusive vedações e condições de elegibilidade das despesas',
       'assinar o Relatório Mensal de Despesas Compartilhadas, atestando a veracidade das informações',
       'garantir a transparência ativa dos relatórios e anexos no portal institucional'],
-    indicador:null,cargos:['Superintendente Executivo(a)'],folha:['SUPERINTENDENCIA EXECUTIVA']},
+    indicador:null,cargos:['Superintendente Executivo(a)'],folha:['SUPERINTENDENCIA EXECUTIVA','SUPERINTENDENCIA']},
   {id:'sup_assistencial',eixo:'assistencial',nome:'Superintendência Assistencial',artigo:'art. 15',
     missao:'Definir e supervisionar as diretrizes assistenciais corporativas e o desempenho assistencial dos contratos.',
     competencias:['definir diretrizes, políticas e metas assistenciais alinhadas ao SUS e aos Planos de Trabalho',
@@ -1492,7 +1493,7 @@ const ESTRUTURA_CIGAC=[
     indicador:null,cargos:['Coordenação Assistencial'],folha:[]},
   {id:'rede_cuidados',eixo:'assistencial',nome:'Coordenação de Rede de Cuidados',artigo:'arts. 19 a 21',
     missao:'Coordenar linhas de cuidado, fluxos assistenciais e educação permanente entre as unidades.',
-    competencias:['participar do planejamento do fluxo assistencial entre os serviços da Rede de Atenção à Saúde',
+    competencias:['participar do planejamento do fluxo assistencial entre os serviços da Rede Assistencial de Saúde (RAS)',
       'fortalecer, com os supervisores locais, os protocolos e fluxos de referência e contrarreferência',
       'apoiar a implementação de linhas de cuidado',
       'acompanhar os indicadores de desempenho e de qualidade da rede',
@@ -1619,7 +1620,7 @@ const ESTRUTURA_CIGAC=[
       'controlar o quadro de pessoal de cada contrato conforme o Plano de Trabalho e o dimensionamento pactuado',
       'conduzir com o Jurídico as relações trabalhistas e sindicais',
       'gerir os programas legais de aprendizagem, cota de pessoas com deficiência e estágio'],
-    indicador:'ind1',cargos:['Gerente de Gestão de Pessoas'],folha:['GESTAO DE PESSOAS']},
+    indicador:'ind1',cargos:['Gerente de Gestão de Pessoas'],folha:['GESTAO DE PESSOAS','DEPARTAMENTO DE RECURSOS HUMANOS']},
   {id:'dp',eixo:'pessoas',nome:'Departamento Pessoal',artigo:'art. 52',
     missao:'Processar a folha e as rotinas de DP dos contratos (indicador I1), com admissões, ponto, férias, benefícios e rescisões conformes ao eSocial.',
     competencias:['admitir após processo seletivo, exame admissional e check-list, com registro tempestivo no eSocial',
@@ -1677,13 +1678,15 @@ const ESTRUTURA_CIGAC=[
       'manter canal de denúncias com sigilo, anonimato e vedação de retaliação'],
     indicador:null,cargos:['Coordenador(a) de Compliance'],folha:['COMPLIANCE','DEPARTAMENTO DE COMPLIANCE']}
 ];
-/* Unidade do Regimento de um departamento da folha: nome exato (normalizado) ou, senão, o maior
-   prefixo cadastrado (ex.: 'GESTAO DE PESSOAS - DP/R&S' → Departamento Pessoal); sem correspondência → null */
+/* Unidade do Regimento de um departamento da folha: nome exato (normalizado) ou, só para nomes que
+   começam por 'GESTAO DE PESSOAS - ', o maior prefixo cadastrado (ex.: 'GESTAO DE PESSOAS - DP/R&S' →
+   Departamento Pessoal); sem correspondência → null (não há prefixo genérico) */
 function unidadeRegimentoDe(dept){
   const t=_normVF(String(dept||''));
   if(!t) return null;
   const exata=ESTRUTURA_CIGAC.find(u=>u.folha.includes(t));
   if(exata) return exata;
+  if(!t.startsWith('GESTAO DE PESSOAS - ')) return null;
   let melhor=null,tam=0;
   ESTRUTURA_CIGAC.forEach(u=>u.folha.forEach(f=>{ if(f.length>tam&&t.startsWith(f)){ melhor=u; tam=f.length; } }));
   return melhor;
@@ -1971,14 +1974,14 @@ function evidenciasTCE(comp){
   const imov=desp.filter(d=>d.cat==='Locação de Imóvel CIGAC e Despesas');
   const comInd=desp.filter(d=>CAT_INFO[d.cat]&&CAT_INFO[d.cat].indicador).length;
   return {
-    dirigentes:'A relação nominal da seção 4 ('+colab.length+' colaboradores em '+nDept+' departamentos e '+nEixos+' eixos) é a base da categoria "Folha de Pagamento CIGAC"'
+    dirigentes:'A relação nominal da seção 4 ('+colab.length+' colaboradores em '+nDept+' departamentos e '+nEixos+' grupos da estrutura (art. 12 do Regimento)) é a base da categoria "Folha de Pagamento CIGAC"'
       +(folha.length?' ('+R$(soma(folha))+' nesta competência)':' (sem lançamento nesta competência)')
       +'. Declaração da entidade: nenhum dirigente estatutário integra essa relação.',
     corpo_proprio:(semFicha.length
       ?semFicha.length+' categoria(s) sem ficha de enquadramento, com justificativa própria (seção 3).'
       :'As '+cats.length+' categorias lançadas têm ficha de enquadramento em grupo elegível da seção 6.1 do Manual.')
       +' Declaração da entidade: as equipes custeadas atuam exclusivamente nas atividades compartilhadas vinculadas aos contratos (seção 5.5).'
-      +' A equipe do CIGAC não se confunde com corpo próprio (art. 4º, § 2º, do Regimento Interno); as atribuições de cada departamento constam da composição da folha (seção 3).',
+      +' A equipe do CIGAC não se confunde com corpo próprio (art. 4º, § 2º, do Regimento Interno); as atribuições de cada departamento '+(folha.length?'constam da composição da folha (seção 3).':'constam do Regimento Interno do CIGAC.'),
     sede:(imov.length
       ?'A locação de imóvel rateada nesta competência ('+imov.length+' lançamento(s), '+R$(soma(imov))+') refere-se ao CIGAC ('+MANUAL_META.cigacEndereco+').'
       :'Não há locação de imóvel nesta competência.')
@@ -2040,7 +2043,11 @@ function composicaoFolhaHTML(comp){
     h+='<h4 class="rdg-comp-eixo" style="font-size:10.5px;font-weight:700;color:#1B3A5C;margin:8px 0 2px">'+esc(eixoNome(ex))+' — '+pl(tot)+'</h4>';
     ks.forEach(k=>{
       const g=m[k], u=g.u, n=g.list.length;
-      if(u){
+      if(!u&&ex){
+        // nome antigo/ambíguo de departamento (ex.: DEPARTAMENTO ASSISTENCIAL): fica sob o eixo, sem missão/competências
+        h+='<p class="rdg-just-p rdg-comp-un" data-n="'+n+'"><strong>'+esc(g.label)+'</strong> — '+pl(n)+': '+funcoes(g.list)+'. '
+          +'Relação anterior à padronização dos departamentos pelo Regimento Interno; o detalhamento por unidade regimental passa a constar a partir da competência em que a relação nominal foi atualizada pela folha.</p>';
+      } else if(u){
         usadas.add(u.id);
         h+='<p class="rdg-just-p rdg-comp-un" data-n="'+n+'"><strong>'+esc(u.nome)+'</strong> ('+esc(u.artigo)+' do Regimento) — '+pl(n)+': '+funcoes(g.list)+'. '
           +'Missão: '+esc(u.missao)+' Competências: '+u.competencias.map(esc).join('; ')+'.'+indTxt(u)+NEXO+'</p>';
@@ -2051,7 +2058,7 @@ function composicaoFolhaHTML(comp){
     });
   });
   const nE=EIXOS_CIGAC.filter(e=>porEixo[e.id]).length, nD=usadas.size;
-  h+='<p class="rdg-just-p" style="font-weight:700;margin-top:6px">Total: '+pl(cl.length)+' em '+nE+' eixo'+(nE===1?'':'s')+' e '+nD+' departamento'+(nD===1?' regimental':'s regimentais')
+  h+='<p class="rdg-just-p" style="font-weight:700;margin-top:6px">Total: '+pl(cl.length)+' em '+nE+' grupo'+(nE===1?'':'s')+' da estrutura (art. 12 do Regimento) e '+nD+' departamento'+(nD===1?' regimental':'s regimentais')
     +(semCorresp?' ('+pl(semCorresp)+' em departamento'+(semCorresp===1?'':'s')+' sem correspondência no Regimento)':'')+'.</p>';
   return h+'</div>';
 }
@@ -4517,7 +4524,7 @@ function renderRelatorio(){
       }).join('')
       +'<div class="rdg-cat-total">Total – '+esc(eixoNome(ex))+': '+plColab(tot)+' em '+ds.length+' departamento'+(ds.length===1?'':'s')+'</div>';
   }).join('')
-  +(colabLista.length?'<div class="rdg-total-geral" style="margin-top:12px">Total geral: '+plColab(colabLista.length)+' em '+depts.length+' departamento'+(depts.length===1?'':'s')+' e '+nEixosInf+' eixo'+(nEixosInf===1?'':'s')+(nSemEixo?' ('+plColab(nSemEixo)+' sem eixo informado)':'')+'</div>':'');
+  +(colabLista.length?'<div class="rdg-total-geral" style="margin-top:12px">Total geral: '+plColab(colabLista.length)+' em '+depts.length+' departamento'+(depts.length===1?'':'s')+' e '+nEixosInf+' grupo'+(nEixosInf===1?'':'s')+' da estrutura (art. 12 do Regimento)'+(nSemEixo?' ('+plColab(nSemEixo)+' sem eixo informado)':'')+'</div>':'');
 
   /* Seção 2.2 – quadro dos indicadores qualitativos (Manual, cap. 9) */
   const indQuadroRows=INDICADORES_QUAL.map(ind=>'<tr>'
@@ -4547,7 +4554,7 @@ function renderRelatorio(){
   const regPdf=state.regimentoCIGAC||{};
   const anexosRows=ANEXOS_RDG.map(a=>'<tr><td style="font-weight:700">'+esc(a[0])+'</td><td>'+esc(a[1])+'</td><td>'+esc(a[2])+'</td></tr>').join('')
     +'<tr><td style="font-weight:700">'+esc(REGIMENTO_META.titulo)+' — documento normativo complementar (art. 2º: subordina-se ao Manual RDG)</td>'
-    +'<td>Organização do CIGAC, atribuições dos departamentos e descrição dos cargos de gestão; edição de '+esc(REGIMENTO_META.edicao)+', '+esc(REGIMENTO_META.status)+'. Em conflito com o Manual RDG em matéria de rateio, prevalece o Manual (art. 2º, parágrafo único).</td>'
+    +'<td>Organização do CIGAC, atribuições dos departamentos e descrição dos cargos de gestão; edição de '+esc(REGIMENTO_META.edicao)+', '+esc(REGIMENTO_META.status)+'. Em conflito com o Manual RDG em matéria de rateio, elegibilidade de despesas e prestação de contas, prevalece o Manual (art. 2º, parágrafo único).</td>'
     +'<td>'+(regPdf.pdfUrl?'PDF anexado na aba “Manual RDG” do sistema RDG: '+esc(regPdf.pdfNome||'arquivo do Regimento'):'PDF não anexado (aba “Manual RDG” do sistema RDG)')+'</td></tr>';
 
   /* Tabela critério quantitativo */
@@ -4780,7 +4787,7 @@ function renderRelatorio(){
           </div>
         </div>
       </div>
-      <p class="rdg-p">A organização e as atribuições de cada unidade estão descritas no <strong>${esc(REGIMENTO_META.titulo)}</strong> (${esc(REGIMENTO_META.edicao)}), documento ${esc(REGIMENTO_META.status)}. Nos termos do seu art. 12, o CIGAC compõe-se de uma estrutura central de comando (Superintendência Executiva), quatro eixos operacionais (Assistencial, Administrativo, Financeiro e de Pessoas) e dois departamentos transversais (Jurídico e Compliance), que atuam sobre todos os eixos; o organograma do CIGAC integra o Regimento como Anexo A (art. 12, parágrafo único). O Regimento orienta-se pelo Manual RDG e pela legislação aplicável (${esc(REGIMENTO_META.base)}) e, em matéria de rateio, prevalece o Manual RDG (art. 2º, parágrafo único).</p>
+      <p class="rdg-p">A organização e as atribuições de cada unidade estão descritas no <strong>${esc(REGIMENTO_META.titulo)}</strong> (${esc(REGIMENTO_META.edicao)}), documento ${esc(REGIMENTO_META.status)}. Nos termos do seu art. 12, o CIGAC compõe-se de uma estrutura central de comando (Superintendência Executiva), quatro eixos operacionais (Assistencial, Administrativo, Financeiro e de Pessoas) e dois departamentos transversais (Jurídico e Compliance), que atuam sobre todos os eixos; o organograma do CIGAC integra o Regimento como Anexo A (art. 12, parágrafo único). O Regimento orienta-se pelo Manual RDG e pela legislação aplicável (${esc(REGIMENTO_META.base)}) e, em matéria de rateio, elegibilidade de despesas e prestação de contas, prevalece o Manual RDG (art. 2º, parágrafo único).</p>
       <h2 class="rdg-subsection-title">1.3 Sede Estatutária × CIGAC</h2>
       <p class="rdg-p">Para atender de forma inequívoca ao entendimento dos órgãos de controle, a Prima Qualitá segrega, com clareza, duas estruturas físicas de naturezas distintas — apenas a segunda integra o rateio (Manual RDG, seção 3.4):</p>
       <table class="rdg-table">
@@ -4862,7 +4869,7 @@ function renderRelatorio(){
     <div class="rdg-section" style="page-break-before:always">
       <h1 class="rdg-section-title">4. Colaboradores do CIGAC</h1>
       ${colabLista.length
-        ?'<p class="rdg-p">Relação nominal dos <strong>'+colabLista.length+'</strong> colaboradores do CIGAC na competência <strong>'+mesRef+'</strong>, agrupados por eixo ('+nEixosInf+' eixo'+(nEixosInf===1?'':'s')+') e, dentro de cada eixo, por departamento ('+depts.length+' departamento'+(depts.length===1?'':'s')+'), segundo a estrutura do CIGAC por eixos (seção 3.2 do Manual RDG) e a nomenclatura da folha de pagamento, conforme o item 10.3 do Manual RDG. O custo desta equipe integra a categoria “Folha de Pagamento CIGAC” (seção 3).</p>'
+        ?'<p class="rdg-p">Relação nominal dos <strong>'+colabLista.length+'</strong> colaboradores do CIGAC na competência <strong>'+mesRef+'</strong>, agrupados em '+nEixosInf+' grupo'+(nEixosInf===1?'':'s')+' da estrutura (art. 12 do Regimento: Superintendência Executiva, eixos e departamentos transversais) e, dentro de cada grupo, por departamento ('+depts.length+' departamento'+(depts.length===1?'':'s')+'), segundo a estrutura do CIGAC por eixos (seção 3.2 do Manual RDG) e a nomenclatura da folha de pagamento, conforme o item 10.3 do Manual RDG. O custo desta equipe integra a categoria “Folha de Pagamento CIGAC” (seção 3).</p>'
         :'<p class="rdg-p" style="color:#9CA3AF;font-style:italic">Relação nominal de colaboradores não cadastrada para '+mesRef+'. Utilize o painel de colaboradores no topo desta aba para importá-la.</p>'}
       <p class="rdg-p"><strong>Nota.</strong> Os dirigentes estatutários não integram a folha rateada: a Diretoria Estatutária (Diretor Presidente, Financeiro e Técnico Administrativo) não é remunerada por contrato de gestão, ainda que atue nos Planos de Trabalho. Somente as equipes do CIGAC vinculadas à execução dos contratos e serviços são rateadas, conforme o capítulo 13 do Manual RDG e o ${esc(MANUAL_META.acordao)}.</p>
       ${colabDeptHtml}
@@ -8298,7 +8305,7 @@ function renderManual(){
         <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,#0F766E,#14B8A6);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">🏛</div>
         <div style="flex:1;min-width:0">
           <div style="font-size:13px;font-weight:700;color:var(--navy)">${esc(REGIMENTO_META.titulo)}</div>
-          <div style="font-size:11px;color:var(--gray);margin-top:2px">Documento normativo complementar, ${esc(REGIMENTO_META.status)}; em matéria de rateio prevalece o Manual RDG (art. 2º).</div>
+          <div style="font-size:11px;color:var(--gray);margin-top:2px">Documento normativo complementar, ${esc(REGIMENTO_META.status)}; em matéria de rateio, elegibilidade de despesas e prestação de contas, prevalece o Manual RDG (art. 2º, parágrafo único).</div>
           <div style="font-size:11px;color:var(--gray);margin-top:2px">
             ${hasReg
               ? `<span style="color:#16A34A;font-weight:600">✓ Anexado: ${esc(rg.pdfNome)}</span>`

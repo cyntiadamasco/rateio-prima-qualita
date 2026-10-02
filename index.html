@@ -2349,7 +2349,7 @@ function buildDespesaRow(d, i, pctMap, catOpts, tipoOpts, n){
   </tr>`;
 }
 
-function esc(s){ return (s||'').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
 
 function addDespesa(){
   const data=getMesData(currentComp);
@@ -2546,10 +2546,10 @@ function renderDemonstrativo(){
       const isFirst=di===0;
       bodyRows+=`<tr class="${(d.valor||0)===0?'tr-zero':''}">
         <td class="td-c fw-bold">${d.id}</td>
-        <td style="font-size:11px;max-width:220px">${d.compl?'<span title="Despesa complementar de '+prevCompLabel(currentComp)+' — rateio pelos percentuais daquela competência">🔁</span> ':''}${d.objeto}</td>
-        <td style="font-size:11px">${d.fav}</td>
-        <td class="td-mono">${d.cnpj}</td>
-        <td style="font-size:11px">${comp}</td>
+        <td style="font-size:11px;max-width:220px">${d.compl?'<span title="Despesa complementar de '+prevCompLabel(currentComp)+' — rateio pelos percentuais daquela competência">🔁</span> ':''}${esc(d.objeto)}</td>
+        <td style="font-size:11px">${esc(d.fav)}</td>
+        <td class="td-mono">${esc(d.cnpj)}</td>
+        <td style="font-size:11px">${esc(comp)}</td>
         <td class="td-r fw-bold">${(d.valor||0)>0?R$(d.valor):'R$ -'}</td>
         ${cgCells}
       </tr>`;
@@ -2693,7 +2693,7 @@ function renderMemorias(){
       <span class="fw-bold">Exibir:</span>
       <select id="mem-filtro" onchange="renderMemorias()" style="width:200px">
         <option value="todos">Todos os IDs</option>
-        ${despesas.map((d,i)=>`<option value="${i}">ID ${d.id} – ${d.fav.substring(0,35)}</option>`).join('')}
+        ${despesas.map((d,i)=>`<option value="${i}">ID ${d.id} – ${esc((d.fav||'').substring(0,35))}</option>`).join('')}
       </select>
     </div>
   </div>`;
@@ -2802,10 +2802,10 @@ function renderMemorias(){
         <div class="id-section">
           <div class="id-section-title">Despesa Executada – ID ${d.id}</div>
           <div class="id-field-row"><div class="id-field-label">ID</div><div class="id-field-value fw-bold">${d.id}</div></div>
-          <div class="id-field-row"><div class="id-field-label">Objeto</div><div class="id-field-value">${d.objeto}</div></div>
-          <div class="id-field-row"><div class="id-field-label">Favorecido</div><div class="id-field-value fw-bold">${d.fav}</div></div>
-          <div class="id-field-row"><div class="id-field-label">CNPJ/CPF</div><div class="id-field-value td-mono">${d.cnpj}</div></div>
-          <div class="id-field-row"><div class="id-field-label">Comprovação Fiscal</div><div class="id-field-value">${comp}</div></div>
+          <div class="id-field-row"><div class="id-field-label">Objeto</div><div class="id-field-value">${esc(d.objeto)}</div></div>
+          <div class="id-field-row"><div class="id-field-label">Favorecido</div><div class="id-field-value fw-bold">${esc(d.fav)}</div></div>
+          <div class="id-field-row"><div class="id-field-label">CNPJ/CPF</div><div class="id-field-value td-mono">${esc(d.cnpj)}</div></div>
+          <div class="id-field-row"><div class="id-field-label">Comprovação Fiscal</div><div class="id-field-value">${esc(comp)}</div></div>
           <div class="id-field-row" style="border-color:var(--azul)"><div class="id-field-label" style="background:var(--azul-lt);color:var(--azul)">Valor (R$)</div><div class="id-field-value fw-bold" style="font-size:14px;color:var(--navy)">${R$(d.valor)}</div></div>
         </div>
 
@@ -3338,9 +3338,9 @@ function _mostrarResultadoVF(folha,fileName){
       +'<div class="vf-list" style="border-color:#FDE68A">'
       +faltaApp.map(function(e,i){
         return '<div class="vf-row" style="background:'+(i%2?'#FFFBEB':'#fff')+'">'
-          +(e.mat?'<span class="vf-mat">'+e.mat+'</span>':'')
-          +'<span class="vf-nome">'+e.nome+'</span>'
-          +(e.dept?'<span class="vf-dept">'+e.dept+'</span>':'')
+          +(e.mat?'<span class="vf-mat">'+esc(e.mat)+'</span>':'')
+          +'<span class="vf-nome">'+esc(e.nome)+'</span>'
+          +(e.dept?'<span class="vf-dept">'+esc(e.dept)+'</span>':'')
           +'<button id="vfbtn-'+i+'" style="padding:2px 10px;background:#F59E0B;color:#fff;'
           +'border:none;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap" '
           +'onclick="adicionarColabVF('+i+')">+ Adicionar</button>'
@@ -3356,8 +3356,8 @@ function _mostrarResultadoVF(folha,fileName){
       +'<div class="vf-list" style="border-color:#FECACA">'
       +faltaFolha.map(function(e,i){
         return '<div class="vf-row" style="background:'+(i%2?'#FFF5F5':'#fff')+'">'
-          +'<span class="vf-nome">'+e.nome+'</span>'
-          +'<span class="vf-dept">'+(e.funcao||e.dept||'\u2014')+'</span>'
+          +'<span class="vf-nome">'+esc(e.nome)+'</span>'
+          +'<span class="vf-dept">'+esc(e.funcao||e.dept||'\u2014')+'</span>'
           +'<button id="vfbtn-rem-'+i+'" style="padding:2px 8px;background:#FEE2E2;color:#DC2626;'
           +'border:1px solid #FECACA;border-radius:4px;font-size:11px;cursor:pointer" '
           +'onclick="remColabVFapp('+i+')"'
@@ -3377,10 +3377,10 @@ function _mostrarResultadoVF(folha,fileName){
         const appEntry=listaMap.get(_normVF(e.nome));
         const funcaoAtual=appEntry?(appEntry.funcao||'(vazio)'):'?';
         return '<div class="vf-row" style="background:'+(i%2?'#FAF5FF':'#fff')+';flex-wrap:wrap">'
-          +'<span class="vf-nome" style="width:100%;margin-bottom:2px">'+e.nome+'</span>'
+          +'<span class="vf-nome" style="width:100%;margin-bottom:2px">'+esc(e.nome)+'</span>'
           +'<span style="font-size:10px;color:#9CA3AF;flex:1">'
-          +'App: <em style="color:#6D28D9">'+funcaoAtual+'</em>'
-          +' → Folha: <em style="color:#16A34A">'+e.cargo+'</em></span>'
+          +'App: <em style="color:#6D28D9">'+esc(funcaoAtual)+'</em>'
+          +' → Folha: <em style="color:#16A34A">'+esc(e.cargo)+'</em></span>'
           +'<button id="vfbtn-func-'+i+'" style="padding:2px 8px;background:#EDE9FE;color:#6D28D9;'
           +'border:1px solid #DDD6FE;border-radius:4px;font-size:11px;cursor:pointer;white-space:nowrap" '
           +'onclick="atualizarFuncaoVF('+i+')">Atualizar</button>'
@@ -3399,10 +3399,10 @@ function _mostrarResultadoVF(folha,fileName){
         const appEntry=listaMap.get(_normVF(e.nome));
         const deptAtual=appEntry?(appEntry.dept||'(vazio)'):'?';
         return '<div class="vf-row" style="background:'+(i%2?'#F0F9FF':'#fff')+';flex-wrap:wrap">'
-          +'<span class="vf-nome" style="width:100%;margin-bottom:2px">'+e.nome+'</span>'
+          +'<span class="vf-nome" style="width:100%;margin-bottom:2px">'+esc(e.nome)+'</span>'
           +'<span style="font-size:10px;color:#9CA3AF;flex:1">'
-          +'App: <em style="color:#0369A1">'+deptAtual+'</em>'
-          +' → Folha: <em style="color:#16A34A">'+e.dept+'</em></span>'
+          +'App: <em style="color:#0369A1">'+esc(deptAtual)+'</em>'
+          +' → Folha: <em style="color:#16A34A">'+esc(e.dept)+'</em></span>'
           +'<button id="vfbtn-dept-'+i+'" style="padding:2px 8px;background:#E0F2FE;color:#0369A1;'
           +'border:1px solid #BAE6FD;border-radius:4px;font-size:11px;cursor:pointer;white-space:nowrap" '
           +'onclick="atualizarDeptVF('+i+')">Atualizar</button>'
@@ -3710,10 +3710,10 @@ function renderRelatorio(){
     const catTot=itens.reduce((a,d)=>a+(d.valor||0),0);
     const desc=comDesc?(CAT_DESC[cat]||''):'';
     const itensHtml=itens.map((d,i)=>{
-      let txt='<strong>'+(d.fav||'—')+'</strong>';
-      if(d.cnpj) txt+=' <span style="font-size:10.5px;color:#6b7280">CNPJ: '+d.cnpj+'</span>';
-      if(d.ctipo&&d.cnum) txt+=' | '+d.ctipo+' nº '+d.cnum;
-      if(d.objeto) txt+=': '+d.objeto;
+      let txt='<strong>'+esc(d.fav||'—')+'</strong>';
+      if(d.cnpj) txt+=' <span style="font-size:10.5px;color:#6b7280">CNPJ: '+esc(d.cnpj)+'</span>';
+      if(d.ctipo&&d.cnum) txt+=' | '+esc(d.ctipo)+' nº '+esc(d.cnum);
+      if(d.objeto) txt+=': '+esc(d.objeto);
       txt+=' &ndash; <span class="rdg-val">'+R$(d.valor||0)+'</span>';
       return '<div class="rdg-item"><span class="rdg-item-n">'+(i+1)+'.</span><div>'+txt+'</div></div>';
     }).join('');
@@ -3728,9 +3728,9 @@ function renderRelatorio(){
          +'</tr></thead><tbody>'
          +colabLista.map((c,i)=>'<tr>'
             +'<td style="text-align:center;font-size:10px;padding:3px 4px">'+(i+1)+'</td>'
-            +'<td style="font-size:10px;padding:3px 6px">'+c.nome+'</td>'
-            +'<td style="font-size:10px;padding:3px 6px">'+c.dept+'</td>'
-            +'<td style="font-size:10px;padding:3px 6px">'+c.funcao+'</td>'
+            +'<td style="font-size:10px;padding:3px 6px">'+esc(c.nome)+'</td>'
+            +'<td style="font-size:10px;padding:3px 6px">'+esc(c.dept)+'</td>'
+            +'<td style="font-size:10px;padding:3px 6px">'+esc(c.funcao)+'</td>'
             +'</tr>').join('')
          +'</tbody></table>'
         :'')
@@ -4515,8 +4515,8 @@ function renderAnalise(){
     const pctItem=((d.compl?pctAntAn:pctMap)[ct.id]||0)*100;
     return `<tr${d.compl?' style="background:#FFF7ED"':''}>
     <td class="td-c fw-bold">${d.id}</td>
-    <td style="font-size:11px">${d.compl?'<span title="Despesa complementar de '+prevCompLabel(currentComp)+' — rateio pelos percentuais daquela competência">🔁</span> ':''}${d.objeto}</td>
-    <td style="font-size:11px">${d.fav}</td>
+    <td style="font-size:11px">${d.compl?'<span title="Despesa complementar de '+prevCompLabel(currentComp)+' — rateio pelos percentuais daquela competência">🔁</span> ':''}${esc(d.objeto)}</td>
+    <td style="font-size:11px">${esc(d.fav)}</td>
     <td class="td-r">${R$(d.valor)}</td>
     <td class="td-c"><span class="pct-pill"${d.compl?' style="background:#F59E0B;color:#fff" title="Percentual de '+prevCompLabel(currentComp)+'"':''}>${fmtPct(pctItem)}</span></td>
     <td class="td-r fw-bold">${R$(d.alocado)}</td>
@@ -4528,8 +4528,8 @@ function renderAnalise(){
   if(!rows) rows=`<tr><td colspan="6" style="text-align:center;color:var(--gray);padding:20px">Nenhuma despesa alocada para este CG no mês selecionado.</td></tr>`;
 
   const localRows=despLocais.map(d=>`<tr>
-    <td style="font-size:11px;padding:5px 8px">${d.objeto}</td>
-    <td style="font-size:11px;padding:5px 8px;color:#6B7280">${d.fornecedor||'&mdash;'}</td>
+    <td style="font-size:11px;padding:5px 8px">${esc(d.objeto)}</td>
+    <td style="font-size:11px;padding:5px 8px;color:#6B7280">${d.fornecedor?esc(d.fornecedor):'&mdash;'}</td>
     <td class="td-r fw-bold" style="color:#7C3AED">${R$(d.valor)}</td>
   </tr>`).join('');
 
@@ -4865,8 +4865,8 @@ function renderValidacao(){
   const cgOptsDL=CONTRATOS.map(c=>`<option value="${c.id}"${c.id===cgSelDL?' selected':''}>${c.sigla} – ${c.nome}</option>`).join('');
   const totalDL=despLocaisDL.reduce((a,d)=>a+(d.valor||0),0);
   const dlRows=despLocaisDL.map(d=>{
-    const safeObj=d.objeto.replace(/"/g,'&quot;');
-    const safeForn=(d.fornecedor||'').replace(/"/g,'&quot;');
+    const safeObj=esc(d.objeto);
+    const safeForn=esc(d.fornecedor);
     if(_editingDL===d.id) return `<tr style="background:#F5F3FF">
       <td style="padding:4px 6px">
         <input id="dle-obj" type="text" value="${safeObj}"
@@ -4888,8 +4888,8 @@ function renderValidacao(){
       </td>
     </tr>`;
     return `<tr>
-      <td style="font-size:11px;padding:5px 8px">${d.objeto}</td>
-      <td style="font-size:11px;padding:5px 8px;color:#6B7280">${d.fornecedor||'—'}</td>
+      <td style="font-size:11px;padding:5px 8px">${esc(d.objeto)}</td>
+      <td style="font-size:11px;padding:5px 8px;color:#6B7280">${d.fornecedor?esc(d.fornecedor):'—'}</td>
       <td style="text-align:right;padding:5px 8px;font-size:11px;font-weight:700">${R$(d.valor)}</td>
       <td style="text-align:center;padding:5px 8px;white-space:nowrap">
         <button onclick="editDespLocal('${ctDL.id}','${d.id}')" title="Editar"

@@ -19725,7 +19725,7 @@
           "uid": "c5wzi7jee",
           "nome": "SUELLEN PIRES DE FREITAS",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "AUXILIAR ADMINISTRATIVO"
+          "funcao": "AUX ADMINISTRATIVO"
         },
         {
           "uid": "cjhy2mxx5",
@@ -19791,7 +19791,7 @@
           "uid": "c28b8bbua",
           "nome": "SORAYA ARAUJO DAMASCO",
           "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
-          "funcao": "COORDENADOR DE COMPRAS"
+          "funcao": "COORDENADOR DE COMPRAS III"
         },
         {
           "uid": "c4lihos47",
@@ -20037,7 +20037,7 @@
           "uid": "cdbtdw43l",
           "nome": "SORAIA MUZI XAVIER",
           "dept": "DEPARTAMENTO FINANCEIRO",
-          "funcao": "ASSISTENTE ADMINISTRATIVO II"
+          "funcao": "ASSISTENTE FINANCEIRO III"
         },
         {
           "uid": "cnwcbxf9g",
@@ -21565,6 +21565,21 @@
       },
       {
         "t": 1790971442836,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971444038,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971444574,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971445840,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23143,5 +23158,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971442837
+  "savedAt": 1790971445843
 }

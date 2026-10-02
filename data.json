@@ -19980,12 +19980,6 @@
           "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL III"
         },
         {
-          "uid": "c4z183vpx",
-          "nome": "THAYZA QUEIROZ DA SILVA",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ASSISTENTE DE DEPARTAMENTO"
-        },
-        {
           "uid": "cczllif9q",
           "nome": "CAMILLO DE LELLIS CARNEIRO JUNQUEIRA",
           "dept": "SUPERINTENDENCIA ASSISTENCIAL",
@@ -20337,11 +20331,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1788536360021,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
       {
         "t": 1788536367562,
         "perfil": "Administrador",
@@ -21834,6 +21823,11 @@
       },
       {
         "t": 1790971725025,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971727912,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23412,5 +23406,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971725028
+  "savedAt": 1790971727916
 }

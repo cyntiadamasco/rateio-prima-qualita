@@ -19596,21 +19596,9 @@
           "funcao": "ASSISTENTE ADMINISTRATIVO II"
         },
         {
-          "uid": "c971hqb4s",
-          "nome": "LINCON DA SILVA FULY",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ASSISTENTE DE TI II"
-        },
-        {
           "uid": "cyt94par6",
           "nome": "MARCELA ROCHA FERREIRA",
           "dept": "REDE DE CUIDADOS",
-          "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
-        },
-        {
-          "uid": "cneb09ipc",
-          "nome": "MARIA EDUARDA MORAES XAVIER",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
           "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
         },
         {
@@ -20463,16 +20451,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1788536248194,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788536250748,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
       {
         "t": 1788536257457,
         "perfil": "Administrador",
@@ -21960,6 +21938,16 @@
       },
       {
         "t": 1790971605328,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971607080,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971609009,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23538,5 +23526,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971605331
+  "savedAt": 1790971609011
 }

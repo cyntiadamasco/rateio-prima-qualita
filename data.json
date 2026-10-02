@@ -19598,7 +19598,7 @@
         {
           "uid": "cvgps16x2",
           "nome": "GLAUCIA DE OLIVEIRA PINHEIRO CAPIBARIBE",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "REDE DE CUIDADOS",
           "funcao": "COORDENADOR DE REDE DE CUIDADOS II"
         },
         {
@@ -20114,7 +20114,7 @@
         {
           "uid": "clkikmm21",
           "nome": "GRAZIELA SCARPONETI MARREIRO",
-          "dept": "DEPARTAMENTO PESSOAL",
+          "dept": "GESTAO DE PESSOAS - DP",
           "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL III"
         },
         {
@@ -21712,6 +21712,16 @@
         "t": 1790971494084,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971497846,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971498400,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23288,5 +23298,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971494085
+  "savedAt": 1790971498401
 }

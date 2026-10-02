@@ -19926,12 +19926,6 @@
           "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL III"
         },
         {
-          "uid": "cg60g64sm",
-          "nome": "CRISTIANE ROSA CHAVES",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ASSISTENTE ADMINISTRATIVO"
-        },
-        {
           "uid": "cfrc3bmi8",
           "nome": "ELENA VIANA MACEDO",
           "dept": "GESTAO DE PESSOAS",
@@ -19954,12 +19948,6 @@
           "nome": "GRAZIELA SCARPONETI MARREIRO",
           "dept": "GESTAO DE PESSOAS - DP",
           "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL III"
-        },
-        {
-          "uid": "c7ja7u7h0",
-          "nome": "ITALO LUIZ RODRIGUES DA COSTA",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL I"
         },
         {
           "uid": "czck9ppme",
@@ -20355,16 +20343,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1788536343945,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788536348755,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
       {
         "t": 1788536354614,
         "perfil": "Administrador",
@@ -21852,6 +21830,16 @@
       },
       {
         "t": 1790971718096,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971720394,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971722630,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23430,5 +23418,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971718098
+  "savedAt": 1790971722632
 }

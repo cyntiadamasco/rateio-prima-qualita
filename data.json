@@ -19466,14 +19466,16 @@
         {
           "uid": "c8bp9saot",
           "nome": "FABIA FIALHO MOREIRA BRAZIL",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "ANALISTA ADMINISTRATIVO III"
+          "dept": "ADMINISTRATIVO",
+          "funcao": "ANALISTA ADMINISTRATIVO III",
+          "eixo": "ADMINISTRATIVO"
         },
         {
           "uid": "coc313hl1",
           "nome": "FERNANDA FONSECA COUTINHO GROSS",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "ANALISTA ADMINISTRATIVO III"
+          "dept": "ADMINISTRATIVO",
+          "funcao": "ANALISTA ADMINISTRATIVO III",
+          "eixo": "ADMINISTRATIVO"
         },
         {
           "uid": "cs7b5q0vu",
@@ -19508,8 +19510,9 @@
         {
           "uid": "c63yw541j",
           "nome": "MARINALVA PEREIRA MACHADO",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "COORDENADOR ADMINISTRATIVO I - RT"
+          "dept": "ADMINISTRATIVO",
+          "funcao": "COORDENADOR ADMINISTRATIVO I - RT",
+          "eixo": "ADMINISTRATIVO"
         },
         {
           "uid": "crafxy9mp",
@@ -19658,44 +19661,51 @@
         {
           "uid": "c5ieseimi",
           "nome": "DIEGO DE FIGUEIREDO SANTOS",
-          "dept": "DEPARTAMENTO DE COMPLIANCE",
-          "funcao": "COORDENADOR DE COMPLIANCE III"
+          "dept": "COMPLIANCE",
+          "funcao": "COORDENADOR DE COMPLIANCE III",
+          "eixo": "COMPLIANCE"
         },
         {
           "uid": "clj36pgaf",
           "nome": "ANDERSON DE SOUZA MOUTINHO",
-          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
-          "funcao": "ANALISTA DE COMPRAS III"
+          "dept": "COMPRAS E CONTRATOS",
+          "funcao": "ANALISTA DE COMPRAS III",
+          "eixo": "ADMINISTRATIVO"
         },
         {
           "uid": "ckr8a8nl8",
           "nome": "ANNA VICTORIA DOS SANTOS DE OLIVEIRA",
-          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
-          "funcao": "JOVEM APRENDIZ"
+          "dept": "COMPRAS E CONTRATOS",
+          "funcao": "JOVEM APRENDIZ",
+          "eixo": "ADMINISTRATIVO"
         },
         {
           "uid": "cqz1twt7v",
           "nome": "DANIELA MOTA SANTOS",
-          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
-          "funcao": "JOVEM APRENDIZ"
+          "dept": "COMPRAS E CONTRATOS",
+          "funcao": "JOVEM APRENDIZ",
+          "eixo": "ADMINISTRATIVO"
         },
         {
           "uid": "cy5xrbb13",
           "nome": "NICOLE CANTINI FIGUEIRA LIMA",
-          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
-          "funcao": "ANALISTA DE COMPRAS III"
+          "dept": "COMPRAS E CONTRATOS",
+          "funcao": "ANALISTA DE COMPRAS III",
+          "eixo": "ADMINISTRATIVO"
         },
         {
           "uid": "c5khrapqd",
           "nome": "RAFAEL VIANA DA MOTTA",
-          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
-          "funcao": "ANALISTA DE COMPRAS III"
+          "dept": "COMPRAS E CONTRATOS",
+          "funcao": "ANALISTA DE COMPRAS III",
+          "eixo": "ADMINISTRATIVO"
         },
         {
           "uid": "c28b8bbua",
           "nome": "SORAYA ARAUJO DAMASCO",
-          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
-          "funcao": "COORDENADOR DE COMPRAS III"
+          "dept": "COMPRAS E CONTRATOS",
+          "funcao": "COORDENADOR DE COMPRAS III",
+          "eixo": "ADMINISTRATIVO"
         },
         {
           "uid": "cpp22eipm",
@@ -19724,14 +19734,16 @@
         {
           "uid": "chxa92x6i",
           "nome": "FRANCINE CORDEIRO MONTEIRO",
-          "dept": "DEPARTAMENTO DE CONTABILIDADE",
-          "funcao": "COORDENADOR CONTABIL III"
+          "dept": "CONTABILIDADE",
+          "funcao": "COORDENADOR CONTABIL III",
+          "eixo": "FINANCEIRO"
         },
         {
           "uid": "ctxyqh2md",
           "nome": "THASSIA ARAUJO DO AMARAL",
-          "dept": "DEPARTAMENTO DE CONTABILIDADE",
-          "funcao": "ANALISTA CONTABIL III"
+          "dept": "CONTABILIDADE",
+          "funcao": "ANALISTA CONTABIL III",
+          "eixo": "FINANCEIRO"
         },
         {
           "uid": "cl0u0hlbr",
@@ -19760,14 +19772,16 @@
         {
           "uid": "czgi8ymdl",
           "nome": "IGOR MOTTA CARVALHO",
-          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
-          "funcao": "AUXILIAR ADMINISTRATIVO III"
+          "dept": "PRESTACAO DE CONTAS",
+          "funcao": "AUXILIAR ADMINISTRATIVO III",
+          "eixo": "FINANCEIRO"
         },
         {
           "uid": "csqwbof75",
           "nome": "JONATHAS MARQUES RIBEIRO",
-          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
-          "funcao": "AUXILIAR ADMINISTRATIVO III"
+          "dept": "PRESTACAO DE CONTAS",
+          "funcao": "AUXILIAR ADMINISTRATIVO III",
+          "eixo": "FINANCEIRO"
         },
         {
           "uid": "cmtj0x06j",
@@ -19892,20 +19906,23 @@
         {
           "uid": "co0j7t7zf",
           "nome": "ROBSON LOUREIRO FERNANDES",
-          "dept": "DEPARTAMENTO JURÍDICO",
-          "funcao": "GERENTE JURIDICO II"
+          "dept": "JURIDICO",
+          "funcao": "GERENTE JURIDICO II",
+          "eixo": "JURIDICO"
         },
         {
           "uid": "co6pgxjfy",
           "nome": "RODRIGO PAPAZIAN PINHO",
-          "dept": "DEPARTAMENTO JURÍDICO",
-          "funcao": "COORDENADOR JURIDICO III"
+          "dept": "JURIDICO",
+          "funcao": "COORDENADOR JURIDICO III",
+          "eixo": "JURIDICO"
         },
         {
           "uid": "ciiandixg",
           "nome": "THIAGO FARIAS DIAS",
-          "dept": "DEPARTAMENTO JURÍDICO",
-          "funcao": "GERENTE JURÍDICO II"
+          "dept": "JURIDICO",
+          "funcao": "GERENTE JURIDICO II",
+          "eixo": "JURIDICO"
         },
         {
           "uid": "ct6zwmpv1",
@@ -20331,11 +20348,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1788536375472,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
       {
         "t": 1788536398250,
         "perfil": "Administrador",
@@ -21828,6 +21840,11 @@
       },
       {
         "t": 1790971812913,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790974008750,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23406,5 +23423,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971812916
+  "savedAt": 1790974008752
 }

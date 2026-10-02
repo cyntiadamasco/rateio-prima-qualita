@@ -19614,12 +19614,6 @@
           "funcao": "ASSISTENTE ADMINISTRATIVO III"
         },
         {
-          "uid": "c24odzmpw",
-          "nome": "PALOMA SUZANO MEDEIROS",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "ANALISTA ADMINISTRATIVO III"
-        },
-        {
           "uid": "chqfqsdw8",
           "nome": "RAFAELA DA SILVA LEMOS",
           "dept": "INTELIGENCIA ASSISTENCIAL",
@@ -20451,11 +20445,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1788536257457,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
       {
         "t": 1788536261415,
         "perfil": "Administrador",
@@ -21948,6 +21937,11 @@
       },
       {
         "t": 1790971609009,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971612684,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23526,5 +23520,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971609011
+  "savedAt": 1790971612688
 }

@@ -1418,6 +1418,33 @@ const MATRIZ_TCE=[
   {chave:'nexo',determinacao:'Despesas com relação direta com o objeto, nexo de causalidade, proporcionalidade, necessidade e rastreabilidade',medida:'Requisitos incorporados como condições cumulativas (6.1) e comprovados nos Anexos I a VI e no Relatório Mensal; comunicação e transporte com controles específicos (6.3).'}
 ];
 
+/* Estrutura do CIGAC por eixos (Manual RDG 2ª ed., seção 3.2) e nomenclatura da folha */
+const EIXOS_CIGAC=[
+  {id:'superintendencia',nome:'Superintendência Executiva'},
+  {id:'administrativo',nome:'Eixo Administrativo'},
+  {id:'financeiro',nome:'Eixo Financeiro'},
+  {id:'pessoas',nome:'Eixo de Pessoas'},
+  {id:'assistencial',nome:'Eixo Assistencial'},
+  {id:'juridico',nome:'Jurídico (transversal)'},
+  {id:'compliance',nome:'Compliance (transversal)'}
+];
+/* Id do eixo a partir de um texto (eixo ou departamento da folha, ou o próprio id) */
+function eixoIdDe(texto){
+  const t=_normVF(String(texto||''));
+  if(!t) return '';
+  if(/SUPERINTENDENCIA EXECUTIVA|^SUPERINTENDENCIA$/.test(t)) return 'superintendencia';
+  if(/COMPLIANCE/.test(t)) return 'compliance';
+  if(/JURIDIC/.test(t)) return 'juridico';
+  if(/PESSOAS|RECURSOS HUMANOS|DEPARTAMENTO PESSOAL|^RH$|R&S|SST|REMUNERACAO|T&D/.test(t)) return 'pessoas';
+  if(/ASSISTENCIAL|REDE DE CUIDADOS|INTELIGENCIA ASSISTENCIAL|EDUCACAO EM SAUDE|OUVIDORIA/.test(t)) return 'assistencial';
+  if(/FINANCEIR|CONTABIL|PRESTACAO DE CONTAS|CONTROLADORIA|TESOURARIA|CUSTOS/.test(t)) return 'financeiro';
+  if(/ADMINISTRATIV|COMPRAS|CONTRATOS|SUPRIMENTOS|LOGISTICA|COMUNICACAO|TECNOLOGIA|OPERACIONAL|TI$/.test(t)) return 'administrativo';
+  return '';
+}
+/* Eixo de um colaborador: campo eixo gravado, senão inferido do departamento (meses antigos não têm eixo) */
+function eixoDoColab(c){ return eixoIdDe(c&&c.eixo)||eixoIdDe(c&&c.dept)||''; }
+function eixoNome(id){ const e=EIXOS_CIGAC.find(x=>x.id===id); return e?e.nome:'Eixo não informado'; }
+
 const COMP_TIPOS = ['NF','Guia','Boleto','Planilha','Pensão','Folha de Pagamento','Outro'];
 
 const MESES_PT = ['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
@@ -1693,12 +1720,13 @@ function evidenciasTCE(comp){
   const qualif=desp.filter(d=>d.cat==='Melhoria Contínua').length;
   const colab=data.colab_lista||[];
   const nDept=new Set(colab.map(c=>String(c.dept||'').trim()||'Departamento não informado')).size;
+  const nEixos=new Set(colab.map(eixoDoColab).filter(Boolean)).size;
   const folha=desp.filter(d=>d.cat==='Folha de Pagamento CIGAC');
   const semFicha=cats.filter(c=>!CAT_INFO[c]);
   const imov=desp.filter(d=>d.cat==='Locação de Imóvel CIGAC e Despesas');
   const comInd=desp.filter(d=>CAT_INFO[d.cat]&&CAT_INFO[d.cat].indicador).length;
   return {
-    dirigentes:'A relação nominal da seção 4 ('+colab.length+' colaboradores em '+nDept+' departamentos) é a base da categoria "Folha de Pagamento CIGAC"'
+    dirigentes:'A relação nominal da seção 4 ('+colab.length+' colaboradores em '+nDept+' departamentos e '+nEixos+' eixos) é a base da categoria "Folha de Pagamento CIGAC"'
       +(folha.length?' ('+R$(soma(folha))+' nesta competência)':' (sem lançamento nesta competência)')
       +'. Declaração da entidade: nenhum dirigente estatutário integra essa relação.',
     corpo_proprio:(semFicha.length
@@ -3420,11 +3448,13 @@ function importarContratosAnt(){
 ===================================================================== */
 function buildColabListaRow(r,i){
   const esc=v=>(v||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+  const eixoAtual=eixoDoColab(r);
   return `<tr id="clr-${r.uid}">
     <td class="td-num" style="font-size:11px">${i+1}</td>
     <td class="td-obj"><input type="text" value="${esc(r.nome)}" oninput="setColabLista('${r.uid}','nome',this.value)" placeholder="Nome completo..." style="font-size:11px"></td>
     <td><input type="text" value="${esc(r.dept)}" oninput="setColabLista('${r.uid}','dept',this.value)" placeholder="Departamento..." style="font-size:11px"></td>
     <td><input type="text" value="${esc(r.funcao)}" oninput="setColabLista('${r.uid}','funcao',this.value)" placeholder="Função..." style="font-size:11px"></td>
+    <td><select onchange="setColabLista('${r.uid}','eixo',this.value)" title="Eixo do CIGAC" style="font-size:11px;width:100%">${'<option value="">—</option>'+EIXOS_CIGAC.map(e=>'<option value="'+e.id+'"'+(e.id===eixoAtual?' selected':'')+'>'+e.nome+'</option>').join('')}</select></td>
     <td class="td-c no-print"><button class="btn btn-danger btn-xs" onclick="remColabLista('${r.uid}')" title="Remover">✕</button></td>
   </tr>`;
 }
@@ -3495,7 +3525,7 @@ async function _parsearFolhaXLSX(file){
     const rows=XLSX.utils.sheet_to_json(ws,{header:1,defval:''});
 
     // Localiza o cabeçalho (linha com "NOME") e mapeia as colunas
-    let hdrIdx=-1,colNome=-1,colDept=-1,colFuncao=-1;
+    let hdrIdx=-1,colNome=-1,colDept=-1,colFuncao=-1,colEixo=-1;
     for(let i=0;i<Math.min(rows.length,10);i++){
       const cells=rows[i].map(function(c){return _normVF(String(c||''));});
       const iN=cells.findIndex(function(c){return c.indexOf('NOME')>=0;});
@@ -3503,6 +3533,7 @@ async function _parsearFolhaXLSX(file){
         hdrIdx=i;colNome=iN;
         colDept=cells.findIndex(function(c){return c.indexOf('DEPART')>=0;});
         colFuncao=cells.findIndex(function(c){return c.indexOf('FUN')>=0&&c.indexOf('NOME')<0;});
+        colEixo=cells.findIndex(function(c){return c.indexOf('EIXO')>=0;});
         break;
       }
     }
@@ -3517,11 +3548,14 @@ async function _parsearFolhaXLSX(file){
       const key=_normVF(nome);
       if(seenKeys.has(key)) continue;
       seenKeys.add(key);
+      const dept=colDept>=0?String(r[colDept]||'').replace(/\s+/g,' ').trim():'';
+      const eixoTxt=colEixo>=0?String(r[colEixo]||'').replace(/\s+/g,' ').trim():'';
       empregados.push({
         mat:'',
         nome:nome,
         cargo:colFuncao>=0?String(r[colFuncao]||'').replace(/\s+/g,' ').trim():'',
-        dept:colDept>=0?String(r[colDept]||'').replace(/\s+/g,' ').trim():''
+        dept:dept,
+        eixo:eixoTxt||eixoIdDe(dept) // sem coluna EIXO: inferido do departamento
       });
     }
     if(!empregados.length) throw new Error('Nenhum colaborador encontrado abaixo do cabeçalho.');
@@ -3651,12 +3685,11 @@ function _mostrarResultadoVF(folha,fileName){
     return _normVF(e.cargo)!==_normVF(appEntry.funcao||'');
   });
 
-  // Divergencia de departamento (só quando a folha traz o dado — Excel)
+  // Divergencia de departamento e/ou eixo (só quando a folha traz o dado — Excel)
   const deptDiff=match.filter(function(e){
-    if(!e.dept) return false;
     const appEntry=listaMap.get(_normVF(e.nome));
     if(!appEntry) return false;
-    return _normDeptVF(e.dept)!==_normDeptVF(appEntry.dept||'');
+    return !!_mudancasVF(e,appEntry).length;
   });
 
   // Guarda listas para acoes do modal
@@ -3667,13 +3700,13 @@ function _mostrarResultadoVF(folha,fileName){
 
   let h='<div style="margin-bottom:16px">'
    +'<div style="font-size:11px;color:#6B7280;margin-bottom:8px">'
-   +'📄 <strong>'+fileName+'</strong> \u2014 '+folha.length+' colaboradores encontrados na folha</div>'
+   +'📄 <strong>'+esc(fileName)+'</strong> \u2014 '+folha.length+' colaboradores encontrados na folha</div>'
    +'<div>'
    +'<span class="vf-badge vf-badge-ok">\u2713 '+match.length+' coincidem</span>'
    +(faltaApp.length?'<span class="vf-badge vf-badge-add">⚠ '+faltaApp.length+' a adicionar no app</span>':'')
    +(faltaFolha.length?'<span class="vf-badge vf-badge-rev">✕ '+faltaFolha.length+' a revisar</span>':'')
    +(funcaoDiff.length?'<span class="vf-badge" style="background:#EDE9FE;color:#6D28D9">⚧ '+funcaoDiff.length+' funções divergem</span>':'')
-   +(deptDiff.length?'<span class="vf-badge" style="background:#E0F2FE;color:#0369A1">🏷 '+deptDiff.length+' departamentos divergem</span>':'')
+   +(deptDiff.length?'<span class="vf-badge" style="background:#E0F2FE;color:#0369A1">🏷 '+deptDiff.length+' departamento/eixo divergem</span>':'')
    +'</div></div>';
 
   if(!faltaApp.length&&!faltaFolha.length&&!funcaoDiff.length&&!deptDiff.length){
@@ -3743,20 +3776,25 @@ function _mostrarResultadoVF(folha,fileName){
       +'</div></div>';
   }
 
-  // --- Secao: Departamento divergente (folha Excel) ---
+  // --- Secao: Departamento/eixo divergente (folha Excel) ---
   if(deptDiff.length){
     h+='<div style="margin-bottom:16px">'
       +'<div class="vf-sec-title" style="color:#0369A1">'
-      +'<span>🏷 Departamento divergente ('+deptDiff.length+'): app ≠ folha</span></div>'
+      +'<span>🏷 Departamento/eixo diferente da folha ('+deptDiff.length+') \u2014 "Atualizar" grava departamento, eixo e função da folha</span>'
+      +'<button style="padding:4px 12px;background:#0369A1;color:#fff;border:none;'
+      +'border-radius:6px;font-size:11px;font-weight:700;cursor:pointer" '
+      +'onclick="atualizarTodosDeptVF()">Atualizar todos ('+deptDiff.length+')</button></div>'
       +'<div class="vf-list" style="border-color:#BAE6FD">'
       +deptDiff.map(function(e,i){
         const appEntry=listaMap.get(_normVF(e.nome));
-        const deptAtual=appEntry?(appEntry.dept||'(vazio)'):'?';
+        const muda=_mudancasVF(e,appEntry);
         return '<div class="vf-row" style="background:'+(i%2?'#F0F9FF':'#fff')+';flex-wrap:wrap">'
           +'<span class="vf-nome" style="width:100%;margin-bottom:2px">'+esc(e.nome)+'</span>'
           +'<span style="font-size:10px;color:#9CA3AF;flex:1">'
-          +'App: <em style="color:#0369A1">'+esc(deptAtual)+'</em>'
-          +' → Folha: <em style="color:#16A34A">'+esc(e.dept)+'</em></span>'
+          +muda.map(function(m){
+            return m.campo+': <em style="color:#0369A1">'+esc(m.app||'(vazio)')+'</em>'
+              +' → <em style="color:#16A34A">'+esc(m.folha)+'</em>';
+          }).join('<br>')+'</span>'
           +'<button id="vfbtn-dept-'+i+'" style="padding:2px 8px;background:#E0F2FE;color:#0369A1;'
           +'border:1px solid #BAE6FD;border-radius:4px;font-size:11px;cursor:pointer;white-space:nowrap" '
           +'onclick="atualizarDeptVF('+i+')">Atualizar</button>'
@@ -3771,7 +3809,7 @@ function _mostrarResultadoVF(folha,fileName){
    +'🔍 '+folha.length+' nomes extraídos da folha (clique para ver)</summary>'
    +'<div style="font-size:10px;color:#374151;margin-top:6px;line-height:1.8">'
    +folha.map(function(e){return '<span style="background:#F3F4F6;border-radius:3px;padding:1px 5px;margin:2px">'
-     +_normVF(e.nome)+(e.cargo?' <em style="color:#9CA3AF">('+e.cargo+')</em>':'')
+     +esc(_normVF(e.nome))+(e.cargo?' <em style="color:#9CA3AF">('+esc(e.cargo)+')</em>':'')
      +'</span>';}).join('')
    +'</div></details>';
 
@@ -3787,7 +3825,7 @@ function adicionarColabVF(idx){
   const data=getMesData(currentComp);
   if(!data.colab_lista) data.colab_lista=[];
   if(data.colab_lista.find(function(c){return _normVF(c.nome)===norm;})) return;
-  data.colab_lista.push({uid:uid(),nome:nome,dept:e.dept||'',funcao:e.cargo||''});
+  data.colab_lista.push({uid:uid(),nome:nome,dept:e.dept||'',funcao:e.cargo||'',eixo:e.eixo||''});
   salvar();
   renderColabMgmt();
   // Marcar faltante como adicionado
@@ -3805,7 +3843,7 @@ function adicionarTodosColabVF(){
   faltantes.forEach(function(e){
     const norm=_normVF(e.nome);
     if(!data.colab_lista.find(function(c){return _normVF(c.nome)===norm;})){
-      data.colab_lista.push({uid:uid(),nome:e.nome,dept:e.dept||'',funcao:e.cargo||''});
+      data.colab_lista.push({uid:uid(),nome:e.nome,dept:e.dept||'',funcao:e.cargo||'',eixo:e.eixo||''});
       added++;
     }
   });
@@ -3841,20 +3879,51 @@ function atualizarFuncaoVF(idx){
   if(btn){btn.textContent='\u2713 Atualizada';btn.style.background='#16A34A';btn.disabled=true;}
 }
 
-// Atualiza departamento de colaborador existente com o dado da folha (Excel)
-function atualizarDeptVF(idx){
-  const e=(window._vfDeptDiff||[])[idx];if(!e)return;
+// O que muda num colaborador existente ao adotar os dados da folha (departamento, eixo, função)
+function _mudancasVF(e,c){
+  const m=[];
+  if(e.dept&&_normDeptVF(e.dept)!==_normDeptVF(c.dept||'')) m.push({campo:'Departamento',app:c.dept||'',folha:e.dept});
+  const eF=eixoIdDe(e.eixo)||eixoIdDe(e.dept), eA=eixoDoColab(c);
+  if(eF&&eF!==eA) m.push({campo:'Eixo',app:eA?eixoNome(eA):'',folha:eixoNome(eF)});
+  if(m.length&&e.cargo&&_normVF(e.cargo)!==_normVF(c.funcao||'')) m.push({campo:'Função',app:c.funcao||'',folha:e.cargo});
+  return m;
+}
+// Grava departamento, eixo e função da folha num colaborador existente; true se encontrou
+function _aplicarFolhaVF(e){
   const data=getMesData(currentComp);
-  if(!data.colab_lista)return;
+  if(!data.colab_lista)return false;
   const norm=_normVF(e.nome);
   const c=data.colab_lista.find(function(x){return _normVF(x.nome)===norm;});
-  if(!c)return;
-  c.dept=e.dept;
-  salvar();
+  if(!c)return false;
+  if(e.dept) c.dept=e.dept;
+  if(e.eixo) c.eixo=e.eixo;
+  if(e.cargo) c.funcao=e.cargo;
+  return true;
+}
+// Atualiza departamento/eixo de colaborador existente com o dado da folha (Excel)
+function atualizarDeptVF(idx){
+  const e=(window._vfDeptDiff||[])[idx];if(!e)return;
+  if(!_aplicarFolhaVF(e))return;
+  marcarAlterado();
   renderColabMgmt();
   window._vfDeptDiff[idx]=null;
   const btn=document.getElementById('vfbtn-dept-'+idx);
   if(btn){btn.textContent='✓ Atualizado';btn.style.background='#16A34A';btn.style.color='#fff';btn.disabled=true;}
+}
+
+function atualizarTodosDeptVF(){
+  const lst=window._vfDeptDiff||[];
+  let n=0;
+  lst.forEach(function(e,i){
+    if(!e||!_aplicarFolhaVF(e))return;
+    n++; lst[i]=null;
+    const btn=document.getElementById('vfbtn-dept-'+i);
+    if(btn){btn.textContent='✓ Atualizado';btn.style.background='#16A34A';btn.style.color='#fff';btn.disabled=true;}
+  });
+  if(!n)return;
+  marcarAlterado();
+  renderColabMgmt();
+  toast('✓ '+n+' colaborador(es) atualizado(s) com departamento/eixo da folha');
 }
 
 function fecharModalVF(){
@@ -3887,16 +3956,17 @@ function renderColabMgmt(){
     </div>
     <div class="rdg-colab-body">
       <div style="display:flex;align-items:center;gap:6px;padding:8px 4px 4px" onclick="event.stopPropagation()">
-        <input type="search" id="rdg-colab-filter" value="${filterEsc}" oninput="filterColab(this.value)" placeholder="🔍 Filtrar por nome, departamento ou função..." style="flex:1;padding:5px 10px;border:1px solid #D1D5DB;border-radius:6px;font-size:11px;outline:none">
+        <input type="search" id="rdg-colab-filter" value="${filterEsc}" oninput="filterColab(this.value)" placeholder="🔍 Filtrar por nome, departamento, função ou eixo..." style="flex:1;padding:5px 10px;border:1px solid #D1D5DB;border-radius:6px;font-size:11px;outline:none">
         <button id="rdg-colab-sort-btn" class="btn btn-sm btn-outline" onclick="sortColabAZ()" title="Ordenar alfabeticamente pelo nome" style="${sortStyle}">${_colabSortAZ?'A→Z ✓':'A→Z'}</button>
       </div>
       <div style="overflow-x:auto;max-height:340px;overflow-y:auto;margin-top:4px">
-        <table class="contratos-tbl" style="min-width:700px">
+        <table class="contratos-tbl" style="min-width:860px">
           <thead><tr>
             <th style="width:38px;text-align:center">#</th>
             <th>Nome do Colaborador</th>
             <th style="width:260px">Departamento</th>
             <th style="width:200px">Função</th>
+            <th style="width:170px">Eixo</th>
             <th style="width:38px" class="no-print"></th>
           </tr></thead>
           <tbody id="rdg-colab-tbody">${displayCl.map((r,i)=>buildColabListaRow(r,i)).join('')}</tbody>
@@ -3912,7 +3982,7 @@ function _colabGetFiltered(cl){
   const q=(_colabFilter||'').trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
   if(q) list=list.filter(r=>{
     const norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
-    return norm(r.nome).includes(q)||norm(r.dept).includes(q)||norm(r.funcao).includes(q);
+    return norm(r.nome).includes(q)||norm(r.dept).includes(q)||norm(r.funcao).includes(q)||(eixoDoColab(r)&&norm(eixoNome(eixoDoColab(r))).includes(q));
   });
   if(_colabSortAZ) list.sort((a,b)=>(a.nome||'').localeCompare(b.nome||'','pt-BR'));
   return list;
@@ -4103,14 +4173,20 @@ function renderRelatorio(){
     +'</div>'
     :'';
 
-  /* Seção 4 – colaboradores do CIGAC agrupados por departamento (ordem alfabética) */
-  const deptMap={};
-  colabLista.forEach(c=>{ const k=String(c.dept||'').trim()||'Departamento não informado'; (deptMap[k]=deptMap[k]||[]).push(c); });
-  const depts=Object.keys(deptMap).sort((a,b)=>a.localeCompare(b,'pt-BR'));
-  const colabDeptHtml=depts.map(dp=>{
-    const l=deptMap[dp];
-    return '<h3 class="rdg-cat-title">'+esc(dp)+' — '+l.length+' colaborador'+(l.length===1?'':'es')+'</h3>'
-      +'<table class="rdg-table"><thead><tr>'
+  /* Seção 4 – colaboradores do CIGAC agrupados por eixo (ordem de EIXOS_CIGAC; não informado por último)
+     e, dentro do eixo, por departamento (ordem alfabética) */
+  const plColab=n=>n+' colaborador'+(n===1?'':'es');
+  const eixoMap={};
+  colabLista.forEach(c=>{
+    const ex=eixoDoColab(c), k=String(c.dept||'').trim()||'Departamento não informado';
+    const m=eixoMap[ex]=eixoMap[ex]||{};
+    (m[k]=m[k]||[]).push(c);
+  });
+  const eixosOrd=EIXOS_CIGAC.map(e=>e.id).concat(['']).filter(id=>eixoMap[id]);
+  const depts=[...new Set(colabLista.map(c=>String(c.dept||'').trim()||'Departamento não informado'))];
+  const nEixosInf=eixosOrd.filter(Boolean).length;
+  const nSemEixo=eixoMap['']?Object.values(eixoMap['']).reduce((a,l)=>a+l.length,0):0;
+  const tabColab=l=>'<table class="rdg-table"><thead><tr>'
       +'<th style="width:36px;text-align:center">Nº</th><th style="text-align:left">Nome do Colaborador</th><th style="text-align:left">Função</th>'
       +'</tr></thead><tbody>'
       +l.map((c,i)=>'<tr>'
@@ -4119,7 +4195,14 @@ function renderRelatorio(){
         +'<td style="font-size:10px;padding:3px 6px">'+esc(c.funcao)+'</td>'
         +'</tr>').join('')
       +'</tbody></table>';
-  }).join('');
+  const colabDeptHtml=eixosOrd.map((ex,ie)=>{
+    const m=eixoMap[ex], ds=Object.keys(m).sort((a,b)=>a.localeCompare(b,'pt-BR'));
+    const tot=ds.reduce((a,d)=>a+m[d].length,0);
+    return '<h2 class="rdg-subsection-title">4.'+(ie+1)+' '+esc(eixoNome(ex))+' ('+plColab(tot)+')</h2>'
+      +ds.map(dp=>'<h3 class="rdg-cat-title">'+esc(dp)+' ('+m[dp].length+')</h3>'+tabColab(m[dp])).join('')
+      +'<div class="rdg-cat-total">Total – '+esc(eixoNome(ex))+': '+plColab(tot)+' em '+ds.length+' departamento'+(ds.length===1?'':'s')+'</div>';
+  }).join('')
+  +(colabLista.length?'<div class="rdg-total-geral" style="margin-top:12px">Total geral: '+plColab(colabLista.length)+' em '+depts.length+' departamento'+(depts.length===1?'':'s')+' e '+nEixosInf+' eixo'+(nEixosInf===1?'':'s')+(nSemEixo?' ('+plColab(nSemEixo)+' sem eixo informado)':'')+'</div>':'');
 
   /* Seção 2.2 – quadro dos indicadores qualitativos (Manual, cap. 9) */
   const indQuadroRows=INDICADORES_QUAL.map(ind=>'<tr>'
@@ -4459,7 +4542,7 @@ function renderRelatorio(){
     <div class="rdg-section" style="page-break-before:always">
       <h1 class="rdg-section-title">4. Colaboradores do CIGAC</h1>
       ${colabLista.length
-        ?'<p class="rdg-p">Relação nominal dos <strong>'+colabLista.length+'</strong> colaboradores do CIGAC na competência <strong>'+mesRef+'</strong>, agrupados por departamento ('+depts.length+' departamento'+(depts.length===1?'':'s')+'), conforme o item 10.3 do Manual RDG. O custo desta equipe integra a categoria “Folha de Pagamento CIGAC” (seção 3).</p>'
+        ?'<p class="rdg-p">Relação nominal dos <strong>'+colabLista.length+'</strong> colaboradores do CIGAC na competência <strong>'+mesRef+'</strong>, agrupados por eixo ('+nEixosInf+' eixo'+(nEixosInf===1?'':'s')+') e, dentro de cada eixo, por departamento ('+depts.length+' departamento'+(depts.length===1?'':'s')+'), segundo a estrutura do CIGAC por eixos (seção 3.2 do Manual RDG) e a nomenclatura da folha de pagamento, conforme o item 10.3 do Manual RDG. O custo desta equipe integra a categoria “Folha de Pagamento CIGAC” (seção 3).</p>'
         :'<p class="rdg-p" style="color:#9CA3AF;font-style:italic">Relação nominal de colaboradores não cadastrada para '+mesRef+'. Utilize o painel de colaboradores no topo desta aba para importá-la.</p>'}
       <p class="rdg-p"><strong>Nota.</strong> Os dirigentes estatutários não integram a folha rateada: a Diretoria Estatutária (Diretor Presidente, Financeiro e Técnico Administrativo) não é remunerada por contrato de gestão, ainda que atue nos Planos de Trabalho. Somente as equipes do CIGAC vinculadas à execução dos contratos e serviços são rateadas, conforme o capítulo 13 do Manual RDG e o ${esc(MANUAL_META.acordao)}.</p>
       ${colabDeptHtml}

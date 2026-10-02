@@ -564,8 +564,8 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   .rdg-section-title,.rdg-subsection-title,.rdg-cat-title{break-after:avoid;page-break-after:avoid}
   /* Parágrafos com cortes limpos: mínimo 3 linhas antes/depois da quebra */
   .rdg-p{orphans:3;widows:3}
-  /* Blocos de despesa: fluem livremente (sem espaços em branco desnecessários) */
-  .rdg-cat-block{break-inside:avoid;page-break-inside:avoid}
+  /* Blocos de despesa fluem entre páginas; só o título não fica isolado (break-after:avoid acima) */
+  .rdg-cat-block{break-inside:auto;page-break-inside:auto}
   /* Critério Quantitativo – paisagem, página única */
   #panel-criterio .alert{display:none!important}
   #panel-criterio .no-print{display:none!important}
@@ -682,9 +682,9 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   .rdg-page-hdr-right strong{font-size:11px;display:block;margin-bottom:1px}
   .rdg-capa{padding-top:65px!important}
   .rdg-capa [style*="background:#1B3A5C"]{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
-  .rdg-section{padding-top:60px!important}
-  .rdg-subsec-newpage{page-break-before:always;padding-top:60px}
-  .rdg-cat-title{margin-top:0!important;padding-top:60px!important}
+  .rdg-section{padding-top:0!important}
+  .rdg-subsec-newpage{page-break-before:always;padding-top:0}
+  .rdg-cat-title{margin-top:0!important;padding-top:8px!important}
   .rdg-sign{padding-top:10px!important}
   .rdg-chart-card canvas{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
   .rdg-analise-hdr{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;background:#1B3A5C!important;color:#fff!important}
@@ -5484,7 +5484,7 @@ function imprimirRelatorio(){
   document.title='Relatório RDG – '+compLabel(currentComp);
   const st=document.createElement('style');
   st.id='relatorio-portrait-style';
-  st.textContent='@media print{@page{size:A4 portrait;margin:8mm 12mm}}';
+  st.textContent='@media print{@page{size:A4 portrait;margin:30mm 12mm 16mm 12mm}}';
   document.head.appendChild(st);
   const cleanup=function(){
     document.title=prev;
@@ -6437,10 +6437,15 @@ function init(){
     }
   }catch(e){}
   carregar();
+  // ?aba=relatorio abre direto numa aba (usado na geração de PDF e em links internos)
+  try{
+    const aba=new URLSearchParams(location.search).get('aba');
+    if(aba){ window._abaInicial=aba; }
+  }catch(e){}
   // Aplicar modo readonly se não estiver autenticado
   applyEditMode();
   // Sempre carrega do GitHub (público, sem token)
-  githubCarregar().then(ok=>{if(ok){popularCompetencias();popularUI();renderCriterio();}});
+  githubCarregar().then(ok=>{if(ok){popularCompetencias();popularUI();renderAbaAtiva();}});
 
   // Load sample data if state is empty (apenas em memória — não grava, para não
   // marcar esta máquina como "mais recente" que o GitHub antes do primeiro load)
@@ -6460,6 +6465,7 @@ function init(){
   popularCompetencias();
   popularUI();
   renderCriterio();
+  if(window._abaInicial){ const b=document.querySelector('.tab-btn[data-tab="'+window._abaInicial+'"]'); if(b){ abrirTab(window._abaInicial,b); } }
 }
 
 // Set data-tab on tab buttons on load

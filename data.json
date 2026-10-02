@@ -19686,12 +19686,6 @@
           "funcao": "JOVEM APRENDIZ"
         },
         {
-          "uid": "c77h7rnga",
-          "nome": "IVANETE DA SILVA MOTTA CARVALHO",
-          "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
-          "funcao": "ANALISTA DE COMPRAS III"
-        },
-        {
           "uid": "cy5xrbb13",
           "nome": "NICOLE CANTINI FIGUEIRA LIMA",
           "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
@@ -20439,11 +20433,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1788536263021,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
       {
         "t": 1788536264703,
         "perfil": "Administrador",
@@ -21936,6 +21925,11 @@
       },
       {
         "t": 1790971623900,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971628004,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23514,5 +23508,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971623904
+  "savedAt": 1790971628008
 }

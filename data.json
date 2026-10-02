@@ -19869,7 +19869,7 @@
           "uid": "cn3915ztf",
           "nome": "TATIELE DA SILVA RIBEIRO",
           "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
-          "funcao": "SUPERVISOR DE FARMÁCIA"
+          "funcao": "SUPERVISOR DE SUPRIMENTOS III"
         },
         {
           "uid": "czgi8ymdl",
@@ -19977,7 +19977,7 @@
           "uid": "cih340a3e",
           "nome": "THAINARA TAVARES MOREIRA DOS SANTOS",
           "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "ASSISTENTE DE RECURSOS HUMANOS I"
+          "funcao": "ASSISTENTE DE RH III"
         },
         {
           "uid": "c8x4vt7tx",
@@ -19989,7 +19989,7 @@
           "uid": "ckc7bn6fg",
           "nome": "WENDEL CORREA DE PAO",
           "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "ASSISTENTE DE REMUNERAÇÃO"
+          "funcao": "ASSISTENTE DE REMUNERACAO III"
         },
         {
           "uid": "c6nv79owc",
@@ -20043,7 +20043,7 @@
           "uid": "cnwcbxf9g",
           "nome": "YASMIM FAGGIAN OLIVEIRA",
           "dept": "DEPARTAMENTO FINANCEIRO",
-          "funcao": "ASSISTENTE ADMINISTRATIVO II"
+          "funcao": "ANALISTA FINANCEIRO I"
         },
         {
           "uid": "co0j7t7zf",
@@ -21580,6 +21580,26 @@
       },
       {
         "t": 1790971445840,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971446287,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971446816,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971447730,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971448258,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23158,5 +23178,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971445843
+  "savedAt": 1790971448259
 }

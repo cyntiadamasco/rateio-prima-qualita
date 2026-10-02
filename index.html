@@ -1719,7 +1719,7 @@ function evidenciasTCE(comp){
   const transporte=desp.filter(d=>d.cat==='Locação de Veículo Apoio Administrativo').length;
   const qualif=desp.filter(d=>d.cat==='Melhoria Contínua').length;
   const colab=data.colab_lista||[];
-  const nDept=new Set(colab.map(c=>String(c.dept||'').trim()||'Departamento não informado')).size;
+  const nDept=new Set(colab.map(c=>_normVF(String(c.dept||'').trim()||'Departamento não informado'))).size;
   const nEixos=new Set(colab.map(eixoDoColab).filter(Boolean)).size;
   const folha=desp.filter(d=>d.cat==='Folha de Pagamento CIGAC');
   const semFicha=cats.filter(c=>!CAT_INFO[c]);
@@ -3661,11 +3661,6 @@ function _normVF(s){
     .replace(/\s+/g,' ');
 }
 
-// Normaliza departamento: "DEPARTAMENTO DE COMPRAS" == "COMPRAS"
-function _normDeptVF(s){
-  return _normVF(s).replace(/^DEPARTAMENTO( DE)?\s+/,'').replace(/^DEPTO\.?( DE)?\s+/,'');
-}
-
 function _mostrarResultadoVF(folha,fileName){
   const data=getMesData(currentComp);
   const lista=data.colab_lista||[];
@@ -3884,7 +3879,7 @@ function atualizarFuncaoVF(idx){
 // O que muda num colaborador existente ao adotar os dados da folha (departamento, eixo, função)
 function _mudancasVF(e,c){
   const m=[];
-  if(e.dept&&_normDeptVF(e.dept)!==_normDeptVF(c.dept||'')) m.push({campo:'Departamento',app:c.dept||'',folha:e.dept});
+  if(e.dept&&_normVF(e.dept)!==_normVF(c.dept||'')) m.push({campo:'Departamento',app:c.dept||'',folha:e.dept});
   const eF=eixoIdDe(e.eixo)||eixoIdDe(e.dept), eA=eixoDoColab(c);
   if(eF&&eF!==eA) m.push({campo:'Eixo',app:eA?eixoNome(eA):'',folha:eixoNome(eF)});
   if(m.length&&e.cargo&&_normVF(e.cargo)!==_normVF(c.funcao||'')) m.push({campo:'Função',app:c.funcao||'',folha:e.cargo});
@@ -4181,14 +4176,14 @@ function renderRelatorio(){
   const plColab=n=>n+' colaborador'+(n===1?'':'es');
   const eixoMap={};
   colabLista.forEach(c=>{
-    const ex=eixoDoColab(c), k=String(c.dept||'').trim()||'Departamento não informado';
+    const ex=eixoDoColab(c), lab=String(c.dept||'').trim()||'Departamento não informado', k=_normVF(lab);
     const m=eixoMap[ex]=eixoMap[ex]||{};
-    (m[k]=m[k]||[]).push(c);
+    (m[k]=m[k]||{label:lab,list:[]}).list.push(c);
   });
   const eixosOrd=EIXOS_CIGAC.map(e=>e.id).concat(['']).filter(id=>eixoMap[id]);
-  const depts=[...new Set(colabLista.map(c=>String(c.dept||'').trim()||'Departamento não informado'))];
+  const depts=[...new Set(colabLista.map(c=>_normVF(String(c.dept||'').trim()||'Departamento não informado')))];
   const nEixosInf=eixosOrd.filter(Boolean).length;
-  const nSemEixo=eixoMap['']?Object.values(eixoMap['']).reduce((a,l)=>a+l.length,0):0;
+  const nSemEixo=eixoMap['']?Object.values(eixoMap['']).reduce((a,g)=>a+g.list.length,0):0;
   const tabColab=l=>'<table class="rdg-table"><thead><tr>'
       +'<th style="width:36px;text-align:center">Nº</th><th style="text-align:left">Nome do Colaborador</th><th style="text-align:left">Função</th>'
       +'</tr></thead><tbody>'
@@ -4199,10 +4194,10 @@ function renderRelatorio(){
         +'</tr>').join('')
       +'</tbody></table>';
   const colabDeptHtml=eixosOrd.map((ex,ie)=>{
-    const m=eixoMap[ex], ds=Object.keys(m).sort((a,b)=>a.localeCompare(b,'pt-BR'));
-    const tot=ds.reduce((a,d)=>a+m[d].length,0);
+    const m=eixoMap[ex], ds=Object.keys(m).sort((a,b)=>m[a].label.localeCompare(m[b].label,'pt-BR'));
+    const tot=ds.reduce((a,d)=>a+m[d].list.length,0);
     return '<h2 class="rdg-subsection-title">4.'+(ie+1)+' '+esc(eixoNome(ex))+' ('+plColab(tot)+')</h2>'
-      +ds.map(dp=>'<h3 class="rdg-cat-title">'+esc(dp)+' ('+m[dp].length+')</h3>'+tabColab(m[dp])).join('')
+      +ds.map(dp=>'<h3 class="rdg-cat-title">'+esc(m[dp].label)+' ('+m[dp].list.length+')</h3>'+tabColab(m[dp].list)).join('')
       +'<div class="rdg-cat-total">Total – '+esc(eixoNome(ex))+': '+plColab(tot)+' em '+ds.length+' departamento'+(ds.length===1?'':'s')+'</div>';
   }).join('')
   +(colabLista.length?'<div class="rdg-total-geral" style="margin-top:12px">Total geral: '+plColab(colabLista.length)+' em '+depts.length+' departamento'+(depts.length===1?'':'s')+' e '+nEixosInf+' eixo'+(nEixosInf===1?'':'s')+(nSemEixo?' ('+plColab(nSemEixo)+' sem eixo informado)':'')+'</div>':'');

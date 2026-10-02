@@ -1506,7 +1506,7 @@ function prevCompLabel(comp){ return compLabel(prevComp(comp)); }
 ===================================================================== */
 function _liberarEspacoLS(){
   // Limpeza total: remove TODAS as chaves pq_* exceto token e senha
-  const preservar=new Set([EDIT_PWD_KEY,'pq_gh_token','pq_pdfs_apagar']);
+  const preservar=new Set([EDIT_PWD_KEY,'pq_gh_token','pq_pdfs_apagar','pq_meses_editados']);
   const remover=[];
   for(let i=0;i<localStorage.length;i++){
     const k=localStorage.key(i);
@@ -1527,8 +1527,40 @@ let _dirty=false,_autoTimer=null;
    perfilSenhas/tokenCripto/customContratos...), então NUNCA pode ir ao GitHub.
    _salvarAposCarregar: um salvar() pedido antes disso é adiado para o fim do carregamento. */
 let _remotoPronto=false,_salvarAposCarregar=false;
+/* _remotoCarregado: true SOMENTE quando o remoto foi aplicado/mesclado no estado
+   (ou não existe: 404). Enquanto for false, NENHUM PUT pode sair — _githubSalvarExec
+   busca o remoto pela API (Accept raw) e mescla antes de enviar. */
+let _remotoCarregado=false;
+/* pq_saved_at desta máquina NO INÍCIO da sessão (antes de qualquer salvar(), que
+   já avança o valor): é o que diz se há alterações locais nunca enviadas. */
+const _savedAtInicial=parseInt(localStorage.getItem('pq_saved_at')||'0');
+/* Meses editados nesta máquina e ainda não confirmados pelo GitHub:
+   {comp: ms da última edição}, persistido em pq_meses_editados. Na mesclagem
+   com o remoto só esses meses (do cache local) sobrepõem o remoto. */
+let _mesesEditados={};
+try{ const o=JSON.parse(localStorage.getItem('pq_meses_editados')||'{}'); if(o&&typeof o==='object'&&!Array.isArray(o)) _mesesEditados=o; }catch(e){}
+function _persistirMesesEditados(){ try{ localStorage.setItem('pq_meses_editados',JSON.stringify(_mesesEditados)); }catch(e){} }
+function _marcarMesEditado(comp){
+  if(!comp||!/^\d{4}-\d{2}$/.test(comp)) return;
+  _mesesEditados[comp]=Date.now();
+  _persistirMesesEditados();
+}
+function _mesesEditadosLista(){ return Object.keys(_mesesEditados).filter(k=>/^\d{4}-\d{2}$/.test(k)); }
+/* Meses que sobrepõem o remoto na mesclagem: os editados NESTA sessão sempre;
+   os de sessões anteriores só se a edição for posterior à versão remota (se
+   outra máquina salvou depois, o remoto mais novo vence — mesma regra da carga normal). */
+const _sessaoInicioMs=Date.now();
+function _mesesEditadosParaMesclar(remoteSavedAt){
+  return _mesesEditadosLista().filter(k=>{ const ms=_mesesEditados[k]; return ms>=_sessaoInicioMs||ms>(remoteSavedAt||0); });
+}
+/* Remove os meses cuja última edição é anterior ou igual ao instante do PUT confirmado */
+function _limparMesesEditados(ateMs){
+  Object.keys(_mesesEditados).forEach(k=>{ if(!(_mesesEditados[k]>ateMs)) delete _mesesEditados[k]; });
+  _persistirMesesEditados();
+}
 function marcarAlterado(){
   _dirty=true;
+  _marcarMesEditado(currentComp);
   setSyncStatus('pending','Alterações pendentes');
   if(_autoTimer) clearTimeout(_autoTimer);
   _autoTimer=setTimeout(()=>{_autoTimer=null;salvar();},AUTOSAVE_MS);
@@ -1576,6 +1608,7 @@ function salvar(){
 
   if(_autoTimer){clearTimeout(_autoTimer);_autoTimer=null;}
   _dirty=true;
+  _marcarMesEditado(currentComp);
   let gravou=false;
   try{
     _gravarLS(); gravou=true;
@@ -5620,44 +5653,62 @@ function _mesclarEstadoLocal(remoto,local,meses){
   return out;
 }
 async function githubCarregar(){
+  // parcial: o estado em memória ainda é só o cache local (sem chaves gerais e
+  // sem os meses que só o remoto tem) — vale na primeira carga e enquanto o
+  // remoto nunca tiver sido aplicado. Só nesse caso o remoto é MESCLADO; depois
+  // de uma carga completa, o estado local (inclusive chaves gerais) é íntegro e
+  // uma recarga não pode desfazer edições locais.
+  const parcial=!_remotoPronto||!_remotoCarregado;
   // Repositório público: leitura sem token via URL raw
   setSyncStatus('loading','Carregando...');
   try{
     const url='https://raw.githubusercontent.com/'+GH_REPO+'/main/'+GH_FILE+'?t='+Date.now();
     const r=await fetch(url);
-    if(r.status===404){ if(!_dirty) setSyncStatus('ok','Sem dados remotos ainda'); return false; }
+    if(r.status===404){ _remotoCarregado=true; if(!_dirty) setSyncStatus('ok','Sem dados remotos ainda'); return false; }
     if(!r.ok){ setSyncStatus(_dirty?'pending':'err',_dirty?'Alterações pendentes':'Erro ao carregar'); return false; }
     const raw=await r.json();
     // Proteção contra perda de dados: se ESTA máquina salvou depois da última
-    // versão do GitHub (ex.: o envio anterior falhou), mantém os MESES locais
-    // sobre a base remota (chaves gerais vêm do remoto) e reenvia ao GitHub.
-    const localSavedAt=parseInt(localStorage.getItem('pq_saved_at')||'0');
+    // versão do GitHub (ex.: o envio anterior falhou), mantém os MESES editados
+    // aqui sobre a base remota (chaves gerais vêm do remoto) e reenvia ao GitHub.
     const remoteSavedAt=raw.savedAt||0;
-    if(ghToken()&&remoteSavedAt>0&&localSavedAt>remoteSavedAt){
-      const mesesLocais=Object.keys(state).filter(k=>/^\d{4}-\d{2}$/.test(k));
-      state=_mesclarEstadoLocal(raw.state,state,mesesLocais);
-      rebuildContratos();
+    if(ghToken()&&remoteSavedAt>0&&_savedAtInicial>remoteSavedAt){
+      if(parcial){
+        // Sem registro (versão antiga do app): todos os meses em cache
+        const meses=_mesesEditadosLista().length?_mesesEditadosParaMesclar(remoteSavedAt):Object.keys(state).filter(k=>/^\d{4}-\d{2}$/.test(k));
+        state=_mesclarEstadoLocal(raw.state,state,meses);
+        rebuildContratos();
+      }
       setSyncStatus('loading','Reenviando alterações locais...');
-      _remotoPronto=true;
+      _remotoPronto=true; _remotoCarregado=true; _salvarAposCarregar=false;
       githubSalvar();
       return true;
     }
     if(_dirty){
-      // Editou antes de o remoto chegar: a edição só pode ter tocado currentComp.
-      // Mantém essa competência local sobre o remoto e envia o estado MESCLADO
-      // (nunca o parcial) — _dirty só cai quando o PUT confirmar.
-      state=_mesclarEstadoLocal(raw.state,state,[currentComp]);
-      rebuildContratos();
-      setSyncStatus('pending','Alterações pendentes');
-      _remotoPronto=true; _salvarAposCarregar=false;
-      salvar();
+      if(parcial){
+        // Editou antes de o remoto chegar: mantém os meses editados (do cache
+        // local) sobre o remoto e envia o estado MESCLADO (nunca o parcial) —
+        // _dirty só cai quando o PUT confirmar.
+        const meses=_mesesEditadosParaMesclar(remoteSavedAt);
+        if(!meses.includes(currentComp)) meses.push(currentComp);
+        state=_mesclarEstadoLocal(raw.state,state,meses);
+        rebuildContratos();
+        setSyncStatus('pending','Alterações pendentes');
+        _remotoPronto=true; _remotoCarregado=true; _salvarAposCarregar=false;
+        salvar();
+        return true;
+      }
+      // Estado local íntegro com edições pendentes: não toca em state, só envia
+      _salvarAposCarregar=false;
+      githubSalvar();
       return true;
     }
     // Caso normal: GitHub é a fonte da verdade e sobrescreve o estado local
     if(raw.state) state=raw.state;
     if(raw.currentComp) currentComp=raw.currentComp;
     if(remoteSavedAt>0) localStorage.setItem('pq_saved_at',String(remoteSavedAt));
+    _mesesEditados={}; _persistirMesesEditados();
     rebuildContratos();
+    _remotoCarregado=true;
     const t=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
     setSyncStatus('ok','Atualizado '+t);
     return true;
@@ -5666,6 +5717,43 @@ async function githubCarregar(){
     _remotoPronto=true;
     if(_salvarAposCarregar){ _salvarAposCarregar=false; salvar(); }
   }
+}
+/* Plano B de carga: se a URL raw falhou (CDN fora, bloqueio de rede), busca o
+   data.json pela API (Accept raw: devolve o conteúdo direto, até 100 MB) e mescla
+   os meses editados aqui sobre ele. Só a partir daí um PUT pode sair.
+   Chamadas simultâneas compartilham a mesma promessa; se githubCarregar()
+   terminar no meio, o resultado dele prevalece (nada é sobrescrito). */
+let _remotoViaAPI=null;
+async function _carregarRemotoViaAPI(token){
+  if(_remotoCarregado) return true;
+  if(_remotoViaAPI) return _remotoViaAPI;
+  _remotoViaAPI=(async()=>{
+    try{
+      const r=await fetch('https://api.github.com/repos/'+GH_REPO+'/contents/'+GH_FILE,
+        {headers:{'Authorization':'token '+token,'Accept':'application/vnd.github.raw'}});
+      if(_remotoCarregado) return true;
+      if(r.status===404){ _remotoCarregado=true; return true; }
+      if(!r.ok) return false;
+      const raw=await r.json();
+      if(_remotoCarregado) return true;
+      state=_mesclarEstadoLocal((raw&&raw.state)||{},state,_mesesEditadosParaMesclar(raw&&raw.savedAt));
+      rebuildContratos();
+      _remotoCarregado=true;
+      popularCompetencias();
+      renderAbaAtiva();
+      return true;
+    }catch(e){ return false; }
+    finally{ _remotoViaAPI=null; }
+  })();
+  return _remotoViaAPI;
+}
+/* Aviso visível (no máx. 1 por minuto) quando nem o raw nem a API trouxeram o remoto */
+let _remotoUltimoAviso=0;
+function _avisarRemotoIndisponivel(){
+  const agora=Date.now();
+  if(agora-_remotoUltimoAviso<60000) return;
+  _remotoUltimoAviso=agora;
+  alert('⚠ Não foi possível carregar os dados do GitHub.\n\nSuas alterações ficam só neste navegador até a conexão voltar; nada foi sobrescrito.');
 }
 /* Fila de salvamento: nunca roda dois envios ao GitHub ao mesmo tempo.
    Envios simultâneos usavam "sha" vencido e eram rejeitados em silêncio,
@@ -5683,13 +5771,24 @@ async function githubSalvar(){
 async function _githubSalvarExec(){
   const token=ghToken();if(!token)return;
   setSyncStatus('loading','Salvando...');
+  // Invariante: nunca enviar um estado sem as chaves gerais/meses do remoto.
+  // Se o remoto ainda não foi aplicado (raw falhou), busca pela API e mescla;
+  // se nem assim vier, NADA é enviado e _dirty continua true.
+  if(!_remotoCarregado){
+    const ok=await _carregarRemotoViaAPI(token);
+    if(!ok){ setSyncStatus('pending','Aguardando dados remotos...'); _avisarRemotoIndisponivel(); return; }
+  }
   try{
     // Até 3 tentativas: em conflito de sha (arquivo mudou), rebusca e reenvia
     for(let tent=0;tent<3;tent++){
       const rG=await fetch('https://api.github.com/repos/'+GH_REPO+'/contents/'+GH_FILE,
         {headers:{'Authorization':'token '+token,'Accept':'application/vnd.github.v3+json'}});
+      // O fallback pq_gh_sha só é usado com o remoto já carregado (garantido acima)
       const sha=rG.ok?(await rG.json()).sha:(localStorage.getItem('pq_gh_sha')||undefined);
       const savedAt=parseInt(localStorage.getItem('pq_saved_at')||'0');
+      // Instante do retrato enviado: meses editados até aqui saem da lista de
+      // pendentes quando o PUT confirmar; edições durante o envio continuam nela.
+      const snapshotMs=Date.now();
       const content=btoa(unescape(encodeURIComponent(JSON.stringify({state,currentComp,savedAt},null,2))));
       const body={message:'Rateio: '+currentComp,content};
       if(sha) body.sha=sha;
@@ -5704,7 +5803,7 @@ async function _githubSalvarExec(){
         if(_autoTimer||_ghPendente){ setSyncStatus('pending','Alterações pendentes'); return; }
         const t=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
         setSyncStatus('ok','Sincronizado '+t);
-        _dirty=false; _mostrarSalvo();
+        _dirty=false; _limparMesesEditados(snapshotMs); _mostrarSalvo();
         _processarPdfsPendentes();
         return;
       }

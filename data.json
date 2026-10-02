@@ -19526,7 +19526,7 @@
         {
           "uid": "crafxy9mp",
           "nome": "NELI DA CONCEICAO MARINS",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
+          "dept": "OPERACIONAL",
           "funcao": "ASSISTENTE SERVICOS GERAIS"
         },
         {
@@ -19814,13 +19814,13 @@
         {
           "uid": "c7t4ytctu",
           "nome": "PAULA MARTINEZ MELLO",
-          "dept": "DEPARTAMENTO DE COMUNICAÇÃO INSTITUCIONAL",
+          "dept": "ASSESSORIA DE COMUNICAÇÃO",
           "funcao": "GERENTE DE COMUNICACAO III"
         },
         {
           "uid": "cdjuiyng8",
           "nome": "PEARGENTINO CHIAFRINO NETO",
-          "dept": "DEPARTAMENTO DE COMUNICAÇÃO INSTITUCIONAL",
+          "dept": "ASSESSORIA DE COMUNICAÇÃO",
           "funcao": "ANALISTA DE COMUNICAÇAO III"
         },
         {
@@ -21827,6 +21827,21 @@
         "t": 1790971516816,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971517320,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971518426,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971519752,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23403,5 +23418,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971516818
+  "savedAt": 1790971519754
 }

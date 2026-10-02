@@ -19668,12 +19668,6 @@
           "funcao": "COORDENADOR DE COMPLIANCE III"
         },
         {
-          "uid": "cujnnk3cj",
-          "nome": "ROGERIO DE CARVALHO OLIVEIRA",
-          "dept": "DEPARTAMENTO DE COMPLIANCE",
-          "funcao": "ANALISTA ADMINISTRATIVO III"
-        },
-        {
           "uid": "clj36pgaf",
           "nome": "ANDERSON DE SOUZA MOUTINHO",
           "dept": "DEPARTAMENTO DE COMPRAS E CONTRATOS",
@@ -20445,11 +20439,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1788536261415,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
       {
         "t": 1788536263021,
         "perfil": "Administrador",
@@ -21942,6 +21931,11 @@
       },
       {
         "t": 1790971612684,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971623900,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23520,5 +23514,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971612688
+  "savedAt": 1790971623904
 }

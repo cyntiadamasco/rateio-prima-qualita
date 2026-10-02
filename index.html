@@ -1358,7 +1358,7 @@ const CONTROLES_QUALIFICACAO=[
 const CAT_INFO={
   'Assessoria Jurídica':{grupo:'tecnicos',indicador:'ind7',anexo:'IV',zonaAtencao:false,controles:[],
     base:'Manual RDG 2ª ed., seções 5.5 e 6.1 (serviços técnicos de gestão); art. 7º, §1º, Res. SS nº 138/2025',
-    necessidade:'Suporte jurídico consultivo e contencioso compartilhado: elaboração e validação de contratos e termos aditivos, atendimento a ofícios e diligências de órgãos de controle, apoio às prestações de contas e repasses, admissões e desligamentos e gestão do risco regulatório de todos os contratos de gestão. A contratação centralizada evita a duplicidade de assessorias em cada unidade, condição do art. 7º, §1º, da Res. SS nº 138/2025.'},
+    necessidade:'Suporte jurídico consultivo e contencioso compartilhado: elaboração e validação de contratos e termos aditivos, atendimento a ofícios e diligências de órgãos de controle, apoio às prestações de contas e repasses, admissões e desligamentos e gestão do risco regulatório de todos os contratos de gestão. A contratação centralizada evita a duplicidade de assessorias nas unidades, observada a condição do art. 7º, §1º, da Res. SS nº 138/2025 (ausência de profissionais ou contratos próprios para a mesma finalidade).'},
   'Auditorias Contábil, Fiscal e Financeira':{grupo:'tecnicos',indicador:'ind4',anexo:'IV',zonaAtencao:false,controles:[],
     base:'Manual RDG 2ª ed., seções 5.6 e 6.1; Cartilha TCE-SP (comprovação e rastreabilidade)',
     necessidade:'Auditorias contábeis, fiscais e financeiras das demonstrações que suportam as prestações de contas de todos os contratos de gestão, assegurando a conformidade regulatória e a integridade das informações entregues às comissões de avaliação e fiscalização e aos tribunais de contas.'},
@@ -1602,6 +1602,17 @@ function usaRateioAtualNoAnt(comp){
   const mAnt=getPctMap(p);
   return !contratosAtivos(comp).some(c=>(mAnt[c.id]||0)>0);
 }
+/* Como o rateio complementar foi efetivamente aplicado (para os textos do relatório):
+   fallback = usou os percentuais atuais; redistribuido = percentuais da prestação anterior
+   renormalizados entre os contratos ativos em comp; removidos = siglas desativadas desde então */
+function infoRateioComplementar(comp){
+  const fallback=usaRateioAtualNoAnt(comp);
+  if(fallback) return {fallback:true,redistribuido:false,removidos:[]};
+  const p=prevComp(comp), mAnt=getPctMap(p), ativos=contratosAtivos(comp);
+  const soma=ativos.reduce((a,c)=>a+(mAnt[c.id]||0),0);
+  const removidos=contratosAtivos(p).filter(c=>!ativos.some(a=>a.id===c.id)).map(c=>c.sigla);
+  return {fallback:false,redistribuido:soma<0.999999,removidos};
+}
 
 function totalDespesas(comp){
   return getMesData(comp).despesas.reduce((a,d)=>a+(d.valor||0),0);
@@ -1639,19 +1650,22 @@ function justificativaDespesa(d,comp){
   const textoNec=(d.just&&d.just.trim())?d.just.trim():(CAT_INFO[d.cat]?justificativaPadrao(d):'Categoria sem ficha de enquadramento no Manual; preencha a justificativa própria.');
   h+='<p class="rdg-just-p"><strong>Necessidade institucional e benefício aos contratos.</strong> '+esc(textoNec)+'</p>';
   const cgs=ativos.map(c=>'<span class="rdg-just-cg">'+esc(c.sigla)+' '+fmtPct((pm[c.id]||0)*100)+' (<b>'+R$(aloc[c.id]||0)+'</b>)</span>').join('; ');
-  const compMapa=(d.compl&&!usaRateioAtualNoAnt(comp))?prevComp(comp):comp;
+  const infoC=d.compl?infoRateioComplementar(comp):null;
+  const compMapa=(d.compl&&!infoC.fallback)?prevComp(comp):comp;
   const refColab=(state[compMapa]&&state[compMapa].refColab)||'';
   const critTxt='Percentuais da competência '+esc(rotuloCompetencia(compMapa))+' (pagamento '+esc(rotuloPagamento(compMapa))+(refColab?'; referência de colaboradores: '+esc(refColab):'')+'; Res. SES/RJ nº 1.557/2017)'
-    +(d.compl?(usaRateioAtualNoAnt(comp)
+    +(d.compl?(infoC.fallback
       ?', despesa complementar rateada pelos percentuais da competência atual por ausência de critério quantitativo na prestação anterior'
-      :', despesa complementar da competência '+esc(rotuloCompetencia(prevComp(comp)))+' (prestação paga em '+esc(rotuloPagamento(prevComp(comp)))+'), paga em '+esc(rotuloPagamento(comp))+' e rateada pelos percentuais daquela prestação'):'');
-  h+='<p class="rdg-just-p"><strong>Rateio aplicado.</strong> '+critTxt+': '+cgs+'.</p>';
+      :', despesa complementar da competência '+esc(rotuloCompetencia(prevComp(comp)))+' (prestação paga em '+esc(rotuloPagamento(prevComp(comp)))+'), paga em '+esc(rotuloPagamento(comp))+' e rateada pelos percentuais daquela prestação'
+        +(infoC.redistribuido?', redistribuídos proporcionalmente entre os contratos ativos nesta competência'+(infoC.removidos.length?' (contrato(s) desativado(s): '+infoC.removidos.map(esc).join(', ')+')':''):'')):'');
+  const somaPm=ativos.reduce((a,c)=>a+(pm[c.id]||0),0);
+  h+='<p class="rdg-just-p"><strong>Rateio aplicado.</strong> '+critTxt+': '+cgs+'.'+(somaPm>0?'':' Critério quantitativo não preenchido nesta competência (percentuais zerados).')+'</p>';
   if(ind){
     const iq=(data.iqual||{})[ind.id]||{}; const tem=ativos.some(c=>(iq[c.id]||0)>0);
     h+='<p class="rdg-just-p"><strong>Nexo de causalidade.</strong> Departamento responsável: '+esc(ind.nome)+' (indicador '+esc(ind.codigo)+' – '+esc(ind.unidade)+'; fonte: '+esc(ind.fonte)+'). '
       +(tem?'Produção no mês por contrato: '+ativos.map(c=>esc(c.sigla)+' '+(iq[c.id]||0)).join('; ')+'.':'Produção do mês registrada no Quadro de Indicadores (Anexo II).')+'</p>';
   }
-  h+='<p class="rdg-just-p"><strong>Enquadramento.</strong> '+(CAT_INFO[d.cat]?(grupo?'Grupo "'+esc(grupo.nome)+'" (Manual RDG 2ª ed., seção 6.1). ':'')+'Enquadra-se nas sete condições cumulativas da seção 6.1 do Manual: '+CONDICOES_61.map(esc).join('; ')+'. Base normativa: '+esc(f.base)+'.':'Base normativa: '+esc(f.base)+'.')
+  h+='<p class="rdg-just-p"><strong>Enquadramento.</strong> '+(CAT_INFO[d.cat]?(grupo?'Grupo "'+esc(grupo.nome)+'" (Manual RDG 2ª ed., seção 6.1). ':'')+'Declara-se o atendimento às sete condições cumulativas da seção 6.1 do Manual: '+CONDICOES_61.map(esc).join('; ')+'. Base normativa: '+esc(f.base)+'.':'Base normativa: '+esc(f.base)+'.')
     +(f.zonaAtencao&&f.controles.length?' <em>Zona de atenção (seção 6.3): controles obrigatórios — '+f.controles.map(esc).join('; ')+'.</em>':'')+'</p>';
   h+='<p class="rdg-just-p"><strong>Comprovação.</strong> Anexo '+esc(f.anexo)+(f.anexo==='IV'?' (processo de contratação e contrato vigente)':f.anexo==='V'?' (demonstrativos contábeis e financeiros)':' (demonstrativo de despesas compartilhadas)')+'; Anexo V (razão contábil e extrato)'+((d.pdfUrl||d.pdfUrl2)?'; nota fiscal/recibo e comprovante bancário anexados a este item':'')+'.</p>';
   return h+'</div>';
@@ -1682,7 +1696,9 @@ function evidenciasTCE(comp){
       :'Não há locação de imóvel nesta competência.')
       +' Declaração da entidade: nenhuma despesa da sede estatutária ('+MANUAL_META.sedeEstatutaria+') integra o rateio.',
     marketing:'Nenhuma das '+cats.length+' categorias lançadas é de marketing ou publicidade institucional (categorias do sistema conferidas contra a seção 6.2).',
-    privadas:'Participam do rateio os '+ativos.length+' contratos/serviços ativos na competência, com percentuais que somam '+fmtPct(ativos.reduce((a,c)=>a+(pm[c.id]||0),0)*100)+'.'
+    privadas:'Participam do rateio os '+ativos.length+' contratos/serviços ativos na competência, '+(ativos.reduce((a,c)=>a+(pm[c.id]||0),0)>0
+      ?'com percentuais que somam '+fmtPct(ativos.reduce((a,c)=>a+(pm[c.id]||0),0)*100)+'.'
+      :'mas o critério quantitativo não foi preenchido nesta competência (percentuais zerados).')
       +' Declaração da entidade: todas as pactuações que utilizam o CIGAC integram a base de cálculo (seção 7.2).',
     nexo:'Cada uma das '+desp.length+' despesas traz justificativa individual com objeto, necessidade, rateio entre os '+ativos.length+' contratos, enquadramento e comprovação (seção 3); '+comInd+' delas indicam o indicador do departamento responsável (Anexo II).'
       +(transporte||qualif?' As despesas de transporte ('+transporte+') e qualificação ('+qualif+') indicam, na justificativa, os controles obrigatórios da seção 6.3, cuja execução é comprovada nos Anexos III e IV.':'')
@@ -3989,6 +4005,9 @@ function renderRelatorio(){
   const totalDespCompl=despCompl.reduce((a,d)=>a+(d.valor||0),0);
   const complLabel=rotuloCompetencia(prevComp(currentComp));
   const complPagto=rotuloPagamento(prevComp(currentComp));
+  const infoCompl=infoRateioComplementar(currentComp);
+  // Rótulo dos totais: com complementares, o total soma a competência e a complementar
+  const rotTotal=despCompl.length?'competência '+esc(mesRef)+' + complementar '+esc(complLabel):mesRef;
   const colabs=CONTRATOS.map(ct=>colabDe(data,ct.id));
   const totalCLT=colabs.reduce((a,c)=>a+(c.clt||0)+(c.efetivo||0),0);
   const totalPJ=colabs.reduce((a,c)=>a+(c.pj||0),0);
@@ -4049,7 +4068,13 @@ function renderRelatorio(){
     ?'<div style="margin:26px 0 14px;border-top:3px solid #F59E0B;padding-top:14px">'
       +'<h2 class="rdg-subsection-title" style="color:#B45309">3.'+nCompl+' Despesas Complementares – Competência '+esc(complLabel)+' (prestação paga em '+esc(complPagto)+')</h2>'
       +'<p class="rdg-p">Relação de despesas da competência <strong>'+esc(complLabel)+'</strong> (prestação paga em '+esc(complPagto)+') cujo pagamento foi efetuado em <strong>'+esc(mesPagto)+'</strong> (prestação complementar). '
-      +'O rateio destes itens foi efetuado pelos <strong>percentuais da competência '+esc(complLabel)+'</strong>, preservando os percentuais vigentes na prestação de origem, de forma segregada das despesas da competência '+esc(mesRef)+'.</p>'
+      +(infoCompl.fallback
+        ?'O rateio destes itens foi efetuado pelos <strong>percentuais da competência atual ('+esc(mesRef)+')</strong>, por ausência de critério quantitativo na prestação anterior, de forma segregada das despesas da competência '+esc(mesRef)+'.</p>'
+        :'O rateio destes itens foi efetuado pelos <strong>percentuais da competência '+esc(complLabel)+'</strong>, '
+          +(infoCompl.redistribuido
+            ?'redistribuídos proporcionalmente entre os contratos ativos nesta competência'+(infoCompl.removidos.length?' (contrato(s) desativado(s): '+infoCompl.removidos.map(esc).join(', ')+')':'')
+            :'preservando os percentuais vigentes na prestação de origem')
+          +', de forma segregada das despesas da competência '+esc(mesRef)+'.</p>')
       +buildGruposHtml(despCompl,'3.'+nCompl+'.','h3').html
       +'<div class="rdg-cat-total" style="background:#FFF7ED;color:#B45309">Total das Despesas Complementares – Competência '+esc(complLabel)+': <strong>'+R$(totalDespCompl)+'</strong></div>'
       +'<div class="rdg-cat-total">Total Geral (competência '+esc(mesRef)+' + complementar '+esc(complLabel)+'): <strong>'+R$(totalDesp)+'</strong></div>'
@@ -4132,8 +4157,7 @@ function renderRelatorio(){
       return '<td style="text-align:center;font-size:10px;padding:3px 2px">'+qtd
         +'<br><span style="font-size:9px;color:#6b7280">'+fmtPct(pct*100)+'</span></td>';
     }).join('');
-    const pcts8=INDICADORES_QUAL.map(ind=>{const q=(iqual[ind.id]||{})[ct.id]||0,t=totaisQ[ind.id];return t>0?q/t:0;});
-    const repr=pcts8.reduce((a,b)=>a+b,0)/INDICADORES_QUAL.length;
+    const repr=representatividadeCG({iqual},ct.id,totaisQ).valor;
     return '<tr><td style="font-size:10px;padding:5px 6px;min-width:200px">'+esc(ct.nome)+'</td>'
       +cells+'<td style="text-align:center;font-size:10px;font-weight:700;padding:3px 6px">'+fmtPct(repr*100)+'</td></tr>';
   }).join('');
@@ -4142,10 +4166,7 @@ function renderRelatorio(){
   const pctAntRel=getPctMapAnt(currentComp);
   const cgTotals=CONTRATOS.map(ct=>desp.reduce((a,d)=>a+(d.valor||0)*((d.compl?pctAntRel:pctMap)[ct.id]||0),0));
   const quantPcts=CONTRATOS.map(ct=>(pctMap[ct.id]||0)*100);
-  const reprPcts=CONTRATOS.map(cg=>{
-    const p8=INDICADORES_QUAL.map(ind=>{const q=(iqual[ind.id]||{})[cg.id]||0,t=totaisQ[ind.id];return t>0?q/t:0;});
-    return p8.reduce((a,b)=>a+b,0)/INDICADORES_QUAL.length*100;
-  });
+  const reprPcts=CONTRATOS.map(cg=>representatividadeCG({iqual},cg.id,totaisQ).valor*100);
   const rdgAnalyseRows=hasQualData?CONTRATOS.map((cg,i)=>{
     const q=quantPcts[i],r=reprPcts[i],d=r-q;
     const[txt,col]=Math.abs(d)<2?['≈ Alinhado','#059669']:d>0?['↑ Qualit. superior','#7C3AED']:['↓ Quant. superior','#D97706'];
@@ -4159,7 +4180,7 @@ function renderRelatorio(){
   }).join(''):'';
   const sec5Html='<div class="rdg-section" style="page-break-before:always">'
     +'<h1 class="rdg-section-title">5. Análise dos Indicadores</h1>'
-    +'<h2 class="rdg-subsection-title">5.1 Distribuição Financeira das Despesas – '+mesRef+'</h2>'
+    +'<h2 class="rdg-subsection-title">5.1 Distribuição Financeira das Despesas – '+rotTotal+'</h2>'
     +'<p class="rdg-p">Os gráficos a seguir apresentam a distribuição das despesas do CIGAC rateadas entre os Contratos de Gestão e por categoria de despesa, evidenciando a proporcionalidade dos encargos assumidos por cada parceiro na competência de referência.</p>'
     +'<div class="rdg-chart-grid">'
     +'<div class="rdg-chart-card"><div class="rdg-chart-title">Distribuição por Contrato de Gestão</div><canvas id="rdg-ch-donut" style="max-height:220px"></canvas></div>'
@@ -4167,7 +4188,7 @@ function renderRelatorio(){
     +'</div>'
     +(hasQualData
       ?'<h2 class="rdg-subsection-title" style="margin-top:24px">5.2 Indicadores Qualitativos – Representatividade por CG</h2>'
-        +'<p class="rdg-p">A representatividade qualitativa de cada Contrato de Gestão é apurada pela média dos 8 indicadores qualitativos, refletindo a demanda efetiva de cada parceiro pelos serviços compartilhados do CIGAC.</p>'
+        +'<p class="rdg-p">A representatividade qualitativa de cada Contrato de Gestão é apurada pela média dos indicadores com produção no mês (mesmo cálculo do Anexo II), refletindo a demanda efetiva de cada parceiro pelos serviços compartilhados do CIGAC.</p>'
         +'<div class="rdg-chart-card" style="margin:16px 0"><div class="rdg-chart-title">Representatividade Qualitativa por Contrato de Gestão – '+mesRef+'</div><canvas id="rdg-ch-repr" style="max-height:220px"></canvas></div>'
         +'<div class="rdg-subsec-newpage">'
         +'<h2 class="rdg-subsection-title" style="margin-top:0">5.3 Análise Comparativa: Critério Quantitativo × Representatividade Qualitativa</h2>'
@@ -4350,7 +4371,7 @@ function renderRelatorio(){
       <p class="rdg-p">Este documento é o Relatório Mensal de Despesas Compartilhadas previsto no item 10.3 do Manual de Rateio de Despesas de Gestão (RDG), ${esc(MANUAL_META.edicao)}, ${esc(MANUAL_META.aprovacao)}. O Relatório Mensal amarra e contextualiza os Anexos I a VI em uma peça coesa: apresenta a contextualização institucional do CIGAC, a metodologia do mês (critérios quantitativo e qualitativo) e uma justificativa individual e fundamentada para cada despesa compartilhada — objeto, necessidade institucional e benefício a todos os contratos; lista nominalmente os colaboradores do CIGAC por departamento, consolida o quadro de indicadores do Anexo II e remete aos comprovantes de cada lançamento. É assinado digitalmente pela Superintendente Executiva, atestando a veracidade e a conformidade das informações.</p>
       <p class="rdg-p">O relatório está organizado em oito seções: apresentação; metodologia; justificativa individual das despesas; colaboradores do CIGAC; análise dos indicadores; conformidade com o ${esc(MANUAL_META.acordao)}; documentos e anexos; e disposições finais.</p>
       <h2 class="rdg-subsection-title">1.5 Identificação do Centro de Custos</h2>
-      <p class="rdg-p"><strong>Centro de custos: CIGAC.</strong> Todas as despesas apresentadas neste relatório são de titularidade do CIGAC – Centro Integrado de Gestão e Assistência Compartilhada, unidade administrativa da Prima Qualitá Saúde que concentra as funções de gestão, governança, suporte jurídico, financeiro, contábil e operacional compartilhados entre os contratos de gestão. Competência de referência: <strong>${mesRef}</strong>; mês de pagamento: <strong>${mesPagto}</strong>; total das despesas compartilhadas: <strong>${R$(totalDesp)}</strong>, rateado entre os <strong>${CONTRATOS.length}</strong> contratos/serviços ativos.</p>
+      <p class="rdg-p"><strong>Centro de custos: CIGAC.</strong> Todas as despesas apresentadas neste relatório são de titularidade do CIGAC – Centro Integrado de Gestão e Assistência Compartilhada, unidade administrativa da Prima Qualitá Saúde que concentra as funções de gestão, governança, suporte jurídico, financeiro, contábil e operacional compartilhados entre os contratos de gestão. Competência de referência: <strong>${mesRef}</strong>; mês de pagamento: <strong>${mesPagto}</strong>; total das despesas compartilhadas${despCompl.length?' ('+rotTotal+')':''}: <strong>${R$(totalDesp)}</strong>, rateado entre os <strong>${CONTRATOS.length}</strong> contratos/serviços ativos.</p>
     </div>
 
     <!-- 2. METODOLOGIA -->
@@ -4360,7 +4381,7 @@ function renderRelatorio(){
       <h2 class="rdg-subsection-title">2.1 Critério Quantitativo</h2>
       <p class="rdg-p">O principal critério de rateio é quantitativo e proporcional: o percentual de cada contrato corresponde à razão entre o número de colaboradores a ele vinculados e o total de colaboradores da instituição, tomando por base a competência do mês anterior. Esse critério, validado ao longo da vigência da ${esc(MANUAL_META.resSES)} e acompanhado pelo TCE-RJ, observa proporcionalidade, razoabilidade, rastreabilidade, clareza e desdobramento analítico.</p>
       <p class="rdg-p"><strong>Fórmula:</strong> % de rateio do contrato = (CLT + Estatutários cedidos + PJs vinculados ao contrato) ÷ total geral de colaboradores da instituição — apurado com base na competência do mês anterior. Entende-se por colaborador qualquer mão de obra que preste serviço nas unidades objeto de cada contrato ou no CIGAC, com vínculo por CLT, PJ ou Estatutário; o percentual apurado é aplicado integralmente sobre cada despesa elegível do mês.</p>
-      <p class="rdg-p">Distribuição por contrato na competência <strong>${mesRef}</strong>${data.refColab?' (referência dos colaboradores: '+esc(data.refColab)+')':''}:</p>
+      <p class="rdg-p">Distribuição por contrato na competência <strong>${mesRef}</strong>${data.refColab?' (referência dos colaboradores: '+esc(data.refColab)+')':''}${totalColab>0?'':' — critério quantitativo não preenchido nesta competência (percentuais zerados)'}:</p>
       <table class="rdg-table">
         <thead>
           <tr>
@@ -4378,7 +4399,7 @@ function renderRelatorio(){
             <td style="text-align:center;font-size:11px;font-weight:700">${totalCLT}</td>
             <td style="text-align:center;font-size:11px;font-weight:700">${totalPJ}</td>
             <td style="text-align:center;font-size:11px;font-weight:700">${totalColab}</td>
-            <td style="text-align:center;font-size:11px;font-weight:700">100,00%</td>
+            <td style="text-align:center;font-size:11px;font-weight:700">${totalColab>0?'100,00%':'0,00%'}</td>
           </tr>
         </tfoot>
       </table>
@@ -4408,7 +4429,7 @@ function renderRelatorio(){
     <div class="rdg-section" style="page-break-before:always">
       <h1 class="rdg-section-title">3. Justificativa Individual das Despesas</h1>
       <p class="rdg-p">Em cumprimento ao item 10.3 do Manual RDG, cada despesa compartilhada é apresentada com justificativa individual e fundamentada, em seis blocos: objeto e fornecedor; necessidade institucional e benefício aos contratos; rateio aplicado; nexo de causalidade (indicador do departamento responsável, Anexo II); enquadramento (grupo da seção 6.1, condições cumulativas e base normativa); e comprovação. As despesas estão organizadas pelos grupos de despesas permitidas da seção 6.1 do Manual.</p>
-      <div class="rdg-total-geral">Total Geral das Despesas CIGAC – ${mesRef}: ${R$(totalDesp)}</div>
+      <div class="rdg-total-geral">Total Geral das Despesas CIGAC – ${rotTotal}: ${R$(totalDesp)}</div>
       ${catSectionsHtml||'<p class="rdg-p" style="color:#9CA3AF;font-style:italic">Nenhuma despesa cadastrada para '+mesRef+'. Acesse a aba <strong>📋 Despesas</strong> para preenchimento.</p>'}
       ${catSectionsComplHtml}
     </div>

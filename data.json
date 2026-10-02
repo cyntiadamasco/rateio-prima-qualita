@@ -19604,19 +19604,19 @@
         {
           "uid": "ckh3v3okz",
           "nome": "GREICIANE SOUZA CARDOSO",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "REDE DE CUIDADOS",
           "funcao": "ASSISTENTE ADMINISTRATIVO II"
         },
         {
           "uid": "c9zblqb0x",
           "nome": "HENRIQUE CASTRO VALVIESSE",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "REDE DE CUIDADOS",
           "funcao": "ANALISTA DE CONTRATO III"
         },
         {
           "uid": "cz28pw22o",
           "nome": "JACI XAVIER DA FONSECA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "TECNOLOGIA DA INFORMAÇÃO",
           "funcao": "ASSISTENTE DE TI II"
         },
         {
@@ -19844,7 +19844,7 @@
         {
           "uid": "cl0u0hlbr",
           "nome": "GUILHERME MARTINS ALMEIDA SILVA",
-          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
+          "dept": "SUPRIMENTOS",
           "funcao": "COORDENADOR DE SUPRIMENTOS III"
         },
         {
@@ -21722,6 +21722,26 @@
         "t": 1790971498400,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971499142,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971499654,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971500956,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971501574,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23298,5 +23318,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971498401
+  "savedAt": 1790971501576
 }

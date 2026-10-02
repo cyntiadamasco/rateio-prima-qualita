@@ -21116,6 +21116,11 @@
         "t": 1790949525133,
         "perfil": "Administrador",
         "comp": "2026-10"
+      },
+      {
+        "t": 1790949530300,
+        "perfil": "Administrador",
+        "comp": "2026-10"
       }
     ],
     "tokenCripto": {
@@ -21139,8 +21144,8 @@
         {
           "id": "madalena",
           "clt": 121,
-          "efetivo": 0,
-          "pj": 0,
+          "efetivo": 25,
+          "pj": 33,
           "obs": ""
         },
         {
@@ -22151,5 +22156,5 @@
     }
   },
   "currentComp": "2026-10",
-  "savedAt": 1790949525135
+  "savedAt": 1790949530302
 }

@@ -3448,7 +3448,7 @@ function adicionarTodosColabVF(){
 // Remove colaborador do app via indice (evita escaping de uid em onclick)
 function remColabVFapp(idx){
   const e=(window._vfFaltaFolha||[])[idx];if(!e)return;
-  remColabLista(e.uid);
+  if(!remColabLista(e.uid)) return;
   renderColabMgmt();
   const btn=document.getElementById('vfbtn-rem-'+idx);
   if(btn){btn.textContent='\u2713 Removido';btn.style.background='#6B7280';btn.disabled=true;}
@@ -3584,8 +3584,8 @@ function setColabLista(uid,field,val){
 
 function remColabLista(uid){
   const data=getMesData(currentComp);
-  const c0=(data.colab_lista||[]).find(x=>x.uid===uid); if(!c0) return;
-  if(!confirm('Remover "'+(c0.nome||'colaborador')+'" da lista?')) return;
+  const c0=(data.colab_lista||[]).find(x=>x.uid===uid); if(!c0) return false;
+  if(!confirm('Remover "'+(c0.nome||'colaborador')+'" da lista?')) return false;
   data.colab_lista=(data.colab_lista||[]).filter(x=>x.uid!==uid);
   salvar();
   const row=document.getElementById('clr-'+uid);
@@ -3596,6 +3596,7 @@ function remColabLista(uid){
     const td=tr.querySelector('td:first-child');
     if(td) td.textContent=i+1;
   });
+  return true;
 }
 
 function addColabLista(){
@@ -5845,7 +5846,7 @@ function _processarPdfsPendentes(){
 }
 function githubDeletePDF(uid){
   const token = ghToken();
-  if(!token) return Promise.resolve();
+  if(!token) return Promise.reject(new Error('sem token'));
   const path   = 'pdfs/' + uid + '.pdf';
   const apiUrl = 'https://api.github.com/repos/' + GH_REPO + '/contents/' + path;
   const hdr    = {
@@ -5853,17 +5854,21 @@ function githubDeletePDF(uid){
     'Accept'        : 'application/vnd.github.v3+json',
     'Content-Type'  : 'application/json'
   };
+  /* resolve true: apagado ou nada a apagar; rejeita: erro de rede/API (quem chama pode reagendar) */
   return fetch(apiUrl, {headers: hdr})
-    .then(r => r.ok ? r.json() : null)
+    .then(r => {
+      if(r.status === 404) return null;
+      if(!r.ok) throw new Error('GET ' + r.status);
+      return r.json();
+    })
     .then(j => {
-      if(!j || !j.sha) return;
+      if(!j || !j.sha) return true;
       return fetch(apiUrl, {
         method  : 'DELETE',
         headers : hdr,
         body    : JSON.stringify({message: 'Remove comprovante ' + uid, sha: j.sha})
-      });
-    })
-    .catch(() => {});
+      }).then(r => { if(!r.ok) throw new Error('DELETE ' + r.status); return true; });
+    });
 }
 
 function _b64toBlob(dataUrl){

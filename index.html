@@ -831,6 +831,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 .btn-pdf{background:none;border:1px solid transparent;cursor:pointer;padding:2px 6px;border-radius:5px;font-size:14px;transition:all .15s;color:#9CA3AF;line-height:1.4;vertical-align:middle}
 .btn-pdf:hover{background:rgba(0,168,123,.1);border-color:var(--teal);color:var(--teal)}
 .btn-pdf.has-pdf{color:var(--teal)}
+.btn.btn-just-own{background:var(--teal);color:#fff;border-color:var(--teal)}
 
 /* ══════════════════════════════════════════════════════
    RESPONSIVE – MOBILE  (max-width: 768 px)
@@ -1623,18 +1624,24 @@ function justificativaDespesa(d,comp){
   const ativos=contratosAtivos(comp);
   const pm=d.compl?getPctMapAnt(comp):getPctMap(comp);
   const docFiscal=d.ctipo?(d.cnum?d.ctipo+' nº '+d.cnum:d.ctipo):'documento fiscal anexado';
-  const dt=d.dtPgto?new Date(d.dtPgto+'T00:00:00').toLocaleDateString('pt-BR'):'';
+  const x=d.dtPgto?new Date(d.dtPgto+'T00:00:00'):null; const dt=(x&&!isNaN(x))?x.toLocaleDateString('pt-BR'):'';
   let h='<div class="rdg-just">';
   h+='<p class="rdg-just-p"><strong>Objeto e fornecedor.</strong> '+esc(d.objeto||'—')+'. Favorecido: '+esc(d.fav||'—')+(d.cnpj?' (CNPJ/CPF '+esc(d.cnpj)+')':'')+'. '+esc(docFiscal)+(dt?', pago em '+dt:'')+'. Valor: <strong>'+R$(d.valor||0)+'</strong>.</p>';
-  h+='<p class="rdg-just-p"><strong>Necessidade institucional e benefício aos contratos.</strong> '+esc(d.just&&d.just.trim()?d.just.trim():justificativaPadrao(d))+'</p>';
+  const textoNec=(d.just&&d.just.trim())?d.just.trim():(CAT_INFO[d.cat]?justificativaPadrao(d):'Categoria sem ficha de enquadramento no Manual; preencha a justificativa própria.');
+  h+='<p class="rdg-just-p"><strong>Necessidade institucional e benefício aos contratos.</strong> '+esc(textoNec)+'</p>';
   const cgs=ativos.map(c=>'<span class="rdg-just-cg">'+esc(c.sigla)+' '+fmtPct((pm[c.id]||0)*100)+' (<b>'+R$(aloc[c.id]||0)+'</b>)</span>').join('; ');
-  h+='<p class="rdg-just-p"><strong>Rateio aplicado.</strong> Critério quantitativo (colaboradores por contrato ÷ total, competência '+esc(compLabel(prevComp(comp)))+', Res. SES/RJ nº 1.557/2017)'+(d.compl?', despesa complementar da competência '+esc(prevCompLabel(comp)):'')+': '+cgs+'.</p>';
+  const compMapa=(d.compl&&!usaRateioAtualNoAnt(comp))?prevComp(comp):comp;
+  const refColab=(state[compMapa]&&state[compMapa].refColab)||'';
+  const critTxt='Critério quantitativo da competência '+esc(compLabel(compMapa))+' (colaboradores por contrato ÷ total geral'+(refColab?'; referência de colaboradores: '+esc(refColab):'')+'; Res. SES/RJ nº 1.557/2017)'
+    +(d.compl?(usaRateioAtualNoAnt(comp)?', despesa complementar de '+esc(prevCompLabel(comp))+' rateada pelos percentuais da competência atual por ausência de critério na anterior':', despesa complementar de '+esc(prevCompLabel(comp))+' rateada pelos percentuais daquela competência'):'');
+  h+='<p class="rdg-just-p"><strong>Rateio aplicado.</strong> '+critTxt+': '+cgs+'.</p>';
   if(ind){
     const iq=(data.iqual||{})[ind.id]||{}; const tem=ativos.some(c=>(iq[c.id]||0)>0);
     h+='<p class="rdg-just-p"><strong>Nexo de causalidade.</strong> Departamento responsável: '+esc(ind.nome)+' (indicador '+esc(ind.codigo)+' – '+esc(ind.unidade)+'; fonte: '+esc(ind.fonte)+'). '
       +(tem?'Produção no mês por contrato: '+ativos.map(c=>esc(c.sigla)+' '+(iq[c.id]||0)).join('; ')+'.':'Produção do mês registrada no Quadro de Indicadores (Anexo II).')+'</p>';
   }
-  h+='<p class="rdg-just-p"><strong>Enquadramento.</strong> '+(grupo?'Grupo "'+esc(grupo.nome)+'" (Manual RDG 2ª ed., seção 6.1). ':'')+'Atende às sete condições cumulativas da seção 6.1 (previsão no plano de trabalho, vinculação ao objeto, necessidade, economicidade, proporcionalidade, rastreabilidade e amparo contratual). Base normativa: '+esc(f.base)+'.'
+  h+='<p class="rdg-just-p"><strong>Enquadramento.</strong> '+(CAT_INFO[d.cat]?(grupo?'Grupo "'+esc(grupo.nome)+'" (Manual RDG 2ª ed., seção 6.1). ':'')+'Enquadra-se nas sete condições cumulativas da seção 6.1 do Manual: '+CONDICOES_61.map(esc).join('; ')+'. Base normativa: '+esc(f.base)+'.':'Base normativa: '+esc(f.base)+'.')
+    +(f.zonaAtencao&&f.controles.length?' <em>Zona de atenção (seção 6.3): controles obrigatórios — '+f.controles.map(esc).join('; ')+'.</em>':'')+'</p>';
     +(f.zonaAtencao&&f.controles.length?' <em>Zona de atenção (seção 6.3): controles obrigatórios — '+f.controles.map(esc).join('; ')+'.</em>':'')+'</p>';
   h+='<p class="rdg-just-p"><strong>Comprovação.</strong> Anexo '+esc(f.anexo)+(f.anexo==='IV'?' (processo de contratação e contrato vigente)':f.anexo==='V'?' (demonstrativos contábeis e financeiros)':' (demonstrativo de despesas compartilhadas)')+'; Anexo V (razão contábil e extrato)'+((d.pdfUrl||d.pdfUrl2)?'; nota fiscal/recibo e comprovante bancário anexados a este item':'')+'.</p>';
   return h+'</div>';
@@ -2582,7 +2589,7 @@ function buildDespesaRow(d, i, pctMap, catOpts, tipoOpts, n){
     <td class="td-r" style="white-space:nowrap;cursor:pointer" onclick="editarValor('${d.uid}')" title="Clique para editar o valor">${R$(d.valor||0)} <span class="no-print" style="font-size:10px;color:#9CA3AF;margin-left:2px">✏️</span></td>
     <td class="td-r text-muted">${R$(totalRateado)}</td>
     <td class="td-c no-print" style="white-space:nowrap">
-      <button class="btn btn-xs edit-only${d.just?' has-pdf':''}" onclick="abrirJustificativa('${d.uid}')" title="${d.just?'Justificativa própria (clique para editar)':'Justificativa padrão (clique para personalizar)'}">✎</button>
+      <button class="btn btn-xs edit-only${d.just?' btn-just-own':''}" onclick="abrirJustificativa('${d.uid}')" title="${d.just?'Justificativa própria (clique para editar)':'Justificativa padrão (clique para personalizar)'}">✎</button>
       ${btnNF}${btnBanco}
       <button class="btn btn-xs" onclick="toggleComplDesp('${d.uid}')" title="${d.compl?'Desmarcar: voltar a ratear pelos percentuais do mês atual':'Marcar como despesa complementar do mês anterior (rateio pelos percentuais do mês anterior)'}" style="padding:2px 5px;font-size:12px;${d.compl?'background:#F59E0B;color:#fff;border-color:#D97706':''}">🔁</button>
       <button class="btn btn-xs" onclick="moverDesp('${d.uid}',-1)" ${i===0?'disabled':''} title="Mover para cima" style="padding:2px 5px;font-size:12px">↑</button>

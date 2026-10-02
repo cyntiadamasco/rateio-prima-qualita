@@ -21171,6 +21171,11 @@
         "t": 1790949573677,
         "perfil": "Administrador",
         "comp": "2026-10"
+      },
+      {
+        "t": 1790949581959,
+        "perfil": "Administrador",
+        "comp": "2026-10"
       }
     ],
     "tokenCripto": {
@@ -21250,9 +21255,9 @@
         {
           "id": "saq_esp",
           "clt": 313,
-          "efetivo": 0,
-          "pj": 0,
-          "obs": ""
+          "efetivo": 71,
+          "pj": 104,
+          "obs": "488"
         },
         {
           "id": "saq_pri",
@@ -22206,5 +22211,5 @@
     }
   },
   "currentComp": "2026-10",
-  "savedAt": 1790949573680
+  "savedAt": 1790949581961
 }

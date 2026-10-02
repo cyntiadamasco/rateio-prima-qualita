@@ -19862,7 +19862,7 @@
         {
           "uid": "czmd0q9a2",
           "nome": "SANDY KEYTMA MELO RAMALHO",
-          "dept": "DEPARTAMENTO DE LOGÍSTICA E SUPRIMENTOS",
+          "dept": "SUPRIMENTOS",
           "funcao": "ASSISTENTE ADMINISTRATIVO III"
         },
         {
@@ -19970,7 +19970,7 @@
         {
           "uid": "ca1fvbgnc",
           "nome": "SERGIO LUIS MACHADO BRAZIL",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "dept": "GESTÃO DE PESSOAS - SST",
           "funcao": "COORDENADOR DE QUALIDADE"
         },
         {
@@ -20156,13 +20156,13 @@
         {
           "uid": "c3d9bwihc",
           "nome": "SHIRLEY DE OLIVEIRA MATOS",
-          "dept": "DEPARTAMENTO PESSOAL",
+          "dept": "GESTAO DE PESSOAS - DP",
           "funcao": "ASSISTENTE ADMINISTRATIVO I"
         },
         {
           "uid": "cglllac2m",
           "nome": "SOLANGE SEIXAS MURRO",
-          "dept": "DEPARTAMENTO PESSOAL",
+          "dept": "GESTAO DE PESSOAS - DP",
           "funcao": "ANALISTA DE DEPARTAMENTO PESSOAL III"
         },
         {
@@ -21902,6 +21902,26 @@
         "t": 1790971528582,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971529070,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971529760,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971530992,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971531474,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23478,5 +23498,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971528585
+  "savedAt": 1790971531476
 }

@@ -18653,72 +18653,72 @@
       "colaboradores": [
         {
           "id": "madalena",
-          "clt": 0,
-          "efetivo": 0,
-          "pj": 0,
+          "clt": 122,
+          "efetivo": 25,
+          "pj": 33,
           "obs": ""
         },
         {
           "id": "cachoeiras",
-          "clt": 0,
+          "clt": 381,
           "efetivo": 0,
-          "pj": 0,
+          "pj": 128,
           "obs": ""
         },
         {
           "id": "saq_hosp",
-          "clt": 0,
-          "efetivo": 0,
-          "pj": 0,
+          "clt": 1408,
+          "efetivo": 21,
+          "pj": 640,
           "obs": ""
         },
         {
           "id": "upa_pac",
-          "clt": 0,
+          "clt": 77,
           "efetivo": 0,
-          "pj": 0,
+          "pj": 36,
           "obs": ""
         },
         {
           "id": "upa_nc",
-          "clt": 0,
+          "clt": 82,
           "efetivo": 0,
-          "pj": 0,
+          "pj": 36,
           "obs": ""
         },
         {
           "id": "arraial",
-          "clt": 0,
-          "efetivo": 0,
-          "pj": 0,
+          "clt": 343,
+          "efetivo": 89,
+          "pj": 350,
           "obs": ""
         },
         {
           "id": "quissama",
-          "clt": 0,
+          "clt": 56,
           "efetivo": 0,
-          "pj": 0,
+          "pj": 5,
           "obs": ""
         },
         {
           "id": "cordeiro",
-          "clt": 0,
+          "clt": 93,
           "efetivo": 0,
-          "pj": 0,
+          "pj": 69,
           "obs": ""
         },
         {
           "id": "saq_esp",
-          "clt": 0,
-          "efetivo": 0,
-          "pj": 0,
+          "clt": 315,
+          "efetivo": 70,
+          "pj": 102,
           "obs": ""
         },
         {
           "id": "saq_pri",
-          "clt": 0,
-          "efetivo": 0,
-          "pj": 0,
+          "clt": 636,
+          "efetivo": 42,
+          "pj": 9,
           "obs": ""
         }
       ],
@@ -20321,6 +20321,11 @@
         "t": 1788536678072,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1790900523652,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -20332,5 +20337,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1788536678075
+  "savedAt": 1790900523657
 }

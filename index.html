@@ -2348,7 +2348,8 @@ function esc(s){ return (s||'').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
 
 function addDespesa(){
   const data=getMesData(currentComp);
-  const next=data.despesas.length+1;
+  const nums=data.despesas.map(d=>parseInt(d.id)).filter(n=>!isNaN(n));
+  const next=(nums.length?Math.max(...nums):0)+1;
   const d={uid:uid(),id:String(next),cat:CATEGORIAS[0],objeto:'',fav:'',cnpj:'',ctipo:'',cnum:'',valor:0,dtPgto:''};
   data.despesas.push(d);
   marcarAlterado();
@@ -2399,7 +2400,7 @@ function moverDesp(duid, dir){
   const newIdx=idx+dir;
   if(newIdx<0||newIdx>=data.despesas.length) return;
   [data.despesas[idx],data.despesas[newIdx]]=[data.despesas[newIdx],data.despesas[idx]];
-  salvar();
+  marcarAlterado();
   renderDespesas();
 }
 

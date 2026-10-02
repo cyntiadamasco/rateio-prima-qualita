@@ -482,6 +482,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 /* ── PRINT ────────────────────────────────────────────────────── */
 @media print{
   body{background:#fff;font-size:10px}
+  .rdg-just-p{orphans:2;widows:2}
   #desp-body tr{display:table-row!important}
   .no-print,.app-header,.comp-bar,.tabs-bar,.panel:not(.active){display:none!important}
   .panel.active{display:block!important;padding:8px}
@@ -819,6 +820,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:999;display:flex;align-items:center;justify-content:center}
 .modal-box{background:#fff;border-radius:12px;padding:28px;width:480px;max-width:92vw;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.rdg-just{font-size:10px;line-height:1.5;margin:4px 0 10px 18px}.rdg-just-p{margin:2px 0}.rdg-just-cg{white-space:nowrap;font-size:9.5px}
 .modal-title{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px}
 .modal-sub{font-size:12px;color:var(--gray);margin-bottom:18px;line-height:1.6}
 .modal-input{width:100%;border:1px solid var(--border);border-radius:6px;padding:9px 12px;font-size:12px;box-sizing:border-box;margin-bottom:10px;font-family:monospace}
@@ -1607,6 +1609,50 @@ function ratearValor(valor,pctMap){
 function alocarDespesa(valor,pctMap){ return ratearValor(valor,pctMap); }
 function alocacoesDespesa(d,comp){ return ratearValor(d.valor||0, d.compl?getPctMapAnt(comp):getPctMap(comp)); }
 function totalAlocado(d,comp){ return Math.round(Object.values(alocacoesDespesa(d,comp)).reduce((a,b)=>a+b,0)*100)/100; }
+
+function justificativaPadrao(d){
+  const f=CAT_INFO[d.cat]; if(!f) return '';
+  return f.necessidade+' Trata-se de serviço compartilhado do CIGAC que atende simultaneamente a todos os contratos de gestão geridos pela Prima Qualitá, sem possibilidade de individualização a uma única unidade, razão pela qual é rateado proporcionalmente entre os participantes.';
+}
+function justificativaDespesa(d,comp){
+  const f=CAT_INFO[d.cat]||{grupo:null,indicador:null,anexo:'III',zonaAtencao:false,controles:[],base:'Manual RDG 2ª ed., seção 6.1',necessidade:''};
+  const grupo=f.grupo?GRUPOS_MANUAL[f.grupo]:null;
+  const ind=f.indicador?INDICADORES_QUAL.find(i=>i.id===f.indicador):null;
+  const data=getMesData(comp);
+  const aloc=alocacoesDespesa(d,comp);
+  const ativos=contratosAtivos(comp);
+  const pm=d.compl?getPctMapAnt(comp):getPctMap(comp);
+  const docFiscal=d.ctipo?(d.cnum?d.ctipo+' nº '+d.cnum:d.ctipo):'documento fiscal anexado';
+  const dt=d.dtPgto?new Date(d.dtPgto+'T00:00:00').toLocaleDateString('pt-BR'):'';
+  let h='<div class="rdg-just">';
+  h+='<p class="rdg-just-p"><strong>Objeto e fornecedor.</strong> '+esc(d.objeto||'—')+'. Favorecido: '+esc(d.fav||'—')+(d.cnpj?' (CNPJ/CPF '+esc(d.cnpj)+')':'')+'. '+esc(docFiscal)+(dt?', pago em '+dt:'')+'. Valor: <strong>'+R$(d.valor||0)+'</strong>.</p>';
+  h+='<p class="rdg-just-p"><strong>Necessidade institucional e benefício aos contratos.</strong> '+esc(d.just&&d.just.trim()?d.just.trim():justificativaPadrao(d))+'</p>';
+  const cgs=ativos.map(c=>'<span class="rdg-just-cg">'+esc(c.sigla)+' '+fmtPct((pm[c.id]||0)*100)+' (<b>'+R$(aloc[c.id]||0)+'</b>)</span>').join('; ');
+  h+='<p class="rdg-just-p"><strong>Rateio aplicado.</strong> Critério quantitativo (colaboradores por contrato ÷ total, competência '+esc(compLabel(prevComp(comp)))+', Res. SES/RJ nº 1.557/2017)'+(d.compl?', despesa complementar da competência '+esc(prevCompLabel(comp)):'')+': '+cgs+'.</p>';
+  if(ind){
+    const iq=(data.iqual||{})[ind.id]||{}; const tem=ativos.some(c=>(iq[c.id]||0)>0);
+    h+='<p class="rdg-just-p"><strong>Nexo de causalidade.</strong> Departamento responsável: '+esc(ind.nome)+' (indicador '+esc(ind.codigo)+' – '+esc(ind.unidade)+'; fonte: '+esc(ind.fonte)+'). '
+      +(tem?'Produção no mês por contrato: '+ativos.map(c=>esc(c.sigla)+' '+(iq[c.id]||0)).join('; ')+'.':'Produção do mês registrada no Quadro de Indicadores (Anexo II).')+'</p>';
+  }
+  h+='<p class="rdg-just-p"><strong>Enquadramento.</strong> '+(grupo?'Grupo "'+esc(grupo.nome)+'" (Manual RDG 2ª ed., seção 6.1). ':'')+'Atende às sete condições cumulativas da seção 6.1 (previsão no plano de trabalho, vinculação ao objeto, necessidade, economicidade, proporcionalidade, rastreabilidade e amparo contratual). Base normativa: '+esc(f.base)+'.'
+    +(f.zonaAtencao&&f.controles.length?' <em>Zona de atenção (seção 6.3): controles obrigatórios — '+f.controles.map(esc).join('; ')+'.</em>':'')+'</p>';
+  h+='<p class="rdg-just-p"><strong>Comprovação.</strong> Anexo '+esc(f.anexo)+(f.anexo==='IV'?' (processo de contratação e contrato vigente)':f.anexo==='V'?' (demonstrativos contábeis e financeiros)':' (demonstrativo de despesas compartilhadas)')+'; Anexo V (razão contábil e extrato)'+((d.pdfUrl||d.pdfUrl2)?'; nota fiscal/recibo e comprovante bancário anexados a este item':'')+'.</p>';
+  return h+'</div>';
+}
+let _justUid=null;
+function abrirJustificativa(uid){
+  const d=getMesData(currentComp).despesas.find(x=>x.uid===uid); if(!d) return;
+  _justUid=uid;
+  document.getElementById('just-sub').textContent='ID '+(d.id||'')+' – '+(d.objeto||'')+' – '+(d.fav||'');
+  document.getElementById('just-texto').value=(d.just&&d.just.trim())?d.just:justificativaPadrao(d);
+  document.getElementById('modal-just').style.display='flex';
+}
+function salvarJustificativa(){
+  const d=getMesData(currentComp).despesas.find(x=>x.uid===_justUid); if(!d) return;
+  const v=document.getElementById('just-texto').value.trim();
+  if(!v||v===justificativaPadrao(d)) delete d.just; else d.just=v;
+  marcarAlterado(); fecharModaisAbertos(); renderDespesas(); toast(d.just?'Justificativa própria salva.':'Justificativa voltou ao texto-padrão.');
+}
 
 function compLabel(comp){ return fmtComp(comp)||comp; }
 /* Retorna a competência do mês anterior (ex: "2026-05" → "2026-04") */
@@ -2536,6 +2582,7 @@ function buildDespesaRow(d, i, pctMap, catOpts, tipoOpts, n){
     <td class="td-r" style="white-space:nowrap;cursor:pointer" onclick="editarValor('${d.uid}')" title="Clique para editar o valor">${R$(d.valor||0)} <span class="no-print" style="font-size:10px;color:#9CA3AF;margin-left:2px">✏️</span></td>
     <td class="td-r text-muted">${R$(totalRateado)}</td>
     <td class="td-c no-print" style="white-space:nowrap">
+      <button class="btn btn-xs edit-only${d.just?' has-pdf':''}" onclick="abrirJustificativa('${d.uid}')" title="${d.just?'Justificativa própria (clique para editar)':'Justificativa padrão (clique para personalizar)'}">✎</button>
       ${btnNF}${btnBanco}
       <button class="btn btn-xs" onclick="toggleComplDesp('${d.uid}')" title="${d.compl?'Desmarcar: voltar a ratear pelos percentuais do mês atual':'Marcar como despesa complementar do mês anterior (rateio pelos percentuais do mês anterior)'}" style="padding:2px 5px;font-size:12px;${d.compl?'background:#F59E0B;color:#fff;border-color:#D97706':''}">🔁</button>
       <button class="btn btn-xs" onclick="moverDesp('${d.uid}',-1)" ${i===0?'disabled':''} title="Mover para cima" style="padding:2px 5px;font-size:12px">↑</button>
@@ -7992,6 +8039,19 @@ function removerManualRDG(){
       <button class="btn btn-outline btn-sm" onclick="removerToken()">Remover Token</button>
       <button class="btn btn-outline btn-sm" onclick="fecharModal()">Cancelar</button>
       <button class="btn btn-teal btn-sm" onclick="salvarToken()">Salvar e Sincronizar</button>
+    </div>
+  </div>
+</div>
+
+<div id="modal-just" class="modal-overlay" style="display:none" onclick="if(event.target===this)fecharModaisAbertos()">
+  <div class="modal-box" style="width:640px">
+    <div class="modal-title">✎ Justificativa da despesa</div>
+    <div class="modal-sub" id="just-sub"></div>
+    <textarea id="just-texto" rows="9" style="width:100%;font-size:12px;line-height:1.5"></textarea>
+    <div style="font-size:10px;color:var(--gray);margin-top:6px">Este texto substitui o bloco "Necessidade institucional e benefício aos contratos" no Relatório RDG. Os blocos de rateio, nexo de causalidade, enquadramento e comprovação continuam automáticos. Deixe em branco para voltar ao texto-padrão.</div>
+    <div class="modal-acts" style="margin-top:14px">
+      <button class="btn btn-outline btn-sm" onclick="fecharModaisAbertos()">Cancelar</button>
+      <button class="btn btn-teal btn-sm" onclick="salvarJustificativa()">Salvar</button>
     </div>
   </div>
 </div>

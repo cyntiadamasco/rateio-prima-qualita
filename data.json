@@ -19782,12 +19782,6 @@
           "funcao": "ASSISTENTE ADMINISTRATIVO"
         },
         {
-          "uid": "cnu6djxgs",
-          "nome": "MARIA BIANCA NOBREGA MARINS",
-          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
-          "funcao": "JOVEM APRENDIZ"
-        },
-        {
           "uid": "cn0igmxwa",
           "nome": "VICTOR TEIXEIRA LESSA",
           "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
@@ -20415,11 +20409,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1788536284968,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
       {
         "t": 1788536286267,
         "perfil": "Administrador",
@@ -21912,6 +21901,11 @@
       },
       {
         "t": 1790971635054,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971638592,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23490,5 +23484,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971635059
+  "savedAt": 1790971638595
 }

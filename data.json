@@ -19626,12 +19626,6 @@
           "funcao": "GERENTE ASSISTENCIAL III"
         },
         {
-          "uid": "cs3iwjh0n",
-          "nome": "RAPHAEL AREAS CAVALCANTE",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "SUPERVISORA DE REDES DE CUIDADOS I"
-        },
-        {
           "uid": "c2bbcmg6f",
           "nome": "RICARDO DE ALMEIDA MANGABEIRA",
           "dept": "REDE DE CUIDADOS",
@@ -19774,12 +19768,6 @@
           "nome": "JONATHAS MARQUES RIBEIRO",
           "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
           "funcao": "AUXILIAR ADMINISTRATIVO III"
-        },
-        {
-          "uid": "c1ge1znhm",
-          "nome": "LUISA FERREIRA ALBUQUERQUE",
-          "dept": "DEPARTAMENTO DE PRESTAÇÃO DE CONTAS",
-          "funcao": "ASSISTENTE ADMINISTRATIVO"
         },
         {
           "uid": "cmtj0x06j",
@@ -20373,16 +20361,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1788536325900,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
-      {
-        "t": 1788536331816,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
       {
         "t": 1788536336639,
         "perfil": "Administrador",
@@ -21870,6 +21848,16 @@
       },
       {
         "t": 1790971657626,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971712914,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971715356,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23448,5 +23436,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971657629
+  "savedAt": 1790971715360
 }

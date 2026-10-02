@@ -639,7 +639,6 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   #panel-manual [style*="repeat(auto-fit,minmax(180px"]{grid-template-columns:repeat(4,1fr)!important}
   #panel-manual [style*="repeat(auto-fit,minmax(130px"]{grid-template-columns:repeat(4,1fr)!important}
   #panel-manual *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
-  #panel-manual .mnl-pgbrk{page-break-before:always;break-before:page}
   #panel-manual .tbl-wrap{overflow:visible!important;box-shadow:none!important}
   #panel-manual table{font-size:9pt!important}
   #panel-manual thead th{padding:4px 6px!important;font-size:8.5pt!important}
@@ -1661,7 +1660,7 @@ function justificativaDespesa(d,comp){
   const docFiscal=d.ctipo?(d.cnum?d.ctipo+' nº '+d.cnum:d.ctipo):'documento fiscal anexado';
   const x=d.dtPgto?new Date(d.dtPgto+'T00:00:00'):null; const dt=(x&&!isNaN(x))?x.toLocaleDateString('pt-BR'):'';
   let h='<div class="rdg-just">';
-  h+='<p class="rdg-just-p"><strong>Objeto e fornecedor.</strong> '+esc(d.objeto||'—')+'. Favorecido: '+esc(d.fav||'—')+(d.cnpj?' (CNPJ/CPF '+esc(d.cnpj)+')':'')+'. '+esc(docFiscal)+(dt?', pago em '+dt:'')+'. Valor: <strong>'+R$(d.valor||0)+'</strong>.</p>';
+  h+='<p class="rdg-just-p"><strong>Objeto e fornecedor.</strong> '+esc(String(d.objeto||'—').trim().replace(/\.+$/,''))+'. Favorecido: '+esc(d.fav||'—')+(d.cnpj?' (CNPJ/CPF '+esc(d.cnpj)+')':'')+'. '+esc(docFiscal)+(dt?', pago em '+dt:'')+'. Valor: <strong>'+R$(d.valor||0)+'</strong>.</p>';
   const textoNec=(d.just&&d.just.trim())?d.just.trim():(CAT_INFO[d.cat]?justificativaPadrao(d):'Categoria sem ficha de enquadramento no Manual; preencha a justificativa própria.');
   h+='<p class="rdg-just-p"><strong>Necessidade institucional e benefício aos contratos.</strong> '+esc(textoNec)+'</p>';
   const cgs=ativos.map(c=>'<span class="rdg-just-cg">'+esc(c.sigla)+' '+fmtPct((pm[c.id]||0)*100)+' (<b>'+R$(aloc[c.id]||0)+'</b>)</span>').join('; ');
@@ -1682,7 +1681,7 @@ function justificativaDespesa(d,comp){
   }
   h+='<p class="rdg-just-p"><strong>Enquadramento.</strong> '+(CAT_INFO[d.cat]?(grupo?'Grupo "'+esc(grupo.nome)+'" (Manual RDG 2ª ed., seção 6.1). ':'')+'Declara-se o atendimento às sete condições cumulativas da seção 6.1 do Manual: '+CONDICOES_61.map(esc).join('; ')+'. Base normativa: '+esc(f.base)+'.':'Base normativa: '+esc(f.base)+'.')
     +(f.zonaAtencao&&f.controles.length?' <em>Zona de atenção (seção 6.3): controles obrigatórios — '+f.controles.map(esc).join('; ')+'.</em>':'')+'</p>';
-  h+='<p class="rdg-just-p"><strong>Comprovação.</strong> Anexo '+esc(f.anexo)+(f.anexo==='IV'?' (processo de contratação e contrato vigente)':f.anexo==='V'?' (demonstrativos contábeis e financeiros)':' (demonstrativo de despesas compartilhadas)')+'; Anexo V (razão contábil e extrato)'+((d.pdfUrl||d.pdfUrl2)?'; nota fiscal/recibo e comprovante bancário anexados a este item':'')+'.</p>';
+  h+='<p class="rdg-just-p"><strong>Comprovação.</strong> Anexo '+esc(f.anexo)+(f.anexo==='IV'?' (processo de contratação e contrato vigente)':' (demonstrativo de despesas compartilhadas)')+'; Anexo V (razão contábil e extrato)'+((d.pdfUrl||d.pdfUrl2)?'; nota fiscal/recibo e comprovante bancário anexados a este item':'')+'.</p>';
   return h+'</div>';
 }
 /* Evidências da competência para a matriz de conformidade com o Acórdão TCE-RJ nº 3.905/2024 (Manual, cap. 13) */
@@ -1720,7 +1719,12 @@ function evidenciasTCE(comp){
   };
 }
 let _justUid=null;
+/* Só quem pode editar a aba Despesas abre/salva a justificativa própria */
+function podeEditarJustificativa(){
+  return !document.body.classList.contains('readonly')&&(typeof canEditTab!=='function'||canEditTab('despesas'));
+}
 function abrirJustificativa(uid){
+  if(!podeEditarJustificativa()) return;
   const d=getMesData(currentComp).despesas.find(x=>x.uid===uid); if(!d) return;
   _justUid=uid;
   document.getElementById('just-sub').textContent='ID '+(d.id||'')+' – '+(d.objeto||'')+' – '+(d.fav||'');
@@ -1728,6 +1732,7 @@ function abrirJustificativa(uid){
   document.getElementById('modal-just').style.display='flex';
 }
 function salvarJustificativa(){
+  if(!podeEditarJustificativa()) return;
   const d=getMesData(currentComp).despesas.find(x=>x.uid===_justUid); if(!d) return;
   const v=document.getElementById('just-texto').value.trim();
   if(!v||v===justificativaPadrao(d)) delete d.just; else d.just=v;
@@ -2174,7 +2179,7 @@ function renderQualitativo(){
   const thInds = INDICADORES_QUAL.map(ind=>`
     <th colspan="2" class="th-azul" style="text-align:center;font-size:10px;padding:5px 6px;white-space:nowrap;min-width:130px">
       <div style="font-weight:700">${ind.codigo} – ${ind.nome}</div>
-      <div style="font-weight:400;font-size:9px;opacity:.85">${ind.dept}</div>
+      ${ind.dept&&!ind.nome.includes(ind.dept)?'<div style="font-weight:400;font-size:9px;opacity:.85">'+ind.dept+'</div>':''}
     </th>`).join('');
 
   // Cabeçalho – linha 2 (QTD / %)
@@ -2232,7 +2237,7 @@ function renderQualitativo(){
         +'<div style="display:flex;align-items:flex-start;gap:8px">'
         +'<div style="flex:1;min-width:0">'
         +'<div style="font-size:12px;font-weight:700;color:var(--navy)">'+ind.codigo+' – '+ind.nome+'</div>'
-        +'<div style="font-size:10px;color:var(--gray);margin-top:2px">'+ind.dept+'</div>'
+        +(ind.dept&&!ind.nome.includes(ind.dept)?'<div style="font-size:10px;color:var(--gray);margin-top:2px">'+ind.dept+'</div>':'')
         +(hasPdf?'<div style="font-size:10px;color:#16A34A;margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:200px">✓ '+(pdf.pdfNome||'PDF')+'</div>':'')+'</div>'
         +'<div class="no-print" style="display:flex;gap:4px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end">'
         +btnVer+btnLer+btnRem+btnUpload+'</div></div></div>';
@@ -4179,7 +4184,6 @@ function renderRelatorio(){
       +cells+'<td style="text-align:center;font-size:10px;font-weight:700;padding:3px 6px">'+fmtPct(repr*100)+'</td></tr>';
   }).join('');
 
-  /* Gráficos analíticos – seção 4 */
   const pctAntRel=getPctMapAnt(currentComp);
   const cgTotals=CONTRATOS.map(ct=>desp.reduce((a,d)=>a+(d.valor||0)*((d.compl?pctAntRel:pctMap)[ct.id]||0),0));
   const quantPcts=CONTRATOS.map(ct=>(pctMap[ct.id]||0)*100);
@@ -7897,7 +7901,7 @@ function renderManual(){
         ['Pablo Siqueira dos Santos Souza','Assessor Jurídico'],
         ['Rui Anderson Moraes dos Santos','Gerente de Finanças e Controladoria']
       ])+
-      mH('1. Apresentação')+
+      mH('1. Apresentação (resumo)')+
       mP('O Projeto Social Cresce Comunidade — Prima Qualitá é uma associação sem fins lucrativos que atua como gestora de unidades públicas, na condição de instituição qualificada como Organização Social (OS) e como Organização da Sociedade Civil (OSC) e, historicamente, também na gestão de serviços privados. A revisão constante de seus atos de gestão, em busca de melhorias contínuas de processos e fluxos operacionais, motivou a revisão do Manual de Rateio de Despesas de Gestão, culminando na publicação da sua 2ª edição.')+
       mP('A centralização das ações gerenciais e administrativas proporciona celeridade, economicidade e ganho de escala em todas as contratações; as despesas administrativas são unificadas e rateadas entre todos os contratos e serviços geridos de forma centralizada. A partir desta 2ª edição, essa estrutura centralizada passa a ser formalmente identificada como <strong>CIGAC — Centro Integrado de Gestão e Assistência Compartilhada</strong>. A revisão e ampliação do Manual têm o objetivo de proporcionar ainda mais transparência, rastreabilidade e economicidade aos recursos públicos sob gestão. <em>— Marcelo Mendes de Vasconcellos, Diretor Presidente.</em>')+
       mBox('Aprovação pelo Conselho de Administração — Reunião Extraordinária de 24/08/2026',

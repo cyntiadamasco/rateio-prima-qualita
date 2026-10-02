@@ -19956,12 +19956,6 @@
           "funcao": "AUX ADMINISTRATIVO"
         },
         {
-          "uid": "cfoeomff3",
-          "nome": "MARIANA GONÇALVES FELIX",
-          "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "ANALISTA DE DEPARTAMENTO"
-        },
-        {
           "uid": "cuvtqqc2z",
           "nome": "PHAMYLA DE SOUZA POSSAO ABDALLA REBEQUE",
           "dept": "GESTAO DE PESSOAS - DP",
@@ -20343,11 +20337,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1788536354614,
-        "perfil": "Administrador",
-        "comp": "2026-08"
-      },
       {
         "t": 1788536360021,
         "perfil": "Administrador",
@@ -21840,6 +21829,11 @@
       },
       {
         "t": 1790971722630,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971725025,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23418,5 +23412,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971722632
+  "savedAt": 1790971725028
 }

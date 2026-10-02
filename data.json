@@ -21131,6 +21131,11 @@
         "t": 1790949541404,
         "perfil": "Administrador",
         "comp": "2026-10"
+      },
+      {
+        "t": 1790949544360,
+        "perfil": "Administrador",
+        "comp": "2026-10"
       }
     ],
     "tokenCripto": {
@@ -21174,9 +21179,9 @@
         },
         {
           "id": "upa_pac",
-          "clt": 0,
+          "clt": 77,
           "efetivo": 0,
-          "pj": 0,
+          "pj": 36,
           "obs": ""
         },
         {
@@ -22166,5 +22171,5 @@
     }
   },
   "currentComp": "2026-10",
-  "savedAt": 1790949541406
+  "savedAt": 1790949544363
 }

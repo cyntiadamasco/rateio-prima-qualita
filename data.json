@@ -19240,7 +19240,8 @@
         "saq_esp": 0,
         "saq_pri": 0,
         "cg_mt55xz0i": 0,
-        "cg_mt55zykt": 0
+        "cg_mt55zykt": 0,
+        "cg_muq7yah2": 0
       },
       "refColab": "JULHO/2026",
       "contratos_ativos": [],
@@ -19992,7 +19993,8 @@
           "saq_esp": 0,
           "saq_pri": 0,
           "cg_mt55xz0i": 0,
-          "cg_mt55zykt": 0
+          "cg_mt55zykt": 0,
+          "cg_muq7yah2": 0
         },
         "ind2": {
           "madalena": 0,
@@ -20006,7 +20008,8 @@
           "saq_esp": 0,
           "saq_pri": 0,
           "cg_mt55xz0i": 0,
-          "cg_mt55zykt": 0
+          "cg_mt55zykt": 0,
+          "cg_muq7yah2": 0
         },
         "ind3": {
           "madalena": 0,
@@ -20020,7 +20023,8 @@
           "saq_esp": 0,
           "saq_pri": 0,
           "cg_mt55xz0i": 0,
-          "cg_mt55zykt": 0
+          "cg_mt55zykt": 0,
+          "cg_muq7yah2": 0
         },
         "ind4": {
           "madalena": 0,
@@ -20034,7 +20038,8 @@
           "saq_esp": 0,
           "saq_pri": 0,
           "cg_mt55xz0i": 0,
-          "cg_mt55zykt": 0
+          "cg_mt55zykt": 0,
+          "cg_muq7yah2": 0
         },
         "ind5": {
           "madalena": 0,
@@ -20048,7 +20053,8 @@
           "saq_esp": 0,
           "saq_pri": 0,
           "cg_mt55xz0i": 0,
-          "cg_mt55zykt": 0
+          "cg_mt55zykt": 0,
+          "cg_muq7yah2": 0
         },
         "ind6": {
           "madalena": 0,
@@ -20062,7 +20068,8 @@
           "saq_esp": 0,
           "saq_pri": 0,
           "cg_mt55xz0i": 0,
-          "cg_mt55zykt": 0
+          "cg_mt55zykt": 0,
+          "cg_muq7yah2": 0
         },
         "ind7": {
           "madalena": 0,
@@ -20076,7 +20083,8 @@
           "saq_esp": 0,
           "saq_pri": 0,
           "cg_mt55xz0i": 0,
-          "cg_mt55zykt": 0
+          "cg_mt55zykt": 0,
+          "cg_muq7yah2": 0
         },
         "ind8": {
           "madalena": 0,
@@ -20090,7 +20098,8 @@
           "saq_esp": 0,
           "saq_pri": 0,
           "cg_mt55xz0i": 0,
-          "cg_mt55zykt": 0
+          "cg_mt55zykt": 0,
+          "cg_muq7yah2": 0
         }
       },
       "despesasLocais": {
@@ -20105,7 +20114,8 @@
         "saq_esp": [],
         "saq_pri": [],
         "cg_mt55xz0i": [],
-        "cg_mt55zykt": []
+        "cg_mt55zykt": [],
+        "cg_muq7yah2": []
       },
       "demoContabil": {
         "balancete": {
@@ -20326,6 +20336,11 @@
         "t": 1790900523652,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790900557958,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -20334,8 +20349,16 @@
         "iv": "sEMO9Z/eTj+412SX",
         "ct": "yOyWmLw5l+68N6iZDwVHK5hTN6Bt9K+7oRdVK4CGsfUJZTg8gu955HIwdQF6spG0PqA40PTQb4s="
       }
-    }
+    },
+    "customContratos": [
+      {
+        "id": "cg_muq7yah2",
+        "nome": "Projeto Farmácia Judicial",
+        "sigla": "PFJ",
+        "cor": "#3B82F6"
+      }
+    ]
   },
   "currentComp": "2026-09",
-  "savedAt": 1790900523657
+  "savedAt": 1790900557962
 }

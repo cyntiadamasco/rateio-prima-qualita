@@ -21176,6 +21176,11 @@
         "t": 1790949581959,
         "perfil": "Administrador",
         "comp": "2026-10"
+      },
+      {
+        "t": 1790949591435,
+        "perfil": "Administrador",
+        "comp": "2026-10"
       }
     ],
     "tokenCripto": {
@@ -21261,14 +21266,14 @@
         },
         {
           "id": "saq_pri",
-          "clt": 0,
-          "efetivo": 0,
-          "pj": 0,
+          "clt": 639,
+          "efetivo": 39,
+          "pj": 9,
           "obs": ""
         },
         {
           "id": "cg_muq7yah2",
-          "clt": 0,
+          "clt": 19,
           "efetivo": 0,
           "pj": 0,
           "obs": ""
@@ -22211,5 +22216,5 @@
     }
   },
   "currentComp": "2026-10",
-  "savedAt": 1790949581961
+  "savedAt": 1790949591438
 }

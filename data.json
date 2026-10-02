@@ -19500,12 +19500,6 @@
           "funcao": "ASSISTENTE ADMINISTRATIVO I"
         },
         {
-          "uid": "ckqxr8usg",
-          "nome": "LUCAS DA COSTA SILVA PEREIRA",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "AUXILIAR OPERACIONAL"
-        },
-        {
           "uid": "cmj1yu1fg",
           "nome": "LUIS AUGUSTO DA SILVA SANTANA",
           "dept": "OPERACIONAL",
@@ -19528,12 +19522,6 @@
           "nome": "RODRIGO PEÇANHA DOS SANTOS",
           "dept": "OPERACIONAL",
           "funcao": "ASSISTENTE SERVICOS GERAIS"
-        },
-        {
-          "uid": "c8yq9vvea",
-          "nome": "VERONICA PEREIRA DO NASCIMENTO ABREU",
-          "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "ASSISTENTE ADMINISTRATIVO II"
         },
         {
           "uid": "c1gcxkxrw",
@@ -21971,6 +21959,16 @@
         "t": 1790971582772,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971584726,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971587138,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23547,5 +23545,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971582776
+  "savedAt": 1790971587140
 }

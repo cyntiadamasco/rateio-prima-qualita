@@ -19712,7 +19712,7 @@
         {
           "uid": "c2bbcmg6f",
           "nome": "RICARDO DE ALMEIDA MANGABEIRA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "REDE DE CUIDADOS",
           "funcao": "COORDENADOR DE REDE DE CUIDADOS II"
         },
         {
@@ -19964,7 +19964,7 @@
         {
           "uid": "c4ae0oxvi",
           "nome": "SABRYNA MARQUES MOREIRA MENDES",
-          "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
+          "dept": "GESTÃO DE PESSOAS - SST",
           "funcao": "ASSISTENTE ADMINISTRATIVO III"
         },
         {
@@ -20030,7 +20030,7 @@
         {
           "uid": "cym3r7v9y",
           "nome": "RUI ANDERSON MORAES DOS SANTOS",
-          "dept": "DEPARTAMENTO FINANCEIRO",
+          "dept": "CONTROLADORIA/TESOURARIA",
           "funcao": "GERENTE DE FINANCAS E CONTROLADORIA III"
         },
         {
@@ -20150,7 +20150,7 @@
         {
           "uid": "ce6awl1l2",
           "nome": "SAMUEL LUCAS ALVES DE MELO",
-          "dept": "DEPARTAMENTO PESSOAL",
+          "dept": "GESTAO DE PESSOAS - DP",
           "funcao": "ASSISTENTE ADMINISTRATIVO I"
         },
         {
@@ -21882,6 +21882,26 @@
         "t": 1790971525712,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971526208,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971527646,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971528108,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971528582,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23458,5 +23478,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971525713
+  "savedAt": 1790971528585
 }

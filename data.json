@@ -19622,19 +19622,19 @@
         {
           "uid": "c59d9584j",
           "nome": "JOANE DE OLIVEIRA RÔLA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "REDE DE CUIDADOS",
           "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
         },
         {
           "uid": "cljr3r3hw",
           "nome": "JOAO LUCAS BRITO DE OLIVEIRA",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "REDE DE CUIDADOS",
           "funcao": "SUPERVISOR DE REDE DE CUIDADOS I"
         },
         {
           "uid": "ci3k7vljo",
           "nome": "JOAO VICTOR SIQUEIRA CAMPOS",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
+          "dept": "REDE DE CUIDADOS",
           "funcao": "ASSISTENTE ADMINISTRATIVO II"
         },
         {
@@ -19808,7 +19808,7 @@
         {
           "uid": "cu7m3zw6e",
           "nome": "JEFFERSON IGOR MARTINS SILVA",
-          "dept": "DEPARTAMENTO DE COMUNICAÇÃO INSTITUCIONAL",
+          "dept": "ASSESSORIA DE COMUNICAÇÃO",
           "funcao": "ASSISTENTE ADMINISTRATIVO III"
         },
         {
@@ -21752,6 +21752,26 @@
         "t": 1790971503248,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971504682,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971505858,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971506486,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971507816,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23328,5 +23348,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971503249
+  "savedAt": 1790971507818
 }

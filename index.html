@@ -2369,19 +2369,14 @@ function toggleComplDesp(duid){
 function remDesp(duid){
   const data=getMesData(currentComp);
   const dd=data.despesas.find(d=>d.uid===duid);
-  if(dd && dd.pdfUrl){
-    if(dd.pdfUrl.startsWith('local:')) localStorage.removeItem('pq_pdf_'+duid);
-    else githubDeletePDF(duid).catch(()=>{});
-  }
-  if(dd && dd.pdfUrl2){
-    if(dd.pdfUrl2.startsWith('local:')) localStorage.removeItem('pq_pdf_'+duid+'_b');
-    else githubDeletePDF(duid+'_b').catch(()=>{});
-  }
-  const cached=_pdfBlobCache.get(duid);
-  if(cached){URL.revokeObjectURL(cached.url);_pdfBlobCache.delete(duid);}
-  const cached2=_pdfBlobCache.get(duid+'_b');
-  if(cached2){URL.revokeObjectURL(cached2.url);_pdfBlobCache.delete(duid+'_b');}
+  if(!dd) return;
+  if(!confirm('Remover a despesa ID '+dd.id+(dd.objeto?' – '+dd.objeto.slice(0,60):'')+'?'+((dd.pdfUrl||dd.pdfUrl2)?'\n\nOs comprovantes anexados também serão removidos.':''))) return;
+  if(dd.pdfUrl){ if(dd.pdfUrl.startsWith('local:')) localStorage.removeItem('pq_pdf_'+duid); else _agendarApagarPDF(duid); }
+  if(dd.pdfUrl2){ if(dd.pdfUrl2.startsWith('local:')) localStorage.removeItem('pq_pdf_'+duid+'_b'); else _agendarApagarPDF(duid+'_b'); }
+  const cached=_pdfBlobCache.get(duid); if(cached){URL.revokeObjectURL(cached.url);_pdfBlobCache.delete(duid);}
+  const cached2=_pdfBlobCache.get(duid+'_b'); if(cached2){URL.revokeObjectURL(cached2.url);_pdfBlobCache.delete(duid+'_b');}
   data.despesas=data.despesas.filter(d=>d.uid!==duid);
+  marcarAlterado();
   renderDespesas();
 }
 
@@ -2961,6 +2956,8 @@ function addContrato(){
 
 function remContrato(uid){
   const data=getMesData(currentComp);
+  const r0=(data.contratos_ativos||[]).find(x=>x.uid===uid); if(!r0) return;
+  if(!confirm('Remover o contrato'+(r0.objeto?' "'+r0.objeto.slice(0,50)+'"':'')+' da lista?')) return;
   data.contratos_ativos=data.contratos_ativos.filter(r=>r.uid!==uid);
   salvar();
   const row=document.getElementById('cont-row-'+uid);
@@ -3004,6 +3001,7 @@ function removePdfContrato(uid){
   const data=getMesData(currentComp);
   const r=data.contratos_ativos.find(x=>x.uid===uid);
   if(!r) return;
+  if(!confirm('Remover o PDF "'+(r.pdfName||'')+'" deste contrato?')) return;
   delete r.pdfData;delete r.pdfName;
   salvar();
   const oldRow=document.getElementById('cont-row-'+uid);
@@ -3586,6 +3584,8 @@ function setColabLista(uid,field,val){
 
 function remColabLista(uid){
   const data=getMesData(currentComp);
+  const c0=(data.colab_lista||[]).find(x=>x.uid===uid); if(!c0) return;
+  if(!confirm('Remover "'+(c0.nome||'colaborador')+'" da lista?')) return;
   data.colab_lista=(data.colab_lista||[]).filter(x=>x.uid!==uid);
   salvar();
   const row=document.getElementById('clr-'+uid);
@@ -5605,6 +5605,7 @@ async function _githubSalvarExec(){
         const t=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
         setSyncStatus('ok','Sincronizado '+t);
         _dirty=false; _mostrarSalvo();
+        _processarPdfsPendentes();
         return;
       }
       // 409/422 = conflito de versão: repete o loop buscando o sha atualizado
@@ -5832,6 +5833,16 @@ function githubUploadPDF(uid, file){
   });
 }
 
+/* PDFs remotos só são apagados depois que o JSON é salvo com sucesso */
+function _agendarApagarPDF(uid){
+  try{ const l=JSON.parse(localStorage.getItem('pq_pdfs_apagar')||'[]'); if(!l.includes(uid)) l.push(uid); localStorage.setItem('pq_pdfs_apagar',JSON.stringify(l)); }catch(e){}
+}
+function _processarPdfsPendentes(){
+  let l=[]; try{ l=JSON.parse(localStorage.getItem('pq_pdfs_apagar')||'[]'); }catch(e){}
+  if(!l.length) return;
+  try{ localStorage.setItem('pq_pdfs_apagar','[]'); }catch(e){}
+  l.forEach(uid=>githubDeletePDF(uid).catch(()=>_agendarApagarPDF(uid)));
+}
 function githubDeletePDF(uid){
   const token = ghToken();
   if(!token) return Promise.resolve();

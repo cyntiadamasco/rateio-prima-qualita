@@ -19461,7 +19461,7 @@
           "uid": "chhwwg232",
           "nome": "EMERSON RODRIGUES SARDINHA",
           "dept": "DEPARTAMENTO ADMINISTRATIVO",
-          "funcao": "AUXILIAR OPERACIONAL"
+          "funcao": "ASSISTENTE OPERACIONAL II"
         },
         {
           "uid": "c8bp9saot",
@@ -19587,7 +19587,7 @@
           "uid": "ck7775g01",
           "nome": "FABIO PINTO DA MATTA",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "SUPERVISOR DE TI"
+          "funcao": "SUPERVISOR DE TI III"
         },
         {
           "uid": "cyzwwmvq1",
@@ -19743,7 +19743,7 @@
           "uid": "c5ieseimi",
           "nome": "DIEGO DE FIGUEIREDO SANTOS",
           "dept": "DEPARTAMENTO DE COMPLIANCE",
-          "funcao": "COORDENADOR DE COMPLIANCE"
+          "funcao": "COORDENADOR DE COMPLIANCE III"
         },
         {
           "uid": "cujnnk3cj",
@@ -19833,7 +19833,7 @@
           "uid": "chxa92x6i",
           "nome": "FRANCINE CORDEIRO MONTEIRO",
           "dept": "DEPARTAMENTO DE CONTABILIDADE",
-          "funcao": "SUPERVISOR CONTÁBIL III"
+          "funcao": "COORDENADOR CONTABIL III"
         },
         {
           "uid": "ctxyqh2md",
@@ -19917,7 +19917,7 @@
           "uid": "c2noxnm1o",
           "nome": "EDLENE PAIVA DA SILVA",
           "dept": "DEPARTAMENTO DE RECURSOS HUMANOS",
-          "funcao": "SUPERVISOR DE EDUCAÇÃO"
+          "funcao": "SUPERVISOR DE EDUCACAO CONTINUADA I"
         },
         {
           "uid": "c9jm5rvc7",
@@ -20097,7 +20097,7 @@
           "uid": "cfrc3bmi8",
           "nome": "ELENA VIANA MACEDO",
           "dept": "DEPARTAMENTO PESSOAL",
-          "funcao": "GERENTE DE DEPARTAMENTO PESSOAL"
+          "funcao": "GERENTE DE GESTAO DE PESSOAS III"
         },
         {
           "uid": "c3w5zgziz",
@@ -21375,6 +21375,36 @@
       },
       {
         "t": 1790971413531,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971414167,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971415623,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971416344,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971416784,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971417210,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790971417732,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -22953,5 +22983,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971413533
+  "savedAt": 1790971417735
 }

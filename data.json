@@ -18775,9 +18775,9 @@
           "objeto": "Suporte ao desenvolvimento de Ouvidoria e apoio aos processos de sindicância",
           "fav": "Gustavo Fróes Sociedade Individual de Advocacia",
           "cnpj": "43.485.758/0001-70",
-          "ctipo": "",
-          "cnum": "",
-          "valor": 0,
+          "ctipo": "NF",
+          "cnum": "202613",
+          "valor": 7000,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": ""
@@ -20423,6 +20423,11 @@
         "t": 1790900692612,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790900704492,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -20442,5 +20447,5 @@
     ]
   },
   "currentComp": "2026-09",
-  "savedAt": 1790900692616
+  "savedAt": 1790900704496
 }

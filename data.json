@@ -19596,12 +19596,6 @@
           "funcao": "ASSISTENTE ADMINISTRATIVO II"
         },
         {
-          "uid": "civxbipw8",
-          "nome": "LEONARDO RODRIGUES FRIAS",
-          "dept": "DEPARTAMENTO ASSISTENCIAL",
-          "funcao": "GERENTE DE TI II"
-        },
-        {
           "uid": "c971hqb4s",
           "nome": "LINCON DA SILVA FULY",
           "dept": "DEPARTAMENTO ASSISTENCIAL",
@@ -21963,6 +21957,11 @@
         "t": 1790971602073,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1790971605328,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23539,5 +23538,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790971602076
+  "savedAt": 1790971605331
 }

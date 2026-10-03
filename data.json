@@ -9445,7 +9445,7 @@
             "id": "dl1790995115775ljzx",
             "objeto": "LOCAÇÃO DE IMÓVEL SEDE ARRAIAL",
             "fornecedor": "CRISTIANE RODRIGUES SILVA",
-            "valor": 0
+            "valor": 5044.38
           }
         ],
         "quissama": [
@@ -20580,11 +20580,6 @@
     },
     "auditLog": [
       {
-        "t": 1790945519035,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790945557062,
         "perfil": "Administrador",
         "comp": "2026-11"
@@ -22076,6 +22071,11 @@
       },
       {
         "t": 1790995589235,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1790995684151,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -23654,5 +23654,5 @@
     }
   },
   "currentComp": "2026-08",
-  "savedAt": 1790995589238
+  "savedAt": 1790995684154
 }

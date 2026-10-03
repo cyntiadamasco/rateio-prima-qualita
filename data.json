@@ -9780,7 +9780,7 @@
           "fav": "MARIA EDUARDA M. XAVIER",
           "cnpj": "",
           "valor": 16255.96,
-          "dtPgto": "",
+          "dtPgto": "2026-08-07",
           "obs": "",
           "compl": false
         },
@@ -21278,11 +21278,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971480444,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971480932,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791002499327,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1791002527981,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-08",
-  "savedAt": 1791002499331
+  "savedAt": 1791002527986
 }

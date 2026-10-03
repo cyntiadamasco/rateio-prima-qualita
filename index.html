@@ -527,6 +527,15 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   #panel-despesas .tbl-wrap{overflow:visible!important}
   #panel-despesas tfoot{display:none!important}
   #desp-total-bar{display:flex!important;justify-content:space-between;align-items:center}
+  .prov-print-hdr{display:flex!important}
+  #panel-provisao .stats-grid{display:none!important}
+  #panel-provisao .card{box-shadow:none!important;border:none!important;padding:0!important;margin-bottom:12px!important}
+  #panel-provisao .prov-card{page-break-inside:avoid}
+  #panel-provisao table{width:100%!important;font-size:7pt!important;border-collapse:collapse!important}
+  #panel-provisao table th,#panel-provisao table td{white-space:normal!important;word-break:break-word!important;padding:2px 3px!important}
+  #panel-provisao table input,#panel-provisao table select{border:none!important;background:transparent!important;-webkit-appearance:none;appearance:none;padding:0!important;font-size:inherit!important;width:100%!important;max-width:100%!important}
+  #panel-provisao table input[type="date"]::-webkit-calendar-picker-indicator{display:none!important}
+  #panel-provisao .tbl-wrap{overflow:visible!important}
   .only-print{display:block!important}
   .contratos-tbl input,.contratos-tbl textarea{border:none!important;background:transparent!important;resize:none!important;-webkit-appearance:none;appearance:none}
   .cont-obs-area{border:none!important;background:transparent!important;resize:none!important;-webkit-appearance:none;appearance:none;font-size:9pt!important}
@@ -796,6 +805,7 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
 .qual-print-hdr{display:none;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2.5px solid #1B3A5C;}
 .cont-print-hdr{display:none;flex-direction:column;gap:8px;margin-bottom:14px;}
 .desp-print-hdr{display:none;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2.5px solid #1B3A5C;}
+.prov-print-hdr{display:none;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2.5px solid #1B3A5C;}
 .val-print-hdr{display:none;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2.5px solid #1B3A5C;}
 .val-dl-print-section{display:none;}
 .dcf-print-hdr{display:none;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2.5px solid #1B3A5C;}
@@ -1143,6 +1153,12 @@ body.readonly [onclick^="document.getElementById"]{display:none!important}
 body.readonly [onclick^="importarContrat"]{display:none!important}
 /* Alternar despesa complementar */
 body.readonly [onclick^="toggleCompl"]{display:none!important}
+/* Provisão: adicionar / mover / renumerar / saldo inicial; marcar despesa de provisionamento (aba Despesas) */
+body.readonly [onclick^="addProv"],
+body.readonly [onclick^="moverProv"],
+body.readonly [onclick^="renumerarIDsProv"],
+body.readonly [onclick^="abrirSaldoProv"],
+body.readonly [onclick^="toggleProv"]{display:none!important}
 /* ── PERFIS DE ACESSO ── */
 /* Externo (sem login): esconde Validação 3% e o Acompanhamento Anual – Teto 3% */
 body.externo [data-tab="validacao"]{display:none!important}
@@ -1259,7 +1275,7 @@ body:not(.perfil-logado) .logado-only{display:none!important}
       </div>
     </div>
     <span id="sync-status" style="display:flex;align-items:center;gap:4px"><span class="sync-dot" id="sync-dot"></span><span class="sync-lbl" id="sync-lbl"></span></span>
-    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-10-02f</span>
+    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-10-03a</span>
     <button class="btn btn-teal btn-sm edit-only" onclick="salvar()">💾 Salvar</button>
     <button id="btn-lock-edit" onclick="toggleEditMode()" title="Modo de edição">🔒 Editar</button>
   </div>
@@ -1287,6 +1303,7 @@ body:not(.perfil-logado) .logado-only{display:none!important}
   <button class="tab-btn active" onclick="abrirTab('criterio',this)">👥 Critério Quantitativo</button>
   <button class="tab-btn" onclick="abrirTab('qualitativo',this)">📈 Indicadores Qualitativos</button>
   <button class="tab-btn" onclick="abrirTab('despesas',this)">📋 Despesas</button>
+  <button class="tab-btn" onclick="abrirTab('provisao',this)">🏦 Provisão</button>
   <button class="tab-btn" onclick="abrirTab('demonstrativo',this)">📊 Demonstrativo</button>
   <button class="tab-btn" onclick="abrirTab('memorias',this)">📄 Memórias de Cálculo</button>
   <button class="tab-btn" onclick="abrirTab('contratos',this)">📋 Contratos</button>
@@ -1302,6 +1319,7 @@ body:not(.perfil-logado) .logado-only{display:none!important}
 <div class="panel active" id="panel-criterio"></div>
 <div class="panel" id="panel-qualitativo"></div>
 <div class="panel" id="panel-despesas"></div>
+<div class="panel" id="panel-provisao"></div>
 <div class="panel" id="panel-demonstrativo"></div>
 <div class="panel" id="panel-memorias"></div>
 <div class="panel" id="panel-contratos"></div>
@@ -1879,6 +1897,8 @@ function getMesData(comp){
   });
   if(!state[comp].despesasLocais) state[comp].despesasLocais={};
   CONTRATOS.forEach(c=>{ if(!Array.isArray(state[comp].despesasLocais[c.id])) state[comp].despesasLocais[c.id]=[]; });
+  // Pagamentos com recursos das contas de provisão (aba Provisão; não integram o total de despesas)
+  if(!Array.isArray(state[comp].provisao)) state[comp].provisao=[];
   // Demonstrativos Contábeis e Financeiros
   if(!state[comp].demoContabil) state[comp].demoContabil={};
   const _dc=state[comp].demoContabil;
@@ -1986,6 +2006,107 @@ function alocarDespesa(valor,pctMap){ return ratearValor(valor,pctMap); }
 function alocacoesDespesa(d,comp){ return ratearValor(d.valor||0, d.compl?getPctMapAnt(comp):getPctMap(comp)); }
 function totalAlocado(d,comp){ return Math.round(Object.values(alocacoesDespesa(d,comp)).reduce((a,b)=>a+b,0)*100)/100; }
 
+/* ── PROVISÃO (verbas rescisórias, férias e 13º salário) ──
+   Despesa com d.prov=true = provisionamento: é rateada como as demais e credita a conta
+   de provisão de cada CG. Os pagamentos de state[comp].provisao saem dessas contas, são
+   rateados pelos percentuais do mês do pagamento (ou do mês anterior, se p.compl) e NÃO
+   integram o total de despesas da competência (evita duplicidade). Valores em centavos. */
+const PROV_TIPOS=['TRCT','FGTS rescisório','Férias','IRRF férias','13º salário','Outro'];
+function _r2(v){ return Math.round((Number(v)||0)*100)/100; }
+function _somaAloc(lista,comp){
+  const out={};
+  (lista||[]).forEach(d=>{ const a=alocacoesDespesa(d,comp); Object.keys(a).forEach(id=>{ out[id]=_r2((out[id]||0)+a[id]); }); });
+  return out;
+}
+/* {cgId: Σ alocações das despesas de provisionamento (d.prov) da competência} */
+function provisionadoCG(comp){ const m=state[comp]; return _somaAloc(((m&&m.despesas)||[]).filter(d=>d.prov),comp); }
+/* {cgId: Σ rateio dos pagamentos com recursos de provisão da competência} */
+function pagoProvCG(comp){ const m=state[comp]; return _somaAloc((m&&m.provisao)||[],comp); }
+function _mesesComDados(){ return Object.keys(state).filter(k=>/^\d{4}-\d{2}$/.test(k)).sort(); }
+/* Conta corrente por CG: anterior = saldo inicial (state.provSaldoInicial, a partir de
+   state.provSaldoInicialComp) + Σ(provisionado − pago) dos meses anteriores com dados;
+   final = anterior + provisionado − pago. Lista os contratos ativos e qualquer CG com movimento/saldo. */
+function saldoProvisaoCG(comp){
+  const corte=state.provSaldoInicialComp||'';
+  const usaIni=!!corte&&comp>=corte;
+  const ini=usaIni?(state.provSaldoInicial||{}):{};
+  const ant={};
+  Object.keys(ini).forEach(id=>{ const v=_r2(ini[id]); if(v) ant[id]=v; });
+  _mesesComDados().forEach(m=>{
+    if(m>=comp||(usaIni&&m<corte)) return;
+    const pv=provisionadoCG(m), pg=pagoProvCG(m);
+    new Set([...Object.keys(pv),...Object.keys(pg)]).forEach(id=>{ ant[id]=_r2((ant[id]||0)+(pv[id]||0)-(pg[id]||0)); });
+  });
+  const pv=provisionadoCG(comp), pg=pagoProvCG(comp);
+  const ids=contratosAtivos(comp).map(c=>c.id);
+  [ant,pv,pg].forEach(o=>Object.keys(o).forEach(id=>{ if(!ids.includes(id)&&Math.abs(o[id])>=0.005) ids.push(id); }));
+  const out={};
+  ids.forEach(id=>{ const a=_r2(ant[id]),p=_r2(pv[id]),g=_r2(pg[id]); out[id]={anterior:a,provisionado:p,pago:g,final:_r2(a+p-g)}; });
+  return out;
+}
+/* Contrato pelo id (inclusive desativado), para rótulos da conta corrente */
+function _cgPorId(id,comp){
+  return contratosAtivos(comp).find(c=>c.id===id)||CONTRATOS_BASE.find(c=>c.id===id)
+    ||(state.customContratos||[]).find(c=>c.id===id)||{id:id,sigla:String(id),nome:String(id)};
+}
+/* Tipo do lançamento a partir do texto da planilha (coluna OBJETO) */
+function _tipoProvDe(txt){
+  const t=_normVF(String(txt==null?'':txt));
+  if(!t) return 'Outro';
+  if(t.includes('IRRF')) return 'IRRF férias';
+  if(t.includes('FGTS')) return 'FGTS rescisório';
+  if(t.includes('TRCT')||t.includes('RESCIS')) return 'TRCT';
+  if(t.includes('FERIAS')) return 'Férias';
+  if(/(^|\D)13(\D|$)|DECIMO/.test(t)) return '13º salário';
+  return 'Outro';
+}
+function _valorPlanilha(v){
+  if(typeof v==='number') return isFinite(v)?_r2(v):0;
+  const s=String(v==null?'':v).trim(); if(!s) return 0;
+  const n=parseValorBR(s); return isNaN(n)?0:_r2(n);
+}
+function _dataPlanilhaISO(v){
+  if(v instanceof Date&&!isNaN(v)) return v.toISOString().slice(0,10);
+  if(typeof v==='number'&&v>20000&&v<80000) return new Date(Date.UTC(1899,11,30)+Math.round(v)*86400000).toISOString().slice(0,10);
+  const s=String(v==null?'':v).trim(); let m;
+  if((m=s.match(/^(\d{4})-(\d{2})-(\d{2})/))) return m[1]+'-'+m[2]+'-'+m[3];
+  if((m=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/))) return m[3]+'-'+m[2].padStart(2,'0')+'-'+m[1].padStart(2,'0');
+  return '';
+}
+/* Converte as linhas da planilha de provisão (arrays, como XLSX sheet_to_json header:1) em
+   lançamentos. Cabeçalho = 1ª linha com ID, OBJETO e VALOR; importa só linhas com valor > 0;
+   ignora linhas vazias, de percentuais e de totais. Função pura: não altera o estado. */
+function _importarProvisaoRows(rows){
+  rows=rows||[];
+  let h=-1,cId=-1,cObj=-1,cFav=-1,cVal=-1,cDoc=-1,cDt=-1;
+  for(let i=0;i<Math.min(rows.length,40);i++){
+    const cells=(rows[i]||[]).map(c=>_normVF(String(c==null?'':c)));
+    const iI=cells.indexOf('ID'), iO=cells.findIndex(c=>c.startsWith('OBJETO')), iV=cells.findIndex(c=>c.startsWith('VALOR'));
+    if(iI>=0&&iO>=0&&iV>=0){
+      h=i;cId=iI;cObj=iO;cVal=iV;
+      cFav=cells.findIndex(c=>c.startsWith('FAVORECIDO'));
+      cDoc=cells.findIndex(c=>c.includes('CNPJ')||c.includes('CPF'));
+      cDt=cells.findIndex(c=>c.startsWith('DATA')||c.startsWith('DT'));
+      break;
+    }
+  }
+  if(h<0) throw new Error('Cabeçalho não encontrado: a planilha precisa ter as colunas ID, OBJETO e VALOR.');
+  const out=[];
+  for(let i=h+1;i<rows.length;i++){
+    const r=rows[i]||[];
+    const txt=k=>k>=0?String(r[k]==null?'':r[k]).replace(/\s+/g,' ').trim():'';
+    const obj=txt(cObj), fav=txt(cFav), idTxt=txt(cId);
+    if(!obj&&!fav) continue;
+    if([idTxt,obj,fav].some(s=>_normVF(s).startsWith('TOTA'))) continue;
+    const valor=_valorPlanilha(r[cVal]);
+    if(!(valor>0)) continue;
+    const tipo=_tipoProvDe(obj);
+    out.push({uid:'pv'+uid(),id:idTxt||String(out.length+1),tipo:tipo,fav:fav,cnpj:txt(cDoc),valor:valor,
+      dtPgto:cDt>=0?_dataPlanilhaISO(r[cDt]):'',obs:tipo==='Outro'?obj:'',compl:false});
+  }
+  return out;
+}
+
 function justificativaPadrao(d){
   const f=CAT_INFO[d.cat]; if(!f) return '';
   return f.necessidade+' Trata-se de serviço compartilhado do CIGAC que atende simultaneamente a todos os contratos de gestão geridos pela Prima Qualitá, sem possibilidade de individualização a uma única unidade, razão pela qual é rateado proporcionalmente entre os participantes.';
@@ -2003,7 +2124,8 @@ function justificativaDespesa(d,comp){
   let h='<div class="rdg-just">';
   h+='<p class="rdg-just-p"><strong>Objeto e fornecedor.</strong> '+esc(String(d.objeto||'—').trim().replace(/\.+$/,''))+'. Favorecido: '+esc(d.fav||'—')+(d.cnpj?' (CNPJ/CPF '+esc(d.cnpj)+')':'')+'. '+esc(docFiscal)+(dt?', pago em '+dt:'')+'. Valor: <strong>'+R$(d.valor||0)+'</strong>.</p>';
   const textoNec=(d.just&&d.just.trim())?d.just.trim():(CAT_INFO[d.cat]?justificativaPadrao(d):'Categoria sem ficha de enquadramento no Manual; preencha a justificativa própria.');
-  h+='<p class="rdg-just-p"><strong>Necessidade institucional e benefício aos contratos.</strong> '+esc(textoNec)+'</p>';
+  h+='<p class="rdg-just-p"><strong>Necessidade institucional e benefício aos contratos.</strong> '+esc(textoNec)
+    +(d.prov?' Despesa de provisionamento: os valores rateados constituem as contas de provisão de cada contrato, das quais são pagas férias, 13º salário e verbas rescisórias (controle na seção de pagamentos com recursos de provisão).':'')+'</p>';
   const cgs=ativos.map(c=>'<span class="rdg-just-cg">'+esc(c.sigla)+' '+fmtPct((pm[c.id]||0)*100)+' (<b>'+R$(aloc[c.id]||0)+'</b>)</span>').join('; ');
   const infoC=d.compl?infoRateioComplementar(comp):null;
   const compMapa=(d.compl&&!infoC.fallback)?prevComp(comp):comp;
@@ -2341,6 +2463,7 @@ function carregar(){
     rebuildContratos();
     if(!state.manualRDG) state.manualRDG={pdfUrl:'',pdfNome:''};
     if(!state.regimentoCIGAC) state.regimentoCIGAC={pdfUrl:'',pdfNome:''};
+    if(!state.provSaldoInicial||typeof state.provSaldoInicial!=='object') state.provSaldoInicial={};
   }catch(e){ state={}; }
 }
 
@@ -2553,6 +2676,7 @@ function renderTab(id){
     case 'criterio':     renderCriterio();     break;
     case 'qualitativo':  renderQualitativo();   break;
     case 'despesas':     renderDespesas();      break;
+    case 'provisao':     renderProvisao();      break;
     case 'demonstrativo':renderDemonstrativo(); break;
     case 'memorias':     renderMemorias();      break;
     case 'contratos':   renderContratos();    break;
@@ -3049,7 +3173,7 @@ function renderDespesas(){
             <th style="width:108px" class="th-c">Dt. Pagamento</th>
             <th style="width:80px" class="th-r">Valor (R$)</th>
             <th style="width:130px" class="th-r">Total Rateado</th>
-            <th style="width:136px" class="th-c no-print">Ações</th>
+            <th style="width:164px" class="th-c no-print">Ações</th>
           </tr>
         </thead>
         <tbody id="desp-body">${rows}</tbody>
@@ -3089,7 +3213,7 @@ function buildDespesaRow(d, i, pctMap, catOpts, tipoOpts, n){
     ? `<button id="anexo-btn-${d.uid}-2" class="btn-pdf has-pdf" onclick="verAnexo('${d.uid}',2)" title="Comp. Bancário: ${esc(d.pdfNome2||'Comprovante')}">&#x1F3E6;</button>`
     : `<button id="anexo-btn-${d.uid}-2" class="btn-pdf" onclick="anexarPDF('${d.uid}',2)" title="Anexar Comprovante Bancário" style="color:#9CA3AF">&#x1F3E6;</button>`;
   return `<tr id="desp-row-${d.uid}" data-busca="${esc(((d.id||'')+' '+(d.objeto||'')+' '+(d.fav||'')+' '+(d.cnpj||'')+' '+compStr).toLowerCase())}" data-cat="${esc(d.cat||'')}" class="${(d.valor||0)===0?'tr-zero':''}"${d.compl?' style="background:#FFF7ED"':''}>
-    <td class="td-edit td-c"><input style="text-align:center;width:55px" value="${esc(d.id)}" onchange="updDesp('${d.uid}','id',this.value)">${d.compl?'<div style="font-size:8px;color:#B45309;font-weight:700;white-space:nowrap;margin-top:2px">🔁 compl. mês ant.</div>':''}</td>
+    <td class="td-edit td-c"><input style="text-align:center;width:55px" value="${esc(d.id)}" onchange="updDesp('${d.uid}','id',this.value)">${d.compl?'<div style="font-size:8px;color:#B45309;font-weight:700;white-space:nowrap;margin-top:2px">🔁 compl. mês ant.</div>':''}${d.prov?'<div style="font-size:8px;color:#0F766E;font-weight:700;white-space:nowrap;margin-top:2px" title="Despesa de provisionamento: credita as contas de provisão dos CGs (aba Provisão)">🏦 provisionamento</div>':''}</td>
     <td class="td-edit"><select onchange="updDesp('${d.uid}','cat',this.value)">${CATEGORIAS.map(c=>`<option${c===d.cat?' selected':''}>${c}</option>`).join('')}</select></td>
     <td class="td-edit"><input value="${esc(d.objeto)}" onchange="updDesp('${d.uid}','objeto',this.value)" title="${esc(d.objeto)}"></td>
     <td class="td-edit"><input value="${esc(d.fav)}" onchange="updDesp('${d.uid}','fav',this.value)"></td>
@@ -3102,6 +3226,7 @@ function buildDespesaRow(d, i, pctMap, catOpts, tipoOpts, n){
       <button class="btn btn-xs edit-only${d.just?' btn-just-own':''}" onclick="abrirJustificativa('${d.uid}')" title="${d.just?'Justificativa própria (clique para editar)':'Justificativa padrão (clique para personalizar)'}">✎</button>
       ${btnNF}${btnBanco}
       <button class="btn btn-xs" onclick="toggleComplDesp('${d.uid}')" title="${d.compl?'Desmarcar: voltar a ratear pelos percentuais do mês atual':'Marcar como despesa complementar do mês anterior (rateio pelos percentuais do mês anterior)'}" style="padding:2px 5px;font-size:12px;${d.compl?'background:#F59E0B;color:#fff;border-color:#D97706':''}">🔁</button>
+      <button class="btn btn-xs edit-only" onclick="toggleProvDesp('${d.uid}')" title="${d.prov?'Desmarcar: deixa de ser despesa de provisionamento (não credita mais as contas de provisão)':'Marcar como despesa de provisionamento (o valor rateado credita as contas de provisão de cada CG – aba Provisão)'}" style="padding:2px 5px;font-size:12px;${d.prov?'background:#0F766E;color:#fff;border-color:#115E59':''}">🏦</button>
       <button class="btn btn-xs" onclick="moverDesp('${d.uid}',-1)" ${i===0?'disabled':''} title="Mover para cima" style="padding:2px 5px;font-size:12px">↑</button>
       <button class="btn btn-xs" onclick="moverDesp('${d.uid}',1)" ${i===n-1?'disabled':''} title="Mover para baixo" style="padding:2px 5px;font-size:12px">↓</button>
       <button class="btn btn-danger btn-xs" onclick="remDesp('${d.uid}')" title="Remover">✕</button>
@@ -3128,6 +3253,15 @@ function toggleComplDesp(duid){
   if(!d)return;
   d.compl=!d.compl;
   salvar();
+  renderDespesas();
+}
+/* Marca/desmarca a despesa como provisionamento (credita as contas de provisão dos CGs) */
+function toggleProvDesp(duid){
+  if(!podeEditarJustificativa()) return;
+  const d=getMesData(currentComp).despesas.find(x=>x.uid===duid);
+  if(!d) return;
+  if(d.prov) delete d.prov; else d.prov=true;
+  marcarAlterado();
   renderDespesas();
 }
 
@@ -3275,6 +3409,353 @@ function limparMesAtual(){
   getMesData(currentComp);
   marcarAlterado();
   renderAbaAtiva();
+}
+
+/* =====================================================================
+   TAB: PROVISÃO – pagamentos com recursos das contas de provisão
+===================================================================== */
+/* Mesma permissão de edição da aba Despesas (perfil com a aba 'provisao') */
+function podeEditarProvisao(){
+  return !document.body.classList.contains('readonly')&&(typeof canEditTab!=='function'||canEditTab('provisao'));
+}
+function _acharProv(puid){ return getMesData(currentComp).provisao.find(p=>p.uid===puid); }
+function _dataBR(iso){ const x=iso?new Date(iso+'T00:00:00'):null; return (x&&!isNaN(x))?x.toLocaleDateString('pt-BR'):''; }
+/* Remove os comprovantes de um item (local ou GitHub, após o próximo salvamento) */
+function _apagarAnexosItem(it){
+  if(!it) return;
+  [['pdfUrl',''],['pdfUrl2','_b']].forEach(([f,suf])=>{
+    if(!it[f]) return;
+    const k=it.uid+suf;
+    if(String(it[f]).startsWith('local:')) localStorage.removeItem('pq_pdf_'+k); else _agendarApagarPDF(k);
+    const c=_pdfBlobCache.get(k); if(c){ URL.revokeObjectURL(c.url); _pdfBlobCache.delete(k); }
+  });
+}
+function buildProvRow(p,i,n){
+  const tipoOpts=PROV_TIPOS.map(x=>`<option${x===p.tipo?' selected':''}>${esc(x)}</option>`).join('')
+    +(p.tipo&&!PROV_TIPOS.includes(p.tipo)?`<option selected>${esc(p.tipo)}</option>`:'');
+  const btnDoc=p.pdfUrl
+    ? `<button id="anexo-btn-${p.uid}-1" class="btn-pdf has-pdf" onclick="verAnexo('${p.uid}',1)" title="Recibo/TRCT/Guia: ${esc(p.pdfNome||'Comprovante')}">&#x1F4C4;</button>`
+    : `<button id="anexo-btn-${p.uid}-1" class="btn-pdf" onclick="anexarPDF('${p.uid}',1)" title="Anexar recibo / TRCT / guia">&#x1F4CE;</button>`;
+  const btnBanco=p.pdfUrl2
+    ? `<button id="anexo-btn-${p.uid}-2" class="btn-pdf has-pdf" onclick="verAnexo('${p.uid}',2)" title="Comp. Bancário: ${esc(p.pdfNome2||'Comprovante')}">&#x1F3E6;</button>`
+    : `<button id="anexo-btn-${p.uid}-2" class="btn-pdf" onclick="anexarPDF('${p.uid}',2)" title="Anexar Comprovante Bancário" style="color:#9CA3AF">&#x1F3E6;</button>`;
+  return `<tr id="prov-row-${p.uid}" class="${(p.valor||0)===0?'tr-zero':''}"${p.compl?' style="background:#FFF7ED"':''}>
+    <td class="td-edit td-c"><input style="text-align:center;width:55px" value="${esc(p.id)}" onchange="updProv('${p.uid}','id',this.value)">${p.compl?'<div style="font-size:8px;color:#B45309;font-weight:700;white-space:nowrap;margin-top:2px">🔁 compl. mês ant.</div>':''}</td>
+    <td class="td-edit"><select onchange="updProv('${p.uid}','tipo',this.value)">${tipoOpts}</select>${(p.tipo==='Outro'||p.obs)?`<input value="${esc(p.obs)}" onchange="updProv('${p.uid}','obs',this.value)" placeholder="Descrição" style="margin-top:3px;font-size:11px">`:''}</td>
+    <td class="td-edit"><input value="${esc(p.fav)}" onchange="updProv('${p.uid}','fav',this.value)"></td>
+    <td class="td-edit"><input value="${esc(p.cnpj)}" onchange="updProv('${p.uid}','cnpj',this.value)" style="font-family:monospace;font-size:11px"></td>
+    <td class="td-edit td-c"><input type="date" value="${esc(p.dtPgto||'')}" onchange="updProv('${p.uid}','dtPgto',this.value)" style="font-size:11px;width:104px"></td>
+    <td class="td-r" style="white-space:nowrap;cursor:pointer" onclick="editarValorProv('${p.uid}')" title="Clique para editar o valor">${R$(p.valor||0)} <span class="no-print" style="font-size:10px;color:#9CA3AF;margin-left:2px">✏️</span></td>
+    <td class="td-r text-muted">${R$(totalAlocado(p,currentComp))}</td>
+    <td class="td-c no-print" style="white-space:nowrap">
+      ${btnDoc}${btnBanco}
+      <button class="btn btn-xs" onclick="toggleComplProv('${p.uid}')" title="${p.compl?'Desmarcar: voltar a ratear pelos percentuais do mês atual':'Marcar como complementar do mês anterior (rateio pelos percentuais do mês anterior)'}" style="padding:2px 5px;font-size:12px;${p.compl?'background:#F59E0B;color:#fff;border-color:#D97706':''}">🔁</button>
+      <button class="btn btn-xs" onclick="moverProv('${p.uid}',-1)" ${i===0?'disabled':''} title="Mover para cima" style="padding:2px 5px;font-size:12px">↑</button>
+      <button class="btn btn-xs" onclick="moverProv('${p.uid}',1)" ${i===n-1?'disabled':''} title="Mover para baixo" style="padding:2px 5px;font-size:12px">↓</button>
+      <button class="btn btn-danger btn-xs" onclick="remProv('${p.uid}')" title="Remover">✕</button>
+    </td>
+  </tr>`;
+}
+function renderProvisao(){
+  const panel=document.getElementById('panel-provisao'); if(!panel) return;
+  const comp=currentComp;
+  const data=getMesData(comp);
+  const lista=data.provisao;
+  const ativos=contratosAtivos(comp);
+  const pctMap=getPctMap(comp);
+  const pago=pagoProvCG(comp);
+  const totalPago=_r2(lista.reduce((a,p)=>a+(p.valor||0),0));
+  const somaRateado=_r2(Object.values(pago).reduce((a,b)=>a+b,0));
+  const diverge=Math.abs(somaRateado-totalPago)>0.011;
+  const despProv=data.despesas.filter(d=>d.prov);
+  const totalProvisionado=_r2(despProv.reduce((a,d)=>a+(d.valor||0),0));
+  const saldo=saldoProvisaoCG(comp);
+  const idsSaldo=Object.keys(saldo);
+  const totS=k=>_r2(idsSaldo.reduce((a,id)=>a+saldo[id][k],0));
+  const n=lista.length;
+  const corte=state.provSaldoInicialComp||'';
+  const btnSt='background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.28);font-size:11px;padding:6px 14px;border-radius:7px';
+  const rows=n?lista.map((p,i)=>buildProvRow(p,i,n)).join('')
+    :'<tr><td colspan="8" style="text-align:center;color:var(--gray);padding:22px;font-size:12px">Nenhum pagamento com recursos de provisão lançado em '+compLabel(comp)+'.</td></tr>';
+  const demoRows=lista.map(p=>{
+    const a=alocacoesDespesa(p,comp);
+    return `<tr class="${(p.valor||0)===0?'tr-zero':''}">
+      <td class="td-c fw-bold">${esc(p.id)}</td>
+      <td style="font-size:11px">${p.compl?'<span title="Complementar do mês anterior: '+esc(regraRateioCompl(comp))+'">🔁</span> ':''}${esc(p.tipo)}${p.obs?' – '+esc(p.obs):''}</td>
+      <td style="font-size:11px">${esc(p.fav)}</td>
+      <td class="td-r fw-bold">${R$(p.valor||0)}</td>
+      ${ativos.map(ct=>`<td class="td-r">${R$(a[ct.id]||0)}</td>`).join('')}
+    </tr>`;
+  }).join('');
+  const saldoRows=idsSaldo.map(id=>{
+    const s=saldo[id], c=_cgPorId(id,comp), inativo=!ativos.some(a=>a.id===id);
+    return `<tr>
+      <td title="${esc(c.nome)}">${esc(c.sigla)}${inativo?' <span style="font-size:10px;color:var(--gray)">(desativado)</span>':''}</td>
+      <td class="td-r">${R$(s.anterior)}</td>
+      <td class="td-r">${R$(s.provisionado)}</td>
+      <td class="td-r">${R$(s.pago)}</td>
+      <td class="td-r fw-bold${s.final<-0.004?' td-diverge':''}"${s.final<-0.004?' title="Saldo negativo: pagamentos acima do provisionado"':''}>${R$(s.final)}</td>
+    </tr>`;
+  }).join('');
+
+  panel.innerHTML=`
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-val">${R$(totalPago)}</div><div class="stat-lbl">Total Pago no Mês com Recursos de Provisão</div></div>
+    <div class="stat-card s-teal"><div class="stat-val">${R$(totalProvisionado)}</div><div class="stat-lbl">Provisionado no Mês (${despProv.length} despesa${despProv.length===1?'':'s'} 🏦)</div></div>
+    <div class="stat-card s-warn"><div class="stat-val">${R$(totS('final'))}</div><div class="stat-lbl">Saldo Final Total das Contas de Provisão</div></div>
+  </div>
+  <div class="alert alert-info" style="margin-bottom:12px"><span>🏦</span><div>Mensalmente, a despesa de <strong>provisionamento</strong> (ex.: “Provisão de Verbas Rescisórias CIGAC”, marcada com <strong>🏦</strong> na aba Despesas) é rateada entre os Contratos de Gestão e os valores se acumulam nas contas de provisão de cada CG. Os pagamentos de rescisões, férias e 13º salário lançados aqui são <strong>custeados por essas contas</strong>, já rateadas, e <strong>não integram o total de despesas do mês</strong> — o controle à parte evita despesa em duplicidade.</div></div>
+  ${despProv.length?'':`<div class="alert alert-warn no-print" style="margin-bottom:12px"><span>⚠</span><div>Nenhuma despesa de ${compLabel(comp)} está marcada como provisionamento. Marque-a com <strong>🏦</strong> na aba Despesas para creditar as contas de provisão.</div></div>`}
+  <div class="card no-print" style="margin-bottom:14px;background:linear-gradient(135deg,#0F2C47 0%,#1B4F76 100%);color:#fff;border:none">
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+      <div>
+        <div style="font-size:15px;font-weight:800;letter-spacing:-.01em">🏦 PAGAMENTOS COM RECURSOS DE PROVISÃO</div>
+        <div style="font-size:12px;opacity:.75;margin-top:3px">Competência: ${compLabel(comp)} – CIGAC</div>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+        <button class="btn btn-sm edit-only" style="${btnSt}" onclick="importarProvisaoXLSX()">📥 Importar planilha (.xlsx)</button>
+        <button class="btn btn-sm edit-only" style="${btnSt}" onclick="renumerarIDsProv()">🔢 Renumerar IDs</button>
+        <button class="btn btn-sm" style="${btnSt}" onclick="imprimirProvisao()">🖨 Imprimir</button>
+        <button class="btn btn-sm edit-only" style="background:rgba(255,255,255,.25);color:#fff;border:1px solid rgba(255,255,255,.4);font-size:11px;padding:6px 14px;border-radius:7px" onclick="addProv()">＋ Adicionar Lançamento</button>
+      </div>
+    </div>
+  </div>
+  <div class="card prov-card">
+    ${printHeader('prov-print-hdr','Pagamentos com Recursos de Provisão – CIGAC',`<div style="font-size:11px;font-weight:700;color:#1B3A5C">Pagamentos com Recursos de Provisão</div><div style="font-size:11px;color:#1B3A5C">Competência: <strong>${compLabel(comp)}</strong></div>${apuracaoHdr(comp)}`)}
+    <div class="card-hdr"><div class="card-title">Lançamentos – ${compLabel(comp)}</div></div>
+    <div class="tbl-wrap">
+      <table id="prov-table">
+        <thead>
+          <tr>
+            <th style="width:50px" class="th-c">ID</th>
+            <th style="width:170px">Tipo</th>
+            <th>Favorecido</th>
+            <th style="width:130px">CNPJ/CPF</th>
+            <th style="width:108px" class="th-c">Dt. Pagamento</th>
+            <th style="width:110px" class="th-r">Valor (R$)</th>
+            <th style="width:120px" class="th-r">Total Rateado</th>
+            <th style="width:150px" class="th-c no-print">Ações</th>
+          </tr>
+        </thead>
+        <tbody id="prov-body">${rows}</tbody>
+        <tfoot>
+          <tr class="tr-total">
+            <td colspan="5" class="fw-bold">VALOR TOTAL</td>
+            <td class="td-r" id="prov-total-valor">${R$(totalPago)}</td>
+            <td class="td-r${diverge?' td-diverge':''}" id="prov-total-rateado" title="${diverge?'A soma das alocações difere do total: confira o critério quantitativo':''}">${R$(somaRateado)}</td>
+            <td class="no-print"></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+  <div class="card prov-card">
+    <div class="card-hdr"><div class="card-title">Demonstrativo de rateio dos pagamentos – ${compLabel(comp)}</div></div>
+    <div class="tbl-wrap">
+      <table id="prov-demo">
+        <thead>
+          <tr>
+            <th class="th-c" style="width:50px">ID</th>
+            <th>Tipo</th>
+            <th>Favorecido</th>
+            <th class="th-r">Valor</th>
+            ${ativos.map(ct=>`<th class="th-azul th-c" style="font-size:10px;min-width:84px" title="${esc(ct.nome)}">${esc(ct.sigla)}<div style="font-weight:400;font-size:9px;opacity:.85">${fmtPct((pctMap[ct.id]||0)*100)}</div></th>`).join('')}
+          </tr>
+        </thead>
+        <tbody>${demoRows||`<tr><td colspan="${4+ativos.length}" style="text-align:center;color:var(--gray);padding:14px;font-size:12px">Sem lançamentos.</td></tr>`}</tbody>
+        <tfoot>
+          <tr class="tr-total">
+            <td colspan="3" class="fw-bold">TOTAL POR CONTRATO</td>
+            <td class="td-r">${R$(totalPago)}</td>
+            ${ativos.map(ct=>`<td class="td-r">${R$(pago[ct.id]||0)}</td>`).join('')}
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+  <div class="card prov-card">
+    <div class="card-hdr" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <div class="card-title">Conta corrente de provisão por CG – ${compLabel(comp)}</div>
+      <button class="btn btn-outline btn-xs edit-only no-print" style="margin-left:auto" onclick="abrirSaldoProv()">🏦 Saldo inicial</button>
+    </div>
+    <div style="font-size:11px;color:var(--gray);margin:0 0 8px">${corte?'Saldo inicial informado no início de <strong>'+compLabel(corte)+'</strong>'+(comp<corte?' (posterior a esta competência: saldo apurado só pelos movimentos)':'')+'.':'Saldo inicial não informado: as contas começam em zero.'} Saldo final = saldo anterior + provisionado (despesas 🏦) − pagamentos.</div>
+    <div class="tbl-wrap">
+      <table id="prov-saldo">
+        <thead>
+          <tr>
+            <th>Contrato de Gestão</th>
+            <th class="th-r">Saldo Anterior</th>
+            <th class="th-r">Provisionado no Mês</th>
+            <th class="th-r">Pago no Mês</th>
+            <th class="th-r">Saldo Final</th>
+          </tr>
+        </thead>
+        <tbody>${saldoRows}</tbody>
+        <tfoot>
+          <tr class="tr-total">
+            <td class="fw-bold">TOTAL</td>
+            <td class="td-r">${R$(totS('anterior'))}</td>
+            <td class="td-r">${R$(totS('provisionado'))}</td>
+            <td class="td-r">${R$(totS('pago'))}</td>
+            <td class="td-r">${R$(totS('final'))}</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>`;
+}
+function addProv(){
+  if(!podeEditarProvisao()) return null;
+  const data=getMesData(currentComp);
+  const nums=data.provisao.map(p=>parseInt(p.id)).filter(x=>!isNaN(x));
+  const p={uid:'pv'+uid(),id:String((nums.length?Math.max(...nums):0)+1),tipo:PROV_TIPOS[0],fav:'',cnpj:'',valor:0,dtPgto:'',obs:'',compl:false};
+  data.provisao.push(p);
+  marcarAlterado();
+  renderProvisao();
+  return p;
+}
+function updProv(puid,field,val){
+  if(!podeEditarProvisao()) return;
+  const p=_acharProv(puid);
+  if(!p){ toast('Lançamento não encontrado; recarregue a aba Provisão.'); return; }
+  if(!['id','tipo','fav','cnpj','dtPgto','obs','valor'].includes(field)) return;
+  if(field==='valor'){
+    const v=typeof val==='number'?val:parseValorBR(val);
+    if(isNaN(v)||v<0){ toast('Valor inválido. Use o formato: 1234,56'); return; }
+    p.valor=_r2(v);
+  } else p[field]=String(val==null?'':val);
+  marcarAlterado();
+  if(field==='valor'||field==='tipo') renderProvisao();
+}
+function editarValorProv(puid){
+  if(!podeEditarProvisao()) return;
+  const p=_acharProv(puid); if(!p) return;
+  const resp=prompt('Valor pago (R$):',(p.valor||0).toFixed(2).replace('.',','));
+  if(resp===null) return;
+  const val=parseValorBR(resp);
+  if(isNaN(val)||val<0){ alert('Valor inválido. Use o formato: 1234,56'); return; }
+  const ant=p.valor||0;
+  if(ant>0&&val>0&&(val/ant>10||ant/val>10)&&!confirm('O novo valor ('+R$(val)+') é mais de 10 vezes diferente do atual ('+R$(ant)+').\n\nConfirmar?')) return;
+  p.valor=_r2(val);
+  marcarAlterado();
+  renderProvisao();
+}
+function toggleComplProv(puid){
+  if(!podeEditarProvisao()) return;
+  const p=_acharProv(puid); if(!p) return;
+  p.compl=!p.compl;
+  marcarAlterado();
+  renderProvisao();
+}
+function remProv(puid){
+  if(!podeEditarProvisao()) return;
+  const data=getMesData(currentComp);
+  const p=data.provisao.find(x=>x.uid===puid); if(!p) return;
+  if(!confirm('Remover o lançamento de provisão ID '+p.id+(p.fav?' – '+String(p.fav).slice(0,60):'')+'?'+((p.pdfUrl||p.pdfUrl2)?'\n\nOs comprovantes anexados também serão removidos.':''))) return;
+  _apagarAnexosItem(p);
+  data.provisao=data.provisao.filter(x=>x.uid!==puid);
+  marcarAlterado();
+  renderProvisao();
+}
+function moverProv(puid,dir){
+  if(!podeEditarProvisao()) return;
+  const l=getMesData(currentComp).provisao;
+  const i=l.findIndex(p=>p.uid===puid), j=i+dir;
+  if(i<0||j<0||j>=l.length) return;
+  [l[i],l[j]]=[l[j],l[i]];
+  marcarAlterado();
+  renderProvisao();
+}
+function renumerarIDsProv(){
+  if(!podeEditarProvisao()) return;
+  const l=getMesData(currentComp).provisao;
+  if(!l.length) return;
+  if(!confirm('Renumerar os IDs dos lançamentos de provisão de 1 a '+l.length+' na ordem atual?')) return;
+  l.forEach((p,i)=>{ p.id=String(i+1); });
+  marcarAlterado();
+  renderProvisao();
+}
+/* Saldo inicial das contas de provisão (chave geral, informado uma vez) */
+function abrirSaldoProv(){
+  if(!podeEditarProvisao()) return;
+  const ini=state.provSaldoInicial||{};
+  const ids=contratosAtivos(currentComp).map(c=>c.id);
+  Object.keys(ini).forEach(id=>{ if(!ids.includes(id)) ids.push(id); });
+  document.getElementById('prov-saldo-comp').value=state.provSaldoInicialComp||currentComp;
+  document.getElementById('prov-saldo-campos').innerHTML=ids.map(id=>{
+    const c=_cgPorId(id,currentComp), v=Number(ini[id])||0;
+    return `<div style="display:flex;gap:8px;align-items:center;margin-bottom:5px">
+      <label for="prov-si-${esc(id)}" style="flex:1;font-size:12px" title="${esc(c.nome)}">${esc(c.sigla)}</label>
+      <input id="prov-si-${esc(id)}" class="prov-si-inp" data-cg="${esc(id)}" value="${v?v.toFixed(2).replace('.',','):''}" placeholder="0,00" style="width:150px;text-align:right">
+    </div>`;
+  }).join('');
+  document.getElementById('modal-prov-saldo').style.display='flex';
+}
+function salvarSaldoProv(){
+  if(!podeEditarProvisao()) return;
+  if(!_exigirRemotoCarregado()) return;
+  const corte=document.getElementById('prov-saldo-comp').value;
+  if(!/^\d{4}-\d{2}$/.test(corte)){ alert('Informe a competência de corte (mês/ano).'); return; }
+  const out={}; let erro=null;
+  document.querySelectorAll('#prov-saldo-campos .prov-si-inp').forEach(inp=>{
+    const s=inp.value.trim(); if(!s) return;
+    const v=parseValorBR(s);
+    if(isNaN(v)){ if(!erro) erro=inp.getAttribute('data-cg'); return; }
+    if(_r2(v)) out[inp.getAttribute('data-cg')]=_r2(v);
+  });
+  if(erro){ alert('Valor inválido para '+_cgPorId(erro,currentComp).sigla+'. Use o formato: 1234,56'); return; }
+  state.provSaldoInicial=out;
+  state.provSaldoInicialComp=corte;
+  document.getElementById('modal-prov-saldo').style.display='none';
+  marcarAlterado();
+  renderProvisao();
+}
+/* Importação da planilha de provisão (.xlsx): aba com "PROVIS" no nome (ou a primeira) */
+function importarProvisaoXLSX(){
+  if(!podeEditarProvisao()) return;
+  const inp=document.createElement('input');
+  inp.type='file'; inp.accept='.xlsx,.xls';
+  inp.onchange=()=>{ const f=inp.files[0]; if(f) _carregarXlsxJs(()=>_lerPlanilhaProvisao(f)); };
+  inp.click();
+}
+async function _lerPlanilhaProvisao(file){
+  try{
+    const buf=await file.arrayBuffer();
+    const wb=XLSX.read(buf,{type:'array'});
+    const nome=wb.SheetNames.find(s=>_normVF(s).includes('PROVIS'))||wb.SheetNames[0];
+    const rows=XLSX.utils.sheet_to_json(wb.Sheets[nome],{header:1,defval:'',raw:true});
+    _aplicarImportacaoProvisao(_importarProvisaoRows(rows),nome);
+  }catch(e){ alert('Erro ao importar a planilha: '+e.message); }
+}
+function _aplicarImportacaoProvisao(itens,origem){
+  if(!podeEditarProvisao()) return false;
+  if(!itens||!itens.length){ alert('Nenhum lançamento com valor encontrado na planilha.'); return false; }
+  const total=_r2(itens.reduce((a,p)=>a+(p.valor||0),0));
+  if(!confirm('Importar '+itens.length+' lançamento(s) de provisão'+(origem?' da aba "'+origem+'"':'')+', total '+R$(total)+', para '+compLabel(currentComp)+'?')) return false;
+  const data=getMesData(currentComp);
+  const atuais=data.provisao;
+  let substituir=false;
+  if(atuais.length){
+    const comPdf=atuais.some(p=>p.pdfUrl||p.pdfUrl2);
+    substituir=confirm('Substituir os '+atuais.length+' lançamentos atuais?\n\nOK = substituir'+(comPdf?' (os comprovantes anexados a eles também serão removidos)':'')+'\nCancelar = acrescentar aos atuais');
+  }
+  if(substituir){ atuais.forEach(_apagarAnexosItem); data.provisao=itens.slice(); }
+  else data.provisao=atuais.concat(itens);
+  marcarAlterado();
+  renderProvisao();
+  toast(itens.length+' lançamento(s) importado(s).');
+  return true;
+}
+function imprimirProvisao(){
+  const prev=document.title;
+  document.title='Pagamentos com Recursos de Provisão - Competência: '+compLabel(currentComp);
+  const st=document.createElement('style');
+  st.id='prov-landscape-style';
+  st.textContent='@media print{@page{size:A4 landscape;margin:8mm 12mm}}';
+  document.head.appendChild(st);
+  const cleanup=function(){document.title=prev;const el=document.getElementById('prov-landscape-style');if(el)el.remove();window.removeEventListener('afterprint',cleanup);};
+  window.addEventListener('afterprint',cleanup);
+  setTimeout(()=>window.print(),300);
 }
 
 /* =====================================================================
@@ -3446,7 +3927,8 @@ function renderMemorias(){
   const pctMap=getPctMap(currentComp);
   const despesas=data.despesas;
 
-  if(!despesas.length){
+  const provMem=data.provisao||[];
+  if(!despesas.length&&!provMem.length){
     document.getElementById('panel-memorias').innerHTML=`<div class="alert alert-warn"><span>⚠</span><div>Nenhuma despesa cadastrada para ${compLabel(currentComp)}.</div></div>`;
     return;
   }
@@ -3470,6 +3952,7 @@ function renderMemorias(){
       <select id="mem-filtro" onchange="renderMemorias()" style="width:200px">
         <option value="todos">Todos os IDs</option>
         ${despesas.map((d,i)=>`<option value="${i}">ID ${esc(d.id)} – ${esc((d.fav||'').substring(0,35))}</option>`).join('')}
+        ${provMem.length?`<optgroup label="Pagamentos de Provisão">${provMem.map((p,i)=>`<option value="p${i}">Provisão ID ${esc(p.id)} – ${esc((p.fav||'').substring(0,35))}</option>`).join('')}</optgroup>`:''}
       </select>
     </div>
   </div>`;
@@ -3519,10 +4002,13 @@ function renderMemorias(){
   const refColab=data.refColab||'competência atual';
 
   let sheetsHTML='';
-  const toShow=filtro==='todos'?despesas:[despesas[parseInt(filtro)]];
+  const filtroProv=/^p\d+$/.test(filtro);
+  const toShow=filtro==='todos'?despesas:(filtroProv?[]:[despesas[parseInt(filtro)]]);
+  const toShowProv=filtro==='todos'?provMem:(filtroProv?[provMem[parseInt(filtro.slice(1))]]:[]);
 
   const pctAntMem=getPctMapAnt(currentComp);
-  toShow.filter(Boolean).forEach((d,di)=>{
+  /* Folha de memória de um item; prov=true para os pagamentos com recursos de provisão */
+  const _memSheet=(d,prov)=>{
     const pmMem=d.compl?pctAntMem:pctMap;
     const alocM=alocacoesDespesa(d,currentComp);
     const somaM=Math.round(Object.values(alocM).reduce((a,b)=>a+b,0)*100)/100;
@@ -3536,15 +4022,16 @@ function renderMemorias(){
       </tr>`;
     }).join('');
 
-    const comp=d.ctipo?(d.cnum?d.ctipo+' '+d.cnum:d.ctipo):'–';
+    const comp=prov?(_dataBR(d.dtPgto)||'–'):(d.ctipo?(d.cnum?d.ctipo+' '+d.cnum:d.ctipo):'–');
+    const titMem=(prov?'Memória de Cálculo – Provisão ID ':'Memória de Cálculo – ID ')+esc(d.id);
 
     const logoSVG=`<img src="" data-logo="1" style="height:40px;width:auto">`;
 
-    sheetsHTML+=`<div class="id-sheet" id="id-sheet-${d.uid}">
+    return `<div class="id-sheet${prov?' id-sheet-prov':''}" id="id-sheet-${d.uid}">
       <div class="id-sheet-hdr no-print">
-        <h3>Memória de Cálculo – ID ${esc(d.id)}</h3>
+        <h3>${titMem}</h3>
         <div style="display:flex;gap:8px">
-          <button class="btn btn-outline btn-xs" data-did="${esc(d.id)}" onclick="imprimirIDsheet('${d.uid}',this.dataset.did)">🖨 Imprimir</button>
+          <button class="btn btn-outline btn-xs" data-did="${prov?'Provisão ':''}${esc(d.id)}" onclick="imprimirIDsheet('${d.uid}',this.dataset.did)">🖨 Imprimir</button>
         </div>
       </div>
       <div class="id-sheet-body">
@@ -3556,7 +4043,7 @@ function renderMemorias(){
             <div style="font-size:11px;color:#1B3A5C;margin-top:2px">Prima Qualitá Saúde – CNPJ: 40.289.134/0001-99</div>
           </div>
           <div class="logo-right">
-            <strong>Memória de Cálculo – ID ${esc(d.id)}</strong>
+            <strong>${titMem}</strong>
             Competência: ${compLabel(currentComp)}<br>
             Apuração: ${rotuloCompetencia(currentComp)}<br>
             Ref. Colaboradores: ${refColab}
@@ -3564,6 +4051,7 @@ function renderMemorias(){
         </div>
         ${d.compl?`<div style="background:#FFF7ED;border-left:4px solid #F59E0B;color:#92400E;padding:7px 12px;border-radius:6px;font-size:11px;font-weight:600;margin-bottom:10px">🔁 Despesa complementar da ${rotuloPrestacaoAnterior(currentComp)} — ${regraRateioCompl(currentComp)}.</div>`:''}
         ${d.compl&&usaRateioAtualNoAnt(currentComp)?`<div style="background:#FEF2F2;border-left:4px solid #DC2626;color:#991B1B;padding:7px 12px;border-radius:6px;font-size:11px;font-weight:600;margin-bottom:10px">⚠ Rateado pelos percentuais da competência atual: a prestação anterior (competência ${rotuloCompetencia(prevComp(currentComp))}) não tem critério quantitativo preenchido.</div>`:''}
+        ${prov?'<div style="background:#ECFDF5;border-left:4px solid #0F766E;color:#065F46;padding:7px 12px;border-radius:6px;font-size:11px;font-weight:600;margin-bottom:10px">🏦 Pagamento com recursos de provisão: custeado pelas contas de provisão de cada contrato, constituídas pelas despesas de provisionamento já rateadas; não integra o total de despesas desta competência.</div>':''}
         <div style="text-align:center;font-weight:700;font-size:13px;color:var(--navy);margin-bottom:12px" class="no-print">
           PROJETO SOCIAL CRESCE COMUNIDADE – PRIMA QUALITÁ SAÚDE
         </div>
@@ -3577,12 +4065,12 @@ function renderMemorias(){
         </div>
 
         <div class="id-section">
-          <div class="id-section-title">Despesa Executada – ID ${esc(d.id)}</div>
+          <div class="id-section-title">${prov?'Pagamento com Recursos de Provisão':'Despesa Executada'} – ID ${esc(d.id)}</div>
           <div class="id-field-row"><div class="id-field-label">ID</div><div class="id-field-value fw-bold">${esc(d.id)}</div></div>
-          <div class="id-field-row"><div class="id-field-label">Objeto</div><div class="id-field-value">${esc(d.objeto)}</div></div>
+          <div class="id-field-row"><div class="id-field-label">${prov?'Tipo':'Objeto'}</div><div class="id-field-value">${prov?esc(d.tipo)+(d.obs?' – '+esc(d.obs):''):esc(d.objeto)}</div></div>
           <div class="id-field-row"><div class="id-field-label">Favorecido</div><div class="id-field-value fw-bold">${esc(d.fav)}</div></div>
           <div class="id-field-row"><div class="id-field-label">CNPJ/CPF</div><div class="id-field-value td-mono">${esc(d.cnpj)}</div></div>
-          <div class="id-field-row"><div class="id-field-label">Comprovação Fiscal</div><div class="id-field-value">${esc(comp)}</div></div>
+          <div class="id-field-row"><div class="id-field-label">${prov?'Dt. Pagamento':'Comprovação Fiscal'}</div><div class="id-field-value">${esc(comp)}</div></div>
           <div class="id-field-row" style="border-color:var(--azul)"><div class="id-field-label" style="background:var(--azul-lt);color:var(--azul)">Valor (R$)</div><div class="id-field-value fw-bold" style="font-size:14px;color:var(--navy)">${R$(d.valor)}</div></div>
         </div>
 
@@ -3609,7 +4097,16 @@ function renderMemorias(){
         </div>
       </div>
     </div>`;
-  });
+  };
+  toShow.filter(Boolean).forEach(d=>{ sheetsHTML+=_memSheet(d,false); });
+  const provSheets=toShowProv.filter(Boolean);
+  if(provSheets.length){
+    sheetsHTML+=`<div class="card no-print mem-prov-hdr" style="margin:18px 0 12px;padding:10px 16px;border-left:4px solid #0F766E">
+      <div style="font-size:14px;font-weight:800;color:#0F766E">🏦 Memórias – Pagamentos de Provisão</div>
+      <div style="font-size:11px;color:var(--gray);margin-top:2px">Pagamentos custeados pelas contas de provisão de cada contrato; não integram o total de despesas do mês.</div>
+    </div>`;
+    provSheets.forEach(d=>{ sheetsHTML+=_memSheet(d,true); });
+  }
 
   document.getElementById('panel-memorias').innerHTML=filtroHTML+sheetsHTML;
 }
@@ -4575,6 +5072,59 @@ function renderRelatorio(){
     +'</div>'
     :'';
 
+  /* Subseção 3.N – pagamentos com recursos de provisão (informativo; fora do total de despesas).
+     Só aparece com lançamentos ou com saldo/movimento nas contas de provisão. */
+  const provLanc=(data.provisao||[]).filter(p=>(p.valor||0)>0);
+  const saldoProvRel=saldoProvisaoCG(currentComp);
+  const idsProvRel=Object.keys(saldoProvRel);
+  const temProv=provLanc.length>0||idsProvRel.some(id=>{ const s=saldoProvRel[id]; return [s.anterior,s.provisionado,s.pago,s.final].some(v=>Math.abs(v)>=0.005); });
+  const nProv=gruposAtual.n+(despCompl.length?2:1);
+  let provSecHtml='', provAnexoRow='';
+  if(temProv){
+    const ativosProv=contratosAtivos(currentComp);
+    const tipoDe=p=>PROV_TIPOS.includes(p.tipo)?p.tipo:'Outro';
+    const tiposUsados=PROV_TIPOS.filter(t=>provLanc.some(p=>tipoDe(p)===t));
+    const porCG={}, porTipo={};
+    provLanc.forEach(p=>{
+      const t=tipoDe(p), a=alocacoesDespesa(p,currentComp);
+      Object.keys(a).forEach(id=>{ const m=porCG[id]=porCG[id]||{}; m[t]=_r2((m[t]||0)+a[id]); porTipo[t]=_r2((porTipo[t]||0)+a[id]); });
+    });
+    const totPagoProv=_r2(Object.values(porTipo).reduce((a,b)=>a+b,0));
+    const wCol=(70/(tiposUsados.length+1)).toFixed(2)+'%';
+    const tabLanc=provLanc.length
+      ?tabCap('Pagamentos com recursos de provisão por Contrato de Gestão e natureza – '+mesRef)
+        +'<table class="rdg-table rdg-prov-table"><colgroup><col style="width:30%">'+tiposUsados.map(()=>'<col style="width:'+wCol+'">').join('')+'<col style="width:'+wCol+'"></colgroup>'
+        +'<thead><tr><th style="text-align:left">Contrato de Gestão</th>'+tiposUsados.map(t=>'<th style="text-align:right">'+esc(t)+'</th>').join('')+'<th style="text-align:right">Total</th></tr></thead><tbody>'
+        +ativosProv.map(ct=>{ const m=porCG[ct.id]||{}; const tt=_r2(tiposUsados.reduce((a,t)=>a+(m[t]||0),0));
+          return '<tr><td style="font-size:10px;padding:3px 6px">'+esc(ct.nome)+'</td>'+tiposUsados.map(t=>'<td style="text-align:right;font-size:10px;padding:3px 6px">'+R$(m[t]||0)+'</td>').join('')
+            +'<td style="text-align:right;font-size:10px;padding:3px 6px;font-weight:700">'+R$(tt)+'</td></tr>'; }).join('')
+        +'</tbody><tfoot><tr class="rdg-tfoot"><td><strong>Total</strong></td>'+tiposUsados.map(t=>'<td style="text-align:right"><strong>'+R$(porTipo[t]||0)+'</strong></td>').join('')
+        +'<td style="text-align:right"><strong>'+R$(totPagoProv)+'</strong></td></tr></tfoot></table>'
+        +tabFonte('Sistema RDG – aba “Provisão” ('+provLanc.length+' lançamento'+(provLanc.length===1?'':'s')+'; rateio pelos percentuais do mês do pagamento), competência '+mesRef+'.')
+      :'';
+    const corteProv=state.provSaldoInicialComp||'';
+    const somaS=k=>_r2(idsProvRel.reduce((a,id)=>a+saldoProvRel[id][k],0));
+    const tabSaldo=tabCap('Conta corrente de provisão por Contrato de Gestão – '+mesRef)
+      +'<table class="rdg-table rdg-prov-saldo"><colgroup><col style="width:36%"><col style="width:16%"><col style="width:16%"><col style="width:16%"><col style="width:16%"></colgroup>'
+      +'<thead><tr><th style="text-align:left">Contrato de Gestão</th><th style="text-align:right">Saldo anterior</th><th style="text-align:right">Provisionado no mês</th><th style="text-align:right">Pago no mês</th><th style="text-align:right">Saldo final</th></tr></thead><tbody>'
+      +idsProvRel.map(id=>{ const s=saldoProvRel[id], c=_cgPorId(id,currentComp);
+        return '<tr><td style="font-size:10px;padding:3px 6px">'+esc(c.nome)+(ativosProv.some(a=>a.id===id)?'':' (desativado)')+'</td>'
+          +[s.anterior,s.provisionado,s.pago,s.final].map((v,i)=>'<td style="text-align:right;font-size:10px;padding:3px 6px'+(i===3?';font-weight:700':'')+'">'+R$(v)+'</td>').join('')+'</tr>'; }).join('')
+      +'</tbody><tfoot><tr class="rdg-tfoot"><td><strong>Total</strong></td>'
+      +['anterior','provisionado','pago','final'].map(k=>'<td style="text-align:right"><strong>'+R$(somaS(k))+'</strong></td>').join('')+'</tr></tfoot></table>'
+      +tabFonte('Sistema RDG – aba “Provisão” ('+(corteProv?'saldo inicial informado em '+esc(compLabel(corteProv)):'sem saldo inicial informado')+'; provisionado = despesas de provisionamento rateadas), competência '+mesRef+'.');
+    provSecHtml='<div style="margin:26px 0 14px;border-top:3px solid #0F766E;padding-top:14px">'
+      +'<h2 class="rdg-subsection-title">3.'+nProv+' Pagamentos com recursos de provisão (informativo)</h2>'
+      +'<p class="rdg-p">Os valores abaixo foram custeados pelas contas de provisão de cada contrato, constituídas pelas despesas de provisionamento já rateadas (itens marcados como provisionamento), e não integram o total de despesas compartilhadas desta competência; o controle evita duplicidade.</p>'
+      +(provLanc.length?'<p class="rdg-p">Pagamentos efetuados em '+esc(mesPagto)+': <strong>'+R$(totPagoProv)+'</strong> ('+provLanc.length+' lançamento'+(provLanc.length===1?'':'s')+'), rateados entre os contratos pelos percentuais de rateio desta competência'+(provLanc.some(p=>p.compl)?' (itens complementares: '+regraRateioCompl(currentComp)+')':'')+'.</p>':'')
+      +tabLanc+tabSaldo
+      +'<div class="rdg-cat-total">Saldo final das contas de provisão: <strong>'+R$(somaS('final'))+'</strong> (informativo; não compõe o Total Geral das Despesas CIGAC)</div>'
+      +'</div>';
+    provAnexoRow='<tr><td style="font-weight:700">Demonstrativo de pagamentos com recursos de provisão (informativo)</td>'
+      +'<td>Pagamentos de férias, 13º salário e verbas rescisórias custeados pelas contas de provisão de cada contrato, com rateio, comprovantes e conta corrente por contrato. Não integra o total de despesas compartilhadas.</td>'
+      +'<td>Aba “Provisão” do sistema RDG; seção 3.'+nProv+' deste relatório</td></tr>';
+  }
+
   /* Seção 4 – colaboradores do CIGAC agrupados por eixo (ordem de EIXOS_CIGAC; não informado por último)
      e, dentro do eixo, por departamento (ordem alfabética) */
   const plColab=n=>n+' colaborador'+(n===1?'':'es');
@@ -4973,6 +5523,7 @@ function renderRelatorio(){
       <div class="rdg-total-geral">Total Geral das Despesas CIGAC – ${rotTotal}: ${R$(totalDesp)}</div>
       ${catSectionsHtml||'<p class="rdg-p" style="color:#9CA3AF;font-style:italic">Nenhuma despesa cadastrada para '+mesRef+'. Acesse a aba <strong>📋 Despesas</strong> para preenchimento.</p>'}
       ${catSectionsComplHtml}
+      ${provSecHtml}
     </div>
 
     <!-- 4. COLABORADORES DO CIGAC -->
@@ -5006,7 +5557,7 @@ function renderRelatorio(){
       ${tabCap('Anexos do Relatório Mensal de Despesas Compartilhadas')}
       <table class="rdg-table">
         <thead><tr><th style="text-align:left;width:26%">Anexo</th><th style="text-align:left">Conteúdo e função</th><th style="text-align:left;width:26%">Onde consta</th></tr></thead>
-        <tbody>${anexosRows}</tbody>
+        <tbody>${anexosRows}${provAnexoRow}</tbody>
       </table>
       ${tabFonte('Manual RDG, item 10.2.')}
       <p class="rdg-p">Além dos anexos, integram a prestação de contas a Memória de Cálculo (aba “Memórias de Cálculo”), o Demonstrativo de Despesas do Rateio, o Razão Contábil e os demais documentos comprobatórios — notas fiscais, notas de débito, comprovantes de pagamento, balancete e extratos bancários mensais, processos de contratação e a documentação do total de colaboradores que embasou o percentual de cada contrato (Manual RDG, capítulo 11).</p>
@@ -6509,7 +7060,8 @@ function setSyncStatus(status,label){
   lbl.textContent=label||'';
 }
 /* Mescla: base = estado remoto (todas as chaves gerais: perfilSenhas, tokenCripto,
-   customContratos, desativadosBase, auditLog, manualRDG, regimentoCIGAC e todos os meses) e, por
+   customContratos, desativadosBase, auditLog, manualRDG, regimentoCIGAC, provSaldoInicial,
+   provSaldoInicialComp e todos os meses) e, por
    cima, apenas as competências listadas em 'meses' que existam no estado local.
    Não altera currentComp. */
 function _mesclarEstadoLocal(remoto,local,meses){
@@ -6965,6 +7517,14 @@ function _b64toBlob(dataUrl){
   return new Blob([u8],{type:mime});
 }
 
+/* Item dono do comprovante: despesa ou lançamento de provisão (uids distintos, prefixo 'pv') */
+function _itemAnexo(uid){
+  const m=getMesData(currentComp);
+  return m.despesas.find(x=>x.uid===uid)||(m.provisao||[]).find(x=>x.uid===uid);
+}
+function _rerenderAnexo(uid){
+  if((getMesData(currentComp).provisao||[]).some(x=>x.uid===uid)) renderProvisao(); else renderDespesas();
+}
 function verAnexo(uid, slot){
   slot = slot || 1;
   const urlField  = slot === 1 ? 'pdfUrl'  : 'pdfUrl2';
@@ -6972,7 +7532,7 @@ function verAnexo(uid, slot){
   const cacheKey  = uid + (slot === 2 ? '_b' : '');
   const localKey  = 'pq_pdf_' + cacheKey;
   const data = getMesData(currentComp);
-  const d    = data.despesas.find(x => x.uid === uid);
+  const d    = _itemAnexo(uid);
   if(!d || !d[urlField]) return;
   const cached = _pdfBlobCache.get(cacheKey);
   let src;
@@ -7012,7 +7572,7 @@ function excluirAnexo(){
   const nomeField = slot === 1 ? 'pdfNome' : 'pdfNome2';
   const cacheKey  = uid + (slot === 2 ? '_b' : '');
   const data = getMesData(currentComp);
-  const d    = data.despesas.find(x => x.uid === uid);
+  const d    = _itemAnexo(uid);
   if(d && d[urlField]){
     if(d[urlField].startsWith('local:')) localStorage.removeItem('pq_pdf_' + cacheKey);
     else githubDeletePDF(cacheKey).catch(() => {});
@@ -7020,7 +7580,7 @@ function excluirAnexo(){
   const cached = _pdfBlobCache.get(cacheKey);
   if(cached){ URL.revokeObjectURL(cached.url); _pdfBlobCache.delete(cacheKey); }
   if(d){ d[urlField] = null; d[nomeField] = null; salvar(); }
-  renderDespesas();
+  _rerenderAnexo(uid);
 }
 
 function anexarPDF(uid, slot){
@@ -7046,9 +7606,9 @@ function anexarPDF(uid, slot){
           const blobUrl = URL.createObjectURL(file);
           _pdfBlobCache.set(cacheKey, {url: blobUrl, nome: file.name});
           const data = getMesData(currentComp);
-          const d    = data.despesas.find(x => x.uid === uid);
+          const d    = _itemAnexo(uid);
           if(d){ d[urlField] = pdfUrl; d[nomeField] = file.name; salvar(); }
-          renderDespesas();
+          _rerenderAnexo(uid);
         })
         .catch(e => {
           alert('Erro ao enviar PDF: ' + e.message);
@@ -7066,9 +7626,9 @@ function anexarPDF(uid, slot){
         const blobUrl = URL.createObjectURL(file);
         _pdfBlobCache.set(cacheKey, {url: blobUrl, nome: file.name});
         const data = getMesData(currentComp);
-        const d    = data.despesas.find(x => x.uid === uid);
+        const d    = _itemAnexo(uid);
         if(d){ d[urlField] = 'local:' + cacheKey; d[nomeField] = file.name; salvar(); }
-        renderDespesas();
+        _rerenderAnexo(uid);
       };
       reader.readAsDataURL(file);
     }
@@ -7183,7 +7743,7 @@ const PERFIS=[
   {id:'superint',     nome:'Superintendência Executiva', sigla:'Superint.',    tipo:'total'},
   {id:'rh',           nome:'RH/DP',                      sigla:'RH/DP',        tipo:'dept', tabs:['criterio'],             inds:['ind1']},
   {id:'comunicacao',  nome:'Comunicação',                sigla:'Comunic.',     tipo:'dept', tabs:[],                       inds:['ind2']},
-  {id:'financeiro',   nome:'Financeiro',                 sigla:'Financeiro',   tipo:'dept', tabs:['despesas','validacao'], inds:['ind3']},
+  {id:'financeiro',   nome:'Financeiro',                 sigla:'Financeiro',   tipo:'dept', tabs:['despesas','provisao','validacao'], inds:['ind3']},
   {id:'contabilidade',nome:'Contabilidade',              sigla:'Contab.',      tipo:'dept', tabs:['dcf'],                  inds:['ind4']},
   {id:'suprimentos',  nome:'Suprimentos',                sigla:'Suprim.',      tipo:'dept', tabs:[],                       inds:['ind5']},
   {id:'compras',      nome:'Compras',                    sigla:'Compras',      tipo:'dept', tabs:['contratos'],            inds:['ind6']},
@@ -7529,7 +8089,7 @@ function init(){
 
 // Set data-tab on tab buttons on load
 document.querySelectorAll('.tab-btn').forEach((b,i)=>{
-  const tabNames=['criterio','qualitativo','despesas','demonstrativo','memorias','contratos','relatorio','graficos','analise','validacao','dcf','manual'];
+  const tabNames=['criterio','qualitativo','despesas','provisao','demonstrativo','memorias','contratos','relatorio','graficos','analise','validacao','dcf','manual'];
   b.setAttribute('data-tab',tabNames[i]||'criterio');
 });
 
@@ -8884,6 +9444,22 @@ function removerRegimentoCIGAC(){
     <div class="modal-acts" style="margin-top:14px">
       <button class="btn btn-outline btn-sm" onclick="fecharModaisAbertos()">Cancelar</button>
       <button class="btn btn-teal btn-sm" onclick="salvarJustificativa()">Salvar</button>
+    </div>
+  </div>
+</div>
+
+<div id="modal-prov-saldo" class="modal-overlay" style="display:none" onclick="if(event.target===this)fecharModaisAbertos()">
+  <div class="modal-box" style="width:480px;max-width:95vw">
+    <div class="modal-title">🏦 Saldo inicial das contas de provisão</div>
+    <div class="modal-sub">Informe uma única vez o saldo de cada conta de provisão no início da competência de corte. A partir dela, o saldo de cada mês = saldo anterior + provisionado (despesas 🏦) − pagamentos com recursos de provisão.</div>
+    <div style="display:flex;gap:8px;align-items:center;margin:10px 0">
+      <label for="prov-saldo-comp" style="flex:1;font-weight:700;font-size:12px">Competência de corte</label>
+      <input type="month" id="prov-saldo-comp" style="width:150px">
+    </div>
+    <div id="prov-saldo-campos" style="max-height:50vh;overflow:auto"></div>
+    <div class="modal-acts" style="margin-top:14px">
+      <button class="btn btn-outline btn-sm" onclick="fecharModaisAbertos()">Cancelar</button>
+      <button class="btn btn-teal btn-sm" onclick="salvarSaldoProv()">Salvar</button>
     </div>
   </div>
 </div>

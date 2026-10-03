@@ -15643,7 +15643,7 @@
             "id": "dl1781785405024geen",
             "objeto": "ENERGIA ELÉTRICA SEDE QUISSAMÃ",
             "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
-            "valor": 1
+            "valor": 237.94
           },
           {
             "id": "dl178178540502411c7",
@@ -20586,11 +20586,6 @@
     },
     "auditLog": [
       {
-        "t": 1790949664517,
-        "perfil": "Administrador",
-        "comp": "2026-10"
-      },
-      {
         "t": 1790958251705,
         "perfil": "—",
         "comp": "2026-10"
@@ -22082,6 +22077,11 @@
       },
       {
         "t": 1790996104813,
+        "perfil": "Administrador",
+        "comp": "2026-06"
+      },
+      {
+        "t": 1790996142942,
         "perfil": "Administrador",
         "comp": "2026-06"
       }
@@ -23660,5 +23660,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1790996104816
+  "savedAt": 1790996142944
 }

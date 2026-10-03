@@ -19236,7 +19236,7 @@
           "cnpj": "",
           "valor": 2859.25,
           "dtPgto": "",
-          "obs": "GFD -LINCON DA SILVA FULY",
+          "obs": "",
           "compl": false
         },
         {
@@ -21278,11 +21278,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971511276,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971511784,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791003246654,
+        "perfil": "Administrador",
+        "comp": "2026-06"
+      },
+      {
+        "t": 1791003250315,
         "perfil": "Administrador",
         "comp": "2026-06"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1791003246657
+  "savedAt": 1791003250318
 }

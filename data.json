@@ -5614,7 +5614,7 @@
             "id": "dl17909951003008bgm",
             "objeto": "LOCAÇÃO DE IMÓVEL SEDE MADALENA",
             "fornecedor": "FERNANDA BOTELHO DE OLIVEIRA QUEIROZ",
-            "valor": 0
+            "valor": 1800
           },
           {
             "id": "dl1790995100300dkqx",
@@ -20592,11 +20592,6 @@
     },
     "auditLog": [
       {
-        "t": 1790949544360,
-        "perfil": "Administrador",
-        "comp": "2026-10"
-      },
-      {
         "t": 1790949547430,
         "perfil": "Administrador",
         "comp": "2026-10"
@@ -22088,6 +22083,11 @@
       },
       {
         "t": 1790995914677,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1790995920936,
         "perfil": "Administrador",
         "comp": "2026-07"
       }
@@ -23666,5 +23666,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1790995914680
+  "savedAt": 1790995920939
 }

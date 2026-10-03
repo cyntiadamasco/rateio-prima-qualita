@@ -7571,7 +7571,7 @@
           "fav": "MARIANA",
           "cnpj": "",
           "valor": 2922.58,
-          "dtPgto": "",
+          "dtPgto": "2026-07-10",
           "obs": "",
           "compl": false
         },
@@ -21278,11 +21278,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971488312,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971488833,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791002719601,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1791002738403,
         "perfil": "Administrador",
         "comp": "2026-07"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1791002719604
+  "savedAt": 1791002738406
 }

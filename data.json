@@ -20455,7 +20455,7 @@
             "id": "dl1790995122983eh8b",
             "objeto": "LOCAÇÃO DE IMÓVEL SEDE CACHOEIRAS",
             "fornecedor": "REGINA CÉLIA DE CASTRO MENDES",
-            "valor": 0
+            "valor": 1500
           }
         ],
         "saq_hosp": [],
@@ -20591,11 +20591,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1790903360019,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
       {
         "t": 1790903363789,
         "perfil": "Administrador",
@@ -22088,6 +22083,11 @@
       },
       {
         "t": 1790995191943,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790995223113,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23666,5 +23666,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790995191945
+  "savedAt": 1790995223117
 }

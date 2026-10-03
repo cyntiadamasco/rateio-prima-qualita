@@ -7580,6 +7580,13 @@
           "efetivo": 41,
           "pj": 7,
           "obs": ""
+        },
+        {
+          "id": "cg_muq7yah2",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": "JULHO/2026"
         }
       ],
       "despesas": [
@@ -20881,11 +20888,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971420648,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971422180,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22379,6 +22381,11 @@
         "t": 1791000556592,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1791000628493,
+        "perfil": "—",
+        "comp": "2026-04"
       }
     ],
     "tokenCripto": {
@@ -24107,6 +24114,6 @@
       }
     }
   },
-  "currentComp": "2026-08",
-  "savedAt": 1791000556596
+  "currentComp": "2026-04",
+  "savedAt": 1791000628497
 }

@@ -5678,12 +5678,6 @@
             "objeto": "LOCAÇÃO DE IMÓVEL SEDE QUISSAMÃ",
             "fornecedor": "CRISLANE SILVA CONCEIÇÃO",
             "valor": 2700
-          },
-          {
-            "id": "dl1790995100300x71z",
-            "objeto": "ÁGUA E ESGOTO SEDE QUISSAMÃ",
-            "fornecedor": "COMPANHIA ESTADUAL DE ÁGUAS E ESGOTOS CEDAE",
-            "valor": 0
           }
         ],
         "cordeiro": [
@@ -20598,11 +20592,6 @@
     },
     "auditLog": [
       {
-        "t": 1790949573677,
-        "perfil": "Administrador",
-        "comp": "2026-10"
-      },
-      {
         "t": 1790949581959,
         "perfil": "Administrador",
         "comp": "2026-10"
@@ -22094,6 +22083,11 @@
       },
       {
         "t": 1790996005696,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1790996007858,
         "perfil": "Administrador",
         "comp": "2026-07"
       }
@@ -23672,5 +23666,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1790996005698
+  "savedAt": 1790996007860
 }

@@ -15592,7 +15592,7 @@
             "id": "dl1781785405024uzms",
             "objeto": "ENERGIA ELÉTRICA SEDE MADALENA",
             "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
-            "valor": 1
+            "valor": 118.54
           },
           {
             "id": "dl17817854050247joy",
@@ -20592,11 +20592,6 @@
     },
     "auditLog": [
       {
-        "t": 1790949615330,
-        "perfil": "Administrador",
-        "comp": "2026-10"
-      },
-      {
         "t": 1790949624350,
         "perfil": "Administrador",
         "comp": "2026-10"
@@ -22090,6 +22085,11 @@
         "t": 1790996043364,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1790996085862,
+        "perfil": "Administrador",
+        "comp": "2026-06"
       }
     ],
     "tokenCripto": {
@@ -23665,6 +23665,6 @@
       }
     }
   },
-  "currentComp": "2026-07",
-  "savedAt": 1790996043367
+  "currentComp": "2026-06",
+  "savedAt": 1790996085864
 }

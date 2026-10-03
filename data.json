@@ -8201,7 +8201,8 @@
           "cnum": "",
           "valor": 204483.07,
           "dtPgto": "2026-08-06",
-          "compl": true
+          "compl": true,
+          "prov": true
         },
         {
           "uid": "zw90ely",
@@ -20602,11 +20603,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971417732,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971419076,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22098,6 +22094,11 @@
       },
       {
         "t": 1791000402496,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1791000411254,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -23829,5 +23830,5 @@
     }
   },
   "currentComp": "2026-08",
-  "savedAt": 1791000402499
+  "savedAt": 1791000411257
 }

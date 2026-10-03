@@ -7616,7 +7616,7 @@
           "cnpj": "",
           "valor": 937.77,
           "dtPgto": "2026-07-17",
-          "obs": "BOLETO",
+          "obs": "",
           "compl": false
         },
         {
@@ -21278,11 +21278,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971501574,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971502630,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791003068901,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1791003072534,
         "perfil": "Administrador",
         "comp": "2026-07"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1791003068905
+  "savedAt": 1791003072538
 }

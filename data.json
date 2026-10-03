@@ -14292,7 +14292,7 @@
           "fav": "COLABORADORES CIGAC",
           "cnpj": "",
           "valor": 21094.99,
-          "dtPgto": "",
+          "dtPgto": "2026-04-02",
           "obs": "",
           "compl": false
         },
@@ -21278,11 +21278,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971522330,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971522802,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22776,6 +22771,11 @@
         "t": 1791003423852,
         "perfil": "Administrador",
         "comp": "2026-05"
+      },
+      {
+        "t": 1791003467652,
+        "perfil": "Administrador",
+        "comp": "2026-04"
       }
     ],
     "tokenCripto": {
@@ -24504,6 +24504,6 @@
       }
     }
   },
-  "currentComp": "2026-05",
-  "savedAt": 1791003423855
+  "currentComp": "2026-04",
+  "savedAt": 1791003467656
 }

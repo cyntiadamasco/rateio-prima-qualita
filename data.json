@@ -7538,7 +7538,7 @@
           "fav": "FUNCIONÁRIOS CIGAC",
           "cnpj": "",
           "valor": 29083.38,
-          "dtPgto": "",
+          "dtPgto": "2026-07-06",
           "obs": "",
           "compl": false
         },
@@ -21278,11 +21278,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971486934,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971487408,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22776,6 +22771,11 @@
         "t": 1791002607842,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1791002685920,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24504,6 +24504,6 @@
       }
     }
   },
-  "currentComp": "2026-08",
-  "savedAt": 1791002607845
+  "currentComp": "2026-07",
+  "savedAt": 1791002685923
 }

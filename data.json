@@ -19257,7 +19257,7 @@
           "fav": "IR SOBRE FÉRIAS",
           "cnpj": "",
           "valor": 1313.91,
-          "dtPgto": "",
+          "dtPgto": "2026-06-12",
           "obs": "DARF",
           "compl": false
         },
@@ -21278,11 +21278,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971514050,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971515124,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791003289162,
+        "perfil": "Administrador",
+        "comp": "2026-06"
+      },
+      {
+        "t": 1791003303150,
         "perfil": "Administrador",
         "comp": "2026-06"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1791003289166
+  "savedAt": 1791003303153
 }

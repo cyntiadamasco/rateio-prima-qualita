@@ -20500,7 +20500,7 @@
             "id": "dl1790995122983cnh7",
             "objeto": "LOCAÇÃO DE IMÓVEL SEDE CORDEIRO",
             "fornecedor": "R W IMOBILIÁRIA LTDA",
-            "valor": 0
+            "valor": 1214.92
           }
         ],
         "saq_esp": [],
@@ -20579,11 +20579,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1790903913357,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
       {
         "t": 1790903938546,
         "perfil": "Administrador",
@@ -22076,6 +22071,11 @@
       },
       {
         "t": 1790995435981,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790995447459,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23654,5 +23654,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790995435984
+  "savedAt": 1790995447462
 }

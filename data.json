@@ -14467,7 +14467,8 @@
           "cnum": "",
           "valor": 200598.95,
           "pdfUrl": "",
-          "pdfNome": ""
+          "pdfNome": "",
+          "prov": true
         },
         {
           "uid": "oz7bbyb",
@@ -18880,7 +18881,8 @@
         "document_url": "https://app.clicksign.com/documents/cbdd929a-79c9-47e9-a4e8-61543f4993ab",
         "sign_url": "https://app.clicksign.com/sign/9e541e04-0da1-45d0-89a8-16b644e98a08",
         "sent_at": "2026-07-06T15:51:52.919Z"
-      }
+      },
+      "provisao": []
     },
     "2026-09": {
       "colaboradores": [
@@ -20597,11 +20599,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971416784,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971417210,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22095,6 +22092,11 @@
         "t": 1791000342764,
         "perfil": "Administrador",
         "comp": "2026-05"
+      },
+      {
+        "t": 1791000367209,
+        "perfil": "Administrador",
+        "comp": "2026-06"
       }
     ],
     "tokenCripto": {
@@ -23823,6 +23825,6 @@
       }
     }
   },
-  "currentComp": "2026-05",
-  "savedAt": 1791000342768
+  "currentComp": "2026-06",
+  "savedAt": 1791000367212
 }

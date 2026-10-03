@@ -7604,7 +7604,7 @@
           "fav": "THACIA DUARTE BRANCO",
           "cnpj": "",
           "valor": 7043.03,
-          "dtPgto": "",
+          "dtPgto": "2026-07-17",
           "obs": "",
           "compl": false
         },
@@ -21278,11 +21278,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971490442,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971491859,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791002763950,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1791002780382,
         "perfil": "Administrador",
         "comp": "2026-07"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1791002763954
+  "savedAt": 1791002780385
 }

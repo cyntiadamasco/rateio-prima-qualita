@@ -7659,7 +7659,7 @@
           "fav": "VICTOR TEIXEIRA LESSA",
           "cnpj": "",
           "valor": 1635.84,
-          "dtPgto": "",
+          "dtPgto": "2026-07-24",
           "obs": "",
           "compl": false
         },
@@ -21278,11 +21278,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971494084,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971497846,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791002845728,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1791002865346,
         "perfil": "Administrador",
         "comp": "2026-07"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1791002845732
+  "savedAt": 1791002865355
 }

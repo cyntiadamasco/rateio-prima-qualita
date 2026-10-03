@@ -15609,12 +15609,6 @@
         ],
         "cachoeiras": [
           {
-            "id": "dl1781785405024uqxx",
-            "objeto": "ENERGIA ELÉTRICA SEDE CACHOEIRAS",
-            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
-            "valor": 1
-          },
-          {
             "id": "dl178178540502402i1",
             "objeto": "LOCAÇÃO DE IMÓVEL SEDE CACHOEIRAS",
             "fornecedor": "REGINA CÉLIA DE CASTRO MENDES",
@@ -20592,11 +20586,6 @@
     },
     "auditLog": [
       {
-        "t": 1790949648249,
-        "perfil": "Administrador",
-        "comp": "2026-10"
-      },
-      {
         "t": 1790949664517,
         "perfil": "Administrador",
         "comp": "2026-10"
@@ -22088,6 +22077,11 @@
       },
       {
         "t": 1790996092890,
+        "perfil": "Administrador",
+        "comp": "2026-06"
+      },
+      {
+        "t": 1790996104813,
         "perfil": "Administrador",
         "comp": "2026-06"
       }
@@ -23666,5 +23660,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1790996092892
+  "savedAt": 1790996104816
 }

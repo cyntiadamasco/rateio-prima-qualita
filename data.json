@@ -20586,11 +20586,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971411704,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971412258,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22084,6 +22079,11 @@
         "t": 1790996871722,
         "perfil": "Administrador",
         "comp": "2026-10"
+      },
+      {
+        "t": 1790996877073,
+        "perfil": "Administrador",
+        "comp": "2026-10"
       }
     ],
     "tokenCripto": {
@@ -22255,7 +22255,7 @@
           "valor": 0,
           "pdfUrl": null,
           "pdfNome": null,
-          "dtPgto": "",
+          "dtPgto": "2026-10-02",
           "compl": false
         },
         {
@@ -23813,5 +23813,5 @@
     }
   },
   "currentComp": "2026-10",
-  "savedAt": 1790996871725
+  "savedAt": 1790996877078
 }

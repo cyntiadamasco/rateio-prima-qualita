@@ -20586,11 +20586,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971365131,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971409514,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22084,6 +22079,11 @@
         "t": 1790996180708,
         "perfil": "Administrador",
         "comp": "2026-06"
+      },
+      {
+        "t": 1790996236077,
+        "perfil": "Administrador",
+        "comp": "2026-05"
       }
     ],
     "tokenCripto": {
@@ -23659,6 +23659,6 @@
       }
     }
   },
-  "currentComp": "2026-06",
-  "savedAt": 1790996180711
+  "currentComp": "2026-05",
+  "savedAt": 1790996236081
 }

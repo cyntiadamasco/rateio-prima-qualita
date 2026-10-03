@@ -20446,12 +20446,6 @@
         ],
         "cachoeiras": [
           {
-            "id": "dl1790995122983p97u",
-            "objeto": "ENERGIA ELÉTRICA SEDE CACHOEIRAS",
-            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
-            "valor": 0
-          },
-          {
             "id": "dl1790995122983eh8b",
             "objeto": "LOCAÇÃO DE IMÓVEL SEDE CACHOEIRAS",
             "fornecedor": "REGINA CÉLIA DE CASTRO MENDES",
@@ -20585,11 +20579,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1790903365015,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
       {
         "t": 1790903366256,
         "perfil": "Administrador",
@@ -22082,6 +22071,11 @@
       },
       {
         "t": 1790995351653,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790995367447,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23660,5 +23654,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790995351656
+  "savedAt": 1790995367451
 }

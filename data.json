@@ -7611,7 +7611,7 @@
         {
           "uid": "pvxjvclr2",
           "id": "8",
-          "tipo": "Outro",
+          "tipo": "IRRF férias",
           "fav": "IR DE FÉRIAS CIGAC",
           "cnpj": "",
           "valor": 937.77,
@@ -21278,11 +21278,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971500956,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971501574,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22776,6 +22771,11 @@
         "t": 1791003022474,
         "perfil": "Administrador",
         "comp": "2026-06"
+      },
+      {
+        "t": 1791003068901,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24504,6 +24504,6 @@
       }
     }
   },
-  "currentComp": "2026-06",
-  "savedAt": 1791003022477
+  "currentComp": "2026-07",
+  "savedAt": 1791003068905
 }

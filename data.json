@@ -7549,7 +7549,7 @@
           "fav": "PENSÃO SOBRE FÉRIAS (DOUGLAS)",
           "cnpj": "",
           "valor": 510.4,
-          "dtPgto": "",
+          "dtPgto": "2026-07-07",
           "obs": "PENSÃO",
           "compl": false
         },
@@ -21278,11 +21278,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971487408,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971487857,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791002685920,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1791002704079,
         "perfil": "Administrador",
         "comp": "2026-07"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1791002685923
+  "savedAt": 1791002704085
 }

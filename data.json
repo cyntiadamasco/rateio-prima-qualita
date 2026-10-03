@@ -19213,7 +19213,7 @@
           "fav": "ESTER SOARES ALVES XIMENES",
           "cnpj": "",
           "valor": 10019.87,
-          "dtPgto": "0202-06-09",
+          "dtPgto": "2026-06-09",
           "obs": "",
           "compl": false
         },
@@ -21278,11 +21278,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971507816,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971508352,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791003208294,
+        "perfil": "Administrador",
+        "comp": "2026-06"
+      },
+      {
+        "t": 1791003210854,
         "perfil": "Administrador",
         "comp": "2026-06"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1791003208296
+  "savedAt": 1791003210857
 }

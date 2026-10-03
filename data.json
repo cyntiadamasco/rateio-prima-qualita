@@ -5677,7 +5677,7 @@
             "id": "dl1790995100300hh9n",
             "objeto": "LOCAÇÃO DE IMÓVEL SEDE QUISSAMÃ",
             "fornecedor": "CRISLANE SILVA CONCEIÇÃO",
-            "valor": 0
+            "valor": 2700
           },
           {
             "id": "dl1790995100300x71z",
@@ -20598,11 +20598,6 @@
     },
     "auditLog": [
       {
-        "t": 1790949570000,
-        "perfil": "Administrador",
-        "comp": "2026-10"
-      },
-      {
         "t": 1790949573677,
         "perfil": "Administrador",
         "comp": "2026-10"
@@ -22094,6 +22089,11 @@
       },
       {
         "t": 1790995998786,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1790996005696,
         "perfil": "Administrador",
         "comp": "2026-07"
       }
@@ -23672,5 +23672,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1790995998789
+  "savedAt": 1790996005698
 }

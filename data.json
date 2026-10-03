@@ -20435,7 +20435,7 @@
             "id": "dl1790995122983is67",
             "objeto": "ENERGIA ELÉTRICA SEDE MADALENA",
             "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
-            "valor": 0
+            "valor": 201.98
           },
           {
             "id": "dl1790995122983pn5u",
@@ -20597,11 +20597,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1790903359278,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
       {
         "t": 1790903359657,
         "perfil": "Administrador",
@@ -22094,6 +22089,11 @@
       },
       {
         "t": 1790995122983,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790995166541,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23672,5 +23672,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790995122987
+  "savedAt": 1790995166544
 }

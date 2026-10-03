@@ -21101,7 +21101,7 @@
           "fav": "LEONARDO LIMA CARVALHO",
           "cnpj": "",
           "valor": 3459.57,
-          "dtPgto": "",
+          "dtPgto": "2026-09-04",
           "obs": "",
           "compl": false
         },
@@ -21277,11 +21277,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1790971434372,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
       {
         "t": 1790971434836,
         "perfil": "Administrador",
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791002319942,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1791002324730,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1791002319944
+  "savedAt": 1791002324733
 }

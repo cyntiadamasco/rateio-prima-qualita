@@ -4389,7 +4389,30 @@
         "sign_url": "https://app.clicksign.com/sign/9b64dbdd-3698-4e73-9c3a-13aa52b656df",
         "sent_at": "2026-06-24T04:01:46.539Z"
       },
-      "provisao": []
+      "provisao": [
+        {
+          "uid": "pvm98rir7",
+          "id": "1",
+          "tipo": "Férias",
+          "fav": "PENSÃO SARA ALMEIDA",
+          "cnpj": "",
+          "valor": 631.74,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pv9jlp8u0",
+          "id": "2",
+          "tipo": "Férias",
+          "fav": "FÉRIAS CIGAC",
+          "cnpj": "",
+          "valor": 51211.63,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        }
+      ]
     },
     "2026-07": {
       "colaboradores": [
@@ -20933,11 +20956,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971422766,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971423285,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22431,6 +22449,11 @@
         "t": 1791000679865,
         "perfil": "Administrador",
         "comp": "2026-04"
+      },
+      {
+        "t": 1791000703700,
+        "perfil": "Administrador",
+        "comp": "2026-05"
       }
     ],
     "tokenCripto": {
@@ -24159,6 +24182,6 @@
       }
     }
   },
-  "currentComp": "2026-04",
-  "savedAt": 1791000679871
+  "currentComp": "2026-05",
+  "savedAt": 1791000703706
 }

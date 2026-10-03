@@ -7506,7 +7506,8 @@
           "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/iqual_202607_ind8.pdf",
           "pdfNome": "INDICADOR 8 - DEPARTAMENTO ASSISTENCIAL JUNHO 2026.pdf"
         }
-      }
+      },
+      "provisao": []
     },
     "2026-08": {
       "colaboradores": [
@@ -7832,7 +7833,8 @@
           "valor": 207193.2,
           "pdfUrl": "",
           "pdfNome": "",
-          "dtPgto": "2026-08-21"
+          "dtPgto": "2026-08-21",
+          "prov": true
         },
         {
           "uid": "4iuymoj",
@@ -9572,7 +9574,8 @@
         "document_url": "https://app.clicksign.com/documents/21ac3d8a-f698-4f34-8bb1-45c36e3f8231",
         "sign_url": "https://app.clicksign.com/sign/b032532a-cae9-4873-a1c0-e16cd4a222f9",
         "sent_at": "2026-09-04T15:44:38.072Z"
-      }
+      },
+      "provisao": []
     },
     "2026-04": {
       "colaboradores": [
@@ -20599,11 +20602,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971417210,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971417732,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22097,6 +22095,11 @@
         "t": 1791000367209,
         "perfil": "Administrador",
         "comp": "2026-06"
+      },
+      {
+        "t": 1791000402496,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -23825,6 +23828,6 @@
       }
     }
   },
-  "currentComp": "2026-06",
-  "savedAt": 1791000367212
+  "currentComp": "2026-08",
+  "savedAt": 1791000402499
 }

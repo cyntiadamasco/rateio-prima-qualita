@@ -9769,7 +9769,7 @@
           "fav": "FÉRIAS CIGAC",
           "cnpj": "",
           "valor": 47963.13,
-          "dtPgto": "",
+          "dtPgto": "2026-08-07",
           "obs": "",
           "compl": false
         },
@@ -21278,11 +21278,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971479922,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971480444,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22776,6 +22771,11 @@
         "t": 1791002446921,
         "perfil": "Administrador",
         "comp": "2026-09"
+      },
+      {
+        "t": 1791002499327,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-08",
-  "savedAt": 1791002446923
+  "savedAt": 1791002499331
 }

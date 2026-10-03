@@ -20474,7 +20474,7 @@
             "id": "dl1790995122983utjg",
             "objeto": "ENERGIA ELÉTRICA SEDE QUISSAMÃ",
             "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
-            "valor": 0
+            "valor": 192.6
           },
           {
             "id": "dl1790995122983y6gj",
@@ -20579,11 +20579,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1790903366256,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
       {
         "t": 1790903366614,
         "perfil": "Administrador",
@@ -22076,6 +22071,11 @@
       },
       {
         "t": 1790995367447,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790995400351,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23654,5 +23654,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790995367451
+  "savedAt": 1790995400354
 }

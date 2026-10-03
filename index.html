@@ -1275,7 +1275,7 @@ body:not(.perfil-logado) .logado-only{display:none!important}
       </div>
     </div>
     <span id="sync-status" style="display:flex;align-items:center;gap:4px"><span class="sync-dot" id="sync-dot"></span><span class="sync-lbl" id="sync-lbl"></span></span>
-    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-10-03a</span>
+    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-10-03b</span>
     <button class="btn btn-teal btn-sm edit-only" onclick="salvar()">💾 Salvar</button>
     <button id="btn-lock-edit" onclick="toggleEditMode()" title="Modo de edição">🔒 Editar</button>
   </div>
@@ -4100,7 +4100,7 @@ function renderMemorias(){
           </div>
         </div>
 
-        <div style="text-align:center;font-size:10px;color:var(--gray);margin-top:16px;border-top:1px solid var(--border);padding-top:8px">
+        <div class="mem-foot" style="text-align:center;font-size:10px;color:var(--gray);margin-top:16px;border-top:1px solid var(--border);padding-top:8px">
           www.primaqualitasaude.org &nbsp;|&nbsp; Prima Qualitá Saúde – CNPJ: 40.289.134/0001-99<br>
           Av. São Gonçalo nº 100, piso L1 – nº 101 – Boa Vista, São Gonçalo, CEP: 24466-970
         </div>
@@ -6716,6 +6716,46 @@ function imprimirDemonstrativo(){
   setTimeout(()=>window.print(),300);
 }
 
+/* CSS de impressão das memórias de cálculo (cada folha cabe em UMA página A4; rodapé institucional omitido) */
+const MEM_PRINT_CSS=`
+    @page{size:A4 portrait;margin:8mm 10mm}
+    html,body{margin:0;padding:0}
+    body{font-family:'Segoe UI',Arial,sans-serif;font-size:9.5pt;line-height:1.2;color:#1F2937;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    table{width:100%;border-collapse:collapse;font-size:8.5pt;line-height:1.2}
+    th{background:#1B3A5C;color:#fff;padding:2px 5px;text-align:left;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .th-azul{background:#0073BA!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .th-c{text-align:center}.th-r{text-align:right}
+    td{padding:2px 5px;border-bottom:1px solid #E5E7EB}
+    .td-c{text-align:center}.td-r{text-align:right}
+    .tr-total td{background:#1B3A5C!important;color:#fff!important;font-weight:700;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .pct-pill{background:#E8F4FD;color:#0073BA;padding:0 6px;border-radius:8px;font-weight:700;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .fw-bold{font-weight:700}
+    .tr-zero td{color:#9CA3AF}
+    .tbl-wrap{border:1px solid #ddd;border-radius:4px;overflow:hidden}
+    .id-sheet{border:none!important;padding:0;break-inside:avoid;page-break-inside:avoid}
+    .id-sheet-hdr{display:none!important}
+    .id-sheet-body{padding:0}
+    .no-print{display:none!important}
+    .mem-foot{display:none!important}
+    .print-logo-hdr{display:flex!important;align-items:center;gap:10px;margin-bottom:6px;padding-bottom:5px;border-bottom:2px solid #1B3A5C}
+    .print-logo-hdr img{height:32px!important;width:auto;flex-shrink:0}
+    .logo-right{margin-left:auto;text-align:right;font-size:8.5pt;color:#1B3A5C}
+    .logo-right strong{font-size:9.5pt;display:block;margin-bottom:1px}
+    .id-section{margin-bottom:4px}
+    .id-section-title{background:#0073BA!important;color:#fff!important;padding:2px 10px;font-size:10pt;font-weight:700;text-transform:uppercase;border-radius:3px;margin:4px 0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .id-field-row{display:grid;grid-template-columns:150px 1fr;border:1px solid #E5E7EB;border-radius:4px;margin-bottom:2px;overflow:hidden}
+    .id-field-label{background:#F9FAFB;padding:2px 8px;font-weight:700;font-size:8.5pt;color:#1B3A5C;border-right:1px solid #E5E7EB;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .id-field-value{padding:2px 8px;font-size:9.5pt}
+`;
+/* Documento HTML da janela de impressão; todas=true separa as folhas por página */
+function memPrintDoc(titulo,content,todas){
+  const quebra=todas?'.id-sheet{page-break-after:always;break-after:page}.id-sheet:last-child{page-break-after:auto;break-after:auto}':'';
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8">
+  <title>${esc(titulo)}</title>
+  <style>${MEM_PRINT_CSS}${quebra}</style></head><body>${content}
+</body></html>`;
+}
+
 function imprimirTodasIDs(){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.getElementById('panel-memorias').classList.add('active');
@@ -6728,38 +6768,7 @@ function imprimirTodasIDs(){
     let content='';
     sheets.forEach(s=>content+=s.outerHTML);
     const w=window.open('','_blank');
-    w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8">
-  <title>Memórias de Cálculo</title>
-  <style>
-    @page{size:A4 portrait;margin:12mm 15mm}
-    body{font-family:'Segoe UI',Arial,sans-serif;font-size:11px;margin:0;color:#1F2937;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-    table{width:100%;border-collapse:collapse;font-size:10px}
-    th{background:#1B3A5C;color:#fff;padding:5px 8px;text-align:left;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-    .th-azul{background:#0073BA!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-    .th-c{text-align:center}.th-r{text-align:right}
-    td{padding:4px 8px;border-bottom:1px solid #E5E7EB}
-    .td-c{text-align:center}.td-r{text-align:right}
-    .tr-total td{background:#1B3A5C!important;color:#fff!important;font-weight:700;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-    .pct-pill{background:#E8F4FD;color:#0073BA;padding:1px 6px;border-radius:8px;font-weight:700;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-    .fw-bold{font-weight:700}
-    .tr-zero td{color:#9CA3AF}
-    .tbl-wrap{border:1px solid #ddd;border-radius:4px;overflow:hidden}
-    .id-sheet{page-break-after:always;break-after:page;page-break-inside:avoid;break-inside:avoid-page;padding:12px 0}
-    .id-sheet:last-child{page-break-after:auto;break-after:auto}
-    .id-sheet-hdr{display:none!important}
-    .id-sheet-body{padding:0}
-    .no-print{display:none!important}
-    .print-logo-hdr{display:flex;align-items:center;gap:12px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #1B3A5C}
-    .print-logo-hdr img{height:40px;width:auto;flex-shrink:0}
-    .logo-right{margin-left:auto;text-align:right;font-size:10px;color:#1B3A5C}
-    .logo-right strong{font-size:11px;display:block;margin-bottom:1px}
-    .id-section{margin-bottom:8px}
-    .id-section-title{background:#0073BA!important;color:#fff!important;padding:4px 10px;font-size:10px;font-weight:700;text-transform:uppercase;border-radius:3px;margin:10px 0 6px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-    .id-field-row{display:grid;grid-template-columns:150px 1fr;border:1px solid #E5E7EB;border-radius:4px;margin-bottom:3px;overflow:hidden}
-    .id-field-label{background:#F9FAFB;padding:5px 8px;font-weight:700;font-size:10px;color:#1B3A5C;border-right:1px solid #E5E7EB;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-    .id-field-value{padding:5px 8px;font-size:11px}
-  </style></head><body>${content}
-</body></html>`);
+    w.document.write(memPrintDoc('Memórias de Cálculo',content,true));
     w.document.close();
     setTimeout(()=>w.print(),400);
   },300);
@@ -7020,38 +7029,7 @@ function imprimirIDsheet(duid,did){
   if(!el){ alert('Folha não encontrada.'); return; }
   const content=el.outerHTML;
   const w=window.open('','_blank');
-  w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8">
-  <title>Memória de Cálculo ID ${esc(did||'')}</title>
-  <style>
-    @page{size:A4 portrait;margin:12mm 15mm}
-    body{font-family:'Segoe UI',Arial,sans-serif;font-size:11px;margin:16px 20px;color:#1F2937}
-    table{width:100%;border-collapse:collapse;font-size:10px}
-    th{background:#1B3A5C;color:#fff;padding:5px 8px;text-align:left;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-    .th-azul{background:#0073BA!important}
-    td{padding:4px 8px;border-bottom:1px solid #E5E7EB}
-    .tr-total td{background:#1B3A5C!important;color:#fff!important;font-weight:700;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-    .pct-pill{background:#E8F4FD;color:#0073BA;padding:1px 6px;border-radius:8px;font-weight:700}
-    .id-sheet{border:none!important}
-    .id-sheet-hdr{display:none!important}
-    /* logo header */
-    .print-logo-hdr{display:flex!important;align-items:center;gap:12px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #1B3A5C}
-    .print-logo-hdr svg{width:44px;height:44px;flex-shrink:0}
-    .logo-txt-print{font-weight:800;font-size:15px;color:#1B3A5C;line-height:1.2}
-    .logo-txt-print span{color:#00A87B}
-    .logo-right{margin-left:auto;text-align:right;font-size:10px;color:#1B3A5C}
-    .logo-right strong{font-size:11px;display:block;margin-bottom:1px}
-    /* id sheet body */
-    .id-sheet-body{padding:0}
-    .no-print{display:none!important}
-    .id-section-title{background:#0073BA!important;color:#fff!important;padding:4px 10px;font-size:10px;font-weight:700;text-transform:uppercase;border-radius:3px;margin:10px 0 6px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-    .id-field-row{display:grid;grid-template-columns:150px 1fr;border:1px solid #E5E7EB;border-radius:4px;margin-bottom:3px;overflow:hidden}
-    .id-field-label{background:#F9FAFB;padding:5px 8px;font-weight:700;font-size:10px;color:#1B3A5C;border-right:1px solid #E5E7EB}
-    .id-field-value{padding:5px 8px;font-size:11px}
-    .fw-bold{font-weight:700}.td-r{text-align:right}.td-c{text-align:center}
-    .tr-zero td{color:#9CA3AF}
-    .tbl-wrap{border:1px solid #ddd;border-radius:4px;overflow:hidden}
-  </style></head><body>${content}
-</body></html>`);
+  w.document.write(memPrintDoc('Memória de Cálculo ID '+(did||''),content,false));
   w.document.close();
   setTimeout(()=>{w.print();},400);
 }

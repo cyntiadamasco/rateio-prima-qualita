@@ -7615,7 +7615,7 @@
           "fav": "IR DE FÉRIAS CIGAC",
           "cnpj": "",
           "valor": 937.77,
-          "dtPgto": "",
+          "dtPgto": "2026-07-17",
           "obs": "BOLETO",
           "compl": false
         },
@@ -21278,11 +21278,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971491859,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971492324,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791002780382,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1791002797481,
         "perfil": "Administrador",
         "comp": "2026-07"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1791002780385
+  "savedAt": 1791002797484
 }

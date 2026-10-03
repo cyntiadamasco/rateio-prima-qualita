@@ -9452,6 +9452,12 @@
             "objeto": "ENERGIA ELÉTRICA SEDE ARRAIAL - SALA 301",
             "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
             "valor": 394.44
+          },
+          {
+            "id": "dl1790995778503",
+            "objeto": "ENERGIA ELÉTRICA SEDE ARRAIAL - SALA 302",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 172.16
           }
         ],
         "quissama": [
@@ -20586,11 +20592,6 @@
     },
     "auditLog": [
       {
-        "t": 1790945671140,
-        "perfil": "Administrador",
-        "comp": "2026-11"
-      },
-      {
         "t": 1790945686945,
         "perfil": "Administrador",
         "comp": "2026-11"
@@ -22082,6 +22083,11 @@
       },
       {
         "t": 1790995761020,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1790995778503,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -23660,5 +23666,5 @@
     }
   },
   "currentComp": "2026-08",
-  "savedAt": 1790995761022
+  "savedAt": 1790995778506
 }

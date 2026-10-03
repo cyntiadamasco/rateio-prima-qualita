@@ -19246,7 +19246,7 @@
           "fav": "JOÃO VITOR DA SILVA BORGES",
           "cnpj": "",
           "valor": 58.96,
-          "dtPgto": "",
+          "dtPgto": "2026-06-11",
           "obs": "",
           "compl": false
         },
@@ -21278,11 +21278,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971513506,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971514050,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791003272193,
+        "perfil": "Administrador",
+        "comp": "2026-06"
+      },
+      {
+        "t": 1791003289162,
         "perfil": "Administrador",
         "comp": "2026-06"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1791003272196
+  "savedAt": 1791003289166
 }

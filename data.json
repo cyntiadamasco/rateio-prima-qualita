@@ -20442,12 +20442,6 @@
             "objeto": "LOCAÇÃO DE IMÓVEL SEDE MADALENA",
             "fornecedor": "FERNANDA BOTELHO DE OLIVEIRA QUEIROZ",
             "valor": 5041.26
-          },
-          {
-            "id": "dl1790995122983le31",
-            "objeto": "ÁGUA E ESGOTO SEDE MADALENA",
-            "fornecedor": "COMPANHIA ESTADUAL E ÁGUAS E ESGOTOS - CEDAE",
-            "valor": 0
           }
         ],
         "cachoeiras": [
@@ -20597,11 +20591,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1790903359849,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
       {
         "t": 1790903360019,
         "perfil": "Administrador",
@@ -22094,6 +22083,11 @@
       },
       {
         "t": 1790995186675,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790995191943,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23672,5 +23666,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790995186678
+  "savedAt": 1790995191945
 }

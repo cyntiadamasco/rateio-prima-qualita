@@ -20441,7 +20441,7 @@
             "id": "dl1790995122983pn5u",
             "objeto": "LOCAÇÃO DE IMÓVEL SEDE MADALENA",
             "fornecedor": "FERNANDA BOTELHO DE OLIVEIRA QUEIROZ",
-            "valor": 5041.26
+            "valor": 1800
           }
         ],
         "cachoeiras": [
@@ -20585,11 +20585,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1790903364628,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
       {
         "t": 1790903365015,
         "perfil": "Administrador",
@@ -22082,6 +22077,11 @@
       },
       {
         "t": 1790995334837,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790995351653,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23660,5 +23660,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790995334839
+  "savedAt": 1790995351656
 }

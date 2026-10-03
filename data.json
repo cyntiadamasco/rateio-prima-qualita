@@ -19210,7 +19210,7 @@
           "uid": "pv5ido17q",
           "id": "3",
           "tipo": "FGTS rescisório",
-          "fav": "FGTS RESCISÓRIO",
+          "fav": "ESTER SOARES ALVES XIMENES",
           "cnpj": "",
           "valor": 10019.87,
           "dtPgto": "",
@@ -21278,11 +21278,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971504682,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971505858,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791003169458,
+        "perfil": "Administrador",
+        "comp": "2026-06"
+      },
+      {
+        "t": 1791003196255,
         "perfil": "Administrador",
         "comp": "2026-06"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1791003169461
+  "savedAt": 1791003196260
 }

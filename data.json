@@ -14039,7 +14039,52 @@
       "refColab": "FEVEREIRO/2026",
       "relQuant": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/relquant_2026-04.pdf",
       "relQuantNome": "1. CRITÉRIO QUANTITATIVO - COMPLETO.pdf",
-      "provisao": []
+      "provisao": [
+        {
+          "uid": "pvoew6m54",
+          "id": "1",
+          "tipo": "Férias",
+          "fav": "COLABORADORES CIGAC",
+          "cnpj": "",
+          "valor": 21094.99,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pve9ysdr6",
+          "id": "2",
+          "tipo": "TRCT",
+          "fav": "FERNANDO ESTORANI",
+          "cnpj": "",
+          "valor": 1123.66,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pv5xcyz2r",
+          "id": "3",
+          "tipo": "IRRF férias",
+          "fav": "IRRF FÉRIAS",
+          "cnpj": "",
+          "valor": 12585.97,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pv96iconw",
+          "id": "4",
+          "tipo": "IRRF férias",
+          "fav": "IRRF RESCISÃO",
+          "cnpj": "",
+          "valor": 2619.98,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        }
+      ]
     },
     "2026-06": {
       "colaboradores": [
@@ -20888,11 +20933,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971422180,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971422766,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22385,6 +22425,11 @@
       {
         "t": 1791000628493,
         "perfil": "—",
+        "comp": "2026-04"
+      },
+      {
+        "t": 1791000679865,
+        "perfil": "Administrador",
         "comp": "2026-04"
       }
     ],
@@ -24115,5 +24160,5 @@
     }
   },
   "currentComp": "2026-04",
-  "savedAt": 1791000628497
+  "savedAt": 1791000679871
 }

@@ -3468,7 +3468,7 @@ function renderProvisao(){
   const somaRateado=_r2(Object.values(pago).reduce((a,b)=>a+b,0));
   const diverge=Math.abs(somaRateado-totalPago)>0.011;
   const despProv=data.despesas.filter(d=>d.prov);
-  const totalProvisionado=_r2(despProv.reduce((a,d)=>a+(d.valor||0),0));
+  const totalProvisionado=_r2(Object.values(provisionadoCG(comp)).reduce((a,b)=>a+b,0));
   const saldo=saldoProvisaoCG(comp);
   const idsSaldo=Object.keys(saldo);
   const totS=k=>_r2(idsSaldo.reduce((a,id)=>a+saldo[id][k],0));
@@ -3731,19 +3731,28 @@ function _aplicarImportacaoProvisao(itens,origem){
   if(!podeEditarProvisao()) return false;
   if(!itens||!itens.length){ alert('Nenhum lançamento com valor encontrado na planilha.'); return false; }
   const total=_r2(itens.reduce((a,p)=>a+(p.valor||0),0));
-  if(!confirm('Importar '+itens.length+' lançamento(s) de provisão'+(origem?' da aba "'+origem+'"':'')+', total '+R$(total)+', para '+compLabel(currentComp)+'?')) return false;
+  if(!confirm('Importar '+itens.length+' lançamentos (total '+R$(total)+')?')) return false;
   const data=getMesData(currentComp);
   const atuais=data.provisao;
   let substituir=false;
   if(atuais.length){
     const comPdf=atuais.some(p=>p.pdfUrl||p.pdfUrl2);
-    substituir=confirm('Substituir os '+atuais.length+' lançamentos atuais?\n\nOK = substituir'+(comPdf?' (os comprovantes anexados a eles também serão removidos)':'')+'\nCancelar = acrescentar aos atuais');
+    substituir=confirm('Substituir os '+atuais.length+' lançamentos atuais? (OK = substituir'+(comPdf?', e os comprovantes anexados a eles também serão removidos':'')+'; Cancelar = manter os atuais e ACRESCENTAR os importados)');
   }
   if(substituir){ atuais.forEach(_apagarAnexosItem); data.provisao=itens.slice(); }
-  else data.provisao=atuais.concat(itens);
+  else{
+    let novos=itens;
+    if(atuais.length){
+      /* mesma regra do addProv: IDs seguem do maior ID numérico atual + 1, sem repetir */
+      const nums=atuais.map(p=>parseInt(p.id)).filter(x=>!isNaN(x));
+      let prox=(nums.length?Math.max(...nums):0)+1;
+      novos=itens.map(p=>Object.assign({},p,{id:String(prox++)}));
+    }
+    data.provisao=atuais.concat(novos);
+  }
   marcarAlterado();
   renderProvisao();
-  toast(itens.length+' lançamento(s) importado(s).');
+  toast(itens.length+(substituir?' lançamentos substituídos.':' lançamentos acrescentados.'));
   return true;
 }
 function imprimirProvisao(){
@@ -5120,7 +5129,7 @@ function renderRelatorio(){
       +tabLanc+tabSaldo
       +'<div class="rdg-cat-total">Saldo final das contas de provisão: <strong>'+R$(somaS('final'))+'</strong> (informativo; não compõe o Total Geral das Despesas CIGAC)</div>'
       +'</div>';
-    provAnexoRow='<tr><td style="font-weight:700">Demonstrativo de pagamentos com recursos de provisão (informativo)</td>'
+    provAnexoRow='<tr><td style="font-weight:700">Complementar (informativo) — Demonstrativo de pagamentos com recursos de provisão</td>'
       +'<td>Pagamentos de férias, 13º salário e verbas rescisórias custeados pelas contas de provisão de cada contrato, com rateio, comprovantes e conta corrente por contrato. Não integra o total de despesas compartilhadas.</td>'
       +'<td>Aba “Provisão” do sistema RDG; seção 3.'+nProv+' deste relatório</td></tr>';
   }

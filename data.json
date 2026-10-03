@@ -9416,7 +9416,7 @@
             "id": "dl17909951157752gi1",
             "objeto": "ENERGIA ELÉTRICA SEDE CACHOEIRAS",
             "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
-            "valor": 0
+            "valor": 349.38
           },
           {
             "id": "dl1790995115775r0ai",
@@ -20580,11 +20580,6 @@
     },
     "auditLog": [
       {
-        "t": 1790945477117,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790945510068,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22076,6 +22071,11 @@
       },
       {
         "t": 1790995539211,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1790995561867,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -23654,5 +23654,5 @@
     }
   },
   "currentComp": "2026-08",
-  "savedAt": 1790995539214
+  "savedAt": 1790995561869
 }

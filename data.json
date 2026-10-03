@@ -21057,7 +21057,7 @@
           "fav": "ANA PAULA DAS GRAÇAS LIMA",
           "cnpj": "",
           "valor": 3177.57,
-          "dtPgto": "",
+          "dtPgto": "2026-09-04",
           "obs": "",
           "compl": false
         },
@@ -21277,11 +21277,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1790971431522,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
       {
         "t": 1790971432010,
         "perfil": "Administrador",
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791002305460,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1791002308767,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1791002305463
+  "savedAt": 1791002308770
 }

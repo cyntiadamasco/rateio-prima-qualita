@@ -21233,7 +21233,7 @@
           "fav": "FLAVIO HENRIQUE DE SOUZA COSTA",
           "cnpj": "",
           "valor": 3924.59,
-          "dtPgto": "2026-09-17",
+          "dtPgto": "2026-09-18",
           "obs": "",
           "compl": false
         },
@@ -21277,11 +21277,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1790971445840,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
       {
         "t": 1790971446287,
         "perfil": "Administrador",
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791002398743,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1791002405994,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1791002398747
+  "savedAt": 1791002405997
 }

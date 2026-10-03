@@ -7530,7 +7530,107 @@
           "pdfNome": "INDICADOR 8 - DEPARTAMENTO ASSISTENCIAL JUNHO 2026.pdf"
         }
       },
-      "provisao": []
+      "provisao": [
+        {
+          "uid": "pv0fwxg6v",
+          "id": "1",
+          "tipo": "Férias",
+          "fav": "COLABORADORES CIGAC",
+          "cnpj": "",
+          "valor": 29024.04,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvtuff69x",
+          "id": "2",
+          "tipo": "TRCT",
+          "fav": "ESTER SOARES",
+          "cnpj": "",
+          "valor": 24947.73,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pv85ir2w5",
+          "id": "3",
+          "tipo": "Outro",
+          "fav": "FGTS RESCISÓRIO",
+          "cnpj": "",
+          "valor": 10019.87,
+          "dtPgto": "",
+          "obs": "GFD - ESTER SOARES ALVES XIMENES",
+          "compl": false
+        },
+        {
+          "uid": "pvnjc3ecf",
+          "id": "4",
+          "tipo": "TRCT",
+          "fav": "LINCON DA SILVA FULY",
+          "cnpj": "",
+          "valor": 5235.4,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pv2yd535h",
+          "id": "5",
+          "tipo": "Outro",
+          "fav": "FGTS RESCISÓRIO",
+          "cnpj": "",
+          "valor": 2859.25,
+          "dtPgto": "",
+          "obs": "GFD -LINCON DA SILVA FULY",
+          "compl": false
+        },
+        {
+          "uid": "pva2j5vds",
+          "id": "6",
+          "tipo": "TRCT",
+          "fav": "JOÃO VITOR DA SILVA BORGES",
+          "cnpj": "",
+          "valor": 58.96,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvnllwpgx",
+          "id": "7",
+          "tipo": "Outro",
+          "fav": "IR SOBRE FÉRIAS",
+          "cnpj": "",
+          "valor": 1313.91,
+          "dtPgto": "",
+          "obs": "DARF",
+          "compl": false
+        },
+        {
+          "uid": "pvn0ez4hh",
+          "id": "8",
+          "tipo": "Férias",
+          "fav": "ÍTALO LUIZ RODDRIGUES",
+          "cnpj": "",
+          "valor": 4201.4,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvwixdfbx",
+          "id": "9",
+          "tipo": "TRCT",
+          "fav": "ROGÉRIO DE CARVALHO",
+          "cnpj": "",
+          "valor": 9702.19,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        }
+      ]
     },
     "2026-08": {
       "colaboradores": [
@@ -20956,11 +21056,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971423285,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971424304,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22454,6 +22549,11 @@
         "t": 1791000703700,
         "perfil": "Administrador",
         "comp": "2026-05"
+      },
+      {
+        "t": 1791000721948,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24182,6 +24282,6 @@
       }
     }
   },
-  "currentComp": "2026-05",
-  "savedAt": 1791000703706
+  "currentComp": "2026-07",
+  "savedAt": 1791000721955
 }

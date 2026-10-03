@@ -10000,7 +10000,8 @@
           "cnum": "",
           "valor": 193633.3,
           "pdfUrl": "",
-          "pdfNome": ""
+          "pdfNome": "",
+          "prov": true
         },
         {
           "uid": "tnb03hz",
@@ -20594,11 +20595,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971415623,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971416344,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22090,6 +22086,11 @@
       },
       {
         "t": 1791000255787,
+        "perfil": "Administrador",
+        "comp": "2026-04"
+      },
+      {
+        "t": 1791000299430,
         "perfil": "Administrador",
         "comp": "2026-04"
       }
@@ -23821,5 +23822,5 @@
     }
   },
   "currentComp": "2026-04",
-  "savedAt": 1791000255793
+  "savedAt": 1791000299433
 }

@@ -19253,7 +19253,7 @@
         {
           "uid": "pv5f5rexr",
           "id": "7",
-          "tipo": "Outro",
+          "tipo": "IRRF férias",
           "fav": "IR SOBRE FÉRIAS",
           "cnpj": "",
           "valor": 1313.91,
@@ -21278,11 +21278,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971515124,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971515680,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791003303150,
+        "perfil": "Administrador",
+        "comp": "2026-06"
+      },
+      {
+        "t": 1791003307656,
         "perfil": "Administrador",
         "comp": "2026-06"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1791003303153
+  "savedAt": 1791003307660
 }

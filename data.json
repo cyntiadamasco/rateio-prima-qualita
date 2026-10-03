@@ -15604,7 +15604,7 @@
             "id": "dl1781785405024pk4d",
             "objeto": "ÁGUA E ESGOTO SEDE MADALENA",
             "fornecedor": "COMPANHIA ESTADUAL E ÁGUAS E ESGOTOS - CEDAE",
-            "valor": 1
+            "valor": 87.51
           }
         ],
         "cachoeiras": [
@@ -20592,11 +20592,6 @@
     },
     "auditLog": [
       {
-        "t": 1790949624350,
-        "perfil": "Administrador",
-        "comp": "2026-10"
-      },
-      {
         "t": 1790949648249,
         "perfil": "Administrador",
         "comp": "2026-10"
@@ -22088,6 +22083,11 @@
       },
       {
         "t": 1790996085862,
+        "perfil": "Administrador",
+        "comp": "2026-06"
+      },
+      {
+        "t": 1790996092890,
         "perfil": "Administrador",
         "comp": "2026-06"
       }
@@ -23666,5 +23666,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1790996085864
+  "savedAt": 1790996092892
 }

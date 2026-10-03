@@ -21167,7 +21167,7 @@
           "fav": "IVANETE DA SILVA MOTTA CARVALHO",
           "cnpj": "",
           "valor": 16738.82,
-          "dtPgto": "",
+          "dtPgto": "2026-09-04",
           "obs": "",
           "compl": false
         },
@@ -21277,11 +21277,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1790971439092,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
       {
         "t": 1790971439638,
         "perfil": "Administrador",
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791002343303,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1791002353401,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1791002343306
+  "savedAt": 1791002353403
 }

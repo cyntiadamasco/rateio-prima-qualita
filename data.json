@@ -19061,7 +19061,107 @@
         "sign_url": "https://app.clicksign.com/sign/9e541e04-0da1-45d0-89a8-16b644e98a08",
         "sent_at": "2026-07-06T15:51:52.919Z"
       },
-      "provisao": []
+      "provisao": [
+        {
+          "uid": "pvai0dfov",
+          "id": "1",
+          "tipo": "Férias",
+          "fav": "COLABORADORES CIGAC",
+          "cnpj": "",
+          "valor": 29024.04,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pv4pwnsrc",
+          "id": "2",
+          "tipo": "TRCT",
+          "fav": "ESTER SOARES",
+          "cnpj": "",
+          "valor": 24947.73,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pv5ido17q",
+          "id": "3",
+          "tipo": "Outro",
+          "fav": "FGTS RESCISÓRIO",
+          "cnpj": "",
+          "valor": 10019.87,
+          "dtPgto": "",
+          "obs": "GFD - ESTER SOARES ALVES XIMENES",
+          "compl": false
+        },
+        {
+          "uid": "pv2h61fmr",
+          "id": "4",
+          "tipo": "TRCT",
+          "fav": "LINCON DA SILVA FULY",
+          "cnpj": "",
+          "valor": 5235.4,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pv9bj7p9l",
+          "id": "5",
+          "tipo": "Outro",
+          "fav": "FGTS RESCISÓRIO",
+          "cnpj": "",
+          "valor": 2859.25,
+          "dtPgto": "",
+          "obs": "GFD -LINCON DA SILVA FULY",
+          "compl": false
+        },
+        {
+          "uid": "pvq7zfyyz",
+          "id": "6",
+          "tipo": "TRCT",
+          "fav": "JOÃO VITOR DA SILVA BORGES",
+          "cnpj": "",
+          "valor": 58.96,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pv5f5rexr",
+          "id": "7",
+          "tipo": "Outro",
+          "fav": "IR SOBRE FÉRIAS",
+          "cnpj": "",
+          "valor": 1313.91,
+          "dtPgto": "",
+          "obs": "DARF",
+          "compl": false
+        },
+        {
+          "uid": "pv5np8qhw",
+          "id": "8",
+          "tipo": "Férias",
+          "fav": "ÍTALO LUIZ RODDRIGUES",
+          "cnpj": "",
+          "valor": 4201.4,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvcn0mekt",
+          "id": "9",
+          "tipo": "TRCT",
+          "fav": "ROGÉRIO DE CARVALHO",
+          "cnpj": "",
+          "valor": 9702.19,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        }
+      ]
     },
     "2026-09": {
       "colaboradores": [
@@ -21056,11 +21156,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971424304,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971424944,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22554,6 +22649,11 @@
         "t": 1791000721948,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1791000750028,
+        "perfil": "Administrador",
+        "comp": "2026-06"
       }
     ],
     "tokenCripto": {
@@ -24282,6 +24382,6 @@
       }
     }
   },
-  "currentComp": "2026-07",
-  "savedAt": 1791000721955
+  "currentComp": "2026-06",
+  "savedAt": 1791000750030
 }

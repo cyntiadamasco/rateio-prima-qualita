@@ -20586,11 +20586,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971412258,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971413531,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22084,6 +22079,11 @@
         "t": 1790996877073,
         "perfil": "Administrador",
         "comp": "2026-10"
+      },
+      {
+        "t": 1790996893572,
+        "perfil": "Administrador",
+        "comp": "2026-10"
       }
     ],
     "tokenCripto": {
@@ -22252,7 +22252,7 @@
           "cnpj": "40.289.134/0001-99",
           "ctipo": "FOLHA",
           "cnum": "PGTO",
-          "valor": 0,
+          "valor": 465024.52,
           "pdfUrl": null,
           "pdfNome": null,
           "dtPgto": "2026-10-02",
@@ -23813,5 +23813,5 @@
     }
   },
   "currentComp": "2026-10",
-  "savedAt": 1790996877078
+  "savedAt": 1790996893575
 }

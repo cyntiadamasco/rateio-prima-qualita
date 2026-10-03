@@ -9642,7 +9642,7 @@
           "clt": 473,
           "efetivo": 43,
           "pj": 10,
-          "obs": "504"
+          "obs": ""
         }
       ],
       "iqual": {
@@ -20586,11 +20586,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971413531,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971414167,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22084,6 +22079,11 @@
         "t": 1790996893572,
         "perfil": "Administrador",
         "comp": "2026-10"
+      },
+      {
+        "t": 1790999032824,
+        "perfil": "Administrador",
+        "comp": "2026-04"
       }
     ],
     "tokenCripto": {
@@ -23812,6 +23812,6 @@
       }
     }
   },
-  "currentComp": "2026-10",
-  "savedAt": 1790996893575
+  "currentComp": "2026-04",
+  "savedAt": 1790999032877
 }

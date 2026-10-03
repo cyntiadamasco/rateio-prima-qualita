@@ -5685,7 +5685,7 @@
             "id": "dl1790995100300rsmh",
             "objeto": "ENERGIA ELÉTRICA SEDE CORDEIRO",
             "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
-            "valor": 0
+            "valor": 70.44
           },
           {
             "id": "dl17909951003007hf8",
@@ -20592,11 +20592,6 @@
     },
     "auditLog": [
       {
-        "t": 1790949581959,
-        "perfil": "Administrador",
-        "comp": "2026-10"
-      },
-      {
         "t": 1790949591435,
         "perfil": "Administrador",
         "comp": "2026-10"
@@ -22088,6 +22083,11 @@
       },
       {
         "t": 1790996007858,
+        "perfil": "Administrador",
+        "comp": "2026-07"
+      },
+      {
+        "t": 1790996033914,
         "perfil": "Administrador",
         "comp": "2026-07"
       }
@@ -23666,5 +23666,5 @@
     }
   },
   "currentComp": "2026-07",
-  "savedAt": 1790996007860
+  "savedAt": 1790996033917
 }

@@ -4397,7 +4397,7 @@
           "fav": "PENSÃO SARA ALMEIDA",
           "cnpj": "",
           "valor": 631.74,
-          "dtPgto": "",
+          "dtPgto": "2026-05-08",
           "obs": "",
           "compl": false
         },
@@ -21278,16 +21278,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971521370,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
-        "t": 1790971521850,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971522330,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22774,6 +22764,16 @@
       },
       {
         "t": 1791003410050,
+        "perfil": "Administrador",
+        "comp": "2026-05"
+      },
+      {
+        "t": 1791003423210,
+        "perfil": "Administrador",
+        "comp": "2026-05"
+      },
+      {
+        "t": 1791003423852,
         "perfil": "Administrador",
         "comp": "2026-05"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-05",
-  "savedAt": 1791003410053
+  "savedAt": 1791003423855
 }

@@ -7532,100 +7532,155 @@
       },
       "provisao": [
         {
-          "uid": "pv0fwxg6v",
+          "uid": "pvc85hwvo",
           "id": "1",
           "tipo": "Férias",
-          "fav": "COLABORADORES CIGAC",
+          "fav": "FUNCIONÁRIOS CIGAC",
           "cnpj": "",
-          "valor": 29024.04,
+          "valor": 29083.38,
           "dtPgto": "",
           "obs": "",
           "compl": false
         },
         {
-          "uid": "pvtuff69x",
+          "uid": "pvpsnk5p8",
           "id": "2",
-          "tipo": "TRCT",
-          "fav": "ESTER SOARES",
+          "tipo": "Outro",
+          "fav": "PENSÃO SOBRE FÉRIAS (DOUGLAS)",
           "cnpj": "",
-          "valor": 24947.73,
+          "valor": 510.4,
+          "dtPgto": "",
+          "obs": "PENSÃO",
+          "compl": false
+        },
+        {
+          "uid": "pvjgxwkzo",
+          "id": "3",
+          "tipo": "TRCT",
+          "fav": "KARLA FERNANDA",
+          "cnpj": "",
+          "valor": 5673.89,
           "dtPgto": "",
           "obs": "",
           "compl": false
         },
         {
-          "uid": "pv85ir2w5",
-          "id": "3",
-          "tipo": "Outro",
-          "fav": "FGTS RESCISÓRIO",
-          "cnpj": "",
-          "valor": 10019.87,
-          "dtPgto": "",
-          "obs": "GFD - ESTER SOARES ALVES XIMENES",
-          "compl": false
-        },
-        {
-          "uid": "pvnjc3ecf",
+          "uid": "pvab2ybnl",
           "id": "4",
           "tipo": "TRCT",
-          "fav": "LINCON DA SILVA FULY",
+          "fav": "MARIANA",
           "cnpj": "",
-          "valor": 5235.4,
+          "valor": 2922.58,
           "dtPgto": "",
           "obs": "",
           "compl": false
         },
         {
-          "uid": "pv2yd535h",
+          "uid": "pvuouyvru",
           "id": "5",
-          "tipo": "Outro",
-          "fav": "FGTS RESCISÓRIO",
+          "tipo": "TRCT",
+          "fav": "LUCIANA",
           "cnpj": "",
-          "valor": 2859.25,
+          "valor": 523.47,
           "dtPgto": "",
-          "obs": "GFD -LINCON DA SILVA FULY",
+          "obs": "",
           "compl": false
         },
         {
-          "uid": "pva2j5vds",
+          "uid": "pv2trt6zi",
           "id": "6",
           "tipo": "TRCT",
-          "fav": "JOÃO VITOR DA SILVA BORGES",
+          "fav": "THAYZA QUEIROZ",
           "cnpj": "",
-          "valor": 58.96,
+          "valor": 654.87,
           "dtPgto": "",
           "obs": "",
           "compl": false
         },
         {
-          "uid": "pvnllwpgx",
+          "uid": "pvuzvum6x",
           "id": "7",
-          "tipo": "Outro",
-          "fav": "IR SOBRE FÉRIAS",
+          "tipo": "TRCT",
+          "fav": "THACIA DUARTE BRANCO",
           "cnpj": "",
-          "valor": 1313.91,
-          "dtPgto": "",
-          "obs": "DARF",
-          "compl": false
-        },
-        {
-          "uid": "pvn0ez4hh",
-          "id": "8",
-          "tipo": "Férias",
-          "fav": "ÍTALO LUIZ RODDRIGUES",
-          "cnpj": "",
-          "valor": 4201.4,
+          "valor": 7043.03,
           "dtPgto": "",
           "obs": "",
           "compl": false
         },
         {
-          "uid": "pvwixdfbx",
+          "uid": "pvxjvclr2",
+          "id": "8",
+          "tipo": "Outro",
+          "fav": "IR DE FÉRIAS CIGAC",
+          "cnpj": "",
+          "valor": 937.77,
+          "dtPgto": "",
+          "obs": "BOLETO",
+          "compl": false
+        },
+        {
+          "uid": "pvkz1v3sh",
           "id": "9",
           "tipo": "TRCT",
-          "fav": "ROGÉRIO DE CARVALHO",
+          "fav": "CARLA DA COSTA LEITE",
           "cnpj": "",
-          "valor": 9702.19,
+          "valor": 782.8,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvrvg949w",
+          "id": "10",
+          "tipo": "FGTS rescisório",
+          "fav": "CARLA DA COSTA LEITE",
+          "cnpj": "",
+          "valor": 88.61,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pv2do4knr",
+          "id": "11",
+          "tipo": "TRCT",
+          "fav": "VICTOR TEIXEIRA LESSA",
+          "cnpj": "",
+          "valor": 4465.88,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvkcd7p65",
+          "id": "12",
+          "tipo": "FGTS rescisório",
+          "fav": "VICTOR TEIXEIRA LESSA",
+          "cnpj": "",
+          "valor": 1635.84,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvrfxyw4e",
+          "id": "13",
+          "tipo": "TRCT",
+          "fav": "JOSE ROBETO LOPES DA SILVA",
+          "cnpj": "",
+          "valor": 7616.22,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvub0sdj9",
+          "id": "14",
+          "tipo": "FGTS rescisório",
+          "fav": "JOSE ROBETO LOPES DA SILVA",
+          "cnpj": "",
+          "valor": 2416.46,
           "dtPgto": "",
           "obs": "",
           "compl": false
@@ -21156,11 +21211,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971424944,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971426140,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22654,6 +22704,11 @@
         "t": 1791000750028,
         "perfil": "Administrador",
         "comp": "2026-06"
+      },
+      {
+        "t": 1791000781431,
+        "perfil": "Administrador",
+        "comp": "2026-07"
       }
     ],
     "tokenCripto": {
@@ -24382,6 +24437,6 @@
       }
     }
   },
-  "currentComp": "2026-06",
-  "savedAt": 1791000750030
+  "currentComp": "2026-07",
+  "savedAt": 1791000781433
 }

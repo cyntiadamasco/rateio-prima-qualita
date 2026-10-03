@@ -21200,7 +21200,7 @@
           "fav": "BOLETO",
           "cnpj": "",
           "valor": 4870.51,
-          "dtPgto": "",
+          "dtPgto": "2026-09-11",
           "obs": "",
           "compl": false
         },
@@ -21277,11 +21277,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1790971441232,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
       {
         "t": 1790971442329,
         "perfil": "Administrador",
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791002368478,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1791002379319,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1791002368481
+  "savedAt": 1791002379322
 }

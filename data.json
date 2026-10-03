@@ -21211,7 +21211,7 @@
           "fav": "ANNA JULIA NATUNES DE OLIVEIRA",
           "cnpj": "",
           "valor": 15.5,
-          "dtPgto": "2026-09-01",
+          "dtPgto": "2026-09-17",
           "obs": "",
           "compl": false
         },
@@ -21277,11 +21277,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1790971442836,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
       {
         "t": 1790971444038,
         "perfil": "Administrador",
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791002388685,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1791002391072,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1791002388687
+  "savedAt": 1791002391075
 }

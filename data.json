@@ -20478,7 +20478,7 @@
             "id": "dl17909951229834ufy",
             "objeto": "LOCAÇÃO DE IMÓVEL SEDE ARRAIAL",
             "fornecedor": "CRISTIANE RODRIGUES SILVA",
-            "valor": 0
+            "valor": 5041.26
           }
         ],
         "quissama": [
@@ -20591,11 +20591,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1790903363789,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
       {
         "t": 1790903363963,
         "perfil": "Administrador",
@@ -22088,6 +22083,11 @@
       },
       {
         "t": 1790995223113,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790995278389,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23666,5 +23666,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790995223117
+  "savedAt": 1790995278393
 }

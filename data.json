@@ -21024,7 +21024,7 @@
           "fav": "ALEXANDRE DINIZ DOS SANTOS",
           "cnpj": "",
           "valor": 17738.35,
-          "dtPgto": "",
+          "dtPgto": "2026-09-04",
           "obs": "",
           "compl": false
         },
@@ -21277,11 +21277,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1790971429344,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
       {
         "t": 1790971429800,
         "perfil": "Administrador",
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791002294987,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1791002298756,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1791002294990
+  "savedAt": 1791002298759
 }

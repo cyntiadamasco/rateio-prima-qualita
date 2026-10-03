@@ -9761,7 +9761,74 @@
         "sign_url": "https://app.clicksign.com/sign/b032532a-cae9-4873-a1c0-e16cd4a222f9",
         "sent_at": "2026-09-04T15:44:38.072Z"
       },
-      "provisao": []
+      "provisao": [
+        {
+          "uid": "pvijogwk1",
+          "id": "1",
+          "tipo": "Férias",
+          "fav": "FÉRIAS CIGAC",
+          "cnpj": "",
+          "valor": 47963.13,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvoiepvi7",
+          "id": "2",
+          "tipo": "TRCT",
+          "fav": "MARIA EDUARDA M. XAVIER",
+          "cnpj": "",
+          "valor": 16255.96,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvcp5dbmt",
+          "id": "3",
+          "tipo": "FGTS rescisório",
+          "fav": "MARIA EDUARDA M. XAVIER",
+          "cnpj": "",
+          "valor": 3114.74,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvyjm4e14",
+          "id": "4",
+          "tipo": "IRRF férias",
+          "fav": "IRRF FÉRIAS",
+          "cnpj": "",
+          "valor": 1686.35,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pv3066ue3",
+          "id": "5",
+          "tipo": "FGTS rescisório",
+          "fav": "LUCAS CARREIRA MATTOS",
+          "cnpj": "",
+          "valor": 368.24,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvt241yot",
+          "id": "6",
+          "tipo": "TRCT",
+          "fav": "LUCAS CARREIRA MATTOS",
+          "cnpj": "",
+          "valor": 1949.62,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        }
+      ]
     },
     "2026-04": {
       "colaboradores": [
@@ -21211,11 +21278,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971426140,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971426791,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22709,6 +22771,11 @@
         "t": 1791000781431,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1791000814488,
+        "perfil": "Administrador",
+        "comp": "2026-08"
       }
     ],
     "tokenCripto": {
@@ -24437,6 +24504,6 @@
       }
     }
   },
-  "currentComp": "2026-07",
-  "savedAt": 1791000781433
+  "currentComp": "2026-08",
+  "savedAt": 1791000814492
 }

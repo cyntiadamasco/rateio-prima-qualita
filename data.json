@@ -9643,6 +9643,13 @@
           "efetivo": 43,
           "pj": 10,
           "obs": ""
+        },
+        {
+          "id": "cg_muq7yah2",
+          "clt": 0,
+          "efetivo": 0,
+          "pj": 0,
+          "obs": "JULHO/2026"
         }
       ],
       "iqual": {
@@ -14017,7 +14024,8 @@
       },
       "refColab": "FEVEREIRO/2026",
       "relQuant": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/relquant_2026-04.pdf",
-      "relQuantNome": "1. CRITÉRIO QUANTITATIVO - COMPLETO.pdf"
+      "relQuantNome": "1. CRITÉRIO QUANTITATIVO - COMPLETO.pdf",
+      "provisao": []
     },
     "2026-06": {
       "colaboradores": [
@@ -20586,11 +20594,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971414167,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971415623,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22082,6 +22085,11 @@
       },
       {
         "t": 1790999032824,
+        "perfil": "Administrador",
+        "comp": "2026-04"
+      },
+      {
+        "t": 1791000255787,
         "perfil": "Administrador",
         "comp": "2026-04"
       }
@@ -23813,5 +23821,5 @@
     }
   },
   "currentComp": "2026-04",
-  "savedAt": 1790999032877
+  "savedAt": 1791000255793
 }

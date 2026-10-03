@@ -19279,7 +19279,7 @@
           "fav": "ROGÉRIO DE CARVALHO",
           "cnpj": "",
           "valor": 9702.19,
-          "dtPgto": "",
+          "dtPgto": "2026-06-24",
           "obs": "",
           "compl": false
         }
@@ -21278,11 +21278,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971517320,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971518426,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791003332784,
+        "perfil": "Administrador",
+        "comp": "2026-06"
+      },
+      {
+        "t": 1791003350056,
         "perfil": "Administrador",
         "comp": "2026-06"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1791003332788
+  "savedAt": 1791003350059
 }

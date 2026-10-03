@@ -20480,7 +20480,7 @@
             "id": "dl1790995122983y6gj",
             "objeto": "LOCAÇÃO DE IMÓVEL SEDE QUISSAMÃ",
             "fornecedor": "CRISLANE SILVA CONCEIÇÃO",
-            "valor": 0
+            "valor": 2700
           },
           {
             "id": "dl1790995122983alvc",
@@ -20579,11 +20579,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1790903366614,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
       {
         "t": 1790903366807,
         "perfil": "Administrador",
@@ -22076,6 +22071,11 @@
       },
       {
         "t": 1790995400351,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1790995408787,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23654,5 +23654,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1790995400354
+  "savedAt": 1790995408790
 }

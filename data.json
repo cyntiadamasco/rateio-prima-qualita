@@ -9422,7 +9422,7 @@
             "id": "dl1790995115775r0ai",
             "objeto": "LOCAÇÃO DE IMÓVEL SEDE CACHOEIRAS",
             "fornecedor": "REGINA CÉLIA DE CASTRO MENDES",
-            "valor": 0
+            "valor": 1500
           }
         ],
         "saq_hosp": [],
@@ -20580,11 +20580,6 @@
     },
     "auditLog": [
       {
-        "t": 1790945510068,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790945519035,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22076,6 +22071,11 @@
       },
       {
         "t": 1790995561867,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1790995589235,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -23654,5 +23654,5 @@
     }
   },
   "currentComp": "2026-08",
-  "savedAt": 1790995561869
+  "savedAt": 1790995589238
 }

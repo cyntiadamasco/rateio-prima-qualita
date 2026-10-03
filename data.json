@@ -21134,7 +21134,7 @@
           "fav": "VERONICAPEREINA DO NASCIMENTO ABREU",
           "cnpj": "",
           "valor": 10442.28,
-          "dtPgto": "0002-09-04",
+          "dtPgto": "2026-09-04",
           "obs": "",
           "compl": false
         },
@@ -21277,11 +21277,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1790971436746,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
       {
         "t": 1790971437457,
         "perfil": "Administrador",
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791002331504,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1791002334941,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1791002331507
+  "savedAt": 1791002334944
 }

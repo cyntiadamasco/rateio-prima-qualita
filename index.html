@@ -528,14 +528,42 @@ td.td-edit input:focus{background:#fff;border:1.5px solid var(--azul);border-rad
   #panel-despesas tfoot{display:none!important}
   #desp-total-bar{display:flex!important;justify-content:space-between;align-items:center}
   .prov-print-hdr{display:flex!important}
-  #panel-provisao .stats-grid{display:none!important}
-  #panel-provisao .card{box-shadow:none!important;border:none!important;padding:0!important;margin-bottom:12px!important}
-  #panel-provisao .prov-card{page-break-inside:avoid}
-  #panel-provisao table{width:100%!important;font-size:7pt!important;border-collapse:collapse!important}
-  #panel-provisao table th,#panel-provisao table td{white-space:normal!important;word-break:break-word!important;padding:2px 3px!important}
-  #panel-provisao table input,#panel-provisao table select{border:none!important;background:transparent!important;-webkit-appearance:none;appearance:none;padding:0!important;font-size:inherit!important;width:100%!important;max-width:100%!important}
+  /* Provisão – paisagem A4 (@page em PROV_PAGE_CSS, injetado enquanto a aba está aberta e em imprimirProvisao).
+     Regras com #panel-provisao + !important para vencer o bloco @media (max-width:768px), que também casa na impressão. */
+  #panel-provisao .stats-grid,#panel-provisao .alert{display:none!important}
+  #panel-provisao .card{box-shadow:none!important;border:none!important;padding:0!important;margin-bottom:10px!important}
+  #panel-provisao .prov-card{break-inside:auto!important;page-break-inside:auto!important;break-before:auto!important}
+  #panel-provisao .card-hdr{break-after:avoid;page-break-after:avoid;margin-bottom:4px!important}
+  #panel-provisao .tbl-wrap{overflow:visible!important;border:none!important;box-shadow:none!important;border-radius:0!important;padding:0!important}
+  #panel-provisao table{display:table!important;width:100%!important;min-width:0!important;table-layout:fixed!important;font-size:7.5pt!important;border-collapse:collapse!important}
+  #panel-provisao thead{display:table-header-group!important}
+  #panel-provisao tfoot{display:table-footer-group!important}
+  #panel-provisao tbody{display:table-row-group!important}
+  #panel-provisao tr{display:table-row!important;break-inside:avoid;page-break-inside:avoid}
+  #panel-provisao table th,#panel-provisao table td{white-space:normal!important;overflow-wrap:anywhere!important;word-break:normal!important;padding:2px 3px!important;min-width:0!important;overflow:hidden}
+  #panel-provisao table th{width:auto!important}
+  #panel-provisao #prov-saldo{break-inside:avoid;page-break-inside:avoid}
+  #panel-provisao table input,#panel-provisao table select{border:none!important;background:transparent!important;-webkit-appearance:none;appearance:none;padding:0!important;font-size:inherit!important;width:100%!important;max-width:100%!important;text-align:inherit}
   #panel-provisao table input[type="date"]::-webkit-calendar-picker-indicator{display:none!important}
-  #panel-provisao .tbl-wrap{overflow:visible!important}
+  #panel-provisao col.pl-id{width:5%}
+  #panel-provisao col.pl-tipo{width:11%}
+  #panel-provisao col.pl-fav{width:28%}
+  #panel-provisao col.pl-cnpj{width:12%}
+  #panel-provisao col.pl-dt{width:9%}
+  #panel-provisao col.pl-val{width:10%}
+  #panel-provisao col.pl-tot{width:10%}
+  #panel-provisao col.pd-id{width:4%}
+  #panel-provisao col.pd-tipo{width:9%}
+  #panel-provisao col.pd-fav{width:17%}
+  #panel-provisao col.pd-val{width:8%}
+  #panel-provisao col.pd-ct{width:var(--w)}
+  #panel-provisao #prov-demo{font-size:7pt!important}
+  #panel-provisao #prov-demo.prov-demo-xl{font-size:6.5pt!important}
+  #panel-provisao #prov-demo thead th{font-size:6.3pt!important;line-height:1.15;padding:2px 0!important;overflow-wrap:normal!important}
+  #panel-provisao #prov-demo thead th .pct{font-size:6pt!important;display:block}
+  #panel-provisao #prov-demo td.td-r{white-space:nowrap!important;padding:2px 1.5px!important;overflow:visible!important}
+  #panel-provisao #prov-demo .rs{display:none}
+  #panel-provisao #prov-demo td{font-size:inherit!important}
   .only-print{display:block!important}
   .contratos-tbl input,.contratos-tbl textarea{border:none!important;background:transparent!important;resize:none!important;-webkit-appearance:none;appearance:none}
   .cont-obs-area{border:none!important;background:transparent!important;resize:none!important;-webkit-appearance:none;appearance:none;font-size:9pt!important}
@@ -1275,7 +1303,7 @@ body:not(.perfil-logado) .logado-only{display:none!important}
       </div>
     </div>
     <span id="sync-status" style="display:flex;align-items:center;gap:4px"><span class="sync-dot" id="sync-dot"></span><span class="sync-lbl" id="sync-lbl"></span></span>
-    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-10-03b</span>
+    <span id="app-version" title="Versão do código" style="font-size:10px;color:#fff;font-family:monospace;padding:2px 7px;background:rgba(255,255,255,.18);border-radius:4px;border:1px solid rgba(255,255,255,.35);letter-spacing:.3px">v26-10-03c</span>
     <button class="btn btn-teal btn-sm edit-only" onclick="salvar()">💾 Salvar</button>
     <button id="btn-lock-edit" onclick="toggleEditMode()" title="Modo de edição">🔒 Editar</button>
   </div>
@@ -1922,6 +1950,13 @@ function R$(v){
   if(v===0) return 'R$ -';
   return new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(v);
 }
+
+/* Valor monetário com o prefixo "R$" em <span class="rs"> (oculto na impressão do demonstrativo da Provisão, para caber nas colunas). */
+function R$c(v){
+  const t=R$(v);
+  return t.indexOf('R$')===0?'<span class="rs">R$ </span>'+t.slice(2).replace(/^\s+/,''):t;
+}
+function _r3(x){ return Math.round(x*1000)/1000; }
 
 function fmtPct(v){
   return (v||0).toFixed(2).replace('.',',')+'%';
@@ -2665,6 +2700,12 @@ function printHeader(cls,titulo,direitaHTML){
 const RDG_PAGE_CSS='@media print{@page{size:A4 portrait;margin:3cm 2cm 2cm 3cm;'
   +'@top-right{content:counter(page);font-family:Arial,sans-serif;font-size:10pt;color:#000;vertical-align:bottom;padding-bottom:1cm}'
   +'@bottom-center{content:none}}@page:first{@top-right{content:none}}}';
+const PROV_PAGE_CSS='@media print{@page{size:A4 landscape;margin:8mm 10mm}}';
+function provPageStyle(on){
+  let st=document.getElementById('prov-page-style');
+  if(on&&!st){ st=document.createElement('style'); st.id='prov-page-style'; st.textContent=PROV_PAGE_CSS; document.head.appendChild(st); }
+  else if(!on&&st) st.remove();
+}
 function rdgPageStyle(on){
   let st=document.getElementById('rdg-page-style');
   if(on&&!st){ st=document.createElement('style'); st.id='rdg-page-style'; st.textContent=RDG_PAGE_CSS; document.head.appendChild(st); }
@@ -2672,6 +2713,7 @@ function rdgPageStyle(on){
 }
 function renderTab(id){
   rdgPageStyle(id==='relatorio');
+  provPageStyle(id==='provisao');
   switch(id){
     case 'criterio':     renderCriterio();     break;
     case 'qualitativo':  renderQualitativo();   break;
@@ -3477,14 +3519,16 @@ function renderProvisao(){
   const btnSt='background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.28);font-size:11px;padding:6px 14px;border-radius:7px';
   const rows=n?lista.map((p,i)=>buildProvRow(p,i,n)).join('')
     :'<tr><td colspan="8" style="text-align:center;color:var(--gray);padding:22px;font-size:12px">Nenhum pagamento com recursos de provisão lançado em '+compLabel(comp)+'.</td></tr>';
+  const wCt=_r3(62/(ativos.length+1));
   const demoRows=lista.map(p=>{
     const a=alocacoesDespesa(p,comp);
     return `<tr class="${(p.valor||0)===0?'tr-zero':''}">
       <td class="td-c fw-bold">${esc(p.id)}</td>
       <td style="font-size:11px">${p.compl?'<span title="Complementar do mês anterior: '+esc(regraRateioCompl(comp))+'">🔁</span> ':''}${esc(p.tipo)}${p.obs?' – '+esc(p.obs):''}</td>
       <td style="font-size:11px">${esc(p.fav)}</td>
-      <td class="td-r fw-bold">${R$(p.valor||0)}</td>
-      ${ativos.map(ct=>`<td class="td-r">${R$(a[ct.id]||0)}</td>`).join('')}
+      <td class="td-r fw-bold">${R$c(p.valor||0)}</td>
+      ${ativos.map(ct=>`<td class="td-r">${R$c(a[ct.id]||0)}</td>`).join('')}
+      <td class="td-r fw-bold">${R$c(totalAlocado(p,comp))}</td>
     </tr>`;
   }).join('');
   const saldoRows=idsSaldo.map(id=>{
@@ -3525,6 +3569,7 @@ function renderProvisao(){
     <div class="card-hdr"><div class="card-title">Lançamentos – ${compLabel(comp)}</div></div>
     <div class="tbl-wrap">
       <table id="prov-table">
+        <colgroup><col class="pl-id"><col class="pl-tipo"><col class="pl-fav"><col class="pl-cnpj"><col class="pl-dt"><col class="pl-val"><col class="pl-tot"></colgroup>
         <thead>
           <tr>
             <th style="width:50px" class="th-c">ID</th>
@@ -3552,22 +3597,25 @@ function renderProvisao(){
   <div class="card prov-card">
     <div class="card-hdr"><div class="card-title">Demonstrativo de rateio dos pagamentos – ${compLabel(comp)}</div></div>
     <div class="tbl-wrap">
-      <table id="prov-demo">
+      <table id="prov-demo"${ativos.length>12?' class="prov-demo-xl"':''}>
+        <colgroup><col class="pd-id"><col class="pd-tipo"><col class="pd-fav"><col class="pd-val">${ativos.map(()=>`<col class="pd-ct" style="--w:${wCt}%">`).join('')}<col class="pd-ct" style="--w:${wCt}%"></colgroup>
         <thead>
           <tr>
             <th class="th-c" style="width:50px">ID</th>
             <th>Tipo</th>
             <th>Favorecido</th>
             <th class="th-r">Valor</th>
-            ${ativos.map(ct=>`<th class="th-azul th-c" style="font-size:10px;min-width:84px" title="${esc(ct.nome)}">${esc(ct.sigla)}<div style="font-weight:400;font-size:9px;opacity:.85">${fmtPct((pctMap[ct.id]||0)*100)}</div></th>`).join('')}
+            ${ativos.map(ct=>`<th class="th-azul th-c" style="font-size:10px;min-width:84px" title="${esc(ct.nome)}">${esc(ct.sigla)}<div class="pct" style="font-weight:400;font-size:9px;opacity:.85">${fmtPct((pctMap[ct.id]||0)*100)}</div></th>`).join('')}
+            <th class="th-r" style="font-size:10px;min-width:84px">Total</th>
           </tr>
         </thead>
-        <tbody>${demoRows||`<tr><td colspan="${4+ativos.length}" style="text-align:center;color:var(--gray);padding:14px;font-size:12px">Sem lançamentos.</td></tr>`}</tbody>
+        <tbody>${demoRows||`<tr><td colspan="${5+ativos.length}" style="text-align:center;color:var(--gray);padding:14px;font-size:12px">Sem lançamentos.</td></tr>`}</tbody>
         <tfoot>
           <tr class="tr-total">
             <td colspan="3" class="fw-bold">TOTAL POR CONTRATO</td>
-            <td class="td-r">${R$(totalPago)}</td>
-            ${ativos.map(ct=>`<td class="td-r">${R$(pago[ct.id]||0)}</td>`).join('')}
+            <td class="td-r">${R$c(totalPago)}</td>
+            ${ativos.map(ct=>`<td class="td-r">${R$c(pago[ct.id]||0)}</td>`).join('')}
+            <td class="td-r${diverge?' td-diverge':''}">${R$c(somaRateado)}</td>
           </tr>
         </tfoot>
       </table>
@@ -3760,7 +3808,7 @@ function imprimirProvisao(){
   document.title='Pagamentos com Recursos de Provisão - Competência: '+compLabel(currentComp);
   const st=document.createElement('style');
   st.id='prov-landscape-style';
-  st.textContent='@media print{@page{size:A4 landscape;margin:8mm 12mm}}';
+  st.textContent=PROV_PAGE_CSS;
   document.head.appendChild(st);
   const cleanup=function(){document.title=prev;const el=document.getElementById('prov-landscape-style');if(el)el.remove();window.removeEventListener('afterprint',cleanup);};
   window.addEventListener('afterprint',cleanup);

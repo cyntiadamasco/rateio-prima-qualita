@@ -19219,7 +19219,8 @@
           "valor": 190248.22,
           "pdfUrl": "",
           "pdfNome": "",
-          "dtPgto": "2026-09-29"
+          "dtPgto": "2026-09-29",
+          "prov": true
         },
         {
           "uid": "lo96y0x",
@@ -20595,18 +20596,14 @@
           "pdfUrl": "",
           "pdfNome": ""
         }
-      }
+      },
+      "provisao": []
     },
     "manualRDG": {
       "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/manual_rdg.pdf",
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1790971419076,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
       {
         "t": 1790971419550,
         "perfil": "Administrador",
@@ -22101,6 +22098,11 @@
         "t": 1791000411254,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1791000438074,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23829,6 +23831,6 @@
       }
     }
   },
-  "currentComp": "2026-08",
-  "savedAt": 1791000411257
+  "currentComp": "2026-09",
+  "savedAt": 1791000438078
 }

@@ -20586,11 +20586,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971409514,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971410484,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22084,6 +22079,11 @@
         "t": 1790996236077,
         "perfil": "Administrador",
         "comp": "2026-05"
+      },
+      {
+        "t": 1790996783718,
+        "perfil": "Administrador",
+        "comp": "2026-10"
       }
     ],
     "tokenCripto": {
@@ -22737,7 +22737,7 @@
         "saq_pri": 0,
         "cg_muq7yah2": 0
       },
-      "refColab": "",
+      "refColab": "AGOSTO/2026",
       "contratos_ativos": [],
       "contratos_obs": "",
       "colab_lista": [
@@ -23659,6 +23659,6 @@
       }
     }
   },
-  "currentComp": "2026-05",
-  "savedAt": 1790996236081
+  "currentComp": "2026-10",
+  "savedAt": 1790996783721
 }

@@ -19209,7 +19209,7 @@
         {
           "uid": "pv5ido17q",
           "id": "3",
-          "tipo": "Outro",
+          "tipo": "FGTS rescisório",
           "fav": "FGTS RESCISÓRIO",
           "cnpj": "",
           "valor": 10019.87,
@@ -21278,11 +21278,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971499654,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971500956,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22776,6 +22771,11 @@
         "t": 1791002969960,
         "perfil": "Administrador",
         "comp": "2026-07"
+      },
+      {
+        "t": 1791003022474,
+        "perfil": "Administrador",
+        "comp": "2026-06"
       }
     ],
     "tokenCripto": {
@@ -24504,6 +24504,6 @@
       }
     }
   },
-  "currentComp": "2026-07",
-  "savedAt": 1791002969965
+  "currentComp": "2026-06",
+  "savedAt": 1791003022477
 }

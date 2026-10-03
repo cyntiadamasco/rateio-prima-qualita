@@ -9491,7 +9491,7 @@
             "id": "dl1790995115775j6jb",
             "objeto": "LOCAÇÃO DE IMÓVEL SEDE CORDEIRO",
             "fornecedor": "R W IMOBILIÁRIA LTDA",
-            "valor": 0
+            "valor": 1214.92
           }
         ],
         "saq_esp": [],
@@ -20592,11 +20592,6 @@
     },
     "auditLog": [
       {
-        "t": 1790949530300,
-        "perfil": "Administrador",
-        "comp": "2026-10"
-      },
-      {
         "t": 1790949536236,
         "perfil": "Administrador",
         "comp": "2026-10"
@@ -22088,6 +22083,11 @@
       },
       {
         "t": 1790995862377,
+        "perfil": "Administrador",
+        "comp": "2026-08"
+      },
+      {
+        "t": 1790995868855,
         "perfil": "Administrador",
         "comp": "2026-08"
       }
@@ -23666,5 +23666,5 @@
     }
   },
   "currentComp": "2026-08",
-  "savedAt": 1790995862380
+  "savedAt": 1790995868858
 }

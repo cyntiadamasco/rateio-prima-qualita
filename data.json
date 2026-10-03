@@ -20597,18 +20597,289 @@
           "pdfNome": ""
         }
       },
-      "provisao": []
+      "provisao": [
+        {
+          "uid": "pvutre5ww",
+          "id": "1",
+          "tipo": "TRCT",
+          "fav": "LEONARDO RODRIGUES FRIAS",
+          "cnpj": "",
+          "valor": 72006.84,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvthm6cuj",
+          "id": "2",
+          "tipo": "FGTS rescisório",
+          "fav": "LEONARDO RODRIGUES FRIAS",
+          "cnpj": "",
+          "valor": 14640.54,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvv8fwjoq",
+          "id": "3",
+          "tipo": "TRCT",
+          "fav": "ALEXANDRE DINIZ DOS SANTOS",
+          "cnpj": "",
+          "valor": 17738.35,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pv8ifb4kw",
+          "id": "4",
+          "tipo": "FGTS rescisório",
+          "fav": "ALEXANDRE DINIZ DOS SANTOS",
+          "cnpj": "",
+          "valor": 3434.95,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvrtouxrj",
+          "id": "5",
+          "tipo": "TRCT",
+          "fav": "ANA PAULA DAS GRAÇAS LIMA",
+          "cnpj": "",
+          "valor": 16259.73,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvdgu0bm5",
+          "id": "6",
+          "tipo": "FGTS rescisório",
+          "fav": "ANA PAULA DAS GRAÇAS LIMA",
+          "cnpj": "",
+          "valor": 3177.57,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pv5nu5yq1",
+          "id": "7",
+          "tipo": "TRCT",
+          "fav": "PALOMA SUZANO MEDEIROS",
+          "cnpj": "",
+          "valor": 17738.35,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvn334rhq",
+          "id": "8",
+          "tipo": "FGTS rescisório",
+          "fav": "PALOMA SUZANO MEDEIROS",
+          "cnpj": "",
+          "valor": 3434.95,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pva68pqek",
+          "id": "9",
+          "tipo": "TRCT",
+          "fav": "LEONARDO LIMA CARVALHO",
+          "cnpj": "",
+          "valor": 17872.85,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvtcaxhyh",
+          "id": "10",
+          "tipo": "FGTS rescisório",
+          "fav": "LEONARDO LIMA CARVALHO",
+          "cnpj": "",
+          "valor": 3459.57,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvh480nji",
+          "id": "11",
+          "tipo": "TRCT",
+          "fav": "LUCAS DA COSTA SILVA PEREIRA",
+          "cnpj": "",
+          "valor": 7091.53,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvazy12e9",
+          "id": "12",
+          "tipo": "FGTS rescisório",
+          "fav": "LUCAS DA COSTA SILVA PEREIRA",
+          "cnpj": "",
+          "valor": 2204.31,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvcyyi3hm",
+          "id": "13",
+          "tipo": "TRCT",
+          "fav": "VERONICAPEREINA DO NASCIMENTO ABREU",
+          "cnpj": "",
+          "valor": 10442.28,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvks64nc2",
+          "id": "14",
+          "tipo": "FGTS rescisório",
+          "fav": "VERONICAPEREINA DO NASCIMENTO ABREU",
+          "cnpj": "",
+          "valor": 3275.6,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvoj3jnu6",
+          "id": "15",
+          "tipo": "TRCT",
+          "fav": "IVANETE DA SILVA MOTTA CARVALHO",
+          "cnpj": "",
+          "valor": 24047.9,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvby7ta82",
+          "id": "16",
+          "tipo": "FGTS rescisório",
+          "fav": "IVANETE DA SILVA MOTTA CARVALHO",
+          "cnpj": "",
+          "valor": 16738.82,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvpr9pjmf",
+          "id": "17",
+          "tipo": "TRCT",
+          "fav": "DIOGO CUNHA",
+          "cnpj": "",
+          "valor": 3367.23,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvgbysg7u",
+          "id": "18",
+          "tipo": "Férias",
+          "fav": "FÉRIAS CIGAC",
+          "cnpj": "",
+          "valor": 45679.78,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvdki919m",
+          "id": "19",
+          "tipo": "IRRF férias",
+          "fav": "BOLETO",
+          "cnpj": "",
+          "valor": 4870.51,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvws1sjsn",
+          "id": "20",
+          "tipo": "FGTS rescisório",
+          "fav": "ANNA JULIA NATUNES DE OLIVEIRA",
+          "cnpj": "",
+          "valor": 15.5,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvv8br91v",
+          "id": "21",
+          "tipo": "TRCT",
+          "fav": "ANNA JULIA NATUNES DE OLIVEIRA",
+          "cnpj": "",
+          "valor": 1200.25,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pv0pze6ei",
+          "id": "22",
+          "tipo": "TRCT",
+          "fav": "FLAVIO HENRIQUE DE SOUZA COSTA",
+          "cnpj": "",
+          "valor": 3924.59,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pv7buge7p",
+          "id": "23",
+          "tipo": "FGTS rescisório",
+          "fav": "FLAVIO HENRIQUE DE SOUZA COSTA",
+          "cnpj": "",
+          "valor": 2101.11,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvwx1941s",
+          "id": "24",
+          "tipo": "TRCT",
+          "fav": "BRUNO DA SILVA MENDONÇA",
+          "cnpj": "",
+          "valor": 40438.6,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        },
+        {
+          "uid": "pvbsdfr8x",
+          "id": "25",
+          "tipo": "FGTS rescisório",
+          "fav": "BRUNO DA SILVA MENDONÇA",
+          "cnpj": "",
+          "valor": 34700.53,
+          "dtPgto": "",
+          "obs": "",
+          "compl": false
+        }
+      ]
     },
     "manualRDG": {
       "pdfUrl": "https://raw.githubusercontent.com/cyntiadamasco/rateio-prima-qualita/main/pdfs/manual_rdg.pdf",
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1790971419550,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
       {
         "t": 1790971420135,
         "perfil": "Administrador",
@@ -22101,6 +22372,11 @@
       },
       {
         "t": 1791000438074,
+        "perfil": "Administrador",
+        "comp": "2026-09"
+      },
+      {
+        "t": 1791000470998,
         "perfil": "Administrador",
         "comp": "2026-09"
       }
@@ -23832,5 +24108,5 @@
     }
   },
   "currentComp": "2026-09",
-  "savedAt": 1791000438078
+  "savedAt": 1791000471002
 }

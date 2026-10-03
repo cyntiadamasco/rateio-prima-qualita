@@ -19258,7 +19258,7 @@
           "cnpj": "",
           "valor": 1313.91,
           "dtPgto": "2026-06-12",
-          "obs": "DARF",
+          "obs": "",
           "compl": false
         },
         {
@@ -21278,11 +21278,6 @@
     },
     "auditLog": [
       {
-        "t": 1790971515680,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
-      {
         "t": 1790971516816,
         "perfil": "Administrador",
         "comp": "2026-09"
@@ -22774,6 +22769,11 @@
       },
       {
         "t": 1791003307656,
+        "perfil": "Administrador",
+        "comp": "2026-06"
+      },
+      {
+        "t": 1791003310896,
         "perfil": "Administrador",
         "comp": "2026-06"
       }
@@ -24505,5 +24505,5 @@
     }
   },
   "currentComp": "2026-06",
-  "savedAt": 1791003307660
+  "savedAt": 1791003310899
 }

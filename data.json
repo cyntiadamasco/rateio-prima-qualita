@@ -20430,14 +20430,97 @@
         }
       },
       "despesasLocais": {
-        "madalena": [],
-        "cachoeiras": [],
+        "madalena": [
+          {
+            "id": "dl1790995122983is67",
+            "objeto": "ENERGIA ELÉTRICA SEDE MADALENA",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 0
+          },
+          {
+            "id": "dl1790995122983pn5u",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE MADALENA",
+            "fornecedor": "FERNANDA BOTELHO DE OLIVEIRA QUEIROZ",
+            "valor": 0
+          },
+          {
+            "id": "dl1790995122983le31",
+            "objeto": "ÁGUA E ESGOTO SEDE MADALENA",
+            "fornecedor": "COMPANHIA ESTADUAL E ÁGUAS E ESGOTOS - CEDAE",
+            "valor": 0
+          }
+        ],
+        "cachoeiras": [
+          {
+            "id": "dl1790995122983p97u",
+            "objeto": "ENERGIA ELÉTRICA SEDE CACHOEIRAS",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 0
+          },
+          {
+            "id": "dl1790995122983eh8b",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE CACHOEIRAS",
+            "fornecedor": "REGINA CÉLIA DE CASTRO MENDES",
+            "valor": 0
+          }
+        ],
         "saq_hosp": [],
         "upa_pac": [],
         "upa_nc": [],
-        "arraial": [],
-        "quissama": [],
-        "cordeiro": [],
+        "arraial": [
+          {
+            "id": "dl1790995122983kkg0",
+            "objeto": "ENERGIA ELÉTRICA SEDE ARRAIAL - SALA 301",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 0
+          },
+          {
+            "id": "dl1790995122983ap4a",
+            "objeto": "ENERGIA ELÉTRICA SEDE ARRAIAL - SALA 302",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 0
+          },
+          {
+            "id": "dl17909951229834ufy",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE ARRAIAL",
+            "fornecedor": "CRISTIANE RODRIGUES SILVA",
+            "valor": 0
+          }
+        ],
+        "quissama": [
+          {
+            "id": "dl1790995122983utjg",
+            "objeto": "ENERGIA ELÉTRICA SEDE QUISSAMÃ",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 0
+          },
+          {
+            "id": "dl1790995122983y6gj",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE QUISSAMÃ",
+            "fornecedor": "CRISLANE SILVA CONCEIÇÃO",
+            "valor": 0
+          },
+          {
+            "id": "dl1790995122983alvc",
+            "objeto": "ÁGUA E ESGOTO SEDE QUISSAMÃ",
+            "fornecedor": "COMPANHIA ESTADUAL DE ÁGUAS E ESGOTOS CEDAE",
+            "valor": 0
+          }
+        ],
+        "cordeiro": [
+          {
+            "id": "dl1790995122983rtzw",
+            "objeto": "ENERGIA ELÉTRICA SEDE CORDEIRO",
+            "fornecedor": "AMPLA ENERGIA E SERVIÇOS S.A",
+            "valor": 0
+          },
+          {
+            "id": "dl1790995122983cnh7",
+            "objeto": "LOCAÇÃO DE IMÓVEL SEDE CORDEIRO",
+            "fornecedor": "R W IMOBILIÁRIA LTDA",
+            "valor": 0
+          }
+        ],
         "saq_esp": [],
         "saq_pri": [],
         "cg_mt55xz0i": [],
@@ -20514,11 +20597,6 @@
       "pdfNome": "MANUAL DO RATEIO DE DESPESAS DE GESTAO - 2ª EDIÇÃO - ATA APROVAÇÃO.pdf"
     },
     "auditLog": [
-      {
-        "t": 1790903358615,
-        "perfil": "Administrador",
-        "comp": "2026-09"
-      },
       {
         "t": 1790903359278,
         "perfil": "Administrador",
@@ -22013,6 +22091,11 @@
         "t": 1790995115775,
         "perfil": "Administrador",
         "comp": "2026-08"
+      },
+      {
+        "t": 1790995122983,
+        "perfil": "Administrador",
+        "comp": "2026-09"
       }
     ],
     "tokenCripto": {
@@ -23588,6 +23671,6 @@
       }
     }
   },
-  "currentComp": "2026-08",
-  "savedAt": 1790995115778
+  "currentComp": "2026-09",
+  "savedAt": 1790995122987
 }
